@@ -4,6 +4,9 @@
 
 import os from 'os';
 import chalk from 'chalk';
+/* $FlowFixMe[untyped-type-import] This comment suppresses an error when
+ * upgrading GraphQL to version 16.x. To see the error delete this comment and
+ * run Flow. */
 import type { BreakingChange, DangerousChange } from 'graphql';
 
 const note = (message: string): void => {
@@ -22,6 +25,9 @@ const error = (message: string): void => {
   console.log(chalk.red.bold(message));
 };
 
+/* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+ * GraphQL to version 16.x. To see the error delete this comment and run Flow.
+ */
 const printBreakingChanges = (changes: $ReadOnlyArray<BreakingChange>): void => {
   console.error(
     `${chalk.red(
@@ -49,6 +55,9 @@ const printBreakingChanges = (changes: $ReadOnlyArray<BreakingChange>): void => 
   );
 };
 
+/* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+ * GraphQL to version 16.x. To see the error delete this comment and run Flow.
+ */
 const printDangerousChanges = (changes: $ReadOnlyArray<DangerousChange>): void => {
   for (const change of changes) {
     console.warn(`${chalk.yellow.bold(change.type)} - ${change.description}`);

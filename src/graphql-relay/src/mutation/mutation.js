@@ -12,20 +12,38 @@ import {
   GraphQLNonNull,
   GraphQLObjectType,
   GraphQLString,
+  /* $FlowFixMe[untyped-type-import] This comment suppresses an error when
+   * upgrading GraphQL to version 16.x. To see the error delete this comment
+   * and run Flow. */
   type GraphQLFieldConfig,
+  /* $FlowFixMe[untyped-type-import] This comment suppresses an error when
+   * upgrading GraphQL to version 16.x. To see the error delete this comment
+   * and run Flow. */
   type GraphQLInputFieldConfigMap,
+  /* $FlowFixMe[untyped-type-import] This comment suppresses an error when
+   * upgrading GraphQL to version 16.x. To see the error delete this comment
+   * and run Flow. */
   type GraphQLFieldConfigMap,
+  /* $FlowFixMe[untyped-type-import] This comment suppresses an error when
+   * upgrading GraphQL to version 16.x. To see the error delete this comment
+   * and run Flow. */
   type GraphQLResolveInfo,
+  /* $FlowFixMe[untyped-type-import] This comment suppresses an error when
+   * upgrading GraphQL to version 16.x. To see the error delete this comment
+   * and run Flow. */
   type Thunk,
 } from 'graphql';
 
+/* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+ * GraphQL to version 16.x. To see the error delete this comment and run Flow.
+ */
 type mutationFn = (object: any, ctx: any, info: GraphQLResolveInfo) => Promise<any> | any;
 
+/* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+ * GraphQL to version 16.x. To see the error delete this comment and run Flow.
+ */
 function resolveMaybeThunk<T>(thingOrThunk: Thunk<T>): T {
-  return typeof thingOrThunk === 'function'
-    ? // $FlowFixMe[incompatible-use]: if it's a function, we assume a thunk without arguments
-      thingOrThunk()
-    : thingOrThunk;
+  return typeof thingOrThunk === 'function' ? thingOrThunk() : thingOrThunk;
 }
 
 /**
@@ -46,7 +64,13 @@ type MutationConfig = {
   name: string,
   description?: string,
   deprecationReason?: string,
+  /* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   inputFields: Thunk<GraphQLInputFieldConfigMap>,
+  /* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   outputFields: Thunk<GraphQLFieldConfigMap<any, any>>,
   mutateAndGetPayload: mutationFn,
   ...
@@ -58,6 +82,9 @@ type MutationConfig = {
  */
 export function mutationWithClientMutationId(
   config: MutationConfig,
+  /* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run Flow.
+   */
 ): GraphQLFieldConfig<mixed, any> {
   const { name, description, deprecationReason, inputFields, outputFields, mutateAndGetPayload } =
     config;

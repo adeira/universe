@@ -46,7 +46,11 @@ describe('Star Wars mutations', () => {
         clientMutationId: 'abcde',
       },
     };
-    const result = await graphql(StarWarsSchema, mutation, null, null, params);
+    const result = await graphql({
+      schema: StarWarsSchema,
+      source: mutation,
+      variableValues: params,
+    });
     expect(result).toEqual({ data: expected });
   });
 });

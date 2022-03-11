@@ -1,14 +1,41 @@
 // @flow strict
 
 import {
+  /* $FlowFixMe[untyped-import] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   buildSchema,
+  /* $FlowFixMe[untyped-import] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   findDangerousChanges,
+  /* $FlowFixMe[untyped-import] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   GraphQLInputObjectType,
+  /* $FlowFixMe[untyped-import] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   GraphQLNonNull,
+  /* $FlowFixMe[untyped-import] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   GraphQLObjectType,
+  /* $FlowFixMe[untyped-import] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   GraphQLSchema,
+  /* $FlowFixMe[untyped-import] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   GraphQLString,
+  /* $FlowFixMe[untyped-import] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   lexicographicSortSchema,
+  /* $FlowFixMe[untyped-import] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   printSchema,
 } from 'graphql';
 
@@ -30,7 +57,7 @@ const originalSchema = new GraphQLSchema({
         type: GraphQLString,
         args: {
           yyy: {
-            type: GraphQLNonNull(input),
+            type: new GraphQLNonNull(input),
             defaultValue: {
               bbb: 'bbb',
               aaa: 'aaa', // not sorted lexicographically
@@ -65,8 +92,7 @@ it('should not return any dangerous changes', () => {
     \\"\\"\\"An Object type\\"\\"\\"
     type RootQueryType {
       xxx(yyy: Input! = {aaa: \\"aaa\\", bbb: \\"bbb\\"}): String
-    }
-    "
+    }"
   `);
 });
 
@@ -80,7 +106,7 @@ it('should return dangerous changes', () => {
           type: GraphQLString,
           args: {
             yyy: {
-              type: GraphQLNonNull(input),
+              type: new GraphQLNonNull(input),
               defaultValue: {
                 aaa: 'bbb', // default value changed here
               },

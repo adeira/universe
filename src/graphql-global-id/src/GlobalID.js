@@ -4,7 +4,13 @@ import {
   GraphQLNonNull,
   GraphQLID,
   GraphQLBoolean,
+  /* $FlowFixMe[untyped-type-import] This comment suppresses an error when
+   * upgrading GraphQL to version 16.x. To see the error delete this comment
+   * and run Flow. */
   type GraphQLResolveInfo,
+  /* $FlowFixMe[untyped-type-import] This comment suppresses an error when
+   * upgrading GraphQL to version 16.x. To see the error delete this comment
+   * and run Flow. */
   type GraphQLFieldConfig,
 } from 'graphql';
 import { invariant } from '@adeira/js';
@@ -45,13 +51,22 @@ export function isTypeOf(type: string, opaqueID: mixed): boolean {
  * by calling idFetcher on the object.
  */
 export default function globalIdField(
+  /* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   idFetcher: (object: any, context: any, info: GraphQLResolveInfo) => string | number,
   // Unmasked ID fetcher is optional and it will allow you to overwrite how
   // does public ID actually look like. It's because opaque ID may be quite
   // complex internally but unmasked ID can be still simply represented.
   // Please not that unmasked ID should not be used as a globally unique
   // identifier (use original opaque ID instead).
+  /* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   unmaskedIdFetcher?: (object: any, context: any, info: GraphQLResolveInfo) => string | number,
+  /* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run Flow.
+   */
 ): GraphQLFieldConfig<any, any> {
   return {
     description:

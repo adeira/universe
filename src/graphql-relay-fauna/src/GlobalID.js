@@ -3,10 +3,16 @@
 import { invariant } from '@adeira/js';
 import GlobalID, { type OpaqueIDString, encode, decode } from '@adeira/graphql-global-id';
 import { values as FaunaValues, type values$Document as FaunaDocument } from 'faunadb';
+/* $FlowFixMe[untyped-type-import] This comment suppresses an error when
+ * upgrading GraphQL to version 16.x. To see the error delete this comment and
+ * run Flow. */
 import { type GraphQLFieldConfig } from 'graphql';
 
 type AnyFaunaDocument = FaunaDocument<$Shape<{}>>;
 
+/* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+ * GraphQL to version 16.x. To see the error delete this comment and run Flow.
+ */
 export default function GlobalFaunaID(): GraphQLFieldConfig<any, any> {
   const idFetcher = ({ ref }: AnyFaunaDocument) => {
     invariant(ref != null, 'Invalid document. Ref is null or undefined');

@@ -41,7 +41,7 @@ describe('Star Wars connections', () => {
         },
       },
     };
-    const result = await graphql(StarWarsSchema, query);
+    const result = await graphql({ schema: StarWarsSchema, source: query });
     expect(result).toEqual({ data: expected });
   });
 
@@ -82,7 +82,7 @@ describe('Star Wars connections', () => {
         },
       },
     };
-    const result = await graphql(StarWarsSchema, query);
+    const result = await graphql({ schema: StarWarsSchema, source: query });
     expect(result).toEqual({ data: expected });
   });
 
@@ -129,7 +129,7 @@ describe('Star Wars connections', () => {
         },
       },
     };
-    const result = await graphql(StarWarsSchema, query);
+    const result = await graphql({ schema: StarWarsSchema, source: query });
     expect(result).toEqual({ data: expected });
   });
 
@@ -157,7 +157,7 @@ describe('Star Wars connections', () => {
         },
       },
     };
-    const result = await graphql(StarWarsSchema, query);
+    const result = await graphql({ schema: StarWarsSchema, source: query });
     expect(result).toEqual({ data: expected });
   });
 
@@ -233,7 +233,7 @@ describe('Star Wars connections', () => {
         },
       },
     };
-    const result = await graphql(StarWarsSchema, query);
+    const result = await graphql({ schema: StarWarsSchema, source: query });
     expect(result).toEqual({ data: expected });
   });
 });

@@ -14,15 +14,30 @@ import {
   GraphQLList,
   GraphQLObjectType,
   GraphQLString,
+  /* $FlowFixMe[untyped-type-import] This comment suppresses an error when
+   * upgrading GraphQL to version 16.x. To see the error delete this comment
+   * and run Flow. */
   type GraphQLFieldConfigArgumentMap,
+  /* $FlowFixMe[untyped-type-import] This comment suppresses an error when
+   * upgrading GraphQL to version 16.x. To see the error delete this comment
+   * and run Flow. */
   type GraphQLFieldConfigMap,
+  /* $FlowFixMe[untyped-type-import] This comment suppresses an error when
+   * upgrading GraphQL to version 16.x. To see the error delete this comment
+   * and run Flow. */
   type GraphQLFieldResolver,
+  /* $FlowFixMe[untyped-type-import] This comment suppresses an error when
+   * upgrading GraphQL to version 16.x. To see the error delete this comment
+   * and run Flow. */
   type Thunk,
 } from 'graphql';
 
 /**
  * Returns a GraphQLFieldConfigArgumentMap appropriate to include on a field
  * whose return type is a connection type with forward pagination.
+ */
+/* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+ * GraphQL to version 16.x. To see the error delete this comment and run Flow.
  */
 export const forwardConnectionArgs: GraphQLFieldConfigArgumentMap = {
   after: {
@@ -37,6 +52,9 @@ export const forwardConnectionArgs: GraphQLFieldConfigArgumentMap = {
  * Returns a GraphQLFieldConfigArgumentMap appropriate to include on a field
  * whose return type is a connection type with backward pagination.
  */
+/* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+ * GraphQL to version 16.x. To see the error delete this comment and run Flow.
+ */
 export const backwardConnectionArgs: GraphQLFieldConfigArgumentMap = {
   before: {
     type: GraphQLString,
@@ -50,6 +68,9 @@ export const backwardConnectionArgs: GraphQLFieldConfigArgumentMap = {
  * Returns a GraphQLFieldConfigArgumentMap appropriate to include on a field
  * whose return type is a connection type with bidirectional pagination.
  */
+/* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+ * GraphQL to version 16.x. To see the error delete this comment and run Flow.
+ */
 export const connectionArgs: GraphQLFieldConfigArgumentMap = {
   ...forwardConnectionArgs,
   ...backwardConnectionArgs,
@@ -57,25 +78,43 @@ export const connectionArgs: GraphQLFieldConfigArgumentMap = {
 
 type ConnectionConfig = {
   name?: ?string,
+  /* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   nodeType: GraphQLObjectType,
+  /* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   resolveNode?: ?GraphQLFieldResolver<any, any>,
   resolveCursor?: ?GraphQLFieldResolver<any, any>,
+  /* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   edgeFields?: ?Thunk<GraphQLFieldConfigMap<mixed, mixed>>,
+  /* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   connectionFields?: ?Thunk<GraphQLFieldConfigMap<mixed, mixed>>,
   ...
 };
 
 type GraphQLConnectionDefinitions = {
+  /* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   edgeType: GraphQLObjectType,
+  /* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   connectionType: GraphQLObjectType,
   ...
 };
 
+/* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+ * GraphQL to version 16.x. To see the error delete this comment and run Flow.
+ */
 function resolveMaybeThunk<T>(thingOrThunk: Thunk<T>): T {
-  return typeof thingOrThunk === 'function'
-    ? // $FlowFixMe[incompatible-use]: if it's a function, we assume a thunk without arguments
-      thingOrThunk()
-    : thingOrThunk;
+  return typeof thingOrThunk === 'function' ? thingOrThunk() : thingOrThunk;
 }
 
 /**

@@ -37,7 +37,7 @@ const { nodeField, nodeInterface } = nodeDefinitions(
     return userData[id];
   },
   () => {
-    return userType;
+    return userType.name;
   },
 );
 
@@ -76,7 +76,7 @@ describe('Node interface and fields with async object fetcher', () => {
       }
     }`;
 
-    await expect(graphql(schema, query)).resolves.toEqual({
+    await expect(graphql({ schema, source: query })).resolves.toEqual({
       data: {
         node: {
           id: '1',
@@ -95,7 +95,7 @@ describe('Node interface and fields with async object fetcher', () => {
       }
     }`;
 
-    await expect(graphql(schema, query)).resolves.toEqual({
+    await expect(graphql({ schema, source: query })).resolves.toEqual({
       data: {
         node: {
           id: '1',

@@ -70,13 +70,13 @@ const { nodeField, nodeInterface } = nodeDefinitions(
   },
   (obj) => {
     if (obj.name) {
-      return userType;
+      return userType.name;
     }
     if (obj.photoId) {
-      return photoType;
+      return photoType.name;
     }
     if (obj.text) {
-      return postType;
+      return postType.name;
     }
     return null;
   },
@@ -150,7 +150,7 @@ describe('global ID fields', () => {
       }
     }`;
 
-    await expect(graphql(schema, query)).resolves.toEqual({
+    await expect(graphql({ schema, source: query })).resolves.toEqual({
       data: {
         allObjects: [
           {
@@ -198,7 +198,7 @@ describe('global ID fields', () => {
       }
     }`;
 
-    await expect(graphql(schema, query)).resolves.toEqual({
+    await expect(graphql({ schema, source: query })).resolves.toEqual({
       data: {
         user: {
           id: 'VXNlcjox',

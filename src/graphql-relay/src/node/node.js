@@ -14,16 +14,34 @@ import {
   GraphQLList,
   GraphQLNonNull,
   GraphQLID,
+  /* $FlowFixMe[untyped-type-import] This comment suppresses an error when
+   * upgrading GraphQL to version 16.x. To see the error delete this comment
+   * and run Flow. */
   type GraphQLFieldConfig,
+  /* $FlowFixMe[untyped-type-import] This comment suppresses an error when
+   * upgrading GraphQL to version 16.x. To see the error delete this comment
+   * and run Flow. */
   type GraphQLResolveInfo,
+  /* $FlowFixMe[untyped-type-import] This comment suppresses an error when
+   * upgrading GraphQL to version 16.x. To see the error delete this comment
+   * and run Flow. */
   type GraphQLTypeResolver,
 } from 'graphql';
 
 import { base64, unbase64 } from '../utils/base64';
 
 type GraphQLNodeDefinitions<TContext> = {
+  /* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   nodeInterface: GraphQLInterfaceType,
+  /* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   nodeField: GraphQLFieldConfig<mixed, TContext>,
+  /* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   nodesField: GraphQLFieldConfig<mixed, TContext>,
   ...
 };
@@ -39,7 +57,13 @@ type GraphQLNodeDefinitions<TContext> = {
  * interface without a provided `resolveType` method.
  */
 export function nodeDefinitions<TContext>(
+  /* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   idFetcher: (id: string, context: TContext, info: GraphQLResolveInfo) => any,
+  /* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   typeResolver?: ?GraphQLTypeResolver<any, TContext>,
 ): GraphQLNodeDefinitions<TContext> {
   const nodeInterface = new GraphQLInterfaceType({
@@ -117,7 +141,13 @@ export function fromGlobalId(globalId: string): ResolvedGlobalId {
  */
 export function globalIdField(
   typeName?: ?string,
+  /* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   idFetcher?: (object: any, context: any, info: GraphQLResolveInfo) => string,
+  /* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run Flow.
+   */
 ): GraphQLFieldConfig<any, any> {
   return {
     description: 'The ID of an object',

@@ -83,7 +83,7 @@ exports[`matches expected output: missing-block.txt 2`] = `
 `;
 
 exports[`prints warning and updates the schema when backward compatible changes detected 1`] = `
-"# @generated SignedSource<<86ed2f83966d01460f6c3d18570a9ce7>>
+"# @generated SignedSource<<d309d94b9c45979a5e0b9a4ddaba6722>>
 
 # <BREAKING-CHANGES-LOG>
 # </BREAKING-CHANGES-LOG>
@@ -106,6 +106,5 @@ type Test {
 \\"\\"\\"A test object type\\"\\"\\"
 type Test2 {
   id: String
-}
-"
+}"
 `;

@@ -25,9 +25,7 @@ function resolveField(
       undefined, // ancestor
       args,
       undefined, // context
-      // $FlowExpectedError[prop-missing]: this is incomplete info only for test purposes
       {
-        // $FlowExpectedError[incompatible-call]: this is incomplete info only for test purposes
         parentType: {
           name: typename,
         },
