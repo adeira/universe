@@ -29,7 +29,7 @@ export default function createRequestHandler(
   uploadables: ?UploadableMap,
 ) => Observable<GraphQLResponse> {
   return function handleRequest(requestNode, variables, cacheConfig, uploadables) {
-    return Observable.create((sink: Sink) => {
+    let observable = Observable.create((sink: Sink) => {
       customFetcher(requestNode, variables, uploadables)
         .then((response) => {
           if (response.errors) {
@@ -60,5 +60,12 @@ export default function createRequestHandler(
         // noop, do anything here (called after sink.complete or when Relay unsubscribes)
       };
     });
+
+    // Support for `@live_query(polling_interval: 500)` directive:
+    if (requestNode.metadata.live != null) {
+      observable = observable.poll(requestNode.metadata.live.polling_interval);
+    }
+
+    return observable;
   };
 }
