@@ -11,7 +11,11 @@
   packageRules: [
     {
       groupName: 'SVGR packages',
-      matchPackagePatterns: ["^@svgr/"],
+      matchPackagePatterns: ['^@svgr/'],
+    },
+    {
+      groupName: 'Relay packages',
+      matchSourceUrlPrefixes: ['https://github.com/facebook/relay'],
     },
   ],
   postUpdateOptions: ['yarnDedupeHighest'],
