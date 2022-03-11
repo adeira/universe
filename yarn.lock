@@ -191,7 +191,7 @@ __metadata:
     react: ^17.0.2
     react-dom: ^17.0.2
     react-test-renderer: ^17.0.2
-    relay-test-utils: ^13.1.1
+    relay-test-utils: ^13.2.0
   languageName: unknown
   linkType: soft
 
@@ -401,7 +401,7 @@ __metadata:
     react-test-renderer: ^17.0.2
     relay-compiler: ^13.1.1
     relay-runtime: ^13.1.1
-    relay-test-utils: ^13.1.1
+    relay-test-utils: ^13.2.0
   peerDependencies:
     graphql: ^15.8.0
     react: ^17.0.2
@@ -16895,7 +16895,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"relay-runtime@npm:13.1.1, relay-runtime@npm:^13.1.1":
+"relay-runtime@npm:13.1.1":
   version: 13.1.1
   resolution: "relay-runtime@npm:13.1.1"
   dependencies:
@@ -16906,15 +16906,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"relay-test-utils@npm:^13.1.1":
-  version: 13.1.1
-  resolution: "relay-test-utils@npm:13.1.1"
+"relay-runtime@npm:13.2.0, relay-runtime@npm:^13.1.1":
+  version: 13.2.0
+  resolution: "relay-runtime@npm:13.2.0"
   dependencies:
     "@babel/runtime": ^7.0.0
     fbjs: ^3.0.2
     invariant: ^2.2.4
-    relay-runtime: 13.1.1
-  checksum: 2d9a28af4d09404135c10606bbdac228438c8881cc3ef6deec9f7fcf89a9c85dcde3afb9c17c286097e452ed95c8242e6d9cff854eb95e3c76b219ace8a19526
+  checksum: 4e03d5d3fabb12bd2e5f29da4e4664336af4077b215893e5e6cf4256e4b8f56a6ad1693b75465f1f6118bc682456714404e3f0fcdd51b5b6433a2ddd63ba8160
+  languageName: node
+  linkType: hard
+
+"relay-test-utils@npm:^13.2.0":
+  version: 13.2.0
+  resolution: "relay-test-utils@npm:13.2.0"
+  dependencies:
+    "@babel/runtime": ^7.0.0
+    fbjs: ^3.0.2
+    invariant: ^2.2.4
+    relay-runtime: 13.2.0
+  checksum: cb2b92da30d5eed457da902e13202b4e53e94b75fa8a8f197e8521882150ff34ed74bab8b02e73844811fb94bd64a8b041dff79d05d950b2562bc5034d6fd16a
   languageName: node
   linkType: hard
 
