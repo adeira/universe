@@ -116,7 +116,7 @@ const { nodeInterface, nodeField } = nodeDefinitions(
     return null;
   },
   (obj) => {
-    return obj.ships ? factionType : shipType;
+    return obj.ships ? factionType.name : shipType.name;
   },
 );
 
@@ -285,7 +285,7 @@ const mutationType = new GraphQLObjectType({
  * Finally, we construct our schema (whose starting query type is the query
  * type we defined above) and export it.
  */
-export const StarWarsSchema: GraphQLSchema = new GraphQLSchema({
+export const StarWarsSchema: typeof GraphQLSchema = new GraphQLSchema({
   query: queryType,
   mutation: mutationType,
 });

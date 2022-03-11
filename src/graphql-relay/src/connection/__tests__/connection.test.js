@@ -126,7 +126,7 @@ describe('connectionDefinition()', () => {
         },
       },
     };
-    const result = await graphql(schema, query);
+    const result = await graphql({ schema, source: query });
     expect(result).toEqual({ data: expected });
   });
 
@@ -162,7 +162,7 @@ describe('connectionDefinition()', () => {
         },
       },
     };
-    const result = await graphql(schema, query);
+    const result = await graphql({ schema, source: query });
     expect(result).toEqual({ data: expected });
   });
 
@@ -198,7 +198,7 @@ describe('connectionDefinition()', () => {
         },
       },
     };
-    const result = await graphql(schema, query);
+    const result = await graphql({ schema, source: query });
     expect(result).toEqual({ data: expected });
   });
 });

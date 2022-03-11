@@ -57,10 +57,10 @@ const { nodeField, nodesField, nodeInterface } = nodeDefinitions(
   },
   (obj) => {
     if (userData[obj.id]) {
-      return userType;
+      return userType.name;
     }
     if (photoData[obj.id]) {
-      return photoType;
+      return photoType.name;
     }
     return null;
   },
@@ -117,7 +117,7 @@ describe('Node interface and fields', () => {
         }
       }`;
 
-      await expect(graphql(schema, query)).resolves.toEqual({
+      await expect(graphql({ schema, source: query })).resolves.toEqual({
         data: {
           node: {
             id: '1',
@@ -133,7 +133,7 @@ describe('Node interface and fields', () => {
         }
       }`;
 
-      await expect(graphql(schema, query)).resolves.toEqual({
+      await expect(graphql({ schema, source: query })).resolves.toEqual({
         data: {
           nodes: [
             {
@@ -154,7 +154,7 @@ describe('Node interface and fields', () => {
         }
       }`;
 
-      await expect(graphql(schema, query)).resolves.toEqual({
+      await expect(graphql({ schema, source: query })).resolves.toEqual({
         data: {
           node: {
             id: '4',
@@ -170,7 +170,7 @@ describe('Node interface and fields', () => {
         }
       }`;
 
-      await expect(graphql(schema, query)).resolves.toEqual({
+      await expect(graphql({ schema, source: query })).resolves.toEqual({
         data: {
           nodes: [
             {
@@ -191,7 +191,7 @@ describe('Node interface and fields', () => {
         }
       }`;
 
-      await expect(graphql(schema, query)).resolves.toEqual({
+      await expect(graphql({ schema, source: query })).resolves.toEqual({
         data: {
           nodes: [
             {
@@ -215,7 +215,7 @@ describe('Node interface and fields', () => {
         }
       }`;
 
-      await expect(graphql(schema, query)).resolves.toEqual({
+      await expect(graphql({ schema, source: query })).resolves.toEqual({
         data: {
           node: {
             id: '1',
@@ -235,7 +235,7 @@ describe('Node interface and fields', () => {
         }
       }`;
 
-      await expect(graphql(schema, query)).resolves.toEqual({
+      await expect(graphql({ schema, source: query })).resolves.toEqual({
         data: {
           node: {
             id: '4',
@@ -253,7 +253,7 @@ describe('Node interface and fields', () => {
         }
       }`;
 
-      await expect(graphql(schema, query)).resolves.toEqual({
+      await expect(graphql({ schema, source: query })).resolves.toEqual({
         data: {
           node: {
             id: '1',
@@ -271,7 +271,7 @@ describe('Node interface and fields', () => {
         }
       }`;
 
-      await expect(graphql(schema, query)).resolves.toEqual({
+      await expect(graphql({ schema, source: query })).resolves.toEqual({
         data: {
           node: {
             id: '4',
@@ -291,7 +291,7 @@ describe('Node interface and fields', () => {
         }
       }`;
 
-      await expect(graphql(schema, query)).resolves.toEqual({
+      await expect(graphql({ schema, source: query })).resolves.toEqual({
         data: {
           node: {
             id: '1',
@@ -307,7 +307,7 @@ describe('Node interface and fields', () => {
         }
       }`;
 
-      await expect(graphql(schema, query)).resolves.toEqual({
+      await expect(graphql({ schema, source: query })).resolves.toEqual({
         data: {
           node: null,
         },
@@ -321,7 +321,7 @@ describe('Node interface and fields', () => {
         }
       }`;
 
-      await expect(graphql(schema, query)).resolves.toEqual({
+      await expect(graphql({ schema, source: query })).resolves.toEqual({
         data: {
           nodes: [
             {
@@ -353,7 +353,7 @@ describe('Node interface and fields', () => {
         }
       }`;
 
-      await expect(graphql(schema, query)).resolves.toEqual({
+      await expect(graphql({ schema, source: query })).resolves.toEqual({
         data: {
           __type: {
             name: 'Node',
@@ -400,7 +400,7 @@ describe('Node interface and fields', () => {
         }
       }`;
 
-      await expect(graphql(schema, query)).resolves.toEqual({
+      await expect(graphql({ schema, source: query })).resolves.toEqual({
         data: {
           __schema: {
             queryType: {

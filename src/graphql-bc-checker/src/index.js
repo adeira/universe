@@ -4,11 +4,29 @@ import os from 'os';
 import fs from 'fs';
 import path from 'path';
 import {
+  /* $FlowFixMe[untyped-import] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   findBreakingChanges,
+  /* $FlowFixMe[untyped-import] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   findDangerousChanges,
+  /* $FlowFixMe[untyped-import] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   buildSchema,
+  /* $FlowFixMe[untyped-import] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   printSchema,
+  /* $FlowFixMe[untyped-import] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   lexicographicSortSchema,
+  /* $FlowFixMe[untyped-type-import] This comment suppresses an error when
+   * upgrading GraphQL to version 16.x. To see the error delete this comment
+   * and run Flow. */
   type GraphQLSchema,
 } from 'graphql';
 import SignedSource from '@adeira/signed-source';
@@ -39,6 +57,9 @@ const createSnapshot = (breakingChangesBlock, newSchema) => {
 type Options = {
   +allowBreakingChanges: boolean,
   +snapshotLocation: string,
+  /* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   +schema: GraphQLSchema,
 };
 

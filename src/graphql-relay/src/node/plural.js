@@ -12,16 +12,37 @@
 import {
   GraphQLList,
   GraphQLNonNull,
+  /* $FlowFixMe[untyped-type-import] This comment suppresses an error when
+   * upgrading GraphQL to version 16.x. To see the error delete this comment
+   * and run Flow. */
   type GraphQLFieldConfig,
+  /* $FlowFixMe[untyped-type-import] This comment suppresses an error when
+   * upgrading GraphQL to version 16.x. To see the error delete this comment
+   * and run Flow. */
   type GraphQLInputType,
+  /* $FlowFixMe[untyped-type-import] This comment suppresses an error when
+   * upgrading GraphQL to version 16.x. To see the error delete this comment
+   * and run Flow. */
   type GraphQLOutputType,
+  /* $FlowFixMe[untyped-type-import] This comment suppresses an error when
+   * upgrading GraphQL to version 16.x. To see the error delete this comment
+   * and run Flow. */
   type GraphQLResolveInfo,
 } from 'graphql';
 
 type PluralIdentifyingRootFieldConfig = {
   argName: string,
+  /* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   inputType: GraphQLInputType,
+  /* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   outputType: GraphQLOutputType,
+  /* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   resolveSingleInput: (input: any, context: any, info: GraphQLResolveInfo) => ?any,
   description?: ?string,
   ...
@@ -29,6 +50,9 @@ type PluralIdentifyingRootFieldConfig = {
 
 export function pluralIdentifyingRootField(
   config: PluralIdentifyingRootFieldConfig,
+  /* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run Flow.
+   */
 ): GraphQLFieldConfig<mixed, any> {
   const inputArgs = {};
   let inputType = config.inputType;

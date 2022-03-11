@@ -24,7 +24,7 @@ __metadata:
     babel-plugin-fbt-runtime: ^0.9.18
     d3: ^7.3.0
     fbt: ^0.17.1
-    graphql: ^15.8.0
+    graphql: ^16.3.0
     immutable: ^4.0.0
     next: ^12.1.0
     next-compose-plugins: ^2.2.1
@@ -53,7 +53,7 @@ __metadata:
     babel-plugin-fbt: ^0.20.3
     babel-plugin-fbt-runtime: ^0.9.18
     fbt: ^0.17.1
-    graphql: ^15.8.0
+    graphql: ^16.3.0
     next: ^12.1.0
     next-plugin-custom-babel-config: ^1.0.5
     next-transpile-modules: ^9.0.0
@@ -181,7 +181,7 @@ __metadata:
     babel-jest: ^27.5.1
     cors: ^2.8.5
     flow-bin: ^0.173.0
-    graphql: ^15.8.0
+    graphql: ^16.3.0
     jest: ^27.5.1
     micro: ^9.3.4
     next: ^12.1.0
@@ -241,10 +241,10 @@ __metadata:
     "@adeira/signed-source": ^2.0.0
     "@babel/runtime": ^7.17.2
     chalk: ^4.1.2
-    graphql: ^15.8.0
+    graphql: ^16.3.0
     strip-ansi: ^6.0.1
   peerDependencies:
-    graphql: ^15.8.0
+    graphql: ^16.3.0
   languageName: unknown
   linkType: soft
 
@@ -268,7 +268,7 @@ __metadata:
     "@babel/runtime": ^7.17.2
     faunadb: ^4.5.2
   peerDependencies:
-    graphql: ^15.8.0
+    graphql: ^16.3.0
   languageName: unknown
   linkType: soft
 
@@ -278,7 +278,7 @@ __metadata:
   dependencies:
     "@babel/runtime": ^7.17.2
   peerDependencies:
-    graphql: ^15.8.0
+    graphql: ^16.3.0
   languageName: unknown
   linkType: soft
 
@@ -288,7 +288,7 @@ __metadata:
   dependencies:
     "@babel/runtime": ^7.17.2
   peerDependencies:
-    graphql: ^15.8.0
+    graphql: ^16.3.0
   languageName: unknown
   linkType: soft
 
@@ -403,7 +403,7 @@ __metadata:
     relay-runtime: ^13.1.1
     relay-test-utils: ^13.1.1
   peerDependencies:
-    graphql: ^15.8.0
+    graphql: ^16.3.0
     react: ^17.0.2
   languageName: unknown
   linkType: soft
@@ -9413,7 +9413,7 @@ __metadata:
     eslint: ^8.10.0
     fast-levenshtein: ^3.0.0
   peerDependencies:
-    graphql: ^14.0.0 || ^15.0.0
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
   languageName: unknown
   linkType: soft
 
@@ -11109,7 +11109,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql@npm:^14.0.0 || ^15.0.0, graphql@npm:^15.8.0":
+"graphql@npm:^14.0.0 || ^15.0.0":
   version: 15.8.0
   resolution: "graphql@npm:15.8.0"
   checksum: 423325271db8858428641b9aca01699283d1fe5b40ef6d4ac622569ecca927019fce8196208b91dd1d8eb8114f00263fe661d241d0eb40c10e5bfd650f86ec5e

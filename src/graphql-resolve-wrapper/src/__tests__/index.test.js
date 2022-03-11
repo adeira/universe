@@ -33,7 +33,7 @@ beforeEach(() => {
 
         resolveValueNumber: {
           // eslint-disable-next-line adeira/only-nullable-fields
-          type: GraphQLNonNull(GraphQLList(GraphQLNonNull(GraphQLInt))),
+          type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(GraphQLInt))),
           deprecationReason: 'for testing',
           resolve: () => {
             return 111;
@@ -56,7 +56,9 @@ beforeEach(() => {
     }),
   });
 
-  // $FlowExpectedError[incompatible-type]: `getTypeMap` may return anything but I know it's object type in this case
+  /* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
+   * GraphQL to version 16.x. To see the error delete this comment and run
+   * Flow. */
   const rootQueryType: GraphQLObjectType = schema.getQueryType();
   fields = rootQueryType.getFields();
 });
@@ -109,9 +111,9 @@ describe('custom wrapper', () => {
   it('should not affect system fields', async () => {
     // this should not return query name `ROOTQUERYTYPE` with desc `ROOT QUERY`
     await expect(
-      graphql(
+      graphql({
         schema,
-        `
+        source: `
           {
             __schema {
               queryType {
@@ -121,7 +123,7 @@ describe('custom wrapper', () => {
             }
           }
         `,
-      ),
+      }),
     ).resolves.toMatchInlineSnapshot(`
 Object {
   "data": Object {
@@ -159,7 +161,7 @@ describe('fields info', () => {
       filteredFields.push({
         name: field.name,
         type: field.type,
-        isDeprecated: field.isDeprecated,
+        isDeprecated: field.deprecationReason != null,
         deprecationReason: field.deprecationReason,
       }),
     );
