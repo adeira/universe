@@ -26,11 +26,6 @@ module.exports = {
   projects: {
     'abacus': {
       language: 'flow',
-      flowEnums: [
-        // TODO: doesn't work (https://github.com/facebook/relay/issues/3596#issuecomment-1003148218)
-        'SupportedCurrency',
-        'SupportedLocale',
-      ],
       flowTypegen: {
         phase: 'Final',
       },
