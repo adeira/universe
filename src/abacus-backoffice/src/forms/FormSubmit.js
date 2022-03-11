@@ -94,6 +94,9 @@ export default function FormSubmit(props: Props): Node {
     if (uploadables != null) {
       mutationConfig.uploadables = uploadables;
     }
+    /* $FlowFixMe[class-object-subtyping] This comment suppresses an error when
+     * upgrading Relay to version 13.2.0. To see the error delete this comment
+     * and run Flow. */
     runMutation(mutationConfig);
   };
 
