@@ -2,7 +2,7 @@
 
 import path from 'path';
 import { sprintf } from '@adeira/js';
-import { ShellCommand } from '@adeira/monorepo-utils';
+import { ShellCommand } from '@adeira/shell-command';
 
 import RepoGit from '../RepoGit';
 

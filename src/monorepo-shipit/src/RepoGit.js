@@ -3,7 +3,7 @@
 import fs from 'fs';
 import path from 'path';
 import { invariant } from '@adeira/js';
-import { ShellCommand, ShellCommandResult } from '@adeira/monorepo-utils';
+import { ShellCommand, ShellCommandResult } from '@adeira/shell-command';
 
 import parsePatch from './parsePatch';
 import parsePatchHeader from './parsePatchHeader';

@@ -7,7 +7,7 @@ jest.mock('fs', () => ({
   existsSync: () => true,
 }));
 
-jest.mock('@adeira/monorepo-utils', () => {
+jest.mock('@adeira/shell-command', () => {
   return {
     ShellCommand: class {
       stdout = null;

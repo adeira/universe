@@ -1,0 +1,8 @@
+{
+  "name": "@adeira/shell-command",
+  "version": "0.0.0",
+  "main": "./index.js",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "commonjs"
+}

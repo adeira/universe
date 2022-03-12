@@ -1,8 +1,7 @@
 // @flow strict
 
 import os from 'os';
-
-import ShellCommand from './ShellCommand';
+import { ShellCommand } from '@adeira/shell-command';
 
 function __parseRows(changes /*: string */) /*: $ReadOnlyArray<string> */ {
   return changes.split(os.EOL).filter((row) => row !== '');

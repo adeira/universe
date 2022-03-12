@@ -6,8 +6,6 @@ export {
   findRootPackageJsonPath,
 } from './findRootPackageJson';
 
-export { default as ShellCommand } from './ShellCommand';
-export { default as ShellCommandResult } from './ShellCommandResult';
 export { default as Git } from './Git';
 export { default as Workspaces } from './Workspaces';
 
