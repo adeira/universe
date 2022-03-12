@@ -1,8 +1,9 @@
 // @flow
 
+import { ShellCommand } from '@adeira/shell-command';
+
 import findPathsToTest from './findPathsToTest';
 import getChangedFiles from './getChangedFiles';
-import ShellCommand from './ShellCommand';
 import getWorkspaceDependencies from './getWorkspaceDependencies';
 
 function _runJest(config) {

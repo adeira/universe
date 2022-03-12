@@ -1,6 +1,6 @@
 // @flow strict-local
 
-import { ShellCommand } from '@adeira/monorepo-utils';
+import { ShellCommand } from '@adeira/shell-command';
 
 import RepoGit, { type SourceRepo, type DestinationRepo } from '../RepoGit';
 import Changeset from '../Changeset';

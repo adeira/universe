@@ -354,6 +354,7 @@ __metadata:
     "@adeira/fixtures-tester": ^1.1.1
     "@adeira/js": ^2.1.1
     "@adeira/monorepo-utils": ^0.11.0
+    "@adeira/shell-command": ^0.0.0
     chalk: ^4.1.2
     command-line-args: ^5.2.1
     fast-levenshtein: ^3.0.0
@@ -369,6 +370,7 @@ __metadata:
   resolution: "@adeira/monorepo-utils@workspace:src/monorepo-utils"
   dependencies:
     "@adeira/js": ^2.1.1
+    "@adeira/shell-command": ^0.0.0
     "@babel/register": ^7.17.0
     "@babel/runtime": ^7.17.2
     glob: ^7.2.0
@@ -405,6 +407,12 @@ __metadata:
   peerDependencies:
     graphql: ^16.3.0
     react: ^17.0.2
+  languageName: unknown
+  linkType: soft
+
+"@adeira/shell-command@^0.0.0, @adeira/shell-command@workspace:src/shell-command":
+  version: 0.0.0-use.local
+  resolution: "@adeira/shell-command@workspace:src/shell-command"
   languageName: unknown
   linkType: soft
 
@@ -547,6 +555,7 @@ __metadata:
     "@adeira/js": ^2.1.1
     "@adeira/monorepo-npm-publisher": ^2.0.0
     "@adeira/monorepo-utils": ^0.11.0
+    "@adeira/shell-command": ^0.0.0
     chalk: ^4.1.2
   languageName: unknown
   linkType: soft

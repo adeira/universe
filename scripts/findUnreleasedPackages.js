@@ -3,7 +3,8 @@
 import os from 'os';
 import path from 'path';
 import chalk from 'chalk';
-import { Workspaces, ShellCommand } from '@adeira/monorepo-utils';
+import { Workspaces } from '@adeira/monorepo-utils';
+import { ShellCommand } from '@adeira/shell-command';
 
 /* eslint-disable no-console */
 

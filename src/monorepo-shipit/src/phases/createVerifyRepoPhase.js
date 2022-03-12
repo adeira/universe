@@ -3,7 +3,7 @@
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
-import { ShellCommand } from '@adeira/monorepo-utils';
+import { ShellCommand } from '@adeira/shell-command';
 
 import RepoGit from '../RepoGit';
 import ShipitConfig from '../ShipitConfig';

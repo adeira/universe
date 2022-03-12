@@ -2,9 +2,9 @@
 
 import os from 'os';
 import semver from 'semver';
+import { ShellCommand } from '@adeira/shell-command';
 
 import sanitizeWorkspaces from './sanitizeWorkspaces';
-import ShellCommand from './ShellCommand';
 import type { WorkspaceDependencies } from './Workspaces.flow';
 
 /**
