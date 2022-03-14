@@ -204,7 +204,7 @@ __metadata:
     "@sinonjs/fake-timers": ^9.1.1
     cross-fetch: ^3.1.5
     form-data: ^4.0.0
-    msw: ^0.38.2
+    msw: ^0.39.1
   languageName: unknown
   linkType: soft
 
@@ -2973,9 +2973,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mswjs/interceptors@npm:^0.13.5":
-  version: 0.13.6
-  resolution: "@mswjs/interceptors@npm:0.13.6"
+"@mswjs/interceptors@npm:^0.14.1":
+  version: 0.14.1
+  resolution: "@mswjs/interceptors@npm:0.14.1"
   dependencies:
     "@open-draft/until": ^1.0.3
     "@xmldom/xmldom": ^0.7.5
@@ -2983,7 +2983,7 @@ __metadata:
     headers-polyfill: ^3.0.4
     outvariant: ^1.2.1
     strict-event-emitter: ^0.2.0
-  checksum: 14cd1e0263c2fb6e9d5039d1c57b5a9eb98c4e6a071dae05acd94f2d4dc14c39362dbbc5d307f4cc70506adc90abf181cce7316245b1b56e711cb782f9b48702
+  checksum: 0bb8f0ee08a70f65d21713be8efd994578fd4db597dd74cf98464c7f52e6d01ab3615c169808a031839a20aa3354a942d4278441dc82c6070e6b1391128eca4c
   languageName: node
   linkType: hard
 
@@ -14481,12 +14481,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"msw@npm:^0.38.2":
-  version: 0.38.2
-  resolution: "msw@npm:0.38.2"
+"msw@npm:^0.39.1":
+  version: 0.39.1
+  resolution: "msw@npm:0.39.1"
   dependencies:
     "@mswjs/cookies": ^0.1.7
-    "@mswjs/interceptors": ^0.13.5
+    "@mswjs/interceptors": ^0.14.1
     "@open-draft/until": ^1.0.3
     "@types/cookie": ^0.4.1
     "@types/js-levenshtein": ^1.1.1
@@ -14506,7 +14506,7 @@ __metadata:
     yargs: ^17.3.1
   bin:
     msw: cli/index.js
-  checksum: 9025fab24800f5a926c90b36a8e3c8ddfa3f1bd88a99a09ff013a0d15a56fdee872b7c8d01b3eb984e6214231ca0ed860a1e61ea660b2337241f70f75c429353
+  checksum: 15fae1d0e1af9c3f4c211e98f3633df8f4ec4988ace0491858f591e7ea7c6750d3f600d86bd5619b7eeaa751de1e5998ede5af223f056fd78d30582fe060034e
   languageName: node
   linkType: hard
 
