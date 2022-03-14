@@ -141,9 +141,9 @@ spec:
     - hosts:
         - abacus.kochka.com.mx
         - business.kochka.com.mx
+        - kochka.com.mx
       secretName: abacus-tls
   rules:
-    # TODO - host: kochka.com.mx
     - host: abacus.kochka.com.mx
       http:
         paths:
@@ -162,6 +162,16 @@ spec:
             backend:
               service:
                 name: abacus-backoffice-service
+                port:
+                  number: 80
+    - host: kochka.com.mx
+      http:
+        paths:
+          - pathType: Prefix
+            path: '/'
+            backend:
+              service:
+                name: abacus-kochka-service
                 port:
                   number: 80
 
@@ -282,3 +292,50 @@ spec:
           #              memory: 256Mi
           ports:
             - containerPort: 5001
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: abacus-kochka-service
+spec:
+  type: ClusterIP
+  selector:
+    app: abacus-kochka
+  ports:
+    # TODO: https (443)
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 5002
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: abacus-kochka-deployment
+  labels:
+    app: abacus-kochka
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: abacus-kochka
+  template:
+    metadata:
+      labels:
+        app: abacus-kochka
+    spec:
+      containers:
+        - name: abacus-kochka
+          image: adeira/abacus-kochka
+          # https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+          #          resources:
+          #            requests:
+          #              cpu: 0.1
+          #              memory: 64Mi
+          #            limits:
+          #              cpu: 1
+          #              memory: 256Mi
+          ports:
+            - containerPort: 5002
