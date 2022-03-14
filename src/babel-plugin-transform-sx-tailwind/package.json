@@ -16,8 +16,8 @@
   "dependencies": {
     "@adeira/murmur-hash": "^2.0.1",
     "@adeira/sx-tailwind": "^0.12.1",
-    "@babel/register": "^7.17.0",
-    "@babel/runtime": "^7.17.2",
+    "@babel/register": "^7.17.7",
+    "@babel/runtime": "^7.17.7",
     "@babel/template": "^7.16.7",
     "@babel/types": "^7.17.0",
     "find-cache-dir": "^3.3.2",
