@@ -47,7 +47,7 @@ __metadata:
     "@adeira/relay": ^5.2.0
     "@adeira/sx": ^0.29.0
     "@adeira/sx-design": ^0.24.0
-    "@axe-core/react": ^4.4.1
+    "@axe-core/react": ^4.4.2
     "@fbtjs/default-collection-transform": ^0.0.3
     "@testing-library/react": ^12.1.4
     babel-plugin-fbt: ^0.20.3
@@ -618,13 +618,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@axe-core/react@npm:^4.4.1":
-  version: 4.4.1
-  resolution: "@axe-core/react@npm:4.4.1"
+"@axe-core/react@npm:^4.4.2":
+  version: 4.4.2
+  resolution: "@axe-core/react@npm:4.4.2"
   dependencies:
     axe-core: ^4.4.1
     requestidlecallback: ^0.3.0
-  checksum: 006013cb82c24a55b2237190fbe8df2a17d27ee6c2b38094491913ec0e279d051d29383eb94756ecfc748573c84baa9bb832ec60f2eee4e573e5db08f3b7364c
+  checksum: 9ef3a30c3ef6ef1e3cd0f760a163ef5e79f7ea7ec8fe2d19f78afbb23042328975696927481dc362ee39e5f288fbbd86f857e95b191ad211624950524ca2c606
   languageName: node
   linkType: hard
 
