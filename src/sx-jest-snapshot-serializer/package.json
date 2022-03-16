@@ -16,7 +16,7 @@
   "dependencies": {
     "@adeira/sx": "^0.29.0",
     "@babel/runtime": "^7.17.7",
-    "prettier": "^2.5.1",
+    "prettier": "^2.6.0",
     "pretty-format": "^27.5.1"
   },
   "devDependencies": {
