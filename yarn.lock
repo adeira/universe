@@ -70,7 +70,7 @@ __metadata:
     "@adeira/sx-tailwind": ^0.12.1
     "@babel/plugin-transform-regenerator": ^7.16.7
     "@babel/register": ^7.17.7
-    "@babel/runtime": ^7.17.7
+    "@babel/runtime": ^7.17.8
     "@babel/template": ^7.16.7
     "@babel/types": ^7.17.0
     babel-plugin-syntax-jsx: ^6.18.0
@@ -94,11 +94,11 @@ __metadata:
     "@babel/plugin-transform-runtime": ^7.17.0
     "@babel/preset-env": ^7.16.11
     "@babel/preset-react": ^7.16.7
-    "@babel/runtime": ^7.17.7
+    "@babel/runtime": ^7.17.8
     babel-plugin-transform-flow-enums: ^0.0.2
     strip-ansi: ^6.0.1
   peerDependencies:
-    "@babel/core": ^7.17.7
+    "@babel/core": ^7.17.8
   languageName: unknown
   linkType: soft
 
@@ -107,7 +107,7 @@ __metadata:
   resolution: "@adeira/css-colors@workspace:src/css-colors"
   dependencies:
     "@adeira/js": ^2.1.1
-    "@babel/runtime": ^7.17.7
+    "@babel/runtime": ^7.17.8
   languageName: unknown
   linkType: soft
 
@@ -115,7 +115,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@adeira/eslint-config@workspace:src/eslint-config-adeira"
   dependencies:
-    "@babel/runtime": ^7.17.7
+    "@babel/runtime": ^7.17.8
     "@next/eslint-plugin-next": ^12.1.0
     deep-diff: ^1.0.2
     eslint-config-prettier: ^8.5.0
@@ -152,7 +152,7 @@ __metadata:
     "@adeira/flow-types-eslint": 0.0.0
     "@adeira/js": ^2.1.1
     "@babel/eslint-parser": ^7.17.0
-    "@babel/runtime": ^7.17.7
+    "@babel/runtime": ^7.17.8
     eslint: ^8.11.0
     jest-docblock: ^27.5.1
   peerDependencies:
@@ -199,7 +199,7 @@ __metadata:
   resolution: "@adeira/fetch@workspace:src/fetch"
   dependencies:
     "@adeira/js": ^2.1.1
-    "@babel/runtime": ^7.17.7
+    "@babel/runtime": ^7.17.8
     "@sinonjs/fake-timers": ^9.1.1
     cross-fetch: ^3.1.5
     form-data: ^4.0.0
@@ -212,7 +212,7 @@ __metadata:
   resolution: "@adeira/fixtures-tester@workspace:src/fixtures-tester"
   dependencies:
     "@adeira/js": ^2.1.1
-    "@babel/runtime": ^7.17.7
+    "@babel/runtime": ^7.17.8
   languageName: unknown
   linkType: soft
 
@@ -222,7 +222,7 @@ __metadata:
   dependencies:
     "@adeira/fixtures-tester": ^1.1.1
     "@adeira/js": ^2.1.1
-    "@babel/runtime": ^7.17.7
+    "@babel/runtime": ^7.17.8
   languageName: unknown
   linkType: soft
 
@@ -238,7 +238,7 @@ __metadata:
   dependencies:
     "@adeira/fixtures-tester": ^1.1.1
     "@adeira/signed-source": ^2.0.0
-    "@babel/runtime": ^7.17.7
+    "@babel/runtime": ^7.17.8
     chalk: ^4.1.2
     graphql: ^16.3.0
     strip-ansi: ^6.0.1
@@ -252,7 +252,7 @@ __metadata:
   resolution: "@adeira/graphql-global-id@workspace:src/graphql-global-id"
   dependencies:
     "@adeira/js": ^2.1.1
-    "@babel/runtime": ^7.17.7
+    "@babel/runtime": ^7.17.8
   peerDependencies:
     graphql: ^15.0.0 || ^16.0.0
   languageName: unknown
@@ -264,7 +264,7 @@ __metadata:
   dependencies:
     "@adeira/graphql-global-id": ^2.1.0
     "@adeira/js": ^2.1.1
-    "@babel/runtime": ^7.17.7
+    "@babel/runtime": ^7.17.8
     faunadb: ^4.5.2
   peerDependencies:
     graphql: ^16.3.0
@@ -275,7 +275,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@adeira/graphql-relay@workspace:src/graphql-relay"
   dependencies:
-    "@babel/runtime": ^7.17.7
+    "@babel/runtime": ^7.17.8
   peerDependencies:
     graphql: ^16.3.0
   languageName: unknown
@@ -285,7 +285,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@adeira/graphql-resolve-wrapper@workspace:src/graphql-resolve-wrapper"
   dependencies:
-    "@babel/runtime": ^7.17.7
+    "@babel/runtime": ^7.17.8
   peerDependencies:
     graphql: ^16.3.0
   languageName: unknown
@@ -296,7 +296,7 @@ __metadata:
   resolution: "@adeira/icons@workspace:src/icons"
   dependencies:
     "@adeira/js": ^2.1.1
-    "@babel/runtime": ^7.17.7
+    "@babel/runtime": ^7.17.8
     "@loadable/component": ^5.15.2
     "@svgr/core": ^5.5.0
     "@svgr/plugin-svgo": ^5.5.0
@@ -311,7 +311,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@adeira/js@workspace:src/js"
   dependencies:
-    "@babel/runtime": ^7.17.7
+    "@babel/runtime": ^7.17.8
   languageName: unknown
   linkType: soft
 
@@ -321,7 +321,7 @@ __metadata:
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
     "@adeira/monorepo-utils": ^0.11.0
-    "@babel/runtime": ^7.17.7
+    "@babel/runtime": ^7.17.8
     chalk: ^4.1.2
     is-ci: ^3.0.1
     npm-packlist: ^4.0.0
@@ -331,7 +331,7 @@ __metadata:
     snapshot-diff: ^0.9.0
     tar: ^6.1.11
   peerDependencies:
-    "@babel/core": ^7.17.7
+    "@babel/core": ^7.17.8
   languageName: unknown
   linkType: soft
 
@@ -371,7 +371,7 @@ __metadata:
     "@adeira/js": ^2.1.1
     "@adeira/shell-command": ^0.0.0
     "@babel/register": ^7.17.7
-    "@babel/runtime": ^7.17.7
+    "@babel/runtime": ^7.17.8
     glob: ^7.2.0
     is-ci: ^3.0.1
     semver: ^7.3.5
@@ -385,7 +385,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@adeira/murmur-hash@workspace:src/murmur-hash"
   dependencies:
-    "@babel/runtime": ^7.17.7
+    "@babel/runtime": ^7.17.8
   languageName: unknown
   linkType: soft
 
@@ -395,7 +395,7 @@ __metadata:
   dependencies:
     "@adeira/fetch": ^2.1.0
     "@adeira/js": ^2.1.1
-    "@babel/runtime": ^7.17.7
+    "@babel/runtime": ^7.17.8
     babel-plugin-relay: ^13.2.0
     react: ^17.0.2
     react-relay: ^13.2.0
@@ -419,7 +419,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@adeira/signed-source@workspace:src/signed-source"
   dependencies:
-    "@babel/runtime": ^7.17.7
+    "@babel/runtime": ^7.17.8
   languageName: unknown
   linkType: soft
 
@@ -433,8 +433,8 @@ __metadata:
     "@adeira/js": ^2.1.1
     "@adeira/sx": ^0.29.0
     "@adeira/sx-jest-snapshot-serializer": ^0.1.0
-    "@babel/core": ^7.17.7
-    "@babel/runtime": ^7.17.7
+    "@babel/core": ^7.17.8
+    "@babel/runtime": ^7.17.8
     "@fbtjs/default-collection-transform": ^0.0.3
     "@storybook/addon-a11y": ^6.4.19
     "@storybook/addon-actions": ^6.4.19
@@ -472,7 +472,7 @@ __metadata:
   resolution: "@adeira/sx-jest-snapshot-serializer@workspace:src/sx-jest-snapshot-serializer"
   dependencies:
     "@adeira/sx": ^0.29.0
-    "@babel/runtime": ^7.17.7
+    "@babel/runtime": ^7.17.8
     "@testing-library/react": ^12.1.4
     prettier: ^2.6.0
     pretty-format: ^27.5.1
@@ -487,7 +487,7 @@ __metadata:
     "@adeira/babel-plugin-transform-sx-tailwind": ^0.18.1
     "@adeira/babel-preset-adeira": ^4.0.0
     "@adeira/sx": ^0.29.0
-    "@babel/core": ^7.17.7
+    "@babel/core": ^7.17.8
     flow-bin: ^0.174.1
     hast-util-to-html: ^7.1.3
     next: ^12.1.0
@@ -509,8 +509,8 @@ __metadata:
     "@adeira/js": ^2.1.1
     "@adeira/signed-source": ^2.0.0
     "@adeira/sx": ^0.29.0
-    "@babel/core": ^7.17.7
-    "@babel/runtime": ^7.17.7
+    "@babel/core": ^7.17.8
+    "@babel/runtime": ^7.17.8
     change-case: ^4.1.2
     fast-levenshtein: ^3.0.0
     postcss: ^8.4.12
@@ -529,7 +529,7 @@ __metadata:
     "@adeira/js": ^2.1.1
     "@adeira/murmur-hash": ^2.0.1
     "@adeira/signed-source": ^2.0.0
-    "@babel/runtime": ^7.17.7
+    "@babel/runtime": ^7.17.8
     "@testing-library/jest-dom": ^5.16.2
     "@testing-library/react": ^12.1.4
     change-case: ^4.1.2
@@ -694,17 +694,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7.0.0, @babel/core@npm:^7.1.0, @babel/core@npm:^7.12.10, @babel/core@npm:^7.12.3, @babel/core@npm:^7.17.7, @babel/core@npm:^7.7.2, @babel/core@npm:^7.7.5, @babel/core@npm:^7.8.0":
-  version: 7.17.7
-  resolution: "@babel/core@npm:7.17.7"
+"@babel/core@npm:^7.0.0, @babel/core@npm:^7.1.0, @babel/core@npm:^7.12.10, @babel/core@npm:^7.12.3, @babel/core@npm:^7.17.8, @babel/core@npm:^7.7.2, @babel/core@npm:^7.7.5, @babel/core@npm:^7.8.0":
+  version: 7.17.8
+  resolution: "@babel/core@npm:7.17.8"
   dependencies:
     "@ampproject/remapping": ^2.1.0
     "@babel/code-frame": ^7.16.7
     "@babel/generator": ^7.17.7
     "@babel/helper-compilation-targets": ^7.17.7
     "@babel/helper-module-transforms": ^7.17.7
-    "@babel/helpers": ^7.17.7
-    "@babel/parser": ^7.17.7
+    "@babel/helpers": ^7.17.8
+    "@babel/parser": ^7.17.8
     "@babel/template": ^7.16.7
     "@babel/traverse": ^7.17.3
     "@babel/types": ^7.17.0
@@ -713,7 +713,7 @@ __metadata:
     gensync: ^1.0.0-beta.2
     json5: ^2.1.2
     semver: ^6.3.0
-  checksum: 467838313f8c84037d08d051238005c48f6b3da6fbaed38cd2dac5fcbe3706df2857365b8a9291402b3b888c24edb9707dc6c93f0127fecc7fe49b700c35c057
+  checksum: 0e686b1be444d25494424065238931f2b3df908bf072b72bab973acfd6d27a481fc280c9cd8a3c6fe2c46beee50e0d2307468d8b15b64dc4036f025e75f6609d
   languageName: node
   linkType: hard
 
@@ -1021,14 +1021,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helpers@npm:^7.12.5, @babel/helpers@npm:^7.17.7":
-  version: 7.17.7
-  resolution: "@babel/helpers@npm:7.17.7"
+"@babel/helpers@npm:^7.12.5, @babel/helpers@npm:^7.17.8":
+  version: 7.17.8
+  resolution: "@babel/helpers@npm:7.17.8"
   dependencies:
     "@babel/template": ^7.16.7
     "@babel/traverse": ^7.17.3
     "@babel/types": ^7.17.0
-  checksum: fdc93714b3eb3b7a179a5133c3d7008f36785af469bb091a2f056f1a893aeedc8654e87c5e04a5cdecb6587e6177839a4b887b832be289689ffe277d08dfd4a7
+  checksum: 463dad58119fefebf2d0201bfa53ec9607aa00356908895640fc07589747fb3c2e0dfee4019f3e8c9781e57c9aa5dff4c72ec8d1b031c4ed8349f90b6aefe99d
   languageName: node
   linkType: hard
 
@@ -1043,12 +1043,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/parser@npm:^7.1.0, @babel/parser@npm:^7.12.11, @babel/parser@npm:^7.12.7, @babel/parser@npm:^7.14.7, @babel/parser@npm:^7.16.7, @babel/parser@npm:^7.17.3, @babel/parser@npm:^7.17.7, @babel/parser@npm:^7.7.4":
-  version: 7.17.7
-  resolution: "@babel/parser@npm:7.17.7"
+"@babel/parser@npm:^7.1.0, @babel/parser@npm:^7.12.11, @babel/parser@npm:^7.12.7, @babel/parser@npm:^7.14.7, @babel/parser@npm:^7.16.7, @babel/parser@npm:^7.17.3, @babel/parser@npm:^7.17.8, @babel/parser@npm:^7.7.4":
+  version: 7.17.8
+  resolution: "@babel/parser@npm:7.17.8"
   bin:
     parser: ./bin/babel-parser.js
-  checksum: d2612c2597838a605bcbe921fd2c7381b3ab75603c7907020df037c22a3d27f0507285da74553cd75f403300ca76642323ca2e72ba55cc4222d4a20b87505b0c
+  checksum: 1771808491982cc47baa888a997aef6b58308e3844c8c00f730f8fd97defe57d32cdbf46075cd49aaee310fa31f3d2c80a0d41b41a4ee0ff336ee09e2ff6c222
   languageName: node
   linkType: hard
 
@@ -2200,12 +2200,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.7, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.7.7, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
-  version: 7.17.7
-  resolution: "@babel/runtime@npm:7.17.7"
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.7.7, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
+  version: 7.17.8
+  resolution: "@babel/runtime@npm:7.17.8"
   dependencies:
     regenerator-runtime: ^0.13.4
-  checksum: d9ec9e2c5ebbf503ac865ebd70d0216443d0fa8380bab572aa44ccf8fafde8b8b9846badfdbba3572f79075c9a196845aa3f42a435fd34ec832acd2bc1467d37
+  checksum: 68d195c1630bb91ac20e86635d292a17ebab7f361cfe79406b3f5a6cc2e59fa283ae5006568899abf869312c2b35b744bd407aea8ffdb650f1a68d07785d47e9
   languageName: node
   linkType: hard
 
@@ -9407,7 +9407,7 @@ __metadata:
     "@adeira/eslint-fixtures-tester": 0.1.0
     "@adeira/flow-types-eslint": 0.0.0
     "@babel/eslint-parser": ^7.17.0
-    "@babel/runtime": ^7.17.7
+    "@babel/runtime": ^7.17.8
     eslint: ^8.11.0
     fast-levenshtein: ^3.0.0
   peerDependencies:
@@ -9671,7 +9671,7 @@ __metadata:
     "@adeira/flow-types-eslint": 0.0.0
     "@babel/code-frame": ^7.16.7
     "@babel/eslint-parser": ^7.17.0
-    "@babel/runtime": ^7.17.7
+    "@babel/runtime": ^7.17.8
     eslint: ^8.11.0
     react: ^17.0.2
   peerDependencies:
@@ -17269,7 +17269,7 @@ __metadata:
     "@adeira/eslint-config": ^7.3.0
     "@adeira/monorepo-utils": ^0.11.0
     "@babel/cli": ^7.17.6
-    "@babel/core": ^7.17.7
+    "@babel/core": ^7.17.8
     "@babel/eslint-parser": ^7.17.0
     babel-jest: ^27.5.1
     babel-loader: ^8.2.3
