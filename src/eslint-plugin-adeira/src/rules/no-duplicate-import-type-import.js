@@ -7,7 +7,9 @@ import type { EslintRule, Node, ImportDeclaration } from '@adeira/flow-types-esl
 function typeNodeSpecifiersToImport(typeNode /*: ImportDeclaration */) /*: string */ {
   // Build the import string, it will result in a string like: type Node, type ElementRef
   // Then caller wraps this accordingly to match it's specific case.
-  // $FlowFixMe[prop-missing] - discovered when creating `@adeira/flow-types-eslint`
+  /* $FlowFixMe[incompatible-use] This comment suppresses an error when
+   * upgrading Flow to version 0.174.0. To see the error delete this comment
+   * and run Flow. */
   return typeNode.specifiers.map((i) => `type ${i.imported.name}`).join(',');
 }
 

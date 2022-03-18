@@ -1,0 +1,4 @@
+declined:
+  - eslint-plugin-adeira
+  - "@adeira/relay"
+  - "@adeira/sx-design"
