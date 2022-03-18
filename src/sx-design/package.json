@@ -16,7 +16,7 @@
   "dependencies": {
     "@adeira/icons": "^1.0.1",
     "@adeira/js": "^2.1.1",
-    "@babel/runtime": "^7.17.7",
+    "@babel/runtime": "^7.17.8",
     "blurhash": "^1.1.5",
     "fbt": "^0.17.1",
     "flow-enums-runtime": "^0.0.6",
@@ -36,7 +36,7 @@
     "@adeira/css-colors": "^2.2.0",
     "@adeira/sx": "^0.29.0",
     "@adeira/sx-jest-snapshot-serializer": "^0.1.0",
-    "@babel/core": "^7.17.7",
+    "@babel/core": "^7.17.8",
     "@fbtjs/default-collection-transform": "^0.0.3",
     "@storybook/addon-a11y": "^6.4.19",
     "@storybook/addon-actions": "^6.4.19",
