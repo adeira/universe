@@ -47,7 +47,6 @@ __metadata:
     "@adeira/relay": ^5.2.0
     "@adeira/sx": ^0.29.0
     "@adeira/sx-design": ^0.24.0
-    "@axe-core/react": ^4.4.2
     "@fbtjs/default-collection-transform": ^0.0.3
     "@testing-library/react": ^12.1.4
     babel-plugin-fbt: ^0.20.3
@@ -615,16 +614,6 @@ __metadata:
   dependencies:
     tslib: ~2.0.1
   checksum: 72334225df487342ca1d9c9dc6b6b7080e9ccba6e85ffbfd04839997067c709c4b058f747ee20bcac0477db6f12c9b098fd030bd7559dbc552a283df87ef4478
-  languageName: node
-  linkType: hard
-
-"@axe-core/react@npm:^4.4.2":
-  version: 4.4.2
-  resolution: "@axe-core/react@npm:4.4.2"
-  dependencies:
-    axe-core: ^4.4.1
-    requestidlecallback: ^0.3.0
-  checksum: 9ef3a30c3ef6ef1e3cd0f760a163ef5e79f7ea7ec8fe2d19f78afbb23042328975696927481dc362ee39e5f288fbbd86f857e95b191ad211624950524ca2c606
   languageName: node
   linkType: hard
 
@@ -6166,7 +6155,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axe-core@npm:^4.2.0, axe-core@npm:^4.3.5, axe-core@npm:^4.4.1":
+"axe-core@npm:^4.2.0, axe-core@npm:^4.3.5":
   version: 4.4.1
   resolution: "axe-core@npm:4.4.1"
   checksum: ad14c5b71059dc3d24ef2519b8cd96e98b4a572379396201ce449d1c4262181821d6ca9550df65b22371faf06d28bbe94d391fe5675f2a08e6550f7b5da8416d
@@ -17073,13 +17062,6 @@ __metadata:
     tunnel-agent: ^0.6.0
     uuid: ^3.3.2
   checksum: 4e112c087f6eabe7327869da2417e9d28fcd0910419edd2eb17b6acfc4bfa1dad61954525949c228705805882d8a98a86a0ea12d7f739c01ee92af7062996983
-  languageName: node
-  linkType: hard
-
-"requestidlecallback@npm:^0.3.0":
-  version: 0.3.0
-  resolution: "requestidlecallback@npm:0.3.0"
-  checksum: 2405aef711b516e326ff18849b24ad2c0e623d2b60397bdc7919fa40d8575fce0a16a563a53f94ec89d255325a99e5deee952e6024584a5179cbbabb4469f0e8
   languageName: node
   linkType: hard
 

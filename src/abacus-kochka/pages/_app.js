@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import * as React from 'react';
 import fbt from 'fbt';
 import Head from 'next/head';
-import ReactDOM from 'react-dom';
 import sx from '@adeira/sx';
 import { RecoilRoot } from 'recoil';
 import { SkipLink, SxDesignProvider, ErrorBoundary } from '@adeira/sx-design';
@@ -16,15 +15,6 @@ import recordPageVisit from '../src/analytics/recordPageVisit';
 import RelayEnvironment from '../src/RelayEnvironment';
 import ViewerContextProvider from '../src/ViewerContextProvider';
 import initFbtTranslations from '../translations/initFbtTranslations';
-
-if (
-  __DEV__ &&
-  typeof window !== 'undefined' // process.browser should work as well (https://github.com/vercel/next.js/issues/2473#issuecomment-362119102)
-) {
-  // eslint-disable-next-line import/no-extraneous-dependencies
-  const axe = require('@axe-core/react');
-  axe(React, ReactDOM, 1000);
-}
 
 type Props = {
   +Component: any,
