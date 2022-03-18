@@ -11,6 +11,9 @@ export const isQuery = (request: $FlowFixMe): boolean %checks => {
 };
 
 export const forceFetch = (cacheConfig: { +force?: ?boolean }): boolean %checks => {
+  /* $FlowFixMe[sketchy-null-bool] This comment suppresses an error when
+   * upgrading Flow to version 0.174.0. To see the error delete this comment
+   * and run Flow. */
   return !!(cacheConfig && cacheConfig.force);
 };
 
