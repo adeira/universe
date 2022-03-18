@@ -5,9 +5,9 @@
     "hDyrNnE41nUuLcUMu5y59A==": "♥️ Voluntary contribution ♥️"
    },
    "filepath": "src/contributions/Contributions.js",
-   "line_beg": 45,
+   "line_beg": 52,
    "col_beg": 13,
-   "line_end": 45,
+   "line_end": 52,
    "col_end": 81,
    "desc": "contribute page title",
    "project": "",
@@ -19,9 +19,9 @@
     "T+NpfkAZAp+bLGBtDuSG4g==": "Help us create a better life for our cats"
    },
    "filepath": "src/contributions/Contributions.js",
-   "line_beg": 47,
+   "line_beg": 54,
    "col_beg": 8,
-   "line_end": 47,
+   "line_end": 54,
    "col_end": 92,
    "desc": "contribute page subtitle",
    "project": "",
@@ -33,9 +33,9 @@
     "6Oth475/NFsGCQ2q74WOWQ==": "The ultimate goal of {=KOCHKA Café} is to help cats who really need it. Having a coffee shop definitely helps. However, we would like to give an extraordinary life to our cats. Why? Because all of our cats went through some bad times in their life. Either they were abandoned, thrown away, or born into some bad conditions. And we believe that all of them deserve to have the best - the ultimate second chance."
    },
    "filepath": "src/contributions/Contributions.js",
-   "line_beg": 52,
+   "line_beg": 59,
    "col_beg": 10,
-   "line_end": 58,
+   "line_end": 65,
    "col_end": 16,
    "desc": "paragraph",
    "project": "",
@@ -47,9 +47,9 @@
     "XhlPcB0basIcObgeU+J78w==": "KOCHKA Café"
    },
    "filepath": "src/contributions/Contributions.js",
-   "line_beg": 53,
+   "line_beg": 60,
    "col_beg": 33,
-   "line_end": 53,
+   "line_end": 60,
    "col_end": 61,
    "desc": "In the phrase: \"The ultimate goal of {=KOCHKA Café} is to help cats who really need it. Having a coffee shop definitely helps. However, we would like to give an extraordinary life to our cats. Why? Because all of our cats went through some bad times in their life. Either they were abandoned, thrown away, or born into some bad conditions. And we believe that all of them deserve to have the best - the ultimate second chance.\"",
    "project": "",
@@ -61,9 +61,9 @@
     "hNJdF5T8ZRQPBqRHQy+EWQ==": "We would like to ask you to consider contributing to KOCHKA Café so we can achieve this goal. Help us to buy them better food. Help us to buy them more toys. Help us to make their life awesome."
    },
    "filepath": "src/contributions/Contributions.js",
-   "line_beg": 61,
+   "line_beg": 68,
    "col_beg": 10,
-   "line_end": 65,
+   "line_end": 72,
    "col_end": 16,
    "desc": "paragraph",
    "project": "",
@@ -75,9 +75,9 @@
     "CVAijOv5C0UslzBPMhL7SA==": "One-time contribution ♥️"
    },
    "filepath": "src/contributions/Contributions.js",
-   "line_beg": 71,
+   "line_beg": 78,
    "col_beg": 10,
-   "line_end": 71,
+   "line_end": 78,
    "col_end": 83,
    "desc": "one-time contribution subtitle",
    "project": "",
@@ -89,9 +89,9 @@
     "bZr1fe9zJldIOJ8L3xFdNA==": "Show us your support by sending a one-time contribution. You will be charged only once."
    },
    "filepath": "src/contributions/Contributions.js",
-   "line_beg": 74,
+   "line_beg": 81,
    "col_beg": 10,
-   "line_end": 76,
+   "line_end": 83,
    "col_end": 16,
    "desc": "one-time contribution description",
    "project": "",
@@ -103,9 +103,9 @@
     "C/jBexWuGqox0yek4XyMUA==": "Recurring contribution (monthly) ♥♥️️"
    },
    "filepath": "src/contributions/Contributions.js",
-   "line_beg": 101,
+   "line_beg": 111,
    "col_beg": 10,
-   "line_end": 101,
+   "line_end": 111,
    "col_end": 97,
    "desc": "recurring contribution subtitle",
    "project": "",
@@ -117,9 +117,9 @@
     "ooSK/rLOxewJkJbSdcdPMQ==": "A recurring contribution is for people who want to support KOCHKA Café and ultimately our cats on a monthly basis. We cannot express enough how grateful we are."
    },
    "filepath": "src/contributions/Contributions.js",
-   "line_beg": 104,
+   "line_beg": 114,
    "col_beg": 10,
-   "line_end": 107,
+   "line_end": 117,
    "col_end": 16,
    "desc": "recurring contribution description",
    "project": "",
@@ -131,9 +131,9 @@
     "9dbPRX1dP8RtMFaJxop9jg==": "{price} / month"
    },
    "filepath": "src/contributions/Contributions.js",
-   "line_beg": 120,
+   "line_beg": 130,
    "col_beg": 18,
-   "line_end": 125,
+   "line_end": 138,
    "col_end": 24,
    "desc": "recurring monetary value per month",
    "project": "",
@@ -366,12 +366,26 @@
   },
   {
    "hashToText": {
-    "9xbWs0pIv9Xy0lfCwF7DmQ==": "Terms of use"
+    "EdoLPwaSsscEQmOCmVmdmA==": "Open positions"
    },
    "filepath": "src/LayoutFooter.js",
    "line_beg": 66,
    "col_beg": 14,
    "line_end": 66,
+   "col_end": 87,
+   "desc": "footer navigation link to open positions",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Open positions"
+  },
+  {
+   "hashToText": {
+    "9xbWs0pIv9Xy0lfCwF7DmQ==": "Terms of use"
+   },
+   "filepath": "src/LayoutFooter.js",
+   "line_beg": 71,
+   "col_beg": 14,
+   "line_end": 71,
    "col_end": 83,
    "desc": "footer navigation link to terms of use",
    "project": "",
@@ -383,9 +397,9 @@
     "1UA4LJthdLxQou20Xu/Bzg==": "Shipping & Returns"
    },
    "filepath": "src/LayoutFooter.js",
-   "line_beg": 72,
+   "line_beg": 77,
    "col_beg": 16,
-   "line_end": 72,
+   "line_end": 77,
    "col_end": 99,
    "desc": "footer navigation link to shipping and returns",
    "project": "",
@@ -397,9 +411,9 @@
     "eFpXXNeK5D+47kXDWsbnAg==": "Privacy Policy"
    },
    "filepath": "src/LayoutFooter.js",
-   "line_beg": 78,
+   "line_beg": 83,
    "col_beg": 14,
-   "line_end": 78,
+   "line_end": 83,
    "col_end": 87,
    "desc": "footer navigation link to privacy policy",
    "project": "",
@@ -550,10 +564,10 @@
    "hashToText": {
     "dSc4laDASdxP9wQdGFEbfA==": "Others"
    },
-   "filepath": "src/menu/MenuSectionMilkshake.js",
-   "line_beg": 32,
+   "filepath": "src/menu/MenuSectionOthers.js",
+   "line_beg": 31,
    "col_beg": 8,
-   "line_end": 32,
+   "line_end": 31,
    "col_end": 60,
    "desc": "others subtitle in our menu",
    "project": "",
@@ -587,6 +601,188 @@
    "project": "",
    "type": "text",
    "jsfbt": "Organic tea blends"
+  },
+  {
+   "hashToText": {
+    "Z1d6qX2L0fKBN6cEnxEOOw==": "Open positions"
+   },
+   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
+   "line_beg": 13,
+   "col_beg": 13,
+   "line_end": 13,
+   "col_end": 71,
+   "desc": "open positions page title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Open positions"
+  },
+  {
+   "hashToText": {
+    "vowqupCy07qqoGcmRVowvw==": "Would you like to work with us?"
+   },
+   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
+   "line_beg": 14,
+   "col_beg": 16,
+   "line_end": 14,
+   "col_end": 94,
+   "desc": "open positions page subtitle",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Would you like to work with us?"
+  },
+  {
+   "hashToText": {
+    "4AXECy2caI+xQzb0HwSTUQ==": "Cafeteria Assistant"
+   },
+   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
+   "line_beg": 18,
+   "col_beg": 17,
+   "line_end": 18,
+   "col_end": 79,
+   "desc": "assistant position title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Cafeteria Assistant"
+  },
+  {
+   "hashToText": {
+    "JUWZIyIEqdy3pM7BrD7V3A==": "Cafeteria Assistant is responsible for customer service, keeping facilities clean, and assisting in food preparation. This is a full-time position only."
+   },
+   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
+   "line_beg": 21,
+   "col_beg": 14,
+   "line_end": 24,
+   "col_end": 20,
+   "desc": "assistant position description",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Cafeteria Assistant is responsible for customer service, keeping facilities clean, and assisting in food preparation. This is a full-time position only."
+  },
+  {
+   "hashToText": {
+    "1Czq0yZJzTcsPfK/OZGAPg==": "Barista"
+   },
+   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
+   "line_beg": 30,
+   "col_beg": 17,
+   "line_end": 30,
+   "col_end": 65,
+   "desc": "barista position title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Barista"
+  },
+  {
+   "hashToText": {
+    "lAd0Iecjt0/G66JSr54JvA==": "Barista is responsible for preparation of coffee based drinks, teas, milkshakes and other specialities as well as attending our clients and keeping the workplace clean. This is a full-time position only."
+   },
+   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
+   "line_beg": 33,
+   "col_beg": 14,
+   "line_end": 37,
+   "col_end": 20,
+   "desc": "barista position description",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Barista is responsible for preparation of coffee based drinks, teas, milkshakes and other specialities as well as attending our clients and keeping the workplace clean. This is a full-time position only."
+  },
+  {
+   "hashToText": {
+    "8Pm7esp/+gf54h5wjnhtIA==": "Mystery Shopper"
+   },
+   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
+   "line_beg": 43,
+   "col_beg": 17,
+   "line_end": 43,
+   "col_end": 81,
+   "desc": "mystery shopper position title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Mystery Shopper"
+  },
+  {
+   "hashToText": {
+    "BOp9L6wr5H8DAJ5jtd5J9g==": "Mystery Shopper is responsible for making sure that we always provide the best services and products to our customers. It does so by visiting our café (secretly) while pretending to be a normal customer and later reporting any observations."
+   },
+   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
+   "line_beg": 46,
+   "col_beg": 14,
+   "line_end": 50,
+   "col_end": 20,
+   "desc": "mystery shopper position description",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Mystery Shopper is responsible for making sure that we always provide the best services and products to our customers. It does so by visiting our café (secretly) while pretending to be a normal customer and later reporting any observations."
+  },
+  {
+   "hashToText": {
+    "kOqAkB7LlUNdQoxTwvBwxA==": "Open-source Developer"
+   },
+   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
+   "line_beg": 56,
+   "col_beg": 17,
+   "line_end": 56,
+   "col_end": 87,
+   "desc": "mystery shopper position title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Open-source Developer"
+  },
+  {
+   "hashToText": {
+    "9Cq74Se0+aoAOP/0rB9kZQ==": "Open-source Developer is responsible for developing software running behind the scenes of KOCHKA Café. Knowledge of Git, JavaScript and Rust are very important."
+   },
+   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
+   "line_beg": 60,
+   "col_beg": 16,
+   "line_end": 63,
+   "col_end": 22,
+   "desc": "mystery shopper position description",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Open-source Developer is responsible for developing software running behind the scenes of KOCHKA Café. Knowledge of Git, JavaScript and Rust are very important."
+  },
+  {
+   "hashToText": {
+    "bEAH2l2l66pXNF6sed5woQ==": "Did you know? All your software is publically available {github link}."
+   },
+   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
+   "line_beg": 66,
+   "col_beg": 16,
+   "line_end": 73,
+   "col_end": 22,
+   "desc": "open-source code explainer",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Did you know? All your software is publically available {github link}."
+  },
+  {
+   "hashToText": {
+    "MZh5/6nbdGKU1ALAY1bfgw==": "This position is currently unavailable. However, you can leave us your data in our \"Talent Pool\" so we can contact you later: {=Open Talent Pool on Google Forms}"
+   },
+   "filepath": "src/open-positions/OpenPositionUnavailableWarning.js",
+   "line_beg": 10,
+   "col_beg": 6,
+   "line_end": 16,
+   "col_end": 12,
+   "desc": "position unavailable description",
+   "project": "",
+   "type": "text",
+   "jsfbt": "This position is currently unavailable. However, you can leave us your data in our \"Talent Pool\" so we can contact you later: {=Open Talent Pool on Google Forms}"
+  },
+  {
+   "hashToText": {
+    "hZRmbzZ0e79iOfeU1jOD2w==": "Open Talent Pool on Google Forms"
+   },
+   "filepath": "src/open-positions/OpenPositionUnavailableWarning.js",
+   "line_beg": 13,
+   "col_beg": 8,
+   "line_end": 15,
+   "col_end": 15,
+   "desc": "In the phrase: \"This position is currently unavailable. However, you can leave us your data in our \"Talent Pool\" so we can contact you later:{=Open Talent Pool on Google Forms}\"",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Open Talent Pool on Google Forms"
   },
   {
    "hashToText": {
@@ -915,9 +1111,9 @@
     "4hzwDqzKYoJYiTxo5Erg4A==": "link to KOCHKA Café Instagram page"
    },
    "filepath": "src/SocialMediaIcons.js",
-   "line_beg": 33,
+   "line_beg": 35,
    "col_beg": 14,
-   "line_end": 33,
+   "line_end": 35,
    "col_end": 99,
    "desc": "aria label of our Instagram link",
    "project": "",
@@ -929,9 +1125,9 @@
     "5QbuAWwkViB3in/V8u59bg==": "link to KOCHKA Café facebook page"
    },
    "filepath": "src/SocialMediaIcons.js",
-   "line_beg": 54,
+   "line_beg": 56,
    "col_beg": 14,
-   "line_end": 54,
+   "line_end": 56,
    "col_end": 97,
    "desc": "aria label of our Facebook link",
    "project": "",
@@ -943,9 +1139,9 @@
     "th27ZLyY0P1wj2QYva4ueg==": "link to GitHub repository"
    },
    "filepath": "src/SocialMediaIcons.js",
-   "line_beg": 74,
+   "line_beg": 76,
    "col_beg": 24,
-   "line_end": 74,
+   "line_end": 76,
    "col_end": 97,
    "desc": "aria label of our GitHub link",
    "project": "",
@@ -957,10 +1153,10 @@
     "9NSktf8Wasdbln+avfGiWQ==": "Skip to content"
    },
    "filepath": "pages/_app.js",
-   "line_beg": 54,
-   "col_beg": 20,
-   "line_end": 56,
-   "col_end": 26,
+   "line_beg": 45,
+   "col_beg": 22,
+   "line_end": 47,
+   "col_end": 28,
    "desc": "hidden 'skip link' title which helps blind people to skip directly the main section and avoid the repetitive menu altogether",
    "project": "",
    "type": "text",
@@ -1181,9 +1377,9 @@
     "N8iXHjKl9W/M5Nd1SAiXbA==": "Kitten under 1 year"
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 73,
+   "line_beg": 75,
    "col_beg": 20,
-   "line_end": 73,
+   "line_end": 75,
    "col_end": 89,
    "desc": "table cell: kitten under 1 year",
    "project": "",
@@ -1195,9 +1391,9 @@
     "hf8uKEqUiYoq4b2mewVtSA==": "The adoption fee includes:"
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 79,
+   "line_beg": 83,
    "col_beg": 10,
-   "line_end": 79,
+   "line_end": 83,
    "col_end": 72,
    "desc": "article paragraph",
    "project": "",
@@ -1209,9 +1405,9 @@
     "LskCJ5nUFQUoKHBfugVs6A==": "sterilization surgery (in case the age allows it)"
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 83,
+   "line_beg": 87,
    "col_beg": 12,
-   "line_end": 83,
+   "line_end": 87,
    "col_end": 94,
    "desc": "adoption fee 1",
    "project": "",
@@ -1223,9 +1419,9 @@
     "2zeEeHMZj2AjllnLWvLaKA==": "recommended vaccinations (rabies and \"triple felina\")"
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 86,
+   "line_beg": 90,
    "col_beg": 12,
-   "line_end": 88,
+   "line_end": 92,
    "col_end": 18,
    "desc": "adoption fee 2",
    "project": "",
@@ -1237,9 +1433,9 @@
     "VK9SlBTtiYUyoSSCcHYjzA==": "initial worming"
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 91,
+   "line_beg": 95,
    "col_beg": 12,
-   "line_end": 91,
+   "line_end": 95,
    "col_end": 60,
    "desc": "adoption fee 3",
    "project": "",
@@ -1251,9 +1447,9 @@
     "gXs8IYY7Khdi8/pzxwpzzA==": "fleas treatment"
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 94,
+   "line_beg": 98,
    "col_beg": 12,
-   "line_end": 94,
+   "line_end": 98,
    "col_end": 60,
    "desc": "adoption fee 4",
    "project": "",
@@ -1265,9 +1461,9 @@
     "D+bTXmwr5eDOKxnDViXmRg==": "Generally speaking, we do not make any profit from the adoption fees. We usually spend more money on the cats to give them a great and healthy life. The adoption fee simply helps us to lower the financial impact on our business."
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 98,
+   "line_beg": 102,
    "col_beg": 10,
-   "line_end": 102,
+   "line_end": 106,
    "col_end": 16,
    "desc": "article paragraph",
    "project": "",
@@ -1279,9 +1475,9 @@
     "4F6ZuT0XrHxABO4AoMouYg==": "Adoption requirements"
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 106,
+   "line_beg": 110,
    "col_beg": 10,
-   "line_end": 106,
+   "line_end": 110,
    "col_end": 89,
    "desc": "Article title H3: Adoption requirements",
    "project": "",
@@ -1293,9 +1489,9 @@
     "oulyKljARVL7xFzb/E1K6g==": "Before considering adoption, please make sure that:"
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 109,
+   "line_beg": 113,
    "col_beg": 10,
-   "line_end": 109,
+   "line_end": 113,
    "col_end": 97,
    "desc": "article paragraph",
    "project": "",
@@ -1307,9 +1503,9 @@
     "IWeQXViCmZ9IAXq7eHRhyg==": "you are older than 18 years"
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 113,
+   "line_beg": 117,
    "col_beg": 12,
-   "line_end": 113,
+   "line_end": 117,
    "col_end": 81,
    "desc": "adoption requirements 1",
    "project": "",
@@ -1321,9 +1517,9 @@
     "DUIB2CQM+FzNC7fRpC2P3Q==": "you filled the adoption form and it was approved"
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 116,
+   "line_beg": 120,
    "col_beg": 12,
-   "line_end": 118,
+   "line_end": 122,
    "col_end": 18,
    "desc": "adoption requirements 2",
    "project": "",
@@ -1335,9 +1531,9 @@
     "JBfzytaKySnST3G0Y5UtKw==": "you have valid INE and \"comprobante de domicilio\""
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 121,
+   "line_beg": 125,
    "col_beg": 12,
-   "line_end": 123,
+   "line_end": 127,
    "col_end": 18,
    "desc": "adoption requirements 3",
    "project": "",
@@ -1349,9 +1545,9 @@
     "2Qn9XN/eqcJm9rcXjA10Gw==": "you understand the associated adoption fees"
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 126,
+   "line_beg": 130,
    "col_beg": 12,
-   "line_end": 126,
+   "line_end": 130,
    "col_end": 97,
    "desc": "adoption requirements 4",
    "project": "",
@@ -1363,9 +1559,9 @@
     "gsqVS83mN+Lxi8BLO2qTGQ==": "you mean the adoption seriously and are able to give the adopted cat a great life"
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 129,
+   "line_beg": 133,
    "col_beg": 12,
-   "line_end": 131,
+   "line_end": 135,
    "col_end": 18,
    "desc": "adoption requirements 5",
    "project": "",
