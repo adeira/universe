@@ -47,12 +47,14 @@ export default function MyApp({ Component, pageProps }: $FlowFixMe): React.Node 
   });
 
   return (
-    <SxDesignProvider locale={applicationLocale.bcp47} theme="system">
-      <ErrorBoundary>
-        <RelayEnvironmentProvider environment={relayEnvironment}>
-          <RecoilRoot>{children}</RecoilRoot>
-        </RelayEnvironmentProvider>
-      </ErrorBoundary>
-    </SxDesignProvider>
+    <React.StrictMode>
+      <SxDesignProvider locale={applicationLocale.bcp47} theme="system">
+        <ErrorBoundary>
+          <RelayEnvironmentProvider environment={relayEnvironment}>
+            <RecoilRoot>{children}</RecoilRoot>
+          </RelayEnvironmentProvider>
+        </ErrorBoundary>
+      </SxDesignProvider>
+    </React.StrictMode>
   );
 }
