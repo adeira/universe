@@ -21,8 +21,14 @@ export default function BreadcrumbItem(props: Props): Node {
     <div
       className={styles({
         breadcrumbItem: true,
+        /* $FlowFixMe[incompatible-call] This comment suppresses an error when
+         * upgrading Flow to version 0.174.0. To see the error delete this
+         * comment and run Flow. */
         breadcrumbItemLast: isLast,
       })}
+      /* $FlowFixMe[incompatible-type] This comment suppresses an error when
+       * upgrading Flow to version 0.174.0. To see the error delete this
+       * comment and run Flow. */
       {...(isLast === true && { ['aria-current']: 'page' })}
     >
       <Link href={props.href}>{props.children}</Link>
