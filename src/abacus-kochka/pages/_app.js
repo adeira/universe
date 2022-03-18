@@ -30,29 +30,31 @@ export default function MyApp({ Component, pageProps }: Props): React.Node {
   });
 
   return (
-    <SxDesignProvider locale={languageTag.bcp47} theme="light">
-      <ErrorBoundary>
-        <RelayEnvironmentProvider environment={RelayEnvironment}>
-          <ViewerContextProvider languageTag={languageTag}>
-            <RecoilRoot>
-              <div className={styles('root')}>
-                <Head>
-                  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                </Head>
-                <SkipLink
-                  text={
-                    <fbt desc="hidden 'skip link' title which helps blind people to skip directly the main section and avoid the repetitive menu altogether">
-                      Skip to content
-                    </fbt>
-                  }
-                />
-                <Component {...pageProps} />
-              </div>
-            </RecoilRoot>
-          </ViewerContextProvider>
-        </RelayEnvironmentProvider>
-      </ErrorBoundary>
-    </SxDesignProvider>
+    <React.StrictMode>
+      <SxDesignProvider locale={languageTag.bcp47} theme="light">
+        <ErrorBoundary>
+          <RelayEnvironmentProvider environment={RelayEnvironment}>
+            <ViewerContextProvider languageTag={languageTag}>
+              <RecoilRoot>
+                <div className={styles('root')}>
+                  <Head>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                  </Head>
+                  <SkipLink
+                    text={
+                      <fbt desc="hidden 'skip link' title which helps blind people to skip directly the main section and avoid the repetitive menu altogether">
+                        Skip to content
+                      </fbt>
+                    }
+                  />
+                  <Component {...pageProps} />
+                </div>
+              </RecoilRoot>
+            </ViewerContextProvider>
+          </RelayEnvironmentProvider>
+        </ErrorBoundary>
+      </SxDesignProvider>
+    </React.StrictMode>
   );
 }
 
