@@ -5,7 +5,7 @@
     "src/*"
   ],
   "engines": {
-    "node": ">=v14.19.0",
+    "node": ">=v14.19.1",
     "yarn": ">=1.0.0"
   },
   "devDependencies": {
