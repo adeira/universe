@@ -80,6 +80,7 @@ pub(in crate::menu) async fn get_section(
                 context,
                 client_locale,
                 &[
+                    "16912805".to_string(), // Naranjada
                     "3763439".to_string(),  // Banana milkshake
                     "11812843".to_string(), // Strawberry milkshake
                 ],
