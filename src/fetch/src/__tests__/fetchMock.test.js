@@ -19,11 +19,11 @@ it('has a corresponding `Deferred` for each call to `fetch`', async () => {
 
   const mockCallback = jest.fn();
   const mockResult = {};
-  expect(mockCallback).not.toBeCalled();
+  expect(mockCallback).not.toHaveBeenCalled();
   fetchPromise.then(mockCallback);
   deferred.resolve(mockResult);
 
   await flushPromises();
 
-  expect(mockCallback).toBeCalledWith(mockResult);
+  expect(mockCallback).toHaveBeenCalledWith(mockResult);
 });

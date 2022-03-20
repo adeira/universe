@@ -12,6 +12,6 @@ test.each([null, undefined])('throws for %p', (input) => {
 });
 
 test.each([false, '', 0, new Date()])('does NOT throw for %p', (input) => {
-  expect(() => nullthrows(input)).not.toThrowError();
+  expect(() => nullthrows(input)).not.toThrow();
   expect(nullthrows(input)).toBe(input);
 });

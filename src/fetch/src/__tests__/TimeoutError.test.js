@@ -13,5 +13,5 @@ it('is instance of Error and TimeoutError', () => {
 it('is throwable', () => {
   expect(() => {
     throw new TimeoutError('ups');
-  }).toThrowError('ups');
+  }).toThrow('ups');
 });

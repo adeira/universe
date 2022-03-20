@@ -15,7 +15,7 @@ module.exports = ({
     'jest/consistent-test-it': OFF,
     'jest/expect-expect': OFF,
     'jest/max-nested-describe': [ERROR, { max: 5 }],
-    'jest/no-alias-methods': OFF,
+    'jest/no-alias-methods': NEXT_VERSION_ERROR,
     'jest/no-commented-out-tests': OFF,
     'jest/no-conditional-expect': OFF,
     'jest/no-conditional-in-test': OFF,

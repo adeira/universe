@@ -57,5 +57,5 @@ it('calls callback correctly when the item is clicked', () => {
 
   // Now we can call the menu item which should call the callback:
   userEvent.click(getByText('Click me!'));
-  expect(onClickFn).toBeCalledTimes(1);
+  expect(onClickFn).toHaveBeenCalledTimes(1);
 });

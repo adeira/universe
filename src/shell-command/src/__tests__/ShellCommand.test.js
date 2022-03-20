@@ -9,9 +9,9 @@ import ShellCommand from '../ShellCommand';
 // should be fine since they are mostly Node anyway.
 
 it("throws exception when command doesn't exit", () => {
-  expect(() =>
-    new ShellCommand(null, 'this_command_does_not_exit').runSynchronously(),
-  ).toThrowError('spawnSync this_command_does_not_exit ENOENT');
+  expect(() => new ShellCommand(null, 'this_command_does_not_exit').runSynchronously()).toThrow(
+    'spawnSync this_command_does_not_exit ENOENT',
+  );
 
   // but it's possible to suppress this error:
   let exitCode;
@@ -27,7 +27,7 @@ it("throws exception when command doesn't exit", () => {
 it('throws exception when command exits with signal', () => {
   expect(() =>
     new ShellCommand(path.join(__dirname, 'fixtures'), 'node', 'kill.js').runSynchronously(),
-  ).toThrowError('Command killed with signal SIGINT.');
+  ).toThrow('Command killed with signal SIGINT.');
 
   // but it's possible to suppress this error:
   let exitCode;
@@ -43,7 +43,7 @@ it('throws exception when command exits with signal', () => {
 it('throws exception when command exits with error code', () => {
   expect(() =>
     new ShellCommand(path.join(__dirname, 'fixtures'), 'node', 'exit.js').runSynchronously(),
-  ).toThrowError('Command failed with exit code 5.');
+  ).toThrow('Command failed with exit code 5.');
 
   // but it's possible to suppress this error:
   let exitCode;

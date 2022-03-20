@@ -81,7 +81,7 @@ describe('default wrapper', () => {
   });
 
   it('throws an error', () => {
-    expect(() => evaluateGraphQLResolver(fields.throwError, {})).toThrowError('secret error ccc');
+    expect(() => evaluateGraphQLResolver(fields.throwError, {})).toThrow('secret error ccc');
   });
 });
 
@@ -103,7 +103,7 @@ describe('custom wrapper', () => {
   });
 
   it('throws an error', async () => {
-    await expect(evaluateGraphQLResolver(fields.throwError, {})).rejects.toThrowError(
+    await expect(evaluateGraphQLResolver(fields.throwError, {})).rejects.toThrow(
       'secret error ccc',
     );
   });

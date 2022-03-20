@@ -10,12 +10,12 @@ describe('glob', () => {
   it('throws exception when used incorrectly with Windows path', () => {
     const windowsErrorMessage =
       "Your glob patterns looks like absolute Windows path but this is not allowed. Glob doesn't accept paths but glob patterns instead. Invalid pattern: ";
-    expect(() => glob('C:\\foo\\bar.txt', voidCallback)).toThrowError(windowsErrorMessage);
-    expect(() => glob('F:\\foo\\*', voidCallback)).toThrowError(windowsErrorMessage);
+    expect(() => glob('C:\\foo\\bar.txt', voidCallback)).toThrow(windowsErrorMessage);
+    expect(() => glob('F:\\foo\\*', voidCallback)).toThrow(windowsErrorMessage);
   });
 
   it('throws when used with root pattern with root being set', () => {
-    expect(() => glob('/root/pattern', voidCallback)).toThrowError(
+    expect(() => glob('/root/pattern', voidCallback)).toThrow(
       "Your glob pattern starts from root but you didn't define any root in glob options.",
     );
   });
@@ -43,7 +43,7 @@ describe('glob', () => {
 
   it('throws when used with two callbacks', () => {
     // $FlowExpectedError[incompatible-call]: second argument cannot be callback
-    expect(() => glob('pattern', voidCallback, voidCallback)).toThrowError(
+    expect(() => glob('pattern', voidCallback, voidCallback)).toThrow(
       'Glob function accepts only one callback.',
     );
   });
@@ -53,12 +53,12 @@ describe('globSync', () => {
   it('throws exception when used incorrectly with Windows path', () => {
     const windowsErrorMessage =
       "Your glob patterns looks like absolute Windows path but this is not allowed. Glob doesn't accept paths but glob patterns instead. Invalid pattern: ";
-    expect(() => globSync('C:\\foo\\bar.txt')).toThrowError(windowsErrorMessage);
-    expect(() => globSync('F:\\foo\\*')).toThrowError(windowsErrorMessage);
+    expect(() => globSync('C:\\foo\\bar.txt')).toThrow(windowsErrorMessage);
+    expect(() => globSync('F:\\foo\\*')).toThrow(windowsErrorMessage);
   });
 
   it('throws when used with root pattern with root being set', () => {
-    expect(() => globSync('/root/pattern')).toThrowError(
+    expect(() => globSync('/root/pattern')).toThrow(
       "Your glob pattern starts from root but you didn't define any root in glob options.",
     );
   });
@@ -84,12 +84,12 @@ describe('globAsync', () => {
   it('throws exception when used incorrectly with Windows path', async () => {
     const windowsErrorMessage =
       "Your glob patterns looks like absolute Windows path but this is not allowed. Glob doesn't accept paths but glob patterns instead. Invalid pattern: ";
-    await expect(globAsync('C:\\foo\\bar.txt')).rejects.toThrowError(windowsErrorMessage);
-    await expect(globAsync('F:\\foo\\*')).rejects.toThrowError(windowsErrorMessage);
+    await expect(globAsync('C:\\foo\\bar.txt')).rejects.toThrow(windowsErrorMessage);
+    await expect(globAsync('F:\\foo\\*')).rejects.toThrow(windowsErrorMessage);
   });
 
   it('throws when used with root pattern with root being set', async () => {
-    await expect(globAsync('/root/pattern')).rejects.toThrowError(
+    await expect(globAsync('/root/pattern')).rejects.toThrow(
       "Your glob pattern starts from root but you didn't define any root in glob options.",
     );
   });
