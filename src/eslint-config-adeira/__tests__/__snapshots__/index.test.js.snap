@@ -392,7 +392,7 @@ Object {
         "max": 5,
       },
     ],
-    "jest/no-alias-methods": 0,
+    "jest/no-alias-methods": 1,
     "jest/no-commented-out-tests": 0,
     "jest/no-conditional-expect": 0,
     "jest/no-conditional-in-test": 0,
@@ -1188,6 +1188,11 @@ Snapshot Diff:
 -       1,
 +       2,
         "boolean",
+@@ --- --- @@
+      ],
+-     "jest/no-alias-methods": 1,
++     "jest/no-alias-methods": 2,
+      "jest/no-commented-out-tests": 0,
 @@ --- --- @@
       "jest/prefer-called-with": 2,
 -     "jest/prefer-comparison-matcher": 1,

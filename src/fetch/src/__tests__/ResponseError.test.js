@@ -26,5 +26,5 @@ it('is throwable', () => {
   expect(() => {
     // $FlowExpectedError[incompatible-call]: incomplete Response object for testing purposes only
     throw new ResponseError(fetchResponse, 'ups');
-  }).toThrowError('ups');
+  }).toThrow('ups');
 });

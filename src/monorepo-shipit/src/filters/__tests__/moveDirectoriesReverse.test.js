@@ -57,7 +57,7 @@ it('throw exception when mapping contains duplicate destinations', () => {
     ['foo/', 'duplicate/'],
     ['bar/', 'duplicate/'],
   ]);
-  expect(() => moveDirectoriesReverse(changeset, brokenMapping)).toThrowError(
+  expect(() => moveDirectoriesReverse(changeset, brokenMapping)).toThrow(
     'It is not possible to reverse mapping with duplicate destinations.',
   );
 });

@@ -1,6 +1,7 @@
 # Unreleased
 
 - Rule `ft-flow/boolean-style` now enforces `boolean` type (instead of `bool`) as recommended in: https://flow.org/en/docs/types/primitives/#toc-booleans
+- Enabled [`jest/no-alias-methods`](https://github.com/jest-community/eslint-plugin-jest/blob/df42b182f7a7849c4f3e2222f03a8bd05249bad0/docs/rules/no-alias-methods.md) rule. This migration is trivial as this rule has autofix.
 
 # 7.3.0
 

@@ -99,7 +99,7 @@ it('supports conditional calls', () => {
   expect(styles('button', isEnabled && 'disabled')).toMatchInlineSnapshot(`"_2dHaKY"`);
 
   // alternative syntax:
-  expect(() => styles({ button: false })).not.toThrowError();
+  expect(() => styles({ button: false })).not.toThrow();
   expect(styles({ button: false })).toBeUndefined();
   expect(styles({ button: true })).toMatchInlineSnapshot(`"_324Crd"`);
   expect(styles({ button: true, disabled: isDisabled })).toMatchInlineSnapshot(`"_324Crd"`);

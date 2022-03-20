@@ -64,9 +64,9 @@ describe('closing mechanism', () => {
     expect(getByTestId('ModalDialogCloseButton')).toBeInTheDocument();
 
     // Close the modal:
-    expect(onClose).not.toBeCalled();
+    expect(onClose).not.toHaveBeenCalled();
     userEvent.click(getByTestId('ModalDialogCloseButton'));
-    expect(onClose).toBeCalledTimes(1);
+    expect(onClose).toHaveBeenCalledTimes(1);
   });
 
   it('closes Modal component by clicking on the backdrop', () => {
@@ -81,9 +81,9 @@ describe('closing mechanism', () => {
     expect(getByTestId('ModalBackdrop')).toBeInTheDocument();
 
     // Close the modal:
-    expect(onClose).not.toBeCalled();
+    expect(onClose).not.toHaveBeenCalled();
     userEvent.click(getByTestId('ModalBackdrop'));
-    expect(onClose).toBeCalledTimes(1);
+    expect(onClose).toHaveBeenCalledTimes(1);
   });
 
   it('closes Modal component by pressing "ESC"', () => {
@@ -96,9 +96,9 @@ describe('closing mechanism', () => {
     expect(getByText('Modal title')).toBeInTheDocument();
 
     // Close the modal:
-    expect(onClose).not.toBeCalled();
+    expect(onClose).not.toHaveBeenCalled();
     userEvent.keyboard('{esc}');
-    expect(onClose).toBeCalledTimes(1);
+    expect(onClose).toHaveBeenCalledTimes(1);
   });
 });
 
