@@ -611,7 +611,10 @@ Object {
     "ft-flow/array-style-complex-type": 0,
     "ft-flow/array-style-simple-type": 0,
     "ft-flow/arrow-parens": 0,
-    "ft-flow/boolean-style": 0,
+    "ft-flow/boolean-style": Array [
+      1,
+      "boolean",
+    ],
     "ft-flow/define-flow-type": 1,
     "ft-flow/delimiter-dangle": 0,
     "ft-flow/enforce-line-break": 0,

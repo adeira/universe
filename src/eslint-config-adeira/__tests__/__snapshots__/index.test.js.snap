@@ -195,7 +195,10 @@ Object {
     "ft-flow/array-style-complex-type": 0,
     "ft-flow/array-style-simple-type": 0,
     "ft-flow/arrow-parens": 0,
-    "ft-flow/boolean-style": 0,
+    "ft-flow/boolean-style": Array [
+      1,
+      "boolean",
+    ],
     "ft-flow/define-flow-type": 1,
     "ft-flow/delimiter-dangle": 0,
     "ft-flow/enforce-line-break": 0,
@@ -1180,6 +1183,11 @@ Snapshot Diff:
 +         "jest-dom/prefer-to-have-text-content": 2,
 +         "jest-dom/prefer-to-have-value": 2,
           "testing-library/await-async-query": 0,
+@@ --- --- @@
+      "ft-flow/boolean-style": Array [
+-       1,
++       2,
+        "boolean",
 @@ --- --- @@
       "jest/prefer-called-with": 2,
 -     "jest/prefer-comparison-matcher": 1,

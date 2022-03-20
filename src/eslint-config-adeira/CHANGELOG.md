@@ -1,5 +1,7 @@
 # Unreleased
 
+- Rule `ft-flow/boolean-style` now enforces `boolean` type (instead of `bool`) as recommended in: https://flow.org/en/docs/types/primitives/#toc-booleans
+
 # 7.3.0
 
 - New rules [`react/iframe-missing-sandbox`](https://github.com/yannickcr/eslint-plugin-react/blob/24bf5947e9495808ef14fd0fbdd6a670a13bc443/docs/rules/iframe-missing-sandbox.md) and [`@next/next/no-script-component-in-head`](https://github.com/vercel/next.js/blob/a52bd712fe797b59cfd05ceaa4c33096a0c346ff/errors/no-script-component-in-head-component.md) enabled (warnings or errors in strict mode).

@@ -279,7 +279,7 @@ module.exports = ({
 
     // import (https://github.com/benmosher/eslint-plugin-import)
     'import/default': OFF,
-    'import/dynamic-import-chunkname': OFF, // TODO: warn?
+    'import/dynamic-import-chunkname': OFF,
     'import/export': ERROR,
     'import/exports-last': OFF,
     'import/extensions': [ERROR, 'never', { json: 'always' }],
