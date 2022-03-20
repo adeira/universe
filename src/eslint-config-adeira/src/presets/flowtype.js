@@ -1,6 +1,6 @@
 // @flow
 
-const { ERROR, OFF, WARN } = require('../constants');
+const { ERROR, OFF, WARN, NEXT_VERSION_ERROR } = require('../constants');
 
 /*::
 
@@ -17,7 +17,7 @@ module.exports = ({
     'ft-flow/array-style-complex-type': OFF,
     'ft-flow/array-style-simple-type': OFF,
     'ft-flow/arrow-parens': OFF,
-    'ft-flow/boolean-style': OFF, // TODO: enable (?)
+    'ft-flow/boolean-style': [NEXT_VERSION_ERROR, 'boolean'],
     'ft-flow/define-flow-type': WARN,
     'ft-flow/delimiter-dangle': OFF,
     'ft-flow/enforce-line-break': OFF,
