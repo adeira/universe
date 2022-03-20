@@ -11,7 +11,7 @@ export default function HomepageFooter(): React.Node {
   return (
     <div className={styles('wrapper')}>
       <strong>
-        <fbt desc="opening hours">Tuesday - Sunday 10am - 8pm</fbt>
+        <fbt desc="opening hours">Tuesday - Sunday 12pm - 9pm</fbt>
       </strong>
 
       <div>
