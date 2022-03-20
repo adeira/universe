@@ -131,12 +131,32 @@
         }
       ]
     },
+    "qhyxBCe/pUVDATLDYaNRug==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Martes - Domingo 12pm - 9pm",
+          "variations": []
+        }
+      ]
+    },
     "01L7L5zx9XKSlIfQTGdfVg==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
           "translation": "Calle Tonalá 346, Roma Sur, Cuauhtémoc, 06760, CDMX, Mexico",
+          "variations": []
+        }
+      ]
+    },
+    "EdoLPwaSsscEQmOCmVmdmA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Vacantes laborales",
           "variations": []
         }
       ]
@@ -271,6 +291,16 @@
         }
       ]
     },
+    "2/2YfHIOTQBPe2NN5iDzHA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Adopciones",
+          "variations": []
+        }
+      ]
+    },
     "d/e8AfwzGWzIJOwgxriEMg==": {
       "tokens": [],
       "types": [],
@@ -291,12 +321,222 @@
         }
       ]
     },
+    "sY3J2OVXDvprP9Yw1wPdWQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Contribuciones",
+          "variations": []
+        }
+      ]
+    },
+    "Z1d6qX2L0fKBN6cEnxEOOw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Vacantes laborales",
+          "variations": []
+        }
+      ]
+    },
+    "vowqupCy07qqoGcmRVowvw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "¿Te gustaría trabajar con nosotros?",
+          "variations": []
+        }
+      ]
+    },
+    "4AXECy2caI+xQzb0HwSTUQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Ayudante de Cafetería",
+          "variations": []
+        }
+      ]
+    },
+    "JUWZIyIEqdy3pM7BrD7V3A==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "El ayudante de cafetería es responsable del servicio al cliente, mantener las instalaciones limpias y asistir en la preparación de alimentos.",
+          "variations": []
+        }
+      ]
+    },
     "1Czq0yZJzTcsPfK/OZGAPg==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
           "translation": "Barista",
+          "variations": []
+        }
+      ]
+    },
+    "lAd0Iecjt0/G66JSr54JvA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "El Barista es responsable de la preparación de bebidas a base de café, tés, malteadas y otras especialidades, así como de atender a nuestros clientes y mantener limpio el lugar de trabajo. Esta es una posición únicamente de tiempo completo.",
+          "variations": []
+        }
+      ]
+    },
+    "8Pm7esp/+gf54h5wjnhtIA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Cliente Misterioso",
+          "variations": []
+        }
+      ]
+    },
+    "BOp9L6wr5H8DAJ5jtd5J9g==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "El Cliente Misterios es responsable de garantizar que siempre proporcionemos los mejores servicios y productos a nuestros clientes. Lo hace visitando nuestra cafetería (en secreto) mientras pretende ser un cliente normal y después reportar cualquier observación.",
+          "variations": []
+        }
+      ]
+    },
+    "kOqAkB7LlUNdQoxTwvBwxA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Desarrollador de software de código abierto",
+          "variations": []
+        }
+      ]
+    },
+    "9Cq74Se0+aoAOP/0rB9kZQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "El desarrollador de código abierto es responsable de desarrollar software que se ejecuta detrás KOCHKA Café.",
+          "variations": []
+        }
+      ]
+    },
+    "bEAH2l2l66pXNF6sed5woQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "¿Sabías que todo el software está disponible públicamente? {github link}.",
+          "variations": []
+        }
+      ]
+    },
+    "MZh5/6nbdGKU1ALAY1bfgw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Esta posición no está disponible actualmente. Sin embargo, puedes dejarnos tus datos en nuestro \"Banco de Talentos\" para que podamos ponernos en contacto contigo más tarde: {=Open Talent Pool on Google Forms}",
+          "variations": []
+        }
+      ]
+    },
+    "hZRmbzZ0e79iOfeU1jOD2w==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Abrir Banco de Talentos en Google Forms",
+          "variations": []
+        }
+      ]
+    },
+    "ON2POsGqFJpEnyYUlxozWA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Tenemos 3 reglas principales que todos deben seguir cuando visiten KOCHKA Café:",
+          "variations": []
+        }
+      ]
+    },
+    "oOv/8vqrpu1YkjCPr/0Ovw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Está {=prohibited to give our cats any food or drinks}. Puede ser peligroso para ellos. Tienen su propia dieta. Por favor, protege tus platos y tazas.",
+          "variations": []
+        }
+      ]
+    },
+    "KPoYsofs2ww6ajkxKqytuw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "prohibido dar a nuestros gatos cualquier comida o bebida",
+          "variations": []
+        }
+      ]
+    },
+    "GOsw7+RyC2A6XAE4c9t7yQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Todos nuestros visitantes deben {=treat our cats respectfully}. Trátalos como si fueran una persona adulta - no son niños. Te pedimos que no los cargues. Espera a que se acerquen a ti.",
+          "variations": []
+        }
+      ]
+    },
+    "Zo/0lqlJL8OqwBIeekTJ9g==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "tratar a nuestros gatos respetuosamente",
+          "variations": []
+        }
+      ]
+    },
+    "D5Z3jlGunJSWfgZ0AEclgQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Ten cuidado cuando entres porque los gatitos pueden escapar.",
+          "variations": []
+        }
+      ]
+    },
+    "HZFWX4pwanRspVzyvzKIEg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Además, tenemos otras reglas que son igualmente importantes:",
+          "variations": []
+        }
+      ]
+    },
+    "y5XYH9F/uvwUXGAykCo7sA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Procura no despertarlos o interrumpirlos mientras comen.",
           "variations": []
         }
       ]
@@ -321,12 +561,32 @@
         }
       ]
     },
+    "D4p5G21fI6ApDMCTySYecw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "No somos responsables de las lesiones que nuestros gatos te puedan ocasionar (son muy juguetones y pueden arañarte sin querer). Pon atención especialmente a los niños que te acompañan. Puedes hacer uso de nuestro botiquín de primeros auxilios si lo necesitas.",
+          "variations": []
+        }
+      ]
+    },
     "u01M6MR9XEEj81zz9hMjhQ==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
           "translation": "La higiene es muy importante. Lávate las manos cuando juegues con nuestros gatos.",
+          "variations": []
+        }
+      ]
+    },
+    "EKVHIyGsE7I5vu2LtlYz6Q==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Te desaconsejamos visitarnos en caso de que seas alérgico a los gatos.",
           "variations": []
         }
       ]
