@@ -646,140 +646,196 @@
   },
   {
    "hashToText": {
-    "ma2mGfydLQ0QoMlyrlx9vw==": "Be careful when entering the café so that the cats do not run away. 🥺"
+    "ON2POsGqFJpEnyYUlxozWA==": "We have 3 main rules that everyone must follow when visiting KOCHKA Café:"
    },
    "filepath": "src/Rules.js",
-   "line_beg": 14,
+   "line_beg": 11,
    "col_beg": 8,
-   "line_end": 16,
+   "line_end": 13,
    "col_end": 14,
-   "desc": "Rule number 1",
+   "desc": "paragraph",
    "project": "",
    "type": "text",
-   "jsfbt": "Be careful when entering the café so that the cats do not run away. 🥺"
+   "jsfbt": "We have 3 main rules that everyone must follow when visiting KOCHKA Café:"
   },
   {
    "hashToText": {
-    "AZBk0HF6F8GgThvh5h0vdg==": "Feel free to play with the cats and have fun. But please, respect their space and do not force them to do things they do not want, such as pulling their tails, whiskers, etc."
+    "oOv/8vqrpu1YkjCPr/0Ovw==": "It is {=prohibited to give our cats any food or drinks}. It can be dangerous for them. They have their own diet, Please, protect your plates and cups."
+   },
+   "filepath": "src/Rules.js",
+   "line_beg": 18,
+   "col_beg": 12,
+   "line_end": 21,
+   "col_end": 18,
+   "desc": "rule",
+   "project": "",
+   "type": "text",
+   "jsfbt": "It is {=prohibited to give our cats any food or drinks}. It can be dangerous for them. They have their own diet, Please, protect your plates and cups."
+  },
+  {
+   "hashToText": {
+    "KPoYsofs2ww6ajkxKqytuw==": "prohibited to give our cats any food or drinks"
    },
    "filepath": "src/Rules.js",
    "line_beg": 19,
-   "col_beg": 8,
-   "line_end": 22,
-   "col_end": 14,
-   "desc": "Rule number 2",
+   "col_beg": 20,
+   "line_end": 19,
+   "col_end": 83,
+   "desc": "In the phrase: \"It is {=prohibited to give our cats any food or drinks}. It can be dangerous for them. They have their own diet, Please, protect your plates and cups.\"",
    "project": "",
    "type": "text",
-   "jsfbt": "Feel free to play with the cats and have fun. But please, respect their space and do not force them to do things they do not want, such as pulling their tails, whiskers, etc."
+   "jsfbt": "prohibited to give our cats any food or drinks"
   },
   {
    "hashToText": {
-    "2fSycF0Q8vnGGrk4RLeKLg==": "Try not to wake up our cats or interrupt them while they are having a snack."
+    "GOsw7+RyC2A6XAE4c9t7yQ==": "Every visitor must {=treat our cats respectfully}. Treat them like any other adult person - they are not kids. We ask you not to cary them. Wait for them to approach you instead."
+   },
+   "filepath": "src/Rules.js",
+   "line_beg": 24,
+   "col_beg": 12,
+   "line_end": 28,
+   "col_end": 18,
+   "desc": "rule",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Every visitor must {=treat our cats respectfully}. Treat them like any other adult person - they are not kids. We ask you not to cary them. Wait for them to approach you instead."
+  },
+  {
+   "hashToText": {
+    "Zo/0lqlJL8OqwBIeekTJ9g==": "treat our cats respectfully"
    },
    "filepath": "src/Rules.js",
    "line_beg": 25,
-   "col_beg": 8,
-   "line_end": 27,
-   "col_end": 14,
-   "desc": "Rule number 3",
+   "col_beg": 33,
+   "line_end": 25,
+   "col_end": 77,
+   "desc": "In the phrase: \"Every visitor must {=treat our cats respectfully}. Treat them like any other adult person - they are not kids. We ask you not to cary them. Wait for them to approach you instead.\"",
    "project": "",
    "type": "text",
-   "jsfbt": "Try not to wake up our cats or interrupt them while they are having a snack."
+   "jsfbt": "treat our cats respectfully"
   },
   {
    "hashToText": {
-    "Y+IlF4wmefnxuZ8S3QrbuA==": "We encourage you to take pictures. 👍 But prefer to take them without a flash. Don't forget to tag us in your Instagram or Facebook story: {instagram account}"
+    "D5Z3jlGunJSWfgZ0AEclgQ==": "Be careful when entering KOCHKA Café so that our cats do not run away."
    },
    "filepath": "src/Rules.js",
-   "line_beg": 30,
+   "line_beg": 31,
+   "col_beg": 12,
+   "line_end": 33,
+   "col_end": 18,
+   "desc": "rule",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Be careful when entering KOCHKA Café so that our cats do not run away."
+  },
+  {
+   "hashToText": {
+    "HZFWX4pwanRspVzyvzKIEg==": "Additionally, we have other rules that are just as important:"
+   },
+   "filepath": "src/Rules.js",
+   "line_beg": 38,
    "col_beg": 8,
    "line_end": 38,
-   "col_end": 14,
-   "desc": "Rule number 4",
+   "col_end": 97,
+   "desc": "paragraph",
    "project": "",
    "type": "text",
-   "jsfbt": "We encourage you to take pictures. 👍 But prefer to take them without a flash. Don't forget to tag us in your Instagram or Facebook story: {instagram account}"
+   "jsfbt": "Additionally, we have other rules that are just as important:"
   },
   {
    "hashToText": {
-    "/TGZ0/sm4xOZEsBdd0DHRQ==": "Our cats have a healthy diet. Human food might be dangerous for them. Please don't feed them with your food."
+    "y5XYH9F/uvwUXGAykCo7sA==": "Do not wake up our cats or interrupt them while they are eating."
    },
    "filepath": "src/Rules.js",
-   "line_beg": 41,
-   "col_beg": 8,
-   "line_end": 44,
-   "col_end": 14,
-   "desc": "Rule number 5",
+   "line_beg": 43,
+   "col_beg": 12,
+   "line_end": 43,
+   "col_end": 99,
+   "desc": "rule",
    "project": "",
    "type": "text",
-   "jsfbt": "Our cats have a healthy diet. Human food might be dangerous for them. Please don't feed them with your food."
+   "jsfbt": "Do not wake up our cats or interrupt them while they are eating."
   },
   {
    "hashToText": {
-    "/T78HImOiKKs6J26mVLuaQ==": "Cats are very sensitive. Be careful with loud and sudden noises, which could scare them."
+    "/t+xI2an+VOt0etSs48GmQ==": "Cats are very sensitive. Be careful with loud and sudden noises, which could scare them."
    },
    "filepath": "src/Rules.js",
-   "line_beg": 47,
-   "col_beg": 8,
+   "line_beg": 46,
+   "col_beg": 12,
    "line_end": 49,
-   "col_end": 14,
-   "desc": "Rule number 6",
+   "col_end": 18,
+   "desc": "rule",
    "project": "",
    "type": "text",
    "jsfbt": "Cats are very sensitive. Be careful with loud and sudden noises, which could scare them."
   },
   {
    "hashToText": {
-    "U98Bttt6bmp1PmUACerVug==": "Leave your pets at home. Other pets are not allowed here."
+    "2M/LRaQwR7k0iYNW0dlxJg==": "Leave your pets at home. Other pets are not allowed here."
    },
    "filepath": "src/Rules.js",
    "line_beg": 52,
-   "col_beg": 8,
+   "col_beg": 12,
    "line_end": 52,
-   "col_end": 97,
-   "desc": "Rule number 7",
+   "col_end": 92,
+   "desc": "rule",
    "project": "",
    "type": "text",
    "jsfbt": "Leave your pets at home. Other pets are not allowed here."
   },
   {
    "hashToText": {
-    "itv8A/4Pvi/UCI1hEPlLpQ==": "We are not responsible for any injuries caused by our cats - they are very playful, and they do not mean it. Pay special attention to your kids. Feel free to ask for medical aid when needed."
+    "D4p5G21fI6ApDMCTySYecw==": "We are not responsible for any injuries caused by our cats - they are very playful, and they do not mean it. Pay special attention to your kids. Feel free to ask for medical aid when needed."
    },
    "filepath": "src/Rules.js",
    "line_beg": 55,
-   "col_beg": 8,
+   "col_beg": 12,
    "line_end": 59,
-   "col_end": 14,
-   "desc": "Rule number 8",
+   "col_end": 18,
+   "desc": "rule",
    "project": "",
    "type": "text",
    "jsfbt": "We are not responsible for any injuries caused by our cats - they are very playful, and they do not mean it. Pay special attention to your kids. Feel free to ask for medical aid when needed."
   },
   {
    "hashToText": {
-    "eEHP2QM079xkRqVGx7HUlQ==": "Hygiene is important. Wash your hand when playing with our cats."
+    "u01M6MR9XEEj81zz9hMjhQ==": "Hygiene is important. Wash your hand when playing with our cats."
    },
    "filepath": "src/Rules.js",
    "line_beg": 62,
-   "col_beg": 8,
-   "line_end": 64,
-   "col_end": 14,
-   "desc": "Rule number 9",
+   "col_beg": 12,
+   "line_end": 62,
+   "col_end": 99,
+   "desc": "rule",
    "project": "",
    "type": "text",
    "jsfbt": "Hygiene is important. Wash your hand when playing with our cats."
   },
   {
    "hashToText": {
-    "4EOS7M5k/RGGg6oLo32EHw==": "Please, follow our rules. Misbehaving guests will be asked to leave."
+    "EKVHIyGsE7I5vu2LtlYz6Q==": "We highly discourage you from visiting us in case you are allergic to cats."
    },
    "filepath": "src/Rules.js",
-   "line_beg": 67,
-   "col_beg": 8,
-   "line_end": 69,
-   "col_end": 14,
-   "desc": "Rule number 10",
+   "line_beg": 65,
+   "col_beg": 12,
+   "line_end": 67,
+   "col_end": 18,
+   "desc": "rule",
+   "project": "",
+   "type": "text",
+   "jsfbt": "We highly discourage you from visiting us in case you are allergic to cats."
+  },
+  {
+   "hashToText": {
+    "dpYGaDV5nBHTHU/I/qisQg==": "Please, follow our rules. Misbehaving guests will be asked to leave."
+   },
+   "filepath": "src/Rules.js",
+   "line_beg": 70,
+   "col_beg": 12,
+   "line_end": 72,
+   "col_end": 18,
+   "desc": "rule",
    "project": "",
    "type": "text",
    "jsfbt": "Please, follow our rules. Misbehaving guests will be asked to leave."
