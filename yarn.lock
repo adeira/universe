@@ -17,7 +17,7 @@ __metadata:
     "@adeira/sx-design": ^0.24.0
     "@fbtjs/default-collection-transform": ^0.0.3
     "@next/bundle-analyzer": ^12.1.0
-    "@testing-library/jest-dom": ^5.16.2
+    "@testing-library/jest-dom": ^5.16.3
     "@testing-library/react": ^12.1.4
     "@testing-library/react-hooks": ^7.0.2
     babel-plugin-fbt: ^0.20.3
@@ -173,7 +173,7 @@ __metadata:
     "@adeira/relay": ^5.2.0
     "@adeira/sx": ^0.29.0
     "@adeira/sx-design": ^0.24.0
-    "@testing-library/jest-dom": ^5.16.2
+    "@testing-library/jest-dom": ^5.16.3
     "@testing-library/react": ^12.1.4
     "@testing-library/user-event": ^13.5.0
     apollo-server-micro: ^3.6.5
@@ -444,7 +444,7 @@ __metadata:
     "@storybook/addons": ^6.4.19
     "@storybook/react": ^6.4.19
     "@storybook/theming": ^6.4.19
-    "@testing-library/jest-dom": ^5.16.2
+    "@testing-library/jest-dom": ^5.16.3
     "@testing-library/react": ^12.1.4
     "@testing-library/user-event": ^13.5.0
     babel-loader: ^8.2.4
@@ -530,7 +530,7 @@ __metadata:
     "@adeira/murmur-hash": ^2.0.1
     "@adeira/signed-source": ^2.0.0
     "@babel/runtime": ^7.17.8
-    "@testing-library/jest-dom": ^5.16.2
+    "@testing-library/jest-dom": ^5.16.3
     "@testing-library/react": ^12.1.4
     change-case: ^4.1.2
     css-tree: ^2.1.0
@@ -4597,9 +4597,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/jest-dom@npm:^5.16.2":
-  version: 5.16.2
-  resolution: "@testing-library/jest-dom@npm:5.16.2"
+"@testing-library/jest-dom@npm:^5.16.3":
+  version: 5.16.3
+  resolution: "@testing-library/jest-dom@npm:5.16.3"
   dependencies:
     "@babel/runtime": ^7.9.2
     "@types/testing-library__jest-dom": ^5.9.1
@@ -4610,7 +4610,7 @@ __metadata:
     dom-accessibility-api: ^0.5.6
     lodash: ^4.17.15
     redent: ^3.0.0
-  checksum: e4569df67c4c4998d2c60c6cf00ce2f1ac10c9397e0970320728c8be8f4e2c17a0e801705ce8a7384f7f5629b598a6f58db91d4401dde02044f5625405ca0988
+  checksum: 2d7b767bc1337eea9698ec6d57beea37b4993d848b30d7498b72eb975fbf58dea14039515fb4b393f95ea52f55ca5f91db5d7b2f746f8457e345021ed7482ecb
   languageName: node
   linkType: hard
 
