@@ -492,54 +492,26 @@
   },
   {
    "hashToText": {
-    "4AXECy2caI+xQzb0HwSTUQ==": "Cafeteria Assistant"
+    "Uv4+kYVhFz2utYz977Z2UQ==": "Person in charge of beverage preparation (Barista)"
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 18,
-   "col_beg": 17,
-   "line_end": 18,
-   "col_end": 79,
-   "desc": "assistant position title",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Cafeteria Assistant"
-  },
-  {
-   "hashToText": {
-    "JUWZIyIEqdy3pM7BrD7V3A==": "Cafeteria Assistant is responsible for customer service, keeping facilities clean, and assisting in food preparation. This is a full-time position only."
-   },
-   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 21,
-   "col_beg": 14,
-   "line_end": 24,
-   "col_end": 20,
-   "desc": "assistant position description",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Cafeteria Assistant is responsible for customer service, keeping facilities clean, and assisting in food preparation. This is a full-time position only."
-  },
-  {
-   "hashToText": {
-    "1Czq0yZJzTcsPfK/OZGAPg==": "Barista"
-   },
-   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 30,
-   "col_beg": 17,
-   "line_end": 30,
-   "col_end": 65,
+   "line_beg": 25,
+   "col_beg": 12,
+   "line_end": 27,
+   "col_end": 18,
    "desc": "barista position title",
    "project": "",
    "type": "text",
-   "jsfbt": "Barista"
+   "jsfbt": "Person in charge of beverage preparation (Barista)"
   },
   {
    "hashToText": {
     "lAd0Iecjt0/G66JSr54JvA==": "Barista is responsible for preparation of coffee based drinks, teas, milkshakes and other specialities as well as attending our clients and keeping the workplace clean. This is a full-time position only."
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 33,
+   "line_beg": 31,
    "col_beg": 14,
-   "line_end": 37,
+   "line_end": 35,
    "col_end": 20,
    "desc": "barista position description",
    "project": "",
@@ -548,12 +520,68 @@
   },
   {
    "hashToText": {
+    "3raB56R7+NKJ+jgm8pP2rQ==": "Person in charge of food preparation"
+   },
+   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
+   "line_beg": 41,
+   "col_beg": 17,
+   "line_end": 41,
+   "col_end": 91,
+   "desc": "chef position title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Person in charge of food preparation"
+  },
+  {
+   "hashToText": {
+    "wf4j48fLHP425fhfMR8e7A==": "Person in charge of food preparation is responsible for preparing and improving our food options as well as attending our clients and keeping the workplace clean. This is a full-time position only."
+   },
+   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
+   "line_beg": 44,
+   "col_beg": 14,
+   "line_end": 48,
+   "col_end": 20,
+   "desc": "chef position description",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Person in charge of food preparation is responsible for preparing and improving our food options as well as attending our clients and keeping the workplace clean. This is a full-time position only."
+  },
+  {
+   "hashToText": {
+    "A6HMfFTSqbzOQClXvunMXg==": "Person in charge of our premises and customers"
+   },
+   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
+   "line_beg": 55,
+   "col_beg": 12,
+   "line_end": 57,
+   "col_end": 18,
+   "desc": "assistant position title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Person in charge of our premises and customers"
+  },
+  {
+   "hashToText": {
+    "YWTm5M86w76d43pJKYXN7w==": "Person in this position is responsible for customer service, keeping the facilities clean, and assisting in the food preparation sector. This is a full-time position only."
+   },
+   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
+   "line_beg": 61,
+   "col_beg": 14,
+   "line_end": 65,
+   "col_end": 20,
+   "desc": "assistant position description",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Person in this position is responsible for customer service, keeping the facilities clean, and assisting in the food preparation sector. This is a full-time position only."
+  },
+  {
+   "hashToText": {
     "8Pm7esp/+gf54h5wjnhtIA==": "Mystery Shopper"
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 43,
+   "line_beg": 71,
    "col_beg": 17,
-   "line_end": 43,
+   "line_end": 71,
    "col_end": 81,
    "desc": "mystery shopper position title",
    "project": "",
@@ -565,9 +593,9 @@
     "BOp9L6wr5H8DAJ5jtd5J9g==": "Mystery Shopper is responsible for making sure that we always provide the best services and products to our customers. It does so by visiting our café (secretly) while pretending to be a normal customer and later reporting any observations."
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 46,
+   "line_beg": 74,
    "col_beg": 14,
-   "line_end": 50,
+   "line_end": 78,
    "col_end": 20,
    "desc": "mystery shopper position description",
    "project": "",
@@ -579,9 +607,9 @@
     "kOqAkB7LlUNdQoxTwvBwxA==": "Open-source Developer"
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 56,
+   "line_beg": 84,
    "col_beg": 17,
-   "line_end": 56,
+   "line_end": 84,
    "col_end": 87,
    "desc": "mystery shopper position title",
    "project": "",
@@ -593,9 +621,9 @@
     "9Cq74Se0+aoAOP/0rB9kZQ==": "Open-source Developer is responsible for developing software running behind the scenes of KOCHKA Café. Knowledge of Git, JavaScript and Rust are very important."
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 60,
+   "line_beg": 88,
    "col_beg": 16,
-   "line_end": 63,
+   "line_end": 91,
    "col_end": 22,
    "desc": "mystery shopper position description",
    "project": "",
@@ -607,9 +635,9 @@
     "bEAH2l2l66pXNF6sed5woQ==": "Did you know? All your software is publically available {github link}."
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 66,
+   "line_beg": 94,
    "col_beg": 16,
-   "line_end": 73,
+   "line_end": 101,
    "col_end": 22,
    "desc": "open-source code explainer",
    "project": "",
