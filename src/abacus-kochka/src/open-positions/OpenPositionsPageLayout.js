@@ -14,26 +14,54 @@ export default function OpenPositionsPageLayout(): React.Node {
       subtitle={<fbt desc="open positions page subtitle">Would you like to work with us?</fbt>}
     >
       <LayoutBlock>
+        {/* TODO: Why working for KOCHKA Café?
+             - a company with European co-founder requiring higher standards
+             - bullshit free (admit we cannot offer great benefits now)
+             - transparent/open company
+             - tktk
+         */}
         <OpenPosition
-          title={<fbt desc="assistant position title">Cafeteria Assistant</fbt>}
-          descriptionComponent={
-            <p>
-              <fbt desc="assistant position description">
-                Cafeteria Assistant is responsible for customer service, keeping facilities clean,
-                and assisting in food preparation. This is a full-time position only.
-              </fbt>
-            </p>
+          title={
+            <fbt desc="barista position title">
+              Person in charge of beverage preparation (Barista)
+            </fbt>
           }
-        />
-
-        <OpenPosition
-          title={<fbt desc="barista position title">Barista</fbt>}
           descriptionComponent={
             <p>
               <fbt desc="barista position description">
                 Barista is responsible for preparation of coffee based drinks, teas, milkshakes and
                 other specialities as well as attending our clients and keeping the workplace clean.
                 This is a full-time position only.
+              </fbt>
+            </p>
+          }
+        />
+
+        <OpenPosition
+          title={<fbt desc="chef position title">Person in charge of food preparation</fbt>}
+          descriptionComponent={
+            <p>
+              <fbt desc="chef position description">
+                Person in charge of food preparation is responsible for preparing and improving our
+                food options as well as attending our clients and keeping the workplace clean. This
+                is a full-time position only.
+              </fbt>
+            </p>
+          }
+        />
+
+        <OpenPosition
+          title={
+            <fbt desc="assistant position title">
+              Person in charge of our premises and customers
+            </fbt>
+          }
+          descriptionComponent={
+            <p>
+              <fbt desc="assistant position description">
+                Person in this position is responsible for customer service, keeping the facilities
+                clean, and assisting in the food preparation sector. This is a full-time position
+                only.
               </fbt>
             </p>
           }
