@@ -57,6 +57,7 @@ Legend:
 | [`<Entity />`]        |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<EntityField />`]   |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<ErrorBoundary />`] |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
+| [`<FlashMessage />`]  |     🧐      |     🧐      |      🧐       |    🧐    |  🧐   |
 | [`<FilterChips />`]   |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Image />`]         |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<Kbd />`]           |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
@@ -84,6 +85,7 @@ Legend:
 [`<entity />`]: https://sx-design.vercel.app/?path=/docs/components-entity
 [`<entityfield />`]: https://sx-design.vercel.app/?path=/docs/components-entityfield
 [`<errorboundary />`]: https://sx-design.vercel.app/?path=/docs/components-errorboundary
+[`<flashmessage />`]: https://sx-design.vercel.app/?path=/docs/components-flashmessage
 [`<filterchips />`]: https://sx-design.vercel.app/?path=/docs/components-filterchips
 [`<image />`]: https://sx-design.vercel.app/?path=/docs/components-image
 [`<kbd />`]: https://sx-design.vercel.app/?path=/docs/components-kbd

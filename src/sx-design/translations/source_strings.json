@@ -5,9 +5,9 @@
     "UdnIS3EzRtyd5YBWoCR25Q==": "Breadcrumb"
    },
    "filepath": "src/Breadcrumb/Breadcrumb.js",
-   "line_beg": 37,
+   "line_beg": 38,
    "col_beg": 18,
-   "line_end": 37,
+   "line_end": 38,
    "col_end": 57,
    "desc": "breadcrumb",
    "project": "",
@@ -47,9 +47,9 @@
     "WgEfGWUAntBTCX5DfSkZ1w==": "Loading"
    },
    "filepath": "src/Loader/Loader.js",
-   "line_beg": 23,
+   "line_beg": 25,
    "col_beg": 21,
-   "line_end": 23,
+   "line_end": 25,
    "col_end": 65,
    "desc": "loading aria label",
    "project": "",
