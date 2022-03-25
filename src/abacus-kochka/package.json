@@ -18,7 +18,7 @@
     "@adeira/icons": "^1.0.1",
     "@adeira/js": "^2.1.1",
     "@adeira/relay": "^5.2.0",
-    "@adeira/sx": "^0.29.0",
+    "@adeira/sx": "^0.29.1",
     "@adeira/sx-design": "^0.24.0",
     "babel-plugin-fbt": "^0.20.3",
     "babel-plugin-fbt-runtime": "^0.9.18",
