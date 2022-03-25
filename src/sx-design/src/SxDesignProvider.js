@@ -4,12 +4,13 @@ import React, { useMemo, useEffect, useState, type Node } from 'react';
 import { init as FbtInit, IntlVariations as FbtIntlVariations, FbtTranslations } from 'fbt';
 import sx from '@adeira/sx';
 
+import FlashMessagesRenderer from './FlashMessage/FlashMessagesRenderer';
 import getFbtTranslations from './getFbtTranslations';
-import { MediaQueryColorScheme } from './MediaQueries';
 import SxDesignContext from './SxDesignContext';
 import SxDesignProviderCSSVariables from './SxDesignProviderCSSVariables';
-import { SX_DESIGN_REACT_PORTAL_ID } from './SxDesignPortal';
+import { MediaQueryColorScheme } from './MediaQueries';
 import { SupportedDirections, type SupportedLocales } from './constants';
+import { SX_DESIGN_REACT_PORTAL_ID } from './SxDesignPortal';
 
 type Props = {
   +children: Node,
@@ -18,6 +19,7 @@ type Props = {
 };
 
 export default function SxDesignProvider(props: Props): Node {
+  const [activeFlashMessages, setActiveFlashMessages] = useState(new Map());
   const [actualSystemColor, setActualSystemColor] = useState(() => {
     return typeof window === 'object' &&
       window.matchMedia &&
@@ -71,8 +73,22 @@ export default function SxDesignProvider(props: Props): Node {
       // Here we exchange "system" value for the actual theme because underlying components need to
       // know only whether we are rendering "light" or "dark".
       theme: theme === 'system' ? actualSystemColor : theme,
+      activeFlashMessages,
+      displayFlashMessage: (newFlashMessage) => {
+        const timeoutID = setTimeout(() => {
+          setActiveFlashMessages((previousFlashMessages) => {
+            previousFlashMessages.delete(timeoutID);
+            return new Map(previousFlashMessages);
+          });
+        }, 2500);
+
+        setActiveFlashMessages(
+          (previousFlashMessages) =>
+            new Map([...previousFlashMessages, [timeoutID, newFlashMessage]]),
+        );
+      },
     }),
-    [actualSystemColor, direction, sxLocale, theme],
+    [actualSystemColor, direction, sxLocale, theme, activeFlashMessages],
   );
 
   return (
@@ -91,7 +107,10 @@ export default function SxDesignProvider(props: Props): Node {
       // would be out of the "context" of CSS variables).
       id={SX_DESIGN_REACT_PORTAL_ID}
     >
-      <SxDesignContext.Provider value={contextValue}>{props.children}</SxDesignContext.Provider>
+      <SxDesignContext.Provider value={contextValue}>
+        {props.children}
+        <FlashMessagesRenderer />
+      </SxDesignContext.Provider>
     </div>
   );
 }

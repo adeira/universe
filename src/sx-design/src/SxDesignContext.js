@@ -8,6 +8,8 @@ export type SxDesignContextValue = {
   +locale: SupportedLocales,
   +direction: SupportedDirections,
   +theme: 'light' | 'dark', // no "system" (!)
+  +activeFlashMessages: Map<TimeoutID, FbtWithoutString>,
+  +displayFlashMessage: (FbtWithoutString) => void,
 };
 
 export default (React.createContext(

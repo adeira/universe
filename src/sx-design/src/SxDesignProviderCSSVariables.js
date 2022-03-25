@@ -37,7 +37,7 @@ export default {
     '--sx-radius': '5px',
     '--sx-radius-large': '15px',
 
-    '--sx-shadow-small': '0 5px 10px rgba(0,0,0,0.12)',
+    '--sx-shadow-small': '0 5px 10px rgba(0,0,0,0.12)', // boxShadow: 'var(--sx-shadow-small)'
     '--sx-shadow-medium': '0 8px 30px rgba(0,0,0,0.12)',
     '--sx-shadow-large': '0 30px 60px rgba(0,0,0,0.12)',
 
