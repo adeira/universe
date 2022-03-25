@@ -1,7 +1,2 @@
-releases:
-  "@adeira/sx-design": minor
-
 declined:
-  - "@adeira/abacus-backoffice"
-  - "@adeira/abacus-kochka"
-  - "@adeira/example-relay"
+  - "@adeira/sx-design"

@@ -10,7 +10,7 @@ export default function useSxDesignContext(): SxDesignContextValue {
   invariant(
     context != null,
     'useSxDesignContext: Expected to have found a SX Design environment provided by ' +
-      'a `SxDesignProvider` component.  This usually means that `useSxDesignContext` was used ' +
+      'a `SxDesignProvider` component. This usually means that `useSxDesignContext` was used ' +
       'in a component that is not a descendant of a `SxDesignProvider`. Please make sure ' +
       'a `SxDesignProvider` has been rendered somewhere as a parent or ancestor of your component.',
   );
