@@ -13,7 +13,7 @@ __metadata:
     "@adeira/icons": ^1.0.1
     "@adeira/js": ^2.1.1
     "@adeira/relay": ^5.2.0
-    "@adeira/sx": ^0.29.0
+    "@adeira/sx": ^0.29.1
     "@adeira/sx-design": ^0.24.0
     "@fbtjs/default-collection-transform": ^0.0.3
     "@next/bundle-analyzer": ^12.1.1
@@ -45,7 +45,7 @@ __metadata:
     "@adeira/icons": ^1.0.1
     "@adeira/js": ^2.1.1
     "@adeira/relay": ^5.2.0
-    "@adeira/sx": ^0.29.0
+    "@adeira/sx": ^0.29.1
     "@adeira/sx-design": ^0.24.0
     "@fbtjs/default-collection-transform": ^0.0.3
     "@testing-library/react": ^12.1.4
@@ -111,7 +111,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/eslint-config@^7.3.0, @adeira/eslint-config@workspace:src/eslint-config-adeira":
+"@adeira/eslint-config@^7.4.0, @adeira/eslint-config@workspace:src/eslint-config-adeira":
   version: 0.0.0-use.local
   resolution: "@adeira/eslint-config@workspace:src/eslint-config-adeira"
   dependencies:
@@ -171,7 +171,7 @@ __metadata:
     "@adeira/icons": ^1.0.1
     "@adeira/js": ^2.1.1
     "@adeira/relay": ^5.2.0
-    "@adeira/sx": ^0.29.0
+    "@adeira/sx": ^0.29.1
     "@adeira/sx-design": ^0.24.0
     "@testing-library/jest-dom": ^5.16.3
     "@testing-library/react": ^12.1.4
@@ -431,7 +431,7 @@ __metadata:
     "@adeira/css-colors": ^2.2.0
     "@adeira/icons": ^1.0.1
     "@adeira/js": ^2.1.1
-    "@adeira/sx": ^0.29.0
+    "@adeira/sx": ^0.29.1
     "@adeira/sx-jest-snapshot-serializer": ^0.1.0
     "@babel/core": ^7.17.8
     "@babel/runtime": ^7.17.8
@@ -461,7 +461,7 @@ __metadata:
     react-dom: ^17.0.2
     react-table: ^7.7.0
   peerDependencies:
-    "@adeira/sx": ^0.29.0
+    "@adeira/sx": ^0.29.1
     react: ^17.0.2
     react-dom: ^17.0.2
   languageName: unknown
@@ -471,7 +471,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@adeira/sx-jest-snapshot-serializer@workspace:src/sx-jest-snapshot-serializer"
   dependencies:
-    "@adeira/sx": ^0.29.0
+    "@adeira/sx": ^0.29.1
     "@babel/runtime": ^7.17.8
     "@testing-library/react": ^12.1.4
     prettier: ^2.6.1
@@ -486,7 +486,7 @@ __metadata:
   dependencies:
     "@adeira/babel-plugin-transform-sx-tailwind": ^0.18.1
     "@adeira/babel-preset-adeira": ^4.0.0
-    "@adeira/sx": ^0.29.0
+    "@adeira/sx": ^0.29.1
     "@babel/core": ^7.17.8
     flow-bin: ^0.174.1
     hast-util-to-html: ^7.1.3
@@ -508,7 +508,7 @@ __metadata:
     "@adeira/babel-preset-adeira": ^4.0.0
     "@adeira/js": ^2.1.1
     "@adeira/signed-source": ^2.0.0
-    "@adeira/sx": ^0.29.0
+    "@adeira/sx": ^0.29.1
     "@babel/core": ^7.17.8
     "@babel/runtime": ^7.17.8
     change-case: ^4.1.2
@@ -520,7 +520,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/sx@^0.29.0, @adeira/sx@workspace:src/sx":
+"@adeira/sx@^0.29.1, @adeira/sx@workspace:src/sx":
   version: 0.0.0-use.local
   resolution: "@adeira/sx@workspace:src/sx"
   dependencies:
@@ -9682,7 +9682,7 @@ __metadata:
     eslint: ^8.12.0
     react: ^17.0.2
   peerDependencies:
-    "@adeira/sx": ^0.29.0
+    "@adeira/sx": ^0.29.1
     eslint: ^8.12.0
   languageName: unknown
   linkType: soft
@@ -17276,7 +17276,7 @@ __metadata:
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
-    "@adeira/eslint-config": ^7.3.0
+    "@adeira/eslint-config": ^7.4.0
     "@adeira/monorepo-utils": ^0.11.0
     "@babel/cli": ^7.17.6
     "@babel/core": ^7.17.8
