@@ -57,7 +57,6 @@ pub(in crate::menu) async fn get_section(
                     "13296916".to_string(), // Hamara Black Chai
                     "3707225".to_string(),  // Jarabe Tapatío
                     "3707278".to_string(),  // Bésame Mucho
-                    "3707327".to_string(),  // Maison de Cannelle
                 ],
             )
             .await
