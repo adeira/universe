@@ -271,8 +271,11 @@ const fadeIn = sx.keyframes({
 
 const styles = sx.create({
   text: {
+    // See: https://developer.mozilla.org/en-US/docs/Web/CSS/animation
     animationName: fadeIn,
     animationDuration: '2s',
+    animationFillMode: 'none',
+    animationTimingFunction: 'ease',
   },
 });
 ```
