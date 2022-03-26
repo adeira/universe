@@ -1,6 +1,6 @@
 // @flow
 
-import { LayoutBlock, Link } from '@adeira/sx-design';
+import { Badge, LayoutBlock, Link } from '@adeira/sx-design';
 import * as React from 'react';
 import fbt from 'fbt';
 
@@ -13,7 +13,7 @@ export default function OpenPositionsPageLayout(): React.Node {
       title={<fbt desc="open positions page title">Open positions</fbt>}
       subtitle={<fbt desc="open positions page subtitle">Would you like to work with us?</fbt>}
     >
-      <LayoutBlock>
+      <LayoutBlock spacing="large">
         {/* TODO: Why working for KOCHKA Café?
              - a company with European co-founder requiring higher standards
              - bullshit free (admit we cannot offer great benefits now)
@@ -26,6 +26,12 @@ export default function OpenPositionsPageLayout(): React.Node {
               Person in charge of beverage preparation (Barista)
             </fbt>
           }
+          isCurrentlyAvailable={false}
+          badges={[
+            <Badge key={1} tint="default">
+              <fbt desc="full-time badge text">Full-time</fbt>
+            </Badge>,
+          ]}
           descriptionComponent={
             <p>
               <fbt desc="barista position description">
@@ -39,6 +45,12 @@ export default function OpenPositionsPageLayout(): React.Node {
 
         <OpenPosition
           title={<fbt desc="chef position title">Person in charge of food preparation</fbt>}
+          isCurrentlyAvailable={false}
+          badges={[
+            <Badge key={1} tint="default">
+              <fbt desc="full-time badge text">Full-time</fbt>
+            </Badge>,
+          ]}
           descriptionComponent={
             <p>
               <fbt desc="chef position description">
@@ -56,6 +68,12 @@ export default function OpenPositionsPageLayout(): React.Node {
               Person in charge of our premises and customers
             </fbt>
           }
+          isCurrentlyAvailable={true}
+          badges={[
+            <Badge key={1} tint="default">
+              <fbt desc="full-time badge text">Full-time</fbt>
+            </Badge>,
+          ]}
           descriptionComponent={
             <p>
               <fbt desc="assistant position description">
@@ -69,6 +87,7 @@ export default function OpenPositionsPageLayout(): React.Node {
 
         <OpenPosition
           title={<fbt desc="mystery shopper position title">Mystery Shopper</fbt>}
+          isCurrentlyAvailable={false}
           descriptionComponent={
             <p>
               <fbt desc="mystery shopper position description">
@@ -82,6 +101,7 @@ export default function OpenPositionsPageLayout(): React.Node {
 
         <OpenPosition
           title={<fbt desc="mystery shopper position title">Open-source Developer</fbt>}
+          isCurrentlyAvailable={false}
           descriptionComponent={
             <>
               <p>
