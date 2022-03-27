@@ -33,8 +33,9 @@ jobs:
       - name: Install Yarn dependencies
         run: yarn install --immutable
 
-      - name: Check Yarn versions releases
-        run: yarn version check
+      # TODO: https://github.com/yarnpkg/berry/issues/2783
+      # - name: Check Yarn versions releases
+      #   run: yarn version check
 
       # https://github.com/actions-rs/toolchain
       - uses: actions-rs/toolchain@v1.0.7
