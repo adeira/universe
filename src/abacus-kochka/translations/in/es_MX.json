@@ -331,6 +331,36 @@
         }
       ]
     },
+    "NdYRRXcBGtwer7LDXw1sAA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Esta vacante está disponible actualmente. Todavía estamos trabajando en un mejor proceso de postulación, sin embargo, puedes dejarnos tus datos en nuestro \"Banco de Talentos\" mientras tanto.",
+          "variations": []
+        }
+      ]
+    },
+    "sjH60ictWlligAbhwK+M9Q==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Postularse en {=Talent Pool} en los formularios de Google",
+          "variations": []
+        }
+      ]
+    },
+    "EJFmNT7ttYV/wWpdCodlrw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Banco de Talentos",
+          "variations": []
+        }
+      ]
+    },
     "Z1d6qX2L0fKBN6cEnxEOOw==": {
       "tokens": [],
       "types": [],
@@ -351,32 +381,22 @@
         }
       ]
     },
-    "4AXECy2caI+xQzb0HwSTUQ==": {
+    "Uv4+kYVhFz2utYz977Z2UQ==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Ayudante de Cafetería",
+          "translation": "Persona encargada de la preparación de bebidas (Barista)",
           "variations": []
         }
       ]
     },
-    "JUWZIyIEqdy3pM7BrD7V3A==": {
+    "5PQUikdPXG3uo/yYO/JTdg==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "El ayudante de cafetería es responsable del servicio al cliente, mantener las instalaciones limpias y asistir en la preparación de alimentos.",
-          "variations": []
-        }
-      ]
-    },
-    "1Czq0yZJzTcsPfK/OZGAPg==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Barista",
+          "translation": "Tiempo completo",
           "variations": []
         }
       ]
@@ -386,7 +406,47 @@
       "types": [],
       "translations": [
         {
-          "translation": "El Barista es responsable de la preparación de bebidas a base de café, tés, malteadas y otras especialidades, así como de atender a nuestros clientes y mantener limpio el lugar de trabajo. Esta es una posición únicamente de tiempo completo.",
+          "translation": "El Barista es responsable de la preparación de bebidas a base de café, tés, malteadas y otras especialidades, así como de atender a nuestros clientes y mantener limpio el lugar de trabajo. Esta es vacante de tiempo completo únicamente.",
+          "variations": []
+        }
+      ]
+    },
+    "3raB56R7+NKJ+jgm8pP2rQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Persona encargada de la preparación de alimentos",
+          "variations": []
+        }
+      ]
+    },
+    "wf4j48fLHP425fhfMR8e7A==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "La persona encargada de la preparación de alimentos es responsable de preparar y mejorar nuestras opciones de alimentos, así como de atender a nuestros clientes y mantener limpio el lugar de trabajo. Esta es vacante de tiempo completo únicamente.",
+          "variations": []
+        }
+      ]
+    },
+    "A6HMfFTSqbzOQClXvunMXg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Persona a cargo de nuestras instalaciones y clientes",
+          "variations": []
+        }
+      ]
+    },
+    "YWTm5M86w76d43pJKYXN7w==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "La persona que cubra esta vacante es responsable del servicio al cliente, mantener las instalaciones limpias y ayudar en el sector de la preparación de alimentos. Esta es vacante de tiempo completo únicamente.",
           "variations": []
         }
       ]
