@@ -18,28 +18,69 @@ export default {
 };
 
 // 👇 We create a "template" of how args map to rendering
-const BasicTemplate = (args) => <Note {...args} />;
+const BasicTemplate = (args) => (
+  <Note
+    notePrefix={
+      <fbt desc="default note prefix" doNotExtract={true}>
+        Note
+      </fbt>
+    }
+    {...args}
+  />
+);
 
 const Spacer = (props) => <div style={{ marginBottom: 10 }}>{props.children}</div>;
 const ShowcaseTemplate = (args) => (
   <>
     <Spacer>
-      <Note {...args} tint="default">
+      <Note
+        {...args}
+        tint="default"
+        notePrefix={
+          <fbt desc="default note prefix" doNotExtract={true}>
+            Note
+          </fbt>
+        }
+      >
         this is a default note
       </Note>
     </Spacer>
     <Spacer>
-      <Note {...args} tint="success">
+      <Note
+        {...args}
+        tint="success"
+        notePrefix={
+          <fbt desc="success note prefix" doNotExtract={true}>
+            Success
+          </fbt>
+        }
+      >
         this is a success note
       </Note>
     </Spacer>
     <Spacer>
-      <Note {...args} tint="error">
+      <Note
+        {...args}
+        tint="error"
+        notePrefix={
+          <fbt desc="error note prefix" doNotExtract={true}>
+            Error
+          </fbt>
+        }
+      >
         this is an error note
       </Note>
     </Spacer>
     <Spacer>
-      <Note {...args} tint="warning">
+      <Note
+        {...args}
+        tint="warning"
+        notePrefix={
+          <fbt desc="warning note prefix" doNotExtract={true}>
+            Warning
+          </fbt>
+        }
+      >
         this is a warning note
       </Note>
     </Spacer>

@@ -12,16 +12,12 @@ type Props = {
   // The `action` can either be a HTML `button` element or our component `Button` from SX Design.
   // In such case, the `tint` will be automatically propagated to the `Button`.
   +action?: ?RestrictedElement<'button'>,
+
+  // TODO: consider removing this property (added for backward compatibility)
+  +notePrefix: FbtWithoutString,
 };
 
 export default function Note(props: Props): React.Node {
-  const notePrefixes = {
-    success: <fbt desc="success note prefix">Success</fbt>,
-    error: <fbt desc="error note prefix">Error</fbt>,
-    warning: <fbt desc="warning note prefix">Warning</fbt>,
-    default: <fbt desc="default note prefix">Note</fbt>,
-  };
-
   return (
     <span
       className={styles({
@@ -32,7 +28,7 @@ export default function Note(props: Props): React.Node {
       })}
     >
       <div>
-        <strong>{notePrefixes[props.tint ?? 'default']}:</strong> {props.children}
+        {props.notePrefix != null ? <strong>{props.notePrefix}:</strong> : null} {props.children}
       </div>
       {props.action != null ? (
         <div>

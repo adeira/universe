@@ -213,9 +213,9 @@
     }
    },
    "filepath": "src/analytics/QuarterNumberToString.js",
-   "line_beg": 28,
+   "line_beg": 30,
    "col_beg": 10,
-   "line_end": 28,
+   "line_end": 30,
    "col_end": 52,
    "project": "",
    "jsfbt": {
@@ -234,9 +234,9 @@
     }
    },
    "filepath": "src/analytics/QuarterNumberToString.js",
-   "line_beg": 29,
+   "line_beg": 31,
    "col_beg": 10,
-   "line_end": 29,
+   "line_end": 31,
    "col_end": 54,
    "project": "",
    "jsfbt": {
@@ -255,9 +255,9 @@
     }
    },
    "filepath": "src/analytics/QuarterNumberToString.js",
-   "line_beg": 30,
+   "line_beg": 32,
    "col_beg": 10,
-   "line_end": 30,
+   "line_end": 32,
    "col_end": 48,
    "project": "",
    "jsfbt": {
@@ -276,9 +276,9 @@
     }
    },
    "filepath": "src/analytics/QuarterNumberToString.js",
-   "line_beg": 38,
+   "line_beg": 40,
    "col_beg": 10,
-   "line_end": 38,
+   "line_end": 40,
    "col_end": 48,
    "project": "",
    "jsfbt": {
@@ -297,9 +297,9 @@
     }
    },
    "filepath": "src/analytics/QuarterNumberToString.js",
-   "line_beg": 39,
+   "line_beg": 41,
    "col_beg": 10,
-   "line_end": 39,
+   "line_end": 41,
    "col_end": 44,
    "project": "",
    "jsfbt": {
@@ -318,9 +318,9 @@
     }
    },
    "filepath": "src/analytics/QuarterNumberToString.js",
-   "line_beg": 40,
+   "line_beg": 42,
    "col_beg": 10,
-   "line_end": 40,
+   "line_end": 42,
    "col_end": 46,
    "project": "",
    "jsfbt": {
@@ -339,9 +339,9 @@
     }
    },
    "filepath": "src/analytics/QuarterNumberToString.js",
-   "line_beg": 48,
+   "line_beg": 50,
    "col_beg": 10,
-   "line_end": 48,
+   "line_end": 50,
    "col_end": 46,
    "project": "",
    "jsfbt": {
@@ -360,9 +360,9 @@
     }
    },
    "filepath": "src/analytics/QuarterNumberToString.js",
-   "line_beg": 49,
+   "line_beg": 51,
    "col_beg": 10,
-   "line_end": 49,
+   "line_end": 51,
    "col_end": 50,
    "project": "",
    "jsfbt": {
@@ -381,9 +381,9 @@
     }
    },
    "filepath": "src/analytics/QuarterNumberToString.js",
-   "line_beg": 50,
+   "line_beg": 52,
    "col_beg": 10,
-   "line_end": 50,
+   "line_end": 52,
    "col_end": 56,
    "project": "",
    "jsfbt": {
@@ -402,9 +402,9 @@
     }
    },
    "filepath": "src/analytics/QuarterNumberToString.js",
-   "line_beg": 58,
+   "line_beg": 60,
    "col_beg": 10,
-   "line_end": 58,
+   "line_end": 60,
    "col_end": 52,
    "project": "",
    "jsfbt": {
@@ -423,9 +423,9 @@
     }
    },
    "filepath": "src/analytics/QuarterNumberToString.js",
-   "line_beg": 59,
+   "line_beg": 61,
    "col_beg": 10,
-   "line_end": 59,
+   "line_end": 61,
    "col_end": 54,
    "project": "",
    "jsfbt": {
@@ -444,9 +444,9 @@
     }
    },
    "filepath": "src/analytics/QuarterNumberToString.js",
-   "line_beg": 60,
+   "line_beg": 62,
    "col_beg": 10,
-   "line_end": 60,
+   "line_end": 62,
    "col_end": 54,
    "project": "",
    "jsfbt": {
@@ -1116,9 +1116,9 @@
     }
    },
    "filepath": "src/forms/FormSubmit.js",
-   "line_beg": 83,
+   "line_beg": 89,
    "col_beg": 10,
-   "line_end": 86,
+   "line_end": 92,
    "col_end": 11,
    "project": "",
    "jsfbt": {
@@ -1515,9 +1515,9 @@
     }
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 21,
+   "line_beg": 20,
    "col_beg": 8,
-   "line_end": 21,
+   "line_end": 20,
    "col_end": 62,
    "project": "",
    "jsfbt": {
@@ -1536,9 +1536,9 @@
     }
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 24,
+   "line_beg": 23,
    "col_beg": 8,
-   "line_end": 24,
+   "line_end": 23,
    "col_end": 82,
    "project": "",
    "jsfbt": {
@@ -1557,9 +1557,9 @@
     }
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 27,
+   "line_beg": 26,
    "col_beg": 8,
-   "line_end": 27,
+   "line_end": 26,
    "col_end": 84,
    "project": "",
    "jsfbt": {
@@ -1578,9 +1578,9 @@
     }
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 30,
+   "line_beg": 29,
    "col_beg": 8,
-   "line_end": 30,
+   "line_end": 29,
    "col_end": 76,
    "project": "",
    "jsfbt": {
@@ -1599,9 +1599,9 @@
     }
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 34,
+   "line_beg": 33,
    "col_beg": 10,
-   "line_end": 34,
+   "line_end": 33,
    "col_end": 72,
    "project": "",
    "jsfbt": {
@@ -1620,9 +1620,9 @@
     }
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 41,
+   "line_beg": 40,
    "col_beg": 8,
-   "line_end": 41,
+   "line_end": 40,
    "col_end": 64,
    "project": "",
    "jsfbt": {
@@ -1641,9 +1641,9 @@
     }
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 44,
+   "line_beg": 43,
    "col_beg": 8,
-   "line_end": 44,
+   "line_end": 43,
    "col_end": 74,
    "project": "",
    "jsfbt": {
@@ -1662,9 +1662,9 @@
     }
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 47,
+   "line_beg": 46,
    "col_beg": 8,
-   "line_end": 47,
+   "line_end": 46,
    "col_end": 81,
    "project": "",
    "jsfbt": {
@@ -1683,9 +1683,9 @@
     }
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 50,
+   "line_beg": 49,
    "col_beg": 8,
-   "line_end": 50,
+   "line_end": 49,
    "col_end": 85,
    "project": "",
    "jsfbt": {
@@ -1704,57 +1704,15 @@
     }
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 57,
+   "line_beg": 56,
    "col_beg": 8,
-   "line_end": 59,
+   "line_end": 58,
    "col_end": 14,
    "project": "",
    "jsfbt": {
     "t": {
      "desc": "navigation link to analytics most sold products",
      "text": "Analytics: most sold products"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "SxzPQlajVfXZHeKak3WLVg==": {
-     "text": "PROD",
-     "desc": "prod as in production"
-    }
-   },
-   "filepath": "src/NavigationHeaderBadge.js",
-   "line_beg": 11,
-   "col_beg": 6,
-   "line_end": 11,
-   "col_end": 50,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "prod as in production",
-     "text": "PROD"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "eiK+SXRmiWN0jAu3fqx6ag==": {
-     "text": "DEV",
-     "desc": "dev as in development"
-    }
-   },
-   "filepath": "src/NavigationHeaderBadge.js",
-   "line_beg": 19,
-   "col_beg": 6,
-   "line_end": 19,
-   "col_end": 49,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "dev as in development",
-     "text": "DEV"
     },
     "m": []
    }
@@ -1929,6 +1887,27 @@
   },
   {
    "hashToLeaf": {
+    "WSdt9glzZ7dZhYBu4DhX1Q==": {
+     "text": "Success",
+     "desc": "success note prefix"
+    }
+   },
+   "filepath": "src/orders/OrdersPageLayout.js",
+   "line_beg": 76,
+   "col_beg": 41,
+   "line_end": 76,
+   "col_end": 86,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "success note prefix",
+     "text": "Success"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
     "mRUmtylefgnPdmI3LO+DMQ==": {
      "text": "Every order was fulfilled, good job!",
      "desc": "success message displayed when there are no new orders waiting"
@@ -1944,6 +1923,27 @@
     "t": {
      "desc": "success message displayed when there are no new orders waiting",
      "text": "Every order was fulfilled, good job!"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "l49sr1EfqnNgCGMNEwE7wQ==": {
+     "text": "Warning",
+     "desc": "warning note prefix"
+    }
+   },
+   "filepath": "src/orders/OrdersPageLayout.js",
+   "line_beg": 81,
+   "col_beg": 41,
+   "line_end": 81,
+   "col_end": 86,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "warning note prefix",
+     "text": "Warning"
     },
     "m": []
    }
@@ -2370,6 +2370,27 @@
   },
   {
    "hashToLeaf": {
+    "l49sr1EfqnNgCGMNEwE7wQ==": {
+     "text": "Warning",
+     "desc": "warning note prefix"
+    }
+   },
+   "filepath": "src/pos/ProductsGrid.js",
+   "line_beg": 100,
+   "col_beg": 39,
+   "line_end": 100,
+   "col_end": 84,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "warning note prefix",
+     "text": "Warning"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
     "hm+55cMH8tgHDr9LTIW5jA==": {
      "text": "There are no products yet.",
      "desc": "empty shop (POS) message"
@@ -2496,6 +2517,27 @@
   },
   {
    "hashToLeaf": {
+    "zdCM8bSUEVcAGbnyr9AG/Q==": {
+     "text": "Note",
+     "desc": "default note prefix"
+    }
+   },
+   "filepath": "src/pos/ProductsSelectedRows.js",
+   "line_beg": 16,
+   "col_beg": 24,
+   "line_end": 16,
+   "col_end": 66,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "default note prefix",
+     "text": "Note"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
     "5KMdVDNvgqOewSfbxvUGIA==": {
      "text": "nothing selected yet",
      "desc": "text when nothing is selected in POS"
@@ -2511,6 +2553,27 @@
     "t": {
      "desc": "text when nothing is selected in POS",
      "text": "nothing selected yet"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "l49sr1EfqnNgCGMNEwE7wQ==": {
+     "text": "Warning",
+     "desc": "warning note prefix"
+    }
+   },
+   "filepath": "src/products/ProductAddons.js",
+   "line_beg": 36,
+   "col_beg": 39,
+   "line_end": 36,
+   "col_end": 84,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "warning note prefix",
+     "text": "Warning"
     },
     "m": []
    }
@@ -3267,6 +3330,27 @@
     "t": {
      "desc": "warning when product is not published",
      "text": "This product has not been published yet and might be invisible publicly."
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "l49sr1EfqnNgCGMNEwE7wQ==": {
+     "text": "Warning",
+     "desc": "warning note prefix"
+    }
+   },
+   "filepath": "src/products/ProductsCardsInCategory.js",
+   "line_beg": 51,
+   "col_beg": 39,
+   "line_end": 51,
+   "col_end": 84,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "warning note prefix",
+     "text": "Warning"
     },
     "m": []
    }

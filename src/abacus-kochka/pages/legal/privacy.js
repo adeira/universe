@@ -12,7 +12,7 @@ export default function LegalPrivacy(): React.Node {
       title={<fbt desc="privacy policy page title">Privacy Policy</fbt>}
       subtitle={<fbt desc="privacy policy page subtitle">How we handle your data</fbt>}
     >
-      <Note tint="warning">
+      <Note tint="warning" notePrefix={<fbt desc="warning note prefix">Warning</fbt>}>
         <fbt desc="stay tuned note">this page is not finished yet, stay tuned</fbt>
       </Note>
     </Layout>

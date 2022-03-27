@@ -9,7 +9,7 @@ import Layout from '../../src/Layout';
 export default function LegalShipping(): React.Node {
   return (
     <Layout title={<fbt desc="shipping and returns page title">Shipping & Returns</fbt>}>
-      <Note tint="warning">
+      <Note tint="warning" notePrefix={<fbt desc="warning note prefix">Warning</fbt>}>
         <fbt desc="stay tuned note">this page is not finished yet, stay tuned</fbt>
       </Note>
     </Layout>
