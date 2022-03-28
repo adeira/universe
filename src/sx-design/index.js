@@ -47,3 +47,4 @@ export type { TextSupportedSize, TextSupportedWeight } from './src/Text/Text';
 
 // Public SX Flow Enum types:
 export { SupportedCurrencies } from './src/constants';
+export { FlashMessageTint } from './src/FlashMessage/FlashMessage';

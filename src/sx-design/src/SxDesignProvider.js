@@ -74,7 +74,7 @@ export default function SxDesignProvider(props: Props): Node {
       // know only whether we are rendering "light" or "dark".
       theme: theme === 'system' ? actualSystemColor : theme,
       activeFlashMessages,
-      displayFlashMessage: (newFlashMessage) => {
+      displayFlashMessage: ({ message, tint }) => {
         const timeoutID = setTimeout(() => {
           setActiveFlashMessages((previousFlashMessages) => {
             previousFlashMessages.delete(timeoutID);
@@ -84,7 +84,7 @@ export default function SxDesignProvider(props: Props): Node {
 
         setActiveFlashMessages(
           (previousFlashMessages) =>
-            new Map([...previousFlashMessages, [timeoutID, newFlashMessage]]),
+            new Map([...previousFlashMessages, [timeoutID, { message, tint }]]),
         );
       },
     }),

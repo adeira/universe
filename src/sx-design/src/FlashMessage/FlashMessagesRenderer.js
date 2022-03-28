@@ -8,7 +8,7 @@ import useFlashMessages from './useFlashMessages';
 export default function FlashMessagesRenderer(): Node {
   const [, activeFlashMessages] = useFlashMessages();
 
-  return [...activeFlashMessages].map(([key, message]) => {
-    return <FlashMessage key={String(key)} message={message} />;
+  return [...activeFlashMessages].map(([key, { message, tint }]) => {
+    return <FlashMessage key={String(key)} message={message} tint={tint} />;
   });
 }

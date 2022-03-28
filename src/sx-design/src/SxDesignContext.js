@@ -1,15 +1,25 @@
-// @flow strict
+// @flow
 
 import React, { type Context } from 'react';
 
+import { FlashMessageTint } from './FlashMessage/FlashMessage';
 import type { SupportedLocales, SupportedDirections } from './constants';
 
 export type SxDesignContextValue = {
   +locale: SupportedLocales,
   +direction: SupportedDirections,
   +theme: 'light' | 'dark', // no "system" (!)
-  +activeFlashMessages: Map<TimeoutID, FbtWithoutString>,
-  +displayFlashMessage: (FbtWithoutString) => void,
+  +activeFlashMessages: Map<
+    TimeoutID,
+    {
+      +message: FbtWithoutString,
+      +tint: FlashMessageTint,
+    },
+  >,
+  +displayFlashMessage: ({
+    +message: FbtWithoutString,
+    +tint: FlashMessageTint,
+  }) => void,
 };
 
 export default (React.createContext(
