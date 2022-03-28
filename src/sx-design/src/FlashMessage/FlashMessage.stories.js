@@ -7,7 +7,7 @@ import React from 'react';
 import fbt from 'fbt';
 
 import Button from '../Button/Button';
-import FlashMessage from './FlashMessage';
+import FlashMessage, { FlashMessageTint } from './FlashMessage';
 import LayoutInline from '../Layout/LayoutInline';
 import useFlashMessages from './useFlashMessages';
 import { initFbt } from '../test-utils';
@@ -27,16 +27,50 @@ const TemplateToast = () => {
   return (
     <LayoutInline>
       <Button
+        tint="success"
         onClick={() =>
           displayFleshMessage(
             <fbt desc="bread" doNotExtract={true}>
               Bread 👍
             </fbt>,
+            { tint: FlashMessageTint.Success },
           )
         }
       >
         <fbt desc="short message" doNotExtract={true}>
-          Create a SHORT flash message
+          Short success message
+        </fbt>
+      </Button>
+
+      <Button
+        tint="warning"
+        onClick={() =>
+          displayFleshMessage(
+            <fbt desc="bread" doNotExtract={true}>
+              Bread 👍
+            </fbt>,
+            { tint: FlashMessageTint.Warning },
+          )
+        }
+      >
+        <fbt desc="short message" doNotExtract={true}>
+          Short warning message
+        </fbt>
+      </Button>
+
+      <Button
+        tint="error"
+        onClick={() =>
+          displayFleshMessage(
+            <fbt desc="bread" doNotExtract={true}>
+              Bread 👍
+            </fbt>,
+            { tint: FlashMessageTint.Error },
+          )
+        }
+      >
+        <fbt desc="short message" doNotExtract={true}>
+          Short error message
         </fbt>
       </Button>
 
@@ -51,7 +85,7 @@ const TemplateToast = () => {
         }
       >
         <fbt desc="long message" doNotExtract={true}>
-          Create a LONG flash message
+          Long message
         </fbt>
       </Button>
     </LayoutInline>
