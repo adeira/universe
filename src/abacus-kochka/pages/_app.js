@@ -6,7 +6,7 @@ import fbt from 'fbt';
 import Head from 'next/head';
 import sx from '@adeira/sx';
 import { RecoilRoot } from 'recoil';
-import { SkipLink, SxDesignProvider, ErrorBoundary } from '@adeira/sx-design';
+import { SkipLink, SxDesignProvider } from '@adeira/sx-design';
 import { RelayEnvironmentProvider } from '@adeira/relay';
 import { useRouter } from 'next/router';
 
@@ -32,27 +32,25 @@ export default function MyApp({ Component, pageProps }: Props): React.Node {
   return (
     <React.StrictMode>
       <SxDesignProvider locale={languageTag.bcp47} theme="light">
-        <ErrorBoundary>
-          <RelayEnvironmentProvider environment={RelayEnvironment}>
-            <ViewerContextProvider languageTag={languageTag}>
-              <RecoilRoot>
-                <div className={styles('root')}>
-                  <Head>
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                  </Head>
-                  <SkipLink
-                    text={
-                      <fbt desc="hidden 'skip link' title which helps blind people to skip directly the main section and avoid the repetitive menu altogether">
-                        Skip to content
-                      </fbt>
-                    }
-                  />
-                  <Component {...pageProps} />
-                </div>
-              </RecoilRoot>
-            </ViewerContextProvider>
-          </RelayEnvironmentProvider>
-        </ErrorBoundary>
+        <RelayEnvironmentProvider environment={RelayEnvironment}>
+          <ViewerContextProvider languageTag={languageTag}>
+            <RecoilRoot>
+              <div className={styles('root')}>
+                <Head>
+                  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                </Head>
+                <SkipLink
+                  text={
+                    <fbt desc="hidden 'skip link' title which helps blind people to skip directly the main section and avoid the repetitive menu altogether">
+                      Skip to content
+                    </fbt>
+                  }
+                />
+                <Component {...pageProps} />
+              </div>
+            </RecoilRoot>
+          </ViewerContextProvider>
+        </RelayEnvironmentProvider>
       </SxDesignProvider>
     </React.StrictMode>
   );

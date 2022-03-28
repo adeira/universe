@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import * as React from 'react';
 import { RecoilRoot } from 'recoil';
-import { ErrorBoundary, SxDesignProvider } from '@adeira/sx-design';
+import { SxDesignProvider } from '@adeira/sx-design';
 import { createEnvironment, createNetworkFetcher, RelayEnvironmentProvider } from '@adeira/relay';
 
 import './_app.css';
@@ -49,11 +49,9 @@ export default function MyApp({ Component, pageProps }: $FlowFixMe): React.Node 
   return (
     <React.StrictMode>
       <SxDesignProvider locale={applicationLocale.bcp47} theme="system">
-        <ErrorBoundary>
-          <RelayEnvironmentProvider environment={relayEnvironment}>
-            <RecoilRoot>{children}</RecoilRoot>
-          </RelayEnvironmentProvider>
-        </ErrorBoundary>
+        <RelayEnvironmentProvider environment={relayEnvironment}>
+          <RecoilRoot>{children}</RecoilRoot>
+        </RelayEnvironmentProvider>
       </SxDesignProvider>
     </React.StrictMode>
   );

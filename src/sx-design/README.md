@@ -22,7 +22,7 @@ yarn add @adeira/sx @adeira/sx-design
 SX Design is fully localized and requires information about the current application locale. This typically changes with every user, so it's necessary to provide it via `SxDesignProvider` React component (before the first SX Design component in the React tree):
 
 ```js
-import { ErrorBoundary, SxDesignProvider } from '@adeira/sx-design';
+import { SxDesignProvider } from '@adeira/sx-design';
 
 export default function MyRootApp() {
   return (
@@ -30,13 +30,13 @@ export default function MyRootApp() {
       locale="en-US" // affects translations as well as dates, monetary values and similar
       theme="light" // or "dark" or "system"
     >
-      <ErrorBoundary>{/* … */}</ErrorBoundary>
+      {/* … */}
     </SxDesignProvider>
   );
 }
 ```
 
-The error boundary is optional but highly recommended.
+Note: SX Design automatically enables styled error boundary.
 
 # Available components
 
