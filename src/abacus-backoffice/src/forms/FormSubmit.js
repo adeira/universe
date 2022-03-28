@@ -3,10 +3,9 @@
 import { useMutation, type GraphQLTaggedNode, type Variables } from '@adeira/relay';
 import { fbt } from 'fbt';
 import { type Node } from 'react';
-import { useRecoilCallback, useRecoilValue, useSetRecoilState } from 'recoil';
-import { Button } from '@adeira/sx-design';
+import { useRecoilCallback, useRecoilValue } from 'recoil';
+import { Button, useFlashMessages, FlashMessageTint } from '@adeira/sx-design';
 
-import { uiStatusBarAtom } from '../recoil/uiStatusBarAtom';
 import {
   formStateAtomFamily,
   formStateAtomFamilyErrors,
@@ -29,9 +28,9 @@ type Props = {
  * 3. call the mutation
  */
 export default function FormSubmit(props: Props): Node {
-  const setStatusBar = useSetRecoilState(uiStatusBarAtom);
   const ids = useRecoilValue(formStateAtomFamilyIds);
   const uploadables = useRecoilValue(formStateUploadables);
+  const [displayFleshMessage] = useFlashMessages();
 
   const unmaskFormFieldErrors = useRecoilCallback(({ snapshot, set }) => (id) => {
     const errorsAtom = formStateAtomFamilyErrors(id);
@@ -82,13 +81,13 @@ export default function FormSubmit(props: Props): Node {
       variables,
       onCompleted: props.onCompleted,
       onError: () => {
-        setStatusBar({
-          message: fbt(
+        displayFleshMessage(
+          fbt(
             'Something unexpected happened and server could not process the request! 🙈',
             'generic failure message after creating a product',
           ),
-          type: 'error',
-        });
+          { tint: FlashMessageTint.Error },
+        );
       },
     };
     if (uploadables != null) {

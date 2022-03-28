@@ -7,7 +7,6 @@ import fbt from 'fbt';
 
 import LayoutHeadingButton from './LayoutHeadingButton';
 import LayoutHeadingLink from './LayoutHeadingLink';
-import StatusBar from './StatusBar';
 
 type Props = {
   +heading: Fbt,
@@ -24,8 +23,6 @@ export default function LayoutPage(props: Props): Node {
 
   return (
     <LayoutBlock>
-      <StatusBar />
-
       <LayoutInline>
         <span className={styles('heading')}>
           <Text as="h1">{props.heading}</Text>
