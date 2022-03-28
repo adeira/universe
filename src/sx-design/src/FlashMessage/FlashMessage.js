@@ -11,7 +11,7 @@ export enum FlashMessageTint of string {
 }
 
 type Props = {
-  +message: FbtWithoutString,
+  +message: Fbt,
   +tint: FlashMessageTint,
 };
 

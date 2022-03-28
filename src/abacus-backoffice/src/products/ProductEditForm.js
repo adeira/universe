@@ -1,16 +1,15 @@
 // @flow
 
 import React, { type Node } from 'react';
-import { useSetRecoilState } from 'recoil';
-import { graphql, useFragment } from '@adeira/relay';
 import { fbt } from 'fbt';
+import { graphql, useFragment } from '@adeira/relay';
+import { useFlashMessages, FlashMessageTint } from '@adeira/sx-design';
 
 import FormSubmit from '../forms/FormSubmit';
-import { uiStatusBarAtom } from '../recoil/uiStatusBarAtom';
+import ProductForm from './ProductForm';
 import useApplicationLocale from '../useApplicationLocale';
 import type { ProductEditFormData$key } from './__generated__/ProductEditFormData.graphql';
 import type { ProductEditFormMutation$variables } from './__generated__/ProductEditFormMutation.graphql';
-import ProductForm from './ProductForm';
 
 type Props = {
   +product: ProductEditFormData$key,
@@ -19,7 +18,7 @@ type Props = {
 
 export default function ProductEditForm(props: Props): Node {
   const applicationLocale = useApplicationLocale();
-  const setStatusBar = useSetRecoilState(uiStatusBarAtom);
+  const [displayFleshMessage] = useFlashMessages();
 
   const data = useFragment(
     graphql`
@@ -162,20 +161,18 @@ export default function ProductEditForm(props: Props): Node {
           })}
           onCompleted={({ commerce: { result } }) => {
             if (result.__typename === 'ProductError') {
-              setStatusBar({ message: result.message, type: 'error' });
+              displayFleshMessage(result.message, { tint: FlashMessageTint.Error });
             } else if (result.__typename === 'Product') {
-              setStatusBar({
-                message: (
-                  <fbt desc="product updated success message">
-                    Product{' '}
-                    <fbt:param name="product name">
-                      <strong>{result.name}</strong>
-                    </fbt:param>{' '}
-                    updated! ✅
-                  </fbt>
-                ),
-                type: 'success',
-              });
+              displayFleshMessage(
+                <fbt desc="product updated success message">
+                  Product{' '}
+                  <fbt:param name="product name">
+                    <strong>{result.name}</strong>
+                  </fbt:param>{' '}
+                  updated! ✅
+                </fbt>,
+                { tint: FlashMessageTint.Success },
+              );
             }
           }}
         >

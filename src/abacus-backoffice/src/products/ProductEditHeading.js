@@ -1,18 +1,17 @@
 // @flow
 
-import Icon from '@adeira/icons';
-import { useRouter } from 'next/router';
 import * as React from 'react';
+import Icon from '@adeira/icons';
 import { fbt } from 'fbt';
 import { graphql, useMutation, useFragment } from '@adeira/relay';
-import { useSetRecoilState } from 'recoil';
+import { useFlashMessages, FlashMessageTint } from '@adeira/sx-design';
+import { useRouter } from 'next/router';
 
 import LayoutPage from '../LayoutPage';
 import LayoutHeadingButton from '../LayoutHeadingButton';
 import LayoutHeadingLink from '../LayoutHeadingLink';
 import ProductEditHeadingPublishUnpublish from './ProductEditHeadingPublishUnpublish';
 import useApplicationLocale from '../useApplicationLocale';
-import { uiStatusBarAtom } from '../recoil/uiStatusBarAtom';
 import type { ProductEditHeading$key } from './__generated__/ProductEditHeading.graphql';
 import type { ProductEditHeadingArchiveMutation } from './__generated__/ProductEditHeadingArchiveMutation.graphql';
 
@@ -23,8 +22,8 @@ type Props = {
 
 export default function ProductEditHeading(props: Props): React.Node {
   const applicationLocale = useApplicationLocale();
-  const setStatusBar = useSetRecoilState(uiStatusBarAtom);
   const router = useRouter();
+  const [displayFleshMessage] = useFlashMessages();
 
   const [archiveProductMutation] = useMutation<ProductEditHeadingArchiveMutation>(
     graphql`
@@ -65,24 +64,24 @@ export default function ProductEditHeading(props: Props): React.Node {
         clientLocale: applicationLocale.graphql,
       },
       onError: () => {
-        setStatusBar({
-          // TODO: DRY and improve these unexpected messages (see product creation)
-          message: 'Something unexpected happened',
-          type: 'error',
-        });
+        // TODO: DRY and improve these unexpected messages (see product creation)
+        displayFleshMessage(
+          fbt(
+            'Something unexpected happened',
+            'something unexpected happened message when trying to archive the product',
+          ),
+          { tint: FlashMessageTint.Error },
+        );
       },
       onCompleted: ({ commerce: { productOrError } }) => {
         if (productOrError.__typename === 'Product') {
-          setStatusBar({
-            message: 'Product successfully archived. ✅',
-            type: 'success',
-          });
+          displayFleshMessage(
+            fbt('Product successfully archived. ✅', 'success message when archiving a product'),
+            { tint: FlashMessageTint.Success },
+          );
           router.push('/products');
         } else if (productOrError.__typename === 'ProductError') {
-          setStatusBar({
-            message: productOrError.message,
-            type: 'error',
-          });
+          displayFleshMessage(productOrError.message, { tint: FlashMessageTint.Error });
         }
       },
     });

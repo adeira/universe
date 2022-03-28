@@ -606,9 +606,9 @@
     "DG4YwlsppzoioQ32fEtyQQ==": "Something unexpected happened and server could not process the request! 🙈"
    },
    "filepath": "src/forms/FormSubmit.js",
-   "line_beg": 86,
-   "col_beg": 19,
-   "line_end": 89,
+   "line_beg": 85,
+   "col_beg": 10,
+   "line_end": 88,
    "col_end": 11,
    "desc": "generic failure message after creating a product",
    "project": "",
@@ -830,9 +830,9 @@
     "peb2EDuSrtkkz/e0EG4rWQ==": "This section is currently under active development. Are you missing some features? Let us know!"
    },
    "filepath": "src/LayoutPage.js",
-   "line_beg": 38,
+   "line_beg": 35,
    "col_beg": 16,
-   "line_end": 41,
+   "line_end": 38,
    "col_end": 22,
    "desc": "work in progress badge description",
    "project": "",
@@ -844,9 +844,9 @@
     "/HA1UhKZo4ZFRrj2osXRmQ==": "BETA"
    },
    "filepath": "src/LayoutPage.js",
-   "line_beg": 45,
+   "line_beg": 42,
    "col_beg": 16,
-   "line_end": 45,
+   "line_end": 42,
    "col_end": 49,
    "desc": "beta label",
    "project": "",
@@ -1614,10 +1614,10 @@
     "EIVU1wJ5opAD+tU9JLao5Q==": "Product {product name} created! ✅"
    },
    "filepath": "src/products/ProductCreateForm.js",
-   "line_beg": 116,
-   "col_beg": 18,
-   "line_end": 122,
-   "col_end": 24,
+   "line_beg": 114,
+   "col_beg": 16,
+   "line_end": 120,
+   "col_end": 22,
    "desc": "product created success message",
    "project": "",
    "type": "text",
@@ -1628,9 +1628,9 @@
     "pK1f3pHBA7GNzXNFxoeWlw==": "Create a new product"
    },
    "filepath": "src/products/ProductCreateForm.js",
-   "line_beg": 129,
+   "line_beg": 126,
    "col_beg": 10,
-   "line_end": 129,
+   "line_end": 126,
    "col_end": 88,
    "desc": "create product form submit button title",
    "project": "",
@@ -1642,10 +1642,10 @@
     "nmFLhVeeVRpoKNv7lUvVcg==": "Product {product name} updated! ✅"
    },
    "filepath": "src/products/ProductEditForm.js",
-   "line_beg": 169,
-   "col_beg": 18,
-   "line_end": 175,
-   "col_end": 24,
+   "line_beg": 167,
+   "col_beg": 16,
+   "line_end": 173,
+   "col_end": 22,
    "desc": "product updated success message",
    "project": "",
    "type": "text",
@@ -1656,9 +1656,9 @@
     "JMYEEAMkkTyu/f/wera8pw==": "Save changes"
    },
    "filepath": "src/products/ProductEditForm.js",
-   "line_beg": 182,
+   "line_beg": 179,
    "col_beg": 10,
-   "line_end": 182,
+   "line_end": 179,
    "col_end": 78,
    "desc": "edit product form submit button title",
    "project": "",
@@ -1667,12 +1667,40 @@
   },
   {
    "hashToText": {
+    "PWfXQGq7RGI0znfxqrQHlw==": "Something unexpected happened"
+   },
+   "filepath": "src/products/ProductEditHeading.js",
+   "line_beg": 69,
+   "col_beg": 10,
+   "line_end": 72,
+   "col_end": 11,
+   "desc": "something unexpected happened message when trying to archive the product",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Something unexpected happened"
+  },
+  {
+   "hashToText": {
+    "3YuTtGx/pn9I0CeDzdKOLA==": "Product successfully archived. ✅"
+   },
+   "filepath": "src/products/ProductEditHeading.js",
+   "line_beg": 79,
+   "col_beg": 12,
+   "line_end": 79,
+   "col_end": 95,
+   "desc": "success message when archiving a product",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Product successfully archived. ✅"
+  },
+  {
+   "hashToText": {
     "2RQtcMmzVAbote6MYQ6DFA==": "Edit product: {productName}"
    },
    "filepath": "src/products/ProductEditHeading.js",
-   "line_beg": 94,
+   "line_beg": 93,
    "col_beg": 8,
-   "line_end": 96,
+   "line_end": 95,
    "col_end": 14,
    "desc": "edit product page heading",
    "project": "",
@@ -1684,9 +1712,9 @@
     "kZSl2UcMZDzRSCGJm9hDkw==": "Products inventory"
    },
    "filepath": "src/products/ProductEditHeading.js",
-   "line_beg": 100,
+   "line_beg": 99,
    "col_beg": 10,
-   "line_end": 100,
+   "line_end": 99,
    "col_end": 84,
    "desc": "go back to products navigation button",
    "project": "",
@@ -1698,9 +1726,9 @@
     "BPWRoyucKXJx+vY6x6BFkw==": "Are you sure you want to archive the product? Archiving makes it unavailable and behaves similar to deleting the product."
    },
    "filepath": "src/products/ProductEditHeading.js",
-   "line_beg": 112,
+   "line_beg": 111,
    "col_beg": 12,
-   "line_end": 115,
+   "line_end": 114,
    "col_end": 18,
    "desc": "archive product confirmation message",
    "project": "",
@@ -1712,9 +1740,9 @@
     "XT9xWGmAT0GjldI2PdUXRA==": "Archive product"
    },
    "filepath": "src/products/ProductEditHeading.js",
-   "line_beg": 120,
+   "line_beg": 119,
    "col_beg": 10,
-   "line_end": 120,
+   "line_end": 119,
    "col_end": 77,
    "desc": "archive product navigation button",
    "project": "",
@@ -1726,9 +1754,9 @@
     "5xWLjNlRRK4DGj9B8Z6mTg==": "Are you sure you want to publish this product? Published products are immediately available to be used across our product based on the selected visibility (potentially public)."
    },
    "filepath": "src/products/ProductEditHeadingPublishUnpublish.js",
-   "line_beg": 71,
+   "line_beg": 70,
    "col_beg": 8,
-   "line_end": 75,
+   "line_end": 74,
    "col_end": 14,
    "desc": "publish product button confirmation message",
    "project": "",
@@ -1737,12 +1765,40 @@
   },
   {
    "hashToText": {
+    "SUE8RB0J2NM/9wmamYbU1g==": "Something unexpected happened"
+   },
+   "filepath": "src/products/ProductEditHeadingPublishUnpublish.js",
+   "line_beg": 85,
+   "col_beg": 14,
+   "line_end": 88,
+   "col_end": 15,
+   "desc": "something unexpected happened message when trying to publish the product",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Something unexpected happened"
+  },
+  {
+   "hashToText": {
+    "OUAkZ3TQOouipgAGWNkFAQ==": "Product successfully published. ✅"
+   },
+   "filepath": "src/products/ProductEditHeadingPublishUnpublish.js",
+   "line_beg": 95,
+   "col_beg": 16,
+   "line_end": 98,
+   "col_end": 17,
+   "desc": "success message when publishing a product",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Product successfully published. ✅"
+  },
+  {
+   "hashToText": {
     "3qz/xqX+Nv7bYwQCSNXWdQ==": "Publish product"
    },
    "filepath": "src/products/ProductEditHeadingPublishUnpublish.js",
-   "line_beg": 107,
+   "line_beg": 109,
    "col_beg": 6,
-   "line_end": 107,
+   "line_end": 109,
    "col_end": 68,
    "desc": "publish product button title",
    "project": "",
@@ -1754,9 +1810,9 @@
     "C4qCSxncQzzV9OUj0otgUg==": "Are you sure you want to unpublish this product?"
    },
    "filepath": "src/products/ProductEditHeadingPublishUnpublish.js",
-   "line_beg": 112,
+   "line_beg": 114,
    "col_beg": 8,
-   "line_end": 114,
+   "line_end": 116,
    "col_end": 14,
    "desc": "unpublish product button confirmation message",
    "project": "",
@@ -1765,12 +1821,40 @@
   },
   {
    "hashToText": {
+    "yBH25yDj1FHjCKJbrr5ObA==": "Something unexpected happened"
+   },
+   "filepath": "src/products/ProductEditHeadingPublishUnpublish.js",
+   "line_beg": 127,
+   "col_beg": 14,
+   "line_end": 130,
+   "col_end": 15,
+   "desc": "something unexpected happened message when trying to unpublish the product",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Something unexpected happened"
+  },
+  {
+   "hashToText": {
+    "soe3drmignW/hAYs7st0RQ==": "Product successfully unpublished. ✅"
+   },
+   "filepath": "src/products/ProductEditHeadingPublishUnpublish.js",
+   "line_beg": 137,
+   "col_beg": 16,
+   "line_end": 140,
+   "col_end": 17,
+   "desc": "success message when unpublishing a product",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Product successfully unpublished. ✅"
+  },
+  {
+   "hashToText": {
     "6dllpbI8j5n7Rlcf+LAS/Q==": "Unpublish product"
    },
    "filepath": "src/products/ProductEditHeadingPublishUnpublish.js",
-   "line_beg": 146,
+   "line_beg": 151,
    "col_beg": 6,
-   "line_end": 146,
+   "line_end": 151,
    "col_end": 70,
    "desc": "publish product button title",
    "project": "",

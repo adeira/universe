@@ -12,12 +12,12 @@ export type SxDesignContextValue = {
   +activeFlashMessages: Map<
     TimeoutID,
     {
-      +message: FbtWithoutString,
+      +message: Fbt,
       +tint: FlashMessageTint,
     },
   >,
   +displayFlashMessage: ({
-    +message: FbtWithoutString,
+    +message: Fbt,
     +tint: FlashMessageTint,
   }) => void,
 };

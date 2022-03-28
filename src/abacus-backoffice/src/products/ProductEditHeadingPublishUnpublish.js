@@ -3,10 +3,9 @@
 import * as React from 'react';
 import { fbt } from 'fbt';
 import { graphql, useMutation } from '@adeira/relay';
-import { useSetRecoilState } from 'recoil';
+import { useFlashMessages, FlashMessageTint } from '@adeira/sx-design';
 
 import LayoutHeadingButton from '../LayoutHeadingButton';
-import { uiStatusBarAtom } from '../recoil/uiStatusBarAtom';
 import useApplicationLocale from '../useApplicationLocale';
 import type { ProductEditHeadingPublishUnpublishPublishMutation } from './__generated__/ProductEditHeadingPublishUnpublishPublishMutation.graphql';
 import type { ProductEditHeadingPublishUnpublishUnpublishMutation } from './__generated__/ProductEditHeadingPublishUnpublishUnpublishMutation.graphql';
@@ -20,7 +19,7 @@ export default function ProductEditHeadingPublishUnpublish(
   props: Props,
 ): React.Element<typeof LayoutHeadingButton> {
   const applicationLocale = useApplicationLocale();
-  const setStatusBar = useSetRecoilState(uiStatusBarAtom);
+  const [displayFleshMessage] = useFlashMessages();
 
   const [publishProductMutation] = useMutation<ProductEditHeadingPublishUnpublishPublishMutation>(
     graphql`
@@ -81,24 +80,27 @@ export default function ProductEditHeadingPublishUnpublish(
             clientLocale: applicationLocale.graphql,
           },
           onError: () => {
-            setStatusBar({
-              // TODO: DRY and improve these unexpected messages (see product creation)
-              message: 'Something unexpected happened',
-              type: 'error',
-            });
+            // TODO: DRY and improve these unexpected messages (see product creation)
+            displayFleshMessage(
+              fbt(
+                'Something unexpected happened',
+                'something unexpected happened message when trying to publish the product',
+              ),
+              { tint: FlashMessageTint.Error },
+            );
           },
           onCompleted: ({ commerce: { productOrError } }) => {
             if (productOrError.__typename === 'Product') {
-              setStatusBar({
-                message: 'Product successfully published. ✅',
-                type: 'success',
-              });
+              displayFleshMessage(
+                fbt(
+                  'Product successfully published. ✅',
+                  'success message when publishing a product',
+                ),
+                { tint: FlashMessageTint.Success },
+              );
               // router.push('/products');
             } else if (productOrError.__typename === 'ProductError') {
-              setStatusBar({
-                message: productOrError.message,
-                type: 'error',
-              });
+              displayFleshMessage(productOrError.message, { tint: FlashMessageTint.Error });
             }
           },
         });
@@ -120,24 +122,27 @@ export default function ProductEditHeadingPublishUnpublish(
             clientLocale: applicationLocale.graphql,
           },
           onError: () => {
-            setStatusBar({
-              // TODO: DRY and improve these unexpected messages (see product creation)
-              message: 'Something unexpected happened',
-              type: 'error',
-            });
+            // TODO: DRY and improve these unexpected messages (see product creation)
+            displayFleshMessage(
+              fbt(
+                'Something unexpected happened',
+                'something unexpected happened message when trying to unpublish the product',
+              ),
+              { tint: FlashMessageTint.Error },
+            );
           },
           onCompleted: ({ commerce: { productOrError } }) => {
             if (productOrError.__typename === 'Product') {
-              setStatusBar({
-                message: 'Product successfully unpublished. ✅',
-                type: 'success',
-              });
+              displayFleshMessage(
+                fbt(
+                  'Product successfully unpublished. ✅',
+                  'success message when unpublishing a product',
+                ),
+                { tint: FlashMessageTint.Success },
+              );
               // router.push('/products');
             } else if (productOrError.__typename === 'ProductError') {
-              setStatusBar({
-                message: productOrError.message,
-                type: 'error',
-              });
+              displayFleshMessage(productOrError.message, { tint: FlashMessageTint.Error });
             }
           },
         });

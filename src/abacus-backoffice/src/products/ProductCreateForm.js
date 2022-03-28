@@ -1,13 +1,12 @@
 // @flow
 
-import { useRouter } from 'next/router';
 import React, { type Node } from 'react';
 import { fbt } from 'fbt';
 import { graphql, useFragment } from '@adeira/relay';
-import { useSetRecoilState } from 'recoil';
+import { useFlashMessages, FlashMessageTint } from '@adeira/sx-design';
+import { useRouter } from 'next/router';
 
 import FormSubmit from '../forms/FormSubmit';
-import { uiStatusBarAtom } from '../recoil/uiStatusBarAtom';
 import useApplicationLocale from '../useApplicationLocale';
 import ProductForm from './ProductForm';
 import type { ProductCreateFormData$key } from './__generated__/ProductCreateFormData.graphql';
@@ -20,7 +19,7 @@ type Props = {
 export default function ProductCreateForm(props: Props): Node {
   const applicationLocale = useApplicationLocale();
   const router = useRouter();
-  const setStatusBar = useSetRecoilState(uiStatusBarAtom);
+  const [displayFleshMessage] = useFlashMessages();
 
   const data = useFragment(
     graphql`
@@ -108,21 +107,19 @@ export default function ProductCreateForm(props: Props): Node {
           })}
           onCompleted={({ commerce: { result } }) => {
             if (result.__typename === 'ProductError') {
-              setStatusBar({ message: result.message, type: 'error' });
+              displayFleshMessage(result.message, { tint: FlashMessageTint.Error });
             } else if (result.__typename === 'Product') {
               router.push('/products');
-              setStatusBar({
-                message: (
-                  <fbt desc="product created success message">
-                    Product{' '}
-                    <fbt:param name="product name">
-                      <strong>{result.name}</strong>
-                    </fbt:param>{' '}
-                    created! ✅
-                  </fbt>
-                ),
-                type: 'success',
-              });
+              displayFleshMessage(
+                <fbt desc="product created success message">
+                  Product{' '}
+                  <fbt:param name="product name">
+                    <strong>{result.name}</strong>
+                  </fbt:param>{' '}
+                  created! ✅
+                </fbt>,
+                { tint: FlashMessageTint.Success },
+              );
             }
           }}
         >

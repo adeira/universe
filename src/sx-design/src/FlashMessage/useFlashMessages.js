@@ -11,6 +11,8 @@ type FlashMessageOptions = {
  * Usage:
  *
  * ```
+ * import { useFlashMessages, FlashMessageTint } from '@adeira/sx-design';
+ *
  * export default function MyComponent() {
  *   const [displayFleshMessage] = useFlashMessages();
  *
@@ -28,11 +30,11 @@ type FlashMessageOptions = {
  * ```
  */
 export default function useFlashMessages(): [
-  (FbtWithoutString, ?FlashMessageOptions) => void,
+  (Fbt, ?FlashMessageOptions) => void,
   Map<
     TimeoutID,
     {
-      +message: FbtWithoutString,
+      +message: Fbt,
       +tint: FlashMessageTint,
     },
   >,
