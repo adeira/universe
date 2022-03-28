@@ -4,6 +4,7 @@ import React, { useMemo, useEffect, useState, type Node } from 'react';
 import { init as FbtInit, IntlVariations as FbtIntlVariations, FbtTranslations } from 'fbt';
 import sx from '@adeira/sx';
 
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 import FlashMessagesRenderer from './FlashMessage/FlashMessagesRenderer';
 import getFbtTranslations from './getFbtTranslations';
 import SxDesignContext from './SxDesignContext';
@@ -16,6 +17,7 @@ type Props = {
   +children: Node,
   +locale?: SupportedLocales,
   +theme?: 'light' | 'dark' | 'system',
+  +disableErrorBoundary?: boolean,
 };
 
 export default function SxDesignProvider(props: Props): Node {
@@ -108,7 +110,11 @@ export default function SxDesignProvider(props: Props): Node {
       id={SX_DESIGN_REACT_PORTAL_ID}
     >
       <SxDesignContext.Provider value={contextValue}>
-        {props.children}
+        {props.disableErrorBoundary === true ? (
+          props.children
+        ) : (
+          <ErrorBoundary>{props.children}</ErrorBoundary>
+        )}
         <FlashMessagesRenderer />
       </SxDesignContext.Provider>
     </div>

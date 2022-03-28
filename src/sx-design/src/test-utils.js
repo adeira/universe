@@ -35,7 +35,14 @@ const renderWithProviders = (
   return renderWithoutProviders(ui, {
     wrapper: ({ children }) => {
       const SxDesignProvider = require('./SxDesignProvider').default;
-      return <SxDesignProvider locale={locale}>{children}</SxDesignProvider>;
+      return (
+        <SxDesignProvider
+          locale={locale}
+          disableErrorBoundary={true} // we want all errors in our tests to bubble up (so we can test for them)
+        >
+          {children}
+        </SxDesignProvider>
+      );
     },
     ...renderOptions,
   });
