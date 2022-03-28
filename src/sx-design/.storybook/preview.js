@@ -43,7 +43,7 @@ export const parameters = {
   },
   viewport: {
     viewports: customViewports,
-    defaultViewport: 'tablet',
+    defaultViewport: 'mobile',
   },
 };
 
