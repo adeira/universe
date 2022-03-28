@@ -9,6 +9,7 @@ Inclusive design system written using [`@adeira/sx`](https://github.com/adeira/s
 - ☯️ light and dark theme out of the box
 - 🆘 accessible components for people with visual impairment
 - حلال support for RTL layouts ([🇦🇪](https://crowdin.com/project/sx-design))
+- 📲 mobile first
 
 # Installation and Usage
 
