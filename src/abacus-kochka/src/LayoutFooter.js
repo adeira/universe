@@ -23,11 +23,6 @@ export default function LayoutFooter(): React.Node {
 
         <div className={styles('columnLeft')}>
           <div>
-            <LinkInternal href="/open-positions" xstyle={styles.link}>
-              <fbt desc="footer navigation link to open positions">Open positions</fbt>
-            </LinkInternal>
-          </div>
-          <div>
             <LinkInternal href="/legal/terms" xstyle={styles.link}>
               <fbt desc="footer navigation link to terms of use">Terms of use</fbt>
             </LinkInternal>

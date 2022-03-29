@@ -1,15 +1,11 @@
 // @flow
 
 import React, { type Node } from 'react';
-import { Badge, LayoutBlock, LayoutInline, Text } from '@adeira/sx-design';
-
-import OpenPositionAvailableNote from './OpenPositionAvailableNote';
-import OpenPositionUnavailableWarning from './OpenPositionUnavailableWarning';
+import { Badge, LayoutBlock, LayoutInline, Link, Text } from '@adeira/sx-design';
 
 type Props = {
   +title: FbtWithoutString,
-  +descriptionComponent: Node,
-  +isCurrentlyAvailable: boolean,
+  +description: FbtWithoutString,
   +badges?: $ReadOnlyArray<RestrictedElement<typeof Badge>>,
 };
 
@@ -20,12 +16,14 @@ export default function OpenPosition(props: Props): Node {
 
       {props.badges != null ? <LayoutInline>{props.badges}</LayoutInline> : null}
 
-      {props.isCurrentlyAvailable === true ? (
-        <OpenPositionAvailableNote />
-      ) : (
-        <OpenPositionUnavailableWarning />
-      )}
-      <div>{props.descriptionComponent}</div>
+      <Text>
+        👉 Apply here:{' '}
+        <Link href="https://forms.gle/JDKwgRiUK8yA7Bw5A" target="_blank">
+          Talent Pool on Google Forms
+        </Link>
+      </Text>
+
+      <Text>{props.description}</Text>
     </LayoutBlock>
   );
 }
