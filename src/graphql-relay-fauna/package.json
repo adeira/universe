@@ -17,7 +17,7 @@
     "@adeira/graphql-global-id": "^2.1.0",
     "@adeira/js": "^2.1.1",
     "@babel/runtime": "^7.17.8",
-    "faunadb": "^4.5.2"
+    "faunadb": "^4.5.3"
   },
   "peerDependencies": {
     "graphql": "^16.3.0"
