@@ -212,26 +212,12 @@
   },
   {
    "hashToText": {
-    "EdoLPwaSsscEQmOCmVmdmA==": "Open positions"
+    "9xbWs0pIv9Xy0lfCwF7DmQ==": "Terms of use"
    },
    "filepath": "src/LayoutFooter.js",
    "line_beg": 27,
    "col_beg": 14,
    "line_end": 27,
-   "col_end": 87,
-   "desc": "footer navigation link to open positions",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Open positions"
-  },
-  {
-   "hashToText": {
-    "9xbWs0pIv9Xy0lfCwF7DmQ==": "Terms of use"
-   },
-   "filepath": "src/LayoutFooter.js",
-   "line_beg": 32,
-   "col_beg": 14,
-   "line_end": 32,
    "col_end": 83,
    "desc": "footer navigation link to terms of use",
    "project": "",
@@ -243,9 +229,9 @@
     "1UA4LJthdLxQou20Xu/Bzg==": "Shipping & Returns"
    },
    "filepath": "src/LayoutFooter.js",
-   "line_beg": 38,
+   "line_beg": 33,
    "col_beg": 16,
-   "line_end": 38,
+   "line_end": 33,
    "col_end": 99,
    "desc": "footer navigation link to shipping and returns",
    "project": "",
@@ -257,9 +243,9 @@
     "eFpXXNeK5D+47kXDWsbnAg==": "Privacy Policy"
    },
    "filepath": "src/LayoutFooter.js",
-   "line_beg": 44,
+   "line_beg": 39,
    "col_beg": 14,
-   "line_end": 44,
+   "line_end": 39,
    "col_end": 87,
    "desc": "footer navigation link to privacy policy",
    "project": "",
@@ -450,12 +436,26 @@
   },
   {
    "hashToText": {
+    "YPZm79WHjwd2E30wVWe3VA==": "Jobs"
+   },
+   "filepath": "src/NavigationLinks.js",
+   "line_beg": 58,
+   "col_beg": 8,
+   "line_end": 58,
+   "col_end": 71,
+   "desc": "footer navigation link to open positions",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Jobs"
+  },
+  {
+   "hashToText": {
     "sY3J2OVXDvprP9Yw1wPdWQ==": "Contribute️"
    },
    "filepath": "src/NavigationLinks.js",
-   "line_beg": 59,
+   "line_beg": 64,
    "col_beg": 10,
-   "line_end": 59,
+   "line_end": 64,
    "col_end": 94,
    "desc": "link to the contribution page from our main navigation",
    "project": "",
@@ -464,54 +464,82 @@
   },
   {
    "hashToText": {
-    "NdYRRXcBGtwer7LDXw1sAA==": "This position is currently available. We are still working on a better application process, however, you can leave us your data in our \"Talent Pool\" in a meantime."
+    "5PQUikdPXG3uo/yYO/JTdg==": "Full-time"
    },
-   "filepath": "src/open-positions/OpenPositionAvailableNote.js",
+   "filepath": "src/open-positions/badges/FullTimeBadge.js",
+   "line_beg": 10,
+   "col_beg": 6,
+   "line_end": 10,
+   "col_end": 54,
+   "desc": "full-time badge text",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Full-time"
+  },
+  {
+   "hashToText": {
+    "UlvVrCqWYA+OrWslYYmc8A==": "You can apply in our Talent Pool in case you are interested."
+   },
+   "filepath": "src/open-positions/badges/PositionAvailableBadge.js",
+   "line_beg": 11,
+   "col_beg": 8,
+   "line_end": 13,
+   "col_end": 14,
+   "desc": "available job badge description",
+   "project": "",
+   "type": "text",
+   "jsfbt": "You can apply in our Talent Pool in case you are interested."
+  },
+  {
+   "hashToText": {
+    "54UcAAD/aCdp0ssaexfvTA==": "Available"
+   },
+   "filepath": "src/open-positions/badges/PositionAvailableBadge.js",
+   "line_beg": 20,
+   "col_beg": 10,
+   "line_end": 20,
+   "col_end": 62,
+   "desc": "available job badge text",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Available"
+  },
+  {
+   "hashToText": {
+    "UU5kEMYHicF1zn9DeP8QNw==": "This position is currently unavailable, however, we encourage you to submit your data in our Talent Pool in case you are interested and we might get back to you."
+   },
+   "filepath": "src/open-positions/badges/PositionUnavailableBadge.js",
    "line_beg": 11,
    "col_beg": 8,
    "line_end": 14,
    "col_end": 14,
-   "desc": "position available description",
+   "desc": "unavailable job badge description",
    "project": "",
    "type": "text",
-   "jsfbt": "This position is currently available. We are still working on a better application process, however, you can leave us your data in our \"Talent Pool\" in a meantime."
+   "jsfbt": "This position is currently unavailable, however, we encourage you to submit your data in our Talent Pool in case you are interested and we might get back to you."
   },
   {
    "hashToText": {
-    "sjH60ictWlligAbhwK+M9Q==": "Apply in {=Talent Pool} on Google Forms"
+    "tEIYeVlKn5IC1LJpK2S4aw==": "Unavailable"
    },
-   "filepath": "src/open-positions/OpenPositionAvailableNote.js",
-   "line_beg": 20,
-   "col_beg": 10,
-   "line_end": 22,
-   "col_end": 16,
-   "desc": "apply in talent pool link text",
+   "filepath": "src/open-positions/badges/PositionUnavailableBadge.js",
+   "line_beg": 19,
+   "col_beg": 11,
+   "line_end": 19,
+   "col_end": 67,
+   "desc": "unavailable job badge text",
    "project": "",
    "type": "text",
-   "jsfbt": "Apply in {=Talent Pool} on Google Forms"
-  },
-  {
-   "hashToText": {
-    "EJFmNT7ttYV/wWpdCodlrw==": "Talent Pool"
-   },
-   "filepath": "src/open-positions/OpenPositionAvailableNote.js",
-   "line_beg": 21,
-   "col_beg": 21,
-   "line_end": 21,
-   "col_end": 49,
-   "desc": "In the phrase: \"Apply in {=Talent Pool} on Google Forms\"",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Talent Pool"
+   "jsfbt": "Unavailable"
   },
   {
    "hashToText": {
     "Z1d6qX2L0fKBN6cEnxEOOw==": "Open positions"
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 13,
+   "line_beg": 16,
    "col_beg": 13,
-   "line_end": 13,
+   "line_end": 16,
    "col_end": 71,
    "desc": "open positions page title",
    "project": "",
@@ -523,9 +551,9 @@
     "vowqupCy07qqoGcmRVowvw==": "Would you like to work with us?"
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 14,
+   "line_beg": 17,
    "col_beg": 16,
-   "line_end": 14,
+   "line_end": 17,
    "col_end": 94,
    "desc": "open positions page subtitle",
    "project": "",
@@ -537,9 +565,9 @@
     "Uv4+kYVhFz2utYz977Z2UQ==": "Person in charge of beverage preparation (Barista)"
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 25,
+   "line_beg": 28,
    "col_beg": 12,
-   "line_end": 27,
+   "line_end": 30,
    "col_end": 18,
    "desc": "barista position title",
    "project": "",
@@ -548,27 +576,13 @@
   },
   {
    "hashToText": {
-    "5PQUikdPXG3uo/yYO/JTdg==": "Full-time"
-   },
-   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 32,
-   "col_beg": 14,
-   "line_end": 32,
-   "col_end": 62,
-   "desc": "full-time badge text",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Full-time"
-  },
-  {
-   "hashToText": {
     "lAd0Iecjt0/G66JSr54JvA==": "Barista is responsible for preparation of coffee based drinks, teas, milkshakes and other specialities as well as attending our clients and keeping the workplace clean. This is a full-time position only."
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 37,
-   "col_beg": 14,
-   "line_end": 41,
-   "col_end": 20,
+   "line_beg": 34,
+   "col_beg": 12,
+   "line_end": 38,
+   "col_end": 18,
    "desc": "barista position description",
    "project": "",
    "type": "text",
@@ -579,9 +593,9 @@
     "3raB56R7+NKJ+jgm8pP2rQ==": "Person in charge of food preparation"
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 47,
+   "line_beg": 43,
    "col_beg": 17,
-   "line_end": 47,
+   "line_end": 43,
    "col_end": 91,
    "desc": "chef position title",
    "project": "",
@@ -590,27 +604,13 @@
   },
   {
    "hashToText": {
-    "5PQUikdPXG3uo/yYO/JTdg==": "Full-time"
-   },
-   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 51,
-   "col_beg": 14,
-   "line_end": 51,
-   "col_end": 62,
-   "desc": "full-time badge text",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Full-time"
-  },
-  {
-   "hashToText": {
     "wf4j48fLHP425fhfMR8e7A==": "Person in charge of food preparation is responsible for preparing and improving our food options as well as attending our clients and keeping the workplace clean. This is a full-time position only."
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 56,
-   "col_beg": 14,
-   "line_end": 60,
-   "col_end": 20,
+   "line_beg": 46,
+   "col_beg": 12,
+   "line_end": 50,
+   "col_end": 18,
    "desc": "chef position description",
    "project": "",
    "type": "text",
@@ -621,9 +621,9 @@
     "A6HMfFTSqbzOQClXvunMXg==": "Person in charge of our premises and customers"
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 67,
+   "line_beg": 56,
    "col_beg": 12,
-   "line_end": 69,
+   "line_end": 58,
    "col_end": 18,
    "desc": "assistant position title",
    "project": "",
@@ -632,27 +632,13 @@
   },
   {
    "hashToText": {
-    "5PQUikdPXG3uo/yYO/JTdg==": "Full-time"
-   },
-   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 74,
-   "col_beg": 14,
-   "line_end": 74,
-   "col_end": 62,
-   "desc": "full-time badge text",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Full-time"
-  },
-  {
-   "hashToText": {
     "YWTm5M86w76d43pJKYXN7w==": "Person in this position is responsible for customer service, keeping the facilities clean, and assisting in the food preparation sector. This is a full-time position only."
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 79,
-   "col_beg": 14,
-   "line_end": 83,
-   "col_end": 20,
+   "line_beg": 62,
+   "col_beg": 12,
+   "line_end": 66,
+   "col_end": 18,
    "desc": "assistant position description",
    "project": "",
    "type": "text",
@@ -663,9 +649,9 @@
     "8Pm7esp/+gf54h5wjnhtIA==": "Mystery Shopper"
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 89,
+   "line_beg": 71,
    "col_beg": 17,
-   "line_end": 89,
+   "line_end": 71,
    "col_end": 81,
    "desc": "mystery shopper position title",
    "project": "",
@@ -677,10 +663,10 @@
     "BOp9L6wr5H8DAJ5jtd5J9g==": "Mystery Shopper is responsible for making sure that we always provide the best services and products to our customers. It does so by visiting our café (secretly) while pretending to be a normal customer and later reporting any observations."
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 93,
-   "col_beg": 14,
-   "line_end": 97,
-   "col_end": 20,
+   "line_beg": 74,
+   "col_beg": 12,
+   "line_end": 78,
+   "col_end": 18,
    "desc": "mystery shopper position description",
    "project": "",
    "type": "text",
@@ -691,9 +677,9 @@
     "kOqAkB7LlUNdQoxTwvBwxA==": "Open-source Developer"
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 103,
+   "line_beg": 83,
    "col_beg": 17,
-   "line_end": 103,
+   "line_end": 83,
    "col_end": 87,
    "desc": "mystery shopper position title",
    "project": "",
@@ -702,59 +688,17 @@
   },
   {
    "hashToText": {
-    "9Cq74Se0+aoAOP/0rB9kZQ==": "Open-source Developer is responsible for developing software running behind the scenes of KOCHKA Café. Knowledge of Git, JavaScript and Rust are very important."
+    "BBV+tJ0lbDfoiR6aqPvgJg==": "Open-source Developer is responsible for developing software running behind the scenes of KOCHKA Café. We use Git, JavaScript, and Rust and all our code us publicly available {github link}."
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 108,
-   "col_beg": 16,
-   "line_end": 111,
-   "col_end": 22,
+   "line_beg": 86,
+   "col_beg": 12,
+   "line_end": 95,
+   "col_end": 18,
    "desc": "mystery shopper position description",
    "project": "",
    "type": "text",
-   "jsfbt": "Open-source Developer is responsible for developing software running behind the scenes of KOCHKA Café. Knowledge of Git, JavaScript and Rust are very important."
-  },
-  {
-   "hashToText": {
-    "bEAH2l2l66pXNF6sed5woQ==": "Did you know? All your software is publically available {github link}."
-   },
-   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 114,
-   "col_beg": 16,
-   "line_end": 121,
-   "col_end": 22,
-   "desc": "open-source code explainer",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Did you know? All your software is publically available {github link}."
-  },
-  {
-   "hashToText": {
-    "MZh5/6nbdGKU1ALAY1bfgw==": "This position is currently unavailable. However, you can leave us your data in our \"Talent Pool\" so we can contact you later: {=Open Talent Pool on Google Forms}"
-   },
-   "filepath": "src/open-positions/OpenPositionUnavailableWarning.js",
-   "line_beg": 10,
-   "col_beg": 6,
-   "line_end": 16,
-   "col_end": 12,
-   "desc": "position unavailable description",
-   "project": "",
-   "type": "text",
-   "jsfbt": "This position is currently unavailable. However, you can leave us your data in our \"Talent Pool\" so we can contact you later: {=Open Talent Pool on Google Forms}"
-  },
-  {
-   "hashToText": {
-    "hZRmbzZ0e79iOfeU1jOD2w==": "Open Talent Pool on Google Forms"
-   },
-   "filepath": "src/open-positions/OpenPositionUnavailableWarning.js",
-   "line_beg": 13,
-   "col_beg": 8,
-   "line_end": 15,
-   "col_end": 15,
-   "desc": "In the phrase: \"This position is currently unavailable. However, you can leave us your data in our \"Talent Pool\" so we can contact you later:{=Open Talent Pool on Google Forms}\"",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Open Talent Pool on Google Forms"
+   "jsfbt": "Open-source Developer is responsible for developing software running behind the scenes of KOCHKA Café. We use Git, JavaScript, and Rust and all our code us publicly available {github link}."
   },
   {
    "hashToText": {
@@ -1181,10 +1125,10 @@
     "9NSktf8Wasdbln+avfGiWQ==": "Skip to content"
    },
    "filepath": "pages/_app.js",
-   "line_beg": 45,
-   "col_beg": 22,
-   "line_end": 47,
-   "col_end": 28,
+   "line_beg": 44,
+   "col_beg": 20,
+   "line_end": 46,
+   "col_end": 26,
    "desc": "hidden 'skip link' title which helps blind people to skip directly the main section and avoid the repetitive menu altogether",
    "project": "",
    "type": "text",

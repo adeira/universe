@@ -1,11 +1,14 @@
 // @flow
 
-import { Badge, LayoutBlock, Link } from '@adeira/sx-design';
+import { LayoutBlock, Link } from '@adeira/sx-design';
 import * as React from 'react';
 import fbt from 'fbt';
 
 import Layout from '../Layout';
 import OpenPosition from './OpenPosition';
+import FullTimeBadge from './badges/FullTimeBadge';
+import PositionAvailableBadge from './badges/PositionAvailableBadge';
+import PositionUnavailableBadge from './badges/PositionUnavailableBadge';
 
 export default function OpenPositionsPageLayout(): React.Node {
   return (
@@ -26,39 +29,25 @@ export default function OpenPositionsPageLayout(): React.Node {
               Person in charge of beverage preparation (Barista)
             </fbt>
           }
-          isCurrentlyAvailable={false}
-          badges={[
-            <Badge key={1} tint="default">
-              <fbt desc="full-time badge text">Full-time</fbt>
-            </Badge>,
-          ]}
-          descriptionComponent={
-            <p>
-              <fbt desc="barista position description">
-                Barista is responsible for preparation of coffee based drinks, teas, milkshakes and
-                other specialities as well as attending our clients and keeping the workplace clean.
-                This is a full-time position only.
-              </fbt>
-            </p>
+          badges={[<PositionUnavailableBadge key={1} />, <FullTimeBadge key={2} />]}
+          description={
+            <fbt desc="barista position description">
+              Barista is responsible for preparation of coffee based drinks, teas, milkshakes and
+              other specialities as well as attending our clients and keeping the workplace clean.
+              This is a full-time position only.
+            </fbt>
           }
         />
 
         <OpenPosition
           title={<fbt desc="chef position title">Person in charge of food preparation</fbt>}
-          isCurrentlyAvailable={false}
-          badges={[
-            <Badge key={1} tint="default">
-              <fbt desc="full-time badge text">Full-time</fbt>
-            </Badge>,
-          ]}
-          descriptionComponent={
-            <p>
-              <fbt desc="chef position description">
-                Person in charge of food preparation is responsible for preparing and improving our
-                food options as well as attending our clients and keeping the workplace clean. This
-                is a full-time position only.
-              </fbt>
-            </p>
+          badges={[<PositionUnavailableBadge key={1} />, <FullTimeBadge key={2} />]}
+          description={
+            <fbt desc="chef position description">
+              Person in charge of food preparation is responsible for preparing and improving our
+              food options as well as attending our clients and keeping the workplace clean. This is
+              a full-time position only.
+            </fbt>
           }
         />
 
@@ -68,59 +57,42 @@ export default function OpenPositionsPageLayout(): React.Node {
               Person in charge of our premises and customers
             </fbt>
           }
-          isCurrentlyAvailable={true}
-          badges={[
-            <Badge key={1} tint="default">
-              <fbt desc="full-time badge text">Full-time</fbt>
-            </Badge>,
-          ]}
-          descriptionComponent={
-            <p>
-              <fbt desc="assistant position description">
-                Person in this position is responsible for customer service, keeping the facilities
-                clean, and assisting in the food preparation sector. This is a full-time position
-                only.
-              </fbt>
-            </p>
+          badges={[<PositionAvailableBadge key={1} />, <FullTimeBadge key={2} />]}
+          description={
+            <fbt desc="assistant position description">
+              Person in this position is responsible for customer service, keeping the facilities
+              clean, and assisting in the food preparation sector. This is a full-time position
+              only.
+            </fbt>
           }
         />
 
         <OpenPosition
           title={<fbt desc="mystery shopper position title">Mystery Shopper</fbt>}
-          isCurrentlyAvailable={false}
-          descriptionComponent={
-            <p>
-              <fbt desc="mystery shopper position description">
-                Mystery Shopper is responsible for making sure that we always provide the best
-                services and products to our customers. It does so by visiting our café (secretly)
-                while pretending to be a normal customer and later reporting any observations.
-              </fbt>
-            </p>
+          badges={[<PositionUnavailableBadge key={1} />]}
+          description={
+            <fbt desc="mystery shopper position description">
+              Mystery Shopper is responsible for making sure that we always provide the best
+              services and products to our customers. It does so by visiting our café (secretly)
+              while pretending to be a normal customer and later reporting any observations.
+            </fbt>
           }
         />
 
         <OpenPosition
           title={<fbt desc="mystery shopper position title">Open-source Developer</fbt>}
-          isCurrentlyAvailable={false}
-          descriptionComponent={
-            <>
-              <p>
-                <fbt desc="mystery shopper position description">
-                  Open-source Developer is responsible for developing software running behind the
-                  scenes of KOCHKA Café. Knowledge of Git, JavaScript and Rust are very important.
-                </fbt>
-              </p>
-              <p>
-                <fbt desc="open-source code explainer">
-                  Did you know? All your software is publically available{' '}
-                  <fbt:param name="github link">
-                    <Link href="https://github.com/adeira/universe" target="_blank">
-                      on GitHub
-                    </Link>
-                  </fbt:param>.
-                </fbt>
-              </p>
-            </>
+          badges={[<PositionUnavailableBadge key={1} />]}
+          description={
+            <fbt desc="mystery shopper position description">
+              Open-source Developer is responsible for developing software running behind the scenes
+              of KOCHKA Café. We use Git, JavaScript, and Rust and all our code us publicly
+              available{' '}
+              <fbt:param name="github link">
+                <Link href="https://github.com/adeira/universe" target="_blank">
+                  on GitHub
+                </Link>
+              </fbt:param>.
+            </fbt>
           }
         />
       </LayoutBlock>
