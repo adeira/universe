@@ -151,16 +151,6 @@
         }
       ]
     },
-    "EdoLPwaSsscEQmOCmVmdmA==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Vacantes laborales",
-          "variations": []
-        }
-      ]
-    },
     "9xbWs0pIv9Xy0lfCwF7DmQ==": {
       "tokens": [],
       "types": [],
@@ -321,6 +311,16 @@
         }
       ]
     },
+    "YPZm79WHjwd2E30wVWe3VA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Empleos",
+          "variations": []
+        }
+      ]
+    },
     "sY3J2OVXDvprP9Yw1wPdWQ==": {
       "tokens": [],
       "types": [],
@@ -331,32 +331,52 @@
         }
       ]
     },
-    "NdYRRXcBGtwer7LDXw1sAA==": {
+    "5PQUikdPXG3uo/yYO/JTdg==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Esta vacante está disponible actualmente. Todavía estamos trabajando en un mejor proceso de postulación, sin embargo, puedes dejarnos tus datos en nuestro \"Banco de Talentos\" mientras tanto.",
+          "translation": "Tiempo completo",
           "variations": []
         }
       ]
     },
-    "sjH60ictWlligAbhwK+M9Q==": {
+    "UlvVrCqWYA+OrWslYYmc8A==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Postularse en {=Talent Pool} en los formularios de Google",
+          "translation": "Puedes postularte en nuestro Banco de Talentos en caso de que estés interesado.",
           "variations": []
         }
       ]
     },
-    "EJFmNT7ttYV/wWpdCodlrw==": {
+    "54UcAAD/aCdp0ssaexfvTA==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Banco de Talentos",
+          "translation": "Disponible",
+          "variations": []
+        }
+      ]
+    },
+    "UU5kEMYHicF1zn9DeP8QNw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Esta posición no está disponible por el momento, sin embargo, te sugerimos enviar tus datos en nuestro Banco de Talentos en caso de que estés interesado y nos podremos poner en contacto contigo posteriormente.",
+          "variations": []
+        }
+      ]
+    },
+    "tEIYeVlKn5IC1LJpK2S4aw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "No disponible",
           "variations": []
         }
       ]
@@ -387,16 +407,6 @@
       "translations": [
         {
           "translation": "Persona encargada de la preparación de bebidas (Barista)",
-          "variations": []
-        }
-      ]
-    },
-    "5PQUikdPXG3uo/yYO/JTdg==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Tiempo completo",
           "variations": []
         }
       ]
@@ -481,42 +491,12 @@
         }
       ]
     },
-    "9Cq74Se0+aoAOP/0rB9kZQ==": {
+    "BBV+tJ0lbDfoiR6aqPvgJg==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "El desarrollador de código abierto es responsable de desarrollar software que se ejecuta detrás de KOCHKA Café.",
-          "variations": []
-        }
-      ]
-    },
-    "bEAH2l2l66pXNF6sed5woQ==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "¿Sabías que todo el software está disponible públicamente? {github link}.",
-          "variations": []
-        }
-      ]
-    },
-    "MZh5/6nbdGKU1ALAY1bfgw==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Esta posición no está disponible actualmente. Sin embargo, puedes dejarnos tus datos en nuestro \"Banco de Talentos\" para que podamos ponernos en contacto contigo más tarde: {=Open Talent Pool on Google Forms}",
-          "variations": []
-        }
-      ]
-    },
-    "hZRmbzZ0e79iOfeU1jOD2w==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Abrir Banco de Talentos en Google Forms",
+          "translation": "El desarrollador de código abierto es responsable de desarrollar el software que se ejecuta detrás de KOCHKA Café. Utilizamos Git, JavaScript, Rust y todo nuestro código está disponible públicamente {github link}.",
           "variations": []
         }
       ]
