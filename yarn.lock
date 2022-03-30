@@ -176,7 +176,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.16.3
     "@testing-library/react": ^12.1.4
     "@testing-library/user-event": ^13.5.0
-    apollo-server-micro: ^3.6.6
+    apollo-server-micro: ^3.6.7
     babel-jest: ^27.5.1
     cors: ^2.8.5
     flow-bin: ^0.174.1
@@ -592,10 +592,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@apollographql/apollo-tools@npm:^0.5.1":
-  version: 0.5.1
-  resolution: "@apollographql/apollo-tools@npm:0.5.1"
-  checksum: 02c47fa6f293f37068a8654eabb807c083cbe19ef30fd3b65a0abe7d4bda0075b8c066c30eb9a80a88a4d0d1111f4b9700ae97faf10d9c5e97cbadce07485b21
+"@apollographql/apollo-tools@npm:^0.5.3":
+  version: 0.5.3
+  resolution: "@apollographql/apollo-tools@npm:0.5.3"
+  peerDependencies:
+    graphql: ^14.2.1 || ^15.0.0 || ^16.0.0
+  checksum: 652f16f8ae4afb65a2cb62a47e46882f49368f8f2c115f421773c3f8aa47b466ab9a6758fc18138495bd010baea5fda05d3c313edd11c4f4b3e8f8783b54d5a2
   languageName: node
   linkType: hard
 
@@ -5730,11 +5732,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"apollo-server-core@npm:^3.6.6":
-  version: 3.6.6
-  resolution: "apollo-server-core@npm:3.6.6"
+"apollo-server-core@npm:^3.6.7":
+  version: 3.6.7
+  resolution: "apollo-server-core@npm:3.6.7"
   dependencies:
-    "@apollographql/apollo-tools": ^0.5.1
+    "@apollographql/apollo-tools": ^0.5.3
     "@apollographql/graphql-playground-html": 1.6.29
     "@graphql-tools/mock": ^8.1.2
     "@graphql-tools/schema": ^8.0.0
@@ -5756,7 +5758,7 @@ __metadata:
     uuid: ^8.0.0
   peerDependencies:
     graphql: ^15.3.0 || ^16.0.0
-  checksum: 8c31ca63c4d2244da03c01d9d997b00fa1e937580ebd41c2c75fc1bd6f81bee84856c528b96e299ee876af58fc53b0d5c9c25433036dcd6b5111997caf7487ce
+  checksum: 4ffd0a772f29c7b0a30fe445b7c71c7b32b782fa7992753708d1cdc7cf3b249f602b23e06e2dbe64ed54f65bafe7d38afc1f3e9ec828518edff348525062c6c0
   languageName: node
   linkType: hard
 
@@ -5778,17 +5780,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"apollo-server-micro@npm:^3.6.6":
-  version: 3.6.6
-  resolution: "apollo-server-micro@npm:3.6.6"
+"apollo-server-micro@npm:^3.6.7":
+  version: 3.6.7
+  resolution: "apollo-server-micro@npm:3.6.7"
   dependencies:
     "@hapi/accept": ^5.0.2
-    apollo-server-core: ^3.6.6
+    apollo-server-core: ^3.6.7
     apollo-server-types: ^3.5.2
     type-is: ^1.6.18
   peerDependencies:
     micro: ^9.3.4
-  checksum: c27786f9c3eda04797d6f794333e065d4ea6535478f17c2d1bdc35f27391f399529e3c6d27a1dc0fdfe45cf04ab44f0b04c70245fc9e1928ec1498c7be389916
+  checksum: 8cb1f0095824e2538b4eb2bba78a89363395ffb19fecc225126511290220f5b103d630324ea63f9c9ade13488084ed8c92b82c9300ad427fc226348e13530809
   languageName: node
   linkType: hard
 
