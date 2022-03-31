@@ -534,12 +534,26 @@
   },
   {
    "hashToText": {
+    "Q0LCVBMPiK9JJ/WYmxyX4g==": "{money} / month"
+   },
+   "filepath": "src/open-positions/badges/SalaryBadge.js",
+   "line_beg": 10,
+   "col_beg": 6,
+   "line_end": 15,
+   "col_end": 12,
+   "desc": "salary badge text",
+   "project": "",
+   "type": "text",
+   "jsfbt": "{money} / month"
+  },
+  {
+   "hashToText": {
     "Z1d6qX2L0fKBN6cEnxEOOw==": "Open positions"
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 16,
+   "line_beg": 17,
    "col_beg": 13,
-   "line_end": 16,
+   "line_end": 17,
    "col_end": 71,
    "desc": "open positions page title",
    "project": "",
@@ -551,9 +565,9 @@
     "vowqupCy07qqoGcmRVowvw==": "Would you like to work with us?"
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 17,
+   "line_beg": 18,
    "col_beg": 16,
-   "line_end": 17,
+   "line_end": 18,
    "col_end": 94,
    "desc": "open positions page subtitle",
    "project": "",
@@ -562,82 +576,26 @@
   },
   {
    "hashToText": {
-    "Uv4+kYVhFz2utYz977Z2UQ==": "Person in charge of beverage preparation (Barista)"
+    "mubLlA5AQxRA7td64tC29g==": "Person responsible for our premises and customers (Ayudante General)"
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 28,
+   "line_beg": 29,
    "col_beg": 12,
-   "line_end": 30,
-   "col_end": 18,
-   "desc": "barista position title",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Person in charge of beverage preparation (Barista)"
-  },
-  {
-   "hashToText": {
-    "lAd0Iecjt0/G66JSr54JvA==": "Barista is responsible for preparation of coffee based drinks, teas, milkshakes and other specialities as well as attending our clients and keeping the workplace clean. This is a full-time position only."
-   },
-   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 34,
-   "col_beg": 12,
-   "line_end": 38,
-   "col_end": 18,
-   "desc": "barista position description",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Barista is responsible for preparation of coffee based drinks, teas, milkshakes and other specialities as well as attending our clients and keeping the workplace clean. This is a full-time position only."
-  },
-  {
-   "hashToText": {
-    "3raB56R7+NKJ+jgm8pP2rQ==": "Person in charge of food preparation"
-   },
-   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 43,
-   "col_beg": 17,
-   "line_end": 43,
-   "col_end": 91,
-   "desc": "chef position title",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Person in charge of food preparation"
-  },
-  {
-   "hashToText": {
-    "wf4j48fLHP425fhfMR8e7A==": "Person in charge of food preparation is responsible for preparing and improving our food options as well as attending our clients and keeping the workplace clean. This is a full-time position only."
-   },
-   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 46,
-   "col_beg": 12,
-   "line_end": 50,
-   "col_end": 18,
-   "desc": "chef position description",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Person in charge of food preparation is responsible for preparing and improving our food options as well as attending our clients and keeping the workplace clean. This is a full-time position only."
-  },
-  {
-   "hashToText": {
-    "A6HMfFTSqbzOQClXvunMXg==": "Person in charge of our premises and customers"
-   },
-   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 56,
-   "col_beg": 12,
-   "line_end": 58,
+   "line_end": 31,
    "col_end": 18,
    "desc": "assistant position title",
    "project": "",
    "type": "text",
-   "jsfbt": "Person in charge of our premises and customers"
+   "jsfbt": "Person responsible for our premises and customers (Ayudante General)"
   },
   {
    "hashToText": {
     "YWTm5M86w76d43pJKYXN7w==": "Person in this position is responsible for customer service, keeping the facilities clean, and assisting in the food preparation sector. This is a full-time position only."
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 62,
+   "line_beg": 39,
    "col_beg": 12,
-   "line_end": 66,
+   "line_end": 43,
    "col_end": 18,
    "desc": "assistant position description",
    "project": "",
@@ -646,12 +604,68 @@
   },
   {
    "hashToText": {
+    "H8l+kJTbPzjEXskVb6pTvg==": "Person responsible for beverage preparation (Barista)"
+   },
+   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
+   "line_beg": 49,
+   "col_beg": 12,
+   "line_end": 51,
+   "col_end": 18,
+   "desc": "barista position title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Person responsible for beverage preparation (Barista)"
+  },
+  {
+   "hashToText": {
+    "lAd0Iecjt0/G66JSr54JvA==": "Barista is responsible for preparation of coffee based drinks, teas, milkshakes and other specialities as well as attending our clients and keeping the workplace clean. This is a full-time position only."
+   },
+   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
+   "line_beg": 59,
+   "col_beg": 12,
+   "line_end": 63,
+   "col_end": 18,
+   "desc": "barista position description",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Barista is responsible for preparation of coffee based drinks, teas, milkshakes and other specialities as well as attending our clients and keeping the workplace clean. This is a full-time position only."
+  },
+  {
+   "hashToText": {
+    "jsZid4+O30Jhr5fT06nf2w==": "Person responsible for food preparation"
+   },
+   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
+   "line_beg": 68,
+   "col_beg": 17,
+   "line_end": 68,
+   "col_end": 94,
+   "desc": "chef position title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Person responsible for food preparation"
+  },
+  {
+   "hashToText": {
+    "wf4j48fLHP425fhfMR8e7A==": "Person in charge of food preparation is responsible for preparing and improving our food options as well as attending our clients and keeping the workplace clean. This is a full-time position only."
+   },
+   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
+   "line_beg": 75,
+   "col_beg": 12,
+   "line_end": 79,
+   "col_end": 18,
+   "desc": "chef position description",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Person in charge of food preparation is responsible for preparing and improving our food options as well as attending our clients and keeping the workplace clean. This is a full-time position only."
+  },
+  {
+   "hashToText": {
     "8Pm7esp/+gf54h5wjnhtIA==": "Mystery Shopper"
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 71,
+   "line_beg": 84,
    "col_beg": 17,
-   "line_end": 71,
+   "line_end": 84,
    "col_end": 81,
    "desc": "mystery shopper position title",
    "project": "",
@@ -663,9 +677,9 @@
     "BOp9L6wr5H8DAJ5jtd5J9g==": "Mystery Shopper is responsible for making sure that we always provide the best services and products to our customers. It does so by visiting our café (secretly) while pretending to be a normal customer and later reporting any observations."
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 74,
+   "line_beg": 87,
    "col_beg": 12,
-   "line_end": 78,
+   "line_end": 91,
    "col_end": 18,
    "desc": "mystery shopper position description",
    "project": "",
@@ -677,9 +691,9 @@
     "kOqAkB7LlUNdQoxTwvBwxA==": "Open-source Developer"
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 83,
+   "line_beg": 96,
    "col_beg": 17,
-   "line_end": 83,
+   "line_end": 96,
    "col_end": 87,
    "desc": "mystery shopper position title",
    "project": "",
@@ -691,9 +705,9 @@
     "BBV+tJ0lbDfoiR6aqPvgJg==": "Open-source Developer is responsible for developing software running behind the scenes of KOCHKA Café. We use Git, JavaScript, and Rust and all our code us publicly available {github link}."
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 86,
+   "line_beg": 99,
    "col_beg": 12,
-   "line_end": 95,
+   "line_end": 108,
    "col_end": 18,
    "desc": "mystery shopper position description",
    "project": "",
