@@ -179,7 +179,7 @@ __metadata:
     apollo-server-micro: ^3.6.7
     babel-jest: ^27.5.1
     cors: ^2.8.5
-    flow-bin: ^0.174.1
+    flow-bin: ^0.175.0
     graphql: ^16.3.0
     jest: ^27.5.1
     micro: ^9.3.4
@@ -488,7 +488,7 @@ __metadata:
     "@adeira/babel-preset-adeira": ^4.0.0
     "@adeira/sx": ^0.29.1
     "@babel/core": ^7.17.8
-    flow-bin: ^0.174.1
+    flow-bin: ^0.175.0
     hast-util-to-html: ^7.1.3
     next: ^12.1.4
     next-plugin-custom-babel-config: ^1.0.5
@@ -10457,12 +10457,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"flow-bin@npm:^0.174.1":
-  version: 0.174.1
-  resolution: "flow-bin@npm:0.174.1"
+"flow-bin@npm:^0.175.0":
+  version: 0.175.0
+  resolution: "flow-bin@npm:0.175.0"
   bin:
     flow: cli.js
-  checksum: 02501ae76dc498ebb2e9e5259a6db6a649022ae0a25b4dc87da86e0054567b83d9ab8ecd50a73060c53b40b05ab2bd16010a84a35dbbab2b3c3d28db3b98618d
+  checksum: bd8168d1a889fbe3b86d29f6aaa6346a9d01f8c9a9aeed47a9193a98ee9bb5d2d38e3d52afe65f5beaa368eeadcbd3ae85ed9d66e6e2ac29d277d6e2b69b1f4c
   languageName: node
   linkType: hard
 
@@ -17286,7 +17286,7 @@ __metadata:
     babel-loader: ^8.2.4
     eslint: ^8.12.0
     eslint-formatter-codeframe: ^7.32.1
-    flow-bin: ^0.174.1
+    flow-bin: ^0.175.0
     glob: ^7.2.0
     jest: ^27.5.1
     jest-runner-eslint: ^1.0.0
