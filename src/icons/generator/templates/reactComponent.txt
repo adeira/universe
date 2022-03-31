@@ -2,6 +2,10 @@
 
 import React, { type Element } from 'react';
 
-export default function %%COMPONENT_NAME%%(props: {}): Element<'svg'> {
+type Props = {
+  +'data-testid'?: string,
+};
+
+export default function %%COMPONENT_NAME%%(props: Props): Element<'svg'> {
   return %%JSX%%;
 };

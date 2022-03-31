@@ -30,8 +30,8 @@
     "next-compose-plugins": "^2.2.1",
     "next-plugin-custom-babel-config": "^1.0.5",
     "next-transpile-modules": "^9.0.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "recoil": "^0.7.3"
   },
   "devDependencies": {
@@ -39,7 +39,7 @@
     "@fbtjs/default-collection-transform": "^1.0.0",
     "@playwright/test": "^1.22.2",
     "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^12.1.5",
+    "@testing-library/react": "^13.3.0",
     "@testing-library/react-hooks": "^8.0.1",
     "babel-plugin-fbt": "^1.0.0",
     "babel-plugin-fbt-runtime": "^1.0.0",

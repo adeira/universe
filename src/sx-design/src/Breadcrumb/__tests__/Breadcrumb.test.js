@@ -9,8 +9,20 @@ import fbt from 'fbt';
 import Breadcrumb from '../Breadcrumb';
 import { render, initFbt } from '../../test-utils';
 
+// TODO: How to deal with this? (Internally using Icon which uses Suspense)
+//  See: https://github.com/reactwg/react-18/discussions/102
+let prevIsReactActEnvironment;
+beforeAll(() => {
+  prevIsReactActEnvironment = global.IS_REACT_ACT_ENVIRONMENT;
+  global.IS_REACT_ACT_ENVIRONMENT = false;
+});
+
 beforeEach(() => {
   initFbt();
+});
+
+afterAll(() => {
+  global.IS_REACT_ACT_ENVIRONMENT = prevIsReactActEnvironment;
 });
 
 it('renders the breadcrumb without any issues', () => {

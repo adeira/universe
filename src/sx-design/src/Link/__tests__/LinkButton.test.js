@@ -65,8 +65,8 @@ it('does not call onClick event when disabled', async () => {
   expect(onClickFn).not.toHaveBeenCalled();
 });
 
-it('renders prefix and suffix icons', () => {
-  const { getByText, getByTestId } = renderWithoutProviders(
+it('renders prefix and suffix icons', async () => {
+  const { getByText, findByTestId } = renderWithoutProviders(
     <LinkButton
       href="https://localhost"
       prefix={<Icon name="door" data-testid="door_icon" />}
@@ -79,6 +79,9 @@ it('renders prefix and suffix icons', () => {
   );
 
   expect(getByText('link button title')).toBeInTheDocument();
-  expect(getByTestId('door_icon')).toBeInTheDocument();
-  expect(getByTestId('receipt_icon')).toBeInTheDocument();
+
+  // $FlowFixMe[prop-missing]: missing types for `*.resolves.toBeInTheDocument()`
+  await expect(findByTestId('door_icon')).resolves.toBeInTheDocument();
+  // $FlowFixMe[prop-missing]: missing types for `*.resolves.toBeInTheDocument()`
+  await expect(findByTestId('receipt_icon')).resolves.toBeInTheDocument();
 });

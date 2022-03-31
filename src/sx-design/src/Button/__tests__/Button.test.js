@@ -26,8 +26,8 @@ it('renders without any issues', () => {
   expect(getByText('button title')).toBeInTheDocument();
 });
 
-it('renders prefix and suffix icons', () => {
-  const { getByText, getByTestId } = render(
+it('renders prefix and suffix icons', async () => {
+  const { getByText, findByTestId } = render(
     <Button
       onClick={jest.fn()}
       prefix={<Icon name="door" data-testid="door_icon" />}
@@ -40,8 +40,11 @@ it('renders prefix and suffix icons', () => {
   );
 
   expect(getByText('button title')).toBeInTheDocument();
-  expect(getByTestId('door_icon')).toBeInTheDocument();
-  expect(getByTestId('receipt_icon')).toBeInTheDocument();
+
+  // $FlowFixMe[prop-missing]: missing types for `*.resolves.toBeInTheDocument()`
+  await expect(findByTestId('door_icon')).resolves.toBeInTheDocument();
+  // $FlowFixMe[prop-missing]: missing types for `*.resolves.toBeInTheDocument()`
+  await expect(findByTestId('receipt_icon')).resolves.toBeInTheDocument();
 });
 
 it('calls onClick event', async () => {
@@ -80,7 +83,7 @@ it('does not call onClick event when the button is disabled', async () => {
   expect(onClickFn).not.toHaveBeenCalled();
 });
 
-it('throws when Icon is the only Button child and ARIA label is not specified', () => {
+it('throws when Icon is the only Button child and ARIA label is not specified', async () => {
   const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
   expect(() => {
     render(
@@ -93,11 +96,12 @@ it('throws when Icon is the only Button child and ARIA label is not specified', 
   );
   consoleSpy.mockRestore();
 
-  const { getByTestId } = render(
+  const { findByTestId } = render(
     <Button onClick={jest.fn()} aria-label="Timeline button">
       <Icon name="timeline" data-testid="timeline_icon" />
     </Button>,
   );
 
-  expect(getByTestId('timeline_icon')).toBeInTheDocument();
+  // $FlowFixMe[prop-missing]: missing types for `*.resolves.toBeInTheDocument()`
+  await expect(findByTestId('timeline_icon')).resolves.toBeInTheDocument();
 });

@@ -47,7 +47,7 @@ const TEMPLATES_PATH = path.join(__dirname, 'templates');
       '%%COMPONENTS_MAP%%',
       collectedComponents
         .map(({ svgName, reactName }) => {
-          return `${svgName}: loadable(() => import('./${reactName}'), loadableOptions)`;
+          return `${svgName}: React.lazy(() => import('./${reactName}'))`;
         })
         .join(',\n'),
     );
