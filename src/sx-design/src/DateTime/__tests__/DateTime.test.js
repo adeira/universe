@@ -9,6 +9,18 @@ import DateTime from '../DateTime';
 import SxDesignProvider from '../../SxDesignProvider';
 import { render } from '../../test-utils';
 
+// TODO: How to deal with this? (Internally using Icon which uses Suspense)
+//  See: https://github.com/reactwg/react-18/discussions/102
+let prevIsReactActEnvironment;
+beforeAll(() => {
+  prevIsReactActEnvironment = global.IS_REACT_ACT_ENVIRONMENT;
+  global.IS_REACT_ACT_ENVIRONMENT = false;
+});
+
+afterAll(() => {
+  global.IS_REACT_ACT_ENVIRONMENT = prevIsReactActEnvironment;
+});
+
 const dateTimeFormatOptions = {
   hour: 'numeric',
   minute: 'numeric',

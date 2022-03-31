@@ -47,5 +47,6 @@ module.exports = ({
   },
   experimental: {
     esmExternals: 'loose',
+    runtime: 'nodejs',
   },
 } /*: any */);
