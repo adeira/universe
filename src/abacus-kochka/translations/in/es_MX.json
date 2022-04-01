@@ -381,6 +381,16 @@
         }
       ]
     },
+    "Q0LCVBMPiK9JJ/WYmxyX4g==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "{money} / mensual",
+          "variations": []
+        }
+      ]
+    },
     "Z1d6qX2L0fKBN6cEnxEOOw==": {
       "tokens": [],
       "types": [],
@@ -401,12 +411,32 @@
         }
       ]
     },
-    "Uv4+kYVhFz2utYz977Z2UQ==": {
+    "mubLlA5AQxRA7td64tC29g==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Persona encargada de la preparación de bebidas (Barista)",
+          "translation": "Persona responsable de nuestras instalaciones y clientes (Ayudante General)",
+          "variations": []
+        }
+      ]
+    },
+    "YWTm5M86w76d43pJKYXN7w==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "La persona que cubra esta vacante es responsable del servicio al cliente, mantener las instalaciones limpias y ayudar en el sector de la preparación de alimentos. Esta es vacante de tiempo completo únicamente.",
+          "variations": []
+        }
+      ]
+    },
+    "H8l+kJTbPzjEXskVb6pTvg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Persona responsable de la preparación de bebidas (Barista)",
           "variations": []
         }
       ]
@@ -421,12 +451,12 @@
         }
       ]
     },
-    "3raB56R7+NKJ+jgm8pP2rQ==": {
+    "jsZid4+O30Jhr5fT06nf2w==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Persona encargada de la preparación de alimentos",
+          "translation": "Persona responsable de la preparación de alimentos",
           "variations": []
         }
       ]
@@ -437,26 +467,6 @@
       "translations": [
         {
           "translation": "La persona encargada de la preparación de alimentos es responsable de preparar y mejorar nuestras opciones de alimentos, así como de atender a nuestros clientes y mantener limpio el lugar de trabajo. Esta es vacante de tiempo completo únicamente.",
-          "variations": []
-        }
-      ]
-    },
-    "A6HMfFTSqbzOQClXvunMXg==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Persona a cargo de nuestras instalaciones y clientes",
-          "variations": []
-        }
-      ]
-    },
-    "YWTm5M86w76d43pJKYXN7w==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "La persona que cubra esta vacante es responsable del servicio al cliente, mantener las instalaciones limpias y ayudar en el sector de la preparación de alimentos. Esta es vacante de tiempo completo únicamente.",
           "variations": []
         }
       ]
