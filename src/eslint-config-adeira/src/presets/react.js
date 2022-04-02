@@ -247,7 +247,7 @@ module.exports = ({
         'testing-library/await-async-utils': ERROR,
         'testing-library/await-fire-event': OFF, // Vue only (https://github.com/testing-library/eslint-plugin-testing-library#supported-rules)
         'testing-library/consistent-data-testid': OFF,
-        'testing-library/no-await-sync-events': ERROR,
+        'testing-library/no-await-sync-events': OFF, // no longer true with `user-event` v14+ (APIs always return a Promise)
         'testing-library/no-await-sync-query': ERROR,
         'testing-library/no-container': OFF,
         'testing-library/no-debugging-utils': ERROR,

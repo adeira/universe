@@ -23,7 +23,7 @@ it('renders without any issues', () => {
   expect(getByText('CCC')).toBeInTheDocument();
 });
 
-it('calls `onFiltersChange` as expected', () => {
+it('calls `onFiltersChange` as expected', async () => {
   const onFiltersChangeFn = jest.fn();
 
   const { getByText } = render(
@@ -37,15 +37,15 @@ it('calls `onFiltersChange` as expected', () => {
   expect(onFiltersChangeFn).not.toHaveBeenCalledWith();
 
   // select AAA
-  userEvent.click(getByText('AAA'));
+  await userEvent.click(getByText('AAA'));
   expect(onFiltersChangeFn).toHaveBeenLastCalledWith(['aaa']);
 
   // additionally select BBB and CCC
-  userEvent.click(getByText('BBB'));
-  userEvent.click(getByText('CCC'));
+  await userEvent.click(getByText('BBB'));
+  await userEvent.click(getByText('CCC'));
   expect(onFiltersChangeFn).toHaveBeenLastCalledWith(['aaa', 'bbb', 'ccc']);
 
   // unselect BBB
-  userEvent.click(getByText('BBB'));
+  await userEvent.click(getByText('BBB'));
   expect(onFiltersChangeFn).toHaveBeenLastCalledWith(['aaa', 'ccc']);
 });

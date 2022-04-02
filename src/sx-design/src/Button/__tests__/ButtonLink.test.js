@@ -13,7 +13,7 @@ beforeEach(() => {
   initFbt();
 });
 
-it('calls onClick event', () => {
+it('calls onClick event', async () => {
   const onClickFn = jest.fn();
 
   const { getByText } = render(
@@ -27,6 +27,6 @@ it('calls onClick event', () => {
   expect(getByText('button link with onClick callback')).toBeInTheDocument();
   expect(onClickFn).not.toHaveBeenCalled();
 
-  userEvent.click(getByText('button link with onClick callback'));
+  await userEvent.click(getByText('button link with onClick callback'));
   expect(onClickFn).toHaveBeenCalledTimes(1);
 });

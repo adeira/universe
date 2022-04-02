@@ -44,7 +44,7 @@ it('renders prefix and suffix icons', () => {
   expect(getByTestId('receipt_icon')).toBeInTheDocument();
 });
 
-it('calls onClick event', () => {
+it('calls onClick event', async () => {
   const onClickFn = jest.fn();
 
   const { getByText } = render(
@@ -58,11 +58,11 @@ it('calls onClick event', () => {
   expect(getByText('button with onClick callback')).toBeInTheDocument();
   expect(onClickFn).not.toHaveBeenCalled();
 
-  userEvent.click(getByText('button with onClick callback'));
+  await userEvent.click(getByText('button with onClick callback'));
   expect(onClickFn).toHaveBeenCalledTimes(1);
 });
 
-it('does not call onClick event when the button is disabled', () => {
+it('does not call onClick event when the button is disabled', async () => {
   const onClickFn = jest.fn();
 
   const { getByText } = render(
@@ -76,7 +76,7 @@ it('does not call onClick event when the button is disabled', () => {
   expect(getByText('disabled button with onClick callback')).toBeInTheDocument();
   expect(onClickFn).not.toHaveBeenCalled();
 
-  userEvent.click(getByText('disabled button with onClick callback'));
+  await userEvent.click(getByText('disabled button with onClick callback'));
   expect(onClickFn).not.toHaveBeenCalled();
 });
 

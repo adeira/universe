@@ -14,7 +14,7 @@ beforeEach(() => {
   initFbt();
 });
 
-it('renders and behaves as expected - default children', () => {
+it('renders and behaves as expected - default children', async () => {
   const { queryByText, getByText, getByTestId } = render(
     <Tooltip
       data-testid="hover_over_me"
@@ -31,14 +31,14 @@ it('renders and behaves as expected - default children', () => {
   expect(window.getComputedStyle(queryByText('test tooltip content')).visibility).toBe('hidden');
 
   // We have to uncover it:
-  userEvent.hover(getByTestId('hover_over_me'));
+  await userEvent.hover(getByTestId('hover_over_me'));
 
   // And now we should be able to find it:
   expect(getByText('test tooltip content')).toBeInTheDocument();
   expect(window.getComputedStyle(queryByText('test tooltip content')).visibility).toBe('visible');
 });
 
-it('renders and behaves as expected - custom children with mouse hover', () => {
+it('renders and behaves as expected - custom children with mouse hover', async () => {
   const { queryByText, getByText } = render(
     <Tooltip
       title={
@@ -56,14 +56,14 @@ it('renders and behaves as expected - custom children with mouse hover', () => {
   expect(window.getComputedStyle(queryByText('test tooltip content')).visibility).toBe('hidden');
 
   // We have to uncover it (by hovering mouse over):
-  userEvent.hover(getByText('custom children hover me'));
+  await userEvent.hover(getByText('custom children hover me'));
 
   // And now we should be able to find it:
   expect(getByText('test tooltip content')).toBeInTheDocument();
   expect(window.getComputedStyle(queryByText('test tooltip content')).visibility).toBe('visible');
 });
 
-it('renders and behaves as expected - custom children with focus', () => {
+it('renders and behaves as expected - custom children with focus', async () => {
   const { queryByText, getByText } = render(
     <Tooltip
       title={
@@ -84,7 +84,7 @@ it('renders and behaves as expected - custom children with focus', () => {
 
   // We have to uncover it (by focusing the button):
   expect(document.body).toHaveFocus();
-  userEvent.tab();
+  await userEvent.tab();
   expect(getByText('focus me')).toHaveFocus();
 
   // And now we should be able to find it:
@@ -94,7 +94,7 @@ it('renders and behaves as expected - custom children with focus', () => {
   );
 });
 
-it('closes on ESC press', () => {
+it('closes on ESC press', async () => {
   const { queryByText, getByText, getByTestId } = render(
     <Tooltip
       data-testid="hover_over_me_esc"
@@ -111,14 +111,14 @@ it('closes on ESC press', () => {
   expect(window.getComputedStyle(queryByText('close me with ESC')).visibility).toBe('hidden');
 
   // We have to uncover it:
-  userEvent.hover(getByTestId('hover_over_me_esc'));
+  await userEvent.hover(getByTestId('hover_over_me_esc'));
 
   // And now we should be able to find it:
   expect(getByText('close me with ESC')).toBeInTheDocument();
   expect(window.getComputedStyle(queryByText('close me with ESC')).visibility).toBe('visible');
 
   // Let's try to close it by pressing ESC:
-  userEvent.keyboard('{esc}');
+  await userEvent.keyboard('{Escape}');
   expect(getByText('close me with ESC')).toBeInTheDocument();
   expect(window.getComputedStyle(queryByText('close me with ESC')).visibility).toBe('hidden');
 });

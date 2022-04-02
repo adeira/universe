@@ -38,7 +38,7 @@ Object {
         "testing-library/await-async-utils": 2,
         "testing-library/await-fire-event": 0,
         "testing-library/consistent-data-testid": 0,
-        "testing-library/no-await-sync-events": 2,
+        "testing-library/no-await-sync-events": 0,
         "testing-library/no-await-sync-query": 2,
         "testing-library/no-container": 0,
         "testing-library/no-debugging-utils": 2,

@@ -8,7 +8,7 @@ import * as React from 'react';
 import MissingData from '../MissingData';
 import { render, userEvent } from '../../test-utils';
 
-it('works as expected without any crashes', () => {
+it('works as expected without any crashes', async () => {
   const { queryByText, getByText } = render(<MissingData />);
 
   // By default the text is hidden (via CSS visibility, see `Tooltip`):
@@ -18,7 +18,7 @@ it('works as expected without any crashes', () => {
   ).toBe('hidden');
 
   // We have to uncover it:
-  userEvent.hover(getByText('N/A'));
+  await userEvent.hover(getByText('N/A'));
 
   // And now we should be able to find it:
   expect(getByText('Unable to load data or missing data.')).toBeInTheDocument();
