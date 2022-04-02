@@ -57,6 +57,7 @@ __metadata:
     next: ^12.1.4
     next-plugin-custom-babel-config: ^1.0.5
     next-transpile-modules: ^9.0.0
+    playwright: ^1.20.2
     react: ^17.0.2
     react-dom: ^17.0.2
     recoil: ^0.7.0
@@ -15985,6 +15986,17 @@ __metadata:
   bin:
     playwright: cli.js
   checksum: 156c2c8729f1e1a454f348a4e362bb6fff7b7fb7a5e5886828afeb9b29c2fae5dff5c3060a9d4a41f5c191aef0532a73513cfb4f2d2c357f1fe240640b28ca14
+  languageName: node
+  linkType: hard
+
+"playwright@npm:^1.20.2":
+  version: 1.20.2
+  resolution: "playwright@npm:1.20.2"
+  dependencies:
+    playwright-core: 1.20.2
+  bin:
+    playwright: cli.js
+  checksum: f92a2a59999a5ff55959f3dd351cc8724818276637df57efe84b5ccc0676ff38d70f2553b4aabfb4bdc05cb0895ed09616eb1d60407ba62fddbc7dd404926dcc
   languageName: node
   linkType: hard
 
