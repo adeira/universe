@@ -6,6 +6,12 @@ const config = {
   testMatch: '**.play.js',
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
+  webServer: {
+    command: 'yarn run build && yarn run start',
+    port: 5002,
+    timeout: 120 * 1000, // milliseconds
+    reuseExistingServer: !process.env.CI,
+  },
   use: {
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
