@@ -252,6 +252,7 @@ module.exports = ({
         'testing-library/no-container': OFF,
         'testing-library/no-debugging-utils': ERROR,
         'testing-library/no-dom-import': [ERROR, 'react'],
+        'testing-library/no-global-regexp-flag-in-query': NEXT_VERSION_ERROR,
         'testing-library/no-manual-cleanup': OFF,
         'testing-library/no-node-access': OFF,
         'testing-library/no-promise-in-fire-event': ERROR,

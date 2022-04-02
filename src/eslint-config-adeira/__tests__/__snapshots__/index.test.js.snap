@@ -46,6 +46,7 @@ Object {
           2,
           "react",
         ],
+        "testing-library/no-global-regexp-flag-in-query": 1,
         "testing-library/no-manual-cleanup": 0,
         "testing-library/no-node-access": 0,
         "testing-library/no-promise-in-fire-event": 2,
@@ -1183,6 +1184,11 @@ Snapshot Diff:
 +         "jest-dom/prefer-to-have-text-content": 2,
 +         "jest-dom/prefer-to-have-value": 2,
           "testing-library/await-async-query": 0,
+@@ --- --- @@
+          ],
+-         "testing-library/no-global-regexp-flag-in-query": 1,
++         "testing-library/no-global-regexp-flag-in-query": 2,
+          "testing-library/no-manual-cleanup": 0,
 @@ --- --- @@
       "ft-flow/boolean-style": Array [
 -       1,
