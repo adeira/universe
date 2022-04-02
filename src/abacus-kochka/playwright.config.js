@@ -1,17 +1,14 @@
-// @flow
-
-// eslint-disable-next-line import/no-extraneous-dependencies
+// eslint-disable-next-line ft-flow/require-valid-file-annotation,import/no-extraneous-dependencies
 const { devices } = require('@playwright/test');
 
 const config = {
   testDir: 'tests', // TODO: rename to something like UI tests
   testMatch: '**.play.js',
   forbidOnly: !!process.env.CI,
-  // $FlowFixMe[sketchy-null-string]
-  retries: ((process.env.CI ? 2 : 0): number),
+  retries: process.env.CI ? 2 : 0,
   use: {
     trace: 'on-first-retry',
-    // screenshot: 'only-on-failure',
+    screenshot: 'only-on-failure',
   },
   projects: [
     {
