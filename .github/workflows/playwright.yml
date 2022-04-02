@@ -1,0 +1,36 @@
+name: Playwright
+
+# TODO: run this workflow periodically instead of on every push (?)
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # https://github.com/actions/checkout
+      - uses: actions/checkout@v3
+
+      # https://github.com/dorny/paths-filter
+      # TODO: expand as needed
+      - uses: dorny/paths-filter@v2.10.2
+        id: paths-filter
+        with:
+          filters: |
+            src:
+              - 'src/abacus-kochka/**'
+
+      # https://github.com/actions/setup-node
+      - name: Use Node.js 17.x
+        uses: actions/setup-node@v3.1.0
+        with:
+          node-version: 17.x
+          cache: 'yarn'
+
+      - name: Install Yarn dependencies
+        run: yarn install --immutable
+
+      # We currently don't have any other project using `playwright` so let's keep it simple:
+      - name: Run Playwright test
+        run: yarn workspace @adeira/abacus-kochka playwright test
