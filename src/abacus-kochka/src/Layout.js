@@ -1,7 +1,7 @@
 // @flow
 
 import { invariant } from '@adeira/js';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import * as React from 'react';
 import sx from '@adeira/sx';
 import { Text } from '@adeira/sx-design';
@@ -38,9 +38,8 @@ export default function Layout(props: Props): React.Node {
 
   return (
     <>
-      <Head>
-        <title>KOCHKA café · {props.title}</title>
-      </Head>
+      {/* $FlowFixMe[incompatible-type]: cannot coerce FBT to a string */}
+      <NextSeo title={`KOCHKA Café · ${props.title}`} />
 
       <div className={styles('wrapper')}>
         <div className={styles('navigation')}>
