@@ -9,7 +9,7 @@ export default function IndexPage(): React.Node {
   return (
     <>
       <Head>
-        <title>KOCHKA café</title>
+        <title>KOCHKA Café</title>
       </Head>
 
       <Homepage />
