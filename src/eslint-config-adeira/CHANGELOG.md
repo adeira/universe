@@ -1,5 +1,7 @@
 # Unreleased
 
+- New rule [`testing-library/no-global-regexp-flag-in-query`](https://github.com/testing-library/eslint-plugin-testing-library/blob/295c9c609482828c92a3040fdbf9b151fa96eba0/docs/rules/no-global-regexp-flag-in-query.md) enabled (in a backward compatible fashion).
+
 # 7.4.0
 
 - Rule `ft-flow/boolean-style` now enforces `boolean` type (instead of `bool`) as recommended in: https://flow.org/en/docs/types/primitives/#toc-booleans

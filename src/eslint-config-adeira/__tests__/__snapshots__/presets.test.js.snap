@@ -877,6 +877,7 @@ Object {
           2,
           "react",
         ],
+        "testing-library/no-global-regexp-flag-in-query": 1,
         "testing-library/no-manual-cleanup": 0,
         "testing-library/no-node-access": 0,
         "testing-library/no-promise-in-fire-event": 2,
