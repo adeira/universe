@@ -1,6 +1,7 @@
 # Unreleased
 
 - New rule [`testing-library/no-global-regexp-flag-in-query`](https://github.com/testing-library/eslint-plugin-testing-library/blob/295c9c609482828c92a3040fdbf9b151fa96eba0/docs/rules/no-global-regexp-flag-in-query.md) enabled (in a backward compatible fashion).
+- Rule `testing-library/no-await-sync-events` disabled as it is no longer valid in [@testing-library/user-event v14+](https://github.com/testing-library/user-event/releases/v14.0.0) (APIs always return a Promise).
 
 # 7.4.0
 

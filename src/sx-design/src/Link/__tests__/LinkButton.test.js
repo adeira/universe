@@ -29,11 +29,11 @@ it('forwards React refs as expected', () => {
   expect(ref.current?.nodeName).toBe('A');
 });
 
-it('calls onClick event', () => {
+it('calls onClick event', async () => {
   const onClickFn = jest.fn();
 
   const { getByText } = renderWithoutProviders(
-    <LinkButton href="https://localhost" onClick={onClickFn}>
+    <LinkButton href="#" onClick={onClickFn}>
       <fbt desc="link button title" doNotExtract={true}>
         link button with onClick callback
       </fbt>
@@ -43,15 +43,15 @@ it('calls onClick event', () => {
   expect(getByText('link button with onClick callback')).toBeInTheDocument();
   expect(onClickFn).not.toHaveBeenCalled();
 
-  userEvent.click(getByText('link button with onClick callback'));
+  await userEvent.click(getByText('link button with onClick callback'));
   expect(onClickFn).toHaveBeenCalledTimes(1);
 });
 
-it('does not call onClick event when disabled', () => {
+it('does not call onClick event when disabled', async () => {
   const onClickFn = jest.fn();
 
   const { getByText } = renderWithoutProviders(
-    <LinkButton href="https://localhost" onClick={onClickFn} isDisabled={true}>
+    <LinkButton href="#" onClick={onClickFn} isDisabled={true}>
       <fbt desc="link button title" doNotExtract={true}>
         link button with onClick callback
       </fbt>
@@ -61,7 +61,7 @@ it('does not call onClick event when disabled', () => {
   expect(getByText('link button with onClick callback')).toBeInTheDocument();
   expect(onClickFn).not.toHaveBeenCalled();
 
-  userEvent.click(getByText('link button with onClick callback'));
+  await userEvent.click(getByText('link button with onClick callback'));
   expect(onClickFn).not.toHaveBeenCalled();
 });
 

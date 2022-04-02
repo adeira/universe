@@ -80,7 +80,7 @@ it('does not render the error message in production', () => {
   __DEV__ = __PREV_DEV__; // eslint-disable-line no-global-assign
 });
 
-it('calls default onRetry callback as expected (window.location.reload)', () => {
+it('calls default onRetry callback as expected (window.location.reload)', async () => {
   jest.spyOn(console, 'error').mockImplementation(() => {});
 
   const { getByText } = render(
@@ -90,11 +90,11 @@ it('calls default onRetry callback as expected (window.location.reload)', () => 
   );
 
   expect(windowLocationReload).not.toHaveBeenCalled();
-  userEvent.click(getByText('Retry'));
+  await userEvent.click(getByText('Retry'));
   expect(windowLocationReload).toHaveBeenCalledWith();
 });
 
-it('calls custom onRetry callback as expected', () => {
+it('calls custom onRetry callback as expected', async () => {
   jest.spyOn(console, 'error').mockImplementation(() => {});
   const onRetryFn = jest.fn();
 
@@ -105,6 +105,6 @@ it('calls custom onRetry callback as expected', () => {
   );
 
   expect(onRetryFn).not.toHaveBeenCalled();
-  userEvent.click(getByText('Retry'));
+  await userEvent.click(getByText('Retry'));
   expect(onRetryFn).toHaveBeenCalledWith();
 });

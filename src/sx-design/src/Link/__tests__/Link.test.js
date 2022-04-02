@@ -160,7 +160,7 @@ it('forwards React refs as expected', () => {
   expect(ref.current?.nodeName).toBe('A');
 });
 
-it('calls onClick event', () => {
+it('calls onClick event', async () => {
   const onClickFn = jest.fn();
 
   const { getByText } = renderWithoutProviders(
@@ -174,6 +174,6 @@ it('calls onClick event', () => {
   expect(getByText('link with onClick callback')).toBeInTheDocument();
   expect(onClickFn).not.toHaveBeenCalled();
 
-  userEvent.click(getByText('link with onClick callback'));
+  await userEvent.click(getByText('link with onClick callback'));
   expect(onClickFn).toHaveBeenCalledTimes(1);
 });
