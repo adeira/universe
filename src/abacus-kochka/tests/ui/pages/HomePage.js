@@ -2,12 +2,13 @@
 const { expect } = require('@playwright/test');
 
 exports.HomePage = class HomePage {
-  constructor(page) {
+  constructor(page, baseURL) {
     this.page = page;
+    this.baseURL = baseURL;
   }
 
   async goto() {
-    await this.page.goto('https://kochka.com.mx');
+    await this.page.goto(this.baseURL);
   }
 
   async openMenuPage() {

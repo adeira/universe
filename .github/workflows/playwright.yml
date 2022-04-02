@@ -32,5 +32,5 @@ jobs:
         run: yarn install --immutable
 
       # We currently don't have any other project using `playwright` so let's keep it simple:
-      - name: Run Playwright test
+      - name: Run Playwright tests
         run: yarn workspace @adeira/abacus-kochka playwright test
