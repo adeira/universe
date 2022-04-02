@@ -139,7 +139,7 @@ __metadata:
     eslint-plugin-relay: ^1.8.3
     eslint-plugin-sx: ^0.14.0
     eslint-plugin-testing-library: ^5.1.0
-    prettier: ^2.6.1
+    prettier: ^2.6.2
     snapshot-diff: ^0.9.0
   peerDependencies:
     eslint: ">=8.12.0"
@@ -302,7 +302,7 @@ __metadata:
     "@svgr/core": ^5.5.0
     "@svgr/plugin-svgo": ^5.5.0
     change-case: ^4.1.2
-    prettier: ^2.6.1
+    prettier: ^2.6.2
   peerDependencies:
     react: ^17.0.2
   languageName: unknown
@@ -475,7 +475,7 @@ __metadata:
     "@adeira/sx": ^0.29.1
     "@babel/runtime": ^7.17.8
     "@testing-library/react": ^12.1.4
-    prettier: ^2.6.1
+    prettier: ^2.6.2
     pretty-format: ^27.5.1
     react-test-renderer: ^17.0.2
   languageName: unknown
@@ -538,7 +538,7 @@ __metadata:
     fast-levenshtein: ^3.0.0
     json-stable-stringify: ^1.0.1
     mdn-data: ^2.0.27
-    prettier: ^2.6.1
+    prettier: ^2.6.2
     react: ^17.0.2
     react-test-renderer: ^17.0.2
     snapshot-diff: ^0.9.0
@@ -16219,12 +16219,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.0.1, prettier@npm:^2.6.1":
-  version: 2.6.1
-  resolution: "prettier@npm:2.6.1"
+"prettier@npm:^2.0.1, prettier@npm:^2.6.2":
+  version: 2.6.2
+  resolution: "prettier@npm:2.6.2"
   bin:
     prettier: bin-prettier.js
-  checksum: 78be1f8a3ddfad7c3d8a854b6c8941a3bb1ddfca4225c38d778e0fe1029a55368f71b3bbefff82c689015fbb4d391ec44add957f01308ad2725e01a7c1f37cb6
+  checksum: 48d08dde8e9fb1f5bccdd205baa7f192e9fc8bc98f86e1b97d919de804e28c806b0e6cc685e4a88211aa7987fa9668f30baae19580d87ced3ed0f2ec6572106f
   languageName: node
   linkType: hard
 
