@@ -1,7 +1,7 @@
 // @flow
 
+import { NextSeo } from 'next-seo';
 import * as React from 'react';
-import Head from 'next/head';
 import fbt from 'fbt';
 
 import Layout from '../src/Layout';
@@ -12,9 +12,7 @@ export default function Custom404(): React.Node {
 
   return (
     <>
-      <Head>
-        <meta name="robots" content="noindex" />
-      </Head>
+      <NextSeo noindex={true} />
 
       <Layout title={<fbt desc="page not found title">Page Not Found</fbt>} subtitle="404">
         <p>

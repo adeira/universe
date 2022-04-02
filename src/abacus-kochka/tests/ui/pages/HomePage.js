@@ -13,31 +13,37 @@ exports.HomePage = class HomePage {
 
   async openMenuPage() {
     await this.page.locator('a', { hasText: 'Menu' }).click();
+    await expect(this.page).toHaveTitle(/^KOCHKA Café · Café menu$/);
     await expect(this.page.locator('h1', { hasText: 'Café menu' })).toBeVisible();
   }
 
   async openAdoptPage() {
     await this.page.locator('a', { hasText: 'Adopt' }).click();
+    await expect(this.page).toHaveTitle(/^KOCHKA Café · Adopt a cat$/);
     await expect(this.page.locator('h1', { hasText: 'Adopt a cat' })).toBeVisible();
   }
 
   async openRulesPage() {
     await this.page.locator('a', { hasText: 'Rules' }).click();
+    await expect(this.page).toHaveTitle(/^KOCHKA Café · Café rules$/);
     await expect(this.page.locator('h1', { hasText: 'Café rules' })).toBeVisible();
   }
 
   async openShopPage() {
     await this.page.locator('a', { hasText: 'Shop' }).click();
+    await expect(this.page).toHaveTitle(/^KOCHKA Café · Online shop$/);
     await expect(this.page.locator('h1', { hasText: 'Online shop' })).toBeVisible();
   }
 
   async openJobsPage() {
     await this.page.locator('a', { hasText: 'Jobs' }).click();
+    await expect(this.page).toHaveTitle(/^KOCHKA Café · Open positions$/);
     await expect(this.page.locator('h1', { hasText: 'Open positions' })).toBeVisible();
   }
 
   async openContributePage() {
     await this.page.locator('a', { hasText: 'Contribute' }).click();
+    await expect(this.page).toHaveTitle(/^KOCHKA Café · Voluntary contribution$/);
     await expect(this.page.locator('h1', { hasText: 'Voluntary contribution' })).toBeVisible();
   }
 };
