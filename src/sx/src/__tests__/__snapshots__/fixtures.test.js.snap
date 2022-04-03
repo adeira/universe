@@ -23,6 +23,7 @@ exports[`matches expected output: @supports.js 1`] = `
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 @supports (display: grid) {
   ._3GKV06._3GKV06 {
+    display: -ms-grid;
     display: grid;
   }
 }
