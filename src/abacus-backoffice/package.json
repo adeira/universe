@@ -20,7 +20,7 @@
     "@adeira/sx": "^0.29.1",
     "@adeira/sx-design": "^0.24.0",
     "@next/bundle-analyzer": "^12.1.4",
-    "d3": "^7.4.1",
+    "d3": "^7.4.2",
     "fbt": "^0.17.1",
     "graphql": "^16.3.0",
     "immutable": "^4.0.0",
