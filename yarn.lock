@@ -22,7 +22,7 @@ __metadata:
     "@testing-library/react-hooks": ^7.0.2
     babel-plugin-fbt: ^0.20.3
     babel-plugin-fbt-runtime: ^0.9.18
-    d3: ^7.4.0
+    d3: ^7.4.1
     fbt: ^0.17.1
     graphql: ^16.3.0
     immutable: ^4.0.0
@@ -8559,9 +8559,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"d3@npm:^7.4.0":
-  version: 7.4.0
-  resolution: "d3@npm:7.4.0"
+"d3@npm:^7.4.1":
+  version: 7.4.1
+  resolution: "d3@npm:7.4.1"
   dependencies:
     d3-array: 3
     d3-axis: 3
@@ -8593,7 +8593,7 @@ __metadata:
     d3-timer: 3
     d3-transition: 3
     d3-zoom: 3
-  checksum: 17d441f512af1644feffd639a85f420a80d986610290c1fd071bb0430fefa65ddf3858b24227db7262202ce62175bedd219588d2313d8d42d7975655790b0510
+  checksum: 05f8f8525670b3f4a1428ce05f32e308cdf201dd4af68130cf5662d8a38933f510fbfef9a74c1b86cea224b6e757396a0716c7cafd856c363bc11ea933da19ae
   languageName: node
   linkType: hard
 
