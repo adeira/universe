@@ -16,7 +16,7 @@
   "dependencies": {
     "@adeira/fetch": "^2.1.0",
     "@adeira/js": "^2.1.1",
-    "@babel/runtime": "^7.17.8",
+    "@babel/runtime": "^7.17.9",
     "babel-plugin-relay": "^13.2.0",
     "react-relay": "^13.2.0",
     "relay-compiler": "^13.2.0",
