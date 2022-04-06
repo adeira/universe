@@ -15,7 +15,7 @@
   "sideEffects": false,
   "dependencies": {
     "@adeira/js": "^2.1.1",
-    "@babel/runtime": "^7.17.8"
+    "@babel/runtime": "^7.17.9"
   },
   "peerDependencies": {
     "graphql": "^15.0.0 || ^16.0.0"
