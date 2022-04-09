@@ -143,7 +143,7 @@ __metadata:
     prettier: ^2.6.2
     snapshot-diff: ^0.9.0
   peerDependencies:
-    eslint: ">=8.12.0"
+    eslint: ">=8.13.0"
   languageName: unknown
   linkType: soft
 
@@ -155,10 +155,10 @@ __metadata:
     "@adeira/js": ^2.1.1
     "@babel/eslint-parser": ^7.17.0
     "@babel/runtime": ^7.17.9
-    eslint: ^8.12.0
+    eslint: ^8.13.0
     jest-docblock: ^27.5.1
   peerDependencies:
-    eslint: ^8.12.0
+    eslint: ^8.13.0
   languageName: unknown
   linkType: soft
 
@@ -9513,7 +9513,7 @@ __metadata:
     "@adeira/flow-types-eslint": 0.0.0
     "@babel/eslint-parser": ^7.17.0
     "@babel/runtime": ^7.17.9
-    eslint: ^8.12.0
+    eslint: ^8.13.0
     fast-levenshtein: ^3.0.0
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
@@ -9777,11 +9777,11 @@ __metadata:
     "@babel/code-frame": ^7.16.7
     "@babel/eslint-parser": ^7.17.0
     "@babel/runtime": ^7.17.9
-    eslint: ^8.12.0
+    eslint: ^8.13.0
     react: ^17.0.2
   peerDependencies:
     "@adeira/sx": ^0.29.1
-    eslint: ^8.12.0
+    eslint: ^8.13.0
   languageName: unknown
   linkType: soft
 
@@ -9867,9 +9867,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.12.0":
-  version: 8.12.0
-  resolution: "eslint@npm:8.12.0"
+"eslint@npm:^8.13.0":
+  version: 8.13.0
+  resolution: "eslint@npm:8.13.0"
   dependencies:
     "@eslint/eslintrc": ^1.2.1
     "@humanwhocodes/config-array": ^0.9.2
@@ -9908,7 +9908,7 @@ __metadata:
     v8-compile-cache: ^2.0.3
   bin:
     eslint: bin/eslint.js
-  checksum: 111bf9046b7a463049788dd00d7f4cd91e024029982352dff4811ce5dfa8cb1136aa127cd8a7a91508234d3e1b4fb6f638a1f5ef9ea08b1af93a18703a4a8dc1
+  checksum: bc7d2fc9a046d42cb2c8987573ecaf534c1fae14747c4695e32388e179c5f21b83eefdb3e4f35924bf76152e226d7cc9dfb21f12348baf12c803109005b17439
   languageName: node
   linkType: hard
 
@@ -17600,7 +17600,7 @@ __metadata:
     "@babel/eslint-parser": ^7.17.0
     babel-jest: ^27.5.1
     babel-loader: ^8.2.4
-    eslint: ^8.12.0
+    eslint: ^8.13.0
     eslint-formatter-codeframe: ^7.32.1
     flow-bin: ^0.175.1
     glob: ^7.2.0
