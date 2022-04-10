@@ -56,7 +56,7 @@ __metadata:
     graphql: ^16.3.0
     next: ^12.1.4
     next-plugin-custom-babel-config: ^1.0.5
-    next-seo: ^5.3.0
+    next-seo: ^5.4.0
     next-transpile-modules: ^9.0.0
     playwright: ^1.20.2
     react: ^17.0.2
@@ -14782,14 +14782,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-seo@npm:^5.3.0":
-  version: 5.3.0
-  resolution: "next-seo@npm:5.3.0"
+"next-seo@npm:^5.4.0":
+  version: 5.4.0
+  resolution: "next-seo@npm:5.4.0"
   peerDependencies:
     next: ^8.1.1-canary.54 || >=9.0.0
     react: ">=16.0.0"
     react-dom: ">=16.0.0"
-  checksum: dc07a9ea84870ef6662f41268145a25ce04117b945af85b0f632c89c5dfc847ae094a092df77ad59bc301c5a6505ebd48776ef771a953afaf140aef68ef6b016
+  checksum: fe19b4f7237111d6e8c2f3e9128946480f1b6e2d7ffab5902e8a4a1114721142daa187175334fa7d6da25605658e63cd8c6e3a68a9d9678fd7fbd4fb4b061391
   languageName: node
   linkType: hard
 
