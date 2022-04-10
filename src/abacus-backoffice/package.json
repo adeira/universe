@@ -38,7 +38,7 @@
     "@fbtjs/default-collection-transform": "^0.0.3",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.4",
-    "@testing-library/react-hooks": "^7.0.2",
+    "@testing-library/react-hooks": "^8.0.0",
     "babel-plugin-fbt": "^0.20.3",
     "babel-plugin-fbt-runtime": "^0.9.18"
   }
