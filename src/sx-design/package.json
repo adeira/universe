@@ -47,7 +47,7 @@
     "@storybook/react": "^6.4.21",
     "@storybook/theming": "^6.4.21",
     "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^12.1.4",
+    "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^14.1.0",
     "babel-loader": "^8.2.4",
     "babel-plugin-fbt": "^0.20.3",
