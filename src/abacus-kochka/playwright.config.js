@@ -2,9 +2,10 @@
 const { devices } = require('@playwright/test');
 
 const config = {
-  testDir: 'tests', // TODO: rename to something like UI tests
+  testDir: 'tests',
   testMatch: '**.play.js',
   forbidOnly: !!process.env.CI,
+  reporter: process.env.CI ? 'github' : 'list',
   retries: process.env.CI ? 2 : 0,
   webServer: {
     command: 'yarn run build && yarn run start',
