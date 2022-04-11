@@ -178,7 +178,7 @@ __metadata:
     "@adeira/sx-design": ^0.24.0
     "@testing-library/jest-dom": ^5.16.4
     "@testing-library/react": ^12.1.4
-    "@testing-library/user-event": ^14.0.4
+    "@testing-library/user-event": ^14.1.0
     apollo-server-micro: ^3.6.7
     babel-jest: ^27.5.1
     cors: ^2.8.5
@@ -449,7 +449,7 @@ __metadata:
     "@storybook/theming": ^6.4.21
     "@testing-library/jest-dom": ^5.16.4
     "@testing-library/react": ^12.1.4
-    "@testing-library/user-event": ^14.0.4
+    "@testing-library/user-event": ^14.1.0
     babel-loader: ^8.2.4
     babel-plugin-fbt: ^0.20.3
     babel-plugin-fbt-runtime: ^0.9.18
@@ -4719,12 +4719,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/user-event@npm:^14.0.4":
-  version: 14.0.4
-  resolution: "@testing-library/user-event@npm:14.0.4"
+"@testing-library/user-event@npm:^14.1.0":
+  version: 14.1.0
+  resolution: "@testing-library/user-event@npm:14.1.0"
   peerDependencies:
     "@testing-library/dom": ">=7.21.4"
-  checksum: 7a99309acfd22e5173543546548ad2fe8b53466294607fdc9300e914d320f86b1631a45f2e5a695750c1067272d7b57ed541e7e3645fe1fff4de285ecdf76521
+  checksum: 6fabd42a0ea747912183d1780063a1128609007703647ce5e4f2d88a43c9db02771e737403722a7ee5211dbe47b14fd3088aaaafa24d341ca086875546e5a83b
   languageName: node
   linkType: hard
 
