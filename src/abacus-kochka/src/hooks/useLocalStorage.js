@@ -3,6 +3,8 @@
 import { useState } from 'react';
 
 /**
+ * TODO: move into `@adeira/hooks`
+ *
  * This essentially behaves like `useState` from React except it additionally persist the values
  * into local storage. Usage:
  *
