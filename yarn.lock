@@ -16,7 +16,7 @@ __metadata:
     "@adeira/sx": ^0.29.1
     "@adeira/sx-design": ^0.25.0
     "@fbtjs/default-collection-transform": ^0.0.3
-    "@next/bundle-analyzer": ^12.1.4
+    "@next/bundle-analyzer": ^12.1.5
     "@testing-library/jest-dom": ^5.16.4
     "@testing-library/react": ^12.1.5
     "@testing-library/react-hooks": ^8.0.0
@@ -119,7 +119,7 @@ __metadata:
   resolution: "@adeira/eslint-config@workspace:src/eslint-config-adeira"
   dependencies:
     "@babel/runtime": ^7.17.9
-    "@next/eslint-plugin-next": ^12.1.4
+    "@next/eslint-plugin-next": ^12.1.5
     deep-diff: ^1.0.2
     eslint-config-prettier: ^8.5.0
     eslint-plugin-adeira: ^0.15.0
@@ -3004,12 +3004,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/bundle-analyzer@npm:^12.1.4":
-  version: 12.1.4
-  resolution: "@next/bundle-analyzer@npm:12.1.4"
+"@next/bundle-analyzer@npm:^12.1.5":
+  version: 12.1.5
+  resolution: "@next/bundle-analyzer@npm:12.1.5"
   dependencies:
     webpack-bundle-analyzer: 4.3.0
-  checksum: 1ec64ccb69c99d55ad2b9a990acfbecb65f957965beea8c51ab695bbd21cbb7f3a88031f3c860e8dc52c01d0d852fee6dd592b2e9d83b7d469de07572bf4d514
+  checksum: 27dc196151a9f21488e1326a63fdd0d3d01c7b7d16142ac1de17320432ca7f15dd288a9f03a327080599a8197e8c54e43f7e79b9f537df44a0f885ac86715a9f
   languageName: node
   linkType: hard
 
@@ -3020,12 +3020,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/eslint-plugin-next@npm:^12.1.4":
-  version: 12.1.4
-  resolution: "@next/eslint-plugin-next@npm:12.1.4"
+"@next/eslint-plugin-next@npm:^12.1.5":
+  version: 12.1.5
+  resolution: "@next/eslint-plugin-next@npm:12.1.5"
   dependencies:
     glob: 7.1.7
-  checksum: 6908d3ea066cc31a2353a198eb019bccb1158f032df8607568bb5ca17f84d271871e916e426f981eab08f2dbbc3df7a0ab00de2a8f14ed323492417e4f9d7903
+  checksum: fe070fbd42f699b0e158d2ea276569ad686343c78fb698c1835cd587862903bc2d146e04dd747495e186019cff685f36120b3953afce8b0c9f0fb43cd58798a7
   languageName: node
   linkType: hard
 
