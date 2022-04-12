@@ -48,7 +48,7 @@ __metadata:
     "@adeira/sx": ^0.29.1
     "@adeira/sx-design": ^0.25.0
     "@fbtjs/default-collection-transform": ^0.0.3
-    "@playwright/test": ^1.20.2
+    "@playwright/test": ^1.21.0
     "@testing-library/react": ^12.1.5
     babel-plugin-fbt: ^0.20.3
     babel-plugin-fbt-runtime: ^0.9.18
@@ -58,7 +58,7 @@ __metadata:
     next-plugin-custom-babel-config: ^1.0.5
     next-seo: ^5.4.0
     next-transpile-modules: ^9.0.0
-    playwright: ^1.20.2
+    playwright: ^1.21.0
     react: ^17.0.2
     react-dom: ^17.0.2
     recoil: ^0.7.0
@@ -3180,9 +3180,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:^1.20.2":
-  version: 1.20.2
-  resolution: "@playwright/test@npm:1.20.2"
+"@playwright/test@npm:^1.21.0":
+  version: 1.21.0
+  resolution: "@playwright/test@npm:1.21.0"
   dependencies:
     "@babel/code-frame": 7.16.7
     "@babel/core": 7.16.12
@@ -3213,14 +3213,14 @@ __metadata:
     ms: 2.1.3
     open: 8.4.0
     pirates: 4.0.4
-    playwright-core: 1.20.2
+    playwright-core: 1.21.0
     rimraf: 3.0.2
     source-map-support: 0.4.18
     stack-utils: 2.0.5
     yazl: 2.5.1
   bin:
     playwright: cli.js
-  checksum: 0261ab1b4228baabc3ccd0dc894f3cf32f11b8ea8336523e179accbed84d8abb3ef0ec7bb2d5520a3d4d53994a1676b6eda8897438ac27c2c49eedac8a50961a
+  checksum: 76287961599fb53760960e19fc02392f61fdb137e7fa755661d2f560e4c2940c688206401ee42f2bf711eb68e71b1e03b85bb2e3181046487e3ef37f9ce33f69
   languageName: node
   linkType: hard
 
@@ -16009,9 +16009,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.20.2":
-  version: 1.20.2
-  resolution: "playwright-core@npm:1.20.2"
+"playwright-core@npm:1.21.0":
+  version: 1.21.0
+  resolution: "playwright-core@npm:1.21.0"
   dependencies:
     colors: 1.4.0
     commander: 8.3.0
@@ -16033,18 +16033,18 @@ __metadata:
     yazl: 2.5.1
   bin:
     playwright: cli.js
-  checksum: 156c2c8729f1e1a454f348a4e362bb6fff7b7fb7a5e5886828afeb9b29c2fae5dff5c3060a9d4a41f5c191aef0532a73513cfb4f2d2c357f1fe240640b28ca14
+  checksum: 9221b65a4a10d9df93f59ff9ac788382f6e8b25e7a68bd2f46ad9178b6d94055704f6ad9aa5885a1648dec0ff01f6611d1eced519a0a834615c6924944058fdf
   languageName: node
   linkType: hard
 
-"playwright@npm:^1.20.2":
-  version: 1.20.2
-  resolution: "playwright@npm:1.20.2"
+"playwright@npm:^1.21.0":
+  version: 1.21.0
+  resolution: "playwright@npm:1.21.0"
   dependencies:
-    playwright-core: 1.20.2
+    playwright-core: 1.21.0
   bin:
     playwright: cli.js
-  checksum: f92a2a59999a5ff55959f3dd351cc8724818276637df57efe84b5ccc0676ff38d70f2553b4aabfb4bdc05cb0895ed09616eb1d60407ba62fddbc7dd404926dcc
+  checksum: 15b1587fe6b9029e14af2d209279b9fea0027c1d311be9ab3d87b769baedda03009abcd5984a5b6b5d5c718895384437d52df8246aac901cc8cd9b45acda25db
   languageName: node
   linkType: hard
 
