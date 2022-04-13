@@ -1,186 +1,277 @@
 {
  "phrases": [
   {
-   "hashToText": {
-    "UdnIS3EzRtyd5YBWoCR25Q==": "Breadcrumb"
+   "hashToLeaf": {
+    "UdnIS3EzRtyd5YBWoCR25Q==": {
+     "text": "Breadcrumb",
+     "desc": "breadcrumb"
+    }
    },
    "filepath": "src/Breadcrumb/Breadcrumb.js",
    "line_beg": 38,
    "col_beg": 18,
    "line_end": 38,
    "col_end": 57,
-   "desc": "breadcrumb",
    "project": "",
-   "type": "text",
-   "jsfbt": "Breadcrumb"
+   "jsfbt": {
+    "t": {
+     "desc": "breadcrumb",
+     "text": "Breadcrumb"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "6FVmvS0nS9q0ld8LQ5VSyw==": "An unexpected error has occurred."
+   "hashToLeaf": {
+    "6FVmvS0nS9q0ld8LQ5VSyw==": {
+     "text": "An unexpected error has occurred.",
+     "desc": "generic error message"
+    }
    },
    "filepath": "src/ErrorBoundary/ErrorBoundary.js",
    "line_beg": 75,
    "col_beg": 18,
    "line_end": 75,
    "col_end": 91,
-   "desc": "generic error message",
    "project": "",
-   "type": "text",
-   "jsfbt": "An unexpected error has occurred."
+   "jsfbt": {
+    "t": {
+     "desc": "generic error message",
+     "text": "An unexpected error has occurred."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "CR7beIPZB69plBEoMZd6Kg==": "Retry"
+   "hashToLeaf": {
+    "CR7beIPZB69plBEoMZd6Kg==": {
+     "text": "Retry",
+     "desc": "error boundary retry button title"
+    }
    },
    "filepath": "src/ErrorBoundary/ErrorBoundary.js",
    "line_beg": 88,
    "col_beg": 12,
    "line_end": 88,
    "col_end": 69,
-   "desc": "error boundary retry button title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Retry"
+   "jsfbt": {
+    "t": {
+     "desc": "error boundary retry button title",
+     "text": "Retry"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "WgEfGWUAntBTCX5DfSkZ1w==": "Loading"
+   "hashToLeaf": {
+    "WgEfGWUAntBTCX5DfSkZ1w==": {
+     "text": "Loading",
+     "desc": "loading aria label"
+    }
    },
    "filepath": "src/Loader/Loader.js",
    "line_beg": 25,
    "col_beg": 21,
    "line_end": 25,
    "col_end": 65,
-   "desc": "loading aria label",
    "project": "",
-   "type": "text",
-   "jsfbt": "Loading"
+   "jsfbt": {
+    "t": {
+     "desc": "loading aria label",
+     "text": "Loading"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "o6kif8vkYC3vavYsgwGDsw==": "open menu"
+   "hashToLeaf": {
+    "o6kif8vkYC3vavYsgwGDsw==": {
+     "text": "open menu",
+     "desc": "open menu button"
+    }
    },
    "filepath": "src/Menu/Menu.js",
    "line_beg": 38,
    "col_beg": 20,
    "line_end": 38,
    "col_end": 64,
-   "desc": "open menu button",
    "project": "",
-   "type": "text",
-   "jsfbt": "open menu"
+   "jsfbt": {
+    "t": {
+     "desc": "open menu button",
+     "text": "open menu"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "Y3o6+D/7PWcFogiHsVcKiA==": "Unable to load data or missing data."
+   "hashToLeaf": {
+    "Y3o6+D/7PWcFogiHsVcKiA==": {
+     "text": "Unable to load data or missing data.",
+     "desc": "explanation of a symbol for unavailable data"
+    }
    },
    "filepath": "src/MissingData/MissingData.js",
    "line_beg": 17,
    "col_beg": 8,
    "line_end": 19,
    "col_end": 14,
-   "desc": "explanation of a symbol for unavailable data",
    "project": "",
-   "type": "text",
-   "jsfbt": "Unable to load data or missing data."
+   "jsfbt": {
+    "t": {
+     "desc": "explanation of a symbol for unavailable data",
+     "text": "Unable to load data or missing data."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "W2Zfz+g6XrIlDYmJfieIpA==": "N/A"
+   "hashToLeaf": {
+    "W2Zfz+g6XrIlDYmJfieIpA==": {
+     "text": "N/A",
+     "desc": "symbol for unavailable data"
+    }
    },
    "filepath": "src/MissingData/MissingData.js",
    "line_beg": 24,
    "col_beg": 8,
    "line_end": 24,
    "col_end": 57,
-   "desc": "symbol for unavailable data",
    "project": "",
-   "type": "text",
-   "jsfbt": "N/A"
+   "jsfbt": {
+    "t": {
+     "desc": "symbol for unavailable data",
+     "text": "N/A"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "TNIovJZL5ppK7zxKo1VQ7Q==": "close modal"
+   "hashToLeaf": {
+    "TNIovJZL5ppK7zxKo1VQ7Q==": {
+     "text": "close modal",
+     "desc": "ARIA description of the button which closes the modal dialog"
+    }
    },
    "filepath": "src/Modal/ModalDialog.js",
    "line_beg": 41,
    "col_beg": 18,
    "line_end": 43,
    "col_end": 24,
-   "desc": "ARIA description of the button which closes the modal dialog",
    "project": "",
-   "type": "text",
-   "jsfbt": "close modal"
+   "jsfbt": {
+    "t": {
+     "desc": "ARIA description of the button which closes the modal dialog",
+     "text": "close modal"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "3+zDauyfau5rWkm63Etp+g==": "close modal"
+   "hashToLeaf": {
+    "3+zDauyfau5rWkm63Etp+g==": {
+     "text": "close modal",
+     "desc": "ARIA description of the button which closes the modal drawer"
+    }
    },
    "filepath": "src/Modal/ModalDrawer.js",
    "line_beg": 41,
    "col_beg": 18,
    "line_end": 43,
    "col_end": 24,
-   "desc": "ARIA description of the button which closes the modal drawer",
    "project": "",
-   "type": "text",
-   "jsfbt": "close modal"
+   "jsfbt": {
+    "t": {
+     "desc": "ARIA description of the button which closes the modal drawer",
+     "text": "close modal"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "WSdt9glzZ7dZhYBu4DhX1Q==": "Success"
+   "hashToLeaf": {
+    "WSdt9glzZ7dZhYBu4DhX1Q==": {
+     "text": "Success",
+     "desc": "success note prefix"
+    }
    },
    "filepath": "src/Note/Note.js",
    "line_beg": 19,
    "col_beg": 13,
    "line_end": 19,
    "col_end": 58,
-   "desc": "success note prefix",
    "project": "",
-   "type": "text",
-   "jsfbt": "Success"
+   "jsfbt": {
+    "t": {
+     "desc": "success note prefix",
+     "text": "Success"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "iYgyat38foBEXXdHlYk/VA==": "Error"
+   "hashToLeaf": {
+    "iYgyat38foBEXXdHlYk/VA==": {
+     "text": "Error",
+     "desc": "error note prefix"
+    }
    },
    "filepath": "src/Note/Note.js",
    "line_beg": 20,
    "col_beg": 11,
    "line_end": 20,
    "col_end": 52,
-   "desc": "error note prefix",
    "project": "",
-   "type": "text",
-   "jsfbt": "Error"
+   "jsfbt": {
+    "t": {
+     "desc": "error note prefix",
+     "text": "Error"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "l49sr1EfqnNgCGMNEwE7wQ==": "Warning"
+   "hashToLeaf": {
+    "l49sr1EfqnNgCGMNEwE7wQ==": {
+     "text": "Warning",
+     "desc": "warning note prefix"
+    }
    },
    "filepath": "src/Note/Note.js",
    "line_beg": 21,
    "col_beg": 13,
    "line_end": 21,
    "col_end": 58,
-   "desc": "warning note prefix",
    "project": "",
-   "type": "text",
-   "jsfbt": "Warning"
+   "jsfbt": {
+    "t": {
+     "desc": "warning note prefix",
+     "text": "Warning"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "zdCM8bSUEVcAGbnyr9AG/Q==": "Note"
+   "hashToLeaf": {
+    "zdCM8bSUEVcAGbnyr9AG/Q==": {
+     "text": "Note",
+     "desc": "default note prefix"
+    }
    },
    "filepath": "src/Note/Note.js",
    "line_beg": 22,
    "col_beg": 13,
    "line_end": 22,
    "col_end": 55,
-   "desc": "default note prefix",
    "project": "",
-   "type": "text",
-   "jsfbt": "Note"
+   "jsfbt": {
+    "t": {
+     "desc": "default note prefix",
+     "text": "Note"
+    },
+    "m": []
+   }
   }
  ],
  "childParentMappings": {}
