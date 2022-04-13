@@ -21,7 +21,7 @@
     "@adeira/sx-design": "^0.25.0",
     "@next/bundle-analyzer": "^12.1.5",
     "d3": "^7.4.4",
-    "fbt": "^0.17.1",
+    "fbt": "^1.0.0",
     "graphql": "^16.3.0",
     "immutable": "^4.0.0",
     "next": "^12.1.5",
@@ -35,11 +35,11 @@
   },
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^4.0.0",
-    "@fbtjs/default-collection-transform": "^0.0.3",
+    "@fbtjs/default-collection-transform": "^1.0.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.5",
     "@testing-library/react-hooks": "^8.0.0",
-    "babel-plugin-fbt": "^0.20.3",
-    "babel-plugin-fbt-runtime": "^0.9.18"
+    "babel-plugin-fbt": "^1.0.0",
+    "babel-plugin-fbt-runtime": "^1.0.0"
   }
 }
