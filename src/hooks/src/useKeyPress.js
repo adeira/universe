@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-export default function useKeyPress({
+export function useKeyPress({
   key,
   onKeyDown,
 }: {

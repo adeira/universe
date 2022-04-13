@@ -3,10 +3,10 @@
 import { useState, useRef, type Node } from 'react';
 import sx from '@adeira/sx';
 import Icon from '@adeira/icons';
+import { useKeyPress } from '@adeira/hooks';
 
 import SxDesignPortal from '../SxDesignPortal';
 import Text from '../Text/Text';
-import useKeyPress from '../useKeyPress';
 import findBestTooltipPosition, { nullClientRect } from './findBestTooltipPosition';
 
 // Tooltip follows similar API as `abbr` element (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr):

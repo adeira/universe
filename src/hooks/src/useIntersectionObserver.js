@@ -2,8 +2,6 @@
 
 import { useState, useEffect, useRef } from 'react';
 
-/* global IntersectionObserver */
-
 /**
  * Usage:
  *
