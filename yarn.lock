@@ -20,7 +20,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.16.4
     "@testing-library/react": ^12.1.5
     "@testing-library/react-hooks": ^8.0.0
-    babel-plugin-fbt: ^0.20.3
+    babel-plugin-fbt: ^1.0.0
     babel-plugin-fbt-runtime: ^0.9.18
     d3: ^7.4.4
     fbt: ^0.17.1
@@ -50,7 +50,7 @@ __metadata:
     "@fbtjs/default-collection-transform": ^0.0.3
     "@playwright/test": ^1.21.0
     "@testing-library/react": ^12.1.5
-    babel-plugin-fbt: ^0.20.3
+    babel-plugin-fbt: ^1.0.0
     babel-plugin-fbt-runtime: ^0.9.18
     fbt: ^0.17.1
     graphql: ^16.3.0
@@ -461,7 +461,7 @@ __metadata:
     "@testing-library/react": ^12.1.5
     "@testing-library/user-event": ^14.1.0
     babel-loader: ^8.2.4
-    babel-plugin-fbt: ^0.20.3
+    babel-plugin-fbt: ^1.0.0
     babel-plugin-fbt-runtime: ^0.9.18
     blurhash: ^1.1.5
     fbt: ^0.17.1
@@ -2203,7 +2203,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/register@npm:^7.12.1, @babel/register@npm:^7.17.7":
+"@babel/register@npm:^7.0.0, @babel/register@npm:^7.12.1, @babel/register@npm:^7.17.7":
   version: 7.17.7
   resolution: "@babel/register@npm:7.17.7"
   dependencies:
@@ -6355,30 +6355,31 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-fbt@npm:^0.20.3":
-  version: 0.20.3
-  resolution: "babel-plugin-fbt@npm:0.20.3"
+"babel-plugin-fbt@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "babel-plugin-fbt@npm:1.0.0"
   dependencies:
     "@babel/core": ^7.0.0
     "@babel/generator": ^7.0.0
     "@babel/plugin-syntax-object-rest-spread": ^7.2.0
     "@babel/plugin-transform-flow-strip-types": ^7.2.0
     "@babel/plugin-transform-modules-commonjs": ^7.8.3
+    "@babel/register": ^7.0.0
     "@babel/types": ^7.2.2
-    fb-babel-plugin-utils: ^0.12.0
+    fb-babel-plugin-utils: ^0.13.0
+    flow-enums-runtime: ^0.0.4
     glob: ^7.1.6
     invariant: ^2.2.4
     jest-docblock: ^26.0.0
     nullthrows: ^1.1.1
-    shelljs: ^0.8.4
     yargs: ^15.3.1
   peerDependencies:
-    "@fbtjs/default-collection-transform": ~0.0.3
+    "@fbtjs/default-collection-transform": ^1.0.0
   bin:
     fbt-collect: dist/bin/collectFbt.bin.js
     fbt-manifest: dist/bin/manifest.bin.js
     fbt-translate: dist/bin/translate.bin.js
-  checksum: e381c14dcb17b80cdf9d869e15d7cc99fd7df31c73aa70298be4a6deee2f0a6661261f64a7be0eaf067389e834538be5f574c005b4cbb606ac25298f03694d56
+  checksum: 7c22a5987d7229aa19489fd12ba5adcc1f9559b34e78af79fed8b6906eac23ed8bd7c8167bd1a5e3b59a280156b80319a009c3914a6f2b9c8083a8a581b3de07
   languageName: node
   linkType: hard
 
@@ -10330,9 +10331,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fb-babel-plugin-utils@npm:^0.12.0":
-  version: 0.12.0
-  resolution: "fb-babel-plugin-utils@npm:0.12.0"
+"fb-babel-plugin-utils@npm:^0.13.0":
+  version: 0.13.1
+  resolution: "fb-babel-plugin-utils@npm:0.13.1"
   dependencies:
     "@babel/core": ^7.0.0
     "@babel/generator": ^7.0.0
@@ -10346,7 +10347,7 @@ __metadata:
     "@babel/plugin-syntax-optional-catch-binding": ^7.0.0
     "@babel/plugin-syntax-optional-chaining": ^7.0.0
     json-diff: ^0.5.4
-  checksum: bef3722be5e2517f3ad3523ffde5a52426ff889c7dbd99a47a47a178d2011929cbd58e0190e71f899a9f3e7e8151552afea8c77bef9107b29e7e99a90127ebab
+  checksum: 47bfa415a3e02cc13c8014cd4f91964c76313cda74d41d1fd0376ce0d4db97624a10290f27fe84b72e586ef754732b84689936eb68e83df0c7f919f8c8ca4c84
   languageName: node
   linkType: hard
 
@@ -10609,6 +10610,13 @@ __metadata:
   bin:
     flow: cli.js
   checksum: afe0803b0c17ce0d73793f008f8c4e73e8994fcecb6c92466fc6983d4defeb24c0cbcb7f7d276ef084fa776ff70ebfb48ef35e59b3fda762b2300573f4c6163a
+  languageName: node
+  linkType: hard
+
+"flow-enums-runtime@npm:^0.0.4":
+  version: 0.0.4
+  resolution: "flow-enums-runtime@npm:0.0.4"
+  checksum: 0c23ca0302f822b0a563cfeb44773b586a9374cbd808c5aa607a77b0b3f0f0f07b2ebd3ff983f5a6e67b54ed963e7cb317cd3c1a80fd48d7d2c76aa8238f9fea
   languageName: node
   linkType: hard
 
@@ -12120,13 +12128,6 @@ __metadata:
   version: 2.0.1
   resolution: "internmap@npm:2.0.1"
   checksum: bef301f69f68be771ff6a0d4eb8daecce92ecf1b6b847c7a301323fc2d6fd231f73ee060df40fcaaf78726387a7fd9b440124d5d3849211d001a2333a8ee9abd
-  languageName: node
-  linkType: hard
-
-"interpret@npm:^1.0.0":
-  version: 1.4.0
-  resolution: "interpret@npm:1.4.0"
-  checksum: 2e5f51268b5941e4a17e4ef0575bc91ed0ab5f8515e3cf77486f7c14d13f3010df9c0959f37063dcc96e78d12dc6b0bb1b9e111cdfe69771f4656d2993d36155
   languageName: node
   linkType: hard
 
@@ -17079,15 +17080,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rechoir@npm:^0.6.2":
-  version: 0.6.2
-  resolution: "rechoir@npm:0.6.2"
-  dependencies:
-    resolve: ^1.1.6
-  checksum: fe76bf9c21875ac16e235defedd7cbd34f333c02a92546142b7911a0f7c7059d2e16f441fe6fb9ae203f459c05a31b2bcf26202896d89e390eda7514d5d2702b
-  languageName: node
-  linkType: hard
-
 "recoil@npm:^0.7.1":
   version: 0.7.1
   resolution: "recoil@npm:0.7.1"
@@ -17479,7 +17471,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@npm:^1.1.6, resolve@npm:^1.10.0, resolve@npm:^1.10.1, resolve@npm:^1.12.0, resolve@npm:^1.14.2, resolve@npm:^1.19.0, resolve@npm:^1.20.0, resolve@npm:^1.22.0, resolve@npm:^1.3.2":
+"resolve@npm:^1.10.0, resolve@npm:^1.10.1, resolve@npm:^1.12.0, resolve@npm:^1.14.2, resolve@npm:^1.19.0, resolve@npm:^1.20.0, resolve@npm:^1.22.0, resolve@npm:^1.3.2":
   version: 1.22.0
   resolution: "resolve@npm:1.22.0"
   dependencies:
@@ -17502,7 +17494,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@^1.1.6#~builtin<compat/resolve>, resolve@patch:resolve@^1.10.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.10.1#~builtin<compat/resolve>, resolve@patch:resolve@^1.12.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.14.2#~builtin<compat/resolve>, resolve@patch:resolve@^1.19.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.20.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.22.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.3.2#~builtin<compat/resolve>":
+"resolve@patch:resolve@^1.10.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.10.1#~builtin<compat/resolve>, resolve@patch:resolve@^1.12.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.14.2#~builtin<compat/resolve>, resolve@patch:resolve@^1.19.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.20.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.22.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.3.2#~builtin<compat/resolve>":
   version: 1.22.0
   resolution: "resolve@patch:resolve@npm%3A1.22.0#~builtin<compat/resolve>::version=1.22.0&hash=07638b"
   dependencies:
@@ -18028,19 +18020,6 @@ __metadata:
   version: 3.0.0
   resolution: "shebang-regex@npm:3.0.0"
   checksum: 1a2bcae50de99034fcd92ad4212d8e01eedf52c7ec7830eedcf886622804fe36884278f2be8be0ea5fde3fd1c23911643a4e0f726c8685b61871c8908af01222
-  languageName: node
-  linkType: hard
-
-"shelljs@npm:^0.8.4":
-  version: 0.8.4
-  resolution: "shelljs@npm:0.8.4"
-  dependencies:
-    glob: ^7.0.0
-    interpret: ^1.0.0
-    rechoir: ^0.6.2
-  bin:
-    shjs: bin/shjs
-  checksum: 27f83206ef6a4f5b74a493726c3e6b4c3e07a9c2aac94c5e692d800a61353c18a8234967bd8523b1346abe718beb563843687fb57f466529ba06db3cae6f0bb3
   languageName: node
   linkType: hard
 
