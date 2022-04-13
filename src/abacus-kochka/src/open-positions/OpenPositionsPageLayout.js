@@ -7,6 +7,7 @@ import fbt from 'fbt';
 import FullTimeBadge from './badges/FullTimeBadge';
 import Layout from '../Layout';
 import OpenPosition from './OpenPosition';
+import PositionAvailableBadge from './badges/PositionAvailableBadge';
 import PositionUnavailableBadge from './badges/PositionUnavailableBadge';
 import SalaryBadge from './badges/SalaryBadge';
 
@@ -30,7 +31,7 @@ export default function OpenPositionsPageLayout(): React.Node {
             </fbt>
           }
           badges={[
-            <PositionUnavailableBadge key={1} />,
+            <PositionAvailableBadge key={1} />,
             <FullTimeBadge key={2} />,
             <SalaryBadge key={3} />,
           ]}
