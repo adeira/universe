@@ -62,6 +62,7 @@ export default function SxDesignProvider(props: Props): Node {
       hooks: {
         getViewerContext: () => ({
           GENDER: FbtIntlVariations.GENDER_UNKNOWN,
+          regionalLocale: translationsLocale,
           locale: translationsLocale,
         }),
       },

@@ -19,6 +19,7 @@ const initFbt = () => {
     hooks: {
       getViewerContext: () => ({
         GENDER: FbtIntlVariations.GENDER_UNKNOWN,
+        regionalLocale: 'en_US',
         locale: 'en_US',
       }),
     },

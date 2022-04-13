@@ -22,6 +22,7 @@ export default function initFbtTranslations(lang: ?string): LanguageTagType {
     hooks: {
       getViewerContext: () => ({
         GENDER: IntlVariations.GENDER_UNKNOWN,
+        regionalLocale: translationsLocale,
         locale: translationsLocale,
       }),
     },
