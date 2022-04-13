@@ -1,1838 +1,2770 @@
 {
  "phrases": [
   {
-   "hashToText": {
-    "4aOHtYbmcWhHdi94aqvM3g==": "Voluntary contribution"
+   "hashToLeaf": {
+    "4aOHtYbmcWhHdi94aqvM3g==": {
+     "text": "Voluntary contribution",
+     "desc": "contribute page title"
+    }
    },
    "filepath": "src/contributions/Contributions.js",
    "line_beg": 53,
    "col_beg": 13,
    "line_end": 53,
    "col_end": 75,
-   "desc": "contribute page title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Voluntary contribution"
+   "jsfbt": {
+    "t": {
+     "desc": "contribute page title",
+     "text": "Voluntary contribution"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "T+NpfkAZAp+bLGBtDuSG4g==": "Help us create a better life for our cats"
+   "hashToLeaf": {
+    "T+NpfkAZAp+bLGBtDuSG4g==": {
+     "text": "Help us create a better life for our cats",
+     "desc": "contribute page subtitle"
+    }
    },
    "filepath": "src/contributions/Contributions.js",
    "line_beg": 55,
    "col_beg": 8,
    "line_end": 55,
    "col_end": 92,
-   "desc": "contribute page subtitle",
    "project": "",
-   "type": "text",
-   "jsfbt": "Help us create a better life for our cats"
+   "jsfbt": {
+    "t": {
+     "desc": "contribute page subtitle",
+     "text": "Help us create a better life for our cats"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "6Oth475/NFsGCQ2q74WOWQ==": "The ultimate goal of {=KOCHKA Café} is to help cats who really need it. Having a coffee shop definitely helps. However, we would like to give an extraordinary life to our cats. Why? Because all of our cats went through some bad times in their life. Either they were abandoned, thrown away, or born into some bad conditions. And we believe that all of them deserve to have the best - the ultimate second chance."
+   "hashToLeaf": {
+    "6Oth475/NFsGCQ2q74WOWQ==": {
+     "text": "The ultimate goal of {=KOCHKA Café} is to help cats who really need it. Having a coffee shop definitely helps. However, we would like to give an extraordinary life to our cats. Why? Because all of our cats went through some bad times in their life. Either they were abandoned, thrown away, or born into some bad conditions. And we believe that all of them deserve to have the best - the ultimate second chance.",
+     "desc": "paragraph"
+    }
    },
    "filepath": "src/contributions/Contributions.js",
    "line_beg": 60,
    "col_beg": 10,
    "line_end": 66,
    "col_end": 16,
-   "desc": "paragraph",
    "project": "",
-   "type": "text",
-   "jsfbt": "The ultimate goal of {=KOCHKA Café} is to help cats who really need it. Having a coffee shop definitely helps. However, we would like to give an extraordinary life to our cats. Why? Because all of our cats went through some bad times in their life. Either they were abandoned, thrown away, or born into some bad conditions. And we believe that all of them deserve to have the best - the ultimate second chance."
+   "jsfbt": {
+    "t": {
+     "desc": "paragraph",
+     "text": "The ultimate goal of {=KOCHKA Café} is to help cats who really need it. Having a coffee shop definitely helps. However, we would like to give an extraordinary life to our cats. Why? Because all of our cats went through some bad times in their life. Either they were abandoned, thrown away, or born into some bad conditions. And we believe that all of them deserve to have the best - the ultimate second chance.",
+     "tokenAliases": {
+      "=KOCHKA Café": "=m1"
+     }
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "XhlPcB0basIcObgeU+J78w==": "KOCHKA Café"
+   "hashToLeaf": {
+    "XhlPcB0basIcObgeU+J78w==": {
+     "text": "KOCHKA Café",
+     "desc": "In the phrase: \"The ultimate goal of {=KOCHKA Café} is to help cats who really need it. Having a coffee shop definitely helps. However, we would like to give an extraordinary life to our cats. Why? Because all of our cats went through some bad times in their life. Either they were abandoned, thrown away, or born into some bad conditions. And we believe that all of them deserve to have the best - the ultimate second chance.\""
+    }
    },
    "filepath": "src/contributions/Contributions.js",
    "line_beg": 61,
    "col_beg": 33,
    "line_end": 61,
    "col_end": 61,
-   "desc": "In the phrase: \"The ultimate goal of {=KOCHKA Café} is to help cats who really need it. Having a coffee shop definitely helps. However, we would like to give an extraordinary life to our cats. Why? Because all of our cats went through some bad times in their life. Either they were abandoned, thrown away, or born into some bad conditions. And we believe that all of them deserve to have the best - the ultimate second chance.\"",
    "project": "",
-   "type": "text",
-   "jsfbt": "KOCHKA Café"
+   "jsfbt": {
+    "t": {
+     "desc": "In the phrase: \"The ultimate goal of {=KOCHKA Café} is to help cats who really need it. Having a coffee shop definitely helps. However, we would like to give an extraordinary life to our cats. Why? Because all of our cats went through some bad times in their life. Either they were abandoned, thrown away, or born into some bad conditions. And we believe that all of them deserve to have the best - the ultimate second chance.\"",
+     "text": "KOCHKA Café"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "hNJdF5T8ZRQPBqRHQy+EWQ==": "We would like to ask you to consider contributing to KOCHKA Café so we can achieve this goal. Help us to buy them better food. Help us to buy them more toys. Help us to make their life awesome."
+   "hashToLeaf": {
+    "hNJdF5T8ZRQPBqRHQy+EWQ==": {
+     "text": "We would like to ask you to consider contributing to KOCHKA Café so we can achieve this goal. Help us to buy them better food. Help us to buy them more toys. Help us to make their life awesome.",
+     "desc": "paragraph"
+    }
    },
    "filepath": "src/contributions/Contributions.js",
    "line_beg": 69,
    "col_beg": 10,
    "line_end": 73,
    "col_end": 16,
-   "desc": "paragraph",
    "project": "",
-   "type": "text",
-   "jsfbt": "We would like to ask you to consider contributing to KOCHKA Café so we can achieve this goal. Help us to buy them better food. Help us to buy them more toys. Help us to make their life awesome."
+   "jsfbt": {
+    "t": {
+     "desc": "paragraph",
+     "text": "We would like to ask you to consider contributing to KOCHKA Café so we can achieve this goal. Help us to buy them better food. Help us to buy them more toys. Help us to make their life awesome."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "TZWdWO+kvimA1Jjp1DlvTw==": "One-time contribution"
+   "hashToLeaf": {
+    "TZWdWO+kvimA1Jjp1DlvTw==": {
+     "text": "One-time contribution",
+     "desc": "one-time contribution subtitle"
+    }
    },
    "filepath": "src/contributions/Contributions.js",
    "line_beg": 79,
    "col_beg": 10,
    "line_end": 79,
    "col_end": 80,
-   "desc": "one-time contribution subtitle",
    "project": "",
-   "type": "text",
-   "jsfbt": "One-time contribution"
+   "jsfbt": {
+    "t": {
+     "desc": "one-time contribution subtitle",
+     "text": "One-time contribution"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "bZr1fe9zJldIOJ8L3xFdNA==": "Show us your support by sending a one-time contribution. You will be charged only once."
+   "hashToLeaf": {
+    "bZr1fe9zJldIOJ8L3xFdNA==": {
+     "text": "Show us your support by sending a one-time contribution. You will be charged only once.",
+     "desc": "one-time contribution description"
+    }
    },
    "filepath": "src/contributions/Contributions.js",
    "line_beg": 83,
    "col_beg": 10,
    "line_end": 85,
    "col_end": 16,
-   "desc": "one-time contribution description",
    "project": "",
-   "type": "text",
-   "jsfbt": "Show us your support by sending a one-time contribution. You will be charged only once."
+   "jsfbt": {
+    "t": {
+     "desc": "one-time contribution description",
+     "text": "Show us your support by sending a one-time contribution. You will be charged only once."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "ejsLcPhQjCHyk4sR3EWxAA==": "Recurring contribution (monthly)️️"
+   "hashToLeaf": {
+    "ejsLcPhQjCHyk4sR3EWxAA==": {
+     "text": "Recurring contribution (monthly)️️",
+     "desc": "recurring contribution subtitle"
+    }
    },
    "filepath": "src/contributions/Contributions.js",
    "line_beg": 113,
    "col_beg": 10,
    "line_end": 113,
    "col_end": 94,
-   "desc": "recurring contribution subtitle",
    "project": "",
-   "type": "text",
-   "jsfbt": "Recurring contribution (monthly)️️"
+   "jsfbt": {
+    "t": {
+     "desc": "recurring contribution subtitle",
+     "text": "Recurring contribution (monthly)️️"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "ooSK/rLOxewJkJbSdcdPMQ==": "A recurring contribution is for people who want to support KOCHKA Café and ultimately our cats on a monthly basis. We cannot express enough how grateful we are."
+   "hashToLeaf": {
+    "ooSK/rLOxewJkJbSdcdPMQ==": {
+     "text": "A recurring contribution is for people who want to support KOCHKA Café and ultimately our cats on a monthly basis. We cannot express enough how grateful we are.",
+     "desc": "recurring contribution description"
+    }
    },
    "filepath": "src/contributions/Contributions.js",
    "line_beg": 118,
    "col_beg": 10,
    "line_end": 121,
    "col_end": 16,
-   "desc": "recurring contribution description",
    "project": "",
-   "type": "text",
-   "jsfbt": "A recurring contribution is for people who want to support KOCHKA Café and ultimately our cats on a monthly basis. We cannot express enough how grateful we are."
+   "jsfbt": {
+    "t": {
+     "desc": "recurring contribution description",
+     "text": "A recurring contribution is for people who want to support KOCHKA Café and ultimately our cats on a monthly basis. We cannot express enough how grateful we are."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "9dbPRX1dP8RtMFaJxop9jg==": "{price} / month"
+   "hashToLeaf": {
+    "9dbPRX1dP8RtMFaJxop9jg==": {
+     "text": "{price} / month",
+     "desc": "recurring monetary value per month"
+    }
    },
    "filepath": "src/contributions/Contributions.js",
    "line_beg": 134,
    "col_beg": 18,
    "line_end": 142,
    "col_end": 24,
-   "desc": "recurring monetary value per month",
    "project": "",
-   "type": "text",
-   "jsfbt": "{price} / month"
+   "jsfbt": {
+    "t": {
+     "desc": "recurring monetary value per month",
+     "text": "{price} / month"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "xOijVgLac+Fx+3ST5k0jDQ==": "You will be redirected to an external Stripe page ({=buy.stripe.com}) after clicking on the button above where you can complete the contribution."
+   "hashToLeaf": {
+    "xOijVgLac+Fx+3ST5k0jDQ==": {
+     "text": "You will be redirected to an external Stripe page ({=buy.stripe.com}) after clicking on the button above where you can complete the contribution.",
+     "desc": "stripe redirect explanation"
+    }
    },
    "filepath": "src/contributions/StripeRedirectExplanation.js",
    "line_beg": 11,
    "col_beg": 8,
    "line_end": 14,
    "col_end": 14,
-   "desc": "stripe redirect explanation",
    "project": "",
-   "type": "text",
-   "jsfbt": "You will be redirected to an external Stripe page ({=buy.stripe.com}) after clicking on the button above where you can complete the contribution."
+   "jsfbt": {
+    "t": {
+     "desc": "stripe redirect explanation",
+     "text": "You will be redirected to an external Stripe page ({=buy.stripe.com}) after clicking on the button above where you can complete the contribution.",
+     "tokenAliases": {
+      "=buy.stripe.com": "=m1"
+     }
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "qRsJHMwQYNiEnmKE/Uqndg==": "buy.stripe.com"
+   "hashToLeaf": {
+    "qRsJHMwQYNiEnmKE/Uqndg==": {
+     "text": "buy.stripe.com",
+     "desc": "In the phrase: \"You will be redirected to an external Stripe page ({=buy.stripe.com}) after clicking on the button above where you can complete the contribution.\""
+    }
    },
    "filepath": "src/contributions/StripeRedirectExplanation.js",
    "line_beg": 12,
    "col_beg": 61,
    "line_end": 12,
    "col_end": 88,
-   "desc": "In the phrase: \"You will be redirected to an external Stripe page ({=buy.stripe.com}) after clicking on the button above where you can complete the contribution.\"",
    "project": "",
-   "type": "text",
-   "jsfbt": "buy.stripe.com"
+   "jsfbt": {
+    "t": {
+     "desc": "In the phrase: \"You will be redirected to an external Stripe page ({=buy.stripe.com}) after clicking on the button above where you can complete the contribution.\"",
+     "text": "buy.stripe.com"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "T0DgXP5K+rwH+D4SJDbnsQ==": "Come to enjoy a coffee from Chiapas and spend some time with our lovely cats."
+   "hashToLeaf": {
+    "T0DgXP5K+rwH+D4SJDbnsQ==": {
+     "text": "Come to enjoy a coffee from Chiapas and spend some time with our lovely cats.",
+     "desc": "catch phrase"
+    }
    },
    "filepath": "src/Homepage.js",
    "line_beg": 27,
    "col_beg": 16,
    "line_end": 29,
    "col_end": 22,
-   "desc": "catch phrase",
    "project": "",
-   "type": "text",
-   "jsfbt": "Come to enjoy a coffee from Chiapas and spend some time with our lovely cats."
+   "jsfbt": {
+    "t": {
+     "desc": "catch phrase",
+     "text": "Come to enjoy a coffee from Chiapas and spend some time with our lovely cats."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "qhyxBCe/pUVDATLDYaNRug==": "Tuesday - Sunday 12pm - 9pm"
+   "hashToLeaf": {
+    "qhyxBCe/pUVDATLDYaNRug==": {
+     "text": "Tuesday - Sunday 12pm - 9pm",
+     "desc": "opening hours"
+    }
    },
    "filepath": "src/HomepageFooter.js",
    "line_beg": 14,
    "col_beg": 8,
    "line_end": 14,
    "col_end": 67,
-   "desc": "opening hours",
    "project": "",
-   "type": "text",
-   "jsfbt": "Tuesday - Sunday 12pm - 9pm"
+   "jsfbt": {
+    "t": {
+     "desc": "opening hours",
+     "text": "Tuesday - Sunday 12pm - 9pm"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "01L7L5zx9XKSlIfQTGdfVg==": "Calle Tonalá 346, Roma Sur, Cuauhtémoc, 06760, CDMX, Mexico"
+   "hashToLeaf": {
+    "01L7L5zx9XKSlIfQTGdfVg==": {
+     "text": "Calle Tonalá 346, Roma Sur, Cuauhtémoc, 06760, CDMX, Mexico",
+     "desc": "address"
+    }
    },
    "filepath": "src/HomepageFooter.js",
    "line_beg": 19,
    "col_beg": 10,
    "line_end": 19,
    "col_end": 95,
-   "desc": "address",
    "project": "",
-   "type": "text",
-   "jsfbt": "Calle Tonalá 346, Roma Sur, Cuauhtémoc, 06760, CDMX, Mexico"
+   "jsfbt": {
+    "t": {
+     "desc": "address",
+     "text": "Calle Tonalá 346, Roma Sur, Cuauhtémoc, 06760, CDMX, Mexico"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "9xbWs0pIv9Xy0lfCwF7DmQ==": "Terms of use"
+   "hashToLeaf": {
+    "9xbWs0pIv9Xy0lfCwF7DmQ==": {
+     "text": "Terms of use",
+     "desc": "footer navigation link to terms of use"
+    }
    },
    "filepath": "src/LayoutFooter.js",
    "line_beg": 27,
    "col_beg": 14,
    "line_end": 27,
    "col_end": 83,
-   "desc": "footer navigation link to terms of use",
    "project": "",
-   "type": "text",
-   "jsfbt": "Terms of use"
+   "jsfbt": {
+    "t": {
+     "desc": "footer navigation link to terms of use",
+     "text": "Terms of use"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "1UA4LJthdLxQou20Xu/Bzg==": "Shipping & Returns"
+   "hashToLeaf": {
+    "1UA4LJthdLxQou20Xu/Bzg==": {
+     "text": "Shipping & Returns",
+     "desc": "footer navigation link to shipping and returns"
+    }
    },
    "filepath": "src/LayoutFooter.js",
    "line_beg": 33,
    "col_beg": 16,
    "line_end": 33,
    "col_end": 99,
-   "desc": "footer navigation link to shipping and returns",
    "project": "",
-   "type": "text",
-   "jsfbt": "Shipping & Returns"
+   "jsfbt": {
+    "t": {
+     "desc": "footer navigation link to shipping and returns",
+     "text": "Shipping & Returns"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "eFpXXNeK5D+47kXDWsbnAg==": "Privacy Policy"
+   "hashToLeaf": {
+    "eFpXXNeK5D+47kXDWsbnAg==": {
+     "text": "Privacy Policy",
+     "desc": "footer navigation link to privacy policy"
+    }
    },
    "filepath": "src/LayoutFooter.js",
    "line_beg": 39,
    "col_beg": 14,
    "line_end": 39,
    "col_end": 87,
-   "desc": "footer navigation link to privacy policy",
    "project": "",
-   "type": "text",
-   "jsfbt": "Privacy Policy"
+   "jsfbt": {
+    "t": {
+     "desc": "footer navigation link to privacy policy",
+     "text": "Privacy Policy"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "Pl7F+dP7nG7j/0rFiWi4wA==": "Downloading fresh menu, please wait…"
+   "hashToLeaf": {
+    "Pl7F+dP7nG7j/0rFiWi4wA==": {
+     "text": "Downloading fresh menu, please wait…",
+     "desc": "loading menu indicator description"
+    }
    },
    "filepath": "src/menu/MenuLoader.js",
    "line_beg": 13,
    "col_beg": 8,
    "line_end": 13,
    "col_end": 97,
-   "desc": "loading menu indicator description",
    "project": "",
-   "type": "text",
-   "jsfbt": "Downloading fresh menu, please wait…"
+   "jsfbt": {
+    "t": {
+     "desc": "loading menu indicator description",
+     "text": "Downloading fresh menu, please wait…"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "jnLeax+6GrU9ItcRNR9sFQ==": "Ciabattas"
+   "hashToLeaf": {
+    "jnLeax+6GrU9ItcRNR9sFQ==": {
+     "text": "Ciabattas",
+     "desc": "ciabattas subtitle in our menu"
+    }
    },
    "filepath": "src/menu/MenuSectionCiabattas.js",
    "line_beg": 31,
    "col_beg": 8,
    "line_end": 31,
    "col_end": 66,
-   "desc": "ciabattas subtitle in our menu",
    "project": "",
-   "type": "text",
-   "jsfbt": "Ciabattas"
+   "jsfbt": {
+    "t": {
+     "desc": "ciabattas subtitle in our menu",
+     "text": "Ciabattas"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "2YO+c7f7liBd/0oWsDx7MQ==": "Coffee drinks"
+   "hashToLeaf": {
+    "2YO+c7f7liBd/0oWsDx7MQ==": {
+     "text": "Coffee drinks",
+     "desc": "coffee subtitle in our menu"
+    }
    },
    "filepath": "src/menu/MenuSectionCoffee.js",
    "line_beg": 31,
    "col_beg": 8,
    "line_end": 31,
    "col_end": 67,
-   "desc": "coffee subtitle in our menu",
    "project": "",
-   "type": "text",
-   "jsfbt": "Coffee drinks"
+   "jsfbt": {
+    "t": {
+     "desc": "coffee subtitle in our menu",
+     "text": "Coffee drinks"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "49oC4KNe7YsynNra1tiIDw==": "Kochkadas"
+   "hashToLeaf": {
+    "49oC4KNe7YsynNra1tiIDw==": {
+     "text": "Kochkadas",
+     "desc": "kochkadas subtitle in our menu"
+    }
    },
    "filepath": "src/menu/MenuSectionKochkadas.js",
    "line_beg": 31,
    "col_beg": 8,
    "line_end": 31,
    "col_end": 66,
-   "desc": "kochkadas subtitle in our menu",
    "project": "",
-   "type": "text",
-   "jsfbt": "Kochkadas"
+   "jsfbt": {
+    "t": {
+     "desc": "kochkadas subtitle in our menu",
+     "text": "Kochkadas"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "dSc4laDASdxP9wQdGFEbfA==": "Others"
+   "hashToLeaf": {
+    "dSc4laDASdxP9wQdGFEbfA==": {
+     "text": "Others",
+     "desc": "others subtitle in our menu"
+    }
    },
    "filepath": "src/menu/MenuSectionOthers.js",
    "line_beg": 31,
    "col_beg": 8,
    "line_end": 31,
    "col_end": 60,
-   "desc": "others subtitle in our menu",
    "project": "",
-   "type": "text",
-   "jsfbt": "Others"
+   "jsfbt": {
+    "t": {
+     "desc": "others subtitle in our menu",
+     "text": "Others"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "x6UgjVUbrHri7VzawP9UtA==": "Specialities"
+   "hashToLeaf": {
+    "x6UgjVUbrHri7VzawP9UtA==": {
+     "text": "Specialities",
+     "desc": "specialities subtitle in our menu"
+    }
    },
    "filepath": "src/menu/MenuSectionSpecialities.js",
    "line_beg": 31,
    "col_beg": 8,
    "line_end": 31,
    "col_end": 72,
-   "desc": "specialities subtitle in our menu",
    "project": "",
-   "type": "text",
-   "jsfbt": "Specialities"
+   "jsfbt": {
+    "t": {
+     "desc": "specialities subtitle in our menu",
+     "text": "Specialities"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "8tuzzzf1dwqFSTF0rx1UHA==": "Organic tea blends"
+   "hashToLeaf": {
+    "8tuzzzf1dwqFSTF0rx1UHA==": {
+     "text": "Organic tea blends",
+     "desc": "organic tea subtitle in our menu"
+    }
    },
    "filepath": "src/menu/MenuSectionTea.js",
    "line_beg": 31,
    "col_beg": 8,
    "line_end": 31,
    "col_end": 77,
-   "desc": "organic tea subtitle in our menu",
    "project": "",
-   "type": "text",
-   "jsfbt": "Organic tea blends"
+   "jsfbt": {
+    "t": {
+     "desc": "organic tea subtitle in our menu",
+     "text": "Organic tea blends"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "1YLqzX/PtbBOLtiUcdmO5g==": "Navigation"
+   "hashToLeaf": {
+    "1YLqzX/PtbBOLtiUcdmO5g==": {
+     "text": "Navigation",
+     "desc": "menu button displayed on smaller screens"
+    }
    },
    "filepath": "src/Navigation.js",
    "line_beg": 33,
    "col_beg": 10,
    "line_end": 33,
    "col_end": 79,
-   "desc": "menu button displayed on smaller screens",
    "project": "",
-   "type": "text",
-   "jsfbt": "Navigation"
+   "jsfbt": {
+    "t": {
+     "desc": "menu button displayed on smaller screens",
+     "text": "Navigation"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "hsUYiKQLyiOxqS9DSTSB4w==": "Navigation"
+   "hashToLeaf": {
+    "hsUYiKQLyiOxqS9DSTSB4w==": {
+     "text": "Navigation",
+     "desc": "main navigation modal title"
+    }
    },
    "filepath": "src/Navigation.js",
    "line_beg": 38,
    "col_beg": 17,
    "line_end": 38,
    "col_end": 73,
-   "desc": "main navigation modal title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Navigation"
+   "jsfbt": {
+    "t": {
+     "desc": "main navigation modal title",
+     "text": "Navigation"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "kuYCBlo2uo0CL2XQvd1JAw==": "Menu"
+   "hashToLeaf": {
+    "kuYCBlo2uo0CL2XQvd1JAw==": {
+     "text": "Menu",
+     "desc": "link to the café menu from our main navigation"
+    }
    },
    "filepath": "src/NavigationLinks.js",
    "line_beg": 38,
    "col_beg": 8,
    "line_end": 38,
    "col_end": 77,
-   "desc": "link to the café menu from our main navigation",
    "project": "",
-   "type": "text",
-   "jsfbt": "Menu"
+   "jsfbt": {
+    "t": {
+     "desc": "link to the café menu from our main navigation",
+     "text": "Menu"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "2/2YfHIOTQBPe2NN5iDzHA==": "Adopt"
+   "hashToLeaf": {
+    "2/2YfHIOTQBPe2NN5iDzHA==": {
+     "text": "Adopt",
+     "desc": "link to the adoption page from our main navigation"
+    }
    },
    "filepath": "src/NavigationLinks.js",
    "line_beg": 43,
    "col_beg": 8,
    "line_end": 43,
    "col_end": 82,
-   "desc": "link to the adoption page from our main navigation",
    "project": "",
-   "type": "text",
-   "jsfbt": "Adopt"
+   "jsfbt": {
+    "t": {
+     "desc": "link to the adoption page from our main navigation",
+     "text": "Adopt"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "d/e8AfwzGWzIJOwgxriEMg==": "Rules"
+   "hashToLeaf": {
+    "d/e8AfwzGWzIJOwgxriEMg==": {
+     "text": "Rules",
+     "desc": "link to the café rules from our main navigation"
+    }
    },
    "filepath": "src/NavigationLinks.js",
    "line_beg": 48,
    "col_beg": 8,
    "line_end": 48,
    "col_end": 79,
-   "desc": "link to the café rules from our main navigation",
    "project": "",
-   "type": "text",
-   "jsfbt": "Rules"
+   "jsfbt": {
+    "t": {
+     "desc": "link to the café rules from our main navigation",
+     "text": "Rules"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "631OVUZDEQF6mtbD8NUyHg==": "Shop"
+   "hashToLeaf": {
+    "631OVUZDEQF6mtbD8NUyHg==": {
+     "text": "Shop",
+     "desc": "link to the eshop from our main navigation"
+    }
    },
    "filepath": "src/NavigationLinks.js",
    "line_beg": 53,
    "col_beg": 8,
    "line_end": 53,
    "col_end": 73,
-   "desc": "link to the eshop from our main navigation",
    "project": "",
-   "type": "text",
-   "jsfbt": "Shop"
+   "jsfbt": {
+    "t": {
+     "desc": "link to the eshop from our main navigation",
+     "text": "Shop"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "YPZm79WHjwd2E30wVWe3VA==": "Jobs"
+   "hashToLeaf": {
+    "YPZm79WHjwd2E30wVWe3VA==": {
+     "text": "Jobs",
+     "desc": "footer navigation link to open positions"
+    }
    },
    "filepath": "src/NavigationLinks.js",
    "line_beg": 58,
    "col_beg": 8,
    "line_end": 58,
    "col_end": 71,
-   "desc": "footer navigation link to open positions",
    "project": "",
-   "type": "text",
-   "jsfbt": "Jobs"
+   "jsfbt": {
+    "t": {
+     "desc": "footer navigation link to open positions",
+     "text": "Jobs"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "sY3J2OVXDvprP9Yw1wPdWQ==": "Contribute️"
+   "hashToLeaf": {
+    "sY3J2OVXDvprP9Yw1wPdWQ==": {
+     "text": "Contribute️",
+     "desc": "link to the contribution page from our main navigation"
+    }
    },
    "filepath": "src/NavigationLinks.js",
    "line_beg": 64,
    "col_beg": 10,
    "line_end": 64,
    "col_end": 94,
-   "desc": "link to the contribution page from our main navigation",
    "project": "",
-   "type": "text",
-   "jsfbt": "Contribute️"
+   "jsfbt": {
+    "t": {
+     "desc": "link to the contribution page from our main navigation",
+     "text": "Contribute️"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "5PQUikdPXG3uo/yYO/JTdg==": "Full-time"
+   "hashToLeaf": {
+    "5PQUikdPXG3uo/yYO/JTdg==": {
+     "text": "Full-time",
+     "desc": "full-time badge text"
+    }
    },
    "filepath": "src/open-positions/badges/FullTimeBadge.js",
    "line_beg": 10,
    "col_beg": 6,
    "line_end": 10,
    "col_end": 54,
-   "desc": "full-time badge text",
    "project": "",
-   "type": "text",
-   "jsfbt": "Full-time"
+   "jsfbt": {
+    "t": {
+     "desc": "full-time badge text",
+     "text": "Full-time"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "UlvVrCqWYA+OrWslYYmc8A==": "You can apply in our Talent Pool in case you are interested."
+   "hashToLeaf": {
+    "UlvVrCqWYA+OrWslYYmc8A==": {
+     "text": "You can apply in our Talent Pool in case you are interested.",
+     "desc": "available job badge description"
+    }
    },
    "filepath": "src/open-positions/badges/PositionAvailableBadge.js",
    "line_beg": 11,
    "col_beg": 8,
    "line_end": 13,
    "col_end": 14,
-   "desc": "available job badge description",
    "project": "",
-   "type": "text",
-   "jsfbt": "You can apply in our Talent Pool in case you are interested."
+   "jsfbt": {
+    "t": {
+     "desc": "available job badge description",
+     "text": "You can apply in our Talent Pool in case you are interested."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "54UcAAD/aCdp0ssaexfvTA==": "Available"
+   "hashToLeaf": {
+    "54UcAAD/aCdp0ssaexfvTA==": {
+     "text": "Available",
+     "desc": "available job badge text"
+    }
    },
    "filepath": "src/open-positions/badges/PositionAvailableBadge.js",
    "line_beg": 20,
    "col_beg": 10,
    "line_end": 20,
    "col_end": 62,
-   "desc": "available job badge text",
    "project": "",
-   "type": "text",
-   "jsfbt": "Available"
+   "jsfbt": {
+    "t": {
+     "desc": "available job badge text",
+     "text": "Available"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "UU5kEMYHicF1zn9DeP8QNw==": "This position is currently unavailable, however, we encourage you to submit your data in our Talent Pool in case you are interested and we might get back to you."
+   "hashToLeaf": {
+    "UU5kEMYHicF1zn9DeP8QNw==": {
+     "text": "This position is currently unavailable, however, we encourage you to submit your data in our Talent Pool in case you are interested and we might get back to you.",
+     "desc": "unavailable job badge description"
+    }
    },
    "filepath": "src/open-positions/badges/PositionUnavailableBadge.js",
    "line_beg": 11,
    "col_beg": 8,
    "line_end": 14,
    "col_end": 14,
-   "desc": "unavailable job badge description",
    "project": "",
-   "type": "text",
-   "jsfbt": "This position is currently unavailable, however, we encourage you to submit your data in our Talent Pool in case you are interested and we might get back to you."
+   "jsfbt": {
+    "t": {
+     "desc": "unavailable job badge description",
+     "text": "This position is currently unavailable, however, we encourage you to submit your data in our Talent Pool in case you are interested and we might get back to you."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "tEIYeVlKn5IC1LJpK2S4aw==": "Unavailable"
+   "hashToLeaf": {
+    "tEIYeVlKn5IC1LJpK2S4aw==": {
+     "text": "Unavailable",
+     "desc": "unavailable job badge text"
+    }
    },
    "filepath": "src/open-positions/badges/PositionUnavailableBadge.js",
    "line_beg": 19,
    "col_beg": 11,
    "line_end": 19,
    "col_end": 67,
-   "desc": "unavailable job badge text",
    "project": "",
-   "type": "text",
-   "jsfbt": "Unavailable"
+   "jsfbt": {
+    "t": {
+     "desc": "unavailable job badge text",
+     "text": "Unavailable"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "Q0LCVBMPiK9JJ/WYmxyX4g==": "{money} / month"
+   "hashToLeaf": {
+    "Q0LCVBMPiK9JJ/WYmxyX4g==": {
+     "text": "{money} / month",
+     "desc": "salary badge text"
+    }
    },
    "filepath": "src/open-positions/badges/SalaryBadge.js",
    "line_beg": 10,
    "col_beg": 6,
    "line_end": 15,
    "col_end": 12,
-   "desc": "salary badge text",
    "project": "",
-   "type": "text",
-   "jsfbt": "{money} / month"
+   "jsfbt": {
+    "t": {
+     "desc": "salary badge text",
+     "text": "{money} / month"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "Z1d6qX2L0fKBN6cEnxEOOw==": "Open positions"
+   "hashToLeaf": {
+    "Z1d6qX2L0fKBN6cEnxEOOw==": {
+     "text": "Open positions",
+     "desc": "open positions page title"
+    }
+   },
+   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
+   "line_beg": 16,
+   "col_beg": 13,
+   "line_end": 16,
+   "col_end": 71,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "open positions page title",
+     "text": "Open positions"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "vowqupCy07qqoGcmRVowvw==": {
+     "text": "Would you like to work with us?",
+     "desc": "open positions page subtitle"
+    }
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
    "line_beg": 17,
-   "col_beg": 13,
-   "line_end": 17,
-   "col_end": 71,
-   "desc": "open positions page title",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Open positions"
-  },
-  {
-   "hashToText": {
-    "vowqupCy07qqoGcmRVowvw==": "Would you like to work with us?"
-   },
-   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 18,
    "col_beg": 16,
-   "line_end": 18,
+   "line_end": 17,
    "col_end": 94,
-   "desc": "open positions page subtitle",
    "project": "",
-   "type": "text",
-   "jsfbt": "Would you like to work with us?"
+   "jsfbt": {
+    "t": {
+     "desc": "open positions page subtitle",
+     "text": "Would you like to work with us?"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "mubLlA5AQxRA7td64tC29g==": "Person responsible for our premises and customers (Ayudante General)"
+   "hashToLeaf": {
+    "mubLlA5AQxRA7td64tC29g==": {
+     "text": "Person responsible for our premises and customers (Ayudante General)",
+     "desc": "assistant position title"
+    }
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 29,
+   "line_beg": 28,
    "col_beg": 12,
-   "line_end": 31,
+   "line_end": 30,
    "col_end": 18,
-   "desc": "assistant position title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Person responsible for our premises and customers (Ayudante General)"
+   "jsfbt": {
+    "t": {
+     "desc": "assistant position title",
+     "text": "Person responsible for our premises and customers (Ayudante General)"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "YWTm5M86w76d43pJKYXN7w==": "Person in this position is responsible for customer service, keeping the facilities clean, and assisting in the food preparation sector. This is a full-time position only."
+   "hashToLeaf": {
+    "YWTm5M86w76d43pJKYXN7w==": {
+     "text": "Person in this position is responsible for customer service, keeping the facilities clean, and assisting in the food preparation sector. This is a full-time position only.",
+     "desc": "assistant position description"
+    }
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 39,
+   "line_beg": 38,
    "col_beg": 12,
-   "line_end": 43,
+   "line_end": 42,
    "col_end": 18,
-   "desc": "assistant position description",
    "project": "",
-   "type": "text",
-   "jsfbt": "Person in this position is responsible for customer service, keeping the facilities clean, and assisting in the food preparation sector. This is a full-time position only."
+   "jsfbt": {
+    "t": {
+     "desc": "assistant position description",
+     "text": "Person in this position is responsible for customer service, keeping the facilities clean, and assisting in the food preparation sector. This is a full-time position only."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "H8l+kJTbPzjEXskVb6pTvg==": "Person responsible for beverage preparation (Barista)"
+   "hashToLeaf": {
+    "H8l+kJTbPzjEXskVb6pTvg==": {
+     "text": "Person responsible for beverage preparation (Barista)",
+     "desc": "barista position title"
+    }
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 49,
+   "line_beg": 48,
    "col_beg": 12,
-   "line_end": 51,
+   "line_end": 50,
    "col_end": 18,
-   "desc": "barista position title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Person responsible for beverage preparation (Barista)"
+   "jsfbt": {
+    "t": {
+     "desc": "barista position title",
+     "text": "Person responsible for beverage preparation (Barista)"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "lAd0Iecjt0/G66JSr54JvA==": "Barista is responsible for preparation of coffee based drinks, teas, milkshakes and other specialities as well as attending our clients and keeping the workplace clean. This is a full-time position only."
+   "hashToLeaf": {
+    "lAd0Iecjt0/G66JSr54JvA==": {
+     "text": "Barista is responsible for preparation of coffee based drinks, teas, milkshakes and other specialities as well as attending our clients and keeping the workplace clean. This is a full-time position only.",
+     "desc": "barista position description"
+    }
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 59,
+   "line_beg": 58,
    "col_beg": 12,
-   "line_end": 63,
+   "line_end": 62,
    "col_end": 18,
-   "desc": "barista position description",
    "project": "",
-   "type": "text",
-   "jsfbt": "Barista is responsible for preparation of coffee based drinks, teas, milkshakes and other specialities as well as attending our clients and keeping the workplace clean. This is a full-time position only."
+   "jsfbt": {
+    "t": {
+     "desc": "barista position description",
+     "text": "Barista is responsible for preparation of coffee based drinks, teas, milkshakes and other specialities as well as attending our clients and keeping the workplace clean. This is a full-time position only."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "jsZid4+O30Jhr5fT06nf2w==": "Person responsible for food preparation"
+   "hashToLeaf": {
+    "jsZid4+O30Jhr5fT06nf2w==": {
+     "text": "Person responsible for food preparation",
+     "desc": "chef position title"
+    }
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 68,
+   "line_beg": 67,
    "col_beg": 17,
-   "line_end": 68,
+   "line_end": 67,
    "col_end": 94,
-   "desc": "chef position title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Person responsible for food preparation"
+   "jsfbt": {
+    "t": {
+     "desc": "chef position title",
+     "text": "Person responsible for food preparation"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "wf4j48fLHP425fhfMR8e7A==": "Person in charge of food preparation is responsible for preparing and improving our food options as well as attending our clients and keeping the workplace clean. This is a full-time position only."
+   "hashToLeaf": {
+    "wf4j48fLHP425fhfMR8e7A==": {
+     "text": "Person in charge of food preparation is responsible for preparing and improving our food options as well as attending our clients and keeping the workplace clean. This is a full-time position only.",
+     "desc": "chef position description"
+    }
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 75,
+   "line_beg": 74,
    "col_beg": 12,
-   "line_end": 79,
+   "line_end": 78,
    "col_end": 18,
-   "desc": "chef position description",
    "project": "",
-   "type": "text",
-   "jsfbt": "Person in charge of food preparation is responsible for preparing and improving our food options as well as attending our clients and keeping the workplace clean. This is a full-time position only."
+   "jsfbt": {
+    "t": {
+     "desc": "chef position description",
+     "text": "Person in charge of food preparation is responsible for preparing and improving our food options as well as attending our clients and keeping the workplace clean. This is a full-time position only."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "8Pm7esp/+gf54h5wjnhtIA==": "Mystery Shopper"
+   "hashToLeaf": {
+    "8Pm7esp/+gf54h5wjnhtIA==": {
+     "text": "Mystery Shopper",
+     "desc": "mystery shopper position title"
+    }
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 84,
+   "line_beg": 83,
    "col_beg": 17,
-   "line_end": 84,
+   "line_end": 83,
    "col_end": 81,
-   "desc": "mystery shopper position title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Mystery Shopper"
+   "jsfbt": {
+    "t": {
+     "desc": "mystery shopper position title",
+     "text": "Mystery Shopper"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "BOp9L6wr5H8DAJ5jtd5J9g==": "Mystery Shopper is responsible for making sure that we always provide the best services and products to our customers. It does so by visiting our café (secretly) while pretending to be a normal customer and later reporting any observations."
+   "hashToLeaf": {
+    "BOp9L6wr5H8DAJ5jtd5J9g==": {
+     "text": "Mystery Shopper is responsible for making sure that we always provide the best services and products to our customers. It does so by visiting our café (secretly) while pretending to be a normal customer and later reporting any observations.",
+     "desc": "mystery shopper position description"
+    }
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 87,
+   "line_beg": 86,
    "col_beg": 12,
-   "line_end": 91,
+   "line_end": 90,
    "col_end": 18,
-   "desc": "mystery shopper position description",
    "project": "",
-   "type": "text",
-   "jsfbt": "Mystery Shopper is responsible for making sure that we always provide the best services and products to our customers. It does so by visiting our café (secretly) while pretending to be a normal customer and later reporting any observations."
+   "jsfbt": {
+    "t": {
+     "desc": "mystery shopper position description",
+     "text": "Mystery Shopper is responsible for making sure that we always provide the best services and products to our customers. It does so by visiting our café (secretly) while pretending to be a normal customer and later reporting any observations."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "kOqAkB7LlUNdQoxTwvBwxA==": "Open-source Developer"
+   "hashToLeaf": {
+    "kOqAkB7LlUNdQoxTwvBwxA==": {
+     "text": "Open-source Developer",
+     "desc": "mystery shopper position title"
+    }
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 96,
+   "line_beg": 95,
    "col_beg": 17,
-   "line_end": 96,
+   "line_end": 95,
    "col_end": 87,
-   "desc": "mystery shopper position title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Open-source Developer"
+   "jsfbt": {
+    "t": {
+     "desc": "mystery shopper position title",
+     "text": "Open-source Developer"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "BBV+tJ0lbDfoiR6aqPvgJg==": "Open-source Developer is responsible for developing software running behind the scenes of KOCHKA Café. We use Git, JavaScript, and Rust and all our code us publicly available {github link}."
+   "hashToLeaf": {
+    "BBV+tJ0lbDfoiR6aqPvgJg==": {
+     "text": "Open-source Developer is responsible for developing software running behind the scenes of KOCHKA Café. We use Git, JavaScript, and Rust and all our code us publicly available {github link}.",
+     "desc": "mystery shopper position description"
+    }
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 99,
+   "line_beg": 98,
    "col_beg": 12,
-   "line_end": 108,
+   "line_end": 107,
    "col_end": 18,
-   "desc": "mystery shopper position description",
    "project": "",
-   "type": "text",
-   "jsfbt": "Open-source Developer is responsible for developing software running behind the scenes of KOCHKA Café. We use Git, JavaScript, and Rust and all our code us publicly available {github link}."
+   "jsfbt": {
+    "t": {
+     "desc": "mystery shopper position description",
+     "text": "Open-source Developer is responsible for developing software running behind the scenes of KOCHKA Café. We use Git, JavaScript, and Rust and all our code us publicly available {github link}."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "ON2POsGqFJpEnyYUlxozWA==": "We have 3 main rules that everyone must follow when visiting KOCHKA Café:"
+   "hashToLeaf": {
+    "ON2POsGqFJpEnyYUlxozWA==": {
+     "text": "We have 3 main rules that everyone must follow when visiting KOCHKA Café:",
+     "desc": "paragraph"
+    }
    },
    "filepath": "src/Rules.js",
    "line_beg": 11,
    "col_beg": 8,
    "line_end": 13,
    "col_end": 14,
-   "desc": "paragraph",
    "project": "",
-   "type": "text",
-   "jsfbt": "We have 3 main rules that everyone must follow when visiting KOCHKA Café:"
+   "jsfbt": {
+    "t": {
+     "desc": "paragraph",
+     "text": "We have 3 main rules that everyone must follow when visiting KOCHKA Café:"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "oOv/8vqrpu1YkjCPr/0Ovw==": "It is {=prohibited to give our cats any food or drinks}. It can be dangerous for them. They have their own diet, Please, protect your plates and cups."
+   "hashToLeaf": {
+    "oOv/8vqrpu1YkjCPr/0Ovw==": {
+     "text": "It is {=prohibited to give our cats any food or drinks}. It can be dangerous for them. They have their own diet, Please, protect your plates and cups.",
+     "desc": "rule"
+    }
    },
    "filepath": "src/Rules.js",
    "line_beg": 18,
    "col_beg": 12,
    "line_end": 21,
    "col_end": 18,
-   "desc": "rule",
    "project": "",
-   "type": "text",
-   "jsfbt": "It is {=prohibited to give our cats any food or drinks}. It can be dangerous for them. They have their own diet, Please, protect your plates and cups."
+   "jsfbt": {
+    "t": {
+     "desc": "rule",
+     "text": "It is {=prohibited to give our cats any food or drinks}. It can be dangerous for them. They have their own diet, Please, protect your plates and cups.",
+     "tokenAliases": {
+      "=prohibited to give our cats any food or drinks": "=m1"
+     }
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "KPoYsofs2ww6ajkxKqytuw==": "prohibited to give our cats any food or drinks"
+   "hashToLeaf": {
+    "KPoYsofs2ww6ajkxKqytuw==": {
+     "text": "prohibited to give our cats any food or drinks",
+     "desc": "In the phrase: \"It is {=prohibited to give our cats any food or drinks}. It can be dangerous for them. They have their own diet, Please, protect your plates and cups.\""
+    }
    },
    "filepath": "src/Rules.js",
    "line_beg": 19,
    "col_beg": 20,
    "line_end": 19,
    "col_end": 83,
-   "desc": "In the phrase: \"It is {=prohibited to give our cats any food or drinks}. It can be dangerous for them. They have their own diet, Please, protect your plates and cups.\"",
    "project": "",
-   "type": "text",
-   "jsfbt": "prohibited to give our cats any food or drinks"
+   "jsfbt": {
+    "t": {
+     "desc": "In the phrase: \"It is {=prohibited to give our cats any food or drinks}. It can be dangerous for them. They have their own diet, Please, protect your plates and cups.\"",
+     "text": "prohibited to give our cats any food or drinks"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "GOsw7+RyC2A6XAE4c9t7yQ==": "Every visitor must {=treat our cats respectfully}. Treat them like any other adult person - they are not kids. We ask you not to cary them. Wait for them to approach you instead."
+   "hashToLeaf": {
+    "GOsw7+RyC2A6XAE4c9t7yQ==": {
+     "text": "Every visitor must {=treat our cats respectfully}. Treat them like any other adult person - they are not kids. We ask you not to cary them. Wait for them to approach you instead.",
+     "desc": "rule"
+    }
    },
    "filepath": "src/Rules.js",
    "line_beg": 24,
    "col_beg": 12,
    "line_end": 28,
    "col_end": 18,
-   "desc": "rule",
    "project": "",
-   "type": "text",
-   "jsfbt": "Every visitor must {=treat our cats respectfully}. Treat them like any other adult person - they are not kids. We ask you not to cary them. Wait for them to approach you instead."
+   "jsfbt": {
+    "t": {
+     "desc": "rule",
+     "text": "Every visitor must {=treat our cats respectfully}. Treat them like any other adult person - they are not kids. We ask you not to cary them. Wait for them to approach you instead.",
+     "tokenAliases": {
+      "=treat our cats respectfully": "=m1"
+     }
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "Zo/0lqlJL8OqwBIeekTJ9g==": "treat our cats respectfully"
+   "hashToLeaf": {
+    "Zo/0lqlJL8OqwBIeekTJ9g==": {
+     "text": "treat our cats respectfully",
+     "desc": "In the phrase: \"Every visitor must {=treat our cats respectfully}. Treat them like any other adult person - they are not kids. We ask you not to cary them. Wait for them to approach you instead.\""
+    }
    },
    "filepath": "src/Rules.js",
    "line_beg": 25,
    "col_beg": 33,
    "line_end": 25,
    "col_end": 77,
-   "desc": "In the phrase: \"Every visitor must {=treat our cats respectfully}. Treat them like any other adult person - they are not kids. We ask you not to cary them. Wait for them to approach you instead.\"",
    "project": "",
-   "type": "text",
-   "jsfbt": "treat our cats respectfully"
+   "jsfbt": {
+    "t": {
+     "desc": "In the phrase: \"Every visitor must {=treat our cats respectfully}. Treat them like any other adult person - they are not kids. We ask you not to cary them. Wait for them to approach you instead.\"",
+     "text": "treat our cats respectfully"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "D5Z3jlGunJSWfgZ0AEclgQ==": "Be careful when entering KOCHKA Café so that our cats do not run away."
+   "hashToLeaf": {
+    "D5Z3jlGunJSWfgZ0AEclgQ==": {
+     "text": "Be careful when entering KOCHKA Café so that our cats do not run away.",
+     "desc": "rule"
+    }
    },
    "filepath": "src/Rules.js",
    "line_beg": 31,
    "col_beg": 12,
    "line_end": 33,
    "col_end": 18,
-   "desc": "rule",
    "project": "",
-   "type": "text",
-   "jsfbt": "Be careful when entering KOCHKA Café so that our cats do not run away."
+   "jsfbt": {
+    "t": {
+     "desc": "rule",
+     "text": "Be careful when entering KOCHKA Café so that our cats do not run away."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "HZFWX4pwanRspVzyvzKIEg==": "Additionally, we have other rules that are just as important:"
+   "hashToLeaf": {
+    "HZFWX4pwanRspVzyvzKIEg==": {
+     "text": "Additionally, we have other rules that are just as important:",
+     "desc": "paragraph"
+    }
    },
    "filepath": "src/Rules.js",
    "line_beg": 38,
    "col_beg": 8,
    "line_end": 38,
    "col_end": 97,
-   "desc": "paragraph",
    "project": "",
-   "type": "text",
-   "jsfbt": "Additionally, we have other rules that are just as important:"
+   "jsfbt": {
+    "t": {
+     "desc": "paragraph",
+     "text": "Additionally, we have other rules that are just as important:"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "y5XYH9F/uvwUXGAykCo7sA==": "Do not wake up our cats or interrupt them while they are eating."
+   "hashToLeaf": {
+    "y5XYH9F/uvwUXGAykCo7sA==": {
+     "text": "Do not wake up our cats or interrupt them while they are eating.",
+     "desc": "rule"
+    }
    },
    "filepath": "src/Rules.js",
    "line_beg": 43,
    "col_beg": 12,
    "line_end": 43,
    "col_end": 99,
-   "desc": "rule",
    "project": "",
-   "type": "text",
-   "jsfbt": "Do not wake up our cats or interrupt them while they are eating."
+   "jsfbt": {
+    "t": {
+     "desc": "rule",
+     "text": "Do not wake up our cats or interrupt them while they are eating."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "/t+xI2an+VOt0etSs48GmQ==": "Cats are very sensitive. Be careful with loud and sudden noises, which could scare them."
+   "hashToLeaf": {
+    "/t+xI2an+VOt0etSs48GmQ==": {
+     "text": "Cats are very sensitive. Be careful with loud and sudden noises, which could scare them.",
+     "desc": "rule"
+    }
    },
    "filepath": "src/Rules.js",
    "line_beg": 46,
    "col_beg": 12,
    "line_end": 49,
    "col_end": 18,
-   "desc": "rule",
    "project": "",
-   "type": "text",
-   "jsfbt": "Cats are very sensitive. Be careful with loud and sudden noises, which could scare them."
+   "jsfbt": {
+    "t": {
+     "desc": "rule",
+     "text": "Cats are very sensitive. Be careful with loud and sudden noises, which could scare them."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "2M/LRaQwR7k0iYNW0dlxJg==": "Leave your pets at home. Other pets are not allowed here."
+   "hashToLeaf": {
+    "2M/LRaQwR7k0iYNW0dlxJg==": {
+     "text": "Leave your pets at home. Other pets are not allowed here.",
+     "desc": "rule"
+    }
    },
    "filepath": "src/Rules.js",
    "line_beg": 52,
    "col_beg": 12,
    "line_end": 52,
    "col_end": 92,
-   "desc": "rule",
    "project": "",
-   "type": "text",
-   "jsfbt": "Leave your pets at home. Other pets are not allowed here."
+   "jsfbt": {
+    "t": {
+     "desc": "rule",
+     "text": "Leave your pets at home. Other pets are not allowed here."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "D4p5G21fI6ApDMCTySYecw==": "We are not responsible for any injuries caused by our cats - they are very playful, and they do not mean it. Pay special attention to your kids. Feel free to ask for medical aid when needed."
+   "hashToLeaf": {
+    "D4p5G21fI6ApDMCTySYecw==": {
+     "text": "We are not responsible for any injuries caused by our cats - they are very playful, and they do not mean it. Pay special attention to your kids. Feel free to ask for medical aid when needed.",
+     "desc": "rule"
+    }
    },
    "filepath": "src/Rules.js",
    "line_beg": 55,
    "col_beg": 12,
    "line_end": 59,
    "col_end": 18,
-   "desc": "rule",
    "project": "",
-   "type": "text",
-   "jsfbt": "We are not responsible for any injuries caused by our cats - they are very playful, and they do not mean it. Pay special attention to your kids. Feel free to ask for medical aid when needed."
+   "jsfbt": {
+    "t": {
+     "desc": "rule",
+     "text": "We are not responsible for any injuries caused by our cats - they are very playful, and they do not mean it. Pay special attention to your kids. Feel free to ask for medical aid when needed."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "u01M6MR9XEEj81zz9hMjhQ==": "Hygiene is important. Wash your hand when playing with our cats."
+   "hashToLeaf": {
+    "u01M6MR9XEEj81zz9hMjhQ==": {
+     "text": "Hygiene is important. Wash your hand when playing with our cats.",
+     "desc": "rule"
+    }
    },
    "filepath": "src/Rules.js",
    "line_beg": 62,
    "col_beg": 12,
    "line_end": 62,
    "col_end": 99,
-   "desc": "rule",
    "project": "",
-   "type": "text",
-   "jsfbt": "Hygiene is important. Wash your hand when playing with our cats."
+   "jsfbt": {
+    "t": {
+     "desc": "rule",
+     "text": "Hygiene is important. Wash your hand when playing with our cats."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "EKVHIyGsE7I5vu2LtlYz6Q==": "We highly discourage you from visiting us in case you are allergic to cats."
+   "hashToLeaf": {
+    "EKVHIyGsE7I5vu2LtlYz6Q==": {
+     "text": "We highly discourage you from visiting us in case you are allergic to cats.",
+     "desc": "rule"
+    }
    },
    "filepath": "src/Rules.js",
    "line_beg": 65,
    "col_beg": 12,
    "line_end": 67,
    "col_end": 18,
-   "desc": "rule",
    "project": "",
-   "type": "text",
-   "jsfbt": "We highly discourage you from visiting us in case you are allergic to cats."
+   "jsfbt": {
+    "t": {
+     "desc": "rule",
+     "text": "We highly discourage you from visiting us in case you are allergic to cats."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "dpYGaDV5nBHTHU/I/qisQg==": "Please, follow our rules. Misbehaving guests will be asked to leave."
+   "hashToLeaf": {
+    "dpYGaDV5nBHTHU/I/qisQg==": {
+     "text": "Please, follow our rules. Misbehaving guests will be asked to leave.",
+     "desc": "rule"
+    }
    },
    "filepath": "src/Rules.js",
    "line_beg": 70,
    "col_beg": 12,
    "line_end": 72,
    "col_end": 18,
-   "desc": "rule",
    "project": "",
-   "type": "text",
-   "jsfbt": "Please, follow our rules. Misbehaving guests will be asked to leave."
+   "jsfbt": {
+    "t": {
+     "desc": "rule",
+     "text": "Please, follow our rules. Misbehaving guests will be asked to leave."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "M7rR/kOLux0twb9muLT+Nw==": "Online shop"
+   "hashToLeaf": {
+    "M7rR/kOLux0twb9muLT+Nw==": {
+     "text": "Online shop",
+     "desc": "shop page title"
+    }
    },
    "filepath": "src/shop/ProductPageLayout.js",
    "line_beg": 13,
    "col_beg": 13,
    "line_end": 13,
    "col_end": 58,
-   "desc": "shop page title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Online shop"
+   "jsfbt": {
+    "t": {
+     "desc": "shop page title",
+     "text": "Online shop"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "bQxirHhLBpNG49T54JXMeg==": "Support our cats by buying some of our products"
+   "hashToLeaf": {
+    "bQxirHhLBpNG49T54JXMeg==": {
+     "text": "Support our cats by buying some of our products",
+     "desc": "shop page subtitle"
+    }
    },
    "filepath": "src/shop/ProductPageLayout.js",
    "line_beg": 15,
    "col_beg": 8,
    "line_end": 15,
    "col_end": 92,
-   "desc": "shop page subtitle",
    "project": "",
-   "type": "text",
-   "jsfbt": "Support our cats by buying some of our products"
+   "jsfbt": {
+    "t": {
+     "desc": "shop page subtitle",
+     "text": "Support our cats by buying some of our products"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "bU6rVH2V6ifH2RNffzFZ8g==": "All our products are currently available only in person in our café. We are working on making them available online as well."
+   "hashToLeaf": {
+    "bU6rVH2V6ifH2RNffzFZ8g==": {
+     "text": "All our products are currently available only in person in our café. We are working on making them available online as well.",
+     "desc": "not about all our products being available only in person"
+    }
    },
    "filepath": "src/shop/ProductPageLayoutContent.js",
    "line_beg": 73,
    "col_beg": 16,
    "line_end": 76,
    "col_end": 22,
-   "desc": "not about all our products being available only in person",
    "project": "",
-   "type": "text",
-   "jsfbt": "All our products are currently available only in person in our café. We are working on making them available online as well."
+   "jsfbt": {
+    "t": {
+     "desc": "not about all our products being available only in person",
+     "text": "All our products are currently available only in person in our café. We are working on making them available online as well."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "M7rR/kOLux0twb9muLT+Nw==": "Online shop"
+   "hashToLeaf": {
+    "M7rR/kOLux0twb9muLT+Nw==": {
+     "text": "Online shop",
+     "desc": "shop page title"
+    }
    },
    "filepath": "src/shop/ShopLayout.js",
    "line_beg": 37,
    "col_beg": 13,
    "line_end": 37,
    "col_end": 58,
-   "desc": "shop page title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Online shop"
+   "jsfbt": {
+    "t": {
+     "desc": "shop page title",
+     "text": "Online shop"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "bQxirHhLBpNG49T54JXMeg==": "Support our cats by buying some of our products"
+   "hashToLeaf": {
+    "bQxirHhLBpNG49T54JXMeg==": {
+     "text": "Support our cats by buying some of our products",
+     "desc": "shop page subtitle"
+    }
    },
    "filepath": "src/shop/ShopLayout.js",
    "line_beg": 39,
    "col_beg": 8,
    "line_end": 39,
    "col_end": 92,
-   "desc": "shop page subtitle",
    "project": "",
-   "type": "text",
-   "jsfbt": "Support our cats by buying some of our products"
+   "jsfbt": {
+    "t": {
+     "desc": "shop page subtitle",
+     "text": "Support our cats by buying some of our products"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "NcqbHXZZBCZpEDNCbNjypg==": "All Categories"
+   "hashToLeaf": {
+    "NcqbHXZZBCZpEDNCbNjypg==": {
+     "text": "All Categories",
+     "desc": "shop categories selection title"
+    }
    },
    "filepath": "src/shop/ShopLayout.js",
    "line_beg": 45,
    "col_beg": 12,
    "line_end": 45,
    "col_end": 76,
-   "desc": "shop categories selection title",
    "project": "",
-   "type": "text",
-   "jsfbt": "All Categories"
+   "jsfbt": {
+    "t": {
+     "desc": "shop categories selection title",
+     "text": "All Categories"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "euiFFLyeZE5Cqt3Et0scHQ==": "Shop All"
+   "hashToLeaf": {
+    "euiFFLyeZE5Cqt3Et0scHQ==": {
+     "text": "Shop All",
+     "desc": "shop all categories link"
+    }
    },
    "filepath": "src/shop/ShopLayout.js",
    "line_beg": 58,
    "col_beg": 14,
    "line_end": 58,
    "col_end": 65,
-   "desc": "shop all categories link",
    "project": "",
-   "type": "text",
-   "jsfbt": "Shop All"
+   "jsfbt": {
+    "t": {
+     "desc": "shop all categories link",
+     "text": "Shop All"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "O5z+CsBhzyOWUxxF2Dbzuw==": "Relevance"
+   "hashToLeaf": {
+    "O5z+CsBhzyOWUxxF2Dbzuw==": {
+     "text": "Relevance",
+     "desc": "shop relevance selection title"
+    }
    },
    "filepath": "src/shop/ShopLayout.js",
    "line_beg": 69,
    "col_beg": 12,
    "line_end": 69,
    "col_end": 70,
-   "desc": "shop relevance selection title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Relevance"
+   "jsfbt": {
+    "t": {
+     "desc": "shop relevance selection title",
+     "text": "Relevance"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "ZlHAAgjgMITuSp22mOOiiQ==": "Price: Low to high"
+   "hashToLeaf": {
+    "ZlHAAgjgMITuSp22mOOiiQ==": {
+     "text": "Price: Low to high",
+     "desc": "price relevance low to high"
+    }
    },
    "filepath": "src/shop/ShopLayout.js",
    "line_beg": 81,
    "col_beg": 14,
    "line_end": 81,
    "col_end": 78,
-   "desc": "price relevance low to high",
    "project": "",
-   "type": "text",
-   "jsfbt": "Price: Low to high"
+   "jsfbt": {
+    "t": {
+     "desc": "price relevance low to high",
+     "text": "Price: Low to high"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "lsJRnjpgbJ4j+bIWfXVNAg==": "Price: High to low"
+   "hashToLeaf": {
+    "lsJRnjpgbJ4j+bIWfXVNAg==": {
+     "text": "Price: High to low",
+     "desc": "price relevance hight to low"
+    }
    },
    "filepath": "src/shop/ShopLayout.js",
    "line_beg": 94,
    "col_beg": 14,
    "line_end": 94,
    "col_end": 79,
-   "desc": "price relevance hight to low",
    "project": "",
-   "type": "text",
-   "jsfbt": "Price: High to low"
+   "jsfbt": {
+    "t": {
+     "desc": "price relevance hight to low",
+     "text": "Price: High to low"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "9nlQMh24gzrCe2wsI7rTrw==": "retry"
+   "hashToLeaf": {
+    "9nlQMh24gzrCe2wsI7rTrw==": {
+     "text": "retry",
+     "desc": "retry button title"
+    }
    },
    "filepath": "src/shop/ShopLayoutContent.js",
    "line_beg": 67,
    "col_beg": 18,
    "line_end": 67,
    "col_end": 60,
-   "desc": "retry button title",
    "project": "",
-   "type": "text",
-   "jsfbt": "retry"
+   "jsfbt": {
+    "t": {
+     "desc": "retry button title",
+     "text": "retry"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "CA7qWNKuLlABfoiTt5lvUA==": "unable to load eshop products"
+   "hashToLeaf": {
+    "CA7qWNKuLlABfoiTt5lvUA==": {
+     "text": "unable to load eshop products",
+     "desc": "unable to load eshop products note"
+    }
    },
    "filepath": "src/shop/ShopLayoutContent.js",
    "line_beg": 72,
    "col_beg": 12,
    "line_end": 72,
    "col_end": 94,
-   "desc": "unable to load eshop products note",
    "project": "",
-   "type": "text",
-   "jsfbt": "unable to load eshop products"
+   "jsfbt": {
+    "t": {
+     "desc": "unable to load eshop products note",
+     "text": "unable to load eshop products"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "Vzx+hI2Z0PqPWhGFV/NbRA==": "There are no products yet."
+   "hashToLeaf": {
+    "Vzx+hI2Z0PqPWhGFV/NbRA==": {
+     "text": "There are no products yet.",
+     "desc": "empty shop message"
+    }
    },
    "filepath": "src/shop/ShopLayoutContent.js",
    "line_beg": 80,
    "col_beg": 14,
    "line_end": 80,
    "col_end": 77,
-   "desc": "empty shop message",
    "project": "",
-   "type": "text",
-   "jsfbt": "There are no products yet."
+   "jsfbt": {
+    "t": {
+     "desc": "empty shop message",
+     "text": "There are no products yet."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "4hzwDqzKYoJYiTxo5Erg4A==": "link to KOCHKA Café Instagram page"
+   "hashToLeaf": {
+    "4hzwDqzKYoJYiTxo5Erg4A==": {
+     "text": "link to KOCHKA Café Instagram page",
+     "desc": "aria label of our Instagram link"
+    }
    },
    "filepath": "src/SocialMediaIcons.js",
    "line_beg": 35,
    "col_beg": 14,
    "line_end": 35,
    "col_end": 99,
-   "desc": "aria label of our Instagram link",
    "project": "",
-   "type": "text",
-   "jsfbt": "link to KOCHKA Café Instagram page"
+   "jsfbt": {
+    "t": {
+     "desc": "aria label of our Instagram link",
+     "text": "link to KOCHKA Café Instagram page"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "5QbuAWwkViB3in/V8u59bg==": "link to KOCHKA Café facebook page"
+   "hashToLeaf": {
+    "5QbuAWwkViB3in/V8u59bg==": {
+     "text": "link to KOCHKA Café facebook page",
+     "desc": "aria label of our Facebook link"
+    }
    },
    "filepath": "src/SocialMediaIcons.js",
    "line_beg": 56,
    "col_beg": 14,
    "line_end": 56,
    "col_end": 97,
-   "desc": "aria label of our Facebook link",
    "project": "",
-   "type": "text",
-   "jsfbt": "link to KOCHKA Café facebook page"
+   "jsfbt": {
+    "t": {
+     "desc": "aria label of our Facebook link",
+     "text": "link to KOCHKA Café facebook page"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "th27ZLyY0P1wj2QYva4ueg==": "link to GitHub repository"
+   "hashToLeaf": {
+    "th27ZLyY0P1wj2QYva4ueg==": {
+     "text": "link to GitHub repository",
+     "desc": "aria label of our GitHub link"
+    }
    },
    "filepath": "src/SocialMediaIcons.js",
    "line_beg": 76,
    "col_beg": 24,
    "line_end": 76,
    "col_end": 97,
-   "desc": "aria label of our GitHub link",
    "project": "",
-   "type": "text",
-   "jsfbt": "link to GitHub repository"
+   "jsfbt": {
+    "t": {
+     "desc": "aria label of our GitHub link",
+     "text": "link to GitHub repository"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "9NSktf8Wasdbln+avfGiWQ==": "Skip to content"
+   "hashToLeaf": {
+    "9NSktf8Wasdbln+avfGiWQ==": {
+     "text": "Skip to content",
+     "desc": "hidden 'skip link' title which helps blind people to skip directly the main section and avoid the repetitive menu altogether"
+    }
    },
    "filepath": "pages/_app.js",
    "line_beg": 44,
    "col_beg": 20,
    "line_end": 46,
    "col_end": 26,
-   "desc": "hidden 'skip link' title which helps blind people to skip directly the main section and avoid the repetitive menu altogether",
    "project": "",
-   "type": "text",
-   "jsfbt": "Skip to content"
+   "jsfbt": {
+    "t": {
+     "desc": "hidden 'skip link' title which helps blind people to skip directly the main section and avoid the repetitive menu altogether",
+     "text": "Skip to content"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "vpT2aV2Xh7va1U4hf7onMg==": "Page Not Found"
+   "hashToLeaf": {
+    "vpT2aV2Xh7va1U4hf7onMg==": {
+     "text": "Page Not Found",
+     "desc": "page not found title"
+    }
+   },
+   "filepath": "pages/404.js",
+   "line_beg": 17,
+   "col_beg": 21,
+   "line_end": 17,
+   "col_end": 74,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "page not found title",
+     "text": "Page Not Found"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "Qr9e1v30qLiew6DJI9IGGg==": {
+     "text": "Page you are trying to access could not be found. It could happen because the page was deleted or we have a broken link somewhere.",
+     "desc": "page not found explanation"
+    }
    },
    "filepath": "pages/404.js",
    "line_beg": 19,
-   "col_beg": 21,
-   "line_end": 19,
-   "col_end": 74,
-   "desc": "page not found title",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Page Not Found"
-  },
-  {
-   "hashToText": {
-    "Qr9e1v30qLiew6DJI9IGGg==": "Page you are trying to access could not be found. It could happen because the page was deleted or we have a broken link somewhere."
-   },
-   "filepath": "pages/404.js",
-   "line_beg": 21,
    "col_beg": 10,
-   "line_end": 24,
+   "line_end": 22,
    "col_end": 16,
-   "desc": "page not found explanation",
    "project": "",
-   "type": "text",
-   "jsfbt": "Page you are trying to access could not be found. It could happen because the page was deleted or we have a broken link somewhere."
+   "jsfbt": {
+    "t": {
+     "desc": "page not found explanation",
+     "text": "Page you are trying to access could not be found. It could happen because the page was deleted or we have a broken link somewhere."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "bGETY4UjHAPYzub5GiMNzA==": "Go back to Homepage"
+   "hashToLeaf": {
+    "bGETY4UjHAPYzub5GiMNzA==": {
+     "text": "Go back to Homepage",
+     "desc": "go back to homepage link title"
+    }
    },
    "filepath": "pages/404.js",
-   "line_beg": 28,
+   "line_beg": 26,
    "col_beg": 12,
-   "line_end": 28,
+   "line_end": 26,
    "col_end": 80,
-   "desc": "go back to homepage link title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Go back to Homepage"
+   "jsfbt": {
+    "t": {
+     "desc": "go back to homepage link title",
+     "text": "Go back to Homepage"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "DkFkA77iGSUvEzlEbEp0MQ==": "Adopt a cat"
+   "hashToLeaf": {
+    "DkFkA77iGSUvEzlEbEp0MQ==": {
+     "text": "Adopt a cat",
+     "desc": "adopt a cat - page title"
+    }
    },
    "filepath": "pages/adopt.js",
    "line_beg": 12,
    "col_beg": 13,
    "line_end": 12,
    "col_end": 67,
-   "desc": "adopt a cat - page title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Adopt a cat"
+   "jsfbt": {
+    "t": {
+     "desc": "adopt a cat - page title",
+     "text": "Adopt a cat"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "OlrWH3z1s/N0sJPhAa4V8Q==": "Help us to find them a loving home"
+   "hashToLeaf": {
+    "OlrWH3z1s/N0sJPhAa4V8Q==": {
+     "text": "Help us to find them a loving home",
+     "desc": "adopt a cat - page description"
+    }
    },
    "filepath": "pages/adopt.js",
    "line_beg": 13,
    "col_beg": 16,
    "line_end": 13,
    "col_end": 99,
-   "desc": "adopt a cat - page description",
    "project": "",
-   "type": "text",
-   "jsfbt": "Help us to find them a loving home"
+   "jsfbt": {
+    "t": {
+     "desc": "adopt a cat - page description",
+     "text": "Help us to find them a loving home"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "Jcw1FFhronZyBasJwGpXKA==": "How do we admit new cats to KOCHKA Café?"
+   "hashToLeaf": {
+    "Jcw1FFhronZyBasJwGpXKA==": {
+     "text": "How do we admit new cats to KOCHKA Café?",
+     "desc": "Article title H3: How do we admit new cats to KOCHKA Café?"
+    }
    },
    "filepath": "pages/adopt.js",
    "line_beg": 17,
    "col_beg": 10,
    "line_end": 19,
    "col_end": 16,
-   "desc": "Article title H3: How do we admit new cats to KOCHKA Café?",
    "project": "",
-   "type": "text",
-   "jsfbt": "How do we admit new cats to KOCHKA Café?"
+   "jsfbt": {
+    "t": {
+     "desc": "Article title H3: How do we admit new cats to KOCHKA Café?",
+     "text": "How do we admit new cats to KOCHKA Café?"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "HNj6uP7iL4RwLwCN8j5QxQ==": "Each cat goes through a quarantine that lasts a minimum of 14 days. During this period we give them necessary medical care, deworming, recommended vaccination, and sterilization (in case their age allows that). Only after that, the cats can enter our café and can be adopted."
+   "hashToLeaf": {
+    "HNj6uP7iL4RwLwCN8j5QxQ==": {
+     "text": "Each cat goes through a quarantine that lasts a minimum of 14 days. During this period we give them necessary medical care, deworming, recommended vaccination, and sterilization (in case their age allows that). Only after that, the cats can enter our café and can be adopted.",
+     "desc": "article paragraph"
+    }
    },
    "filepath": "pages/adopt.js",
    "line_beg": 22,
    "col_beg": 10,
    "line_end": 27,
    "col_end": 16,
-   "desc": "article paragraph",
    "project": "",
-   "type": "text",
-   "jsfbt": "Each cat goes through a quarantine that lasts a minimum of 14 days. During this period we give them necessary medical care, deworming, recommended vaccination, and sterilization (in case their age allows that). Only after that, the cats can enter our café and can be adopted."
+   "jsfbt": {
+    "t": {
+     "desc": "article paragraph",
+     "text": "Each cat goes through a quarantine that lasts a minimum of 14 days. During this period we give them necessary medical care, deworming, recommended vaccination, and sterilization (in case their age allows that). Only after that, the cats can enter our café and can be adopted."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "vWCRUi4GIhnx8ENyPDWUzA==": "Older cats go through the same process except they already have to be sterilized before we can accept them. We cannot accept adult cats that are not sterilized."
+   "hashToLeaf": {
+    "vWCRUi4GIhnx8ENyPDWUzA==": {
+     "text": "Older cats go through the same process except they already have to be sterilized before we can accept them. We cannot accept adult cats that are not sterilized.",
+     "desc": "article paragraph"
+    }
    },
    "filepath": "pages/adopt.js",
    "line_beg": 30,
    "col_beg": 10,
    "line_end": 33,
    "col_end": 16,
-   "desc": "article paragraph",
    "project": "",
-   "type": "text",
-   "jsfbt": "Older cats go through the same process except they already have to be sterilized before we can accept them. We cannot accept adult cats that are not sterilized."
+   "jsfbt": {
+    "t": {
+     "desc": "article paragraph",
+     "text": "Older cats go through the same process except they already have to be sterilized before we can accept them. We cannot accept adult cats that are not sterilized."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "vB4qLhQKL6HOIJ6yFSIOSA==": "How can you adopt a new cat?"
+   "hashToLeaf": {
+    "vB4qLhQKL6HOIJ6yFSIOSA==": {
+     "text": "How can you adopt a new cat?",
+     "desc": "Article title H3: How can you adopt a new cat?"
+    }
    },
    "filepath": "pages/adopt.js",
    "line_beg": 37,
    "col_beg": 10,
    "line_end": 39,
    "col_end": 16,
-   "desc": "Article title H3: How can you adopt a new cat?",
    "project": "",
-   "type": "text",
-   "jsfbt": "How can you adopt a new cat?"
+   "jsfbt": {
+    "t": {
+     "desc": "Article title H3: How can you adopt a new cat?",
+     "text": "How can you adopt a new cat?"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "6u2zOP6qUybHiM6neM/GuA==": "We try to create an environment supporting reasonable adoptions only. Every person who wants to adopt a cat has to fill a questionnaire to make sure our cats will find a safe and loving home. We also conduct an interview and ask for a financial contribution to cover part of the costs connected with the cats' medical treatment."
+   "hashToLeaf": {
+    "6u2zOP6qUybHiM6neM/GuA==": {
+     "text": "We try to create an environment supporting reasonable adoptions only. Every person who wants to adopt a cat has to fill a questionnaire to make sure our cats will find a safe and loving home. We also conduct an interview and ask for a financial contribution to cover part of the costs connected with the cats' medical treatment.",
+     "desc": "article paragraph"
+    }
    },
    "filepath": "pages/adopt.js",
    "line_beg": 42,
    "col_beg": 10,
    "line_end": 47,
    "col_end": 16,
-   "desc": "article paragraph",
    "project": "",
-   "type": "text",
-   "jsfbt": "We try to create an environment supporting reasonable adoptions only. Every person who wants to adopt a cat has to fill a questionnaire to make sure our cats will find a safe and loving home. We also conduct an interview and ask for a financial contribution to cover part of the costs connected with the cats' medical treatment."
+   "jsfbt": {
+    "t": {
+     "desc": "article paragraph",
+     "text": "We try to create an environment supporting reasonable adoptions only. Every person who wants to adopt a cat has to fill a questionnaire to make sure our cats will find a safe and loving home. We also conduct an interview and ask for a financial contribution to cover part of the costs connected with the cats' medical treatment."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "XiCuItUtGxqiz2oUqvDfew==": "It is also necessary to visit us in person first to get familiar with our cats. It's not possible to adopt a cat from KOCHKA Café without visiting us first."
+   "hashToLeaf": {
+    "XiCuItUtGxqiz2oUqvDfew==": {
+     "text": "It is also necessary to visit us in person first to get familiar with our cats. It's not possible to adopt a cat from KOCHKA Café without visiting us first.",
+     "desc": "article paragraph"
+    }
    },
    "filepath": "pages/adopt.js",
    "line_beg": 50,
    "col_beg": 10,
    "line_end": 53,
    "col_end": 16,
-   "desc": "article paragraph",
    "project": "",
-   "type": "text",
-   "jsfbt": "It is also necessary to visit us in person first to get familiar with our cats. It's not possible to adopt a cat from KOCHKA Café without visiting us first."
+   "jsfbt": {
+    "t": {
+     "desc": "article paragraph",
+     "text": "It is also necessary to visit us in person first to get familiar with our cats. It's not possible to adopt a cat from KOCHKA Café without visiting us first."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "Ew1959dWI6QNA/Q3Wrje0g==": "Adoption fees"
+   "hashToLeaf": {
+    "Ew1959dWI6QNA/Q3Wrje0g==": {
+     "text": "Adoption fees",
+     "desc": "Article title H3: Adoption fees"
+    }
    },
    "filepath": "pages/adopt.js",
    "line_beg": 57,
    "col_beg": 10,
    "line_end": 57,
    "col_end": 73,
-   "desc": "Article title H3: Adoption fees",
    "project": "",
-   "type": "text",
-   "jsfbt": "Adoption fees"
+   "jsfbt": {
+    "t": {
+     "desc": "Article title H3: Adoption fees",
+     "text": "Adoption fees"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "RxLkHF2IRijugI0zaJHLXg==": "Cat age"
+   "hashToLeaf": {
+    "RxLkHF2IRijugI0zaJHLXg==": {
+     "text": "Cat age",
+     "desc": "table header: cat age"
+    }
    },
    "filepath": "pages/adopt.js",
    "line_beg": 61,
    "col_beg": 22,
    "line_end": 61,
    "col_end": 69,
-   "desc": "table header: cat age",
    "project": "",
-   "type": "text",
-   "jsfbt": "Cat age"
+   "jsfbt": {
+    "t": {
+     "desc": "table header: cat age",
+     "text": "Cat age"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "DKvdWpk5tmt93px+TRa8mw==": "Adoption fee"
+   "hashToLeaf": {
+    "DKvdWpk5tmt93px+TRa8mw==": {
+     "text": "Adoption fee",
+     "desc": "table header: adoption fee"
+    }
    },
    "filepath": "pages/adopt.js",
    "line_beg": 63,
    "col_beg": 22,
    "line_end": 63,
    "col_end": 79,
-   "desc": "table header: adoption fee",
    "project": "",
-   "type": "text",
-   "jsfbt": "Adoption fee"
+   "jsfbt": {
+    "t": {
+     "desc": "table header: adoption fee",
+     "text": "Adoption fee"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "IWzmbAKxlH0k3fBoI9N7rA==": "Adult cat"
+   "hashToLeaf": {
+    "IWzmbAKxlH0k3fBoI9N7rA==": {
+     "text": "Adult cat",
+     "desc": "table cell: adult cat"
+    }
    },
    "filepath": "pages/adopt.js",
    "line_beg": 69,
    "col_beg": 20,
    "line_end": 69,
    "col_end": 69,
-   "desc": "table cell: adult cat",
    "project": "",
-   "type": "text",
-   "jsfbt": "Adult cat"
+   "jsfbt": {
+    "t": {
+     "desc": "table cell: adult cat",
+     "text": "Adult cat"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "N8iXHjKl9W/M5Nd1SAiXbA==": "Kitten under 1 year"
+   "hashToLeaf": {
+    "N8iXHjKl9W/M5Nd1SAiXbA==": {
+     "text": "Kitten under 1 year",
+     "desc": "table cell: kitten under 1 year"
+    }
    },
    "filepath": "pages/adopt.js",
    "line_beg": 75,
    "col_beg": 20,
    "line_end": 75,
    "col_end": 89,
-   "desc": "table cell: kitten under 1 year",
    "project": "",
-   "type": "text",
-   "jsfbt": "Kitten under 1 year"
+   "jsfbt": {
+    "t": {
+     "desc": "table cell: kitten under 1 year",
+     "text": "Kitten under 1 year"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "hf8uKEqUiYoq4b2mewVtSA==": "The adoption fee includes:"
+   "hashToLeaf": {
+    "hf8uKEqUiYoq4b2mewVtSA==": {
+     "text": "The adoption fee includes:",
+     "desc": "article paragraph"
+    }
    },
    "filepath": "pages/adopt.js",
    "line_beg": 83,
    "col_beg": 10,
    "line_end": 83,
    "col_end": 72,
-   "desc": "article paragraph",
    "project": "",
-   "type": "text",
-   "jsfbt": "The adoption fee includes:"
+   "jsfbt": {
+    "t": {
+     "desc": "article paragraph",
+     "text": "The adoption fee includes:"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "LskCJ5nUFQUoKHBfugVs6A==": "sterilization surgery (in case the age allows it)"
+   "hashToLeaf": {
+    "LskCJ5nUFQUoKHBfugVs6A==": {
+     "text": "sterilization surgery (in case the age allows it)",
+     "desc": "adoption fee 1"
+    }
    },
    "filepath": "pages/adopt.js",
    "line_beg": 87,
    "col_beg": 12,
    "line_end": 87,
    "col_end": 94,
-   "desc": "adoption fee 1",
    "project": "",
-   "type": "text",
-   "jsfbt": "sterilization surgery (in case the age allows it)"
+   "jsfbt": {
+    "t": {
+     "desc": "adoption fee 1",
+     "text": "sterilization surgery (in case the age allows it)"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "2zeEeHMZj2AjllnLWvLaKA==": "recommended vaccinations (rabies and \"triple felina\")"
+   "hashToLeaf": {
+    "2zeEeHMZj2AjllnLWvLaKA==": {
+     "text": "recommended vaccinations (rabies and \"triple felina\")",
+     "desc": "adoption fee 2"
+    }
    },
    "filepath": "pages/adopt.js",
    "line_beg": 90,
    "col_beg": 12,
    "line_end": 92,
    "col_end": 18,
-   "desc": "adoption fee 2",
    "project": "",
-   "type": "text",
-   "jsfbt": "recommended vaccinations (rabies and \"triple felina\")"
+   "jsfbt": {
+    "t": {
+     "desc": "adoption fee 2",
+     "text": "recommended vaccinations (rabies and \"triple felina\")"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "VK9SlBTtiYUyoSSCcHYjzA==": "initial worming"
+   "hashToLeaf": {
+    "VK9SlBTtiYUyoSSCcHYjzA==": {
+     "text": "initial worming",
+     "desc": "adoption fee 3"
+    }
    },
    "filepath": "pages/adopt.js",
    "line_beg": 95,
    "col_beg": 12,
    "line_end": 95,
    "col_end": 60,
-   "desc": "adoption fee 3",
    "project": "",
-   "type": "text",
-   "jsfbt": "initial worming"
+   "jsfbt": {
+    "t": {
+     "desc": "adoption fee 3",
+     "text": "initial worming"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "gXs8IYY7Khdi8/pzxwpzzA==": "fleas treatment"
+   "hashToLeaf": {
+    "gXs8IYY7Khdi8/pzxwpzzA==": {
+     "text": "fleas treatment",
+     "desc": "adoption fee 4"
+    }
    },
    "filepath": "pages/adopt.js",
    "line_beg": 98,
    "col_beg": 12,
    "line_end": 98,
    "col_end": 60,
-   "desc": "adoption fee 4",
    "project": "",
-   "type": "text",
-   "jsfbt": "fleas treatment"
+   "jsfbt": {
+    "t": {
+     "desc": "adoption fee 4",
+     "text": "fleas treatment"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "D+bTXmwr5eDOKxnDViXmRg==": "Generally speaking, we do not make any profit from the adoption fees. We usually spend more money on the cats to give them a great and healthy life. The adoption fee simply helps us to lower the financial impact on our business."
+   "hashToLeaf": {
+    "D+bTXmwr5eDOKxnDViXmRg==": {
+     "text": "Generally speaking, we do not make any profit from the adoption fees. We usually spend more money on the cats to give them a great and healthy life. The adoption fee simply helps us to lower the financial impact on our business.",
+     "desc": "article paragraph"
+    }
    },
    "filepath": "pages/adopt.js",
    "line_beg": 102,
    "col_beg": 10,
    "line_end": 106,
    "col_end": 16,
-   "desc": "article paragraph",
    "project": "",
-   "type": "text",
-   "jsfbt": "Generally speaking, we do not make any profit from the adoption fees. We usually spend more money on the cats to give them a great and healthy life. The adoption fee simply helps us to lower the financial impact on our business."
+   "jsfbt": {
+    "t": {
+     "desc": "article paragraph",
+     "text": "Generally speaking, we do not make any profit from the adoption fees. We usually spend more money on the cats to give them a great and healthy life. The adoption fee simply helps us to lower the financial impact on our business."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "4F6ZuT0XrHxABO4AoMouYg==": "Adoption requirements"
+   "hashToLeaf": {
+    "4F6ZuT0XrHxABO4AoMouYg==": {
+     "text": "Adoption requirements",
+     "desc": "Article title H3: Adoption requirements"
+    }
    },
    "filepath": "pages/adopt.js",
    "line_beg": 110,
    "col_beg": 10,
    "line_end": 110,
    "col_end": 89,
-   "desc": "Article title H3: Adoption requirements",
    "project": "",
-   "type": "text",
-   "jsfbt": "Adoption requirements"
+   "jsfbt": {
+    "t": {
+     "desc": "Article title H3: Adoption requirements",
+     "text": "Adoption requirements"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "oulyKljARVL7xFzb/E1K6g==": "Before considering adoption, please make sure that:"
+   "hashToLeaf": {
+    "oulyKljARVL7xFzb/E1K6g==": {
+     "text": "Before considering adoption, please make sure that:",
+     "desc": "article paragraph"
+    }
    },
    "filepath": "pages/adopt.js",
    "line_beg": 113,
    "col_beg": 10,
    "line_end": 113,
    "col_end": 97,
-   "desc": "article paragraph",
    "project": "",
-   "type": "text",
-   "jsfbt": "Before considering adoption, please make sure that:"
+   "jsfbt": {
+    "t": {
+     "desc": "article paragraph",
+     "text": "Before considering adoption, please make sure that:"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "IWeQXViCmZ9IAXq7eHRhyg==": "you are older than 18 years"
+   "hashToLeaf": {
+    "IWeQXViCmZ9IAXq7eHRhyg==": {
+     "text": "you are older than 18 years",
+     "desc": "adoption requirements 1"
+    }
    },
    "filepath": "pages/adopt.js",
    "line_beg": 117,
    "col_beg": 12,
    "line_end": 117,
    "col_end": 81,
-   "desc": "adoption requirements 1",
    "project": "",
-   "type": "text",
-   "jsfbt": "you are older than 18 years"
+   "jsfbt": {
+    "t": {
+     "desc": "adoption requirements 1",
+     "text": "you are older than 18 years"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "DUIB2CQM+FzNC7fRpC2P3Q==": "you filled the adoption form and it was approved"
+   "hashToLeaf": {
+    "DUIB2CQM+FzNC7fRpC2P3Q==": {
+     "text": "you filled the adoption form and it was approved",
+     "desc": "adoption requirements 2"
+    }
    },
    "filepath": "pages/adopt.js",
    "line_beg": 120,
    "col_beg": 12,
    "line_end": 122,
    "col_end": 18,
-   "desc": "adoption requirements 2",
    "project": "",
-   "type": "text",
-   "jsfbt": "you filled the adoption form and it was approved"
+   "jsfbt": {
+    "t": {
+     "desc": "adoption requirements 2",
+     "text": "you filled the adoption form and it was approved"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "JBfzytaKySnST3G0Y5UtKw==": "you have valid INE and \"comprobante de domicilio\""
+   "hashToLeaf": {
+    "JBfzytaKySnST3G0Y5UtKw==": {
+     "text": "you have valid INE and \"comprobante de domicilio\"",
+     "desc": "adoption requirements 3"
+    }
    },
    "filepath": "pages/adopt.js",
    "line_beg": 125,
    "col_beg": 12,
    "line_end": 127,
    "col_end": 18,
-   "desc": "adoption requirements 3",
    "project": "",
-   "type": "text",
-   "jsfbt": "you have valid INE and \"comprobante de domicilio\""
+   "jsfbt": {
+    "t": {
+     "desc": "adoption requirements 3",
+     "text": "you have valid INE and \"comprobante de domicilio\""
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "2Qn9XN/eqcJm9rcXjA10Gw==": "you understand the associated adoption fees"
+   "hashToLeaf": {
+    "2Qn9XN/eqcJm9rcXjA10Gw==": {
+     "text": "you understand the associated adoption fees",
+     "desc": "adoption requirements 4"
+    }
    },
    "filepath": "pages/adopt.js",
    "line_beg": 130,
    "col_beg": 12,
    "line_end": 130,
    "col_end": 97,
-   "desc": "adoption requirements 4",
    "project": "",
-   "type": "text",
-   "jsfbt": "you understand the associated adoption fees"
+   "jsfbt": {
+    "t": {
+     "desc": "adoption requirements 4",
+     "text": "you understand the associated adoption fees"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "gsqVS83mN+Lxi8BLO2qTGQ==": "you mean the adoption seriously and are able to give the adopted cat a great life"
+   "hashToLeaf": {
+    "gsqVS83mN+Lxi8BLO2qTGQ==": {
+     "text": "you mean the adoption seriously and are able to give the adopted cat a great life",
+     "desc": "adoption requirements 5"
+    }
    },
    "filepath": "pages/adopt.js",
    "line_beg": 133,
    "col_beg": 12,
    "line_end": 135,
    "col_end": 18,
-   "desc": "adoption requirements 5",
    "project": "",
-   "type": "text",
-   "jsfbt": "you mean the adoption seriously and are able to give the adopted cat a great life"
+   "jsfbt": {
+    "t": {
+     "desc": "adoption requirements 5",
+     "text": "you mean the adoption seriously and are able to give the adopted cat a great life"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "UtAnpVTTpcIdy6vllJvyrw==": "Shop Cart"
+   "hashToLeaf": {
+    "UtAnpVTTpcIdy6vllJvyrw==": {
+     "text": "Shop Cart",
+     "desc": "shop cart page title"
+    }
    },
    "filepath": "pages/cart.js",
    "line_beg": 13,
    "col_beg": 13,
    "line_end": 13,
    "col_end": 61,
-   "desc": "shop cart page title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Shop Cart"
+   "jsfbt": {
+    "t": {
+     "desc": "shop cart page title",
+     "text": "Shop Cart"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "rWOjizR/rqe1qdO5bWEhZA==": "Thank you so much for shopping with us! Let's finish the order…"
+   "hashToLeaf": {
+    "rWOjizR/rqe1qdO5bWEhZA==": {
+     "text": "Thank you so much for shopping with us! Let's finish the order…",
+     "desc": "shop cart page subtitle"
+    }
    },
    "filepath": "pages/cart.js",
    "line_beg": 15,
    "col_beg": 8,
    "line_end": 17,
    "col_end": 14,
-   "desc": "shop cart page subtitle",
    "project": "",
-   "type": "text",
-   "jsfbt": "Thank you so much for shopping with us! Let's finish the order…"
+   "jsfbt": {
+    "t": {
+     "desc": "shop cart page subtitle",
+     "text": "Thank you so much for shopping with us! Let's finish the order…"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "cOuE0Y6hFHx90ijUrv/eMA==": "There is nothing in the cart yet. Add something in {=our shop}."
+   "hashToLeaf": {
+    "cOuE0Y6hFHx90ijUrv/eMA==": {
+     "text": "There is nothing in the cart yet. Add something in {=our shop}.",
+     "desc": "empty shop cart"
+    }
    },
    "filepath": "pages/cart.js",
    "line_beg": 21,
    "col_beg": 8,
    "line_end": 24,
    "col_end": 14,
-   "desc": "empty shop cart",
    "project": "",
-   "type": "text",
-   "jsfbt": "There is nothing in the cart yet. Add something in {=our shop}."
+   "jsfbt": {
+    "t": {
+     "desc": "empty shop cart",
+     "text": "There is nothing in the cart yet. Add something in {=our shop}.",
+     "tokenAliases": {
+      "=our shop": "=m2"
+     }
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "ZQYVXUeI/NELtBk7BWG2Eg==": "our shop"
+   "hashToLeaf": {
+    "5KjiEzR6VRnzpl7sCW6TmA==": {
+     "text": "our shop",
+     "desc": "In the phrase: \"There is nothing in the cart yet. Add something in {=our shop}.\""
+    }
    },
    "filepath": "pages/cart.js",
    "line_beg": 23,
    "col_beg": 10,
    "line_end": 23,
    "col_end": 60,
-   "desc": "In the phrase: \"There is nothing in the cart yet. Add something in{=our shop}.\"",
    "project": "",
-   "type": "text",
-   "jsfbt": "our shop"
+   "jsfbt": {
+    "t": {
+     "desc": "In the phrase: \"There is nothing in the cart yet. Add something in {=our shop}.\"",
+     "text": "our shop"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "9ggp9xUsB/b5GuzF9ovCJg==": "Privacy Policy"
+   "hashToLeaf": {
+    "9ggp9xUsB/b5GuzF9ovCJg==": {
+     "text": "Privacy Policy",
+     "desc": "privacy policy page title"
+    }
    },
    "filepath": "pages/legal/privacy.js",
    "line_beg": 12,
    "col_beg": 13,
    "line_end": 12,
    "col_end": 71,
-   "desc": "privacy policy page title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Privacy Policy"
+   "jsfbt": {
+    "t": {
+     "desc": "privacy policy page title",
+     "text": "Privacy Policy"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "ft/VX/kflZT+cJ7tDxay3w==": "How we handle your data"
+   "hashToLeaf": {
+    "ft/VX/kflZT+cJ7tDxay3w==": {
+     "text": "How we handle your data",
+     "desc": "privacy policy page subtitle"
+    }
    },
    "filepath": "pages/legal/privacy.js",
    "line_beg": 13,
    "col_beg": 16,
    "line_end": 13,
    "col_end": 86,
-   "desc": "privacy policy page subtitle",
    "project": "",
-   "type": "text",
-   "jsfbt": "How we handle your data"
+   "jsfbt": {
+    "t": {
+     "desc": "privacy policy page subtitle",
+     "text": "How we handle your data"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "DBkiBGwUIGGpVvTQloF43Q==": "this page is not finished yet, stay tuned"
+   "hashToLeaf": {
+    "DBkiBGwUIGGpVvTQloF43Q==": {
+     "text": "this page is not finished yet, stay tuned",
+     "desc": "stay tuned note"
+    }
    },
    "filepath": "pages/legal/privacy.js",
    "line_beg": 16,
    "col_beg": 8,
    "line_end": 16,
    "col_end": 83,
-   "desc": "stay tuned note",
    "project": "",
-   "type": "text",
-   "jsfbt": "this page is not finished yet, stay tuned"
+   "jsfbt": {
+    "t": {
+     "desc": "stay tuned note",
+     "text": "this page is not finished yet, stay tuned"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "hJ8qGTJjAWkopKNNpixseQ==": "Shipping & Returns"
+   "hashToLeaf": {
+    "hJ8qGTJjAWkopKNNpixseQ==": {
+     "text": "Shipping & Returns",
+     "desc": "shipping and returns page title"
+    }
    },
    "filepath": "pages/legal/shipping.js",
    "line_beg": 11,
    "col_beg": 19,
    "line_end": 11,
    "col_end": 87,
-   "desc": "shipping and returns page title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Shipping & Returns"
+   "jsfbt": {
+    "t": {
+     "desc": "shipping and returns page title",
+     "text": "Shipping & Returns"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "DBkiBGwUIGGpVvTQloF43Q==": "this page is not finished yet, stay tuned"
+   "hashToLeaf": {
+    "DBkiBGwUIGGpVvTQloF43Q==": {
+     "text": "this page is not finished yet, stay tuned",
+     "desc": "stay tuned note"
+    }
    },
    "filepath": "pages/legal/shipping.js",
    "line_beg": 13,
    "col_beg": 8,
    "line_end": 13,
    "col_end": 83,
-   "desc": "stay tuned note",
    "project": "",
-   "type": "text",
-   "jsfbt": "this page is not finished yet, stay tuned"
+   "jsfbt": {
+    "t": {
+     "desc": "stay tuned note",
+     "text": "this page is not finished yet, stay tuned"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "zUHUK5wk9AK2m6HCgafXDQ==": "Terms of use"
+   "hashToLeaf": {
+    "zUHUK5wk9AK2m6HCgafXDQ==": {
+     "text": "Terms of use",
+     "desc": "terms of use page title"
+    }
    },
    "filepath": "pages/legal/terms.js",
    "line_beg": 11,
    "col_beg": 19,
    "line_end": 11,
    "col_end": 73,
-   "desc": "terms of use page title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Terms of use"
+   "jsfbt": {
+    "t": {
+     "desc": "terms of use page title",
+     "text": "Terms of use"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "DBkiBGwUIGGpVvTQloF43Q==": "this page is not finished yet, stay tuned"
+   "hashToLeaf": {
+    "DBkiBGwUIGGpVvTQloF43Q==": {
+     "text": "this page is not finished yet, stay tuned",
+     "desc": "stay tuned note"
+    }
    },
    "filepath": "pages/legal/terms.js",
    "line_beg": 13,
    "col_beg": 8,
    "line_end": 13,
    "col_end": 83,
-   "desc": "stay tuned note",
    "project": "",
-   "type": "text",
-   "jsfbt": "this page is not finished yet, stay tuned"
+   "jsfbt": {
+    "t": {
+     "desc": "stay tuned note",
+     "text": "this page is not finished yet, stay tuned"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "LBAx+p8s256gLYAkVfbjkg==": "Café menu"
+   "hashToLeaf": {
+    "LBAx+p8s256gLYAkVfbjkg==": {
+     "text": "Café menu",
+     "desc": "menu page title"
+    }
    },
    "filepath": "pages/menu.js",
    "line_beg": 12,
    "col_beg": 13,
    "line_end": 12,
    "col_end": 56,
-   "desc": "menu page title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Café menu"
+   "jsfbt": {
+    "t": {
+     "desc": "menu page title",
+     "text": "Café menu"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "JnDGjOnTmmVcE/3sXdcBuA==": "What do we offer"
+   "hashToLeaf": {
+    "JnDGjOnTmmVcE/3sXdcBuA==": {
+     "text": "What do we offer",
+     "desc": "menu page subtitle"
+    }
    },
    "filepath": "pages/menu.js",
    "line_beg": 13,
    "col_beg": 16,
    "line_end": 13,
    "col_end": 69,
-   "desc": "menu page subtitle",
    "project": "",
-   "type": "text",
-   "jsfbt": "What do we offer"
+   "jsfbt": {
+    "t": {
+     "desc": "menu page subtitle",
+     "text": "What do we offer"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "4Lq/FsVpaCdipRFwvV9Uvw==": "Café rules"
+   "hashToLeaf": {
+    "4Lq/FsVpaCdipRFwvV9Uvw==": {
+     "text": "Café rules",
+     "desc": "our rules page title"
+    }
    },
    "filepath": "pages/rules.js",
    "line_beg": 12,
    "col_beg": 13,
    "line_end": 12,
    "col_end": 62,
-   "desc": "our rules page title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Café rules"
+   "jsfbt": {
+    "t": {
+     "desc": "our rules page title",
+     "text": "Café rules"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "IzoLTCoaqKTH3w0tUhRTSg==": "How to be friends with our cats"
+   "hashToLeaf": {
+    "IzoLTCoaqKTH3w0tUhRTSg==": {
+     "text": "How to be friends with our cats",
+     "desc": "our rules page subtitle"
+    }
    },
    "filepath": "pages/rules.js",
    "line_beg": 13,
    "col_beg": 16,
    "line_end": 13,
    "col_end": 89,
-   "desc": "our rules page subtitle",
    "project": "",
-   "type": "text",
-   "jsfbt": "How to be friends with our cats"
+   "jsfbt": {
+    "t": {
+     "desc": "our rules page subtitle",
+     "text": "How to be friends with our cats"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "IV9llmffd/gAm+lpn/XOYQ==": "Order canceled"
+   "hashToLeaf": {
+    "IV9llmffd/gAm+lpn/XOYQ==": {
+     "text": "Order canceled",
+     "desc": "canceled checkout page title"
+    }
    },
    "filepath": "pages/shop/checkout/cancel.js",
    "line_beg": 13,
    "col_beg": 19,
    "line_end": 13,
    "col_end": 80,
-   "desc": "canceled checkout page title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Order canceled"
+   "jsfbt": {
+    "t": {
+     "desc": "canceled checkout page title",
+     "text": "Order canceled"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "yTWTRuVereo5ENKC6xCNSQ==": "Your order has been canceled and no money was charged. We are sorry to see you go. Feel free to get in touch with us and tell us what can we improve!"
+   "hashToLeaf": {
+    "yTWTRuVereo5ENKC6xCNSQ==": {
+     "text": "Your order has been canceled and no money was charged. We are sorry to see you go. Feel free to get in touch with us and tell us what can we improve!",
+     "desc": "canceled checkout message"
+    }
    },
    "filepath": "pages/shop/checkout/cancel.js",
    "line_beg": 15,
    "col_beg": 8,
    "line_end": 18,
    "col_end": 14,
-   "desc": "canceled checkout message",
    "project": "",
-   "type": "text",
-   "jsfbt": "Your order has been canceled and no money was charged. We are sorry to see you go. Feel free to get in touch with us and tell us what can we improve!"
+   "jsfbt": {
+    "t": {
+     "desc": "canceled checkout message",
+     "text": "Your order has been canceled and no money was charged. We are sorry to see you go. Feel free to get in touch with us and tell us what can we improve!"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "7iQpgv+m9xo39l3hwwsBzA==": "Order success 👍"
+   "hashToLeaf": {
+    "7iQpgv+m9xo39l3hwwsBzA==": {
+     "text": "Order success 👍",
+     "desc": "successful checkout page title"
+    }
    },
    "filepath": "pages/shop/checkout/success.js",
    "line_beg": 14,
    "col_beg": 13,
    "line_end": 14,
    "col_end": 78,
-   "desc": "successful checkout page title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Order success 👍"
+   "jsfbt": {
+    "t": {
+     "desc": "successful checkout page title",
+     "text": "Order success 👍"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "+aQ061fIG2w2cz2DUY7MzA==": "Thank you so much!"
+   "hashToLeaf": {
+    "+aQ061fIG2w2cz2DUY7MzA==": {
+     "text": "Thank you so much!",
+     "desc": "successful checkout page description"
+    }
    },
    "filepath": "pages/shop/checkout/success.js",
    "line_beg": 15,
    "col_beg": 16,
    "line_end": 15,
    "col_end": 89,
-   "desc": "successful checkout page description",
    "project": "",
-   "type": "text",
-   "jsfbt": "Thank you so much!"
+   "jsfbt": {
+    "t": {
+     "desc": "successful checkout page description",
+     "text": "Thank you so much!"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "u9ymZF+4osYnMeWU+Nmy6A==": "Please, check your email for the confirmation. Will keep you updated on the progress via email. Feel free to get in touch with us in case of any troubles!"
+   "hashToLeaf": {
+    "u9ymZF+4osYnMeWU+Nmy6A==": {
+     "text": "Please, check your email for the confirmation. Will keep you updated on the progress via email. Feel free to get in touch with us in case of any troubles!",
+     "desc": "successful checkout message"
+    }
    },
    "filepath": "pages/shop/checkout/success.js",
    "line_beg": 18,
    "col_beg": 8,
    "line_end": 21,
    "col_end": 14,
-   "desc": "successful checkout message",
    "project": "",
-   "type": "text",
-   "jsfbt": "Please, check your email for the confirmation. Will keep you updated on the progress via email. Feel free to get in touch with us in case of any troubles!"
+   "jsfbt": {
+    "t": {
+     "desc": "successful checkout message",
+     "text": "Please, check your email for the confirmation. Will keep you updated on the progress via email. Feel free to get in touch with us in case of any troubles!"
+    },
+    "m": []
+   }
   }
  ],
  "childParentMappings": {}
