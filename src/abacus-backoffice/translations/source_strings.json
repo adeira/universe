@@ -1,92 +1,137 @@
 {
  "phrases": [
   {
-   "hashToText": {
-    "BZw4CMwsfgTMU6KG5ThypQ==": "Analytics: most sold products"
+   "hashToLeaf": {
+    "BZw4CMwsfgTMU6KG5ThypQ==": {
+     "text": "Analytics: most sold products",
+     "desc": "analytics most sold products page heading"
+    }
    },
    "filepath": "src/analytics/AnalyticsMostSoldProductsPageLayout.js",
    "line_beg": 29,
    "col_beg": 8,
    "line_end": 29,
    "col_end": 97,
-   "desc": "analytics most sold products page heading",
    "project": "",
-   "type": "text",
-   "jsfbt": "Analytics: most sold products"
+   "jsfbt": {
+    "t": {
+     "desc": "analytics most sold products page heading",
+     "text": "Analytics: most sold products"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "dZ+Vz30jY5ATqTW64xzopA==": "Hits"
+   "hashToLeaf": {
+    "dZ+Vz30jY5ATqTW64xzopA==": {
+     "text": "Hits",
+     "desc": "how many hits did the link get"
+    }
    },
    "filepath": "src/analytics/AnalyticsRedirectsPage.js",
    "line_beg": 26,
    "col_beg": 18,
    "line_end": 26,
    "col_end": 71,
-   "desc": "how many hits did the link get",
    "project": "",
-   "type": "text",
-   "jsfbt": "Hits"
+   "jsfbt": {
+    "t": {
+     "desc": "how many hits did the link get",
+     "text": "Hits"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "WFpN8i+HIen1iISPJbUg4w==": "Origin"
+   "hashToLeaf": {
+    "WFpN8i+HIen1iISPJbUg4w==": {
+     "text": "Origin",
+     "desc": "what is out origin redirect link"
+    }
    },
    "filepath": "src/analytics/AnalyticsRedirectsPage.js",
    "line_beg": 27,
    "col_beg": 18,
    "line_end": 27,
    "col_end": 75,
-   "desc": "what is out origin redirect link",
    "project": "",
-   "type": "text",
-   "jsfbt": "Origin"
+   "jsfbt": {
+    "t": {
+     "desc": "what is out origin redirect link",
+     "text": "Origin"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "duLKZvjku3aFE0HIZnmQ0A==": "Destination"
+   "hashToLeaf": {
+    "duLKZvjku3aFE0HIZnmQ0A==": {
+     "text": "Destination",
+     "desc": "where does our redirect link point to"
+    }
    },
    "filepath": "src/analytics/AnalyticsRedirectsPage.js",
    "line_beg": 29,
    "col_beg": 18,
    "line_end": 29,
    "col_end": 85,
-   "desc": "where does our redirect link point to",
    "project": "",
-   "type": "text",
-   "jsfbt": "Destination"
+   "jsfbt": {
+    "t": {
+     "desc": "where does our redirect link point to",
+     "text": "Destination"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "VPvoLDopbOVWpDWlJUooWg==": "Description"
+   "hashToLeaf": {
+    "VPvoLDopbOVWpDWlJUooWg==": {
+     "text": "Description",
+     "desc": "description or purpose of the link"
+    }
    },
    "filepath": "src/analytics/AnalyticsRedirectsPage.js",
    "line_beg": 33,
    "col_beg": 18,
    "line_end": 33,
    "col_end": 82,
-   "desc": "description or purpose of the link",
    "project": "",
-   "type": "text",
-   "jsfbt": "Description"
+   "jsfbt": {
+    "t": {
+     "desc": "description or purpose of the link",
+     "text": "Description"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "QTX4SlUpjKlRffCHc6fo3g==": "{number} hits",
-    "9RUeL66Cftv4//bLrdiiqg==": "1 hit"
+   "hashToLeaf": {
+    "QTX4SlUpjKlRffCHc6fo3g==": {
+     "text": "{number} hits",
+     "desc": "number of hits"
+    },
+    "9RUeL66Cftv4//bLrdiiqg==": {
+     "text": "1 hit",
+     "desc": "number of hits"
+    }
    },
    "filepath": "src/analytics/AnalyticsRedirectsPage.js",
    "line_beg": 41,
    "col_beg": 12,
    "line_end": 45,
    "col_end": 18,
-   "desc": "number of hits",
    "project": "",
-   "type": "table",
    "jsfbt": {
     "t": {
-     "*": "{number} hits",
-     "_1": "1 hit"
+     "*": {
+      "desc": "number of hits",
+      "text": "{number} hits"
+     },
+     "_1": {
+      "desc": "number of hits",
+      "text": "1 hit"
+     }
     },
     "m": [
      {
@@ -98,1089 +143,1631 @@
    }
   },
   {
-   "hashToText": {
-    "IJ2JdxovFDHoSZY/UWeWRw==": "active"
+   "hashToLeaf": {
+    "IJ2JdxovFDHoSZY/UWeWRw==": {
+     "text": "active",
+     "desc": "active status"
+    }
    },
    "filepath": "src/analytics/AnalyticsRedirectsPage.js",
    "line_beg": 60,
    "col_beg": 14,
    "line_end": 60,
    "col_end": 52,
-   "desc": "active status",
    "project": "",
-   "type": "text",
-   "jsfbt": "active"
+   "jsfbt": {
+    "t": {
+     "desc": "active status",
+     "text": "active"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "a4gcfCXdvHZgQdSRXNbW+w==": "Analytics: redirects"
+   "hashToLeaf": {
+    "a4gcfCXdvHZgQdSRXNbW+w==": {
+     "text": "Analytics: redirects",
+     "desc": "analytics redirects page heading"
+    }
    },
    "filepath": "src/analytics/AnalyticsRedirectsPageLayout.js",
    "line_beg": 13,
    "col_beg": 15,
    "line_end": 13,
    "col_end": 86,
-   "desc": "analytics redirects page heading",
    "project": "",
-   "type": "text",
-   "jsfbt": "Analytics: redirects"
+   "jsfbt": {
+    "t": {
+     "desc": "analytics redirects page heading",
+     "text": "Analytics: redirects"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "XKQt/WzTgsZemYhMzTVAuw==": "Some unknown error happened"
+   "hashToLeaf": {
+    "XKQt/WzTgsZemYhMzTVAuw==": {
+     "text": "Some unknown error happened",
+     "desc": "login unknown error"
+    }
    },
    "filepath": "src/AuthButtons.js",
    "line_beg": 48,
    "col_beg": 24,
    "line_end": 48,
    "col_end": 81,
-   "desc": "login unknown error",
    "project": "",
-   "type": "text",
-   "jsfbt": "Some unknown error happened"
+   "jsfbt": {
+    "t": {
+     "desc": "login unknown error",
+     "text": "Some unknown error happened"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "YbKEH2FBVNXdK9cD2MD1tA==": "Login with Google"
+   "hashToLeaf": {
+    "YbKEH2FBVNXdK9cD2MD1tA==": {
+     "text": "Login with Google",
+     "desc": "login with Google button title"
+    }
    },
    "filepath": "src/AuthButtons.js",
    "line_beg": 60,
    "col_beg": 20,
    "line_end": 60,
    "col_end": 86,
-   "desc": "login with Google button title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Login with Google"
+   "jsfbt": {
+    "t": {
+     "desc": "login with Google button title",
+     "text": "Login with Google"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "ZmoOgkWDunmOx3U/8Us9hg==": "Logout"
+   "hashToLeaf": {
+    "ZmoOgkWDunmOx3U/8Us9hg==": {
+     "text": "Logout",
+     "desc": "logout button title"
+    }
    },
    "filepath": "src/AuthButtons.js",
    "line_beg": 107,
    "col_beg": 28,
    "line_end": 107,
    "col_end": 72,
-   "desc": "logout button title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Logout"
+   "jsfbt": {
+    "t": {
+     "desc": "logout button title",
+     "text": "Logout"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "dT/eh3zXjHNy5HXZH1EhsA==": "Currently available cats"
+   "hashToLeaf": {
+    "dT/eh3zXjHNy5HXZH1EhsA==": {
+     "text": "Currently available cats",
+     "desc": "title of a section of currently available cats"
+    }
    },
    "filepath": "src/cats/CatsPage.js",
    "line_beg": 26,
    "col_beg": 10,
    "line_end": 26,
    "col_end": 99,
-   "desc": "title of a section of currently available cats",
    "project": "",
-   "type": "text",
-   "jsfbt": "Currently available cats"
+   "jsfbt": {
+    "t": {
+     "desc": "title of a section of currently available cats",
+     "text": "Currently available cats"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "4/M8aLkISpiX62czEj3IUA==": "List of cats currently living in KOCHKA Café."
+   "hashToLeaf": {
+    "4/M8aLkISpiX62czEj3IUA==": {
+     "text": "List of cats currently living in KOCHKA Café.",
+     "desc": "description of a section of currently available cats"
+    }
    },
    "filepath": "src/cats/CatsPage.js",
    "line_beg": 29,
    "col_beg": 10,
    "line_end": 31,
    "col_end": 16,
-   "desc": "description of a section of currently available cats",
    "project": "",
-   "type": "text",
-   "jsfbt": "List of cats currently living in KOCHKA Café."
+   "jsfbt": {
+    "t": {
+     "desc": "description of a section of currently available cats",
+     "text": "List of cats currently living in KOCHKA Café."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "EXFpk5Vw2p1k38y43AcBZQ==": "Adopted cats"
+   "hashToLeaf": {
+    "EXFpk5Vw2p1k38y43AcBZQ==": {
+     "text": "Adopted cats",
+     "desc": "title of a section of already adopted cats"
+    }
    },
    "filepath": "src/cats/CatsPage.js",
    "line_beg": 38,
    "col_beg": 10,
    "line_end": 38,
    "col_end": 83,
-   "desc": "title of a section of already adopted cats",
    "project": "",
-   "type": "text",
-   "jsfbt": "Adopted cats"
+   "jsfbt": {
+    "t": {
+     "desc": "title of a section of already adopted cats",
+     "text": "Adopted cats"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "6AoFu1ksuKbjM3tda2EHXA==": "List of cats that are no longer in KOCHKA Café because they were adopted."
+   "hashToLeaf": {
+    "6AoFu1ksuKbjM3tda2EHXA==": {
+     "text": "List of cats that are no longer in KOCHKA Café because they were adopted.",
+     "desc": "description of a section of already adopted cats"
+    }
    },
    "filepath": "src/cats/CatsPage.js",
    "line_beg": 41,
    "col_beg": 10,
    "line_end": 43,
    "col_end": 16,
-   "desc": "description of a section of already adopted cats",
    "project": "",
-   "type": "text",
-   "jsfbt": "List of cats that are no longer in KOCHKA Café because they were adopted."
+   "jsfbt": {
+    "t": {
+     "desc": "description of a section of already adopted cats",
+     "text": "List of cats that are no longer in KOCHKA Café because they were adopted."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "TOmKk3DR+VXp59Mr7ax/3A==": "List of all our cats"
+   "hashToLeaf": {
+    "TOmKk3DR+VXp59Mr7ax/3A==": {
+     "text": "List of all our cats",
+     "desc": "list of all our cats title"
+    }
    },
    "filepath": "src/cats/CatsPageLayout.js",
    "line_beg": 13,
    "col_beg": 15,
    "line_end": 13,
    "col_end": 80,
-   "desc": "list of all our cats title",
    "project": "",
-   "type": "text",
-   "jsfbt": "List of all our cats"
+   "jsfbt": {
+    "t": {
+     "desc": "list of all our cats title",
+     "text": "List of all our cats"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "xGKMGDrDyWGaxbvgIKI/GA==": "Here you can find details about all the cats who ever went through KOCHKA Café."
+   "hashToLeaf": {
+    "xGKMGDrDyWGaxbvgIKI/GA==": {
+     "text": "Here you can find details about all the cats who ever went through KOCHKA Café.",
+     "desc": "list of all our cats description"
+    }
    },
    "filepath": "src/cats/CatsPageLayout.js",
    "line_beg": 15,
    "col_beg": 8,
    "line_end": 17,
    "col_end": 14,
-   "desc": "list of all our cats description",
    "project": "",
-   "type": "text",
-   "jsfbt": "Here you can find details about all the cats who ever went through KOCHKA Café."
+   "jsfbt": {
+    "t": {
+     "desc": "list of all our cats description",
+     "text": "Here you can find details about all the cats who ever went through KOCHKA Café."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "s4htMawiaPZXaxWElrK25A==": "Order"
+   "hashToLeaf": {
+    "s4htMawiaPZXaxWElrK25A==": {
+     "text": "Order",
+     "desc": "order of the cat (table header)"
+    }
    },
    "filepath": "src/cats/CatsTableAdopted.js",
    "line_beg": 37,
    "col_beg": 18,
    "line_end": 37,
    "col_end": 73,
-   "desc": "order of the cat (table header)",
    "project": "",
-   "type": "text",
-   "jsfbt": "Order"
+   "jsfbt": {
+    "t": {
+     "desc": "order of the cat (table header)",
+     "text": "Order"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "TS5eOvI9j7ryhkifltRJwQ==": "Name of the cat"
+   "hashToLeaf": {
+    "TS5eOvI9j7ryhkifltRJwQ==": {
+     "text": "Name of the cat",
+     "desc": "name of the cat (table header)"
+    }
    },
    "filepath": "src/cats/CatsTableAdopted.js",
    "line_beg": 41,
    "col_beg": 18,
    "line_end": 41,
    "col_end": 82,
-   "desc": "name of the cat (table header)",
    "project": "",
-   "type": "text",
-   "jsfbt": "Name of the cat"
+   "jsfbt": {
+    "t": {
+     "desc": "name of the cat (table header)",
+     "text": "Name of the cat"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "dnySRGk7SfYD+/xGMik0yg==": "Date of castration"
+   "hashToLeaf": {
+    "dnySRGk7SfYD+/xGMik0yg==": {
+     "text": "Date of castration",
+     "desc": "date when the cat castration was performed (table header)"
+    }
    },
    "filepath": "src/cats/CatsTableAdopted.js",
    "line_beg": 46,
    "col_beg": 12,
    "line_end": 48,
    "col_end": 18,
-   "desc": "date when the cat castration was performed (table header)",
    "project": "",
-   "type": "text",
-   "jsfbt": "Date of castration"
+   "jsfbt": {
+    "t": {
+     "desc": "date when the cat castration was performed (table header)",
+     "text": "Date of castration"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "0uUQp4khMrJzUvN+BEbRBA==": "Date of last deworming"
+   "hashToLeaf": {
+    "0uUQp4khMrJzUvN+BEbRBA==": {
+     "text": "Date of last deworming",
+     "desc": "date of the last deworming (table header)"
+    }
    },
    "filepath": "src/cats/CatsTableAdopted.js",
    "line_beg": 54,
    "col_beg": 12,
    "line_end": 54,
    "col_end": 94,
-   "desc": "date of the last deworming (table header)",
    "project": "",
-   "type": "text",
-   "jsfbt": "Date of last deworming"
+   "jsfbt": {
+    "t": {
+     "desc": "date of the last deworming (table header)",
+     "text": "Date of last deworming"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "BL5tZ7CN41VT6AJQuPPNQw==": "Date of adoption"
+   "hashToLeaf": {
+    "BL5tZ7CN41VT6AJQuPPNQw==": {
+     "text": "Date of adoption",
+     "desc": "date of the cat adoption (table header)"
+    }
    },
    "filepath": "src/cats/CatsTableAdopted.js",
    "line_beg": 59,
    "col_beg": 18,
    "line_end": 59,
    "col_end": 92,
-   "desc": "date of the cat adoption (table header)",
    "project": "",
-   "type": "text",
-   "jsfbt": "Date of adoption"
+   "jsfbt": {
+    "t": {
+     "desc": "date of the cat adoption (table header)",
+     "text": "Date of adoption"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "J7zROkPz6dZNh1xxbNQcVg==": "Rabies vaccination"
+   "hashToLeaf": {
+    "J7zROkPz6dZNh1xxbNQcVg==": {
+     "text": "Rabies vaccination",
+     "desc": "rabies vaccination (table header)"
+    }
    },
    "filepath": "src/cats/CatsTableAdopted.js",
    "line_beg": 63,
    "col_beg": 18,
    "line_end": 63,
    "col_end": 88,
-   "desc": "rabies vaccination (table header)",
    "project": "",
-   "type": "text",
-   "jsfbt": "Rabies vaccination"
+   "jsfbt": {
+    "t": {
+     "desc": "rabies vaccination (table header)",
+     "text": "Rabies vaccination"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "EExPHIUJXU+A80QOawNt+w==": "Vaccination \"triple felina\""
+   "hashToLeaf": {
+    "EExPHIUJXU+A80QOawNt+w==": {
+     "text": "Vaccination \"triple felina\"",
+     "desc": "vaccination triple felina (table header)"
+    }
    },
    "filepath": "src/cats/CatsTableAdopted.js",
    "line_beg": 68,
    "col_beg": 12,
    "line_end": 70,
    "col_end": 18,
-   "desc": "vaccination triple felina (table header)",
    "project": "",
-   "type": "text",
-   "jsfbt": "Vaccination \"triple felina\""
+   "jsfbt": {
+    "t": {
+     "desc": "vaccination triple felina (table header)",
+     "text": "Vaccination \"triple felina\""
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "X2CMHeCQ24SmLvDBGzND/A==": "Vaccine against rhinotracheitis, calicivirus, panleukopenia and clamidiosis."
+   "hashToLeaf": {
+    "X2CMHeCQ24SmLvDBGzND/A==": {
+     "text": "Vaccine against rhinotracheitis, calicivirus, panleukopenia and clamidiosis.",
+     "desc": "tooltip explanation of the cuadruple felina vaccination"
+    }
    },
    "filepath": "src/cats/CatsTableAdopted.js",
    "line_beg": 78,
    "col_beg": 16,
    "line_end": 80,
    "col_end": 22,
-   "desc": "tooltip explanation of the cuadruple felina vaccination",
    "project": "",
-   "type": "text",
-   "jsfbt": "Vaccine against rhinotracheitis, calicivirus, panleukopenia and clamidiosis."
+   "jsfbt": {
+    "t": {
+     "desc": "tooltip explanation of the cuadruple felina vaccination",
+     "text": "Vaccine against rhinotracheitis, calicivirus, panleukopenia and clamidiosis."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "ExH5DbaDbfHqEf8c9W3/Dg==": "Vaccination \"cuadruple felina\""
+   "hashToLeaf": {
+    "ExH5DbaDbfHqEf8c9W3/Dg==": {
+     "text": "Vaccination \"cuadruple felina\"",
+     "desc": "vaccination cuadruple felina (table header)"
+    }
    },
    "filepath": "src/cats/CatsTableAdopted.js",
    "line_beg": 83,
    "col_beg": 14,
    "line_end": 85,
    "col_end": 20,
-   "desc": "vaccination cuadruple felina (table header)",
    "project": "",
-   "type": "text",
-   "jsfbt": "Vaccination \"cuadruple felina\""
+   "jsfbt": {
+    "t": {
+     "desc": "vaccination cuadruple felina (table header)",
+     "text": "Vaccination \"cuadruple felina\""
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "s4htMawiaPZXaxWElrK25A==": "Order"
+   "hashToLeaf": {
+    "s4htMawiaPZXaxWElrK25A==": {
+     "text": "Order",
+     "desc": "order of the cat (table header)"
+    }
    },
    "filepath": "src/cats/CatsTableCurrent.js",
    "line_beg": 37,
    "col_beg": 18,
    "line_end": 37,
    "col_end": 73,
-   "desc": "order of the cat (table header)",
    "project": "",
-   "type": "text",
-   "jsfbt": "Order"
+   "jsfbt": {
+    "t": {
+     "desc": "order of the cat (table header)",
+     "text": "Order"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "TS5eOvI9j7ryhkifltRJwQ==": "Name of the cat"
+   "hashToLeaf": {
+    "TS5eOvI9j7ryhkifltRJwQ==": {
+     "text": "Name of the cat",
+     "desc": "name of the cat (table header)"
+    }
    },
    "filepath": "src/cats/CatsTableCurrent.js",
    "line_beg": 41,
    "col_beg": 18,
    "line_end": 41,
    "col_end": 82,
-   "desc": "name of the cat (table header)",
    "project": "",
-   "type": "text",
-   "jsfbt": "Name of the cat"
+   "jsfbt": {
+    "t": {
+     "desc": "name of the cat (table header)",
+     "text": "Name of the cat"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "dnySRGk7SfYD+/xGMik0yg==": "Date of castration"
+   "hashToLeaf": {
+    "dnySRGk7SfYD+/xGMik0yg==": {
+     "text": "Date of castration",
+     "desc": "date when the cat castration was performed (table header)"
+    }
    },
    "filepath": "src/cats/CatsTableCurrent.js",
    "line_beg": 46,
    "col_beg": 12,
    "line_end": 48,
    "col_end": 18,
-   "desc": "date when the cat castration was performed (table header)",
    "project": "",
-   "type": "text",
-   "jsfbt": "Date of castration"
+   "jsfbt": {
+    "t": {
+     "desc": "date when the cat castration was performed (table header)",
+     "text": "Date of castration"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "0uUQp4khMrJzUvN+BEbRBA==": "Date of last deworming"
+   "hashToLeaf": {
+    "0uUQp4khMrJzUvN+BEbRBA==": {
+     "text": "Date of last deworming",
+     "desc": "date of the last deworming (table header)"
+    }
    },
    "filepath": "src/cats/CatsTableCurrent.js",
    "line_beg": 54,
    "col_beg": 12,
    "line_end": 54,
    "col_end": 94,
-   "desc": "date of the last deworming (table header)",
    "project": "",
-   "type": "text",
-   "jsfbt": "Date of last deworming"
+   "jsfbt": {
+    "t": {
+     "desc": "date of the last deworming (table header)",
+     "text": "Date of last deworming"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "J7zROkPz6dZNh1xxbNQcVg==": "Rabies vaccination"
+   "hashToLeaf": {
+    "J7zROkPz6dZNh1xxbNQcVg==": {
+     "text": "Rabies vaccination",
+     "desc": "rabies vaccination (table header)"
+    }
    },
    "filepath": "src/cats/CatsTableCurrent.js",
    "line_beg": 59,
    "col_beg": 18,
    "line_end": 59,
    "col_end": 88,
-   "desc": "rabies vaccination (table header)",
    "project": "",
-   "type": "text",
-   "jsfbt": "Rabies vaccination"
+   "jsfbt": {
+    "t": {
+     "desc": "rabies vaccination (table header)",
+     "text": "Rabies vaccination"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "EExPHIUJXU+A80QOawNt+w==": "Vaccination \"triple felina\""
+   "hashToLeaf": {
+    "EExPHIUJXU+A80QOawNt+w==": {
+     "text": "Vaccination \"triple felina\"",
+     "desc": "vaccination triple felina (table header)"
+    }
    },
    "filepath": "src/cats/CatsTableCurrent.js",
    "line_beg": 64,
    "col_beg": 12,
    "line_end": 66,
    "col_end": 18,
-   "desc": "vaccination triple felina (table header)",
    "project": "",
-   "type": "text",
-   "jsfbt": "Vaccination \"triple felina\""
+   "jsfbt": {
+    "t": {
+     "desc": "vaccination triple felina (table header)",
+     "text": "Vaccination \"triple felina\""
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "X2CMHeCQ24SmLvDBGzND/A==": "Vaccine against rhinotracheitis, calicivirus, panleukopenia and clamidiosis."
+   "hashToLeaf": {
+    "X2CMHeCQ24SmLvDBGzND/A==": {
+     "text": "Vaccine against rhinotracheitis, calicivirus, panleukopenia and clamidiosis.",
+     "desc": "tooltip explanation of the cuadruple felina vaccination"
+    }
    },
    "filepath": "src/cats/CatsTableCurrent.js",
    "line_beg": 74,
    "col_beg": 16,
    "line_end": 76,
    "col_end": 22,
-   "desc": "tooltip explanation of the cuadruple felina vaccination",
    "project": "",
-   "type": "text",
-   "jsfbt": "Vaccine against rhinotracheitis, calicivirus, panleukopenia and clamidiosis."
+   "jsfbt": {
+    "t": {
+     "desc": "tooltip explanation of the cuadruple felina vaccination",
+     "text": "Vaccine against rhinotracheitis, calicivirus, panleukopenia and clamidiosis."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "ExH5DbaDbfHqEf8c9W3/Dg==": "Vaccination \"cuadruple felina\""
+   "hashToLeaf": {
+    "ExH5DbaDbfHqEf8c9W3/Dg==": {
+     "text": "Vaccination \"cuadruple felina\"",
+     "desc": "vaccination cuadruple felina (table header)"
+    }
    },
    "filepath": "src/cats/CatsTableCurrent.js",
    "line_beg": 79,
    "col_beg": 14,
    "line_end": 81,
    "col_end": 20,
-   "desc": "vaccination cuadruple felina (table header)",
    "project": "",
-   "type": "text",
-   "jsfbt": "Vaccination \"cuadruple felina\""
+   "jsfbt": {
+    "t": {
+     "desc": "vaccination cuadruple felina (table header)",
+     "text": "Vaccination \"cuadruple felina\""
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "sMnySYXRWlG+gjgowyiydQ==": "This cat cannot be adopted because it is ours."
+   "hashToLeaf": {
+    "sMnySYXRWlG+gjgowyiydQ==": {
+     "text": "This cat cannot be adopted because it is ours.",
+     "desc": "explanation of a cat that cannot be adopted"
+    }
    },
    "filepath": "src/cats/CatsTableCurrent.js",
    "line_beg": 98,
    "col_beg": 22,
    "line_end": 100,
    "col_end": 28,
-   "desc": "explanation of a cat that cannot be adopted",
    "project": "",
-   "type": "text",
-   "jsfbt": "This cat cannot be adopted because it is ours."
+   "jsfbt": {
+    "t": {
+     "desc": "explanation of a cat that cannot be adopted",
+     "text": "This cat cannot be adopted because it is ours."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "wXxqr4P+NzW6b6NUHmNH/A==": "Status"
+   "hashToLeaf": {
+    "wXxqr4P+NzW6b6NUHmNH/A==": {
+     "text": "Status",
+     "desc": "status of an employee record"
+    }
    },
    "filepath": "src/employees/EmployeesPage.js",
    "line_beg": 25,
    "col_beg": 18,
    "line_end": 25,
    "col_end": 71,
-   "desc": "status of an employee record",
    "project": "",
-   "type": "text",
-   "jsfbt": "Status"
+   "jsfbt": {
+    "t": {
+     "desc": "status of an employee record",
+     "text": "Status"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "SoHvemP3nPna3V7E0KnAvg==": "Name"
+   "hashToLeaf": {
+    "SoHvemP3nPna3V7E0KnAvg==": {
+     "text": "Name",
+     "desc": "name of the employee"
+    }
    },
    "filepath": "src/employees/EmployeesPage.js",
    "line_beg": 26,
    "col_beg": 18,
    "line_end": 26,
    "col_end": 61,
-   "desc": "name of the employee",
    "project": "",
-   "type": "text",
-   "jsfbt": "Name"
+   "jsfbt": {
+    "t": {
+     "desc": "name of the employee",
+     "text": "Name"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "cDuUp7H3Z3pcA1USmdXIyw==": "active"
+   "hashToLeaf": {
+    "cDuUp7H3Z3pcA1USmdXIyw==": {
+     "text": "active",
+     "desc": "active user - label title"
+    }
    },
    "filepath": "src/employees/EmployeesPage.js",
    "line_beg": 33,
    "col_beg": 14,
    "line_end": 33,
    "col_end": 64,
-   "desc": "active user - label title",
    "project": "",
-   "type": "text",
-   "jsfbt": "active"
+   "jsfbt": {
+    "t": {
+     "desc": "active user - label title",
+     "text": "active"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "J0MsIYnMPKiz7ubGl3IyyA==": "inactive"
+   "hashToLeaf": {
+    "J0MsIYnMPKiz7ubGl3IyyA==": {
+     "text": "inactive",
+     "desc": "inactive user - label title"
+    }
    },
    "filepath": "src/employees/EmployeesPage.js",
    "line_beg": 37,
    "col_beg": 14,
    "line_end": 37,
    "col_end": 68,
-   "desc": "inactive user - label title",
    "project": "",
-   "type": "text",
-   "jsfbt": "inactive"
+   "jsfbt": {
+    "t": {
+     "desc": "inactive user - label title",
+     "text": "inactive"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "ljdn3Wlj6+RtF2CehM///w==": "email verified"
+   "hashToLeaf": {
+    "ljdn3Wlj6+RtF2CehM///w==": {
+     "text": "email verified",
+     "desc": "user has email verifies - label title"
+    }
    },
    "filepath": "src/employees/EmployeesPage.js",
    "line_beg": 43,
    "col_beg": 14,
    "line_end": 43,
    "col_end": 84,
-   "desc": "user has email verifies - label title",
    "project": "",
-   "type": "text",
-   "jsfbt": "email verified"
+   "jsfbt": {
+    "t": {
+     "desc": "user has email verifies - label title",
+     "text": "email verified"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "eOYUb4Hm7JmwXrcob9M5iw==": "email NOT verified"
+   "hashToLeaf": {
+    "eOYUb4Hm7JmwXrcob9M5iw==": {
+     "text": "email NOT verified",
+     "desc": "user doesn't have email verifies - label title"
+    }
    },
    "filepath": "src/employees/EmployeesPage.js",
    "line_beg": 47,
    "col_beg": 14,
    "line_end": 47,
    "col_end": 97,
-   "desc": "user doesn't have email verifies - label title",
    "project": "",
-   "type": "text",
-   "jsfbt": "email NOT verified"
+   "jsfbt": {
+    "t": {
+     "desc": "user doesn't have email verifies - label title",
+     "text": "email NOT verified"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "Qa3mUMhym3NPzuJNq7P/Ng==": "List of employees"
+   "hashToLeaf": {
+    "Qa3mUMhym3NPzuJNq7P/Ng==": {
+     "text": "List of employees",
+     "desc": "list of employees title"
+    }
    },
    "filepath": "src/employees/EmployeesPageLayout.js",
    "line_beg": 11,
    "col_beg": 39,
    "line_end": 11,
    "col_end": 98,
-   "desc": "list of employees title",
    "project": "",
-   "type": "text",
-   "jsfbt": "List of employees"
+   "jsfbt": {
+    "t": {
+     "desc": "list of employees title",
+     "text": "List of employees"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "DG4YwlsppzoioQ32fEtyQQ==": "Something unexpected happened and server could not process the request! 🙈"
+   "hashToLeaf": {
+    "DG4YwlsppzoioQ32fEtyQQ==": {
+     "text": "Something unexpected happened and server could not process the request! 🙈",
+     "desc": "generic failure message after creating a product"
+    }
    },
    "filepath": "src/forms/FormSubmit.js",
    "line_beg": 85,
    "col_beg": 10,
    "line_end": 88,
    "col_end": 11,
-   "desc": "generic failure message after creating a product",
    "project": "",
-   "type": "text",
-   "jsfbt": "Something unexpected happened and server could not process the request! 🙈"
+   "jsfbt": {
+    "t": {
+     "desc": "generic failure message after creating a product",
+     "text": "Something unexpected happened and server could not process the request! 🙈"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "99TUdsKRfseIC6G04zBOKg==": "This field is mandatory"
+   "hashToLeaf": {
+    "99TUdsKRfseIC6G04zBOKg==": {
+     "text": "This field is mandatory",
+     "desc": "mandatory field description"
+    }
    },
    "filepath": "src/forms/private/BaseInputWrapper.js",
    "line_beg": 33,
    "col_beg": 21,
    "line_end": 33,
    "col_end": 90,
-   "desc": "mandatory field description",
    "project": "",
-   "type": "text",
-   "jsfbt": "This field is mandatory"
+   "jsfbt": {
+    "t": {
+     "desc": "mandatory field description",
+     "text": "This field is mandatory"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "wE1bsb1gMGsz4iECjopB3w==": "Field \"{form field label}\" is required. Please select one of the provided values."
+   "hashToLeaf": {
+    "wE1bsb1gMGsz4iECjopB3w==": {
+     "text": "Field \"{form field label}\" is required. Please select one of the provided values.",
+     "desc": "value not selected validation error message"
+    }
    },
    "filepath": "src/forms/private/getValidityStateMessage.js",
    "line_beg": 20,
    "col_beg": 8,
    "line_end": 23,
    "col_end": 14,
-   "desc": "value not selected validation error message",
    "project": "",
-   "type": "text",
-   "jsfbt": "Field \"{form field label}\" is required. Please select one of the provided values."
+   "jsfbt": {
+    "t": {
+     "desc": "value not selected validation error message",
+     "text": "Field \"{form field label}\" is required. Please select one of the provided values."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "4SRlvooaQB6It8KVa1bG9g==": "Field \"{form field label}\" is required. Please fill in this field."
+   "hashToLeaf": {
+    "4SRlvooaQB6It8KVa1bG9g==": {
+     "text": "Field \"{form field label}\" is required. Please fill in this field.",
+     "desc": "value missing validation error message"
+    }
    },
    "filepath": "src/forms/private/getValidityStateMessage.js",
    "line_beg": 27,
    "col_beg": 6,
    "line_end": 30,
    "col_end": 12,
-   "desc": "value missing validation error message",
    "project": "",
-   "type": "text",
-   "jsfbt": "Field \"{form field label}\" is required. Please fill in this field."
+   "jsfbt": {
+    "t": {
+     "desc": "value missing validation error message",
+     "text": "Field \"{form field label}\" is required. Please fill in this field."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "Wtx7FHIevcq36g3jquWXKg==": "Field \"{form field label}\" must be negative."
+   "hashToLeaf": {
+    "Wtx7FHIevcq36g3jquWXKg==": {
+     "text": "Field \"{form field label}\" must be negative.",
+     "desc": "range overflow validation error message"
+    }
    },
    "filepath": "src/forms/private/getValidityStateMessage.js",
    "line_beg": 38,
    "col_beg": 8,
    "line_end": 41,
    "col_end": 14,
-   "desc": "range overflow validation error message",
    "project": "",
-   "type": "text",
-   "jsfbt": "Field \"{form field label}\" must be negative."
+   "jsfbt": {
+    "t": {
+     "desc": "range overflow validation error message",
+     "text": "Field \"{form field label}\" must be negative."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "S6jnfCvIypCDROzYeKb25A==": "Field \"{form field label}\" has to have value smaller than {form field min value}."
+   "hashToLeaf": {
+    "S6jnfCvIypCDROzYeKb25A==": {
+     "text": "Field \"{form field label}\" has to have value smaller than {form field min value}.",
+     "desc": "range overflow validation error message"
+    }
    },
    "filepath": "src/forms/private/getValidityStateMessage.js",
    "line_beg": 45,
    "col_beg": 6,
    "line_end": 48,
    "col_end": 12,
-   "desc": "range overflow validation error message",
    "project": "",
-   "type": "text",
-   "jsfbt": "Field \"{form field label}\" has to have value smaller than {form field min value}."
+   "jsfbt": {
+    "t": {
+     "desc": "range overflow validation error message",
+     "text": "Field \"{form field label}\" has to have value smaller than {form field min value}."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "x8iZhY9utb/UaEMs13hB8Q==": "Field \"{form field label}\" must be positive."
+   "hashToLeaf": {
+    "x8iZhY9utb/UaEMs13hB8Q==": {
+     "text": "Field \"{form field label}\" must be positive.",
+     "desc": "range underflow validation error message"
+    }
    },
    "filepath": "src/forms/private/getValidityStateMessage.js",
    "line_beg": 56,
    "col_beg": 8,
    "line_end": 59,
    "col_end": 14,
-   "desc": "range underflow validation error message",
    "project": "",
-   "type": "text",
-   "jsfbt": "Field \"{form field label}\" must be positive."
+   "jsfbt": {
+    "t": {
+     "desc": "range underflow validation error message",
+     "text": "Field \"{form field label}\" must be positive."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "qstwPQ9btvcdowx9na89+A==": "Field \"{form field label}\" has to have value larger than {form field min value}."
+   "hashToLeaf": {
+    "qstwPQ9btvcdowx9na89+A==": {
+     "text": "Field \"{form field label}\" has to have value larger than {form field min value}.",
+     "desc": "range underflow validation error message"
+    }
    },
    "filepath": "src/forms/private/getValidityStateMessage.js",
    "line_beg": 63,
    "col_beg": 6,
    "line_end": 66,
    "col_end": 12,
-   "desc": "range underflow validation error message",
    "project": "",
-   "type": "text",
-   "jsfbt": "Field \"{form field label}\" has to have value larger than {form field min value}."
+   "jsfbt": {
+    "t": {
+     "desc": "range underflow validation error message",
+     "text": "Field \"{form field label}\" has to have value larger than {form field min value}."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "xBtaPdxqvTa9ZLg6/y0y9Q==": "Please enter a valid value. The two nearest valid values are {low boundary} and {high boundary}."
+   "hashToLeaf": {
+    "xBtaPdxqvTa9ZLg6/y0y9Q==": {
+     "text": "Please enter a valid value. The two nearest valid values are {low boundary} and {high boundary}.",
+     "desc": "step mismatch validation error message"
+    }
    },
    "filepath": "src/forms/private/getValidityStateMessage.js",
    "line_beg": 79,
    "col_beg": 6,
    "line_end": 83,
    "col_end": 12,
-   "desc": "step mismatch validation error message",
    "project": "",
-   "type": "text",
-   "jsfbt": "Please enter a valid value. The two nearest valid values are {low boundary} and {high boundary}."
+   "jsfbt": {
+    "t": {
+     "desc": "step mismatch validation error message",
+     "text": "Please enter a valid value. The two nearest valid values are {low boundary} and {high boundary}."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "cXb0sWHtGL0NAVNk2AXyYw==": "Field \"{form field label}\" is invalid."
+   "hashToLeaf": {
+    "cXb0sWHtGL0NAVNk2AXyYw==": {
+     "text": "Field \"{form field label}\" is invalid.",
+     "desc": "generic validation error message"
+    }
    },
    "filepath": "src/forms/private/getValidityStateMessage.js",
    "line_beg": 89,
    "col_beg": 4,
    "line_end": 91,
    "col_end": 10,
-   "desc": "generic validation error message",
    "project": "",
-   "type": "text",
-   "jsfbt": "Field \"{form field label}\" is invalid."
+   "jsfbt": {
+    "t": {
+     "desc": "generic validation error message",
+     "text": "Field \"{form field label}\" is invalid."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "1Wn4zgyl6icIpNtS9VnEdw==": "Daily reports (last 30 days)"
+   "hashToLeaf": {
+    "1Wn4zgyl6icIpNtS9VnEdw==": {
+     "text": "Daily reports (last 30 days)",
+     "desc": "daily reports heading"
+    }
    },
    "filepath": "src/index/IndexPage.js",
    "line_beg": 38,
    "col_beg": 10,
    "line_end": 38,
    "col_end": 78,
-   "desc": "daily reports heading",
    "project": "",
-   "type": "text",
-   "jsfbt": "Daily reports (last 30 days)"
+   "jsfbt": {
+    "t": {
+     "desc": "daily reports heading",
+     "text": "Daily reports (last 30 days)"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "1TMUbU1qDkIV9x8K1A4k2w==": "Date"
+   "hashToLeaf": {
+    "1TMUbU1qDkIV9x8K1A4k2w==": {
+     "text": "Date",
+     "desc": "date of the day (table header)"
+    }
    },
    "filepath": "src/index/IndexPage.js",
    "line_beg": 44,
    "col_beg": 20,
    "line_end": 44,
    "col_end": 73,
-   "desc": "date of the day (table header)",
    "project": "",
-   "type": "text",
-   "jsfbt": "Date"
+   "jsfbt": {
+    "t": {
+     "desc": "date of the day (table header)",
+     "text": "Date"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "+1D7paVJZl2JPO0FT5DJCw==": "Total income per day"
+   "hashToLeaf": {
+    "+1D7paVJZl2JPO0FT5DJCw==": {
+     "text": "Total income per day",
+     "desc": "total icome per day (table header)"
+    }
    },
    "filepath": "src/index/IndexPage.js",
    "line_beg": 46,
    "col_beg": 20,
    "line_end": 46,
    "col_end": 93,
-   "desc": "total icome per day (table header)",
    "project": "",
-   "type": "text",
-   "jsfbt": "Total income per day"
+   "jsfbt": {
+    "t": {
+     "desc": "total icome per day (table header)",
+     "text": "Total income per day"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "PisqJ55xLTHotmYtdWHpxg==": "Sold products"
+   "hashToLeaf": {
+    "PisqJ55xLTHotmYtdWHpxg==": {
+     "text": "Sold products",
+     "desc": "details about sold products per day (table header)"
+    }
    },
    "filepath": "src/index/IndexPage.js",
    "line_beg": 51,
    "col_beg": 14,
    "line_end": 51,
    "col_end": 96,
-   "desc": "details about sold products per day (table header)",
    "project": "",
-   "type": "text",
-   "jsfbt": "Sold products"
+   "jsfbt": {
+    "t": {
+     "desc": "details about sold products per day (table header)",
+     "text": "Sold products"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "ByTs5nN6VO3ekmrpvFPejA==": "Quick analytics"
+   "hashToLeaf": {
+    "ByTs5nN6VO3ekmrpvFPejA==": {
+     "text": "Quick analytics",
+     "desc": "quick analytics (stats) on the Abacus homepage"
+    }
    },
    "filepath": "src/index/IndexPageLayout.js",
    "line_beg": 13,
    "col_beg": 15,
    "line_end": 13,
    "col_end": 95,
-   "desc": "quick analytics (stats) on the Abacus homepage",
    "project": "",
-   "type": "text",
-   "jsfbt": "Quick analytics"
+   "jsfbt": {
+    "t": {
+     "desc": "quick analytics (stats) on the Abacus homepage",
+     "text": "Quick analytics"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "IG4PbUpTWUJXxUOKnQZUgQ==": "Hi! Here you can see a quick overview of the most important metrics for our business."
+   "hashToLeaf": {
+    "IG4PbUpTWUJXxUOKnQZUgQ==": {
+     "text": "Hi! Here you can see a quick overview of the most important metrics for our business.",
+     "desc": "quick analytics description message"
+    }
    },
    "filepath": "src/index/IndexPageLayout.js",
    "line_beg": 15,
    "col_beg": 8,
    "line_end": 17,
    "col_end": 14,
-   "desc": "quick analytics description message",
    "project": "",
-   "type": "text",
-   "jsfbt": "Hi! Here you can see a quick overview of the most important metrics for our business."
+   "jsfbt": {
+    "t": {
+     "desc": "quick analytics description message",
+     "text": "Hi! Here you can see a quick overview of the most important metrics for our business."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "peb2EDuSrtkkz/e0EG4rWQ==": "This section is currently under active development. Are you missing some features? Let us know!"
+   "hashToLeaf": {
+    "peb2EDuSrtkkz/e0EG4rWQ==": {
+     "text": "This section is currently under active development. Are you missing some features? Let us know!",
+     "desc": "work in progress badge description"
+    }
    },
    "filepath": "src/LayoutPage.js",
    "line_beg": 35,
    "col_beg": 16,
    "line_end": 38,
    "col_end": 22,
-   "desc": "work in progress badge description",
    "project": "",
-   "type": "text",
-   "jsfbt": "This section is currently under active development. Are you missing some features? Let us know!"
+   "jsfbt": {
+    "t": {
+     "desc": "work in progress badge description",
+     "text": "This section is currently under active development. Are you missing some features? Let us know!"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "/HA1UhKZo4ZFRrj2osXRmQ==": "BETA"
+   "hashToLeaf": {
+    "/HA1UhKZo4ZFRrj2osXRmQ==": {
+     "text": "BETA",
+     "desc": "beta label"
+    }
    },
    "filepath": "src/LayoutPage.js",
    "line_beg": 42,
    "col_beg": 16,
    "line_end": 42,
    "col_end": 49,
-   "desc": "beta label",
    "project": "",
-   "type": "text",
-   "jsfbt": "BETA"
+   "jsfbt": {
+    "t": {
+     "desc": "beta label",
+     "text": "BETA"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "5LdpXTlqHQrYN1CdEbB47g==": "Login to"
+   "hashToLeaf": {
+    "5LdpXTlqHQrYN1CdEbB47g==": {
+     "text": "Login to",
+     "desc": "login to Abacus title"
+    }
    },
    "filepath": "src/LoginPage.js",
    "line_beg": 17,
    "col_beg": 14,
    "line_end": 17,
    "col_end": 62,
-   "desc": "login to Abacus title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Login to"
+   "jsfbt": {
+    "t": {
+     "desc": "login to Abacus title",
+     "text": "Login to"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "EX/o2WuR0ou1BNovRq6qGw==": "Home"
+   "hashToLeaf": {
+    "EX/o2WuR0ou1BNovRq6qGw==": {
+     "text": "Home",
+     "desc": "navigation link to the homepage"
+    }
    },
    "filepath": "src/Navigation.js",
    "line_beg": 21,
    "col_beg": 8,
    "line_end": 21,
    "col_end": 62,
-   "desc": "navigation link to the homepage",
    "project": "",
-   "type": "text",
-   "jsfbt": "Home"
+   "jsfbt": {
+    "t": {
+     "desc": "navigation link to the homepage",
+     "text": "Home"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "/8dxxPpm1jE4TgUkZhPJgg==": "Products inventory"
+   "hashToLeaf": {
+    "/8dxxPpm1jE4TgUkZhPJgg==": {
+     "text": "Products inventory",
+     "desc": "navigation link to products inventory"
+    }
    },
    "filepath": "src/Navigation.js",
    "line_beg": 24,
    "col_beg": 8,
    "line_end": 24,
    "col_end": 82,
-   "desc": "navigation link to products inventory",
    "project": "",
-   "type": "text",
-   "jsfbt": "Products inventory"
+   "jsfbt": {
+    "t": {
+     "desc": "navigation link to products inventory",
+     "text": "Products inventory"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "vkD1IJNOUFj39Y/UUOiFqA==": "Products categories"
+   "hashToLeaf": {
+    "vkD1IJNOUFj39Y/UUOiFqA==": {
+     "text": "Products categories",
+     "desc": "navigation link to products categories"
+    }
    },
    "filepath": "src/Navigation.js",
    "line_beg": 27,
    "col_beg": 8,
    "line_end": 27,
    "col_end": 84,
-   "desc": "navigation link to products categories",
    "project": "",
-   "type": "text",
-   "jsfbt": "Products categories"
+   "jsfbt": {
+    "t": {
+     "desc": "navigation link to products categories",
+     "text": "Products categories"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "TBRrWr/fT2P42StmgtFd5w==": "Product add-ons"
+   "hashToLeaf": {
+    "TBRrWr/fT2P42StmgtFd5w==": {
+     "text": "Product add-ons",
+     "desc": "navigation link to product add-ons"
+    }
    },
    "filepath": "src/Navigation.js",
    "line_beg": 30,
    "col_beg": 8,
    "line_end": 30,
    "col_end": 76,
-   "desc": "navigation link to product add-ons",
    "project": "",
-   "type": "text",
-   "jsfbt": "Product add-ons"
+   "jsfbt": {
+    "t": {
+     "desc": "navigation link to product add-ons",
+     "text": "Product add-ons"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "sy92wBGm88Uoy1wYZLdslw==": "Eshop orders"
+   "hashToLeaf": {
+    "sy92wBGm88Uoy1wYZLdslw==": {
+     "text": "Eshop orders",
+     "desc": "navigation link to eshop orders"
+    }
    },
    "filepath": "src/Navigation.js",
    "line_beg": 34,
    "col_beg": 10,
    "line_end": 34,
    "col_end": 72,
-   "desc": "navigation link to eshop orders",
    "project": "",
-   "type": "text",
-   "jsfbt": "Eshop orders"
+   "jsfbt": {
+    "t": {
+     "desc": "navigation link to eshop orders",
+     "text": "Eshop orders"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "c3mR1ZSr1gvq0r3554Bsmg==": "Employees"
+   "hashToLeaf": {
+    "c3mR1ZSr1gvq0r3554Bsmg==": {
+     "text": "Employees",
+     "desc": "navigation link to employees"
+    }
    },
    "filepath": "src/Navigation.js",
    "line_beg": 41,
    "col_beg": 8,
    "line_end": 41,
    "col_end": 64,
-   "desc": "navigation link to employees",
    "project": "",
-   "type": "text",
-   "jsfbt": "Employees"
+   "jsfbt": {
+    "t": {
+     "desc": "navigation link to employees",
+     "text": "Employees"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "kTEIDnRDTeVEDtUWiDW4tQ==": "Our cats"
+   "hashToLeaf": {
+    "kTEIDnRDTeVEDtUWiDW4tQ==": {
+     "text": "Our cats",
+     "desc": "navigation link to the list of our cats"
+    }
    },
    "filepath": "src/Navigation.js",
    "line_beg": 44,
    "col_beg": 8,
    "line_end": 44,
    "col_end": 74,
-   "desc": "navigation link to the list of our cats",
    "project": "",
-   "type": "text",
-   "jsfbt": "Our cats"
+   "jsfbt": {
+    "t": {
+     "desc": "navigation link to the list of our cats",
+     "text": "Our cats"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "ApP0zU/Dspzx3JgCH6R9Iw==": "POS sessions"
+   "hashToLeaf": {
+    "ApP0zU/Dspzx3JgCH6R9Iw==": {
+     "text": "POS sessions",
+     "desc": "navigation link to point of sales sessions"
+    }
    },
    "filepath": "src/Navigation.js",
    "line_beg": 47,
    "col_beg": 8,
    "line_end": 47,
    "col_end": 81,
-   "desc": "navigation link to point of sales sessions",
    "project": "",
-   "type": "text",
-   "jsfbt": "POS sessions"
+   "jsfbt": {
+    "t": {
+     "desc": "navigation link to point of sales sessions",
+     "text": "POS sessions"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "dXbjUn5J6dQ6yVdAlIYEXQ==": "Analytics: redirects"
+   "hashToLeaf": {
+    "dXbjUn5J6dQ6yVdAlIYEXQ==": {
+     "text": "Analytics: redirects",
+     "desc": "navigation link to analytics redirects"
+    }
    },
    "filepath": "src/Navigation.js",
    "line_beg": 50,
    "col_beg": 8,
    "line_end": 50,
    "col_end": 85,
-   "desc": "navigation link to analytics redirects",
    "project": "",
-   "type": "text",
-   "jsfbt": "Analytics: redirects"
+   "jsfbt": {
+    "t": {
+     "desc": "navigation link to analytics redirects",
+     "text": "Analytics: redirects"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "qBmepG8qNiLmIxFnNuq4Aw==": "Analytics: most sold products"
+   "hashToLeaf": {
+    "qBmepG8qNiLmIxFnNuq4Aw==": {
+     "text": "Analytics: most sold products",
+     "desc": "navigation link to analytics most sold products"
+    }
    },
    "filepath": "src/Navigation.js",
    "line_beg": 57,
    "col_beg": 8,
    "line_end": 59,
    "col_end": 14,
-   "desc": "navigation link to analytics most sold products",
    "project": "",
-   "type": "text",
-   "jsfbt": "Analytics: most sold products"
+   "jsfbt": {
+    "t": {
+     "desc": "navigation link to analytics most sold products",
+     "text": "Analytics: most sold products"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "SxzPQlajVfXZHeKak3WLVg==": "PROD"
+   "hashToLeaf": {
+    "SxzPQlajVfXZHeKak3WLVg==": {
+     "text": "PROD",
+     "desc": "prod as in production"
+    }
    },
    "filepath": "src/NavigationHeaderBadge.js",
    "line_beg": 11,
    "col_beg": 6,
    "line_end": 11,
    "col_end": 50,
-   "desc": "prod as in production",
    "project": "",
-   "type": "text",
-   "jsfbt": "PROD"
+   "jsfbt": {
+    "t": {
+     "desc": "prod as in production",
+     "text": "PROD"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "eiK+SXRmiWN0jAu3fqx6ag==": "DEV"
+   "hashToLeaf": {
+    "eiK+SXRmiWN0jAu3fqx6ag==": {
+     "text": "DEV",
+     "desc": "dev as in development"
+    }
    },
    "filepath": "src/NavigationHeaderBadge.js",
    "line_beg": 19,
    "col_beg": 6,
    "line_end": 19,
    "col_end": 49,
-   "desc": "dev as in development",
    "project": "",
-   "type": "text",
-   "jsfbt": "DEV"
+   "jsfbt": {
+    "t": {
+     "desc": "dev as in development",
+     "text": "DEV"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "GlM+ov5MKtMWC+BLUcMwqw==": "Status"
+   "hashToLeaf": {
+    "GlM+ov5MKtMWC+BLUcMwqw==": {
+     "text": "Status",
+     "desc": "status column title in the orders table"
+    }
    },
    "filepath": "src/orders/OrdersPageLayout.js",
    "line_beg": 13,
    "col_beg": 16,
    "line_end": 13,
    "col_end": 80,
-   "desc": "status column title in the orders table",
    "project": "",
-   "type": "text",
-   "jsfbt": "Status"
+   "jsfbt": {
+    "t": {
+     "desc": "status column title in the orders table",
+     "text": "Status"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "ijzrQFlOE3lTjNWYB4PE5g==": "Order date"
+   "hashToLeaf": {
+    "ijzrQFlOE3lTjNWYB4PE5g==": {
+     "text": "Order date",
+     "desc": "order date column title in the orders table"
+    }
    },
    "filepath": "src/orders/OrdersPageLayout.js",
    "line_beg": 17,
    "col_beg": 16,
    "line_end": 17,
    "col_end": 88,
-   "desc": "order date column title in the orders table",
    "project": "",
-   "type": "text",
-   "jsfbt": "Order date"
+   "jsfbt": {
+    "t": {
+     "desc": "order date column title in the orders table",
+     "text": "Order date"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "WRRfmvHmSNaZ3uaSSnVDsQ==": "Customer"
+   "hashToLeaf": {
+    "WRRfmvHmSNaZ3uaSSnVDsQ==": {
+     "text": "Customer",
+     "desc": "customer name column title in the orders table"
+    }
    },
    "filepath": "src/orders/OrdersPageLayout.js",
    "line_beg": 21,
    "col_beg": 16,
    "line_end": 21,
    "col_end": 89,
-   "desc": "customer name column title in the orders table",
    "project": "",
-   "type": "text",
-   "jsfbt": "Customer"
+   "jsfbt": {
+    "t": {
+     "desc": "customer name column title in the orders table",
+     "text": "Customer"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "R4WJtUlmv6nxXVe8+kM+tw==": "Total"
+   "hashToLeaf": {
+    "R4WJtUlmv6nxXVe8+kM+tw==": {
+     "text": "Total",
+     "desc": "total amount column title in the orders table"
+    }
    },
    "filepath": "src/orders/OrdersPageLayout.js",
    "line_beg": 25,
    "col_beg": 16,
    "line_end": 25,
    "col_end": 85,
-   "desc": "total amount column title in the orders table",
    "project": "",
-   "type": "text",
-   "jsfbt": "Total"
+   "jsfbt": {
+    "t": {
+     "desc": "total amount column title in the orders table",
+     "text": "Total"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "hKijXBp2j7DdMNowCsuUEA==": "paid"
+   "hashToLeaf": {
+    "hKijXBp2j7DdMNowCsuUEA==": {
+     "text": "paid",
+     "desc": "paid status of an order"
+    }
    },
    "filepath": "src/orders/OrdersPageLayout.js",
    "line_beg": 38,
    "col_beg": 14,
    "line_end": 38,
    "col_end": 60,
-   "desc": "paid status of an order",
    "project": "",
-   "type": "text",
-   "jsfbt": "paid"
+   "jsfbt": {
+    "t": {
+     "desc": "paid status of an order",
+     "text": "paid"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "czMsrSKcUbtCYwBt0pKTzA==": "awaiting payment"
+   "hashToLeaf": {
+    "czMsrSKcUbtCYwBt0pKTzA==": {
+     "text": "awaiting payment",
+     "desc": "awaiting payment status of an order"
+    }
    },
    "filepath": "src/orders/OrdersPageLayout.js",
    "line_beg": 49,
    "col_beg": 12,
    "line_end": 49,
    "col_end": 82,
-   "desc": "awaiting payment status of an order",
    "project": "",
-   "type": "text",
-   "jsfbt": "awaiting payment"
+   "jsfbt": {
+    "t": {
+     "desc": "awaiting payment status of an order",
+     "text": "awaiting payment"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "M8k2/LP0TMrxKyqLz0Exbw==": "completed"
+   "hashToLeaf": {
+    "M8k2/LP0TMrxKyqLz0Exbw==": {
+     "text": "completed",
+     "desc": "completed status of an order"
+    }
    },
    "filepath": "src/orders/OrdersPageLayout.js",
    "line_beg": 59,
    "col_beg": 12,
    "line_end": 59,
    "col_end": 68,
-   "desc": "completed status of an order",
    "project": "",
-   "type": "text",
-   "jsfbt": "completed"
+   "jsfbt": {
+    "t": {
+     "desc": "completed status of an order",
+     "text": "completed"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "834ys8UqNzH7u6Y8X2p78w==": "Eshop orders"
+   "hashToLeaf": {
+    "834ys8UqNzH7u6Y8X2p78w==": {
+     "text": "Eshop orders",
+     "desc": "eshop orders page title"
+    }
    },
    "filepath": "src/orders/OrdersPageLayout.js",
    "line_beg": 74,
    "col_beg": 39,
    "line_end": 74,
    "col_end": 93,
-   "desc": "eshop orders page title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Eshop orders"
+   "jsfbt": {
+    "t": {
+     "desc": "eshop orders page title",
+     "text": "Eshop orders"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "mRUmtylefgnPdmI3LO+DMQ==": "Every order was fulfilled, good job!"
+   "hashToLeaf": {
+    "mRUmtylefgnPdmI3LO+DMQ==": {
+     "text": "Every order was fulfilled, good job!",
+     "desc": "success message displayed when there are no new orders waiting"
+    }
    },
    "filepath": "src/orders/OrdersPageLayout.js",
    "line_beg": 77,
    "col_beg": 10,
    "line_end": 79,
    "col_end": 16,
-   "desc": "success message displayed when there are no new orders waiting",
    "project": "",
-   "type": "text",
-   "jsfbt": "Every order was fulfilled, good job!"
+   "jsfbt": {
+    "t": {
+     "desc": "success message displayed when there are no new orders waiting",
+     "text": "Every order was fulfilled, good job!"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "2xcpbEidCcaalw/JM9MQjA==": "There are {count} orders which has to be fulfilled. Don't let the customer waiting!",
-    "CVzOFjkgpoPnbf8QaEGfZA==": "There is {count} order which has to be fulfilled. Don't let the customer waiting!"
+   "hashToLeaf": {
+    "2xcpbEidCcaalw/JM9MQjA==": {
+     "text": "There are {count} orders which has to be fulfilled. Don't let the customer waiting!",
+     "desc": "warning message displayed when there are new orders waiting"
+    },
+    "CVzOFjkgpoPnbf8QaEGfZA==": {
+     "text": "There is {count} order which has to be fulfilled. Don't let the customer waiting!",
+     "desc": "warning message displayed when there are new orders waiting"
+    }
    },
    "filepath": "src/orders/OrdersPageLayout.js",
    "line_beg": 82,
    "col_beg": 10,
    "line_end": 94,
    "col_end": 16,
-   "desc": "warning message displayed when there are new orders waiting",
    "project": "",
-   "type": "table",
    "jsfbt": {
     "t": {
      "*": {
-      "*": "There are {count} orders which has to be fulfilled. Don't let the customer waiting!"
+      "*": {
+       "desc": "warning message displayed when there are new orders waiting",
+       "text": "There are {count} orders which has to be fulfilled. Don't let the customer waiting!"
+      }
      },
      "_1": {
-      "_1": "There is {count} order which has to be fulfilled. Don't let the customer waiting!"
+      "_1": {
+       "desc": "warning message displayed when there are new orders waiting",
+       "text": "There is {count} order which has to be fulfilled. Don't let the customer waiting!"
+      }
      }
     },
     "m": [
@@ -1190,970 +1777,1457 @@
    }
   },
   {
-   "hashToText": {
-    "iCBctDdcz6yDLlNQGi9HBw==": "Total:"
+   "hashToLeaf": {
+    "iCBctDdcz6yDLlNQGi9HBw==": {
+     "text": "Total:",
+     "desc": "total price title"
+    }
    },
    "filepath": "src/pos/CheckoutReceipt.js",
    "line_beg": 87,
    "col_beg": 12,
    "line_end": 87,
    "col_end": 54,
-   "desc": "total price title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Total:"
+   "jsfbt": {
+    "t": {
+     "desc": "total price title",
+     "text": "Total:"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "lRjlKW0rrAaO8qfcIV8w4w==": "All POS Sessions"
+   "hashToLeaf": {
+    "lRjlKW0rrAaO8qfcIV8w4w==": {
+     "text": "All POS Sessions",
+     "desc": "all POS sessions page title"
+    }
    },
    "filepath": "src/pos/POSAllSessionsPageLayout.js",
    "line_beg": 14,
    "col_beg": 15,
    "line_end": 14,
    "col_end": 77,
-   "desc": "all POS sessions page title",
    "project": "",
-   "type": "text",
-   "jsfbt": "All POS Sessions"
+   "jsfbt": {
+    "t": {
+     "desc": "all POS sessions page title",
+     "text": "All POS Sessions"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "A2EavU9yDTNiahhHw22IoQ==": "Here you can find all active POS sessions."
+   "hashToLeaf": {
+    "A2EavU9yDTNiahhHw22IoQ==": {
+     "text": "Here you can find all active POS sessions.",
+     "desc": "all POS sessions page description"
+    }
    },
    "filepath": "src/pos/POSAllSessionsPageLayout.js",
    "line_beg": 16,
    "col_beg": 8,
    "line_end": 18,
    "col_end": 14,
-   "desc": "all POS sessions page description",
    "project": "",
-   "type": "text",
-   "jsfbt": "Here you can find all active POS sessions."
+   "jsfbt": {
+    "t": {
+     "desc": "all POS sessions page description",
+     "text": "Here you can find all active POS sessions."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "adM4ExNt4Fqq38leaDDUcQ==": "Mexico City"
+   "hashToLeaf": {
+    "adM4ExNt4Fqq38leaDDUcQ==": {
+     "text": "Mexico City",
+     "desc": "POS in Mexico City"
+    }
    },
    "filepath": "src/pos/POSAllSessionsPageLayout.js",
    "line_beg": 23,
    "col_beg": 17,
    "line_end": 23,
    "col_end": 65,
-   "desc": "POS in Mexico City",
    "project": "",
-   "type": "text",
-   "jsfbt": "Mexico City"
+   "jsfbt": {
+    "t": {
+     "desc": "POS in Mexico City",
+     "text": "Mexico City"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "nZqhEjn5qcrJgjOP1hhOWA==": "Open POS session"
+   "hashToLeaf": {
+    "nZqhEjn5qcrJgjOP1hhOWA==": {
+     "text": "Open POS session",
+     "desc": "navigation link to point of sales"
+    }
    },
    "filepath": "src/pos/POSAllSessionsPageLayout.js",
    "line_beg": 29,
    "col_beg": 14,
    "line_end": 29,
    "col_end": 82,
-   "desc": "navigation link to point of sales",
    "project": "",
-   "type": "text",
-   "jsfbt": "Open POS session"
+   "jsfbt": {
+    "t": {
+     "desc": "navigation link to point of sales",
+     "text": "Open POS session"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "mh/mjO9VWPPtENDKQp6MsA==": "Oh no! Something is broken. 🤨"
+   "hashToLeaf": {
+    "mh/mjO9VWPPtENDKQp6MsA==": {
+     "text": "Oh no! Something is broken. 🤨",
+     "desc": "oh no failure checkout message"
+    }
    },
    "filepath": "src/pos/POSCheckoutFailurePageLayout.js",
    "line_beg": 24,
    "col_beg": 8,
    "line_end": 24,
    "col_end": 87,
-   "desc": "oh no failure checkout message",
    "project": "",
-   "type": "text",
-   "jsfbt": "Oh no! Something is broken. 🤨"
+   "jsfbt": {
+    "t": {
+     "desc": "oh no failure checkout message",
+     "text": "Oh no! Something is broken. 🤨"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "s8rtQvFOZDW+FkdYzzzvlw==": "What now? Please, write down the checkout items ({=what, how many, for how much}) and continue with the sales to make sure customers are happy. Also, please, {=let us know} as soon as possible!"
+   "hashToLeaf": {
+    "s8rtQvFOZDW+FkdYzzzvlw==": {
+     "text": "What now? Please, write down the checkout items ({=what, how many, for how much}) and continue with the sales to make sure customers are happy. Also, please, {=let us know} as soon as possible!",
+     "desc": "checkout failure help message"
+    }
    },
    "filepath": "src/pos/POSCheckoutFailurePageLayout.js",
    "line_beg": 28,
    "col_beg": 8,
    "line_end": 33,
    "col_end": 14,
-   "desc": "checkout failure help message",
    "project": "",
-   "type": "text",
-   "jsfbt": "What now? Please, write down the checkout items ({=what, how many, for how much}) and continue with the sales to make sure customers are happy. Also, please, {=let us know} as soon as possible!"
+   "jsfbt": {
+    "t": {
+     "desc": "checkout failure help message",
+     "text": "What now? Please, write down the checkout items ({=what, how many, for how much}) and continue with the sales to make sure customers are happy. Also, please, {=let us know} as soon as possible!",
+     "tokenAliases": {
+      "=what, how many, for how much": "=m1",
+      "=let us know": "=m4"
+     }
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "egBP6SSzVrgpJrhdIdlR2A==": "what, how many, for how much"
+   "hashToLeaf": {
+    "YKp/EkYHblp67+ck1TD68w==": {
+     "text": "what, how many, for how much",
+     "desc": "In the phrase: \"What now? Please, write down the checkout items ({=what, how many, for how much}) and continue with the sales to make sure customers are happy. Also, please, {=let us know} as soon as possible!\""
+    }
    },
    "filepath": "src/pos/POSCheckoutFailurePageLayout.js",
    "line_beg": 29,
    "col_beg": 59,
    "line_end": 31,
    "col_end": 19,
-   "desc": "In the phrase: \"What now? Please, write down the checkout items ({=what, how many, for how much}) and continue with the sales to make sure customers are happy. Also, please,{=let us know} as soon as possible!\"",
    "project": "",
-   "type": "text",
-   "jsfbt": "what, how many, for how much"
+   "jsfbt": {
+    "t": {
+     "desc": "In the phrase: \"What now? Please, write down the checkout items ({=what, how many, for how much}) and continue with the sales to make sure customers are happy. Also, please, {=let us know} as soon as possible!\"",
+     "text": "what, how many, for how much"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "Li6yQ40dR8ad7DoBK/xCGg==": "let us know"
+   "hashToLeaf": {
+    "KWAJuuyMvDgwEBS74Bf14Q==": {
+     "text": "let us know",
+     "desc": "In the phrase: \"What now? Please, write down the checkout items ({=what, how many, for how much}) and continue with the sales to make sure customers are happy. Also, please, {=let us know} as soon as possible!\""
+    }
    },
    "filepath": "src/pos/POSCheckoutFailurePageLayout.js",
    "line_beg": 32,
    "col_beg": 10,
    "line_end": 32,
    "col_end": 38,
-   "desc": "In the phrase: \"What now? Please, write down the checkout items ({=what, how many, for how much}) and continue with the sales to make sure customers are happy. Also, please,{=let us know} as soon as possible!\"",
    "project": "",
-   "type": "text",
-   "jsfbt": "let us know"
+   "jsfbt": {
+    "t": {
+     "desc": "In the phrase: \"What now? Please, write down the checkout items ({=what, how many, for how much}) and continue with the sales to make sure customers are happy. Also, please, {=let us know} as soon as possible!\"",
+     "text": "let us know"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "ixWIW0sWjo/M0DaH+nE0Ug==": "Start a new POS session"
+   "hashToLeaf": {
+    "ixWIW0sWjo/M0DaH+nE0Ug==": {
+     "text": "Start a new POS session",
+     "desc": "start a new POS session button"
+    }
    },
    "filepath": "src/pos/POSCheckoutFailurePageLayout.js",
    "line_beg": 39,
    "col_beg": 8,
    "line_end": 39,
    "col_end": 80,
-   "desc": "start a new POS session button",
    "project": "",
-   "type": "text",
-   "jsfbt": "Start a new POS session"
+   "jsfbt": {
+    "t": {
+     "desc": "start a new POS session button",
+     "text": "Start a new POS session"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "Uwsynldmzkm43wwA8z+rWQ==": "Are you sure you want to reset the checkout session and start over? All selected items will be removed."
+   "hashToLeaf": {
+    "Uwsynldmzkm43wwA8z+rWQ==": {
+     "text": "Are you sure you want to reset the checkout session and start over? All selected items will be removed.",
+     "desc": "reset checkout session confirmation message"
+    }
    },
    "filepath": "src/pos/POSCheckoutPageLayout.js",
    "line_beg": 77,
    "col_beg": 8,
    "line_end": 80,
    "col_end": 9,
-   "desc": "reset checkout session confirmation message",
    "project": "",
-   "type": "text",
-   "jsfbt": "Are you sure you want to reset the checkout session and start over? All selected items will be removed."
+   "jsfbt": {
+    "t": {
+     "desc": "reset checkout session confirmation message",
+     "text": "Are you sure you want to reset the checkout session and start over? All selected items will be removed."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "jmBOT2K+ZO2hIL+wYQyinw==": "Go back"
+   "hashToLeaf": {
+    "jmBOT2K+ZO2hIL+wYQyinw==": {
+     "text": "Go back",
+     "desc": "go back to POS text"
+    }
    },
    "filepath": "src/pos/POSCheckoutPageLayout.js",
    "line_beg": 92,
    "col_beg": 35,
    "line_end": 92,
    "col_end": 80,
-   "desc": "go back to POS text",
    "project": "",
-   "type": "text",
-   "jsfbt": "Go back"
+   "jsfbt": {
+    "t": {
+     "desc": "go back to POS text",
+     "text": "Go back"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "X15wJnkWMiCincs1C+MeFw==": "Did you receive the money?"
+   "hashToLeaf": {
+    "X15wJnkWMiCincs1C+MeFw==": {
+     "text": "Did you receive the money?",
+     "desc": "checkout question before continuing"
+    }
    },
    "filepath": "src/pos/POSCheckoutPageLayout.js",
    "line_beg": 101,
    "col_beg": 8,
    "line_end": 101,
    "col_end": 88,
-   "desc": "checkout question before continuing",
    "project": "",
-   "type": "text",
-   "jsfbt": "Did you receive the money?"
+   "jsfbt": {
+    "t": {
+     "desc": "checkout question before continuing",
+     "text": "Did you receive the money?"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "MfLT6Yq4YBMxi+dW96zMNg==": "Yes, finish checkout"
+   "hashToLeaf": {
+    "MfLT6Yq4YBMxi+dW96zMNg==": {
+     "text": "Yes, finish checkout",
+     "desc": "process checkout button text"
+    }
    },
    "filepath": "src/pos/POSCheckoutPageLayout.js",
    "line_beg": 106,
    "col_beg": 10,
    "line_end": 106,
    "col_end": 77,
-   "desc": "process checkout button text",
    "project": "",
-   "type": "text",
-   "jsfbt": "Yes, finish checkout"
+   "jsfbt": {
+    "t": {
+     "desc": "process checkout button text",
+     "text": "Yes, finish checkout"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "P3UvwgozOxL8sg8ODM5D/A==": "No, start over"
+   "hashToLeaf": {
+    "P3UvwgozOxL8sg8ODM5D/A==": {
+     "text": "No, start over",
+     "desc": "reset checkout button text"
+    }
    },
    "filepath": "src/pos/POSCheckoutPageLayout.js",
    "line_beg": 109,
    "col_beg": 10,
    "line_end": 109,
    "col_end": 69,
-   "desc": "reset checkout button text",
    "project": "",
-   "type": "text",
-   "jsfbt": "No, start over"
+   "jsfbt": {
+    "t": {
+     "desc": "reset checkout button text",
+     "text": "No, start over"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "qsF9svf0ybW4JauipkfE5w==": "Well done! 👍"
+   "hashToLeaf": {
+    "qsF9svf0ybW4JauipkfE5w==": {
+     "text": "Well done! 👍",
+     "desc": "well done checkout success message"
+    }
    },
    "filepath": "src/pos/POSCheckoutSuccessPageLayout.js",
    "line_beg": 12,
    "col_beg": 8,
    "line_end": 12,
    "col_end": 74,
-   "desc": "well done checkout success message",
    "project": "",
-   "type": "text",
-   "jsfbt": "Well done! 👍"
+   "jsfbt": {
+    "t": {
+     "desc": "well done checkout success message",
+     "text": "Well done! 👍"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "ZG+l+9644F97vASBBKmFzg==": "You can now go back and serve another customer!"
+   "hashToLeaf": {
+    "ZG+l+9644F97vASBBKmFzg==": {
+     "text": "You can now go back and serve another customer!",
+     "desc": "success checkout help message"
+    }
    },
    "filepath": "src/pos/POSCheckoutSuccessPageLayout.js",
    "line_beg": 16,
    "col_beg": 8,
    "line_end": 18,
    "col_end": 14,
-   "desc": "success checkout help message",
    "project": "",
-   "type": "text",
-   "jsfbt": "You can now go back and serve another customer!"
+   "jsfbt": {
+    "t": {
+     "desc": "success checkout help message",
+     "text": "You can now go back and serve another customer!"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "ixWIW0sWjo/M0DaH+nE0Ug==": "Start a new POS session"
+   "hashToLeaf": {
+    "ixWIW0sWjo/M0DaH+nE0Ug==": {
+     "text": "Start a new POS session",
+     "desc": "start a new POS session button"
+    }
    },
    "filepath": "src/pos/POSCheckoutSuccessPageLayout.js",
    "line_beg": 22,
    "col_beg": 8,
    "line_end": 22,
    "col_end": 80,
-   "desc": "start a new POS session button",
    "project": "",
-   "type": "text",
-   "jsfbt": "Start a new POS session"
+   "jsfbt": {
+    "t": {
+     "desc": "start a new POS session button",
+     "text": "Start a new POS session"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "hm+55cMH8tgHDr9LTIW5jA==": "There are no products yet."
+   "hashToLeaf": {
+    "hm+55cMH8tgHDr9LTIW5jA==": {
+     "text": "There are no products yet.",
+     "desc": "empty shop (POS) message"
+    }
    },
    "filepath": "src/pos/ProductsGrid.js",
    "line_beg": 101,
    "col_beg": 8,
    "line_end": 101,
    "col_end": 77,
-   "desc": "empty shop (POS) message",
    "project": "",
-   "type": "text",
-   "jsfbt": "There are no products yet."
+   "jsfbt": {
+    "t": {
+     "desc": "empty shop (POS) message",
+     "text": "There are no products yet."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "/Mtm/zkJGWFShXRsGzoGCQ==": "Product addons"
+   "hashToLeaf": {
+    "/Mtm/zkJGWFShXRsGzoGCQ==": {
+     "text": "Product addons",
+     "desc": "product addons modal title"
+    }
    },
    "filepath": "src/pos/ProductsGridModal.js",
    "line_beg": 23,
    "col_beg": 13,
    "line_end": 23,
    "col_end": 72,
-   "desc": "product addons modal title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Product addons"
+   "jsfbt": {
+    "t": {
+     "desc": "product addons modal title",
+     "text": "Product addons"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "tqJr7GmSh3z3wJYjUYZlWQ==": "Confirm selection ({numberOfSelectedProducts} addons)"
+   "hashToLeaf": {
+    "tqJr7GmSh3z3wJYjUYZlWQ==": {
+     "text": "Confirm selection ({numberOfSelectedProducts} addons)",
+     "desc": "confirm selected product addons button title"
+    }
    },
    "filepath": "src/pos/ProductsGridModalBody.js",
    "line_beg": 105,
    "col_beg": 10,
    "line_end": 110,
    "col_end": 16,
-   "desc": "confirm selected product addons button title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Confirm selection ({numberOfSelectedProducts} addons)"
+   "jsfbt": {
+    "t": {
+     "desc": "confirm selected product addons button title",
+     "text": "Confirm selection ({numberOfSelectedProducts} addons)"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "wqB8FQTQbyLhRSk8t2qAYQ==": "Confirm selection (no addons)"
+   "hashToLeaf": {
+    "wqB8FQTQbyLhRSk8t2qAYQ==": {
+     "text": "Confirm selection (no addons)",
+     "desc": "confirm selected product without addons button title"
+    }
    },
    "filepath": "src/pos/ProductsGridModalBody.js",
    "line_beg": 112,
    "col_beg": 10,
    "line_end": 114,
    "col_end": 16,
-   "desc": "confirm selected product without addons button title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Confirm selection (no addons)"
+   "jsfbt": {
+    "t": {
+     "desc": "confirm selected product without addons button title",
+     "text": "Confirm selection (no addons)"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "jW5cXQjjiv0ciueGsbPH4Q==": "{totalPrice}"
+   "hashToLeaf": {
+    "jW5cXQjjiv0ciueGsbPH4Q==": {
+     "text": "{totalPrice}",
+     "desc": "summary of selected items in POS"
+    }
    },
    "filepath": "src/pos/ProductsSelected.js",
    "line_beg": 22,
    "col_beg": 8,
    "line_end": 31,
    "col_end": 14,
-   "desc": "summary of selected items in POS",
    "project": "",
-   "type": "text",
-   "jsfbt": "{totalPrice}"
+   "jsfbt": {
+    "t": {
+     "desc": "summary of selected items in POS",
+     "text": "{totalPrice}"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "nIpABsKUotYCJOCxk8ZWTg==": "Proceed to checkout"
+   "hashToLeaf": {
+    "nIpABsKUotYCJOCxk8ZWTg==": {
+     "text": "Proceed to checkout",
+     "desc": "checkout button title"
+    }
    },
    "filepath": "src/pos/ProductsSelected.js",
    "line_beg": 40,
    "col_beg": 10,
    "line_end": 40,
    "col_end": 69,
-   "desc": "checkout button title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Proceed to checkout"
+   "jsfbt": {
+    "t": {
+     "desc": "checkout button title",
+     "text": "Proceed to checkout"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "5KMdVDNvgqOewSfbxvUGIA==": "nothing selected yet"
+   "hashToLeaf": {
+    "5KMdVDNvgqOewSfbxvUGIA==": {
+     "text": "nothing selected yet",
+     "desc": "text when nothing is selected in POS"
+    }
    },
    "filepath": "src/pos/ProductsSelectedRows.js",
    "line_beg": 17,
    "col_beg": 8,
    "line_end": 17,
    "col_end": 83,
-   "desc": "text when nothing is selected in POS",
    "project": "",
-   "type": "text",
-   "jsfbt": "nothing selected yet"
+   "jsfbt": {
+    "t": {
+     "desc": "text when nothing is selected in POS",
+     "text": "nothing selected yet"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "LORkARGYHkN3dZWSmuFyeA==": "There are no product add-ons yet."
+   "hashToLeaf": {
+    "LORkARGYHkN3dZWSmuFyeA==": {
+     "text": "There are no product add-ons yet.",
+     "desc": "empty product add-ons message"
+    }
    },
    "filepath": "src/products/ProductAddons.js",
    "line_beg": 37,
    "col_beg": 8,
    "line_end": 37,
    "col_end": 89,
-   "desc": "empty product add-ons message",
    "project": "",
-   "type": "text",
-   "jsfbt": "There are no product add-ons yet."
+   "jsfbt": {
+    "t": {
+     "desc": "empty product add-ons message",
+     "text": "There are no product add-ons yet."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "cOEDQ3NM++3zLuN1T2+4uw==": "free"
+   "hashToLeaf": {
+    "cOEDQ3NM++3zLuN1T2+4uw==": {
+     "text": "free",
+     "desc": "free product add-on badge"
+    }
    },
    "filepath": "src/products/ProductAddons.js",
    "line_beg": 55,
    "col_beg": 20,
    "line_end": 55,
    "col_end": 68,
-   "desc": "free product add-on badge",
    "project": "",
-   "type": "text",
-   "jsfbt": "free"
+   "jsfbt": {
+    "t": {
+     "desc": "free product add-on badge",
+     "text": "free"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "ZrwJAHOn3OPEAylkfdtl9Q==": "Product add-ons"
+   "hashToLeaf": {
+    "ZrwJAHOn3OPEAylkfdtl9Q==": {
+     "text": "Product add-ons",
+     "desc": "product add-ons title"
+    }
    },
    "filepath": "src/products/ProductAddonsLayout.js",
    "line_beg": 14,
    "col_beg": 15,
    "line_end": 14,
    "col_end": 70,
-   "desc": "product add-ons title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Product add-ons"
+   "jsfbt": {
+    "t": {
+     "desc": "product add-ons title",
+     "text": "Product add-ons"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "SLplpnMELk9mRSK4XUWISg==": "Product add-ons are additional items that can be attached to any product, but, they cannot be bought individually. For example: milk and sweetener for coffee are product add-ons whereas coffee is a product."
+   "hashToLeaf": {
+    "SLplpnMELk9mRSK4XUWISg==": {
+     "text": "Product add-ons are additional items that can be attached to any product, but, they cannot be bought individually. For example: milk and sweetener for coffee are product add-ons whereas coffee is a product.",
+     "desc": "description of product add-ons"
+    }
    },
    "filepath": "src/products/ProductAddonsLayout.js",
    "line_beg": 16,
    "col_beg": 8,
    "line_end": 20,
    "col_end": 14,
-   "desc": "description of product add-ons",
    "project": "",
-   "type": "text",
-   "jsfbt": "Product add-ons are additional items that can be attached to any product, but, they cannot be bought individually. For example: milk and sweetener for coffee are product add-ons whereas coffee is a product."
+   "jsfbt": {
+    "t": {
+     "desc": "description of product add-ons",
+     "text": "Product add-ons are additional items that can be attached to any product, but, they cannot be bought individually. For example: milk and sweetener for coffee are product add-ons whereas coffee is a product."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "v/B4jMQkg7cEA5reKMUl+g==": "Products categories"
+   "hashToLeaf": {
+    "v/B4jMQkg7cEA5reKMUl+g==": {
+     "text": "Products categories",
+     "desc": "products categories title"
+    }
    },
    "filepath": "src/products/ProductCategoriesLayout.js",
    "line_beg": 14,
    "col_beg": 15,
    "line_end": 14,
    "col_end": 78,
-   "desc": "products categories title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Products categories"
+   "jsfbt": {
+    "t": {
+     "desc": "products categories title",
+     "text": "Products categories"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "EIVU1wJ5opAD+tU9JLao5Q==": "Product {product name} created! ✅"
+   "hashToLeaf": {
+    "EIVU1wJ5opAD+tU9JLao5Q==": {
+     "text": "Product {product name} created! ✅",
+     "desc": "product created success message"
+    }
    },
    "filepath": "src/products/ProductCreateForm.js",
    "line_beg": 114,
    "col_beg": 16,
    "line_end": 120,
    "col_end": 22,
-   "desc": "product created success message",
    "project": "",
-   "type": "text",
-   "jsfbt": "Product {product name} created! ✅"
+   "jsfbt": {
+    "t": {
+     "desc": "product created success message",
+     "text": "Product {product name} created! ✅"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "pK1f3pHBA7GNzXNFxoeWlw==": "Create a new product"
+   "hashToLeaf": {
+    "pK1f3pHBA7GNzXNFxoeWlw==": {
+     "text": "Create a new product",
+     "desc": "create product form submit button title"
+    }
    },
    "filepath": "src/products/ProductCreateForm.js",
    "line_beg": 126,
    "col_beg": 10,
    "line_end": 126,
    "col_end": 88,
-   "desc": "create product form submit button title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Create a new product"
+   "jsfbt": {
+    "t": {
+     "desc": "create product form submit button title",
+     "text": "Create a new product"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "nmFLhVeeVRpoKNv7lUvVcg==": "Product {product name} updated! ✅"
+   "hashToLeaf": {
+    "nmFLhVeeVRpoKNv7lUvVcg==": {
+     "text": "Product {product name} updated! ✅",
+     "desc": "product updated success message"
+    }
    },
    "filepath": "src/products/ProductEditForm.js",
    "line_beg": 167,
    "col_beg": 16,
    "line_end": 173,
    "col_end": 22,
-   "desc": "product updated success message",
    "project": "",
-   "type": "text",
-   "jsfbt": "Product {product name} updated! ✅"
+   "jsfbt": {
+    "t": {
+     "desc": "product updated success message",
+     "text": "Product {product name} updated! ✅"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "JMYEEAMkkTyu/f/wera8pw==": "Save changes"
+   "hashToLeaf": {
+    "JMYEEAMkkTyu/f/wera8pw==": {
+     "text": "Save changes",
+     "desc": "edit product form submit button title"
+    }
    },
    "filepath": "src/products/ProductEditForm.js",
    "line_beg": 179,
    "col_beg": 10,
    "line_end": 179,
    "col_end": 78,
-   "desc": "edit product form submit button title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Save changes"
+   "jsfbt": {
+    "t": {
+     "desc": "edit product form submit button title",
+     "text": "Save changes"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "PWfXQGq7RGI0znfxqrQHlw==": "Something unexpected happened"
+   "hashToLeaf": {
+    "PWfXQGq7RGI0znfxqrQHlw==": {
+     "text": "Something unexpected happened",
+     "desc": "something unexpected happened message when trying to archive the product"
+    }
    },
    "filepath": "src/products/ProductEditHeading.js",
    "line_beg": 69,
    "col_beg": 10,
    "line_end": 72,
    "col_end": 11,
-   "desc": "something unexpected happened message when trying to archive the product",
    "project": "",
-   "type": "text",
-   "jsfbt": "Something unexpected happened"
+   "jsfbt": {
+    "t": {
+     "desc": "something unexpected happened message when trying to archive the product",
+     "text": "Something unexpected happened"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "3YuTtGx/pn9I0CeDzdKOLA==": "Product successfully archived. ✅"
+   "hashToLeaf": {
+    "3YuTtGx/pn9I0CeDzdKOLA==": {
+     "text": "Product successfully archived. ✅",
+     "desc": "success message when archiving a product"
+    }
    },
    "filepath": "src/products/ProductEditHeading.js",
    "line_beg": 79,
    "col_beg": 12,
    "line_end": 79,
    "col_end": 95,
-   "desc": "success message when archiving a product",
    "project": "",
-   "type": "text",
-   "jsfbt": "Product successfully archived. ✅"
+   "jsfbt": {
+    "t": {
+     "desc": "success message when archiving a product",
+     "text": "Product successfully archived. ✅"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "2RQtcMmzVAbote6MYQ6DFA==": "Edit product: {productName}"
+   "hashToLeaf": {
+    "2RQtcMmzVAbote6MYQ6DFA==": {
+     "text": "Edit product: {productName}",
+     "desc": "edit product page heading"
+    }
    },
    "filepath": "src/products/ProductEditHeading.js",
    "line_beg": 93,
    "col_beg": 8,
    "line_end": 95,
    "col_end": 14,
-   "desc": "edit product page heading",
    "project": "",
-   "type": "text",
-   "jsfbt": "Edit product: {productName}"
+   "jsfbt": {
+    "t": {
+     "desc": "edit product page heading",
+     "text": "Edit product: {productName}"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "kZSl2UcMZDzRSCGJm9hDkw==": "Products inventory"
+   "hashToLeaf": {
+    "kZSl2UcMZDzRSCGJm9hDkw==": {
+     "text": "Products inventory",
+     "desc": "go back to products navigation button"
+    }
    },
    "filepath": "src/products/ProductEditHeading.js",
    "line_beg": 99,
    "col_beg": 10,
    "line_end": 99,
    "col_end": 84,
-   "desc": "go back to products navigation button",
    "project": "",
-   "type": "text",
-   "jsfbt": "Products inventory"
+   "jsfbt": {
+    "t": {
+     "desc": "go back to products navigation button",
+     "text": "Products inventory"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "BPWRoyucKXJx+vY6x6BFkw==": "Are you sure you want to archive the product? Archiving makes it unavailable and behaves similar to deleting the product."
+   "hashToLeaf": {
+    "BPWRoyucKXJx+vY6x6BFkw==": {
+     "text": "Are you sure you want to archive the product? Archiving makes it unavailable and behaves similar to deleting the product.",
+     "desc": "archive product confirmation message"
+    }
    },
    "filepath": "src/products/ProductEditHeading.js",
    "line_beg": 111,
    "col_beg": 12,
    "line_end": 114,
    "col_end": 18,
-   "desc": "archive product confirmation message",
    "project": "",
-   "type": "text",
-   "jsfbt": "Are you sure you want to archive the product? Archiving makes it unavailable and behaves similar to deleting the product."
+   "jsfbt": {
+    "t": {
+     "desc": "archive product confirmation message",
+     "text": "Are you sure you want to archive the product? Archiving makes it unavailable and behaves similar to deleting the product."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "XT9xWGmAT0GjldI2PdUXRA==": "Archive product"
+   "hashToLeaf": {
+    "XT9xWGmAT0GjldI2PdUXRA==": {
+     "text": "Archive product",
+     "desc": "archive product navigation button"
+    }
    },
    "filepath": "src/products/ProductEditHeading.js",
    "line_beg": 119,
    "col_beg": 10,
    "line_end": 119,
    "col_end": 77,
-   "desc": "archive product navigation button",
    "project": "",
-   "type": "text",
-   "jsfbt": "Archive product"
+   "jsfbt": {
+    "t": {
+     "desc": "archive product navigation button",
+     "text": "Archive product"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "5xWLjNlRRK4DGj9B8Z6mTg==": "Are you sure you want to publish this product? Published products are immediately available to be used across our product based on the selected visibility (potentially public)."
+   "hashToLeaf": {
+    "5xWLjNlRRK4DGj9B8Z6mTg==": {
+     "text": "Are you sure you want to publish this product? Published products are immediately available to be used across our product based on the selected visibility (potentially public).",
+     "desc": "publish product button confirmation message"
+    }
    },
    "filepath": "src/products/ProductEditHeadingPublishUnpublish.js",
    "line_beg": 70,
    "col_beg": 8,
    "line_end": 74,
    "col_end": 14,
-   "desc": "publish product button confirmation message",
    "project": "",
-   "type": "text",
-   "jsfbt": "Are you sure you want to publish this product? Published products are immediately available to be used across our product based on the selected visibility (potentially public)."
+   "jsfbt": {
+    "t": {
+     "desc": "publish product button confirmation message",
+     "text": "Are you sure you want to publish this product? Published products are immediately available to be used across our product based on the selected visibility (potentially public)."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "SUE8RB0J2NM/9wmamYbU1g==": "Something unexpected happened"
+   "hashToLeaf": {
+    "SUE8RB0J2NM/9wmamYbU1g==": {
+     "text": "Something unexpected happened",
+     "desc": "something unexpected happened message when trying to publish the product"
+    }
    },
    "filepath": "src/products/ProductEditHeadingPublishUnpublish.js",
    "line_beg": 85,
    "col_beg": 14,
    "line_end": 88,
    "col_end": 15,
-   "desc": "something unexpected happened message when trying to publish the product",
    "project": "",
-   "type": "text",
-   "jsfbt": "Something unexpected happened"
+   "jsfbt": {
+    "t": {
+     "desc": "something unexpected happened message when trying to publish the product",
+     "text": "Something unexpected happened"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "OUAkZ3TQOouipgAGWNkFAQ==": "Product successfully published. ✅"
+   "hashToLeaf": {
+    "OUAkZ3TQOouipgAGWNkFAQ==": {
+     "text": "Product successfully published. ✅",
+     "desc": "success message when publishing a product"
+    }
    },
    "filepath": "src/products/ProductEditHeadingPublishUnpublish.js",
    "line_beg": 95,
    "col_beg": 16,
    "line_end": 98,
    "col_end": 17,
-   "desc": "success message when publishing a product",
    "project": "",
-   "type": "text",
-   "jsfbt": "Product successfully published. ✅"
+   "jsfbt": {
+    "t": {
+     "desc": "success message when publishing a product",
+     "text": "Product successfully published. ✅"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "3qz/xqX+Nv7bYwQCSNXWdQ==": "Publish product"
+   "hashToLeaf": {
+    "3qz/xqX+Nv7bYwQCSNXWdQ==": {
+     "text": "Publish product",
+     "desc": "publish product button title"
+    }
    },
    "filepath": "src/products/ProductEditHeadingPublishUnpublish.js",
    "line_beg": 109,
    "col_beg": 6,
    "line_end": 109,
    "col_end": 68,
-   "desc": "publish product button title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Publish product"
+   "jsfbt": {
+    "t": {
+     "desc": "publish product button title",
+     "text": "Publish product"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "C4qCSxncQzzV9OUj0otgUg==": "Are you sure you want to unpublish this product?"
+   "hashToLeaf": {
+    "C4qCSxncQzzV9OUj0otgUg==": {
+     "text": "Are you sure you want to unpublish this product?",
+     "desc": "unpublish product button confirmation message"
+    }
    },
    "filepath": "src/products/ProductEditHeadingPublishUnpublish.js",
    "line_beg": 114,
    "col_beg": 8,
    "line_end": 116,
    "col_end": 14,
-   "desc": "unpublish product button confirmation message",
    "project": "",
-   "type": "text",
-   "jsfbt": "Are you sure you want to unpublish this product?"
+   "jsfbt": {
+    "t": {
+     "desc": "unpublish product button confirmation message",
+     "text": "Are you sure you want to unpublish this product?"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "yBH25yDj1FHjCKJbrr5ObA==": "Something unexpected happened"
+   "hashToLeaf": {
+    "yBH25yDj1FHjCKJbrr5ObA==": {
+     "text": "Something unexpected happened",
+     "desc": "something unexpected happened message when trying to unpublish the product"
+    }
    },
    "filepath": "src/products/ProductEditHeadingPublishUnpublish.js",
    "line_beg": 127,
    "col_beg": 14,
    "line_end": 130,
    "col_end": 15,
-   "desc": "something unexpected happened message when trying to unpublish the product",
    "project": "",
-   "type": "text",
-   "jsfbt": "Something unexpected happened"
+   "jsfbt": {
+    "t": {
+     "desc": "something unexpected happened message when trying to unpublish the product",
+     "text": "Something unexpected happened"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "soe3drmignW/hAYs7st0RQ==": "Product successfully unpublished. ✅"
+   "hashToLeaf": {
+    "soe3drmignW/hAYs7st0RQ==": {
+     "text": "Product successfully unpublished. ✅",
+     "desc": "success message when unpublishing a product"
+    }
    },
    "filepath": "src/products/ProductEditHeadingPublishUnpublish.js",
    "line_beg": 137,
    "col_beg": 16,
    "line_end": 140,
    "col_end": 17,
-   "desc": "success message when unpublishing a product",
    "project": "",
-   "type": "text",
-   "jsfbt": "Product successfully unpublished. ✅"
+   "jsfbt": {
+    "t": {
+     "desc": "success message when unpublishing a product",
+     "text": "Product successfully unpublished. ✅"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "6dllpbI8j5n7Rlcf+LAS/Q==": "Unpublish product"
+   "hashToLeaf": {
+    "6dllpbI8j5n7Rlcf+LAS/Q==": {
+     "text": "Unpublish product",
+     "desc": "publish product button title"
+    }
    },
    "filepath": "src/products/ProductEditHeadingPublishUnpublish.js",
    "line_beg": 151,
    "col_beg": 6,
    "line_end": 151,
    "col_end": 70,
-   "desc": "publish product button title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Unpublish product"
+   "jsfbt": {
+    "t": {
+     "desc": "publish product button title",
+     "text": "Unpublish product"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "lZD4GtdtmFDnxD98aPVEUw==": "Product pictures"
+   "hashToLeaf": {
+    "lZD4GtdtmFDnxD98aPVEUw==": {
+     "text": "Product pictures",
+     "desc": "form field name for product pictures"
+    }
    },
    "filepath": "src/products/ProductForm.js",
    "line_beg": 66,
    "col_beg": 15,
    "line_end": 66,
    "col_end": 86,
-   "desc": "form field name for product pictures",
    "project": "",
-   "type": "text",
-   "jsfbt": "Product pictures"
+   "jsfbt": {
+    "t": {
+     "desc": "form field name for product pictures",
+     "text": "Product pictures"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "jDz1xtreligZF6hDwlOGmA==": "Product name (in English)"
+   "hashToLeaf": {
+    "jDz1xtreligZF6hDwlOGmA==": {
+     "text": "Product name (in English)",
+     "desc": "form field name for product name in english"
+    }
    },
    "filepath": "src/products/ProductForm.js",
    "line_beg": 75,
    "col_beg": 12,
    "line_end": 75,
    "col_end": 99,
-   "desc": "form field name for product name in english",
    "project": "",
-   "type": "text",
-   "jsfbt": "Product name (in English)"
+   "jsfbt": {
+    "t": {
+     "desc": "form field name for product name in english",
+     "text": "Product name (in English)"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "KjnAslk0bbo2mlPqTr9Scg==": "Product name (in Spanish)"
+   "hashToLeaf": {
+    "KjnAslk0bbo2mlPqTr9Scg==": {
+     "text": "Product name (in Spanish)",
+     "desc": "form field name for product name in spanish"
+    }
    },
    "filepath": "src/products/ProductForm.js",
    "line_beg": 84,
    "col_beg": 12,
    "line_end": 84,
    "col_end": 99,
-   "desc": "form field name for product name in spanish",
    "project": "",
-   "type": "text",
-   "jsfbt": "Product name (in Spanish)"
+   "jsfbt": {
+    "t": {
+     "desc": "form field name for product name in spanish",
+     "text": "Product name (in Spanish)"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "I6tPscKijr8l6b5INvVZMg==": "Product description (in English)"
+   "hashToLeaf": {
+    "I6tPscKijr8l6b5INvVZMg==": {
+     "text": "Product description (in English)",
+     "desc": "form field name for product description in english"
+    }
    },
    "filepath": "src/products/ProductForm.js",
    "line_beg": 93,
    "col_beg": 10,
    "line_end": 95,
    "col_end": 16,
-   "desc": "form field name for product description in english",
    "project": "",
-   "type": "text",
-   "jsfbt": "Product description (in English)"
+   "jsfbt": {
+    "t": {
+     "desc": "form field name for product description in english",
+     "text": "Product description (in English)"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "x0HcNWLdxFYYiLwAx7et4g==": "Product description (in Spanish)"
+   "hashToLeaf": {
+    "x0HcNWLdxFYYiLwAx7et4g==": {
+     "text": "Product description (in Spanish)",
+     "desc": "form field name for product description in spanish"
+    }
    },
    "filepath": "src/products/ProductForm.js",
    "line_beg": 103,
    "col_beg": 10,
    "line_end": 105,
    "col_end": 16,
-   "desc": "form field name for product description in spanish",
    "project": "",
-   "type": "text",
-   "jsfbt": "Product description (in Spanish)"
+   "jsfbt": {
+    "t": {
+     "desc": "form field name for product description in spanish",
+     "text": "Product description (in Spanish)"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "hqObdfAjkbBMDZJeBzmD8g==": "Base price (MXN)"
+   "hashToLeaf": {
+    "hqObdfAjkbBMDZJeBzmD8g==": {
+     "text": "Base price (MXN)",
+     "desc": "form field name for product base price without add-ons"
+    }
    },
    "filepath": "src/products/ProductForm.js",
    "line_beg": 115,
    "col_beg": 10,
    "line_end": 115,
    "col_end": 99,
-   "desc": "form field name for product base price without add-ons",
    "project": "",
-   "type": "text",
-   "jsfbt": "Base price (MXN)"
+   "jsfbt": {
+    "t": {
+     "desc": "form field name for product base price without add-ons",
+     "text": "Base price (MXN)"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "w4OCUvDKiEitRE0ST0MTpw==": "Product add-ons"
+   "hashToLeaf": {
+    "w4OCUvDKiEitRE0ST0MTpw==": {
+     "text": "Product add-ons",
+     "desc": "form field name for product add-ons"
+    }
    },
    "filepath": "src/products/ProductForm.js",
    "line_beg": 121,
    "col_beg": 15,
    "line_end": 121,
    "col_end": 84,
-   "desc": "form field name for product add-ons",
    "project": "",
-   "type": "text",
-   "jsfbt": "Product add-ons"
+   "jsfbt": {
+    "t": {
+     "desc": "form field name for product add-ons",
+     "text": "Product add-ons"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "Zw/DJGKH2E8Y7hZ7abThWQ==": "Product category"
+   "hashToLeaf": {
+    "Zw/DJGKH2E8Y7hZ7abThWQ==": {
+     "text": "Product category",
+     "desc": "product category selectbox label"
+    }
    },
    "filepath": "src/products/ProductForm.js",
    "line_beg": 142,
    "col_beg": 15,
    "line_end": 142,
    "col_end": 82,
-   "desc": "product category selectbox label",
    "project": "",
-   "type": "text",
-   "jsfbt": "Product category"
+   "jsfbt": {
+    "t": {
+     "desc": "product category selectbox label",
+     "text": "Product category"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "975ts5zSj//Q9GanI8i72A==": "Visibility (use {keyboard1} or {keyboard2} to unselect or select more)"
+   "hashToLeaf": {
+    "975ts5zSj//Q9GanI8i72A==": {
+     "text": "Visibility (use {keyboard1} or {keyboard2} to unselect or select more)",
+     "desc": "product visibility multiselect label"
+    }
    },
    "filepath": "src/products/ProductForm.js",
    "line_beg": 161,
    "col_beg": 12,
    "line_end": 171,
    "col_end": 18,
-   "desc": "product visibility multiselect label",
    "project": "",
-   "type": "text",
-   "jsfbt": "Visibility (use {keyboard1} or {keyboard2} to unselect or select more)"
+   "jsfbt": {
+    "t": {
+     "desc": "product visibility multiselect label",
+     "text": "Visibility (use {keyboard1} or {keyboard2} to unselect or select more)"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "xYkBXLgCt5XcttuICJB9Og==": "The product can be visible in other places regardless of this setting. For example, it can be displayed in KOCHKA Café menu when it makes sense. This setting only affect where is the product going to be displayed automatically."
+   "hashToLeaf": {
+    "xYkBXLgCt5XcttuICJB9Og==": {
+     "text": "The product can be visible in other places regardless of this setting. For example, it can be displayed in KOCHKA Café menu when it makes sense. This setting only affect where is the product going to be displayed automatically.",
+     "desc": "not on product visibility"
+    }
    },
    "filepath": "src/products/ProductForm.js",
    "line_beg": 174,
    "col_beg": 16,
    "line_end": 178,
    "col_end": 22,
-   "desc": "not on product visibility",
    "project": "",
-   "type": "text",
-   "jsfbt": "The product can be visible in other places regardless of this setting. For example, it can be displayed in KOCHKA Café menu when it makes sense. This setting only affect where is the product going to be displayed automatically."
+   "jsfbt": {
+    "t": {
+     "desc": "not on product visibility",
+     "text": "The product can be visible in other places regardless of this setting. For example, it can be displayed in KOCHKA Café menu when it makes sense. This setting only affect where is the product going to be displayed automatically."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "vm4GdiANCa3DCeSjSz+zfA==": "Visible in POS"
+   "hashToLeaf": {
+    "vm4GdiANCa3DCeSjSz+zfA==": {
+     "text": "Visible in POS",
+     "desc": "visible in POS - select option"
+    }
    },
    "filepath": "src/products/ProductForm.js",
    "line_beg": 185,
    "col_beg": 10,
    "line_end": 185,
    "col_end": 73,
-   "desc": "visible in POS - select option",
    "project": "",
-   "type": "text",
-   "jsfbt": "Visible in POS"
+   "jsfbt": {
+    "t": {
+     "desc": "visible in POS - select option",
+     "text": "Visible in POS"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "Ik7lZpsc1Rsl2ZBYpP5hUg==": "Visible in KOCHKA.com.mx eshop (PUBLIC!)"
+   "hashToLeaf": {
+    "Ik7lZpsc1Rsl2ZBYpP5hUg==": {
+     "text": "Visible in KOCHKA.com.mx eshop (PUBLIC!)",
+     "desc": "visible in eshop - select option"
+    }
    },
    "filepath": "src/products/ProductForm.js",
    "line_beg": 188,
    "col_beg": 10,
    "line_end": 190,
    "col_end": 16,
-   "desc": "visible in eshop - select option",
    "project": "",
-   "type": "text",
-   "jsfbt": "Visible in KOCHKA.com.mx eshop (PUBLIC!)"
+   "jsfbt": {
+    "t": {
+     "desc": "visible in eshop - select option",
+     "text": "Visible in KOCHKA.com.mx eshop (PUBLIC!)"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "pTM3aZwcftatbl/f2476dg==": "This product has not been published yet and might be invisible publicly."
+   "hashToLeaf": {
+    "pTM3aZwcftatbl/f2476dg==": {
+     "text": "This product has not been published yet and might be invisible publicly.",
+     "desc": "warning when product is not published"
+    }
    },
    "filepath": "src/products/ProductsCards.js",
    "line_beg": 55,
    "col_beg": 18,
    "line_end": 57,
    "col_end": 24,
-   "desc": "warning when product is not published",
    "project": "",
-   "type": "text",
-   "jsfbt": "This product has not been published yet and might be invisible publicly."
+   "jsfbt": {
+    "t": {
+     "desc": "warning when product is not published",
+     "text": "This product has not been published yet and might be invisible publicly."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "Vzx+hI2Z0PqPWhGFV/NbRA==": "There are no products yet."
+   "hashToLeaf": {
+    "Vzx+hI2Z0PqPWhGFV/NbRA==": {
+     "text": "There are no products yet.",
+     "desc": "empty shop message"
+    }
    },
    "filepath": "src/products/ProductsCardsInCategory.js",
    "line_beg": 52,
    "col_beg": 8,
    "line_end": 52,
    "col_end": 71,
-   "desc": "empty shop message",
    "project": "",
-   "type": "text",
-   "jsfbt": "There are no products yet."
+   "jsfbt": {
+    "t": {
+     "desc": "empty shop message",
+     "text": "There are no products yet."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "D+WsTLSMdok9SuNN16agEQ==": "Create a new product"
+   "hashToLeaf": {
+    "D+WsTLSMdok9SuNN16agEQ==": {
+     "text": "Create a new product",
+     "desc": "create a new product page heading"
+    }
    },
    "filepath": "src/products/ProductsCreateLayout.js",
    "line_beg": 31,
    "col_beg": 15,
    "line_end": 31,
    "col_end": 87,
-   "desc": "create a new product page heading",
    "project": "",
-   "type": "text",
-   "jsfbt": "Create a new product"
+   "jsfbt": {
+    "t": {
+     "desc": "create a new product page heading",
+     "text": "Create a new product"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "kZSl2UcMZDzRSCGJm9hDkw==": "Products inventory"
+   "hashToLeaf": {
+    "kZSl2UcMZDzRSCGJm9hDkw==": {
+     "text": "Products inventory",
+     "desc": "go back to products navigation button"
+    }
    },
    "filepath": "src/products/ProductsCreateLayout.js",
    "line_beg": 34,
    "col_beg": 10,
    "line_end": 34,
    "col_end": 84,
-   "desc": "go back to products navigation button",
    "project": "",
-   "type": "text",
-   "jsfbt": "Products inventory"
+   "jsfbt": {
+    "t": {
+     "desc": "go back to products navigation button",
+     "text": "Products inventory"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "2rZ9bHi+WSFKLZKmW0QS5A==": "delete"
+   "hashToLeaf": {
+    "2rZ9bHi+WSFKLZKmW0QS5A==": {
+     "text": "delete",
+     "desc": "delete image button title"
+    }
    },
    "filepath": "src/products/ProductsEditLayout.js",
    "line_beg": 77,
    "col_beg": 20,
    "line_end": 77,
    "col_end": 70,
-   "desc": "delete image button title",
    "project": "",
-   "type": "text",
-   "jsfbt": "delete"
+   "jsfbt": {
+    "t": {
+     "desc": "delete image button title",
+     "text": "delete"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "t0ENofKS/oZFwU79Pahg/A==": "undo delete"
+   "hashToLeaf": {
+    "t0ENofKS/oZFwU79Pahg/A==": {
+     "text": "undo delete",
+     "desc": "undo delete image button title"
+    }
    },
    "filepath": "src/products/ProductsEditLayout.js",
    "line_beg": 87,
    "col_beg": 20,
    "line_end": 87,
    "col_end": 80,
-   "desc": "undo delete image button title",
    "project": "",
-   "type": "text",
-   "jsfbt": "undo delete"
+   "jsfbt": {
+    "t": {
+     "desc": "undo delete image button title",
+     "text": "undo delete"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "MCv6Mi3QzsVh3PZbzS9LxA==": "Products inventory"
+   "hashToLeaf": {
+    "MCv6Mi3QzsVh3PZbzS9LxA==": {
+     "text": "Products inventory",
+     "desc": "products inventory title"
+    }
    },
    "filepath": "src/products/ProductsPageLayout.js",
    "line_beg": 15,
    "col_beg": 15,
    "line_end": 15,
    "col_end": 76,
-   "desc": "products inventory title",
    "project": "",
-   "type": "text",
-   "jsfbt": "Products inventory"
+   "jsfbt": {
+    "t": {
+     "desc": "products inventory title",
+     "text": "Products inventory"
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "bHnVJ5eOwBmS4m6gCiw0fQ==": "All products available across all our services are here."
+   "hashToLeaf": {
+    "bHnVJ5eOwBmS4m6gCiw0fQ==": {
+     "text": "All products available across all our services are here.",
+     "desc": "products inventory description"
+    }
    },
    "filepath": "src/products/ProductsPageLayout.js",
    "line_beg": 17,
    "col_beg": 8,
    "line_end": 19,
    "col_end": 14,
-   "desc": "products inventory description",
    "project": "",
-   "type": "text",
-   "jsfbt": "All products available across all our services are here."
+   "jsfbt": {
+    "t": {
+     "desc": "products inventory description",
+     "text": "All products available across all our services are here."
+    },
+    "m": []
+   }
   },
   {
-   "hashToText": {
-    "H4nmh2EfCNqj/R7wbLia9w==": "Create a new product"
+   "hashToLeaf": {
+    "H4nmh2EfCNqj/R7wbLia9w==": {
+     "text": "Create a new product",
+     "desc": "link for create a new product"
+    }
    },
    "filepath": "src/products/ProductsPageLayout.js",
    "line_beg": 23,
    "col_beg": 10,
    "line_end": 23,
    "col_end": 78,
-   "desc": "link for create a new product",
    "project": "",
-   "type": "text",
-   "jsfbt": "Create a new product"
+   "jsfbt": {
+    "t": {
+     "desc": "link for create a new product",
+     "text": "Create a new product"
+    },
+    "m": []
+   }
   }
  ],
  "childParentMappings": {}
