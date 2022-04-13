@@ -88,7 +88,9 @@ it('renders default component for response error', async () => {
     />,
   );
   environment.mock.rejectMostRecentOperation(
-    // $FlowExpectedError[incompatible-call]: incomplete Response object for testing purposes only
+    /* $FlowFixMe[invalid-constructor] This comment suppresses an error when
+     * upgrading Flow to version 0.176.0. To see the error delete this comment
+     * and run Flow. */
     new FetchResponseError({ status: 500, statusText: 'fail' }),
   );
   const error = await testRenderer.root.findByProps({ 'data-testid': 'error' });
@@ -105,6 +107,9 @@ it('renders default component for fail with timeout', async () => {
       onResponse={onResponse}
     />,
   );
+  /* $FlowFixMe[invalid-constructor] This comment suppresses an error when
+   * upgrading Flow to version 0.176.0. To see the error delete this comment
+   * and run Flow. */
   environment.mock.rejectMostRecentOperation(new FetchTimeoutError('fail'));
   const error = await testRenderer.root.findByProps({ 'data-testid': 'error' });
   expect(error).toBeDefined();

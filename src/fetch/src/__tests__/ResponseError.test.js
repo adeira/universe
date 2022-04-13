@@ -7,7 +7,9 @@ const fetchResponse = {
 };
 
 it('is instance of Error and TimeoutError', () => {
-  // $FlowExpectedError[incompatible-call]: incomplete Response object for testing purposes only
+  /* $FlowFixMe[invalid-constructor] This comment suppresses an error when
+   * upgrading Flow to version 0.176.0. To see the error delete this comment
+   * and run Flow. */
   const error = new ResponseError(fetchResponse, 'ups');
   expect(error).toBeInstanceOf(Error);
   /* $FlowFixMe[incompatible-call] This comment suppresses an error when
@@ -16,7 +18,9 @@ it('is instance of Error and TimeoutError', () => {
 });
 
 it('contains response', () => {
-  // $FlowExpectedError[incompatible-call]: incomplete Response object for testing purposes only
+  /* $FlowFixMe[invalid-constructor] This comment suppresses an error when
+   * upgrading Flow to version 0.176.0. To see the error delete this comment
+   * and run Flow. */
   const error = new ResponseError(fetchResponse, 'ups');
   expect(error.response).toBe(fetchResponse);
   expect(error.message).toBe('ups');
@@ -24,7 +28,9 @@ it('contains response', () => {
 
 it('is throwable', () => {
   expect(() => {
-    // $FlowExpectedError[incompatible-call]: incomplete Response object for testing purposes only
+    /* $FlowFixMe[invalid-constructor] This comment suppresses an error when
+     * upgrading Flow to version 0.176.0. To see the error delete this comment
+     * and run Flow. */
     throw new ResponseError(fetchResponse, 'ups');
   }).toThrow('ups');
 });

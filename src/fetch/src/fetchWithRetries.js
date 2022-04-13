@@ -78,6 +78,9 @@ export default function fetchWithRetries(
           retryRequest('HTTP timeout', resource);
         } else {
           reject(
+            /* $FlowFixMe[invalid-constructor] This comment suppresses an error
+             * when upgrading Flow to version 0.176.0. To see the error delete
+             * this comment and run Flow. */
             new TimeoutError(
               sprintf(
                 `fetchWithRetries: Failed to get response from server (${resource}), tried %s times.`,
@@ -102,6 +105,9 @@ export default function fetchWithRetries(
             } else {
               // Request was not successful, giving up.
               reject(
+                /* $FlowFixMe[invalid-constructor] This comment suppresses an
+                 * error when upgrading Flow to version 0.176.0. To see the
+                 * error delete this comment and run Flow. */
                 new ResponseError(
                   response,
                   sprintf(
@@ -147,6 +153,9 @@ export default function fetchWithRetries(
             resolve(response);
           } else {
             // Request was not successful, giving up.
+            /* $FlowFixMe[invalid-constructor] This comment suppresses an error
+             * when upgrading Flow to version 0.176.0. To see the error delete
+             * this comment and run Flow. */
             reject(new ResponseError(response, 'fetch: No successful response, giving up.'));
           }
         })
