@@ -10,6 +10,14 @@ Optionally, install TS types (Flow types are included by default):
 yarn add --dev @types/adeira__js
 ```
 
+Note for ReScript users:
+
+```rescript
+@module("@adeira/js") external invariant: (bool, string) => unit = "invariant"
+
+invariant(false, "It works!")
+```
+
 # `invariant`, `warning`
 
 Use these functions instead of traditional error throwing or `console.warn`. Compare these two examples:
