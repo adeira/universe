@@ -21,7 +21,7 @@ __metadata:
     "@testing-library/react": ^12.1.5
     "@testing-library/react-hooks": ^8.0.0
     babel-plugin-fbt: ^0.20.3
-    babel-plugin-fbt-runtime: ^0.9.18
+    babel-plugin-fbt-runtime: ^1.0.0
     d3: ^7.4.4
     fbt: ^0.17.1
     graphql: ^16.3.0
@@ -51,7 +51,7 @@ __metadata:
     "@playwright/test": ^1.21.0
     "@testing-library/react": ^12.1.5
     babel-plugin-fbt: ^0.20.3
-    babel-plugin-fbt-runtime: ^0.9.18
+    babel-plugin-fbt-runtime: ^1.0.0
     fbt: ^0.17.1
     graphql: ^16.3.0
     next: ^12.1.5
@@ -462,7 +462,7 @@ __metadata:
     "@testing-library/user-event": ^14.1.0
     babel-loader: ^8.2.4
     babel-plugin-fbt: ^0.20.3
-    babel-plugin-fbt-runtime: ^0.9.18
+    babel-plugin-fbt-runtime: ^1.0.0
     blurhash: ^1.1.5
     fbt: ^0.17.1
     flow-enums-runtime: ^0.0.6
@@ -6342,16 +6342,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-fbt-runtime@npm:^0.9.18":
-  version: 0.9.18
-  resolution: "babel-plugin-fbt-runtime@npm:0.9.18"
+"babel-plugin-fbt-runtime@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "babel-plugin-fbt-runtime@npm:1.0.0"
   dependencies:
     "@babel/core": ^7.0.0
-    fbjs: ^1.0.0
     invariant: ^2.2.4
   peerDependencies:
-    babel-plugin-fbt: ^0.20.x
-  checksum: bab571702a7137113b5fc85c3c7ba05bd7f982f21305d427d29733568ad262a2e40dceb420ee75cbc508ab3d0251342b9e52a6feb903d3b3865848da98b9d375
+    babel-plugin-fbt: ^1.0.0
+  checksum: 0a9e0d02e3b5f663de66d8cd85cad471a66494e4f0a0eab385243df9e13f5d085e854dff28900d584e96f95f293364ee8d0cbffedaa57d4c129e249c9fd19fab
   languageName: node
   linkType: hard
 
@@ -7889,13 +7888,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"core-js@npm:^2.4.1":
-  version: 2.6.12
-  resolution: "core-js@npm:2.6.12"
-  checksum: 44fa9934a85f8c78d61e0c8b7b22436330471ffe59ec5076fe7f324d6e8cf7f824b14b1c81ca73608b13bdb0fef035bd820989bf059767ad6fa13123bb8bd016
-  languageName: node
-  linkType: hard
-
 "core-js@npm:^3.0.4, core-js@npm:^3.6.5, core-js@npm:^3.8.2":
   version: 3.18.3
   resolution: "core-js@npm:3.18.3"
@@ -9230,7 +9222,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"encoding@npm:^0.1.11, encoding@npm:^0.1.12":
+"encoding@npm:^0.1.12":
   version: 0.1.13
   resolution: "encoding@npm:0.1.13"
   dependencies:
@@ -10363,22 +10355,6 @@ __metadata:
   version: 1.0.2
   resolution: "fbjs-css-vars@npm:1.0.2"
   checksum: 72baf6d22c45b75109118b4daecb6c8016d4c83c8c0f23f683f22e9d7c21f32fff6201d288df46eb561e3c7d4bb4489b8ad140b7f56444c453ba407e8bd28511
-  languageName: node
-  linkType: hard
-
-"fbjs@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "fbjs@npm:1.0.0"
-  dependencies:
-    core-js: ^2.4.1
-    fbjs-css-vars: ^1.0.0
-    isomorphic-fetch: ^2.1.1
-    loose-envify: ^1.0.0
-    object-assign: ^4.1.0
-    promise: ^7.1.1
-    setimmediate: ^1.0.5
-    ua-parser-js: ^0.7.18
-  checksum: e3a18508c303934aa1d3d891c13e127d071d8c5c557fa886d982fd71ebf6ac713cb7fa8cbd805b0c50fe1be80eea276125c8cc00d7d48460572738e0d71123ac
   languageName: node
   linkType: hard
 
@@ -12616,7 +12592,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-stream@npm:1.1.0, is-stream@npm:^1.0.1, is-stream@npm:^1.1.0":
+"is-stream@npm:1.1.0, is-stream@npm:^1.1.0":
   version: 1.1.0
   resolution: "is-stream@npm:1.1.0"
   checksum: 063c6bec9d5647aa6d42108d4c59723d2bd4ae42135a2d4db6eadbd49b7ea05b750fd69d279e5c7c45cf9da753ad2c00d8978be354d65aa9f6bb434969c6a2ae
@@ -12756,16 +12732,6 @@ __metadata:
   version: 4.0.0
   resolution: "isobject@npm:4.0.0"
   checksum: bbcb522e46d54fb22418ba49fb9a82057ffa201c8401fb6e018c042e2c98cf7d9c7b185aff88e035ec8adea0814506dc2aeff2d08891bbc158e1671a49e99c06
-  languageName: node
-  linkType: hard
-
-"isomorphic-fetch@npm:^2.1.1":
-  version: 2.2.1
-  resolution: "isomorphic-fetch@npm:2.2.1"
-  dependencies:
-    node-fetch: ^1.0.1
-    whatwg-fetch: ">=0.10.0"
-  checksum: bb5daa7c3785d6742f4379a81e55b549a469503f7c9bf9411b48592e86632cf5e8fe8ea878dba185c0f33eb7c510c23abdeb55aebfdf5d3c70f031ced68c5424
   languageName: node
   linkType: hard
 
@@ -14945,16 +14911,6 @@ __metadata:
     encoding:
       optional: true
   checksum: 8d816ffd1ee22cab8301c7756ef04f3437f18dace86a1dae22cf81db8ef29c0bf6655f3215cb0cdb22b420b6fe141e64b26905e7f33f9377a7fa59135ea3e10b
-  languageName: node
-  linkType: hard
-
-"node-fetch@npm:^1.0.1":
-  version: 1.7.3
-  resolution: "node-fetch@npm:1.7.3"
-  dependencies:
-    encoding: ^0.1.11
-    is-stream: ^1.0.1
-  checksum: 3bb0528c05d541316ebe52770d71ee25a6dce334df4231fd55df41a644143e07f068637488c18a5b0c43f05041dbd3346752f9e19b50df50569a802484544d5b
   languageName: node
   linkType: hard
 
@@ -19489,7 +19445,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ua-parser-js@npm:^0.7.18, ua-parser-js@npm:^0.7.30":
+"ua-parser-js@npm:^0.7.30":
   version: 0.7.30
   resolution: "ua-parser-js@npm:0.7.30"
   checksum: 19aad6e1b9e93cf3c57e139858811c2c94031ed769f1ac36dc3cda1e1e5d2c73c2e02ddf4f9e0ea140069f803315484f955488961172a6a01e9322b6c042ae98
@@ -20271,13 +20227,6 @@ __metadata:
   dependencies:
     iconv-lite: 0.4.24
   checksum: 5be4efe111dce29ddee3448d3915477fcc3b28f991d9cf1300b4e50d6d189010d47bca2f51140a844cf9b726e8f066f4aee72a04d687bfe4f2ee2767b2f5b1e6
-  languageName: node
-  linkType: hard
-
-"whatwg-fetch@npm:>=0.10.0":
-  version: 3.5.0
-  resolution: "whatwg-fetch@npm:3.5.0"
-  checksum: 8a915e7ec4ef55d1cfae1d39bd2547893ea2b13b3e8a3a93d355af109f26748c6dc43700a15fe70532f4218eb7076819c0d9f94c16ef4252e94ca85c7863763b
   languageName: node
   linkType: hard
 
