@@ -17,6 +17,10 @@
       groupName: 'Relay packages',
       matchSourceUrlPrefixes: ['https://github.com/facebook/relay'],
     },
+    {
+      groupName: 'FBT packages',
+      matchSourceUrlPrefixes: ['https://github.com/facebook/fbt'],
+    }
   ],
   postUpdateOptions: ['yarnDedupeHighest'],
   rangeStrategy: 'bump',
