@@ -2,11 +2,11 @@
 
 import FocusTrap from 'focus-trap-react';
 import React, { useEffect, type Node } from 'react';
+import { useWindowSize } from '@adeira/hooks';
 
 import ModalDialog from './ModalDialog';
 import ModalDrawer from './ModalDrawer';
 import SxDesignPortal from '../SxDesignPortal';
-import useWindowSize from '../useWindowSize';
 import { MOBILE_WIDTH_BOUNDARY } from '../constants';
 
 type Props = {
