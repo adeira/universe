@@ -33,7 +33,7 @@ __metadata:
     react: ^17.0.2
     react-dom: ^17.0.2
     react-google-login: ^5.2.2
-    recoil: ^0.7.0
+    recoil: ^0.7.1
   languageName: unknown
   linkType: soft
 
@@ -61,7 +61,7 @@ __metadata:
     playwright: ^1.21.0
     react: ^17.0.2
     react-dom: ^17.0.2
-    recoil: ^0.7.0
+    recoil: ^0.7.1
   languageName: unknown
   linkType: soft
 
@@ -17088,9 +17088,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"recoil@npm:^0.7.0":
-  version: 0.7.0
-  resolution: "recoil@npm:0.7.0"
+"recoil@npm:^0.7.1":
+  version: 0.7.1
+  resolution: "recoil@npm:0.7.1"
   dependencies:
     hamt_plus: 1.0.2
   peerDependencies:
@@ -17100,7 +17100,7 @@ __metadata:
       optional: true
     react-native:
       optional: true
-  checksum: e190db5153e322ba8ca824e97701e756c41681080da23f3e87d104544da2e8c9eea44ada8a36857ef9a1ade368dfe6ea3af7d51796441b08c40272c0a1386c81
+  checksum: e68d9fc2ef9f1118a7ca0294653242abf8ee206c32b9191cfadcbee1342a1921d6341f7e7b48cbbb33292887edddbfdf00d1c4725428c3c2ada916db932b236d
   languageName: node
   linkType: hard
 
