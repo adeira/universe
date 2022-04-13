@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import { useEffect, useState } from 'react';
 
@@ -7,7 +7,7 @@ type WindowSize = {
   height: ?number,
 };
 
-export default function useWindowSize(): WindowSize {
+export function useWindowSize(): WindowSize {
   // Initialize state with undefined width/height so server and client renders match
   // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
   const [windowSize, setWindowSize] = useState({

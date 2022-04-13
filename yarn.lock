@@ -42,6 +42,7 @@ __metadata:
   resolution: "@adeira/abacus-kochka@workspace:src/abacus-kochka"
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
+    "@adeira/hooks": ^0.0.2
     "@adeira/icons": ^1.0.1
     "@adeira/js": ^2.1.1
     "@adeira/relay": ^5.2.0
@@ -294,7 +295,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/hooks@workspace:src/hooks":
+"@adeira/hooks@^0.0.2, @adeira/hooks@workspace:src/hooks":
   version: 0.0.0-use.local
   resolution: "@adeira/hooks@workspace:src/hooks"
   dependencies:
@@ -442,6 +443,7 @@ __metadata:
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
     "@adeira/css-colors": ^2.2.0
+    "@adeira/hooks": ^0.0.2
     "@adeira/icons": ^1.0.1
     "@adeira/js": ^2.1.1
     "@adeira/sx": ^0.29.1

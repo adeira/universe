@@ -2,9 +2,9 @@
 
 import React, { useRef, type Node } from 'react';
 import sx from '@adeira/sx';
+import { useKeyPress } from '@adeira/hooks';
 
 import Text from '../Text/Text';
-import useKeyPress from '../useKeyPress';
 
 export type TabsType<TabValueType> = Array<{
   +title: Fbt | RestrictedElement<typeof Text>,

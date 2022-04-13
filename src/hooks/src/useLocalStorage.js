@@ -3,8 +3,6 @@
 import { useState } from 'react';
 
 /**
- * TODO: move into `@adeira/hooks`
- *
  * This essentially behaves like `useState` from React except it additionally persist the values
  * into local storage. Usage:
  *
@@ -18,6 +16,7 @@ import { useState } from 'react';
  * @see https://usehooks.com/useLocalStorage/
  */
 export function useLocalStorage<S>(key: string, initialValue: S): [S, (S) => void] {
+  // TODO: make this prefixed key universal for any application
   const prefixedKey = `mx.com.kochka:${key}`;
 
   const [storedValue, setStoredValue] = useState<S>(() => {
