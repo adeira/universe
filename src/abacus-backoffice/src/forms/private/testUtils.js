@@ -36,6 +36,7 @@ export function initFbt(): void {
     hooks: {
       getViewerContext: () => ({
         GENDER: FbtIntlVariations.GENDER_UNKNOWN,
+        regionalLocale: 'en-US',
         locale: 'en-US',
       }),
     },

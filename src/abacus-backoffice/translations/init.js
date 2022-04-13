@@ -16,6 +16,7 @@ export default function initTranslations(applicationLocale: 'en-US' | 'es-MX'): 
     hooks: {
       getViewerContext: () => ({
         GENDER: IntlVariations.GENDER_UNKNOWN,
+        regionalLocale: translationsLocale,
         locale: translationsLocale,
       }),
     },
