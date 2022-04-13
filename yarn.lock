@@ -15,7 +15,7 @@ __metadata:
     "@adeira/relay": ^5.2.0
     "@adeira/sx": ^0.29.1
     "@adeira/sx-design": ^0.25.0
-    "@fbtjs/default-collection-transform": ^0.0.3
+    "@fbtjs/default-collection-transform": ^1.0.0
     "@next/bundle-analyzer": ^12.1.5
     "@testing-library/jest-dom": ^5.16.4
     "@testing-library/react": ^12.1.5
@@ -47,7 +47,7 @@ __metadata:
     "@adeira/relay": ^5.2.0
     "@adeira/sx": ^0.29.1
     "@adeira/sx-design": ^0.25.0
-    "@fbtjs/default-collection-transform": ^0.0.3
+    "@fbtjs/default-collection-transform": ^1.0.0
     "@playwright/test": ^1.21.0
     "@testing-library/react": ^12.1.5
     babel-plugin-fbt: ^0.20.3
@@ -448,7 +448,7 @@ __metadata:
     "@adeira/sx-jest-snapshot-serializer": ^0.1.0
     "@babel/core": ^7.17.9
     "@babel/runtime": ^7.17.9
-    "@fbtjs/default-collection-transform": ^0.0.3
+    "@fbtjs/default-collection-transform": ^1.0.0
     "@storybook/addon-a11y": ^6.4.21
     "@storybook/addon-actions": ^6.4.21
     "@storybook/addon-essentials": ^6.4.21
@@ -2464,9 +2464,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fbtjs/default-collection-transform@npm:^0.0.3":
-  version: 0.0.3
-  resolution: "@fbtjs/default-collection-transform@npm:0.0.3"
+"@fbtjs/default-collection-transform@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@fbtjs/default-collection-transform@npm:1.0.0"
   dependencies:
     "@babel/core": ^7.0.0
     "@babel/generator": ^7.0.0
@@ -2480,8 +2480,8 @@ __metadata:
     "@babel/plugin-syntax-optional-catch-binding": ^7.0.0
     "@babel/plugin-syntax-optional-chaining": ^7.0.0
   peerDependencies:
-    babel-plugin-fbt: ^0.20.x
-  checksum: 4bcd7f5c5ea74760b5c759564960a3acd3504db418141fffe5e89742cf57b315188534199ba0a348a5faf2da344dfde45da7a83094091c8c8ca098ad8b279006
+    babel-plugin-fbt: ^1.0.0
+  checksum: 1b4c5b89a41fce7aa0ca0c19c04e3d2af9e4faf5197bdb2dccda2205ebb1ffc5b998c113ca6fc8604d93f8a53558694323adce5820e950e3e2280fc4a02f4522
   languageName: node
   linkType: hard
 
