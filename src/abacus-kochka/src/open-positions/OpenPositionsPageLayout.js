@@ -22,7 +22,8 @@ export default function OpenPositionsPageLayout(): React.Node {
              - a company with European co-founder requiring higher standards
              - bullshit free (admit we cannot offer great benefits now)
              - transparent/open company
-             - tktk
+             - we have cats
+             - min requirements: 18+, horario
          */}
         <OpenPosition
           title={
