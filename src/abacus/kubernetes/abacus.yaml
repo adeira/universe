@@ -16,18 +16,15 @@ spec:
     args:
       - '--query.require-with=true' # require WITH clauses even when not in cluster
     storageClassName: do-block-storage # DigitalOcean Block Storage
-#    resources:
-#      requests:
-#        cpu: 1
-#        memory: 512Mi
-#        storage: 1Gi
-#      limits:
-#        cpu: 2
-#        memory: 1024Mi
-#        storage: 1Gi
+    resources:
+      # TODO: limits
+      requests:
+        cpu: 64m
+        memory: 1024Mi
+        storage: 1Gi
 
 ---
-apiVersion: 'batch/v1beta1'
+apiVersion: 'batch/v1'
 kind: 'CronJob'
 metadata:
   # See also `arangodb-single-server-restore`
@@ -212,14 +209,11 @@ spec:
       containers:
         - name: abacus
           image: adeira/abacus
-          # https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
-          #          resources:
-          #            requests:
-          #              cpu: 0.1
-          #              memory: 64Mi
-          #            limits:
-          #              cpu: 1
-          #              memory: 256Mi
+          resources:
+            # TODO: limits
+            requests:
+              cpu: 16m
+              memory: 128Mi
           ports:
             - containerPort: 5000
           env:
@@ -282,14 +276,11 @@ spec:
       containers:
         - name: abacus-backoffice
           image: adeira/abacus-backoffice
-          # https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
-          #          resources:
-          #            requests:
-          #              cpu: 0.1
-          #              memory: 64Mi
-          #            limits:
-          #              cpu: 1
-          #              memory: 256Mi
+          resources:
+            # TODO: limits
+            requests:
+              cpu: 16m
+              memory: 128Mi
           ports:
             - containerPort: 5001
 
@@ -329,13 +320,10 @@ spec:
       containers:
         - name: abacus-kochka
           image: adeira/abacus-kochka
-          # https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
-          #          resources:
-          #            requests:
-          #              cpu: 0.1
-          #              memory: 64Mi
-          #            limits:
-          #              cpu: 1
-          #              memory: 256Mi
+          resources:
+            # TODO: limits
+            requests:
+              cpu: 16m
+              memory: 128Mi
           ports:
             - containerPort: 5002
