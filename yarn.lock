@@ -115,7 +115,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/eslint-config@^7.5.0, @adeira/eslint-config@workspace:src/eslint-config-adeira":
+"@adeira/eslint-config@^7.4.0, @adeira/eslint-config@workspace:src/eslint-config-adeira":
   version: 0.0.0-use.local
   resolution: "@adeira/eslint-config@workspace:src/eslint-config-adeira"
   dependencies:
@@ -17571,7 +17571,7 @@ __metadata:
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
-    "@adeira/eslint-config": ^7.5.0
+    "@adeira/eslint-config": ^7.4.0
     "@adeira/monorepo-utils": ^0.11.0
     "@babel/cli": ^7.17.6
     "@babel/core": ^7.17.9

@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^4.0.0",
-    "@adeira/eslint-config": "^7.5.0",
+    "@adeira/eslint-config": "^7.4.0",
     "@adeira/monorepo-utils": "^0.11.0",
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.9",
