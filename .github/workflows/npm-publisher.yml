@@ -19,6 +19,7 @@ jobs:
           # Number of commits to fetch. 0 indicates all history for all branches and tags.
           fetch-depth: 0
 
+      # Always use the oldest supported Node.js version here:
       - name: Use Node.js 14.x
         uses: actions/setup-node@v3.1.1
         with:
