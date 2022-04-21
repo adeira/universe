@@ -70,7 +70,7 @@ pub(in crate::analytics) async fn get_link_and_record_hit(
             RETURN NEW
         "#,
         hashmap_json![
-            "uuid" => uuid.to_hyphenated().encode_lower(&mut Uuid::encode_buffer()),
+            "uuid" => uuid.hyphenated().encode_lower(&mut Uuid::encode_buffer()),
         ],
     )
     .await
