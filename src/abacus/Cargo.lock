@@ -2334,7 +2334,7 @@ dependencies = [
  "tracing-subscriber",
  "typed-builder",
  "url",
- "uuid",
+ "uuid 1.0.0",
  "valico",
  "warp",
 ]
@@ -2871,6 +2871,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "uuid"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8cfcd319456c4d6ea10087ed423473267e1a071f3bc0aa89f80d60997843c6f0"
+dependencies = [
+ "getrandom 0.2.3",
+]
+
+[[package]]
 name = "valico"
 version = "3.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2889,7 +2898,7 @@ dependencies = [
  "serde_json",
  "uritemplate-next",
  "url",
- "uuid",
+ "uuid 0.8.2",
 ]
 
 [[package]]
