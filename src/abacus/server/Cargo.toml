@@ -44,7 +44,7 @@ tracing = "0.1.34"
 tracing-subscriber = { version = "0.3.11", default-features = false, features = ["smallvec", "fmt", "ansi", "tracing-log", "std", "env-filter"] }
 typed-builder = "0.10.0"
 url = "2.2.2"
-uuid = { version = "0.8.2", default-features = false, features = ["std", "v4"] }
+uuid = { version = "1.0.0", default-features = false, features = ["std", "v4"] }
 warp = { version = "0.3.2", default-features = false, features = ["multipart", "compression"] }
 
 [dev-dependencies]
