@@ -1,4 +1,4 @@
-/* eslint-disable ft-flow/require-valid-file-annotation, no-self-compare */
+/* eslint-disable ft-flow/require-valid-file-annotation, no-self-compare, no-constant-binary-expression */
 
 const x = Math.random();
 const y = Math.random();
