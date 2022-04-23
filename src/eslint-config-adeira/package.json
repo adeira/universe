@@ -23,7 +23,7 @@
     "eslint-plugin-fbt": "^0.6.0",
     "eslint-plugin-ft-flow": "^2.0.1",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jest": "^26.1.4",
+    "eslint-plugin-jest": "^26.1.5",
     "eslint-plugin-jest-dom": "^4.0.1",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-monorepo": "^0.3.2",
