@@ -1,6 +1,6 @@
 // @flow
 
-const { ERROR, OFF, WARN } = require('../constants');
+const { ERROR, OFF, WARN, NEXT_VERSION_ERROR } = require('../constants');
 
 /*::
 
@@ -255,6 +255,7 @@ module.exports = ({
     'constructor-super': ERROR,
     'no-class-assign': WARN,
     'no-const-assign': ERROR,
+    'no-constant-binary-expression': NEXT_VERSION_ERROR,
     'no-dupe-class-members': ERROR,
     'no-duplicate-imports': OFF,
     'no-new-symbol': WARN,
