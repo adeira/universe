@@ -556,7 +556,7 @@ __metadata:
     react: ^17.0.2
     react-test-renderer: ^17.0.2
     snapshot-diff: ^0.9.0
-    stylis: ^4.1.0
+    stylis: ^4.1.1
   peerDependencies:
     react: ^17.0.2
   languageName: unknown
@@ -18702,10 +18702,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylis@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "stylis@npm:4.1.0"
-  checksum: 1d0c167340cfd0fa0fecebcaae807e1d66f6498ae250bb3c5ba47d849ab8ce1142757feebcf8fede08941d2e7597cebee25419e21a2846b66c55bb49a6ad2b8a
+"stylis@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "stylis@npm:4.1.1"
+  checksum: e9b0a086996a94c44d45933287731313f6ecdbf9334410231d882d31a1890fb36e34a7b163487e2d7f992c2044e4cb37179810fc6f758f359a431343c2374ed2
   languageName: node
   linkType: hard
 
