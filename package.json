@@ -6,7 +6,7 @@
   ],
   "engines": {
     "node": ">=v14.19.1",
-    "yarn": ">=1.0.0"
+    "yarn": ">=3.2.0"
   },
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^4.0.0",
