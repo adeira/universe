@@ -49,7 +49,7 @@ __metadata:
     "@adeira/sx": ^0.29.1
     "@adeira/sx-design": ^0.25.0
     "@fbtjs/default-collection-transform": ^1.0.0
-    "@playwright/test": ^1.21.0
+    "@playwright/test": ^1.21.1
     "@testing-library/react": ^12.1.5
     babel-plugin-fbt: ^1.0.0
     babel-plugin-fbt-runtime: ^1.0.0
@@ -59,7 +59,7 @@ __metadata:
     next-plugin-custom-babel-config: ^1.0.5
     next-seo: ^5.4.0
     next-transpile-modules: ^9.0.0
-    playwright: ^1.21.0
+    playwright: ^1.21.1
     react: ^17.0.2
     react-dom: ^17.0.2
     recoil: ^0.7.2
@@ -129,7 +129,7 @@ __metadata:
     eslint-plugin-fbt: ^0.6.0
     eslint-plugin-ft-flow: ^2.0.1
     eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^26.1.4
+    eslint-plugin-jest: ^26.1.5
     eslint-plugin-jest-dom: ^4.0.1
     eslint-plugin-jsx-a11y: ^6.5.1
     eslint-plugin-monorepo: ^0.3.2
@@ -145,7 +145,7 @@ __metadata:
     prettier: ^2.6.2
     snapshot-diff: ^0.9.0
   peerDependencies:
-    eslint: ">=8.13.0"
+    eslint: ">=8.14.0"
   languageName: unknown
   linkType: soft
 
@@ -157,10 +157,10 @@ __metadata:
     "@adeira/js": ^2.1.1
     "@babel/eslint-parser": ^7.17.0
     "@babel/runtime": ^7.17.9
-    eslint: ^8.13.0
+    eslint: ^8.14.0
     jest-docblock: ^27.5.1
   peerDependencies:
-    eslint: ^8.13.0
+    eslint: ^8.14.0
   languageName: unknown
   linkType: soft
 
@@ -179,11 +179,11 @@ __metadata:
     "@adeira/sx-design": ^0.25.0
     "@testing-library/jest-dom": ^5.16.4
     "@testing-library/react": ^12.1.5
-    "@testing-library/user-event": ^14.1.0
+    "@testing-library/user-event": ^14.1.1
     apollo-server-micro: ^3.6.7
     babel-jest: ^27.5.1
     cors: ^2.8.5
-    flow-bin: ^0.176.2
+    flow-bin: ^0.176.3
     graphql: ^16.3.0
     jest: ^27.5.1
     micro: ^9.3.4
@@ -338,7 +338,7 @@ __metadata:
     "@babel/runtime": ^7.17.9
     chalk: ^4.1.2
     is-ci: ^3.0.1
-    npm-packlist: ^5.0.0
+    npm-packlist: ^5.0.2
     npm-registry-client: ^8.6.0
     rimraf: ^3.0.2
     semver: ^7.3.7
@@ -461,8 +461,8 @@ __metadata:
     "@storybook/theming": ^6.4.22
     "@testing-library/jest-dom": ^5.16.4
     "@testing-library/react": ^12.1.5
-    "@testing-library/user-event": ^14.1.0
-    babel-loader: ^8.2.4
+    "@testing-library/user-event": ^14.1.1
+    babel-loader: ^8.2.5
     babel-plugin-fbt: ^1.0.0
     babel-plugin-fbt-runtime: ^1.0.0
     blurhash: ^1.1.5
@@ -503,7 +503,7 @@ __metadata:
     "@adeira/babel-preset-adeira": ^4.0.0
     "@adeira/sx": ^0.29.1
     "@babel/core": ^7.17.9
-    flow-bin: ^0.176.2
+    flow-bin: ^0.176.3
     hast-util-to-html: ^7.1.3
     next: ^12.1.5
     next-plugin-custom-babel-config: ^1.0.5
@@ -556,7 +556,7 @@ __metadata:
     react: ^17.0.2
     react-test-renderer: ^17.0.2
     snapshot-diff: ^0.9.0
-    stylis: ^4.1.0
+    stylis: ^4.1.1
   peerDependencies:
     react: ^17.0.2
   languageName: unknown
@@ -2449,9 +2449,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/eslintrc@npm:^1.2.1":
-  version: 1.2.1
-  resolution: "@eslint/eslintrc@npm:1.2.1"
+"@eslint/eslintrc@npm:^1.2.2":
+  version: 1.2.2
+  resolution: "@eslint/eslintrc@npm:1.2.2"
   dependencies:
     ajv: ^6.12.4
     debug: ^4.3.2
@@ -2462,7 +2462,7 @@ __metadata:
     js-yaml: ^4.1.0
     minimatch: ^3.0.4
     strip-json-comments: ^3.1.1
-  checksum: 1f797b9f94d71b965992cf6c44e3bcb574643014fd1e3d4862d25056bd5568f59c488461a7e9a1c1758ca7f0def5d3cb69c3d8b38581bcf4a53af74371243797
+  checksum: d891036bbffb0efec1462aa4a603ed6e349d546b1632dde7d474ddd15c2a8b6895671b25293f1d3ba10ff629c24a3649ad049373fe695a0e44b612537088563c
   languageName: node
   linkType: hard
 
@@ -3182,9 +3182,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:^1.21.0":
-  version: 1.21.0
-  resolution: "@playwright/test@npm:1.21.0"
+"@playwright/test@npm:^1.21.1":
+  version: 1.21.1
+  resolution: "@playwright/test@npm:1.21.1"
   dependencies:
     "@babel/code-frame": 7.16.7
     "@babel/core": 7.16.12
@@ -3215,14 +3215,14 @@ __metadata:
     ms: 2.1.3
     open: 8.4.0
     pirates: 4.0.4
-    playwright-core: 1.21.0
+    playwright-core: 1.21.1
     rimraf: 3.0.2
     source-map-support: 0.4.18
     stack-utils: 2.0.5
     yazl: 2.5.1
   bin:
     playwright: cli.js
-  checksum: 76287961599fb53760960e19fc02392f61fdb137e7fa755661d2f560e4c2940c688206401ee42f2bf711eb68e71b1e03b85bb2e3181046487e3ef37f9ce33f69
+  checksum: b2bf7dc5fda40ce39812fa717a9b8359da951e80bf885decc2dc73c58179922f7653179ea2d34b1e72a8d464cb8c4c86e4aa2d8eb3711cec2070521c8d4f9e06
   languageName: node
   linkType: hard
 
@@ -4731,12 +4731,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/user-event@npm:^14.1.0":
-  version: 14.1.0
-  resolution: "@testing-library/user-event@npm:14.1.0"
+"@testing-library/user-event@npm:^14.1.1":
+  version: 14.1.1
+  resolution: "@testing-library/user-event@npm:14.1.1"
   peerDependencies:
     "@testing-library/dom": ">=7.21.4"
-  checksum: 6fabd42a0ea747912183d1780063a1128609007703647ce5e4f2d88a43c9db02771e737403722a7ee5211dbe47b14fd3088aaaafa24d341ca086875546e5a83b
+  checksum: dd02aecbde64002aa3c58392137672156101fc3bb821f43db99e3c652e6a6d34b3eb29b2524eb41ad2a317cfdff6ab2e88d7027605d88dccaacf4f07a08dc7a9
   languageName: node
   linkType: hard
 
@@ -6274,9 +6274,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-loader@npm:^8.0.0, babel-loader@npm:^8.2.4":
-  version: 8.2.4
-  resolution: "babel-loader@npm:8.2.4"
+"babel-loader@npm:^8.0.0, babel-loader@npm:^8.2.5":
+  version: 8.2.5
+  resolution: "babel-loader@npm:8.2.5"
   dependencies:
     find-cache-dir: ^3.3.1
     loader-utils: ^2.0.0
@@ -6285,7 +6285,7 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.0.0
     webpack: ">=2"
-  checksum: 4968251fc4af4279c8e44adba523ed4ad18942f04b37061298e81640d09a570f66e6d53948e39a7d3c3d24ca2b025f0a07c606fadd8e3fbffa8912fd789fd4f0
+  checksum: a6605557885eabbc3250412405f2c63ca87287a95a439c643fdb47d5ea3d5326f72e43ab97be070316998cb685d5dfbc70927ce1abe8be7a6a4f5919287773fb
   languageName: node
   linkType: hard
 
@@ -9518,7 +9518,7 @@ __metadata:
     "@adeira/flow-types-eslint": 0.0.0
     "@babel/eslint-parser": ^7.17.0
     "@babel/runtime": ^7.17.9
-    eslint: ^8.13.0
+    eslint: ^8.14.0
     fast-levenshtein: ^3.0.0
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
@@ -9616,9 +9616,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest@npm:^26.1.4":
-  version: 26.1.4
-  resolution: "eslint-plugin-jest@npm:26.1.4"
+"eslint-plugin-jest@npm:^26.1.5":
+  version: 26.1.5
+  resolution: "eslint-plugin-jest@npm:26.1.5"
   dependencies:
     "@typescript-eslint/utils": ^5.10.0
   peerDependencies:
@@ -9629,7 +9629,7 @@ __metadata:
       optional: true
     jest:
       optional: true
-  checksum: f9989a853a165ad1afc077d7d75582391d511e8e14145bb67c76b0ad70a0966358311659da0e82162832bd23a327c2bd1d15dd5d3917f69bb8c14d256e8e1d77
+  checksum: 727487c6d0cc4aa66f8209fc187a2f4eb56ffea6569dacb04bb1e3272221d6238460fb967a12074acac50b0b545d2190c697bad64ebc6c8bdd4e8f3cc66d5a68
   languageName: node
   linkType: hard
 
@@ -9782,11 +9782,11 @@ __metadata:
     "@babel/code-frame": ^7.16.7
     "@babel/eslint-parser": ^7.17.0
     "@babel/runtime": ^7.17.9
-    eslint: ^8.13.0
+    eslint: ^8.14.0
     react: ^17.0.2
   peerDependencies:
     "@adeira/sx": ^0.29.1
-    eslint: ^8.13.0
+    eslint: ^8.14.0
   languageName: unknown
   linkType: soft
 
@@ -9872,11 +9872,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.13.0":
-  version: 8.13.0
-  resolution: "eslint@npm:8.13.0"
+"eslint@npm:^8.14.0":
+  version: 8.14.0
+  resolution: "eslint@npm:8.14.0"
   dependencies:
-    "@eslint/eslintrc": ^1.2.1
+    "@eslint/eslintrc": ^1.2.2
     "@humanwhocodes/config-array": ^0.9.2
     ajv: ^6.10.0
     chalk: ^4.0.0
@@ -9913,7 +9913,7 @@ __metadata:
     v8-compile-cache: ^2.0.3
   bin:
     eslint: bin/eslint.js
-  checksum: bc7d2fc9a046d42cb2c8987573ecaf534c1fae14747c4695e32388e179c5f21b83eefdb3e4f35924bf76152e226d7cc9dfb21f12348baf12c803109005b17439
+  checksum: 87d2e3e5eb93216d4ab36006e7b8c0bfad02f40b0a0f193f1d42754512cd3a9d8244152f1c69df5db2e135b3c4f1c10d0ed2f0881fe8a8c01af55465968174c1
   languageName: node
   linkType: hard
 
@@ -10582,12 +10582,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"flow-bin@npm:^0.176.2":
-  version: 0.176.2
-  resolution: "flow-bin@npm:0.176.2"
+"flow-bin@npm:^0.176.3":
+  version: 0.176.3
+  resolution: "flow-bin@npm:0.176.3"
   bin:
     flow: cli.js
-  checksum: 3ae2348f2fa5b4fd65858acb1a8171ef293a0c300dab545234b52d4cd18bb1ec0046087b501e2866ab2bd5bcf4ad5482827f96ba981dc7eae1cf486aab872410
+  checksum: 00b9ca55f245d6d73e57459fddd4ef832af7205dbe94e4af00ef21c39a832503cb98221bfd3acf65abe5fb4acb09993ffdef02d4e96433ba14be09dc5b464b9b
   languageName: node
   linkType: hard
 
@@ -11141,7 +11141,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:^7.0.0, glob@npm:^7.1.1, glob@npm:^7.1.2, glob@npm:^7.1.3, glob@npm:^7.1.4, glob@npm:^7.1.6, glob@npm:^7.2.0":
+"glob@npm:^7.0.0, glob@npm:^7.1.1, glob@npm:^7.1.2, glob@npm:^7.1.3, glob@npm:^7.1.4, glob@npm:^7.1.6":
   version: 7.2.0
   resolution: "glob@npm:7.2.0"
   dependencies:
@@ -15056,17 +15056,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm-packlist@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "npm-packlist@npm:5.0.0"
+"npm-packlist@npm:^5.0.2":
+  version: 5.0.2
+  resolution: "npm-packlist@npm:5.0.2"
   dependencies:
-    glob: ^7.2.0
+    glob: ^8.0.1
     ignore-walk: ^5.0.1
     npm-bundled: ^1.1.2
     npm-normalize-package-bin: ^1.0.1
   bin:
     npm-packlist: bin/index.js
-  checksum: 5badccf62cd66904186f8c9b08d539f1831b71f368efa7b436d3aec8729984293d2db56170669ae4df5993c1269bb0e0c82398a5e739d0d76471b97fc81aa20d
+  checksum: ff2c295dea161c800c5c2d4254d6b864126333786edec7e56387a9184e966864e8e46a77aa8121db13f210232b6439c7425098ead377fe2fc287ac316c888f4d
   languageName: node
   linkType: hard
 
@@ -15961,9 +15961,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.21.0":
-  version: 1.21.0
-  resolution: "playwright-core@npm:1.21.0"
+"playwright-core@npm:1.21.1":
+  version: 1.21.1
+  resolution: "playwright-core@npm:1.21.1"
   dependencies:
     colors: 1.4.0
     commander: 8.3.0
@@ -15985,18 +15985,18 @@ __metadata:
     yazl: 2.5.1
   bin:
     playwright: cli.js
-  checksum: 9221b65a4a10d9df93f59ff9ac788382f6e8b25e7a68bd2f46ad9178b6d94055704f6ad9aa5885a1648dec0ff01f6611d1eced519a0a834615c6924944058fdf
+  checksum: 9de58d5f1358aaa696196324ba38db96a7241f874977a1bf680deb87879632d3acac72719061cf941a5050e53e2ac12c30e5482b7f5cc47c439a098a6d99d722
   languageName: node
   linkType: hard
 
-"playwright@npm:^1.21.0":
-  version: 1.21.0
-  resolution: "playwright@npm:1.21.0"
+"playwright@npm:^1.21.1":
+  version: 1.21.1
+  resolution: "playwright@npm:1.21.1"
   dependencies:
-    playwright-core: 1.21.0
+    playwright-core: 1.21.1
   bin:
     playwright: cli.js
-  checksum: 15b1587fe6b9029e14af2d209279b9fea0027c1d311be9ab3d87b769baedda03009abcd5984a5b6b5d5c718895384437d52df8246aac901cc8cd9b45acda25db
+  checksum: daba932ee60b36fb0aba7053e801686dd145a88064f85df8a121c283d954b3322e837f1d52310d813e9001f9c8e9aa2e5b93ead08f9ceab2ab248a2a26011059
   languageName: node
   linkType: hard
 
@@ -17577,10 +17577,10 @@ __metadata:
     "@babel/core": ^7.17.9
     "@babel/eslint-parser": ^7.17.0
     babel-jest: ^27.5.1
-    babel-loader: ^8.2.4
-    eslint: ^8.13.0
+    babel-loader: ^8.2.5
+    eslint: ^8.14.0
     eslint-formatter-codeframe: ^7.32.1
-    flow-bin: ^0.176.2
+    flow-bin: ^0.176.3
     glob: ^8.0.1
     jest: ^27.5.1
     jest-runner-eslint: ^1.0.0
@@ -18702,10 +18702,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylis@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "stylis@npm:4.1.0"
-  checksum: 1d0c167340cfd0fa0fecebcaae807e1d66f6498ae250bb3c5ba47d849ab8ce1142757feebcf8fede08941d2e7597cebee25419e21a2846b66c55bb49a6ad2b8a
+"stylis@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "stylis@npm:4.1.1"
+  checksum: e9b0a086996a94c44d45933287731313f6ecdbf9334410231d882d31a1890fb36e34a7b163487e2d7f992c2044e4cb37179810fc6f758f359a431343c2374ed2
   languageName: node
   linkType: hard
 

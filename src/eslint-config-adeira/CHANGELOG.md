@@ -1,5 +1,7 @@
 # Unreleased
 
+- New rule [`no-constant-binary-expression`](https://eslint.org/docs/rules/no-constant-binary-expression) enabled (warnings or errors in strict mode).
+
 # 7.5.0
 
 - New rule [`testing-library/no-global-regexp-flag-in-query`](https://github.com/testing-library/eslint-plugin-testing-library/blob/295c9c609482828c92a3040fdbf9b151fa96eba0/docs/rules/no-global-regexp-flag-in-query.md) enabled (in a backward compatible fashion).

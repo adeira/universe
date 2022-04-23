@@ -275,6 +275,7 @@ Object {
     "no-cond-assign": 2,
     "no-console": 2,
     "no-const-assign": 2,
+    "no-constant-binary-expression": 1,
     "no-constant-condition": Array [
       2,
       Object {
