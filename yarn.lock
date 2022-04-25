@@ -24,7 +24,7 @@ __metadata:
     babel-plugin-fbt-runtime: ^1.0.0
     d3: ^7.4.4
     fbt: ^1.0.0
-    graphql: ^16.3.0
+    graphql: ^16.4.0
     immutable: ^4.0.0
     next: ^12.1.5
     next-compose-plugins: ^2.2.1
@@ -54,7 +54,7 @@ __metadata:
     babel-plugin-fbt: ^1.0.0
     babel-plugin-fbt-runtime: ^1.0.0
     fbt: ^1.0.0
-    graphql: ^16.3.0
+    graphql: ^16.4.0
     next: ^12.1.5
     next-plugin-custom-babel-config: ^1.0.5
     next-seo: ^5.4.0
@@ -184,7 +184,7 @@ __metadata:
     babel-jest: ^27.5.1
     cors: ^2.8.5
     flow-bin: ^0.176.3
-    graphql: ^16.3.0
+    graphql: ^16.4.0
     jest: ^27.5.1
     micro: ^9.3.4
     next: ^12.1.5
@@ -244,10 +244,10 @@ __metadata:
     "@adeira/signed-source": ^2.0.0
     "@babel/runtime": ^7.17.9
     chalk: ^4.1.2
-    graphql: ^16.3.0
+    graphql: ^16.4.0
     strip-ansi: ^6.0.1
   peerDependencies:
-    graphql: ^16.3.0
+    graphql: ^16.4.0
   languageName: unknown
   linkType: soft
 
@@ -271,7 +271,7 @@ __metadata:
     "@babel/runtime": ^7.17.9
     faunadb: ^4.5.4
   peerDependencies:
-    graphql: ^16.3.0
+    graphql: ^16.4.0
   languageName: unknown
   linkType: soft
 
@@ -281,7 +281,7 @@ __metadata:
   dependencies:
     "@babel/runtime": ^7.17.9
   peerDependencies:
-    graphql: ^16.3.0
+    graphql: ^16.4.0
   languageName: unknown
   linkType: soft
 
@@ -291,7 +291,7 @@ __metadata:
   dependencies:
     "@babel/runtime": ^7.17.9
   peerDependencies:
-    graphql: ^16.3.0
+    graphql: ^16.4.0
   languageName: unknown
   linkType: soft
 
@@ -418,7 +418,7 @@ __metadata:
     relay-runtime: ^13.2.0
     relay-test-utils: ^13.2.0
   peerDependencies:
-    graphql: ^16.3.0
+    graphql: ^16.4.0
     react: ^17.0.2
   languageName: unknown
   linkType: soft
@@ -11278,10 +11278,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql@npm:^16.3.0":
-  version: 16.3.0
-  resolution: "graphql@npm:16.3.0"
-  checksum: ba540641e9cd2a8de5b989ff1433b015f232fa73aaef478d6709c1339cd43113347917acb965a5799c004667687852fc8ff0cfaa935eb26374c91c1fd7fdaeb1
+"graphql@npm:^16.3.0, graphql@npm:^16.4.0":
+  version: 16.4.0
+  resolution: "graphql@npm:16.4.0"
+  checksum: 8cac2c466891b6c6ace2fa3807f93815dea53cbec372998c139e796a321a6882c2324cc605e5f9aa45356890239aa9e731a04d8c59ec524db82bd18fb48aafee
   languageName: node
   linkType: hard
 
