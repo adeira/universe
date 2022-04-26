@@ -15,7 +15,7 @@ module.exports = {
     __DEV__: true,
   },
   transform: {
-    '^.+\\.js$': 'babel-jest',
+    '^.+\\.js$': ['babel-jest', { rootMode: 'upward' }],
   },
   setupFilesAfterEnv: [(path.join(__dirname, '.jest.setup.js') /*: string */)],
 };

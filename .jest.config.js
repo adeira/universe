@@ -25,9 +25,11 @@ const commonProjectConfig = {
     __DEV__: true,
   },
   transform: {
-    '^.+\\.js$': 'babel-jest',
+    '^.+\\.js$': ['babel-jest', { rootMode: 'upward' }],
   },
-  timers: 'real',
+  fakeTimers: {
+    enableGlobally: false,
+  },
 };
 
 function tryToLoadWorkspaceConfig(configPath /*: string */) /*: Object */ {
@@ -42,7 +44,7 @@ module.exports = {
   bail: 100,
   errorOnDeprecated: true,
   moduleFileExtensions: ['js', 'json'],
-  reporters: ['default'],
+  reporters: ['default', 'github-actions'],
   rootDir: __dirname,
   verbose: false,
   testEnvironment: 'node',

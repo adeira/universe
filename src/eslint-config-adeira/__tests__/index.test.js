@@ -1,12 +1,13 @@
 // @flow
 
-import { rules as builtInRules } from 'eslint/conf/eslint-all';
+// $FlowFixMe[cannot-resolve-module]: cannot resolve module
+import { builtinRules } from 'eslint/use-at-your-own-risk'; // eslint-disable-line import/no-unresolved
 import snapshotDiff from 'snapshot-diff';
 import prettierConfig from 'eslint-config-prettier';
 
 import deprecatedRules from '../src/deprecatedRules';
 
-const eslintRules: Set<string> = new Set(Object.keys(builtInRules));
+const eslintRules: Set<string> = new Set(Object.keys(builtinRules));
 beforeAll(() => {
   Object.keys(require('../package.json').dependencies)
     .filter(
