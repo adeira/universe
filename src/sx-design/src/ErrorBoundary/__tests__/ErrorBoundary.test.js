@@ -36,8 +36,10 @@ it('renders all the important parts as expected', () => {
   expect(getByText('yadada')).toBeInTheDocument();
   expect(getByText('Retry')).toBeInTheDocument();
 
-  expect(spy.mock.calls[0][0]).toMatch(/^Error: Uncaught \[Error: yadada]/);
-  expect(spy.mock.calls[1][0]).toMatch(/^The above error occurred in the <Throws> component:/);
+  expect(spy.mock.calls[0][0].toString()).toMatch(/^Error: Uncaught \[Error: yadada]/);
+  expect(spy.mock.calls[1][0].toString()).toMatch(
+    /^The above error occurred in the <Throws> component:/,
+  );
 });
 
 it('supports localization', () => {
