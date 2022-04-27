@@ -432,9 +432,9 @@ checksum = "3ee2393c4a91429dffb4bedf19f4d6abf27d8a732c8ce4980305d782e5426d57"
 
 [[package]]
 name = "deadpool"
-version = "0.9.3"
+version = "0.9.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "81731b43e2a0cb022e7ff483346c276cdfc0c0de118e0b58aee3f3b39c70c978"
+checksum = "a90d58a15f5acfe41afcac9775d8e92f2338d14482220c778c6e42aa77778182"
 dependencies = [
  "async-trait",
  "deadpool-runtime",

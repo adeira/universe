@@ -17,7 +17,7 @@ casbin = "2.0.9"
 clap = { version = "3.1.12", default-features = false, features = ["std", "cargo", "color", "suggestions", "unicode", "env"] }
 clap_complete = { version = "3.1.2", default-features = false }
 data-encoding = "2.3.2"
-deadpool = { version = "0.9.3", default-features = false, features = ["managed"] }
+deadpool = { version = "0.9.4", default-features = false, features = ["managed"] }
 dotenv = { version = "0.15.0", default-features = false }
 futures = "0.3.21"
 hex = "0.4.3"
