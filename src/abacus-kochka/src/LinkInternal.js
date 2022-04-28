@@ -34,6 +34,7 @@ export default function LinkInternal(props: Props): React.Node {
 
   return (
     <Text size={props.size} weight={props.weight} as="span">
+      {/* TODO: use @adeira/sx-design-nextjs */}
       <NextLink href={props.href} locale={router.locale} passHref={true}>
         <SXLink href={props.href} isActive={isActive} xstyle={props.xstyle}>
           {props.children}
