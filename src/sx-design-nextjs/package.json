@@ -1,0 +1,23 @@
+{
+  "name": "@adeira/sx-design-nextjs",
+  "description": "SX Design specific components for usage in Next.js",
+  "version": "0.1.0",
+  "homepage": "https://github.com/adeira/sx-design-nextjs",
+  "bugs": "https://github.com/adeira/universe/issues",
+  "type": "commonjs",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adeira/universe.git",
+    "directory": "src/sx-design-nextjs"
+  },
+  "license": "MIT",
+  "main": "./index.js",
+  "dependencies": {
+    "@babel/runtime": "^7.17.9"
+  },
+  "peerDependencies": {
+    "@adeira/sx-design": "^0.25.0",
+    "next": "^12.1.5"
+  }
+}

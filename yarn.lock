@@ -437,6 +437,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@adeira/sx-design-nextjs@workspace:src/sx-design-nextjs":
+  version: 0.0.0-use.local
+  resolution: "@adeira/sx-design-nextjs@workspace:src/sx-design-nextjs"
+  dependencies:
+    "@babel/runtime": ^7.17.9
+  peerDependencies:
+    "@adeira/sx-design": ^0.25.0
+    next: ^12.1.5
+  languageName: unknown
+  linkType: soft
+
 "@adeira/sx-design@^0.25.0, @adeira/sx-design@workspace:src/sx-design":
   version: 0.0.0-use.local
   resolution: "@adeira/sx-design@workspace:src/sx-design"

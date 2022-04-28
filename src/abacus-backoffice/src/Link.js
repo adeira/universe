@@ -39,6 +39,7 @@ export default function Link(props: Props): React.Node {
     );
   }
 
+  // TODO: use @adeira/sx-design-nextjs
   return (
     <NextLink href={props.href}>
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
