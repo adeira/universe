@@ -1,7 +1,7 @@
 {
   "name": "@adeira/sx-design-nextjs",
   "description": "SX Design specific components for usage in Next.js",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "homepage": "https://github.com/adeira/sx-design-nextjs",
   "bugs": "https://github.com/adeira/universe/issues",
   "type": "commonjs",
