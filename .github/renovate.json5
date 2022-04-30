@@ -20,6 +20,10 @@
     {
       groupName: 'FBT packages',
       matchSourceUrlPrefixes: ['https://github.com/facebook/fbt'],
+    },
+    {
+      groupName: 'Rusoto packages',
+      matchSourceUrlPrefixes: ['https://github.com/rusoto/rusoto'],
     }
   ],
   postUpdateOptions: ['yarnDedupeHighest'],
