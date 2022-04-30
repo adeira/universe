@@ -1,5 +1,4 @@
 [
-  "@adeira/babel-plugin-transform-sx-tailwind",
   "@adeira/babel-preset-adeira",
   "@adeira/css-colors",
   "@adeira/eslint-config",
@@ -24,7 +23,6 @@
   "@adeira/sx-design",
   "@adeira/sx-design-nextjs",
   "@adeira/sx-jest-snapshot-serializer",
-  "@adeira/sx-tailwind",
   "eslint-plugin-adeira",
   "eslint-plugin-sx"
 ]

@@ -73,7 +73,6 @@ SX itself is just a core of the atomic CSS for JS. There are other projects help
 - [SX Design](https://github.com/adeira/sx-design) - inclusive design system based on SX
 - [SX Eslint](https://github.com/adeira/eslint-plugin-sx) - Eslint rules for SX
 - [SX Jest Snapshot Serializer](https://github.com/adeira/sx-jest-snapshot-serializer) - Jest serializer for SX (WIP 🚧)
-- [SX Tailwind](https://github.com/adeira/sx-tailwind) - SX port of Tailwind CSS, see: [https://sx-tailwind-website.vercel.app/](https://sx-tailwind-website.vercel.app/)
 
 _Missing something? Let us know!_
 
