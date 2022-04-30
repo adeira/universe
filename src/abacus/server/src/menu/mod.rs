@@ -107,9 +107,11 @@ pub(in crate::menu) async fn get_section(
                 context,
                 client_locale,
                 &[
-                    "15687297".to_string(), // Ciabatta smoked turkey breast
-                    "15687748".to_string(), // Salami ciabatta
+                    "15687297".to_string(), // Ciabatta with smoked turkey breast
+                    "15687748".to_string(), // Ciabatta with salami
                     "15687968".to_string(), // Ciabatta with caramelized apple
+                    "18493391".to_string(), // Sandwich with smoked turkey breast
+                    "18493556".to_string(), // Sandwich with salami
                 ],
             )
             .await
