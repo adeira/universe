@@ -28,7 +28,7 @@ export default function MenuSectionCiabattas(props: Props): Node {
   return (
     <>
       <MenuHeading>
-        <fbt desc="ciabattas subtitle in our menu">Ciabattas</fbt>
+        <fbt desc="ciabattas and sandwiches subtitle in our menu">Ciabattas & Sandwiches</fbt>
       </MenuHeading>
 
       {data.ciabattasMenu.map((ciabatta) => (
