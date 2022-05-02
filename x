@@ -48,7 +48,7 @@
 # ```
 
 if ! command -v rustc &> /dev/null
-  (cd src/x && cargo run --release --quiet -- "$@")
+  (cd src/x && cargo run --release -- "$@")
   exit
 then
   echo "rustc could not be found, install Rust via https://www.rust-lang.org/tools/install"
