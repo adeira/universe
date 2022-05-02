@@ -10,6 +10,10 @@
   labels: ['dependencies'],
   packageRules: [
     {
+      matchUpdateTypes: ['patch'],
+      addLabels: ['automerge'],
+    },
+    {
       groupName: 'SVGR packages',
       matchPackagePatterns: ['^@svgr/'],
     },
@@ -24,7 +28,7 @@
     {
       groupName: 'Rusoto packages',
       matchSourceUrlPrefixes: ['https://github.com/rusoto/rusoto'],
-    }
+    },
   ],
   postUpdateOptions: ['yarnDedupeHighest'],
   rangeStrategy: 'bump',
