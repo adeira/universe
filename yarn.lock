@@ -424,6 +424,7 @@ __metadata:
   peerDependencies:
     "@adeira/sx-design": ^0.25.0
     next: ^12.1.5
+    react: "*"
   languageName: unknown
   linkType: soft
 
