@@ -10,7 +10,7 @@ __metadata:
   resolution: "@adeira/abacus-backoffice@workspace:src/abacus-backoffice"
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
-    "@adeira/icons": ^1.0.1
+    "@adeira/icons": ^1.1.0
     "@adeira/js": ^2.1.1
     "@adeira/relay": ^5.2.0
     "@adeira/sx": ^0.29.1
@@ -43,7 +43,7 @@ __metadata:
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
     "@adeira/hooks": ^0.0.2
-    "@adeira/icons": ^1.0.1
+    "@adeira/icons": ^1.1.0
     "@adeira/js": ^2.1.1
     "@adeira/relay": ^5.2.0
     "@adeira/sx": ^0.29.1
@@ -151,7 +151,7 @@ __metadata:
     "@adeira/fixtures-tester": ^1.1.1
     "@adeira/graphql-global-id": ^2.1.0
     "@adeira/graphql-relay": ^0.3.0
-    "@adeira/icons": ^1.0.1
+    "@adeira/icons": ^1.1.0
     "@adeira/js": ^2.1.1
     "@adeira/relay": ^5.2.0
     "@adeira/sx": ^0.29.1
@@ -284,7 +284,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/icons@^1.0.1, @adeira/icons@workspace:src/icons":
+"@adeira/icons@^1.1.0, @adeira/icons@workspace:src/icons":
   version: 0.0.0-use.local
   resolution: "@adeira/icons@workspace:src/icons"
   dependencies:
@@ -435,7 +435,7 @@ __metadata:
     "@adeira/babel-preset-adeira": ^4.0.0
     "@adeira/css-colors": ^2.2.0
     "@adeira/hooks": ^0.0.2
-    "@adeira/icons": ^1.0.1
+    "@adeira/icons": ^1.1.0
     "@adeira/js": ^2.1.1
     "@adeira/sx": ^0.29.1
     "@adeira/sx-jest-snapshot-serializer": ^0.1.0
