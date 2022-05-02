@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@adeira/hooks": "^0.0.2",
-    "@adeira/icons": "^1.0.1",
+    "@adeira/icons": "^1.1.0",
     "@adeira/js": "^2.1.1",
     "@adeira/relay": "^5.2.0",
     "@adeira/sx": "^0.29.1",
