@@ -42,7 +42,6 @@ export default function LanguageSwitch(): React.Node {
     if (viewerContext.languageTag.url !== languageTagURL) {
       // do not switch to the current language
       languageSwitch.push(
-        // eslint-disable-next-line @next/next/link-passhref -- FIXME
         <NextLink
           prefetch={false}
           href={router.asPath} // "/shop/221836"
