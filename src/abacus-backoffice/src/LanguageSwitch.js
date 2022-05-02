@@ -29,7 +29,6 @@ export default function LanguageSwitch(): React.Node {
     if (urlLocale !== languageTagURL) {
       // do not switch to the current language
       languageSwitch.push(
-        // eslint-disable-next-line @next/next/link-passhref -- FIXME
         <NextLink href={router.route} key={languageTagURL} locale={languageTagURL}>
           <button type="button">{linkText}</button>
         </NextLink>,
