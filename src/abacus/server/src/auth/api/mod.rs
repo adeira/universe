@@ -29,9 +29,9 @@ impl AuthMutation {
     /// whitelisted user with a valid JWT ID token will be authorized. Invalid tokens and users
     /// that are not whitelisted will be rejected.
     ///
-    /// Repeated calls will result in a new session token and deauthorization of the previous
-    /// token (if it exist). Original session token is returned back only once and cannot be
-    /// retrieved later (it's irreversibly hashed in the database).
+    /// Repeated calls will result in a new session token (old sessions are not removed to support
+    /// multiple logins on multiple devices). Original session token is returned back only once
+    /// and cannot be retrieved later (it's irreversibly hashed in the database).
     async fn authorize_webapp(
         google_id_token: String,
         context: &Context,

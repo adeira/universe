@@ -1,4 +1,4 @@
-# @generated SignedSource<<2c21e73be6667e21b3c57ffe6ea90386>>
+# @generated SignedSource<<9303918cdbaa5fca6115ae7ee93c798d>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -492,9 +492,9 @@ type AuthMutation {
     whitelisted user with a valid JWT ID token will be authorized. Invalid tokens and users
     that are not whitelisted will be rejected.
 
-    Repeated calls will result in a new session token and deauthorization of the previous
-    token (if it exist). Original session token is returned back only once and cannot be
-    retrieved later (it's irreversibly hashed in the database).
+    Repeated calls will result in a new session token (old sessions are not removed to support
+    multiple logins on multiple devices). Original session token is returned back only once
+    and cannot be retrieved later (it's irreversibly hashed in the database).
   """
   authorizeWebapp(googleIdToken: String!): AuthorizeWebappPayload!
   """
