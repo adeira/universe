@@ -10,7 +10,7 @@ __metadata:
   resolution: "@adeira/abacus-backoffice@workspace:src/abacus-backoffice"
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
-    "@adeira/hooks": ^0.2.0
+    "@adeira/hooks": ^0.1.0
     "@adeira/icons": ^1.1.0
     "@adeira/js": ^2.1.1
     "@adeira/react-auth": ^0.1.0
@@ -43,7 +43,7 @@ __metadata:
   resolution: "@adeira/abacus-kochka@workspace:src/abacus-kochka"
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
-    "@adeira/hooks": ^0.2.0
+    "@adeira/hooks": ^0.1.0
     "@adeira/icons": ^1.1.0
     "@adeira/js": ^2.1.1
     "@adeira/relay": ^5.2.0
@@ -275,7 +275,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/hooks@^0.2.0, @adeira/hooks@workspace:src/hooks":
+"@adeira/hooks@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "@adeira/hooks@npm:0.1.0"
+  dependencies:
+    "@babel/runtime": ^7.17.9
+  peerDependencies:
+    react: ^17.0.2
+  checksum: c09a78a41c8d1739cf2c30d490832945ce12a272761ed1555902dd87aa41b9c51de306c349e241b27a3fd0a2e478a42a247bf267050b641f90bff4a2c47ef955
+  languageName: node
+  linkType: hard
+
+"@adeira/hooks@workspace:src/hooks":
   version: 0.0.0-use.local
   resolution: "@adeira/hooks@workspace:src/hooks"
   dependencies:
@@ -387,7 +398,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@adeira/react-auth@workspace:src/react-auth"
   dependencies:
-    "@adeira/hooks": ^0.2.0
+    "@adeira/hooks": ^0.1.0
     "@babel/runtime": ^7.17.9
   peerDependencies:
     react: "*"
@@ -446,7 +457,7 @@ __metadata:
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
     "@adeira/css-colors": ^2.2.0
-    "@adeira/hooks": ^0.2.0
+    "@adeira/hooks": ^0.1.0
     "@adeira/icons": ^1.1.0
     "@adeira/js": ^2.1.1
     "@adeira/sx": ^0.29.1
