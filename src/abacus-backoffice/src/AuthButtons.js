@@ -7,9 +7,9 @@ import { fbt } from 'fbt';
 import { GoogleLoginButton } from '@adeira/react-auth';
 import { graphql, useMutation } from '@adeira/relay';
 import { Loader } from '@adeira/sx-design';
+import { useSessionTokenAPI } from '@adeira/hooks';
 
 import constants from './constants';
-import { useSessionTokenAPI } from './useSessionTokenAPI';
 import type { AuthButtonsAuthorizeWebappMutation } from './__generated__/AuthButtonsAuthorizeWebappMutation.graphql';
 import type { AuthButtonsDeauthorizeWebappMutation } from './__generated__/AuthButtonsDeauthorizeWebappMutation.graphql';
 

@@ -20,7 +20,7 @@ export function useSessionTokenAPI(): UseSessionTokenAPI {
       const cookieValue = `${SESSION_IDENTIFIER}${encodeURIComponent(sessionToken ?? '')}`;
       const cookieAttributes = [
         `SameSite=strict`,
-        // TODO: store as "secure" cookie (once we are 100% HTTPS)
+        'Secure', // never send with unsecured HTTP (except on localhost)
       ];
 
       if (sessionToken == null) {
