@@ -14,8 +14,10 @@
     "relay": "adeira-relay-compiler"
   },
   "dependencies": {
+    "@adeira/hooks": "^0.1.0",
     "@adeira/icons": "^1.1.0",
     "@adeira/js": "^2.1.1",
+    "@adeira/react-auth": "^0.1.0",
     "@adeira/relay": "^5.2.0",
     "@adeira/sx": "^0.29.1",
     "@adeira/sx-design": "^0.25.0",
@@ -30,7 +32,6 @@
     "next-transpile-modules": "^9.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-google-login": "^5.2.2",
     "recoil": "^0.7.2"
   },
   "devDependencies": {

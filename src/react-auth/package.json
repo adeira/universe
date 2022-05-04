@@ -1,0 +1,23 @@
+{
+  "name": "@adeira/react-auth",
+  "description": "React components to help with auth",
+  "version": "0.1.0",
+  "homepage": "https://github.com/adeira/react-auth",
+  "bugs": "https://github.com/adeira/universe/issues",
+  "type": "commonjs",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adeira/universe.git",
+    "directory": "src/react-auth"
+  },
+  "license": "MIT",
+  "main": "./index.js",
+  "dependencies": {
+    "@adeira/hooks": "^0.1.0",
+    "@babel/runtime": "^7.17.9"
+  },
+  "peerDependencies": {
+    "react": "*"
+  }
+}
