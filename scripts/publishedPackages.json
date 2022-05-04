@@ -17,6 +17,7 @@
   "@adeira/monorepo-npm-publisher",
   "@adeira/monorepo-utils",
   "@adeira/murmur-hash",
+  "@adeira/react-auth",
   "@adeira/relay",
   "@adeira/signed-source",
   "@adeira/sx",

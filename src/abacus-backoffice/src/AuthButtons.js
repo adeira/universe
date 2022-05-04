@@ -1,12 +1,12 @@
 // @flow
 
-import React, { useState, type Node } from 'react';
-import GoogleLogin from 'react-google-login';
-import { graphql, useMutation } from '@adeira/relay';
-import { fbt } from 'fbt';
-import sx from '@adeira/sx';
-import { Loader } from '@adeira/sx-design';
 import Icon from '@adeira/icons';
+import React, { useState, type Node } from 'react';
+import sx from '@adeira/sx';
+import { fbt } from 'fbt';
+import { GoogleLoginButton } from '@adeira/react-auth';
+import { graphql, useMutation } from '@adeira/relay';
+import { Loader } from '@adeira/sx-design';
 
 import constants from './constants';
 import { useSessionTokenAPI } from './useSessionTokenAPI';
@@ -30,11 +30,9 @@ export function LoginButton(): Node {
       }
     `);
 
-  const successResponseGoogle = (response) => {
+  const successResponseGoogle = (googleIdToken) => {
     authorizeMutation({
-      variables: {
-        googleIdToken: response.tokenId,
-      },
+      variables: { googleIdToken },
       onCompleted: ({ auth: { authorizeWebapp } }) => {
         const sessionToken = authorizeWebapp.sessionToken;
         if (authorizeWebapp.success === true && sessionToken != null) {
@@ -50,18 +48,11 @@ export function LoginButton(): Node {
     });
   };
 
-  const failureResponseGoogle = (error) => {
-    setErrorMessage(error.details);
-  };
-
   return (
     <>
-      <GoogleLogin
-        buttonText={<fbt desc="login with Google button title">Login with Google</fbt>}
-        clientId={constants.googleClientID}
-        responseType="id_token"
-        onSuccess={successResponseGoogle}
-        onFailure={failureResponseGoogle}
+      <GoogleLoginButton
+        clientID={constants.googleClientID}
+        onGoogleSignIn={successResponseGoogle}
       />
       {isAuthorizeMutationPending === true ? <Loader /> : null}
       {errorMessage != null ? <div className={styles('errorMessage')}>{errorMessage}</div> : null}
@@ -94,8 +85,8 @@ export function LogoutButton(): Node {
         deauthorizeMutation({
           variables: { sessionToken },
           onCompleted: () => {
-            // TODO: we should logout from Google as well but `react-google-login` seems to be
-            //       broken (https://github.com/anthonyjgrove/react-google-login/issues/130)
+            // TODO: call `google.accounts.id.disableAutoSelect()`
+            //  See: https://developers.google.com/identity/gsi/web/reference/js-reference#google.accounts.id.disableAutoSelect
             logout();
           },
           onError: () => {
