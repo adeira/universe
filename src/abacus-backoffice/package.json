@@ -14,7 +14,7 @@
     "relay": "adeira-relay-compiler"
   },
   "dependencies": {
-    "@adeira/hooks": "^0.1.0",
+    "@adeira/hooks": "^0.2.0",
     "@adeira/icons": "^1.1.0",
     "@adeira/js": "^2.1.1",
     "@adeira/react-auth": "^0.1.0",

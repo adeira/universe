@@ -1,17 +1,17 @@
 // @flow
 
-import { useEffect, useState } from 'react';
 import * as React from 'react';
+import { createEnvironment, createNetworkFetcher, RelayEnvironmentProvider } from '@adeira/relay';
 import { RecoilRoot } from 'recoil';
 import { SxDesignProvider } from '@adeira/sx-design';
-import { createEnvironment, createNetworkFetcher, RelayEnvironmentProvider } from '@adeira/relay';
+import { useEffect, useState } from 'react';
+import { useSessionTokenAPI } from '@adeira/hooks';
 
 import './_app.css';
 import '../styles/globals.css';
 import constants from '../src/constants';
 import LoginPage from '../src/LoginPage';
 import useApplicationLocale from '../src/useApplicationLocale';
-import { useSessionTokenAPI } from '../src/useSessionTokenAPI';
 import initTranslations from '../translations/init';
 
 export default function MyApp({ Component, pageProps }: $FlowFixMe): React.Node {
