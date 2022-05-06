@@ -1,8 +1,8 @@
 // @flow
 
 import { graphql, useFragment } from '@adeira/relay';
-import { MissingData, Tooltip } from '@adeira/sx-design';
-import { type Node } from 'react';
+import { DateTime, MissingData, Tooltip } from '@adeira/sx-design';
+import type { Node } from 'react';
 
 import type { TableCellTripleCuadrupleFelinaFragment$key } from './__generated__/TableCellTripleCuadrupleFelinaFragment.graphql';
 
@@ -22,9 +22,17 @@ export default function TableCellTripleCuadrupleFelina(props: Props): Node {
   );
 
   if (data.dateOfVaccinationCuadrupleFelina != null) {
-    return <Tooltip title="cuadruple felina">{data.dateOfVaccinationCuadrupleFelina}</Tooltip>;
+    return (
+      <Tooltip title="cuadruple felina">
+        <DateTime value={data.dateOfVaccinationCuadrupleFelina} />
+      </Tooltip>
+    );
   } else if (data.dateOfVaccinationTripleFelina != null) {
-    return <Tooltip title="triple felina">{data.dateOfVaccinationTripleFelina}</Tooltip>;
+    return (
+      <Tooltip title="triple felina">
+        <DateTime value={data.dateOfVaccinationTripleFelina} />
+      </Tooltip>
+    );
   }
   return <MissingData />;
 }

@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { LayoutBlock, Money, Table, Text } from '@adeira/sx-design';
+import { LayoutBlock, Money, Table, Text, DateTime } from '@adeira/sx-design';
 import { graphql, useLazyLoadQuery } from '@adeira/relay';
 import fbt from 'fbt';
 import sx from '@adeira/sx';
@@ -55,7 +55,7 @@ export default function IndexPage(): React.Node {
         ]}
         data={data.analytics.dailyReports.map((dailyReport) => {
           return {
-            col1: dailyReport.dateDay,
+            col1: <DateTime value={dailyReport.dateDay} />,
             col2: (
               <Money
                 priceUnitAmount={
