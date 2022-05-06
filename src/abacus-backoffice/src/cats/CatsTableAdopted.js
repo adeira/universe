@@ -1,10 +1,11 @@
 // @flow
 
-import { MissingData, Table, Tooltip } from '@adeira/sx-design';
+import { MissingData, Table } from '@adeira/sx-design';
 import fbt from 'fbt';
 import { type Node } from 'react';
 import { useFragment, graphql } from '@adeira/relay';
 
+import TableCellTripleCuadrupleFelina from './TableCellTripleCuadrupleFelina';
 import type { CatsTableAdoptedFragment$key } from './__generated__/CatsTableAdoptedFragment.graphql';
 
 type Props = {
@@ -22,8 +23,8 @@ export default function CatsTableAdopted(props: Props): Node {
           dateOfDeworming
           dateOfAdoption
           dateOfVaccinationRabies
-          dateOfVaccinationTripleFelina
-          dateOfVaccinationCuadrupleFelina
+          ...TableCellTripleCuadrupleFelinaFragment
+          dateOfVaccinationLeucemiaFelina
         }
       }
     `,
@@ -65,25 +66,17 @@ export default function CatsTableAdopted(props: Props): Node {
         },
         {
           Header: (
-            <fbt desc="vaccination triple felina (table header)">
-              Vaccination &quot;triple felina&quot;
+            <fbt desc="vaccination triple/cuadruple felina (table header)">
+              Vaccination &quot;triple/cuadruple felina&quot;
             </fbt>
           ),
           accessor: 'col7',
         },
         {
-          Header: () => (
-            <Tooltip
-              title={
-                <fbt desc="tooltip explanation of the cuadruple felina vaccination">
-                  Vaccine against rhinotracheitis, calicivirus, panleukopenia and clamidiosis.
-                </fbt>
-              }
-            >
-              <fbt desc="vaccination cuadruple felina (table header)">
-                Vaccination &quot;cuadruple felina&quot;
-              </fbt>
-            </Tooltip>
+          Header: (
+            <fbt desc="vaccination leucemia felina (table header)">
+              Vaccination &quot;leucemia felina&quot;
+            </fbt>
           ),
           accessor: 'col8',
         },
@@ -96,8 +89,8 @@ export default function CatsTableAdopted(props: Props): Node {
           col4: cat.dateOfDeworming ?? <MissingData />,
           col5: cat.dateOfAdoption ?? <MissingData />,
           col6: cat.dateOfVaccinationRabies ?? <MissingData />,
-          col7: cat.dateOfVaccinationTripleFelina ?? <MissingData />,
-          col8: cat.dateOfVaccinationCuadrupleFelina ?? <MissingData />,
+          col7: <TableCellTripleCuadrupleFelina data={cat} />,
+          col8: cat.dateOfVaccinationLeucemiaFelina ?? <MissingData />,
         };
       })}
     />

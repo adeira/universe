@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<579861f44faa154cc21e645ffca3aa85>>
+ * @generated SignedSource<<881e968975659939627672bf29431b33>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -12,6 +12,7 @@
 
 /*::
 import type { Fragment, ReaderFragment } from 'relay-runtime';
+type TableCellTripleCuadrupleFelinaFragment$fragmentType = any;
 import type { FragmentType } from "relay-runtime";
 declare export opaque type CatsTableAdoptedFragment$fragmentType: FragmentType;
 export type CatsTableAdoptedFragment$data = {|
@@ -22,8 +23,8 @@ export type CatsTableAdoptedFragment$data = {|
     +dateOfDeworming: ?string,
     +dateOfAdoption: ?string,
     +dateOfVaccinationRabies: ?string,
-    +dateOfVaccinationTripleFelina: ?string,
-    +dateOfVaccinationCuadrupleFelina: ?string,
+    +dateOfVaccinationLeucemiaFelina: ?string,
+    +$fragmentSpreads: TableCellTripleCuadrupleFelinaFragment$fragmentType,
   |}>,
   +$fragmentType: CatsTableAdoptedFragment$fragmentType,
 |};
@@ -99,17 +100,15 @@ var node/*: ReaderFragment*/ = {
           "storageKey": null
         },
         {
-          "alias": null,
           "args": null,
-          "kind": "ScalarField",
-          "name": "dateOfVaccinationTripleFelina",
-          "storageKey": null
+          "kind": "FragmentSpread",
+          "name": "TableCellTripleCuadrupleFelinaFragment"
         },
         {
           "alias": null,
           "args": null,
           "kind": "ScalarField",
-          "name": "dateOfVaccinationCuadrupleFelina",
+          "name": "dateOfVaccinationLeucemiaFelina",
           "storageKey": null
         }
       ],
@@ -121,7 +120,7 @@ var node/*: ReaderFragment*/ = {
 };
 
 if (__DEV__) {
-  (node/*: any*/).hash = "6787788d2a4d67c8dc20b734447ab590";
+  (node/*: any*/).hash = "a08dbf2b12029e92246319f1298db880";
 }
 
 module.exports = ((node/*: any*/)/*: Fragment<
