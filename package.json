@@ -15,14 +15,14 @@
     "@babel/cli": "^7.17.10",
     "@babel/core": "^7.17.10",
     "@babel/eslint-parser": "^7.17.0",
-    "babel-jest": "^28.0.3",
+    "babel-jest": "^28.1.0",
     "babel-loader": "^8.2.5",
     "eslint": "^8.14.0",
     "eslint-formatter-codeframe": "^7.32.1",
     "flow-bin": "^0.177.0",
     "glob": "^8.0.1",
-    "jest": "^28.0.3",
-    "jest-environment-jsdom": "^28.0.2",
+    "jest": "^28.1.0",
+    "jest-environment-jsdom": "^28.1.0",
     "jest-runner-eslint": "^1.0.0"
   },
   "jest": {
