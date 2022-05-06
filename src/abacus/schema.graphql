@@ -1,4 +1,4 @@
-# @generated SignedSource<<9303918cdbaa5fca6115ae7ee93c798d>>
+# @generated SignedSource<<01fffd1dec4ecfa8950042cee6c09d6a>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -62,6 +62,7 @@ type CatInfo {
   dateOfVaccinationTripleFelina: String
   "Purevax Feline 4 and similar."
   dateOfVaccinationCuadrupleFelina: String
+  dateOfVaccinationLeucemiaFelina: String
 }
 
 type POSMutation {
