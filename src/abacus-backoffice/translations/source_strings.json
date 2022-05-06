@@ -192,9 +192,9 @@
     }
    },
    "filepath": "src/AuthButtons.js",
-   "line_beg": 48,
+   "line_beg": 46,
    "col_beg": 24,
-   "line_end": 48,
+   "line_end": 46,
    "col_end": 81,
    "project": "",
    "jsfbt": {
@@ -207,36 +207,15 @@
   },
   {
    "hashToLeaf": {
-    "YbKEH2FBVNXdK9cD2MD1tA==": {
-     "text": "Login with Google",
-     "desc": "login with Google button title"
-    }
-   },
-   "filepath": "src/AuthButtons.js",
-   "line_beg": 60,
-   "col_beg": 20,
-   "line_end": 60,
-   "col_end": 86,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "login with Google button title",
-     "text": "Login with Google"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
     "ZmoOgkWDunmOx3U/8Us9hg==": {
      "text": "Logout",
      "desc": "logout button title"
     }
    },
    "filepath": "src/AuthButtons.js",
-   "line_beg": 107,
+   "line_beg": 98,
    "col_beg": 28,
-   "line_end": 107,
+   "line_end": 98,
    "col_end": 72,
    "project": "",
    "jsfbt": {
@@ -381,9 +360,9 @@
     }
    },
    "filepath": "src/cats/CatsTableAdopted.js",
-   "line_beg": 37,
+   "line_beg": 38,
    "col_beg": 18,
-   "line_end": 37,
+   "line_end": 38,
    "col_end": 73,
    "project": "",
    "jsfbt": {
@@ -402,9 +381,9 @@
     }
    },
    "filepath": "src/cats/CatsTableAdopted.js",
-   "line_beg": 41,
+   "line_beg": 42,
    "col_beg": 18,
-   "line_end": 41,
+   "line_end": 42,
    "col_end": 82,
    "project": "",
    "jsfbt": {
@@ -423,9 +402,9 @@
     }
    },
    "filepath": "src/cats/CatsTableAdopted.js",
-   "line_beg": 46,
+   "line_beg": 47,
    "col_beg": 12,
-   "line_end": 48,
+   "line_end": 49,
    "col_end": 18,
    "project": "",
    "jsfbt": {
@@ -444,9 +423,9 @@
     }
    },
    "filepath": "src/cats/CatsTableAdopted.js",
-   "line_beg": 54,
+   "line_beg": 55,
    "col_beg": 12,
-   "line_end": 54,
+   "line_end": 55,
    "col_end": 94,
    "project": "",
    "jsfbt": {
@@ -465,9 +444,9 @@
     }
    },
    "filepath": "src/cats/CatsTableAdopted.js",
-   "line_beg": 59,
+   "line_beg": 60,
    "col_beg": 18,
-   "line_end": 59,
+   "line_end": 60,
    "col_end": 92,
    "project": "",
    "jsfbt": {
@@ -486,9 +465,9 @@
     }
    },
    "filepath": "src/cats/CatsTableAdopted.js",
-   "line_beg": 63,
+   "line_beg": 64,
    "col_beg": 18,
-   "line_end": 63,
+   "line_end": 64,
    "col_end": 88,
    "project": "",
    "jsfbt": {
@@ -501,63 +480,42 @@
   },
   {
    "hashToLeaf": {
-    "EExPHIUJXU+A80QOawNt+w==": {
-     "text": "Vaccination \"triple felina\"",
-     "desc": "vaccination triple felina (table header)"
+    "w73+mU4U9muFW4rl6RO7Rw==": {
+     "text": "Vaccination \"triple/cuadruple felina\"",
+     "desc": "vaccination triple/cuadruple felina (table header)"
     }
    },
    "filepath": "src/cats/CatsTableAdopted.js",
-   "line_beg": 68,
+   "line_beg": 69,
    "col_beg": 12,
-   "line_end": 70,
+   "line_end": 71,
    "col_end": 18,
    "project": "",
    "jsfbt": {
     "t": {
-     "desc": "vaccination triple felina (table header)",
-     "text": "Vaccination \"triple felina\""
+     "desc": "vaccination triple/cuadruple felina (table header)",
+     "text": "Vaccination \"triple/cuadruple felina\""
     },
     "m": []
    }
   },
   {
    "hashToLeaf": {
-    "X2CMHeCQ24SmLvDBGzND/A==": {
-     "text": "Vaccine against rhinotracheitis, calicivirus, panleukopenia and clamidiosis.",
-     "desc": "tooltip explanation of the cuadruple felina vaccination"
+    "+7T76ZsgTRmRu45hdukfAg==": {
+     "text": "Vaccination \"leucemia felina\"",
+     "desc": "vaccination leucemia felina (table header)"
     }
    },
    "filepath": "src/cats/CatsTableAdopted.js",
-   "line_beg": 78,
-   "col_beg": 16,
-   "line_end": 80,
-   "col_end": 22,
+   "line_beg": 77,
+   "col_beg": 12,
+   "line_end": 79,
+   "col_end": 18,
    "project": "",
    "jsfbt": {
     "t": {
-     "desc": "tooltip explanation of the cuadruple felina vaccination",
-     "text": "Vaccine against rhinotracheitis, calicivirus, panleukopenia and clamidiosis."
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "ExH5DbaDbfHqEf8c9W3/Dg==": {
-     "text": "Vaccination \"cuadruple felina\"",
-     "desc": "vaccination cuadruple felina (table header)"
-    }
-   },
-   "filepath": "src/cats/CatsTableAdopted.js",
-   "line_beg": 83,
-   "col_beg": 14,
-   "line_end": 85,
-   "col_end": 20,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "vaccination cuadruple felina (table header)",
-     "text": "Vaccination \"cuadruple felina\""
+     "desc": "vaccination leucemia felina (table header)",
+     "text": "Vaccination \"leucemia felina\""
     },
     "m": []
    }
@@ -570,9 +528,9 @@
     }
    },
    "filepath": "src/cats/CatsTableCurrent.js",
-   "line_beg": 37,
+   "line_beg": 38,
    "col_beg": 18,
-   "line_end": 37,
+   "line_end": 38,
    "col_end": 73,
    "project": "",
    "jsfbt": {
@@ -591,9 +549,9 @@
     }
    },
    "filepath": "src/cats/CatsTableCurrent.js",
-   "line_beg": 41,
+   "line_beg": 42,
    "col_beg": 18,
-   "line_end": 41,
+   "line_end": 42,
    "col_end": 82,
    "project": "",
    "jsfbt": {
@@ -612,9 +570,9 @@
     }
    },
    "filepath": "src/cats/CatsTableCurrent.js",
-   "line_beg": 46,
+   "line_beg": 47,
    "col_beg": 12,
-   "line_end": 48,
+   "line_end": 49,
    "col_end": 18,
    "project": "",
    "jsfbt": {
@@ -633,9 +591,9 @@
     }
    },
    "filepath": "src/cats/CatsTableCurrent.js",
-   "line_beg": 54,
+   "line_beg": 55,
    "col_beg": 12,
-   "line_end": 54,
+   "line_end": 55,
    "col_end": 94,
    "project": "",
    "jsfbt": {
@@ -654,9 +612,9 @@
     }
    },
    "filepath": "src/cats/CatsTableCurrent.js",
-   "line_beg": 59,
+   "line_beg": 60,
    "col_beg": 18,
-   "line_end": 59,
+   "line_end": 60,
    "col_end": 88,
    "project": "",
    "jsfbt": {
@@ -669,63 +627,42 @@
   },
   {
    "hashToLeaf": {
-    "EExPHIUJXU+A80QOawNt+w==": {
-     "text": "Vaccination \"triple felina\"",
-     "desc": "vaccination triple felina (table header)"
+    "w73+mU4U9muFW4rl6RO7Rw==": {
+     "text": "Vaccination \"triple/cuadruple felina\"",
+     "desc": "vaccination triple/cuadruple felina (table header)"
     }
    },
    "filepath": "src/cats/CatsTableCurrent.js",
-   "line_beg": 64,
+   "line_beg": 65,
    "col_beg": 12,
-   "line_end": 66,
+   "line_end": 67,
    "col_end": 18,
    "project": "",
    "jsfbt": {
     "t": {
-     "desc": "vaccination triple felina (table header)",
-     "text": "Vaccination \"triple felina\""
+     "desc": "vaccination triple/cuadruple felina (table header)",
+     "text": "Vaccination \"triple/cuadruple felina\""
     },
     "m": []
    }
   },
   {
    "hashToLeaf": {
-    "X2CMHeCQ24SmLvDBGzND/A==": {
-     "text": "Vaccine against rhinotracheitis, calicivirus, panleukopenia and clamidiosis.",
-     "desc": "tooltip explanation of the cuadruple felina vaccination"
+    "+7T76ZsgTRmRu45hdukfAg==": {
+     "text": "Vaccination \"leucemia felina\"",
+     "desc": "vaccination leucemia felina (table header)"
     }
    },
    "filepath": "src/cats/CatsTableCurrent.js",
-   "line_beg": 74,
-   "col_beg": 16,
-   "line_end": 76,
-   "col_end": 22,
+   "line_beg": 73,
+   "col_beg": 12,
+   "line_end": 75,
+   "col_end": 18,
    "project": "",
    "jsfbt": {
     "t": {
-     "desc": "tooltip explanation of the cuadruple felina vaccination",
-     "text": "Vaccine against rhinotracheitis, calicivirus, panleukopenia and clamidiosis."
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "ExH5DbaDbfHqEf8c9W3/Dg==": {
-     "text": "Vaccination \"cuadruple felina\"",
-     "desc": "vaccination cuadruple felina (table header)"
-    }
-   },
-   "filepath": "src/cats/CatsTableCurrent.js",
-   "line_beg": 79,
-   "col_beg": 14,
-   "line_end": 81,
-   "col_end": 20,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "vaccination cuadruple felina (table header)",
-     "text": "Vaccination \"cuadruple felina\""
+     "desc": "vaccination leucemia felina (table header)",
+     "text": "Vaccination \"leucemia felina\""
     },
     "m": []
    }
@@ -738,9 +675,9 @@
     }
    },
    "filepath": "src/cats/CatsTableCurrent.js",
-   "line_beg": 98,
+   "line_beg": 91,
    "col_beg": 22,
-   "line_end": 100,
+   "line_end": 93,
    "col_end": 28,
    "project": "",
    "jsfbt": {

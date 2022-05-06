@@ -5,6 +5,7 @@ import { MissingData, Table, Tooltip } from '@adeira/sx-design';
 import fbt from 'fbt';
 import { type Node } from 'react';
 
+import TableCellTripleCuadrupleFelina from './TableCellTripleCuadrupleFelina';
 import type { CatsTableCurrentFragment$key } from './__generated__/CatsTableCurrentFragment.graphql';
 
 type Props = {
@@ -22,8 +23,8 @@ export default function CatsTableCurrent(props: Props): Node {
           dateOfCastration
           dateOfDeworming
           dateOfVaccinationRabies
-          dateOfVaccinationTripleFelina
-          dateOfVaccinationCuadrupleFelina
+          ...TableCellTripleCuadrupleFelinaFragment
+          dateOfVaccinationLeucemiaFelina
         }
       }
     `,
@@ -61,25 +62,17 @@ export default function CatsTableCurrent(props: Props): Node {
         },
         {
           Header: (
-            <fbt desc="vaccination triple felina (table header)">
-              Vaccination &quot;triple felina&quot;
+            <fbt desc="vaccination triple/cuadruple felina (table header)">
+              Vaccination &quot;triple/cuadruple felina&quot;
             </fbt>
           ),
           accessor: 'col6',
         },
         {
-          Header: () => (
-            <Tooltip
-              title={
-                <fbt desc="tooltip explanation of the cuadruple felina vaccination">
-                  Vaccine against rhinotracheitis, calicivirus, panleukopenia and clamidiosis.
-                </fbt>
-              }
-            >
-              <fbt desc="vaccination cuadruple felina (table header)">
-                Vaccination &quot;cuadruple felina&quot;
-              </fbt>
-            </Tooltip>
+          Header: (
+            <fbt desc="vaccination leucemia felina (table header)">
+              Vaccination &quot;leucemia felina&quot;
+            </fbt>
           ),
           accessor: 'col7',
         },
@@ -109,8 +102,8 @@ export default function CatsTableCurrent(props: Props): Node {
           col3: cat.dateOfCastration ?? <MissingData />, // TODO: display with warning/error when around 4 months old
           col4: cat.dateOfDeworming ?? <MissingData />, // TODO: display with warning/error
           col5: cat.dateOfVaccinationRabies ?? <MissingData />,
-          col6: cat.dateOfVaccinationTripleFelina ?? <MissingData />,
-          col7: cat.dateOfVaccinationCuadrupleFelina ?? <MissingData />,
+          col6: <TableCellTripleCuadrupleFelina data={cat} />,
+          col7: cat.dateOfVaccinationLeucemiaFelina ?? <MissingData />,
         };
       })}
     />
