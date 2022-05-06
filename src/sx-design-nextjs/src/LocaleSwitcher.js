@@ -1,11 +1,16 @@
 // @flow
 
+import NextLink from 'next/link';
 import React, { type Node } from 'react';
 import { useRouter } from 'next/router';
 
 import Link from './Link';
 
-export default function LocaleSwitcher(): Node {
+type Props = {
+  +nextLinkComponent: typeof NextLink,
+};
+
+export default function LocaleSwitcher(props: Props): Node {
   const router = useRouter();
   const { locales, locale: activeLocale } = router;
   const otherLocales = locales.filter((locale) => locale !== activeLocale);
@@ -23,7 +28,12 @@ export default function LocaleSwitcher(): Node {
     const localeLink = (
       <React.Fragment key={locale}>
         {separator}
-        <Link href={{ pathname, query }} as={asPath} locale={locale}>
+        <Link
+          href={{ pathname, query }}
+          as={asPath}
+          locale={locale}
+          nextLinkComponent={props.nextLinkComponent}
+        >
           {translationMap[locale] ?? locale}
         </Link>
       </React.Fragment>
