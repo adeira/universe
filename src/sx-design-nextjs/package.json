@@ -1,7 +1,7 @@
 {
   "name": "@adeira/sx-design-nextjs",
   "description": "SX Design specific components for usage in Next.js",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "homepage": "https://github.com/adeira/sx-design-nextjs",
   "bugs": "https://github.com/adeira/universe/issues",
   "type": "commonjs",
@@ -19,6 +19,6 @@
   "peerDependencies": {
     "@adeira/sx-design": "^0.26.0",
     "next": "^12.1.6",
-    "react": "*"
+    "react": "^17.0.2"
   }
 }
