@@ -1,9 +1,9 @@
 // @flow
 
-import { MissingData, Table } from '@adeira/sx-design';
+import { MissingData, Table, DateTime } from '@adeira/sx-design';
 import fbt from 'fbt';
-import { type Node } from 'react';
 import { useFragment, graphql } from '@adeira/relay';
+import type { Node } from 'react';
 
 import TableCellTripleCuadrupleFelina from './TableCellTripleCuadrupleFelina';
 import type { CatsTableAdoptedFragment$key } from './__generated__/CatsTableAdoptedFragment.graphql';
@@ -85,12 +85,33 @@ export default function CatsTableAdopted(props: Props): Node {
         return {
           col1: `#${cat.order}`,
           col2: cat.name,
-          col3: cat.dateOfCastration ?? <MissingData />,
-          col4: cat.dateOfDeworming ?? <MissingData />,
-          col5: cat.dateOfAdoption ?? <MissingData />,
-          col6: cat.dateOfVaccinationRabies ?? <MissingData />,
+          col3:
+            cat.dateOfCastration != null ? (
+              <DateTime value={cat.dateOfCastration} />
+            ) : (
+              <MissingData />
+            ),
+          col4:
+            cat.dateOfDeworming != null ? (
+              <DateTime value={cat.dateOfDeworming} />
+            ) : (
+              <MissingData />
+            ),
+          col5:
+            cat.dateOfAdoption != null ? <DateTime value={cat.dateOfAdoption} /> : <MissingData />,
+          col6:
+            cat.dateOfVaccinationRabies != null ? (
+              <DateTime value={cat.dateOfVaccinationRabies} />
+            ) : (
+              <MissingData />
+            ),
           col7: <TableCellTripleCuadrupleFelina data={cat} />,
-          col8: cat.dateOfVaccinationLeucemiaFelina ?? <MissingData />,
+          col8:
+            cat.dateOfVaccinationLeucemiaFelina != null ? (
+              <DateTime value={cat.dateOfVaccinationLeucemiaFelina} />
+            ) : (
+              <MissingData />
+            ),
         };
       })}
     />

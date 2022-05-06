@@ -1,7 +1,7 @@
 // @flow
 
 import { graphql, useFragment } from '@adeira/relay';
-import { MissingData, Table, Tooltip } from '@adeira/sx-design';
+import { MissingData, Table, Tooltip, DateTime } from '@adeira/sx-design';
 import fbt from 'fbt';
 import { type Node } from 'react';
 
@@ -99,11 +99,33 @@ export default function CatsTableCurrent(props: Props): Node {
               ) : null}
             </>
           ),
-          col3: cat.dateOfCastration ?? <MissingData />, // TODO: display with warning/error when around 4 months old
-          col4: cat.dateOfDeworming ?? <MissingData />, // TODO: display with warning/error
-          col5: cat.dateOfVaccinationRabies ?? <MissingData />,
+          col3:
+            // TODO: display with warning/error when around 4 months old
+            cat.dateOfCastration != null ? (
+              <DateTime value={cat.dateOfCastration} />
+            ) : (
+              <MissingData />
+            ),
+          col4:
+            // TODO: display with warning/error
+            cat.dateOfDeworming != null ? (
+              <DateTime value={cat.dateOfDeworming} />
+            ) : (
+              <MissingData />
+            ),
+          col5:
+            cat.dateOfVaccinationRabies != null ? (
+              <DateTime value={cat.dateOfVaccinationRabies} />
+            ) : (
+              <MissingData />
+            ),
           col6: <TableCellTripleCuadrupleFelina data={cat} />,
-          col7: cat.dateOfVaccinationLeucemiaFelina ?? <MissingData />,
+          col7:
+            cat.dateOfVaccinationLeucemiaFelina != null ? (
+              <DateTime value={cat.dateOfVaccinationLeucemiaFelina} />
+            ) : (
+              <MissingData />
+            ),
         };
       })}
     />

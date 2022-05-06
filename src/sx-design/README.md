@@ -55,6 +55,7 @@ Legend:
 | [`<Breadcrumb />`]    |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<Button />`]        |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<ButtonLink />`]    |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
+| [`<DateTime />`]      |     🧐      |     🧐      |      🧐       |    🧐    |  🧐   |
 | [`<Entity />`]        |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<EntityField />`]   |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<ErrorBoundary />`] |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
@@ -83,6 +84,7 @@ Legend:
 [`<breadcrumb />`]: https://sx-design.vercel.app/?path=/docs/components-breadcrumb
 [`<button />`]: https://sx-design.vercel.app/?path=/docs/components-button
 [`<buttonlink />`]: https://sx-design.vercel.app/?path=/docs/components-buttonlink
+[`<datetime />`]: https://sx-design.vercel.app/?path=/docs/components-datetime
 [`<entity />`]: https://sx-design.vercel.app/?path=/docs/components-entity
 [`<entityfield />`]: https://sx-design.vercel.app/?path=/docs/components-entityfield
 [`<errorboundary />`]: https://sx-design.vercel.app/?path=/docs/components-errorboundary
