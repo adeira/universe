@@ -20,8 +20,8 @@
     "next-compose-plugins": "^2.2.1",
     "next-plugin-custom-babel-config": "^1.0.5",
     "next-transpile-modules": "^9.0.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
   },
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^4.0.0",
@@ -32,7 +32,7 @@
     "flow-bin": "^0.177.0",
     "graphql": "^16.4.0",
     "jest": "^28.1.0",
-    "react-test-renderer": "^17.0.2",
+    "react-test-renderer": "^18.1.0",
     "relay-test-utils": "^13.2.0"
   },
   "scripts": {
