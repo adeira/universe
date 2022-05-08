@@ -6,7 +6,6 @@
   "@adeira/fetch",
   "@adeira/fixtures-tester",
   "@adeira/flow-config-parser",
-  "@adeira/graphql-bc-checker",
   "@adeira/graphql-global-id",
   "@adeira/graphql-relay",
   "@adeira/graphql-relay-fauna",
