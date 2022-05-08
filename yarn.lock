@@ -20,7 +20,7 @@ __metadata:
     "@fbtjs/default-collection-transform": ^1.0.0
     "@next/bundle-analyzer": ^12.1.6
     "@testing-library/jest-dom": ^5.16.4
-    "@testing-library/react": ^12.1.5
+    "@testing-library/react": ^13.2.0
     "@testing-library/react-hooks": ^8.0.0
     babel-plugin-fbt: ^1.0.0
     babel-plugin-fbt-runtime: ^1.0.0
@@ -52,7 +52,7 @@ __metadata:
     "@adeira/sx-design-nextjs": ^0.3.2
     "@fbtjs/default-collection-transform": ^1.0.0
     "@playwright/test": ^1.21.1
-    "@testing-library/react": ^12.1.5
+    "@testing-library/react": ^13.2.0
     babel-plugin-fbt: ^1.0.0
     babel-plugin-fbt-runtime: ^1.0.0
     fbt: ^1.0.0
@@ -159,7 +159,7 @@ __metadata:
     "@adeira/sx": ^0.29.1
     "@adeira/sx-design": ^0.26.0
     "@testing-library/jest-dom": ^5.16.4
-    "@testing-library/react": ^12.1.5
+    "@testing-library/react": ^13.2.0
     "@testing-library/user-event": ^14.1.1
     apollo-server-micro: ^3.7.0
     babel-jest: ^28.1.0
@@ -449,7 +449,7 @@ __metadata:
     "@storybook/react": ^6.4.22
     "@storybook/theming": ^6.4.22
     "@testing-library/jest-dom": ^5.16.4
-    "@testing-library/react": ^12.1.5
+    "@testing-library/react": ^13.2.0
     "@testing-library/user-event": ^14.1.1
     babel-loader: ^8.2.5
     babel-plugin-fbt: ^1.0.0
@@ -477,7 +477,7 @@ __metadata:
   dependencies:
     "@adeira/sx": ^0.29.1
     "@babel/runtime": ^7.17.9
-    "@testing-library/react": ^12.1.5
+    "@testing-library/react": ^13.2.0
     prettier: ^2.6.2
     pretty-format: ^28.1.0
     react-test-renderer: ^17.0.2
@@ -495,7 +495,7 @@ __metadata:
     "@adeira/signed-source": ^2.0.0
     "@babel/runtime": ^7.17.9
     "@testing-library/jest-dom": ^5.16.4
-    "@testing-library/react": ^12.1.5
+    "@testing-library/react": ^13.2.0
     change-case: ^4.1.2
     css-tree: ^2.1.0
     fast-levenshtein: ^3.0.0
@@ -4711,9 +4711,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/dom@npm:^8.0.0, @testing-library/dom@npm:^8.11.1":
-  version: 8.11.3
-  resolution: "@testing-library/dom@npm:8.11.3"
+"@testing-library/dom@npm:^8.11.1, @testing-library/dom@npm:^8.5.0":
+  version: 8.13.0
+  resolution: "@testing-library/dom@npm:8.13.0"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/runtime": ^7.12.5
@@ -4723,7 +4723,7 @@ __metadata:
     dom-accessibility-api: ^0.5.9
     lz-string: ^1.4.4
     pretty-format: ^27.0.2
-  checksum: 2245d254b6058590e25de86fb7b3c75e4a31096901a191f80d3efb9fa7e1e273043416f370c8770feb9f3ccc73a1550a877a3b003b593f1728ae828fcb52cd62
+  checksum: 880f1872b9949800d4444e3bdbd03df86d6f41ec7c27136dff1da29e87d2df2d7ee904afcdf895ffce351c25bd12119117eae023354d50e707ad56d43b2ed3ed
   languageName: node
   linkType: hard
 
@@ -4766,17 +4766,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react@npm:^12.1.5":
-  version: 12.1.5
-  resolution: "@testing-library/react@npm:12.1.5"
+"@testing-library/react@npm:^13.2.0":
+  version: 13.2.0
+  resolution: "@testing-library/react@npm:13.2.0"
   dependencies:
     "@babel/runtime": ^7.12.5
-    "@testing-library/dom": ^8.0.0
-    "@types/react-dom": <18.0.0
+    "@testing-library/dom": ^8.5.0
+    "@types/react-dom": ^18.0.0
   peerDependencies:
-    react: <18.0.0
-    react-dom: <18.0.0
-  checksum: 4abd0490405e709a7df584a0db604e508a4612398bb1326e8fa32dd9393b15badc826dcf6d2f7525437886d507871f719f127b9860ed69ddd204d1fa834f576a
+    react: ^18.0.0
+    react-dom: ^18.0.0
+  checksum: 29f4a97c932a7fd78a55791a0ae0ba8d33c5241acbade98b6714440981e6e3d86a243e0b22161d3323b549ce059c175ae56d6b5053ad44083ab6e40ca211f19e
   languageName: node
   linkType: hard
 
@@ -5121,12 +5121,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:<18.0.0":
-  version: 17.0.15
-  resolution: "@types/react-dom@npm:17.0.15"
+"@types/react-dom@npm:^18.0.0":
+  version: 18.0.3
+  resolution: "@types/react-dom@npm:18.0.3"
   dependencies:
-    "@types/react": ^17
-  checksum: 7b90372bd7207d3860e1043ebfe10fd21fbd9ec3417a29593ca14359774830c888ba4ebb25cf0510628607496f8d35b09d23d329ea709b9311f5866185c5fd67
+    "@types/react": "*"
+  checksum: 5c87fb610e212f0942ebbf522dfca4c9dc2ac8afa4c601454415e7c42f993518868207faff7658d11974142937ba7af2f80e274c3a3f5e0e697bdd5547dbe1b0
   languageName: node
   linkType: hard
 
@@ -5139,7 +5139,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^17":
+"@types/react@npm:*":
   version: 17.0.44
   resolution: "@types/react@npm:17.0.44"
   dependencies:
