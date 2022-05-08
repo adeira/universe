@@ -216,21 +216,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/graphql-bc-checker@workspace:src/graphql-bc-checker":
-  version: 0.0.0-use.local
-  resolution: "@adeira/graphql-bc-checker@workspace:src/graphql-bc-checker"
-  dependencies:
-    "@adeira/fixtures-tester": ^1.1.1
-    "@adeira/signed-source": ^2.0.0
-    "@babel/runtime": ^7.17.9
-    chalk: ^4.1.2
-    graphql: ^16.4.0
-    strip-ansi: ^6.0.1
-  peerDependencies:
-    graphql: ^16.4.0
-  languageName: unknown
-  linkType: soft
-
 "@adeira/graphql-global-id@^2.1.0, @adeira/graphql-global-id@workspace:src/graphql-global-id":
   version: 0.0.0-use.local
   resolution: "@adeira/graphql-global-id@workspace:src/graphql-global-id"
