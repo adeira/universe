@@ -37,6 +37,7 @@ pub(in crate::menu) async fn get_section(
                 &[
                     "2901328".to_string(),  // Espresso
                     "3626010".to_string(),  // Espresso Americano
+                    "20987500".to_string(), // Espresso Americano Nitro
                     "14944417".to_string(), // Espresso Tonic
                     "16896647".to_string(), // Flat white
                     "3633163".to_string(),  // Cappuccino
