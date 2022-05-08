@@ -39,15 +39,17 @@ export default function FlashMessage(props: Props): Node {
       })}
     >
       {props.message}
-      <div
-        className={styles({
-          progress: true,
-          progressDefault: hasDefaultTint,
-          progressError: hasErrorTint,
-          progressSuccess: hasSuccessTint,
-          progressWarning: hasWarningTint,
-        })}
-      />
+      <div className={styles('progressWrapper')}>
+        <div
+          className={styles({
+            progress: true,
+            progressDefault: hasDefaultTint,
+            progressError: hasErrorTint,
+            progressSuccess: hasSuccessTint,
+            progressWarning: hasWarningTint,
+          })}
+        />
+      </div>
     </div>
   );
 }
@@ -59,7 +61,7 @@ const bgTest = sx.keyframes({
 
 const styles = sx.create({
   wrapper: {
-    position: 'absolute',
+    position: 'fixed',
     bottom: 0,
     right: 0,
     boxShadow: 'var(--sx-shadow-large)',
@@ -72,13 +74,17 @@ const styles = sx.create({
     maxWidth: 300,
     flexDirection: 'column',
     display: 'flex',
+  },
+  progressWrapper: {
+    display: 'flex',
+    flexDirection: 'column',
     alignItems: 'center',
   },
   progress: {
     height: 3,
     marginBlockStart: 15,
     animationName: bgTest,
-    animationDuration: '2500ms', // aligned with the message timeout (!)
+    animationDuration: '3000ms', // aligned with the message timeout (!)
     animationFillMode: 'forwards',
     animationTimingFunction: 'linear',
   },

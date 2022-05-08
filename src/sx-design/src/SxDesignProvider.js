@@ -78,12 +78,15 @@ export default function SxDesignProvider(props: Props): Node {
       theme: theme === 'system' ? actualSystemColor : theme,
       activeFlashMessages,
       displayFlashMessage: ({ message, tint }) => {
-        const timeoutID = setTimeout(() => {
-          setActiveFlashMessages((previousFlashMessages) => {
-            previousFlashMessages.delete(timeoutID);
-            return new Map(previousFlashMessages);
-          });
-        }, 2500);
+        const timeoutID = setTimeout(
+          () => {
+            setActiveFlashMessages((previousFlashMessages) => {
+              previousFlashMessages.delete(timeoutID);
+              return new Map(previousFlashMessages);
+            });
+          },
+          3000, // aligned with the animation duration (!)
+        );
 
         setActiveFlashMessages(
           (previousFlashMessages) =>
