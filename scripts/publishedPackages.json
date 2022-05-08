@@ -9,7 +9,6 @@
   "@adeira/graphql-global-id",
   "@adeira/graphql-relay",
   "@adeira/graphql-relay-fauna",
-  "@adeira/graphql-resolve-wrapper",
   "@adeira/hooks",
   "@adeira/icons",
   "@adeira/js",

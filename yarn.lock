@@ -251,16 +251,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/graphql-resolve-wrapper@workspace:src/graphql-resolve-wrapper":
-  version: 0.0.0-use.local
-  resolution: "@adeira/graphql-resolve-wrapper@workspace:src/graphql-resolve-wrapper"
-  dependencies:
-    "@babel/runtime": ^7.17.9
-  peerDependencies:
-    graphql: ^16.4.0
-  languageName: unknown
-  linkType: soft
-
 "@adeira/hooks@^0.2.0, @adeira/hooks@workspace:src/hooks":
   version: 0.0.0-use.local
   resolution: "@adeira/hooks@workspace:src/hooks"
