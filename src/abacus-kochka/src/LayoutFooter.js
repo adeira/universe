@@ -1,11 +1,12 @@
 // @flow
 
-import { LayoutInline } from '@adeira/sx-design';
-import fbt from 'fbt';
 import * as React from 'react';
+import fbt from 'fbt';
+import NextLink from 'next/link';
 import sx from '@adeira/sx';
+import { LayoutInline } from '@adeira/sx-design';
+import { LocaleSwitcher } from '@adeira/sx-design-nextjs';
 
-import LanguageSwitch from './LanguageSwitch';
 import LinkInternal from './LinkInternal';
 import Logo from './Logo';
 import SocialMediaIcons from './SocialMediaIcons';
@@ -42,7 +43,7 @@ export default function LayoutFooter(): React.Node {
         </div>
 
         <div className={styles('columnRight')}>
-          <LanguageSwitch />
+          <LocaleSwitcher nextLinkComponent={NextLink} />
         </div>
       </LayoutInline>
 

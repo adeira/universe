@@ -49,6 +49,7 @@ __metadata:
     "@adeira/relay": ^5.2.0
     "@adeira/sx": ^0.29.1
     "@adeira/sx-design": ^0.26.0
+    "@adeira/sx-design-nextjs": ^0.3.2
     "@fbtjs/default-collection-transform": ^1.0.0
     "@playwright/test": ^1.21.1
     "@testing-library/react": ^12.1.5
@@ -413,7 +414,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/sx-design-nextjs@workspace:src/sx-design-nextjs":
+"@adeira/sx-design-nextjs@^0.3.2, @adeira/sx-design-nextjs@workspace:src/sx-design-nextjs":
   version: 0.0.0-use.local
   resolution: "@adeira/sx-design-nextjs@workspace:src/sx-design-nextjs"
   dependencies:
