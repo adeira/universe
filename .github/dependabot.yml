@@ -14,11 +14,3 @@ updates:
     labels:
       - 'dependencies'
     open-pull-requests-limit: 10
-
-  - package-ecosystem: 'github-actions'
-    directory: '/src/sx-tailwind-website/__github__/'
-    schedule:
-      interval: 'daily'
-    labels:
-      - 'dependencies'
-    open-pull-requests-limit: 10
