@@ -61,12 +61,10 @@ export default function Image(props: Props): Node {
 
       {/* eslint-disable-next-line react/forbid-elements */}
       <img
+        loading="lazy"
         src={props.src}
         alt={props.alt}
-        className={styles({
-          imgSrc: true,
-          imgSrcLoading: isImageLoaded === false,
-        })}
+        className={styles('imgSrc')}
         onLoad={() => {
           setImageLoaded(true);
           if (props.onLoad != null) {
@@ -91,9 +89,6 @@ const styles = sx.create({
     borderRadius: 'var(--sx-radius)',
     width: '100%',
     paddingBlockEnd: '100%', // = width for a 1:1 aspect ratio (https://css-tricks.com/aspect-ratio-boxes/)
-  },
-  imgSrcLoading: {
-    display: 'none',
   },
   imgSrc: {
     width: '100%',
