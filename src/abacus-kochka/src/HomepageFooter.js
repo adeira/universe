@@ -1,11 +1,11 @@
 // @flow
 
-import { Link } from '@adeira/sx-design';
 import * as React from 'react';
-import sx from '@adeira/sx';
 import fbt from 'fbt';
-
-import LanguageSwitch from './LanguageSwitch';
+import NextLink from 'next/link';
+import sx from '@adeira/sx';
+import { Link } from '@adeira/sx-design';
+import { LocaleSwitcher } from '@adeira/sx-design-nextjs';
 
 export default function HomepageFooter(): React.Node {
   return (
@@ -21,7 +21,7 @@ export default function HomepageFooter(): React.Node {
       </div>
 
       <div className={styles('languageSwitch')}>
-        <LanguageSwitch />
+        <LocaleSwitcher nextLinkComponent={NextLink} />
       </div>
     </div>
   );
