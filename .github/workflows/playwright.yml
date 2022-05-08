@@ -10,7 +10,7 @@ jobs:
 
     steps:
       # https://github.com/actions/checkout
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v3.0.2
 
       # https://github.com/dorny/paths-filter
       # TODO: expand as needed
