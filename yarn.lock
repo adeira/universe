@@ -26,7 +26,7 @@ __metadata:
     babel-plugin-fbt-runtime: ^1.0.0
     d3: ^7.4.4
     fbt: ^1.0.0
-    graphql: ^16.4.0
+    graphql: ^16.5.0
     immutable: ^4.0.0
     next: ^12.1.6
     next-compose-plugins: ^2.2.1
@@ -56,7 +56,7 @@ __metadata:
     babel-plugin-fbt: ^1.0.0
     babel-plugin-fbt-runtime: ^1.0.0
     fbt: ^1.0.0
-    graphql: ^16.4.0
+    graphql: ^16.5.0
     next: ^12.1.6
     next-plugin-custom-babel-config: ^1.0.5
     next-seo: ^5.4.0
@@ -165,7 +165,7 @@ __metadata:
     babel-jest: ^28.1.0
     cors: ^2.8.5
     flow-bin: ^0.177.0
-    graphql: ^16.4.0
+    graphql: ^16.5.0
     jest: ^28.1.0
     micro: ^9.3.4
     next: ^12.1.6
@@ -237,7 +237,7 @@ __metadata:
     "@babel/runtime": ^7.17.9
     faunadb: ^4.5.4
   peerDependencies:
-    graphql: ^16.4.0
+    graphql: ^16.5.0
   languageName: unknown
   linkType: soft
 
@@ -247,7 +247,7 @@ __metadata:
   dependencies:
     "@babel/runtime": ^7.17.9
   peerDependencies:
-    graphql: ^16.4.0
+    graphql: ^16.5.0
   languageName: unknown
   linkType: soft
 
@@ -385,7 +385,7 @@ __metadata:
     relay-runtime: ^13.2.0
     relay-test-utils: ^13.2.0
   peerDependencies:
-    graphql: ^16.4.0
+    graphql: ^16.5.0
     react: ^17.0.2
   languageName: unknown
   linkType: soft
@@ -11251,10 +11251,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql@npm:^16.3.0, graphql@npm:^16.4.0":
-  version: 16.4.0
-  resolution: "graphql@npm:16.4.0"
-  checksum: 8cac2c466891b6c6ace2fa3807f93815dea53cbec372998c139e796a321a6882c2324cc605e5f9aa45356890239aa9e731a04d8c59ec524db82bd18fb48aafee
+"graphql@npm:^16.3.0, graphql@npm:^16.5.0":
+  version: 16.5.0
+  resolution: "graphql@npm:16.5.0"
+  checksum: a82a926d085818934d04fdf303a269af170e79de943678bd2726370a96194f9454ade9d6d76c2de69afbd7b9f0b4f8061619baecbbddbe82125860e675ac219e
   languageName: node
   linkType: hard
 
