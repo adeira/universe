@@ -430,6 +430,7 @@ __metadata:
     "@babel/core": ^7.18.0
     "@babel/runtime": ^7.18.0
     "@fbtjs/default-collection-transform": ^1.0.0
+    "@playwright/test": ^1.21.1
     "@storybook/addon-a11y": ^6.5.3
     "@storybook/addon-actions": ^6.5.3
     "@storybook/addon-essentials": ^6.5.3
@@ -448,6 +449,7 @@ __metadata:
     fbt: ^1.0.0
     flow-enums-runtime: ^0.0.6
     focus-trap-react: ^8.11.1
+    playwright: ^1.21.1
     prop-types: ^15.8.1
     react: ^17.0.2
     react-blurhash: ^0.1.3
@@ -3052,7 +3054,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:^1.22.1":
+"@playwright/test@npm:^1.21.1, @playwright/test@npm:^1.22.1":
   version: 1.22.1
   resolution: "@playwright/test@npm:1.22.1"
   dependencies:
@@ -15849,7 +15851,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright@npm:^1.22.1":
+"playwright@npm:^1.21.1, playwright@npm:^1.22.1":
   version: 1.22.1
   resolution: "playwright@npm:1.22.1"
   dependencies:

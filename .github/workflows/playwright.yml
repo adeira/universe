@@ -5,7 +5,19 @@ name: Playwright
 on: [push]
 
 jobs:
-  build:
+  playwright-test:
+    name: Playwright test
+    strategy:
+      matrix:
+        repository:
+          - '@adeira/abacus-kochka'
+          - '@adeira/sx-design'
+        include:
+          - repository: '@adeira/abacus-kochka'
+            source: 'src/abacus-kochka/**'
+          - repository: '@adeira/sx-design'
+            source: 'src/sx-design/**'
+
     runs-on: ubuntu-latest
 
     steps:
@@ -13,24 +25,33 @@ jobs:
       - uses: actions/checkout@v3.0.2
 
       # https://github.com/dorny/paths-filter
-      # TODO: expand as needed
       - uses: dorny/paths-filter@v2.10.2
         id: paths-filter
         with:
           filters: |
-            src:
-              - 'src/abacus-kochka/**'
+            src: ${{ matrix.source }}
 
       # https://github.com/actions/setup-node
       - name: Use Node.js 18.x
+        if: steps.paths-filter.outputs.src == 'true'
         uses: actions/setup-node@v3.2.0
         with:
           node-version: 18.x
           cache: 'yarn'
 
       - name: Install Yarn dependencies
+        if: steps.paths-filter.outputs.src == 'true'
         run: yarn install --immutable
 
-      # We currently don't have any other project using `playwright` so let's keep it simple:
+      - name: Install Playwright
+        if: steps.paths-filter.outputs.src == 'true'
+        run: yarn workspace ${{ matrix.repository }} playwright install --with-deps
+
       - name: Run Playwright tests
-        run: yarn workspace @adeira/abacus-kochka playwright test
+        if: steps.paths-filter.outputs.src == 'true'
+        run: yarn workspace ${{ matrix.repository }} playwright test
+        env:
+          # See: https://github.com/storybookjs/storybook/issues/16555
+          NODE_OPTIONS: --openssl-legacy-provider
+
+      # TODO: upload Playwright artifacts, see: https://playwright.dev/docs/next/ci#github-actions
