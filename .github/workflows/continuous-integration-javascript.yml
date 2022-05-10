@@ -8,7 +8,8 @@ env:
   BABEL_DISABLE_CACHE: '1'
 
 jobs:
-  build:
+  javascript-test:
+    name: JavaScript test
     runs-on: ubuntu-latest
 
     strategy:

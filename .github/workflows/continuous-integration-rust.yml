@@ -3,7 +3,9 @@ name: Continuous Integration (Rust)
 on: [push]
 
 jobs:
-  build-all-targets:
+  rust-test:
+    name: Rust test
+
     strategy:
       fail-fast: true
       matrix:
