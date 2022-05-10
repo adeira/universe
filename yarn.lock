@@ -12038,10 +12038,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ip@npm:^1.1.5":
+"ip@npm:1.1.5":
   version: 1.1.5
   resolution: "ip@npm:1.1.5"
   checksum: 30133981f082a060a32644f6a7746e9ba7ac9e2bc07ecc8bbdda3ee8ca9bec1190724c390e45a1ee7695e7edfd2a8f7dda2c104ec5f7ac5068c00648504c7e5a
+  languageName: node
+  linkType: hard
+
+"ip@patch:ip@npm:1.1.5#.yarn/patches/ip-npm-1.1.5-af36318aa6.patch::locator=root-workspace-0b6124%40workspace%3A.":
+  version: 1.1.5
+  resolution: "ip@patch:ip@npm%3A1.1.5#.yarn/patches/ip-npm-1.1.5-af36318aa6.patch::version=1.1.5&hash=734266&locator=root-workspace-0b6124%40workspace%3A."
+  checksum: 0f3ba3f703f31807dd0a4f73269fadc65c80beb4fa8680c2c2119dd5d16e5cc849506342d08030d89286344262e8b2f1869d88e23c54c4213c580c4368e72260
   languageName: node
   linkType: hard
 
