@@ -15,6 +15,15 @@ const dateTimeFormatOptions = {
   second: 'numeric',
 };
 
+it('works correctly without format options', () => {
+  const { getByText } = render(
+    <SxDesignProvider locale="en-US">
+      <DateTime value="2022-04-16T01:00:00.000Z" />
+    </SxDesignProvider>,
+  );
+  expect(getByText('Apr 16, 2022')).toBeInTheDocument();
+});
+
 it('works correctly for `en-US` locale', () => {
   const { getByText } = render(
     <SxDesignProvider locale="en-US">
@@ -40,4 +49,36 @@ it('works correctly for `cs-CZ` locale', () => {
     </SxDesignProvider>,
   );
   expect(getByText('16. 4. 2022 1:00:00')).toBeInTheDocument();
+});
+
+it('works correctly with additional format options', () => {
+  const { getByText } = render(
+    <SxDesignProvider locale="cs-CZ">
+      <DateTime
+        value="2022-04-16T01:00:00.000Z"
+        formatOptions={{
+          weekday: 'long',
+          era: 'long',
+          year: 'numeric',
+          month: 'long',
+          timeZoneName: 'long',
+          hour: 'numeric',
+          minute: 'numeric',
+          second: 'numeric',
+        }}
+      />
+    </SxDesignProvider>,
+  );
+  expect(
+    getByText('sobota 16. dubna 2022 našeho letopočtu 1:00:00 Koordinovaný světový čas'),
+  ).toBeInTheDocument();
+});
+
+it('handles invalid date value gracefully', () => {
+  const { getByText } = render(
+    <SxDesignProvider locale="en-US">
+      <DateTime value="invalid date value" />
+    </SxDesignProvider>,
+  );
+  expect(getByText('Invalid date/time value')).toBeInTheDocument();
 });
