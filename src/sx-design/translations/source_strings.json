@@ -23,6 +23,27 @@
   },
   {
    "hashToLeaf": {
+    "KX0ZqGJIg4ktZphrFWy/Yg==": {
+     "text": "Invalid date/time value",
+     "desc": "tooltip description when invalid date/time value is passed to the DateTime component"
+    }
+   },
+   "filepath": "src/DateTime/DateTime.js",
+   "line_beg": 41,
+   "col_beg": 10,
+   "line_end": 43,
+   "col_end": 16,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "tooltip description when invalid date/time value is passed to the DateTime component",
+     "text": "Invalid date/time value"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
     "6FVmvS0nS9q0ld8LQ5VSyw==": {
      "text": "An unexpected error has occurred.",
      "desc": "generic error message"
