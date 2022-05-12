@@ -164,7 +164,7 @@ __metadata:
     apollo-server-micro: ^3.7.0
     babel-jest: ^28.1.0
     cors: ^2.8.5
-    flow-bin: ^0.177.0
+    flow-bin: ^0.178.0
     graphql: ^16.5.0
     jest: ^28.1.0
     micro: ^9.3.4
@@ -10566,12 +10566,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"flow-bin@npm:^0.177.0":
-  version: 0.177.0
-  resolution: "flow-bin@npm:0.177.0"
+"flow-bin@npm:^0.178.0":
+  version: 0.178.0
+  resolution: "flow-bin@npm:0.178.0"
   bin:
     flow: cli.js
-  checksum: 90c7d3384aab2f31d6c9f4bfa1bd63224109995568a1002893fbd0eac0d207b4390d02fbd5d61e476e5511aa95624c252bef5e6b5ffc0b50f9fc8192d58f7cc2
+  checksum: 33108ed7cf2992cab6584de9ba1461d678c25601d1646711db29ccdcb9bb36b94179098895f7aa09f0bee1eded99faa3f1013bafcfef067c544ee51c8a8212e5
   languageName: node
   linkType: hard
 
@@ -17418,7 +17418,7 @@ __metadata:
     babel-loader: ^8.2.5
     eslint: ^8.15.0
     eslint-formatter-codeframe: ^7.32.1
-    flow-bin: ^0.177.0
+    flow-bin: ^0.178.0
     glob: ^8.0.1
     jest: ^28.1.0
     jest-environment-jsdom: ^28.1.0
