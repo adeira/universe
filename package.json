@@ -20,7 +20,7 @@
     "eslint": "^8.15.0",
     "eslint-formatter-codeframe": "^7.32.1",
     "flow-bin": "^0.178.0",
-    "glob": "^8.0.2",
+    "glob": "^8.0.3",
     "jest": "^28.1.0",
     "jest-environment-jsdom": "^28.1.0",
     "jest-runner-eslint": "^1.0.0"
