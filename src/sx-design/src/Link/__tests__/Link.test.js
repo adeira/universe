@@ -164,7 +164,7 @@ it('calls onClick event', async () => {
   const onClickFn = jest.fn();
 
   const { getByText } = renderWithoutProviders(
-    <Link href="https://localhost" onClick={onClickFn}>
+    <Link href="#" onClick={onClickFn}>
       <fbt desc="link title" doNotExtract={true}>
         link with onClick callback
       </fbt>
