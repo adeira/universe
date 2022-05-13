@@ -6,7 +6,7 @@
   ],
   "engines": {
     "node": ">=v14.19.2",
-    "yarn": ">=1.0.0"
+    "yarn": ">=3.2.1"
   },
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^4.0.0",
@@ -35,7 +35,7 @@
       "reportUnusedDisableDirectives": "error"
     }
   },
-  "packageManager": "yarn@3.2.0",
+  "packageManager": "yarn@3.2.1",
   "resolutions": {
     "ip@^1.1.5": "patch:ip@npm:1.1.5#.yarn/patches/ip-npm-1.1.5-af36318aa6.patch"
   }
