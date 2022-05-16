@@ -43,8 +43,11 @@ export type IconNames =
   | 'bookmark'
   | 'bookmark_book'
   | 'box'
+  | 'box_add'
   | 'box_download'
   | 'box_open'
+  | 'box_remove'
+  | 'boxes'
   | 'branch'
   | 'briefcase'
   | 'browser'
@@ -127,6 +130,7 @@ export type IconNames =
   | 'cross_circle'
   | 'crosshair'
   | 'cube'
+  | 'cubes'
   | 'cylinder'
   | 'database'
   | 'diamond'
@@ -298,6 +302,7 @@ export type IconNames =
   | 'pie_half'
   | 'pie_quarter'
   | 'pie_third'
+  | 'pill'
   | 'play_button'
   | 'plus'
   | 'plus_circle'
@@ -344,6 +349,10 @@ export type IconNames =
   | 'share_alt'
   | 'shuffle'
   | 'side_menu'
+  | 'signal_full'
+  | 'signal_low'
+  | 'signal_medium'
+  | 'signal_none'
   | 'slash_backward'
   | 'slash_forward'
   | 'sliders'
@@ -365,6 +374,7 @@ export type IconNames =
   | 'tag_milestone'
   | 'tags'
   | 'target'
+  | 'terminal'
   | 'thread'
   | 'thumbs_down'
   | 'thumbs_up'
@@ -479,8 +489,11 @@ export const ComponentsMap: { +[IconNames]: AbstractComponent<{}> } = {
   bookmark: loadable(() => import('./Bookmark'), loadableOptions),
   bookmark_book: loadable(() => import('./BookmarkBook'), loadableOptions),
   box: loadable(() => import('./Box'), loadableOptions),
+  box_add: loadable(() => import('./BoxAdd'), loadableOptions),
   box_download: loadable(() => import('./BoxDownload'), loadableOptions),
   box_open: loadable(() => import('./BoxOpen'), loadableOptions),
+  box_remove: loadable(() => import('./BoxRemove'), loadableOptions),
+  boxes: loadable(() => import('./Boxes'), loadableOptions),
   branch: loadable(() => import('./Branch'), loadableOptions),
   briefcase: loadable(() => import('./Briefcase'), loadableOptions),
   browser: loadable(() => import('./Browser'), loadableOptions),
@@ -563,6 +576,7 @@ export const ComponentsMap: { +[IconNames]: AbstractComponent<{}> } = {
   cross_circle: loadable(() => import('./CrossCircle'), loadableOptions),
   crosshair: loadable(() => import('./Crosshair'), loadableOptions),
   cube: loadable(() => import('./Cube'), loadableOptions),
+  cubes: loadable(() => import('./Cubes'), loadableOptions),
   cylinder: loadable(() => import('./Cylinder'), loadableOptions),
   database: loadable(() => import('./Database'), loadableOptions),
   diamond: loadable(() => import('./Diamond'), loadableOptions),
@@ -734,6 +748,7 @@ export const ComponentsMap: { +[IconNames]: AbstractComponent<{}> } = {
   pie_half: loadable(() => import('./PieHalf'), loadableOptions),
   pie_quarter: loadable(() => import('./PieQuarter'), loadableOptions),
   pie_third: loadable(() => import('./PieThird'), loadableOptions),
+  pill: loadable(() => import('./Pill'), loadableOptions),
   play_button: loadable(() => import('./PlayButton'), loadableOptions),
   plus: loadable(() => import('./Plus'), loadableOptions),
   plus_circle: loadable(() => import('./PlusCircle'), loadableOptions),
@@ -780,6 +795,10 @@ export const ComponentsMap: { +[IconNames]: AbstractComponent<{}> } = {
   share_alt: loadable(() => import('./ShareAlt'), loadableOptions),
   shuffle: loadable(() => import('./Shuffle'), loadableOptions),
   side_menu: loadable(() => import('./SideMenu'), loadableOptions),
+  signal_full: loadable(() => import('./SignalFull'), loadableOptions),
+  signal_low: loadable(() => import('./SignalLow'), loadableOptions),
+  signal_medium: loadable(() => import('./SignalMedium'), loadableOptions),
+  signal_none: loadable(() => import('./SignalNone'), loadableOptions),
   slash_backward: loadable(() => import('./SlashBackward'), loadableOptions),
   slash_forward: loadable(() => import('./SlashForward'), loadableOptions),
   sliders: loadable(() => import('./Sliders'), loadableOptions),
@@ -801,6 +820,7 @@ export const ComponentsMap: { +[IconNames]: AbstractComponent<{}> } = {
   tag_milestone: loadable(() => import('./TagMilestone'), loadableOptions),
   tags: loadable(() => import('./Tags'), loadableOptions),
   target: loadable(() => import('./Target'), loadableOptions),
+  terminal: loadable(() => import('./Terminal'), loadableOptions),
   thread: loadable(() => import('./Thread'), loadableOptions),
   thumbs_down: loadable(() => import('./ThumbsDown'), loadableOptions),
   thumbs_up: loadable(() => import('./ThumbsUp'), loadableOptions),
