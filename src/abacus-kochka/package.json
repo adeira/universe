@@ -37,8 +37,8 @@
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^4.0.0",
     "@fbtjs/default-collection-transform": "^1.0.0",
-    "@playwright/test": "^1.22.0",
+    "@playwright/test": "^1.22.1",
     "@testing-library/react": "^12.1.5",
-    "playwright": "^1.22.0"
+    "playwright": "^1.22.1"
   }
 }
