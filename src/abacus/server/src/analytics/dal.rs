@@ -1,6 +1,6 @@
 use crate::arango::{resolve_aql, resolve_aql_vector, ConnectionPool};
 use crate::price::Price;
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
 #[derive(Deserialize, Clone, juniper::GraphQLObject, Debug)]
@@ -189,6 +189,65 @@ pub(in crate::analytics) async fn get_daily_reports(
               }
         "#,
         hashmap_json![],
+    )
+    .await
+}
+
+#[derive(juniper::GraphQLInputObject, Serialize, Deserialize)]
+pub struct PageVisitInputLocation {
+    /// https://developer.mozilla.org/en-US/docs/Web/API/Location/protocol
+    pub protocol: Option<String>,
+    /// https://developer.mozilla.org/en-US/docs/Web/API/Location/hostname
+    pub hostname: Option<String>,
+    /// https://developer.mozilla.org/en-US/docs/Web/API/Location/port
+    pub port: Option<String>,
+    /// https://developer.mozilla.org/en-US/docs/Web/API/Location/pathname
+    pub pathname: Option<String>,
+    /// https://developer.mozilla.org/en-US/docs/Web/API/Location/search
+    pub search: Option<String>,
+    /// https://developer.mozilla.org/en-US/docs/Web/API/Location/hash
+    pub hash: Option<String>,
+}
+
+#[derive(juniper::GraphQLInputObject, Serialize, Deserialize)]
+pub struct PageVisitInputScreen {
+    /// https://developer.mozilla.org/en-US/docs/Web/API/Screen/height
+    pub height: Option<String>,
+    /// https://developer.mozilla.org/en-US/docs/Web/API/Screen/width
+    pub width: Option<String>,
+    /// https://developer.mozilla.org/en-US/docs/Web/API/ScreenOrientation/type
+    pub orientation_type: Option<String>,
+    /// https://developer.mozilla.org/en-US/docs/Web/API/ScreenOrientation/angle
+    pub orientation_angle: Option<String>,
+}
+
+#[derive(juniper::GraphQLInputObject, Serialize, Deserialize)]
+pub struct PageVisitInput {
+    pub user_agent: Option<String>,
+    pub location: Option<PageVisitInputLocation>,
+    pub screen: Option<PageVisitInputScreen>,
+}
+
+pub(in crate::analytics) async fn record_page_visit(
+    pool: &ConnectionPool,
+    page_visit: &PageVisitInput,
+) -> anyhow::Result<PageVisitInput> {
+    resolve_aql(
+        pool,
+        r#"
+            INSERT {
+              created: DATE_ISO8601(DATE_NOW()),
+              location: @page_visit_location,
+              screen: @page_visit_screen,
+              user_agent: @page_visit_user_agent,
+            } INTO analytics_page_visits
+            RETURN NEW
+        "#,
+        hashmap_json![
+            "page_visit_location" => page_visit.location,
+            "page_visit_screen" => page_visit.screen,
+            "page_visit_user_agent" => page_visit.user_agent,
+        ],
     )
     .await
 }

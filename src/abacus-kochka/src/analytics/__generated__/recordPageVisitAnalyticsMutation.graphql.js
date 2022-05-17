@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<9f005cca1678ad063293e19a3b17bbbc>>
+ * @generated SignedSource<<310d43083fddd78c1d8f7c1c0406084a>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -12,9 +12,24 @@
 
 /*::
 import type { ConcreteRequest, Mutation } from 'relay-runtime';
+export type PageVisitInputLocation = {|
+  protocol?: ?string,
+  hostname?: ?string,
+  port?: ?string,
+  pathname?: ?string,
+  search?: ?string,
+  hash?: ?string,
+|};
+export type PageVisitInputScreen = {|
+  height?: ?string,
+  width?: ?string,
+  orientationType?: ?string,
+  orientationAngle?: ?string,
+|};
 export type recordPageVisitAnalyticsMutation$variables = {|
   userAgent?: ?string,
-  locationHref?: ?string,
+  location: PageVisitInputLocation,
+  screen: PageVisitInputScreen,
 |};
 export type recordPageVisitAnalyticsMutation$data = {|
   +analytics: {|
@@ -33,14 +48,19 @@ var node/*: ConcreteRequest*/ = (function(){
 var v0 = {
   "defaultValue": null,
   "kind": "LocalArgument",
-  "name": "locationHref"
+  "name": "location"
 },
 v1 = {
   "defaultValue": null,
   "kind": "LocalArgument",
+  "name": "screen"
+},
+v2 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
   "name": "userAgent"
 },
-v2 = [
+v3 = [
   {
     "alias": null,
     "args": null,
@@ -56,8 +76,13 @@ v2 = [
             "fields": [
               {
                 "kind": "Variable",
-                "name": "locationHref",
-                "variableName": "locationHref"
+                "name": "location",
+                "variableName": "location"
+              },
+              {
+                "kind": "Variable",
+                "name": "screen",
+                "variableName": "screen"
               },
               {
                 "kind": "Variable",
@@ -92,38 +117,40 @@ return {
   "fragment": {
     "argumentDefinitions": [
       (v0/*: any*/),
-      (v1/*: any*/)
+      (v1/*: any*/),
+      (v2/*: any*/)
     ],
     "kind": "Fragment",
     "metadata": null,
     "name": "recordPageVisitAnalyticsMutation",
-    "selections": (v2/*: any*/),
+    "selections": (v3/*: any*/),
     "type": "Mutation",
     "abstractKey": null
   },
   "kind": "Request",
   "operation": {
     "argumentDefinitions": [
-      (v1/*: any*/),
-      (v0/*: any*/)
+      (v2/*: any*/),
+      (v0/*: any*/),
+      (v1/*: any*/)
     ],
     "kind": "Operation",
     "name": "recordPageVisitAnalyticsMutation",
-    "selections": (v2/*: any*/)
+    "selections": (v3/*: any*/)
   },
   "params": {
-    "cacheID": "4250c3cb5a2a576cdd9a8a2ea09d94a4",
+    "cacheID": "ead35dd59a5243bacdef5e5b27ee9a5e",
     "id": null,
     "metadata": {},
     "name": "recordPageVisitAnalyticsMutation",
     "operationKind": "mutation",
-    "text": "mutation recordPageVisitAnalyticsMutation(\n  $userAgent: String\n  $locationHref: String\n) {\n  analytics {\n    recordPageVisit(input: {userAgent: $userAgent, locationHref: $locationHref}) {\n      success\n    }\n  }\n}\n"
+    "text": "mutation recordPageVisitAnalyticsMutation(\n  $userAgent: String\n  $location: PageVisitInputLocation!\n  $screen: PageVisitInputScreen!\n) {\n  analytics {\n    recordPageVisit(input: {userAgent: $userAgent, location: $location, screen: $screen}) {\n      success\n    }\n  }\n}\n"
   }
 };
 })();
 
 if (__DEV__) {
-  (node/*: any*/).hash = "42af926f9a52a6aba6f203b13b03dfb5";
+  (node/*: any*/).hash = "f1d640fd34e611be6aed208a4c6ce626";
 }
 
 module.exports = ((node/*: any*/)/*: Mutation<
