@@ -1,4 +1,4 @@
-# @generated SignedSource<<01fffd1dec4ecfa8950042cee6c09d6a>>
+# @generated SignedSource<<b495a53b0b9c53e3ad668836e935a9e9>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -135,7 +135,14 @@ input PosCheckoutInput {
 }
 
 type AnalyticsMutation {
-  "Records page visit as a future replacement of Google Analytics (currently doesn't do much)."
+  """
+    Records page visit (as a replacement of Google Analytics). We focus only on the important
+    things with a focus on privacy of our users. Currently, we are interested in the following:
+
+    - user agent (to know what browsers are our users using)
+    - screen dimensions (to know which screen resolutions are important - mobile/desktop)
+    - URL details (to be able to filter the data per page)
+  """
   recordPageVisit(input: PageVisitInput!): PageVisit!
 }
 
@@ -286,6 +293,15 @@ type PosCheckoutPayload {
   id: ID!
 }
 
+input PageVisitInputLocation {
+  "https://developer.mozilla.org/en-US/docs/Web/API/Location/protocol" protocol: String
+  "https://developer.mozilla.org/en-US/docs/Web/API/Location/hostname" hostname: String
+  "https://developer.mozilla.org/en-US/docs/Web/API/Location/port" port: String
+  "https://developer.mozilla.org/en-US/docs/Web/API/Location/pathname" pathname: String
+  "https://developer.mozilla.org/en-US/docs/Web/API/Location/search" search: String
+  "https://developer.mozilla.org/en-US/docs/Web/API/Location/hash" hash: String
+}
+
 type CatsQuery {
   listAllCats(allCatsFilter: AllCatsFilter): [CatInfo!]!
 }
@@ -296,6 +312,13 @@ type Mutation {
   auth: AuthMutation!
   commerce: CommerceMutation!
   pos: POSMutation!
+}
+
+input PageVisitInputScreen {
+  "https://developer.mozilla.org/en-US/docs/Web/API/Screen/height" height: String
+  "https://developer.mozilla.org/en-US/docs/Web/API/Screen/width" width: String
+  "https://developer.mozilla.org/en-US/docs/Web/API/ScreenOrientation/type" orientationType: String
+  "https://developer.mozilla.org/en-US/docs/Web/API/ScreenOrientation/angle" orientationAngle: String
 }
 
 type CommerceMutation {
@@ -369,7 +392,8 @@ enum SupportedLocale {
 
 input PageVisitInput {
   userAgent: String
-  locationHref: String
+  location: PageVisitInputLocation
+  screen: PageVisitInputScreen
 }
 
 "Root query of the graph."

@@ -1,6 +1,6 @@
 use crate::analytics::dal::{
     get_daily_reports, get_redirect_hits, get_sold_product_stats, AnalyticsDailyReportInfo,
-    AnalyticsSoldProductInfo, Redirect, SortDirection,
+    AnalyticsSoldProductInfo, PageVisitInput, Redirect, SortDirection,
 };
 use crate::arango::ConnectionPool;
 use crate::auth::rbac;
@@ -11,6 +11,7 @@ use crate::graphql_context::Context;
 use uuid::Uuid;
 
 mod dal;
+mod page_visits;
 
 pub(crate) struct AnalyticsQuery;
 pub(crate) struct AnalyticsMutation;
@@ -51,21 +52,28 @@ pub struct PageVisit {
     success: bool,
 }
 
-#[derive(juniper::GraphQLInputObject)]
-pub struct PageVisitInput {
-    user_agent: Option<String>,
-    location_href: Option<String>,
-}
-
 #[juniper::graphql_object(context = Context)]
 impl AnalyticsMutation {
-    /// Records page visit as a future replacement of Google Analytics (currently doesn't do much).
+    /// Records page visit (as a replacement of Google Analytics). We focus only on the important
+    /// things with a focus on privacy of our users. Currently, we are interested in the following:
+    ///
+    /// - user agent (to know what browsers are our users using)
+    /// - screen dimensions (to know which screen resolutions are important - mobile/desktop)
+    /// - URL details (to be able to filter the data per page)
     async fn record_page_visit(
         context: &Context,
         input: PageVisitInput,
     ) -> AbacusGraphQLResult<PageVisit> {
-        // todo!()
-        Ok(PageVisit { success: true })
+        match page_visits::record_page_visit(&context.pool, &input).await {
+            Ok(_) => Ok(PageVisit { success: true }),
+            Err(error) => {
+                // We really don't care that much whether the `record_page_visit` was successful or
+                // not at the moment. We just want to record it and move on. Failure to record the
+                // page visit should not cause frontend failure.
+                tracing::error!("{}", error);
+                Ok(PageVisit { success: true })
+            }
+        }
     }
 }
 

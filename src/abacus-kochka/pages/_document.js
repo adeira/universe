@@ -20,16 +20,6 @@ export default class MyDocument extends Document {
     return { ...page, styles: [sx.getStyleTag()] };
   }
 
-  createGoogleAnalyticsMarkup(): { __html: string } {
-    return {
-      __html: `
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'UA-148481588-2');`,
-    };
-  }
-
   render(): Node {
     return (
       <Html>
@@ -39,8 +29,6 @@ gtag('config', 'UA-148481588-2');`,
           <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
           <link rel="manifest" href="/favicon/site.webmanifest" />
           <meta name="theme-color" content="#6C1610" />
-          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148481588-2" />
-          <script dangerouslySetInnerHTML={this.createGoogleAnalyticsMarkup()} />
         </Head>
         <body>
           <Main />

@@ -24,7 +24,7 @@ We use [Telepresence](https://www.getambassador.io/docs/telepresence/latest/howt
 ```bash
 telepresence connect
 telepresence list
-telepresence intercept abacus-deployment --port=5000:http --env-file=./src/abacus/.env --http-match=Personal-Intercept=21d56f21-c6c1-414c-aa69-6a7bf24b51fc
+telepresence intercept abacus-deployment --port=5000:http --env-file=./src/abacus/.env --http-header=Abacus-Personal-Intercept=21d56f21-c6c1-414c-aa69-6a7bf24b51fc
 ```
 
 You can now start the service locally, rest of the application will run in the remote Kubernetes cluster:
