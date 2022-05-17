@@ -16,7 +16,7 @@ __metadata:
     "@adeira/react-auth": ^0.1.0
     "@adeira/relay": ^5.2.0
     "@adeira/sx": ^0.29.1
-    "@adeira/sx-design": ^0.27.0
+    "@adeira/sx-design": ^0.26.0
     "@fbtjs/default-collection-transform": ^1.0.0
     "@next/bundle-analyzer": ^12.1.6
     "@testing-library/jest-dom": ^5.16.4
@@ -48,7 +48,7 @@ __metadata:
     "@adeira/js": ^2.1.1
     "@adeira/relay": ^5.2.0
     "@adeira/sx": ^0.29.1
-    "@adeira/sx-design": ^0.27.0
+    "@adeira/sx-design": ^0.26.0
     "@adeira/sx-design-nextjs": ^0.3.2
     "@fbtjs/default-collection-transform": ^1.0.0
     "@playwright/test": ^1.22.1
@@ -157,7 +157,7 @@ __metadata:
     "@adeira/js": ^2.1.1
     "@adeira/relay": ^5.2.0
     "@adeira/sx": ^0.29.1
-    "@adeira/sx-design": ^0.27.0
+    "@adeira/sx-design": ^0.26.0
     "@testing-library/jest-dom": ^5.16.4
     "@testing-library/react": ^12.1.5
     "@testing-library/user-event": ^14.2.0
@@ -410,13 +410,37 @@ __metadata:
   dependencies:
     "@babel/runtime": ^7.17.9
   peerDependencies:
-    "@adeira/sx-design": ^0.27.0
+    "@adeira/sx-design": ^0.26.0
     next: ^12.1.6
     react: ^17.0.2
   languageName: unknown
   linkType: soft
 
-"@adeira/sx-design@^0.27.0, @adeira/sx-design@workspace:src/sx-design":
+"@adeira/sx-design@npm:^0.26.0":
+  version: 0.26.0
+  resolution: "@adeira/sx-design@npm:0.26.0"
+  dependencies:
+    "@adeira/hooks": ^0.2.0
+    "@adeira/icons": ^1.1.0
+    "@adeira/js": ^2.1.1
+    "@babel/runtime": ^7.17.9
+    blurhash: ^1.1.5
+    fbt: ^1.0.0
+    flow-enums-runtime: ^0.0.6
+    focus-trap-react: ^8.11.0
+    prop-types: ^15.8.1
+    react-blurhash: ^0.1.3
+    react-device-detect: ^2.2.2
+    react-table: ^7.7.0
+  peerDependencies:
+    "@adeira/sx": ^0.29.1
+    react: ^17.0.2
+    react-dom: ^17.0.2
+  checksum: 24615ece11a5dbff81bb6c62cd7ff5f4a2c79fa255d11caf6329c9525c6ffed8337153d51514d9b3b8eb0c3de884100f04d6727e068f044426e09cbc37e0c91a
+  languageName: node
+  linkType: hard
+
+"@adeira/sx-design@workspace:src/sx-design":
   version: 0.0.0-use.local
   resolution: "@adeira/sx-design@workspace:src/sx-design"
   dependencies:
@@ -10468,7 +10492,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"focus-trap-react@npm:^8.11.1":
+"focus-trap-react@npm:^8.11.0, focus-trap-react@npm:^8.11.1":
   version: 8.11.1
   resolution: "focus-trap-react@npm:8.11.1"
   dependencies:
@@ -16506,7 +16530,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-table@npm:^7.8.0":
+"react-table@npm:^7.7.0, react-table@npm:^7.8.0":
   version: 7.8.0
   resolution: "react-table@npm:7.8.0"
   peerDependencies:
