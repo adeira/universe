@@ -51,7 +51,7 @@ __metadata:
     "@adeira/sx-design": ^0.26.0
     "@adeira/sx-design-nextjs": ^0.3.2
     "@fbtjs/default-collection-transform": ^1.0.0
-    "@playwright/test": ^1.22.0
+    "@playwright/test": ^1.22.1
     "@testing-library/react": ^12.1.5
     babel-plugin-fbt: ^1.0.0
     babel-plugin-fbt-runtime: ^1.0.0
@@ -61,7 +61,7 @@ __metadata:
     next-plugin-custom-babel-config: ^1.0.5
     next-seo: ^5.4.0
     next-transpile-modules: ^9.0.0
-    playwright: ^1.22.0
+    playwright: ^1.22.1
     react: ^17.0.2
     react-dom: ^17.0.2
     recoil: ^0.7.2
@@ -3188,14 +3188,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:^1.22.0":
-  version: 1.22.0
-  resolution: "@playwright/test@npm:1.22.0"
+"@playwright/test@npm:^1.22.1":
+  version: 1.22.1
+  resolution: "@playwright/test@npm:1.22.1"
   dependencies:
-    playwright-core: 1.22.0
+    playwright-core: 1.22.1
   bin:
     playwright: cli.js
-  checksum: 153197ea7c2c7dd94a2f504b9bf181b1585ce89ebbd7d7715c5072bf949c95fd8db56f028e44e01e1dc5a96b8e1caa00edc8728c3c9e86dd4f6f572bdacee79f
+  checksum: 8c807b9e6a793df2505c888a909892e1e2fb18a0467ca374524b9b404f8a33a18eeb1f23a15d8eb4042e2ef50a8f50308641af5103bb90c36b1c2404c6c314d3
   languageName: node
   linkType: hard
 
@@ -15672,23 +15672,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.22.0":
-  version: 1.22.0
-  resolution: "playwright-core@npm:1.22.0"
+"playwright-core@npm:1.22.1":
+  version: 1.22.1
+  resolution: "playwright-core@npm:1.22.1"
   bin:
     playwright: cli.js
-  checksum: e4eb2069961204d49818fb5575cf7310e7bd90c0b1dd2a84229c29e47a0257a02069f4bb3b802651f30efada850daf1555097748c27ca9a1b1151c67bce0cfe0
+  checksum: f93940fe3a596a0fe9a8d03ee1f01ed95ef9b23dc5662647c3b1eb7e7bbf65c116b19f763b91a39c041c0bea9ab5e50ecbb619dcbef9eebd3db3d940b3db2696
   languageName: node
   linkType: hard
 
-"playwright@npm:^1.22.0":
-  version: 1.22.0
-  resolution: "playwright@npm:1.22.0"
+"playwright@npm:^1.22.1":
+  version: 1.22.1
+  resolution: "playwright@npm:1.22.1"
   dependencies:
-    playwright-core: 1.22.0
+    playwright-core: 1.22.1
   bin:
     playwright: cli.js
-  checksum: 3f8bb4e85ba71268cde7c997ec68d33da2b78eea58e0ba49b6f6b6fe988a0e6c63310723c660e7fa335024cbf8df911f6c76fb3044e91f10fcc7ee4971bb6fd9
+  checksum: 5634c1e6d80b061c2a817bc6f4959c9237ccc37ad97cc944c7d94922c5ad595e6889899b074b348e0201e3cf3fabd6cbb5ee93d607eb3b7e659bd042048b98d1
   languageName: node
   linkType: hard
 
