@@ -1,7 +1,7 @@
 // @flow strict
 
-/* eslint-disable import/newline-after-import */
 import React, { type Element } from 'react';
+
 export default function JumpForward(props: {}): Element<'svg'> {
   return (
     <svg height="1em" viewBox="0 0 21 21" width="1em" xmlns="http://www.w3.org/2000/svg" {...props}>
@@ -12,9 +12,9 @@ export default function JumpForward(props: {}): Element<'svg'> {
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <path d="M3.5 14.5v-2a3 3 0 013-3h8" />
-        <path d="M11.499 12.5l3.001-3-3.001-3" />
-        <path d="M14.499 12.5l3.001-3-3.001-3" />
+        <path d="M3.5 14.5v-2a3 3 0 0 1 3-3h8" />
+        <path d="m11.499 12.5 3.001-3-3.001-3" />
+        <path d="m14.499 12.5 3.001-3-3.001-3" />
       </g>
     </svg>
   );

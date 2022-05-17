@@ -1,12 +1,12 @@
 // @flow strict
 
-/* eslint-disable import/newline-after-import */
 import React, { type Element } from 'react';
+
 export default function DisplayAlt(props: {}): Element<'svg'> {
   return (
     <svg height="1em" viewBox="0 0 21 21" width="1em" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
-        d="M5 7.5h11a2 2 0 012 2v6.049a2 2 0 01-1.85 1.994l-.158.006-11-.042a2 2 0 01-1.992-2V9.5a2 2 0 012-2zm.464-2H15.5m-8-2h6"
+        d="M5 7.5h11a2 2 0 0 1 2 2v6.049a2 2 0 0 1-1.85 1.994l-.158.006-11-.042a2 2 0 0 1-1.992-2V9.5a2 2 0 0 1 2-2zm.464-2H15.5m-8-2h6"
         fill="none"
         stroke="currentColor"
         strokeLinecap="round"
