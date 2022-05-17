@@ -21,6 +21,7 @@ export { default as Link } from './src/Link/Link';
 export { default as LinkButton } from './src/Link/LinkButton';
 export { default as Loader } from './src/Loader/Loader';
 export { default as Menu } from './src/Menu/Menu';
+export { default as Meter } from './src/Meter/Meter';
 export { default as MissingData } from './src/MissingData/MissingData';
 export { default as Modal } from './src/Modal/Modal';
 export { default as Money, MoneyFn } from './src/Money/Money';

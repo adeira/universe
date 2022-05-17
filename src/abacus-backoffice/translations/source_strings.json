@@ -1053,9 +1053,9 @@
     }
    },
    "filepath": "src/index/IndexPage.js",
-   "line_beg": 38,
+   "line_beg": 35,
    "col_beg": 10,
-   "line_end": 38,
+   "line_end": 35,
    "col_end": 78,
    "project": "",
    "jsfbt": {
@@ -1074,9 +1074,9 @@
     }
    },
    "filepath": "src/index/IndexPage.js",
-   "line_beg": 44,
+   "line_beg": 41,
    "col_beg": 20,
-   "line_end": 44,
+   "line_end": 41,
    "col_end": 73,
    "project": "",
    "jsfbt": {
@@ -1089,20 +1089,20 @@
   },
   {
    "hashToLeaf": {
-    "+1D7paVJZl2JPO0FT5DJCw==": {
+    "e5idZbRkz/F3BmsHmOeH8Q==": {
      "text": "Total income per day",
-     "desc": "total icome per day (table header)"
+     "desc": "total income per day (table header)"
     }
    },
    "filepath": "src/index/IndexPage.js",
-   "line_beg": 46,
+   "line_beg": 43,
    "col_beg": 20,
-   "line_end": 46,
-   "col_end": 93,
+   "line_end": 43,
+   "col_end": 94,
    "project": "",
    "jsfbt": {
     "t": {
-     "desc": "total icome per day (table header)",
+     "desc": "total income per day (table header)",
      "text": "Total income per day"
     },
     "m": []
@@ -1116,9 +1116,9 @@
     }
    },
    "filepath": "src/index/IndexPage.js",
-   "line_beg": 51,
+   "line_beg": 48,
    "col_beg": 14,
-   "line_end": 51,
+   "line_end": 48,
    "col_end": 96,
    "project": "",
    "jsfbt": {

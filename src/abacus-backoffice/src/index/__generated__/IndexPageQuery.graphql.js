@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<d6fe17d53df016f59e9b780b13a6962b>>
+ * @generated SignedSource<<d3a603a90ace21184676192ece0f3f64>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -12,20 +12,17 @@
 
 /*::
 import type { ConcreteRequest, Query } from 'relay-runtime';
-export type SupportedCurrency = "MXN" | "%future added value";
+type DailyIncomeMeterFragment$fragmentType = any;
 export type IndexPageQuery$variables = {||};
 export type IndexPageQuery$data = {|
   +analytics: {|
     +dailyReports: $ReadOnlyArray<{|
       +dateDay: string,
-      +total: {|
-        +unitAmount: number,
-        +unitAmountCurrency: SupportedCurrency,
-      |},
       +productsSummary: $ReadOnlyArray<{|
         +productName: string,
         +totalUnits: number,
       |}>,
+      +$fragmentSpreads: DailyIncomeMeterFragment$fragmentType,
     |}>,
   |},
 |};
@@ -36,77 +33,68 @@ export type IndexPageQuery = {|
 */
 
 var node/*: ConcreteRequest*/ = (function(){
-var v0 = [
-  {
-    "alias": null,
-    "args": null,
-    "concreteType": "AnalyticsQuery",
-    "kind": "LinkedField",
-    "name": "analytics",
-    "plural": false,
+var v0 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "dateDay",
+  "storageKey": null
+},
+v1 = {
+  "alias": null,
+  "args": null,
+  "concreteType": "AnalyticsDailyReportProductSummaryInfo",
+  "kind": "LinkedField",
+  "name": "productsSummary",
+  "plural": true,
+  "selections": [
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "productName",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "totalUnits",
+      "storageKey": null
+    }
+  ],
+  "storageKey": null
+};
+return {
+  "fragment": {
+    "argumentDefinitions": [],
+    "kind": "Fragment",
+    "metadata": null,
+    "name": "IndexPageQuery",
     "selections": [
       {
         "alias": null,
         "args": null,
-        "concreteType": "AnalyticsDailyReportInfo",
+        "concreteType": "AnalyticsQuery",
         "kind": "LinkedField",
-        "name": "dailyReports",
-        "plural": true,
+        "name": "analytics",
+        "plural": false,
         "selections": [
           {
             "alias": null,
             "args": null,
-            "kind": "ScalarField",
-            "name": "dateDay",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "concreteType": "Price",
+            "concreteType": "AnalyticsDailyReportInfo",
             "kind": "LinkedField",
-            "name": "total",
-            "plural": false,
-            "selections": [
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
-                "name": "unitAmount",
-                "storageKey": null
-              },
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
-                "name": "unitAmountCurrency",
-                "storageKey": null
-              }
-            ],
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "concreteType": "AnalyticsDailyReportProductSummaryInfo",
-            "kind": "LinkedField",
-            "name": "productsSummary",
+            "name": "dailyReports",
             "plural": true,
             "selections": [
+              (v0/*: any*/),
               {
-                "alias": null,
                 "args": null,
-                "kind": "ScalarField",
-                "name": "productName",
-                "storageKey": null
+                "kind": "FragmentSpread",
+                "name": "DailyIncomeMeterFragment"
               },
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
-                "name": "totalUnits",
-                "storageKey": null
-              }
+              (v1/*: any*/)
             ],
             "storageKey": null
           }
@@ -114,16 +102,6 @@ var v0 = [
         "storageKey": null
       }
     ],
-    "storageKey": null
-  }
-];
-return {
-  "fragment": {
-    "argumentDefinitions": [],
-    "kind": "Fragment",
-    "metadata": null,
-    "name": "IndexPageQuery",
-    "selections": (v0/*: any*/),
     "type": "Query",
     "abstractKey": null
   },
@@ -132,21 +110,71 @@ return {
     "argumentDefinitions": [],
     "kind": "Operation",
     "name": "IndexPageQuery",
-    "selections": (v0/*: any*/)
+    "selections": [
+      {
+        "alias": null,
+        "args": null,
+        "concreteType": "AnalyticsQuery",
+        "kind": "LinkedField",
+        "name": "analytics",
+        "plural": false,
+        "selections": [
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "AnalyticsDailyReportInfo",
+            "kind": "LinkedField",
+            "name": "dailyReports",
+            "plural": true,
+            "selections": [
+              (v0/*: any*/),
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "Price",
+                "kind": "LinkedField",
+                "name": "total",
+                "plural": false,
+                "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "unitAmount",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "unitAmountCurrency",
+                    "storageKey": null
+                  }
+                ],
+                "storageKey": null
+              },
+              (v1/*: any*/)
+            ],
+            "storageKey": null
+          }
+        ],
+        "storageKey": null
+      }
+    ]
   },
   "params": {
-    "cacheID": "aab0a15d09392709d04342d7faf282e5",
+    "cacheID": "91e3332c6fb51370add27a31d4f6ca11",
     "id": null,
     "metadata": {},
     "name": "IndexPageQuery",
     "operationKind": "query",
-    "text": "query IndexPageQuery {\n  analytics {\n    dailyReports {\n      dateDay\n      total {\n        unitAmount\n        unitAmountCurrency\n      }\n      productsSummary {\n        productName\n        totalUnits\n      }\n    }\n  }\n}\n"
+    "text": "query IndexPageQuery {\n  analytics {\n    dailyReports {\n      dateDay\n      ...DailyIncomeMeterFragment\n      productsSummary {\n        productName\n        totalUnits\n      }\n    }\n  }\n}\n\nfragment DailyIncomeMeterFragment on AnalyticsDailyReportInfo {\n  total {\n    unitAmount\n    unitAmountCurrency\n  }\n}\n"
   }
 };
 })();
 
 if (__DEV__) {
-  (node/*: any*/).hash = "0048fbefa282cc1af3e645b53be9403c";
+  (node/*: any*/).hash = "f0747d4b4fbdf60de454e4e3889ba467";
 }
 
 module.exports = ((node/*: any*/)/*: Query<

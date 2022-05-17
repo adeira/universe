@@ -1,13 +1,13 @@
 // @flow
 
 import * as React from 'react';
-import { LayoutBlock, Money, Table, Text, DateTime } from '@adeira/sx-design';
+import { LayoutBlock, Table, Text, DateTime } from '@adeira/sx-design';
 import { graphql, useLazyLoadQuery } from '@adeira/relay';
 import fbt from 'fbt';
 import sx from '@adeira/sx';
 
 import BarChart from '../d3/BarChart';
-import refineSupportedCurrencies from '../refineSupportedCurrencies';
+import DailyIncomeMeter from './DailyIncomeMeter';
 
 export default function IndexPage(): React.Node {
   // eslint-disable-next-line relay/generated-flow-types -- https://github.com/relayjs/eslint-plugin-relay/issues/131
@@ -17,10 +17,7 @@ export default function IndexPage(): React.Node {
         analytics {
           dailyReports {
             dateDay
-            total {
-              unitAmount
-              unitAmountCurrency
-            }
+            ...DailyIncomeMeterFragment
             productsSummary {
               productName
               totalUnits
@@ -43,7 +40,7 @@ export default function IndexPage(): React.Node {
         columns={[
           { Header: <fbt desc="date of the day (table header)">Date</fbt>, accessor: 'col1' },
           {
-            Header: <fbt desc="total icome per day (table header)">Total income per day</fbt>,
+            Header: <fbt desc="total income per day (table header)">Total income per day</fbt>,
             accessor: 'col2',
           },
           {
@@ -56,16 +53,7 @@ export default function IndexPage(): React.Node {
         data={data.analytics.dailyReports.map((dailyReport) => {
           return {
             col1: <DateTime value={dailyReport.dateDay} />,
-            col2: (
-              <Money
-                priceUnitAmount={
-                  dailyReport.total.unitAmount / 100 // adjusted for centavo
-                }
-                priceUnitAmountCurrency={refineSupportedCurrencies(
-                  dailyReport.total.unitAmountCurrency,
-                )}
-              />
-            ),
+            col2: <DailyIncomeMeter data={dailyReport} />,
             col3: (
               <BarChart
                 sort="DESC"
