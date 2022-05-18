@@ -67,6 +67,7 @@ module.exports = ({
     'react/jsx-no-comment-textnodes': ERROR,
     'react/jsx-no-constructed-context-values': ERROR,
     'react/jsx-no-duplicate-props': ERROR,
+    'react/jsx-no-leaked-render': NEXT_VERSION_ERROR,
     'react/jsx-no-literals': OFF,
     'react/jsx-no-target-blank': ERROR,
     'react/jsx-no-undef': ERROR,
