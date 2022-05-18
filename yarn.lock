@@ -9686,13 +9686,13 @@ __metadata:
   dependencies:
     "@adeira/eslint-fixtures-tester": 0.1.0
     "@adeira/flow-types-eslint": 0.0.0
+    "@adeira/sx": ^0.29.1
     "@babel/code-frame": ^7.16.7
     "@babel/eslint-parser": ^7.17.0
     "@babel/runtime": ^7.17.9
     eslint: ^8.15.0
     react: ^17.0.2
   peerDependencies:
-    "@adeira/sx": ^0.29.1
     eslint: ^8.15.0
   languageName: unknown
   linkType: soft
