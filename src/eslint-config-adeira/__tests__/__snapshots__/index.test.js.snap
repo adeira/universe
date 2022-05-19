@@ -900,6 +900,7 @@ Object {
     "react/jsx-no-comment-textnodes": 2,
     "react/jsx-no-constructed-context-values": 2,
     "react/jsx-no-duplicate-props": 2,
+    "react/jsx-no-leaked-render": 1,
     "react/jsx-no-literals": 0,
     "react/jsx-no-script-url": 2,
     "react/jsx-no-target-blank": 2,
@@ -1217,4 +1218,9 @@ Snapshot Diff:
 -     "react/iframe-missing-sandbox": 1,
 +     "react/iframe-missing-sandbox": 2,
       "react/jsx-boolean-value": 0,
+@@ --- --- @@
+      "react/jsx-no-duplicate-props": 2,
+-     "react/jsx-no-leaked-render": 1,
++     "react/jsx-no-leaked-render": 2,
+      "react/jsx-no-literals": 0,
 `;
