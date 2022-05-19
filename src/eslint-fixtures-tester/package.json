@@ -16,7 +16,7 @@
     "@adeira/flow-types-eslint": "0.0.0",
     "@adeira/js": "^2.1.1",
     "@babel/eslint-parser": "^7.17.0",
-    "@babel/runtime": "^7.17.9",
+    "@babel/runtime": "^7.18.0",
     "eslint": "^8.15.0",
     "jest-docblock": "^28.0.2"
   },
