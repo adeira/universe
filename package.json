@@ -35,8 +35,5 @@
       "reportUnusedDisableDirectives": "error"
     }
   },
-  "packageManager": "yarn@3.2.1",
-  "resolutions": {
-    "ip@^1.1.5": "patch:ip@npm:1.1.5#.yarn/patches/ip-npm-1.1.5-af36318aa6.patch"
-  }
+  "packageManager": "yarn@3.2.1"
 }
