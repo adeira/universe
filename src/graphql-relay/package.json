@@ -17,6 +17,6 @@
     "graphql": "^16.5.0"
   },
   "dependencies": {
-    "@babel/runtime": "^7.17.9"
+    "@babel/runtime": "^7.18.0"
   }
 }
