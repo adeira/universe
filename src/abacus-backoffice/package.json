@@ -37,10 +37,12 @@
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^4.0.0",
     "@fbtjs/default-collection-transform": "^1.0.0",
+    "@playwright/test": "^1.22.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.5",
     "@testing-library/react-hooks": "^8.0.0",
     "babel-plugin-fbt": "^1.0.0",
-    "babel-plugin-fbt-runtime": "^1.0.0"
+    "babel-plugin-fbt-runtime": "^1.0.0",
+    "playwright": "^1.22.1"
   }
 }

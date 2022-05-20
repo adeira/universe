@@ -6,6 +6,7 @@ import { RecoilRoot } from 'recoil';
 import { SxDesignProvider } from '@adeira/sx-design';
 import { useEffect, useState } from 'react';
 import { useSessionTokenAPI } from '@adeira/hooks';
+import Head from 'next/head';
 
 import './_app.css';
 import '../styles/globals.css';
@@ -48,6 +49,9 @@ export default function MyApp({ Component, pageProps }: $FlowFixMe): React.Node 
 
   return (
     <React.StrictMode>
+      <Head>
+        <title>Abacus!</title>
+      </Head>
       <SxDesignProvider locale={applicationLocale.bcp47} theme="system">
         <RelayEnvironmentProvider environment={relayEnvironment}>
           <RecoilRoot>{children}</RecoilRoot>

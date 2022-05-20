@@ -9,7 +9,7 @@ const config = {
   retries: process.env.CI ? 2 : 0,
   webServer: {
     command: process.env.CI ? 'yarn run build && yarn run start' : 'yarn run dev',
-    port: 5002,
+    port: 5001,
     timeout: 120 * 1000, // milliseconds
     reuseExistingServer: !process.env.CI,
   },

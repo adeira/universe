@@ -10,9 +10,12 @@ jobs:
     strategy:
       matrix:
         repository:
+          - '@adeira/abacus-backoffice'
           - '@adeira/abacus-kochka'
           - '@adeira/sx-design'
         include:
+          - repository: '@adeira/abacus-backoffice'
+            source: 'src/abacus-backoffice/**'
           - repository: '@adeira/abacus-kochka'
             source: 'src/abacus-kochka/**'
           - repository: '@adeira/sx-design'
