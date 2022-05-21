@@ -1,4 +1,4 @@
-FROM rust:1.60.0 AS builder
+FROM rust:1.61.0 AS builder
 # Let's switch our working directory to `app` (equivalent to `cd app`)
 # The `app` folder will be created for us by Docker in case it does not
 # exist already.
@@ -9,7 +9,7 @@ COPY . .
 RUN cargo build --release --bin=server
 
 
-FROM rust:1.60.0 AS runtime
+FROM rust:1.61.0 AS runtime
 WORKDIR app
 # Copy the compiled binary from the builder environment
 # to our runtime environment
