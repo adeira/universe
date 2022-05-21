@@ -1,0 +1,55 @@
+name: Daily Rust Cargo update
+
+on:
+  schedule:
+    # daily (https://crontab.guru/#0_7_*_*_*)
+    - cron: '0 7 * * *'
+
+jobs:
+  daily-cargo:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        manifest:
+          - 'src/abacus/Cargo.toml'
+          - 'src/x/Cargo.toml'
+
+    steps:
+      # https://github.com/actions/checkout
+      - uses: actions/checkout@v3.0.2
+
+      # https://github.com/dorny/paths-filter
+      - uses: dorny/paths-filter@v2.10.2
+        id: paths-filter
+        with:
+          filters: |
+            src:
+              - 'src/abacus/**'
+              - 'src/x/**'
+
+      # https://github.com/actions-rs/toolchain
+      - uses: actions-rs/toolchain@v1.0.7
+        if: steps.paths-filter.outputs.src == 'true'
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+
+      # https://github.com/actions-rs/cargo
+      - name: Run cargo-update
+        uses: actions-rs/cargo@v1.0.3
+        if: steps.paths-filter.outputs.src == 'true'
+        with:
+          command: update
+          args: >-
+            --manifest-path ${{ matrix.manifest }}
+            --color always
+
+      # https://github.com/peter-evans/create-pull-request
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4.0.3
+        if: steps.paths-filter.outputs.src == 'true'
+        with:
+          commit-message: 'Daily Rust Cargo update'
+          title: 'Daily Rust Cargo update'
+          delete-branch: true
