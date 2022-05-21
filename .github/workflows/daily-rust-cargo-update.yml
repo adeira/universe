@@ -54,4 +54,4 @@ jobs:
           commit-message: 'Daily Rust Cargo update (${{ matrix.manifest }})'
           title: 'Daily Rust Cargo update (${{ matrix.manifest }})'
           delete-branch: true
-          branch-suffix: short-commit-hash
+          branch-suffix: random
