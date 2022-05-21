@@ -55,3 +55,5 @@ jobs:
           title: 'Daily Rust Cargo update (${{ matrix.manifest }})'
           delete-branch: true
           branch-suffix: random
+          labels: |
+            dependencies
