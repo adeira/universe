@@ -1,6 +1,7 @@
 name: Daily Rust Cargo update
 
 on:
+  workflow_dispatch:
   schedule:
     # daily (https://crontab.guru/#0_7_*_*_*)
     - cron: '0 7 * * *'
