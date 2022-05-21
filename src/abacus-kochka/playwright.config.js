@@ -2,7 +2,8 @@
 const { devices } = require('@playwright/test');
 
 const config = {
-  testDir: 'tests',
+  testDir: 'playwright',
+  outputDir: 'playwright/test-results',
   testMatch: '**.play.js',
   forbidOnly: !!process.env.CI,
   reporter: process.env.CI ? 'github' : 'list',
