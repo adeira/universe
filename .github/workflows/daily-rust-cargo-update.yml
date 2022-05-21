@@ -51,6 +51,6 @@ jobs:
         uses: peter-evans/create-pull-request@v4.0.3
         if: steps.paths-filter.outputs.src == 'true'
         with:
-          commit-message: 'Daily Rust Cargo update'
-          title: 'Daily Rust Cargo update'
+          commit-message: 'Daily Rust Cargo update (${{ matrix.manifest }})'
+          title: 'Daily Rust Cargo update (${{ matrix.manifest }})'
           delete-branch: true
