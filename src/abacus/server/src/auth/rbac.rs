@@ -1,5 +1,6 @@
+use crate::auth::casbin::csv_adapter::CSVAdapter;
 use crate::auth::users::User;
-use casbin::{CoreApi, DefaultModel, Error as CasbinError, FileAdapter};
+use casbin::{CoreApi, DefaultModel, Error as CasbinError};
 
 #[allow(clippy::enum_variant_names)]
 pub(crate) enum AnalyticsActions {
@@ -77,7 +78,8 @@ pub(crate) async fn verify_permissions(user: &User, actions: &Actions) -> anyhow
     match user {
         User::SignedUser(signed_user) => {
             let model = DefaultModel::from_str(include_str!("rbac_model.conf")).await?;
-            let adapter = FileAdapter::new("rbac_policy.csv"); // TODO: migrate the policies to `ArandodbAdapter`
+            // TODO: migrate the policies to `ArandodbAdapter` (vv)
+            let adapter = CSVAdapter::new(include_str!("rbac_policy.csv"));
 
             match casbin::Enforcer::new(model, adapter).await {
                 Ok(enforcer) => {
