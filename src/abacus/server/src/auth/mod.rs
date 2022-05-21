@@ -13,6 +13,7 @@ pub(crate) mod rbac;
 pub(crate) mod users;
 
 mod cache_control;
+mod casbin;
 mod certs;
 mod dal;
 mod google;

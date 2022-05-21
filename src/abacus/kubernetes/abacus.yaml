@@ -198,6 +198,7 @@ metadata:
 spec:
   # Careful with changing the replicas - we are currently running DB migrations during the app start.
   replicas: 1
+  revisionHistoryLimit: 20
   selector:
     matchLabels:
       app: abacus
