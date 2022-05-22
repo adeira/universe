@@ -5,23 +5,13 @@ on: [push]
 jobs:
   rust-test:
     name: Rust test
-
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: true
       matrix:
         manifest:
           - 'src/abacus/Cargo.toml'
           - 'src/x/Cargo.toml'
-        os:
-          - macos-latest
-          - ubuntu-latest
-        include:
-          - os: macos-latest
-            target: x86_64-apple-darwin # 64-bit OSX (10.7+, Lion+)
-          - os: ubuntu-latest
-            target: x86_64-unknown-linux-gnu # 64-bit Linux (kernel 2.6.32+, glibc 2.11+)
-
-    runs-on: ${{ matrix.os }}
 
     steps:
       # https://github.com/actions/checkout
@@ -44,7 +34,7 @@ jobs:
           components: clippy
           toolchain: stable
           override: true
-          target: ${{ matrix.target }}
+          target: 'x86_64-unknown-linux-gnu' # 64-bit Linux (kernel 2.6.32+, glibc 2.11+)
 
       # https://github.com/actions-rs/cargo
       - uses: actions-rs/cargo@v1.0.3
@@ -57,7 +47,7 @@ jobs:
             --all-targets
             --all-features
             --manifest-path ${{ matrix.manifest }}
-            --target ${{ matrix.target }}
+            --target x86_64-unknown-linux-gnu
 
       # https://github.com/actions-rs/cargo
       - name: Run all tests
@@ -68,7 +58,7 @@ jobs:
           args: >-
             --no-fail-fast
             --manifest-path ${{ matrix.manifest }}
-            --target ${{ matrix.target }}
+            --target x86_64-unknown-linux-gnu
             --color always
 
       # https://github.com/actions-rs/cargo
