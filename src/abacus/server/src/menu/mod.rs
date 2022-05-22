@@ -54,10 +54,10 @@ pub(in crate::menu) async fn get_section(
                 &[
                     "3707024".to_string(),  // Menta Amajagh
                     "3707079".to_string(),  // Jasmine Mo Li Hua
-                    "3707142".to_string(),  // Bespoke Pu-erh Chai
-                    "13296916".to_string(), // Hamara Black Chai
-                    "3707225".to_string(),  // Jarabe Tapatío
-                    "3707278".to_string(),  // Bésame Mucho
+                    "22116354".to_string(), // Summer Peach
+                    "21182608".to_string(), // Oda Floral
+                    "21186647".to_string(), // Frutos del Bosque
+                    "18514607".to_string(), // Frutos Exóticos
                 ],
             )
             .await
