@@ -19,15 +19,6 @@ jobs:
       # https://github.com/actions/checkout
       - uses: actions/checkout@v3.0.2
 
-      # https://github.com/dorny/paths-filter
-      - uses: dorny/paths-filter@v2.10.2
-        id: paths-filter
-        with:
-          filters: |
-            src:
-              - 'src/abacus/**'
-              - 'src/x/**'
-
       # https://github.com/actions-rs/toolchain
       - uses: actions-rs/toolchain@v1.0.7
         if: steps.paths-filter.outputs.src == 'true'
