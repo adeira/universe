@@ -16,10 +16,13 @@ jobs:
         include:
           - repository: '@adeira/abacus-backoffice'
             source: 'src/abacus-backoffice/**'
+            outputDir: 'src/abacus-backoffice/playwright/test-results/'
           - repository: '@adeira/abacus-kochka'
             source: 'src/abacus-kochka/**'
+            outputDir: 'src/abacus-kochka/playwright/test-results/'
           - repository: '@adeira/sx-design'
             source: 'src/sx-design/**'
+            outputDir: 'src/sx-design/playwright/test-results/'
 
     runs-on: ubuntu-latest
 
@@ -57,4 +60,11 @@ jobs:
           # See: https://github.com/storybookjs/storybook/issues/16555
           NODE_OPTIONS: --openssl-legacy-provider
 
-      # TODO: upload Playwright artifacts, see: https://playwright.dev/docs/next/ci#github-actions
+      # https://github.com/actions/upload-artifact
+      - uses: actions/upload-artifact@v3.1.0
+        if: steps.paths-filter.outputs.src == 'true'
+        with:
+          name: playwright-report (${{ matrix.repository }})
+          path: ${{ matrix.outputDir }}
+          if-no-files-found: ignore
+          retention-days: 30

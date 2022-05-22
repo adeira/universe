@@ -24,6 +24,10 @@ const config = {
       name: 'Desktop Chrome',
       use: devices['Desktop Chrome'],
     },
+    {
+      name: 'Desktop Safari',
+      use: devices['Desktop Safari'],
+    },
   ],
 };
 
