@@ -196,8 +196,7 @@ metadata:
   labels:
     app: abacus
 spec:
-  # Careful with changing the replicas - we are currently running DB migrations during the app start.
-  replicas: 1
+  replicas: 2
   revisionHistoryLimit: 20
   selector:
     matchLabels:
@@ -215,6 +214,12 @@ spec:
             requests:
               cpu: 16m
               memory: 128Mi
+          livenessProbe:
+            httpGet:
+              path: /status/ping
+              port: 5000
+            failureThreshold: 3
+            periodSeconds: 10
           ports:
             - containerPort: 5000
           env:
@@ -239,6 +244,7 @@ spec:
                   name: abacus-stripe-secret
                   key: STRIPE_WEBHOOK_SECRET
           args:
+            - '--no-migrations'
             - '--arangodb-url=http://arangodb-single-server.default.svc.cluster.local:8529' # TODO: https://…
 
 ---
