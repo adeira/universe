@@ -3,8 +3,8 @@ name: Daily Rust Cargo update
 on:
   workflow_dispatch:
   schedule:
-    # daily (https://crontab.guru/#0_7_*_*_*)
-    - cron: '0 7 * * *'
+    # daily (https://crontab.guru/#0_5_*_*_*)
+    - cron: '0 5 * * *'
 
 jobs:
   daily-cargo:
@@ -21,7 +21,6 @@ jobs:
 
       # https://github.com/actions-rs/toolchain
       - uses: actions-rs/toolchain@v1.0.7
-        if: steps.paths-filter.outputs.src == 'true'
         with:
           profile: minimal
           toolchain: stable
@@ -30,7 +29,6 @@ jobs:
       # https://github.com/actions-rs/cargo
       - name: Run cargo-update
         uses: actions-rs/cargo@v1.0.3
-        if: steps.paths-filter.outputs.src == 'true'
         with:
           command: update
           args: >-
@@ -40,7 +38,6 @@ jobs:
       # https://github.com/peter-evans/create-pull-request
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4.0.3
-        if: steps.paths-filter.outputs.src == 'true'
         with:
           commit-message: 'Daily Rust Cargo update (${{ matrix.manifest }})'
           title: 'Daily Rust Cargo update (${{ matrix.manifest }})'
