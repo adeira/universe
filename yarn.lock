@@ -5,6 +5,20 @@ __metadata:
   version: 6
   cacheKey: 8
 
+"@abacus/docs@workspace:src/abacus-docs":
+  version: 0.0.0-use.local
+  resolution: "@abacus/docs@workspace:src/abacus-docs"
+  dependencies:
+    "@babel/preset-flow": ^7.17.12
+    "@markdoc/markdoc": ^0.1.2
+    "@markdoc/next.js": ^0.1.4
+    js-yaml: ^4.1.0
+    next: ^12.1.0
+    react: ^17.0.2
+    react-dom: ^17.0.2
+  languageName: unknown
+  linkType: soft
+
 "@adeira/abacus-backoffice@workspace:src/abacus-backoffice":
   version: 0.0.0-use.local
   resolution: "@adeira/abacus-backoffice@workspace:src/abacus-backoffice"
@@ -2101,6 +2115,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/preset-flow@npm:^7.17.12":
+  version: 7.17.12
+  resolution: "@babel/preset-flow@npm:7.17.12"
+  dependencies:
+    "@babel/helper-plugin-utils": ^7.17.12
+    "@babel/helper-validator-option": ^7.16.7
+    "@babel/plugin-transform-flow-strip-types": ^7.17.12
+  peerDependencies:
+    "@babel/core": ^7.0.0-0
+  checksum: 21b123c21133eb0998f7b847176da392d49e894671c96785c2471d34845bb50cf4d376e1b4ea3edeafb8b258cc884cd3bed5882fe7ba8d7b0522f3829dea39c5
+  languageName: node
+  linkType: hard
+
 "@babel/preset-modules@npm:^0.1.5":
   version: 0.1.5
   resolution: "@babel/preset-modules@npm:0.1.5"
@@ -2800,6 +2827,26 @@ __metadata:
   peerDependencies:
     react: ">=16.3.0"
   checksum: dd027f3f9fb684613506fe48dcb656367a13731c139134fb71c2bc1734df4218fdb64e5ca80fa2575fdf52e1be0e0a2ec770f0ca77275706e66d1074d0835401
+  languageName: node
+  linkType: hard
+
+"@markdoc/markdoc@npm:^0.1.2":
+  version: 0.1.2
+  resolution: "@markdoc/markdoc@npm:0.1.2"
+  checksum: 451610178fc8ec1d3dfbb6a8be9e0e82b140cb89fc20b01ce9cd646e901e477af2fd65bea463f8c8ab72c076d5262643a593c470612567d047d926fcb9f2bf8b
+  languageName: node
+  linkType: hard
+
+"@markdoc/next.js@npm:^0.1.4":
+  version: 0.1.4
+  resolution: "@markdoc/next.js@npm:0.1.4"
+  dependencies:
+    js-yaml: ^4.1.0
+  peerDependencies:
+    "@markdoc/markdoc": ^0.1.1
+    next: "*"
+    react: "*"
+  checksum: 049caa5884075473f739189fe85df2fcc597de905e8896d05cb66f86cd10509dcca774eb01eeb21f044e0126b05db6de4c62a13ae6cb44090f90823b20bcc7d2
   languageName: node
   linkType: hard
 
@@ -14675,7 +14722,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next@npm:^12.1.6":
+"next@npm:^12.1.0, next@npm:^12.1.6":
   version: 12.1.6
   resolution: "next@npm:12.1.6"
   dependencies:

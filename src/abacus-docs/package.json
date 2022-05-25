@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "name": "@abacus/docs",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@markdoc/markdoc": "^0.1.2",
+    "@markdoc/next.js": "^0.1.4",
+    "js-yaml": "^4.1.0",
+    "next": "^12.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/preset-flow": "^7.17.12"
+  }
+}
