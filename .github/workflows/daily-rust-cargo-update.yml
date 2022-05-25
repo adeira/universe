@@ -39,6 +39,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4.0.3
         with:
+          token: ${{ secrets.PAT }}
           commit-message: 'Daily Rust Cargo update (${{ matrix.manifest }})'
           title: 'Daily Rust Cargo update (${{ matrix.manifest }})'
           delete-branch: true
