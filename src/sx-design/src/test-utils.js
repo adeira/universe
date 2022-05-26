@@ -31,7 +31,10 @@ const renderWithProviders = (
   {
     locale = 'en-US',
     ...renderOptions
-  }: { +locale: SupportedLocales, ...RenderOptionsWithoutCustomQueries } = {},
+  }: /* $FlowFixMe[incompatible-exact] This comment suppresses an error when
+   * upgrading Flow to version 0.179.0. To see the error delete this comment
+   * and run Flow. */
+  { +locale: SupportedLocales, ...RenderOptionsWithoutCustomQueries } = {},
 ): $FlowFixMe => {
   return renderWithoutProviders(ui, {
     wrapper: ({ children }) => {
