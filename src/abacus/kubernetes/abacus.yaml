@@ -138,6 +138,7 @@ spec:
     - hosts:
         - abacus.kochka.com.mx
         - business.kochka.com.mx
+        - docs.kochka.com.mx
         - kochka.com.mx
       secretName: abacus-tls
   rules:
@@ -159,6 +160,16 @@ spec:
             backend:
               service:
                 name: abacus-backoffice-service
+                port:
+                  number: 80
+    - host: docs.kochka.com.mx
+      http:
+        paths:
+          - pathType: Prefix
+            path: '/'
+            backend:
+              service:
+                name: abacus-docs-service
                 port:
                   number: 80
     - host: kochka.com.mx
@@ -290,6 +301,50 @@ spec:
               memory: 128Mi
           ports:
             - containerPort: 5001
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: abacus-docs-service
+spec:
+  type: ClusterIP
+  selector:
+    app: abacus-docs
+  ports:
+    # TODO: https (443)
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 5003
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: abacus-docs-deployment
+  labels:
+    app: abacus-docs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: abacus-docs
+  template:
+    metadata:
+      labels:
+        app: abacus-docs
+    spec:
+      containers:
+        - name: abacus-docs
+          image: adeira/abacus-docs
+          resources:
+            # TODO: limits
+            requests:
+              cpu: 16m
+              memory: 128Mi
+          ports:
+            - containerPort: 5003
 
 ---
 apiVersion: v1
