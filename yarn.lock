@@ -139,7 +139,7 @@ __metadata:
     eslint-plugin-react-native: ^4.0.0
     eslint-plugin-relay: ^1.8.3
     eslint-plugin-sx: ^0.14.0
-    eslint-plugin-testing-library: ^5.5.0
+    eslint-plugin-testing-library: ^5.5.1
     prettier: ^2.6.2
     snapshot-diff: ^0.9.0
   peerDependencies:
@@ -9732,14 +9732,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"eslint-plugin-testing-library@npm:^5.5.0":
-  version: 5.5.0
-  resolution: "eslint-plugin-testing-library@npm:5.5.0"
+"eslint-plugin-testing-library@npm:^5.5.1":
+  version: 5.5.1
+  resolution: "eslint-plugin-testing-library@npm:5.5.1"
   dependencies:
     "@typescript-eslint/utils": ^5.13.0
   peerDependencies:
     eslint: ^7.5.0 || ^8.0.0
-  checksum: 7f42e2af84a0b5d1bba86fe9838abdbfa1c4f5dae66db215f592a216f82a2164a23181841228872d7116f38398bbc671e60a1e3b9840f0a8da1972c7aac8bdcd
+  checksum: 558994da12e6a9ff0c4f71c2e63a23746b6323d171062032843591e0fca6ce3811f979cf82e11db003c8b4f1d9842cb75301bfaa9e88d1a399b11ea6686aadcc
   languageName: node
   linkType: hard
 
