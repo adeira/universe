@@ -23,3 +23,13 @@ tktk
 [https://en.wikipedia.org/wiki/Phishing](https://en.wikipedia.org/wiki/Phishing)
 
 tktk
+
+Example of such phishing link can be this (we highly discourage you from opening it):
+
+![Phishing link example](/images/docs/security/phishing_1.png)
+
+The previous links leads to:
+
+![Phishing link destination example](/images/docs/security/phishing_2.png)
+
+Notice the URL address. That's certainly not Facebook website. So where does the login go?
