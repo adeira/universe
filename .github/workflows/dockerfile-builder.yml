@@ -14,6 +14,7 @@ jobs:
         project:
           - 'abacus'
           - 'abacus-backoffice'
+          - 'abacus-docs'
           - 'abacus-kochka'
         include:
           - project: abacus
@@ -26,6 +27,11 @@ jobs:
             projectGlob: './src/abacus-backoffice/**'
             projectDockerfile: './src/abacus-backoffice/Dockerfile'
             projectImageName: 'adeira/abacus-backoffice'
+          - project: abacus-backoffice
+            projectPath: './src/abacus-docs'
+            projectGlob: './src/abacus-docs/**'
+            projectDockerfile: './src/abacus-docs/Dockerfile'
+            projectImageName: 'adeira/abacus-docs'
           - project: abacus-kochka
             projectPath: './src/abacus-kochka'
             projectGlob: './src/abacus-kochka/**'

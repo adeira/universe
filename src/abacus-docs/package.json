@@ -4,9 +4,9 @@
   "license": "UNLICENSED",
   "name": "@abacus/docs",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --port=5003",
     "build": "next build",
-    "start": "next start"
+    "start": "next start --port=5003"
   },
   "dependencies": {
     "@markdoc/markdoc": "^0.1.2",
