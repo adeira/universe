@@ -32,4 +32,4 @@ The previous links leads to:
 
 ![Phishing link destination example](/images/docs/security/phishing_2.png)
 
-Notice the URL address. That's certainly not Facebook website. So where does the login go?
+Notice the URL address. That's certainly not Facebook website. So where does the login go? Well, to the attacker!

@@ -9,6 +9,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@abacus/docs@workspace:src/abacus-docs"
   dependencies:
+    "@babel/core": ^7.18.2
     "@babel/preset-flow": ^7.17.12
     "@markdoc/markdoc": ^0.1.2
     "@markdoc/next.js": ^0.1.4
