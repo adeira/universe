@@ -15,7 +15,7 @@
   "sideEffects": true,
   "dependencies": {
     "@adeira/sx": "^0.29.1",
-    "@babel/runtime": "^7.18.0",
+    "@babel/runtime": "^7.18.3",
     "prettier": "^2.6.2",
     "pretty-format": "^28.1.0"
   },
