@@ -465,7 +465,7 @@ __metadata:
     blurhash: ^1.1.5
     fbt: ^1.0.0
     flow-enums-runtime: ^0.0.6
-    focus-trap-react: ^8.11.1
+    focus-trap-react: ^8.11.2
     playwright: ^1.22.2
     prop-types: ^15.8.1
     react: ^17.0.2
@@ -10547,25 +10547,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"focus-trap-react@npm:^8.11.1":
-  version: 8.11.1
-  resolution: "focus-trap-react@npm:8.11.1"
+"focus-trap-react@npm:^8.11.2":
+  version: 8.11.2
+  resolution: "focus-trap-react@npm:8.11.2"
   dependencies:
-    focus-trap: ^6.9.1
+    focus-trap: ^6.9.3
   peerDependencies:
     prop-types: ^15.8.1
     react: ">=16.0.0"
     react-dom: ">=16.0.0"
-  checksum: 0239b92e5250b7018795b429c7637176b1a09f00d39d9c8d5c09c572e73fce11c4a8b80912b024379824b5fa164d76838eadb3b34496be1abfdc886269b4632f
+  checksum: 985a3bd5a1e37f815ca4b0a234b41b87be4009a1c377ac3ad2bed6a3e191bd2f3c9b6c4af666d140fc9ac4ec8a41411e6c89437167161e01b2fcf6444681c994
   languageName: node
   linkType: hard
 
-"focus-trap@npm:^6.9.1":
-  version: 6.9.1
-  resolution: "focus-trap@npm:6.9.1"
+"focus-trap@npm:^6.9.3":
+  version: 6.9.3
+  resolution: "focus-trap@npm:6.9.3"
   dependencies:
-    tabbable: ^5.3.2
-  checksum: c9b8127d6f54e26336e02e5073186d5f07eceee55f06afcb58ca9dc31e34ca4b31f919130eca30577f552ca47abbdb6d6b19c72a43e43034560616d35359f5f0
+    tabbable: ^5.3.3
+  checksum: 4fce9e8436980d2d0be2be33de9616936b0dfd83b7c70a8fc7da6cca46f4eea1d617b07a9ad76aa1fe8c6b66856c2d8b5819eb1f8e6ec57bba01e6a398a1ba7c
   languageName: node
   linkType: hard
 
@@ -18527,10 +18527,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tabbable@npm:^5.3.2":
-  version: 5.3.2
-  resolution: "tabbable@npm:5.3.2"
-  checksum: 30e9526fd1aaf173944597c838846c32bf38d71192f0565f7e0bd62b86e86c24be9c929b6b49b3f7a9066d913d7d6ba06d754c82ebb9334dd26a58e7df37b9d0
+"tabbable@npm:^5.3.3":
+  version: 5.3.3
+  resolution: "tabbable@npm:5.3.3"
+  checksum: 1aa56e1bb617cc10616c407f4e756f0607f3e2d30f9803664d70b85db037ca27e75918ed1c71443f3dc902e21dc9f991ce4b52d63a538c9b69b3218d3babcd70
   languageName: node
   linkType: hard
 
