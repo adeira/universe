@@ -27,7 +27,7 @@ jobs:
             projectGlob: './src/abacus-backoffice/**'
             projectDockerfile: './src/abacus-backoffice/Dockerfile'
             projectImageName: 'adeira/abacus-backoffice'
-          - project: abacus-backoffice
+          - project: abacus-docs
             projectPath: './src/abacus-docs'
             projectGlob: './src/abacus-docs/**'
             projectDockerfile: './src/abacus-docs/Dockerfile'
