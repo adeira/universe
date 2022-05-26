@@ -11,7 +11,14 @@ const items = [
   },
   {
     title: 'Basic knowledge',
-    links: [{ href: '/docs/security', children: 'Security' }],
+    links: [
+      { href: '/docs/security', children: 'Security' },
+      { href: '/docs/cleaning', children: 'Cleaning' },
+    ],
+  },
+  {
+    title: 'Advanced',
+    links: [{ href: '/docs/bbva-terminal', children: 'BBVA terminal' }],
   },
 ];
 
