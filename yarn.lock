@@ -205,7 +205,7 @@ __metadata:
     "@sinonjs/fake-timers": ^9.1.2
     cross-fetch: ^3.1.5
     form-data: ^4.0.0
-    msw: ^0.41.0
+    msw: ^0.41.1
   languageName: unknown
   linkType: soft
 
@@ -14632,9 +14632,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"msw@npm:^0.41.0":
-  version: 0.41.0
-  resolution: "msw@npm:0.41.0"
+"msw@npm:^0.41.1":
+  version: 0.41.1
+  resolution: "msw@npm:0.41.1"
   dependencies:
     "@mswjs/cookies": ^0.2.0
     "@mswjs/interceptors": ^0.15.1
@@ -14656,13 +14656,13 @@ __metadata:
     type-fest: ^1.2.2
     yargs: ^17.3.1
   peerDependencies:
-    typescript: ">= 4.2.x <= 4.6.x"
+    typescript: ">= 4.2.x <= 4.7.x"
   peerDependenciesMeta:
     typescript:
       optional: true
   bin:
     msw: cli/index.js
-  checksum: 36d675da1e9a9bacd1ebe7446d1c403a72ce4208c07eebb5149d9baf3a49189793ed024f45c9c89838817980c931c8064b2034b99a64ecfc6a17222b6e10f5e3
+  checksum: e6c8ec832da41023d293e9033728b99e987792de155f17bac56388ea57ca4110fab13f422510114a9ae0b12754f38a922c09a1eae7bc3339ee86a9db8a963c16
   languageName: node
   linkType: hard
 
