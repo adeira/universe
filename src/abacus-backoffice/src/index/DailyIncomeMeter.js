@@ -24,18 +24,18 @@ export default function DailyIncomeMeter(props: Props): Node {
     props.data,
   );
 
-  const dailyGoal = 2500; // TODO: MXN only
-
   return (
     <LayoutBlock>
       <Meter
+        // TODO: currently only MXN is supported
         min={0}
-        max={dailyGoal}
+        max={3000}
         value={
           dailyReport.total.unitAmount / 100 // adjusted for centavo
         }
-        low={dailyGoal * 0.8}
-        optimum={dailyGoal}
+        low={2200}
+        high={2600}
+        optimum={3000}
       />
       <Money
         priceUnitAmount={
