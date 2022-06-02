@@ -1,7 +1,10 @@
 {
   "name": "@adeira/relay",
-  "version": "5.2.0",
+  "version": "5.2.1",
   "main": "./src/index.js",
+  "bin": {
+    "adeira-relay-compiler": "./bin/compiler.js"
+  },
   "type": "commonjs",
   "sideEffects": false,
   "homepage": "https://github.com/adeira/relay",
