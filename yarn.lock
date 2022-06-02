@@ -25,7 +25,7 @@ __metadata:
   resolution: "@adeira/abacus-backoffice@workspace:src/abacus-backoffice"
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
-    "@adeira/hooks": ^0.3.0
+    "@adeira/hooks": ^0.2.0
     "@adeira/icons": ^1.1.0
     "@adeira/js": ^2.1.1
     "@adeira/react-auth": ^0.1.0
@@ -60,7 +60,7 @@ __metadata:
   resolution: "@adeira/abacus-kochka@workspace:src/abacus-kochka"
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
-    "@adeira/hooks": ^0.3.0
+    "@adeira/hooks": ^0.2.0
     "@adeira/icons": ^1.1.0
     "@adeira/js": ^2.1.1
     "@adeira/relay": ^5.2.0
@@ -268,7 +268,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/hooks@^0.3.0, @adeira/hooks@workspace:src/hooks":
+"@adeira/hooks@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "@adeira/hooks@npm:0.2.0"
+  dependencies:
+    "@babel/runtime": ^7.17.9
+  peerDependencies:
+    react: ^17.0.2
+  checksum: a519739ad5df8d551a8142e062bdf4f1f70d4b4917f65459bbcd6791cf0b7d697fa475d54436258c90aa6e425014adaeb38ec77851d901e1ef561a5078bd8c09
+  languageName: node
+  linkType: hard
+
+"@adeira/hooks@workspace:src/hooks":
   version: 0.0.0-use.local
   resolution: "@adeira/hooks@workspace:src/hooks"
   dependencies:
@@ -380,7 +391,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@adeira/react-auth@workspace:src/react-auth"
   dependencies:
-    "@adeira/hooks": ^0.3.0
+    "@adeira/hooks": ^0.2.0
     "@babel/runtime": ^7.18.3
   peerDependencies:
     react: "*"
@@ -439,7 +450,7 @@ __metadata:
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
     "@adeira/css-colors": ^2.2.0
-    "@adeira/hooks": ^0.3.0
+    "@adeira/hooks": ^0.2.0
     "@adeira/icons": ^1.1.0
     "@adeira/js": ^2.1.1
     "@adeira/sx": ^0.29.1
@@ -2247,7 +2258,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.7.7, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.17.9, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.7.7, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.18.3
   resolution: "@babel/runtime@npm:7.18.3"
   dependencies:

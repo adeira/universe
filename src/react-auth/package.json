@@ -14,7 +14,7 @@
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {
-    "@adeira/hooks": "^0.3.0",
+    "@adeira/hooks": "^0.2.0",
     "@babel/runtime": "^7.18.3"
   },
   "peerDependencies": {
