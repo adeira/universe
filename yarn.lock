@@ -29,7 +29,7 @@ __metadata:
     "@adeira/icons": ^1.1.0
     "@adeira/js": ^2.1.1
     "@adeira/react-auth": ^0.1.0
-    "@adeira/relay": ^5.2.0
+    "@adeira/relay": ^5.2.1
     "@adeira/sx": ^0.29.1
     "@adeira/sx-design": ^0.27.0
     "@fbtjs/default-collection-transform": ^1.0.0
@@ -63,7 +63,7 @@ __metadata:
     "@adeira/hooks": ^0.2.0
     "@adeira/icons": ^1.1.0
     "@adeira/js": ^2.1.1
-    "@adeira/relay": ^5.2.0
+    "@adeira/relay": ^5.2.1
     "@adeira/sx": ^0.29.1
     "@adeira/sx-design": ^0.27.0
     "@adeira/sx-design-nextjs": ^0.3.2
@@ -172,7 +172,7 @@ __metadata:
     "@adeira/graphql-relay": ^0.3.0
     "@adeira/icons": ^1.1.0
     "@adeira/js": ^2.1.1
-    "@adeira/relay": ^5.2.0
+    "@adeira/relay": ^5.2.1
     "@adeira/sx": ^0.29.1
     "@adeira/sx-design": ^0.27.0
     "@testing-library/jest-dom": ^5.16.4
@@ -387,7 +387,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/relay@^5.2.0, @adeira/relay@workspace:src/relay":
+"@adeira/relay@^5.2.1, @adeira/relay@workspace:src/relay":
   version: 0.0.0-use.local
   resolution: "@adeira/relay@workspace:src/relay"
   dependencies:
@@ -404,6 +404,8 @@ __metadata:
   peerDependencies:
     graphql: ^16.5.0
     react: ^17.0.2
+  bin:
+    adeira-relay-compiler: ./bin/compiler.js
   languageName: unknown
   linkType: soft
 
