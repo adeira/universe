@@ -25,7 +25,7 @@ __metadata:
   resolution: "@adeira/abacus-backoffice@workspace:src/abacus-backoffice"
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
-    "@adeira/hooks": ^0.2.0
+    "@adeira/hooks": ^0.3.0
     "@adeira/icons": ^1.1.0
     "@adeira/js": ^2.1.1
     "@adeira/react-auth": ^0.1.0
@@ -60,7 +60,7 @@ __metadata:
   resolution: "@adeira/abacus-kochka@workspace:src/abacus-kochka"
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
-    "@adeira/hooks": ^0.2.0
+    "@adeira/hooks": ^0.3.0
     "@adeira/icons": ^1.1.0
     "@adeira/js": ^2.1.1
     "@adeira/relay": ^5.2.0
@@ -268,7 +268,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/hooks@^0.2.0, @adeira/hooks@workspace:src/hooks":
+"@adeira/hooks@^0.3.0, @adeira/hooks@workspace:src/hooks":
   version: 0.0.0-use.local
   resolution: "@adeira/hooks@workspace:src/hooks"
   dependencies:
@@ -380,7 +380,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@adeira/react-auth@workspace:src/react-auth"
   dependencies:
-    "@adeira/hooks": ^0.2.0
+    "@adeira/hooks": ^0.3.0
     "@babel/runtime": ^7.18.3
   peerDependencies:
     react: "*"
@@ -439,7 +439,7 @@ __metadata:
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
     "@adeira/css-colors": ^2.2.0
-    "@adeira/hooks": ^0.2.0
+    "@adeira/hooks": ^0.3.0
     "@adeira/icons": ^1.1.0
     "@adeira/js": ^2.1.1
     "@adeira/sx": ^0.29.1
