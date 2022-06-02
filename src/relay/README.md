@@ -48,18 +48,9 @@ Add "relay" to the list of plugins in your `.babelrc` file:
 }
 ```
 
-## Set up adeira-relay-compiler
+## Set up Relay Compiler
 
-```json
-{
-  "scripts": {
-    "relay": "adeira-relay-compiler",
-    "relay:schema": "adeira-fetch-schema --resource=https://graphql.example.com"
-  }
-}
-```
-
-Script `relay:schema` helps with schema fetching (and signing) and `relay` script runs the actual compiler using the config above.
+TKTK
 
 # Usage
 
