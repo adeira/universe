@@ -19,7 +19,7 @@
   "devDependencies": {
     "@adeira/eslint-config": "^7.5.0",
     "@babel/eslint-parser": "^7.18.2",
-    "eslint": "^8.16.0"
+    "eslint": "^8.17.0"
   },
   "browserslist": {
     "production": [
