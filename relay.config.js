@@ -19,12 +19,11 @@ module.exports = {
   sources: {
     'src/abacus-backoffice': 'abacus',
     'src/abacus-kochka': 'abacus',
-    'src/example-relay': 'example-relay',
   },
   excludes: ['**/__flowtests__/**'],
   codegenCommand: './x relay',
   projects: {
-    'abacus': {
+    abacus: {
       language: 'flow',
       flowTypegen: {
         phase: 'Final',
@@ -45,17 +44,6 @@ module.exports = {
         no_inline: { kind: 'enabled' },
       },
       ...abacusPersistConfig,
-    },
-    'example-relay': {
-      language: 'flow',
-      flowTypegen: {
-        phase: 'Final',
-      },
-      schema: 'src/example-relay/schema.graphql',
-      schemaExtensions: ['src/example-relay/src/schemaExtensions'],
-      // Optional regex to restrict `@relay_test_operation` directive to directories matching this
-      // regex (so it cannot be used in production code by accident).
-      testPathRegex: '__tests__',
     },
   },
   isDevVariableName: '__DEV__',
