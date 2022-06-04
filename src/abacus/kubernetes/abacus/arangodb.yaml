@@ -1,0 +1,92 @@
+# https://www.arangodb.com/docs/stable/deployment-kubernetes-deployment-resource.html
+apiVersion: 'database.arangodb.com/v1alpha'
+kind: 'ArangoDeployment'
+metadata:
+  name: 'arangodb-single-server'
+spec:
+  mode: Single
+  image: 'arangodb/arangodb:3.9.1'
+  tls:
+    caSecretName: None # TODO
+  auth:
+    jwtSecretName: None # TODO
+  externalAccess:
+    type: None
+  single:
+    args:
+      - '--query.require-with=true' # require WITH clauses even when not in cluster
+    storageClassName: do-block-storage # DigitalOcean Block Storage
+    resources:
+      # TODO: limits
+      requests:
+        cpu: 64m
+        memory: 1024Mi
+        storage: 1Gi
+
+---
+apiVersion: 'batch/v1'
+kind: 'CronJob'
+metadata:
+  # See also `arangodb-single-server-restore`
+  name: 'arangodb-single-server-backup'
+spec:
+  #          ┌───────────── minute (0 - 59)
+  #          │  ┌───────────── hour (0 - 23)
+  #          │  │  ┌───────────── day of the month (1 - 31)
+  #          │  │  │ ┌───────────── month (1 - 12)
+  #          │  │  │ │ ┌───────────── day of the week (0 - 6)
+  #          │  │  │ │ │
+  #          │  │  │ │ │
+  schedule: '0 */2 * * *' # https://crontab.guru/every-two-hours
+  concurrencyPolicy: Allow
+  successfulJobsHistoryLimit: 2
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          initContainers:
+            - name: dump-create
+              image: 'arangodb/arangodb:3.9.1'
+              imagePullPolicy: Always
+              args:
+                - 'arangodump'
+                # https://<deployment-name>.<namespace>.svc.cluster.local:8529
+                - '--server.endpoint=tcp://arangodb-single-server.default.svc.cluster.local:8529' # TODO: ssl://…
+                #- '--server.username=$(username)' # TODO
+                #- '--server.password=$(password)' # TODO
+                - '--server.authentication=false'
+                - '--server.database=abacus'
+                - '--output-directory=/tmp/dump'
+                - '--include-system-collections=true'
+                - '--overwrite=true'
+                - '--dump-data=true'
+                - '--envelope=false'
+              volumeMounts:
+                - name: dump
+                  mountPath: /tmp/dump
+          containers:
+            - name: dump-upload
+              image: amazon/aws-cli:2.1.29
+              imagePullPolicy: Always
+              command: ['/bin/sh', '-c']
+              args:
+                - 'aws s3 sync /tmp/dump s3://abacus-arangodb-backup-38c739d1-9e39-4052-8746-b2f21523f6c0/$(date "+%Y-%m-%dT%H:%M:%S")'
+              env:
+                - name: AWS_ACCESS_KEY_ID
+                  valueFrom:
+                    secretKeyRef:
+                      name: abacus-aws-secret
+                      key: AWS_ACCESS_KEY_ID
+                - name: AWS_SECRET_ACCESS_KEY
+                  valueFrom:
+                    secretKeyRef:
+                      name: abacus-aws-secret
+                      key: AWS_SECRET_ACCESS_KEY
+              volumeMounts:
+                - name: dump
+                  mountPath: /tmp/dump
+          volumes:
+            - name: dump
+              emptyDir: {}

@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: abacus-docs-service
+spec:
+  type: ClusterIP
+  selector:
+    app: abacus-docs
+  ports:
+    # TODO: https (443)
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 5003
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: abacus-docs-deployment
+  labels:
+    app: abacus-docs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: abacus-docs
+  template:
+    metadata:
+      labels:
+        app: abacus-docs
+    spec:
+      containers:
+        - name: abacus-docs
+          image: adeira/abacus-docs
+          resources:
+            # TODO: limits
+            requests:
+              cpu: 16m
+              memory: 128Mi
+          ports:
+            - containerPort: 5003
