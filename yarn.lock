@@ -178,7 +178,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.16.4
     "@testing-library/react": ^12.1.5
     "@testing-library/user-event": ^14.2.0
-    apollo-server-micro: ^3.8.1
+    apollo-server-micro: ^3.8.2
     babel-jest: ^28.1.0
     cors: ^2.8.5
     flow-bin: ^0.179.0
@@ -5915,9 +5915,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"apollo-server-core@npm:^3.8.1":
-  version: 3.8.1
-  resolution: "apollo-server-core@npm:3.8.1"
+"apollo-server-core@npm:^3.8.2":
+  version: 3.8.2
+  resolution: "apollo-server-core@npm:3.8.2"
   dependencies:
     "@apollo/utils.logger": ^1.0.0
     "@apollo/utils.usagereporting": ^1.0.0
@@ -5943,7 +5943,7 @@ __metadata:
     whatwg-mimetype: ^3.0.0
   peerDependencies:
     graphql: ^15.3.0 || ^16.0.0
-  checksum: ae0e1d17ddf8abed935b045861c6ec7747ee4ba15b2077f90ba4f615193b1b7ffd79f188bf6de87d42e1211755f136102bd176d459800b9e60fa8033f0fec6e7
+  checksum: 2d5894f1e5636e59c518a4c10347d0c0d48eb4e7a5fee73dfd8baa352e9fc0c341bb9a25ce92609809bb2641c600e38db56e44eeb5650260b76eabe076560fd3
   languageName: node
   linkType: hard
 
@@ -5965,17 +5965,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"apollo-server-micro@npm:^3.8.1":
-  version: 3.8.1
-  resolution: "apollo-server-micro@npm:3.8.1"
+"apollo-server-micro@npm:^3.8.2":
+  version: 3.8.2
+  resolution: "apollo-server-micro@npm:3.8.2"
   dependencies:
     "@hapi/accept": ^5.0.2
-    apollo-server-core: ^3.8.1
+    apollo-server-core: ^3.8.2
     apollo-server-types: ^3.6.0
     type-is: ^1.6.18
   peerDependencies:
     micro: ^9.3.4
-  checksum: 328046d1a64b986450c667756ddcdd0631427a4e640f34547f481cd4f1bcf372f0bbd6b3e0741a37035d2aebad39a9dfd01bb04e84e6b8a83fb652dfe8a3f9c3
+  checksum: 05f582c3b5053c2cd536940081c2942f469f4f53ffa49caa0c90e67efd79c0bed81672b1757336c244bd72d1b40f23f25c4e94c020f2686c0aab912ac6066466
   languageName: node
   linkType: hard
 
