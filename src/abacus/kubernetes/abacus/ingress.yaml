@@ -1,0 +1,57 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: abacus-ingress
+  annotations:
+    kubernetes.io/ingress.class: 'nginx'
+    cert-manager.io/cluster-issuer: 'letsencrypt-production'
+    nginx.ingress.kubernetes.io/proxy-body-size: '16m'
+spec:
+  tls:
+    - hosts:
+        - abacus.kochka.com.mx
+        - business.kochka.com.mx
+        - docs.kochka.com.mx
+        - kochka.com.mx
+      secretName: abacus-tls
+  rules:
+    - host: abacus.kochka.com.mx
+      http:
+        paths:
+          - pathType: Prefix
+            path: '/'
+            backend:
+              service:
+                name: abacus-service
+                port:
+                  number: 80
+    - host: business.kochka.com.mx
+      http:
+        paths:
+          - pathType: Prefix
+            path: '/'
+            backend:
+              service:
+                name: abacus-backoffice-service
+                port:
+                  number: 80
+    - host: docs.kochka.com.mx
+      http:
+        paths:
+          - pathType: Prefix
+            path: '/'
+            backend:
+              service:
+                name: abacus-docs-service
+                port:
+                  number: 80
+    - host: kochka.com.mx
+      http:
+        paths:
+          - pathType: Prefix
+            path: '/'
+            backend:
+              service:
+                name: abacus-kochka-service
+                port:
+                  number: 80
