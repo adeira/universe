@@ -16,8 +16,8 @@ First, make sure you are in the correct DigitalOcean/local context (`kubectl con
 (cd src/abacus/kubernetes && kubectl apply -f third_party/cert-manager.yaml)
 (cd src/abacus/kubernetes && kubectl apply -f third_party/ingress-nginx.yaml)
 
-(cd src/abacus/kubernetes && kubectl diff -f abacus.yaml)
-(cd src/abacus/kubernetes && kubectl apply -f abacus.yaml --record)
+(cd src/abacus/kubernetes && kubectl diff -f abacus/)
+(cd src/abacus/kubernetes && kubectl apply -f abacus/ --record)
 ```
 
 # Upgrading ArangoDB
