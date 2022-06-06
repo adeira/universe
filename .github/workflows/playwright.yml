@@ -37,7 +37,7 @@ jobs:
       # https://github.com/actions/setup-node
       - name: Use Node.js 18.x
         if: steps.paths-filter.outputs.src == 'true'
-        uses: actions/setup-node@v3.2.0
+        uses: actions/setup-node@v3.3.0
         with:
           node-version: 18.x
           cache: 'yarn'

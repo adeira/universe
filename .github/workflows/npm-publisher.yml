@@ -22,7 +22,7 @@ jobs:
 
       # Always use the oldest supported Node.js version here:
       - name: Use Node.js 14.x
-        uses: actions/setup-node@v3.2.0
+        uses: actions/setup-node@v3.3.0
         with:
           node-version: 14.x
 
