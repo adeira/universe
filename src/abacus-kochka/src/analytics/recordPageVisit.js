@@ -17,12 +17,15 @@ export default function recordPageVisit(environment: Environment) {
     hash: window.location.hash, // #bang
   };
 
+  const windowScreen = window.screen;
+  const windowScreenOrientation = windowScreen.orientation;
   const screen = {
-    height: String(window.screen.height), // 900
-    width: String(window.screen.width), // 1440
+    height: String(windowScreen.height), // 900
+    width: String(windowScreen.width), // 1440
     // Warning! Leave the optional chain here (screen.orientation is not supported in Safari):
-    orientationType: window.screen.orientation?.type,
-    orientationAngle: String(window.screen.orientation?.angle),
+    orientationType: windowScreenOrientation?.type ?? null,
+    orientationAngle:
+      windowScreenOrientation?.angle != null ? String(windowScreenOrientation.angle) : null,
   };
 
   commitMutation<recordPageVisitAnalyticsMutation>(environment, {
