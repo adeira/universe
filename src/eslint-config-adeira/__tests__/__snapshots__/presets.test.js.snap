@@ -753,6 +753,7 @@ Object {
     "jest/prefer-equality-matcher": 1,
     "jest/prefer-expect-assertions": 0,
     "jest/prefer-expect-resolves": 2,
+    "jest/prefer-hooks-in-order": 1,
     "jest/prefer-hooks-on-top": 2,
     "jest/prefer-lowercase-title": 0,
     "jest/prefer-snapshot-hint": 0,
