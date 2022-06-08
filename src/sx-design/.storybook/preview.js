@@ -2,6 +2,7 @@
 
 import type { Node } from 'react';
 
+import './global.css';
 import { SxDesignProvider } from '../index';
 import type { SupportedLocales } from '../src/constants';
 
