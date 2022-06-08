@@ -1,5 +1,7 @@
 # Unreleased
 
+- Removed old `LocalQueryRenderer`, `createLocalEnvironment` and `getDataFromRequest`
+
 # 5.2.0
 
 - Use Relay 13.1.0, see: https://github.com/facebook/relay/releases/tag/v13.1.0

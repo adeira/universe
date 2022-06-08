@@ -2,13 +2,15 @@
 
 import type { Node } from 'react';
 
-import { QueryRenderer, graphql, createLocalEnvironment } from '../index';
+import { QueryRenderer, graphql, createEnvironment } from '../index';
 
 function placeholder() {
   return null;
 }
 
-const environment = createLocalEnvironment();
+const environment = createEnvironment({
+  fetchFn: () => {},
+});
 
 module.exports = {
   minimalUsage(): Node {

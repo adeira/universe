@@ -1,22 +1,6 @@
-`@adeira/relay` is an opinionated wrapper around [`facebook/relay`](https://github.com/facebook/relay) - a JavaScript framework for building data-driven React applications. Goal of this package is to create powerful yet simple to use Relay wrapper with great DX and additional useful features:
-
-- all under one rooftop (simpler installation and setup)
-- network fetching with retries and timeouts (see [`@adeira/fetch`](https://github.com/adeira/universe/tree/master/src/fetch))
-- support for [files uploading](#tip-3-file-uploading-via-graphql-mutations) via GraphQL mutations
-- console query logging during development
-- Relay compiler with ES6 output and source signing
-- improved Flow types and sanity checks
-
-More info about Relay, prior art:
-
-- [Relay Docs](https://relay.dev/docs/)
-- [Relay Modern Network Deep Dive](https://medium.com/entria/relay-modern-network-deep-dive-ec187629dfd3)
-- [Advanced Relay topics](https://mrtnzlml.com/docs/relay)
-- [Relay Example](https://github.com/adeira/relay-example)
+`@adeira/relay` is an opinionated wrapper around [`facebook/relay`](https://github.com/facebook/relay) - a JavaScript framework for building data-driven React applications. Goal of this package is to create powerful yet simple to use Relay wrapper with great DX and additional useful features.
 
 # Installation and Setup
-
-`@adeira/relay` is meant to be drop-in replacement for `facebook/relay` to ease migrations back and forth (it's just all hidden under one rooftop with small DX tweaks and improvements).
 
 In case you are migrating from `facebook/relay`: uninstall _all_ the Relay related packages you installed manually (`babel-plugin-relay`, `react-relay`, `relay-compiler`, `relay-config` and `relay-runtime`). You should also remove custom `flow-typed` definitions for Relay. This package takes care about everything you need (only one dependency needed).
 
@@ -60,13 +44,13 @@ First, you should set up Relay Environment somewhere in the root of your applica
 import React from 'react';
 import { createEnvironment, createNetworkFetcher } from '@adeira/relay';
 
-function render() {
-  const Environment = createEnvironment({
-    fetchFn: createNetworkFetcher('https://graphql.example.com', {
-      // … additional HTTP headers if you want …
-    }),
-  });
+const Environment = createEnvironment({
+  fetchFn: createNetworkFetcher('https://graphql.example.com', {
+    // … additional HTTP headers if you want …
+  }),
+});
 
+function render() {
   return (
     <RelayEnvironmentProvider environment={Environment}>
       <React.Suspense fallback={'Loading…'}>{/* your React application here */}</React.Suspense>
@@ -85,23 +69,15 @@ export default function App(props) {
   const data = useLazyLoadQuery(graphql`
     query AppQuery {
       allLocations(first: 20) {
-        edges {
-          node {
-            id
-            name
-          }
-        }
+        id
+        name
       }
     }
   `);
 
-  return (
-    <ol>
-      {data.allLocations?.edges?.map((edge) => (
-        <li key={edge?.node?.id}>{edge?.node?.name}</li>
-      ))}
-    </ol>
-  );
+  return data.allLocations?.map((location) => {
+    return <div key={location?.id}>{location?.name}</div>;
+  });
 }
 ```
 
@@ -167,3 +143,10 @@ Apart from the actual mutation and variables, [`useMutation`](https://relay.dev/
 or [`Blob`](https://developer.mozilla.org/en-US/docs/Web/API/Blob).
 
 `@adeira/relay` will automatically send the request as `multipart/form-data` instead of `application/json` when it detects uploadables, so you don't have to worry about anything.
+
+# More info about Relay, prior art
+
+- [Relay Docs](https://relay.dev/docs/)
+- [Relay Modern Network Deep Dive](https://medium.com/entria/relay-modern-network-deep-dive-ec187629dfd3)
+- [Advanced Relay topics](https://mrtnzlml.com/docs/relay)
+- [Relay Example](https://github.com/adeira/relay-example)
