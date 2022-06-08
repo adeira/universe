@@ -9,7 +9,7 @@
     "directory": "src/sx-design"
   },
   "license": "MIT",
-  "version": "0.27.0",
+  "version": "0.28.0",
   "main": "./index.js",
   "type": "commonjs",
   "sideEffects": false,
