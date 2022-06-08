@@ -24,6 +24,7 @@ SX Design is fully localized and requires information about the current applicat
 ```js
 import { SxDesignProvider } from '@adeira/sx-design';
 
+// Note: SX Design automatically enables styled error boundary 👍
 export default function MyRootApp() {
   return (
     <SxDesignProvider
@@ -36,7 +37,23 @@ export default function MyRootApp() {
 }
 ```
 
-Note: SX Design automatically enables styled error boundary.
+It is recommended to have some global CSS in your application where you configure fonts for your application, for example:
+
+```css
+/* https://github.com/rsms/inter */
+@import url('https://rsms.me/inter/inter.css');
+html {
+  font-family: 'Inter', sans-serif;
+  font-feature-settings: 'ss01', 'zero';
+}
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: 'Inter var', sans-serif;
+  }
+}
+```
+
+SX Design doesn't currently take care of this to give you freedom of choice.
 
 # Available components
 
