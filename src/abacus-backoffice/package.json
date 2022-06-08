@@ -20,7 +20,7 @@
     "@adeira/react-auth": "^0.1.0",
     "@adeira/relay": "^5.2.1",
     "@adeira/sx": "^0.29.1",
-    "@adeira/sx-design": "^0.27.0",
+    "@adeira/sx-design": "^0.28.0",
     "@next/bundle-analyzer": "^12.1.6",
     "d3": "^7.4.4",
     "fbt": "^1.0.0",
