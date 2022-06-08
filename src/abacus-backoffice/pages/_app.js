@@ -9,7 +9,6 @@ import { useSessionTokenAPI } from '@adeira/hooks';
 import Head from 'next/head';
 
 import './_app.css';
-import '../styles/globals.css';
 import constants from '../src/constants';
 import LoginPage from '../src/LoginPage';
 import useApplicationLocale from '../src/useApplicationLocale';
