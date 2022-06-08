@@ -51,7 +51,7 @@ __metadata:
     playwright: ^1.22.2
     react: ^17.0.2
     react-dom: ^17.0.2
-    recoil: ^0.7.2
+    recoil: ^0.7.3
   languageName: unknown
   linkType: soft
 
@@ -81,7 +81,7 @@ __metadata:
     playwright: ^1.22.2
     react: ^17.0.2
     react-dom: ^17.0.2
-    recoil: ^0.7.2
+    recoil: ^0.7.3
   languageName: unknown
   linkType: soft
 
@@ -16239,9 +16239,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"recoil@npm:^0.7.2":
-  version: 0.7.2
-  resolution: "recoil@npm:0.7.2"
+"recoil@npm:^0.7.3":
+  version: 0.7.3
+  resolution: "recoil@npm:0.7.3"
   dependencies:
     hamt_plus: 1.0.2
   peerDependencies:
@@ -16251,7 +16251,7 @@ __metadata:
       optional: true
     react-native:
       optional: true
-  checksum: 2ad0c2052fd33ee358e3b448fd36ea6d4b37e69ace65ff44124605171c4794e4f167215209731aac3d45d42ea9f4c67e9c5a0704ff04ab94b64bcca96d5f59a3
+  checksum: 6f48077eea4da8a4b0434eb9567210b74d603086bf5760810719bb12cc74d31b93291e7b80d26caa1e3b7e8cf3ec5fc44308fae8be22228cbcc64c78b048751e
   languageName: node
   linkType: hard
 
