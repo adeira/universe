@@ -3,6 +3,7 @@
 - New rule [`no-constant-binary-expression`](https://eslint.org/docs/rules/no-constant-binary-expression) enabled (warnings or errors in strict mode).
 - New Next.js rules [`@next/next/no-assign-module-variable`](https://nextjs.org/docs/messages/no-assign-module-variable) and [`@next/next/no-before-interactive-script-outside-document`](https://nextjs.org/docs/messages/no-before-interactive-script-outside-document) enabled (warnings or errors in strict mode).
 - New React rule [`react/jsx-no-leaked-render`](https://github.com/jsx-eslint/eslint-plugin-react/blob/91d375744846d7ffc35f15b2485d6dd83ba684e5/docs/rules/jsx-no-leaked-render.md) enabled (warnings or errors in strict mode).
+- New rule [`prefer-hooks-in-order`](https://github.com/jest-community/eslint-plugin-jest/blob/46f199ff9b4bda1b0f3a99d985045b0162d5c9b7/docs/rules/prefer-hooks-in-order.md)
 
 # 7.5.0
 
