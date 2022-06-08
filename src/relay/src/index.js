@@ -6,13 +6,10 @@ export {
   TimeoutError as FetchTimeoutError,
 } from '@adeira/fetch';
 export { default as createEnvironment } from './createEnvironment';
-export { default as createLocalEnvironment } from './createLocalEnvironment';
 export { default as createNetworkFetcher } from './createNetworkFetcher';
-export { default as getDataFromRequest } from './getDataFromRequest';
 export { RelayLogger, RelayRequiredFieldLogger } from './RelayLogger';
 
 // Relay Modern (wrapped):
-export { default as LocalQueryRenderer } from './LocalQueryRenderer';
 export { default as QueryRenderer } from './QueryRenderer';
 export { default as useLazyLoadQuery } from './useLazyLoadQuery';
 

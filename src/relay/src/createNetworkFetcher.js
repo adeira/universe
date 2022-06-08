@@ -3,7 +3,7 @@
 import fetchWithRetries from '@adeira/fetch';
 import type { UploadableMap, Variables } from 'relay-runtime';
 
-import { handleData, getRequestBody, getHeaders } from './helpers';
+import { handleData, getRequestBody, getHeaders } from './internal/helpers';
 
 type Headers = {
   +[key: string]: string,

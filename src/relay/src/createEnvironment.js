@@ -9,8 +9,8 @@ import {
 } from 'relay-runtime';
 import type { RecordObjectMap } from 'relay-runtime/store/RelayStoreTypes';
 
-import createRelayStore from './createRelayStore';
-import createRequestHandler from './createRequestHandler';
+import createRelayStore from './internal/createRelayStore';
+import createRequestHandler from './internal/createRequestHandler';
 import { RelayLogger, RelayRequiredFieldLogger } from './RelayLogger';
 
 type Options = {
