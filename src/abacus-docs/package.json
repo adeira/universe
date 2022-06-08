@@ -2,7 +2,7 @@
   "private": true,
   "version": "0.0.0",
   "license": "UNLICENSED",
-  "name": "@abacus/docs",
+  "name": "@adeira/abacus-docs",
   "scripts": {
     "dev": "next dev --port=5003",
     "build": "next build",
@@ -18,6 +18,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.18.2",
-    "@babel/preset-flow": "^7.17.12"
+    "@babel/preset-flow": "^7.17.12",
+    "@playwright/test": "^1.22.2",
+    "playwright": "^1.22.2"
   }
 }
