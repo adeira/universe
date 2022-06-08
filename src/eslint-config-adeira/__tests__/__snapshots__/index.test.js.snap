@@ -420,6 +420,7 @@ Object {
     "jest/prefer-equality-matcher": 1,
     "jest/prefer-expect-assertions": 0,
     "jest/prefer-expect-resolves": 2,
+    "jest/prefer-hooks-in-order": 1,
     "jest/prefer-hooks-on-top": 2,
     "jest/prefer-lowercase-title": 0,
     "jest/prefer-snapshot-hint": 0,
@@ -1208,6 +1209,10 @@ Snapshot Diff:
 +     "jest/prefer-comparison-matcher": 2,
 +     "jest/prefer-equality-matcher": 2,
       "jest/prefer-expect-assertions": 0,
+      "jest/prefer-expect-resolves": 2,
+-     "jest/prefer-hooks-in-order": 1,
++     "jest/prefer-hooks-in-order": 2,
+      "jest/prefer-hooks-on-top": 2,
 @@ --- --- @@
       "no-const-assign": 2,
 -     "no-constant-binary-expression": 1,

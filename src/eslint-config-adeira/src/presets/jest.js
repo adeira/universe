@@ -42,6 +42,7 @@ module.exports = ({
     'jest/prefer-equality-matcher': NEXT_VERSION_ERROR,
     'jest/prefer-expect-assertions': OFF,
     'jest/prefer-expect-resolves': ERROR,
+    'jest/prefer-hooks-in-order': NEXT_VERSION_ERROR,
     'jest/prefer-hooks-on-top': ERROR,
     'jest/prefer-lowercase-title': OFF,
     'jest/prefer-snapshot-hint': OFF, // TODO: WARN (or NEXT_VERSION_ERROR)
