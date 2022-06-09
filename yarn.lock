@@ -133,7 +133,7 @@ __metadata:
     eslint-plugin-jest-dom: ^4.0.2
     eslint-plugin-jsx-a11y: ^6.5.1
     eslint-plugin-monorepo: ^0.3.2
-    eslint-plugin-n: ^15.2.1
+    eslint-plugin-n: ^15.2.2
     eslint-plugin-prettier: ^4.0.0
     eslint-plugin-promise: ^6.0.0
     eslint-plugin-react: ^7.30.0
@@ -9170,9 +9170,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-n@npm:^15.2.1":
-  version: 15.2.1
-  resolution: "eslint-plugin-n@npm:15.2.1"
+"eslint-plugin-n@npm:^15.2.2":
+  version: 15.2.2
+  resolution: "eslint-plugin-n@npm:15.2.2"
   dependencies:
     builtins: ^5.0.1
     eslint-plugin-es: ^4.1.0
@@ -9184,7 +9184,7 @@ __metadata:
     semver: ^7.3.7
   peerDependencies:
     eslint: ">=7.0.0"
-  checksum: cf0c38cf8af47c11828154ab56b38bba38bcaff633cb508bf567d913da1c925ec75dd8a54f299de8ae8adffe90d862a65125a82ce28e11922361fd7d331853e4
+  checksum: 82394c8cf9e3fc4f79f6d7438d9c8a5f2f6704b215adfe5beb731b254471aae879c30a784c5af914a51c4e3e855f7a2e655540c2e8aacab6112601b97bd00528
   languageName: node
   linkType: hard
 
