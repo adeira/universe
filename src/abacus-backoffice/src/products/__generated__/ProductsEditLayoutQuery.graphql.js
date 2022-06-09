@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<e37510579ae9377dad4b1c6771681bea>>
+ * @generated SignedSource<<39d5f5b236cdb36f778da5623d78748b>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -23,17 +23,17 @@ export type ProductsEditLayoutQuery$data = {|
   +commerce: {|
     +product: {|
       +images: $ReadOnlyArray<{|
-        +name: string,
         +blurhash: string,
+        +name: string,
         +url: string,
       |}>,
-      +$fragmentSpreads: ProductEditHeading$fragmentType & ProductEditFormData$fragmentType,
+      +$fragmentSpreads: ProductEditFormData$fragmentType & ProductEditHeading$fragmentType,
     |},
   |},
 |};
 export type ProductsEditLayoutQuery = {|
-  variables: ProductsEditLayoutQuery$variables,
   response: ProductsEditLayoutQuery$data,
+  variables: ProductsEditLayoutQuery$variables,
 |};
 */
 

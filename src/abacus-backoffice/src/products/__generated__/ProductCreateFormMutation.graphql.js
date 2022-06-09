@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<394a2fad799c9ca361eefedd527c5be8>>
+ * @generated SignedSource<<11ee522777a5676dafbb06f8e7b26751>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -15,18 +15,18 @@ import type { ConcreteRequest, Mutation } from 'relay-runtime';
 export type ProductMultilingualInputVisibility = "ESHOP" | "POS" | "%future added value";
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 export type ProductMultilingualInputTranslations = {|
+  description?: ?string,
   locale: SupportedLocale,
   name: string,
-  description?: ?string,
 |};
 export type ProductCreateFormMutation$variables = {|
+  addons: $ReadOnlyArray<string>,
+  categories: $ReadOnlyArray<string>,
   clientLocale: SupportedLocale,
   productImagesNames: $ReadOnlyArray<string>,
   productPriceUnitAmount: number,
   translations: $ReadOnlyArray<ProductMultilingualInputTranslations>,
   visibility: $ReadOnlyArray<ProductMultilingualInputVisibility>,
-  categories: $ReadOnlyArray<string>,
-  addons: $ReadOnlyArray<string>,
 |};
 export type ProductCreateFormMutation$data = {|
   +commerce: {|
@@ -44,8 +44,8 @@ export type ProductCreateFormMutation$data = {|
   |},
 |};
 export type ProductCreateFormMutation = {|
-  variables: ProductCreateFormMutation$variables,
   response: ProductCreateFormMutation$data,
+  variables: ProductCreateFormMutation$variables,
 |};
 */
 

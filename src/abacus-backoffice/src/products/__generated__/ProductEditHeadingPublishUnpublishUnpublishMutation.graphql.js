@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<508ebf419d55018cffe21df92886f08a>>
+ * @generated SignedSource<<5688995adbfc06c1a0959e272b7967c6>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -14,8 +14,8 @@
 import type { ConcreteRequest, Mutation } from 'relay-runtime';
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 export type ProductEditHeadingPublishUnpublishUnpublishMutation$variables = {|
-  productKey: string,
   clientLocale: SupportedLocale,
+  productKey: string,
 |};
 export type ProductEditHeadingPublishUnpublishUnpublishMutation$data = {|
   +commerce: {|
@@ -32,8 +32,8 @@ export type ProductEditHeadingPublishUnpublishUnpublishMutation$data = {|
   |},
 |};
 export type ProductEditHeadingPublishUnpublishUnpublishMutation = {|
-  variables: ProductEditHeadingPublishUnpublishUnpublishMutation$variables,
   response: ProductEditHeadingPublishUnpublishUnpublishMutation$data,
+  variables: ProductEditHeadingPublishUnpublishUnpublishMutation$variables,
 |};
 */
 

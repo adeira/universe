@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<246a59999a5c6718dd0e66119ba4477d>>
+ * @generated SignedSource<<30b298750d1f4b1540f6e65293b72151>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -21,8 +21,8 @@ export type NavigationHeaderBadgeQuery$data = {|
   |},
 |};
 export type NavigationHeaderBadgeQuery = {|
-  variables: NavigationHeaderBadgeQuery$variables,
   response: NavigationHeaderBadgeQuery$data,
+  variables: NavigationHeaderBadgeQuery$variables,
 |};
 */
 

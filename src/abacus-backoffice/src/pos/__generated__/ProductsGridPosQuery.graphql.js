@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<248f0802a8734407d7bfc97499d0b8f8>>
+ * @generated SignedSource<<7fa58d7e9493e31d3c424e10fbaf8f0a>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -12,35 +12,35 @@
 
 /*::
 import type { ConcreteRequest, Query } from 'relay-runtime';
-export type PriceSortDirection = "LOW_TO_HIGH" | "HIGH_TO_LOW" | "%future added value";
+export type PriceSortDirection = "HIGH_TO_LOW" | "LOW_TO_HIGH" | "%future added value";
 export type SupportedCurrency = "MXN" | "%future added value";
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 export type ProductsGridPosQuery$variables = {|
+  categories?: ?$ReadOnlyArray<string>,
   clientLocale: SupportedLocale,
   priceSortDirection: PriceSortDirection,
-  categories?: ?$ReadOnlyArray<string>,
 |};
 export type ProductsGridPosQuery$data = {|
   +commerce: {|
     +products: $ReadOnlyArray<?{|
+      +hasSelectedAddons: boolean,
       +id: string,
-      +key: string,
-      +name: string,
       +imageCover: ?{|
         +blurhash: string,
         +url: string,
       |},
+      +key: string,
+      +name: string,
       +price: {|
         +unitAmount: number,
         +unitAmountCurrency: SupportedCurrency,
       |},
-      +hasSelectedAddons: boolean,
     |}>,
   |},
 |};
 export type ProductsGridPosQuery = {|
-  variables: ProductsGridPosQuery$variables,
   response: ProductsGridPosQuery$data,
+  variables: ProductsGridPosQuery$variables,
 |};
 */
 
