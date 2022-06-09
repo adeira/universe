@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<dc0ca5591d6f51ef799f62e76ac3c751>>
+ * @generated SignedSource<<628cb02d4316f60fb66df278061a8447>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -17,12 +17,12 @@ type CatsTableCurrentFragment$fragmentType = any;
 export type CatsPageQuery$variables = {||};
 export type CatsPageQuery$data = {|
   +cats: {|
-    +$fragmentSpreads: CatsTableCurrentFragment$fragmentType & CatsTableAdoptedFragment$fragmentType,
+    +$fragmentSpreads: CatsTableAdoptedFragment$fragmentType & CatsTableCurrentFragment$fragmentType,
   |},
 |};
 export type CatsPageQuery = {|
-  variables: CatsPageQuery$variables,
   response: CatsPageQuery$data,
+  variables: CatsPageQuery$variables,
 |};
 */
 

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<4ed25cd0b3104fa9f615bd0ee04946a2>>
+ * @generated SignedSource<<e02cb757a24ee520df2f4b7c46348086>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -17,11 +17,11 @@ type ProductFormCategoriesData$fragmentType = any;
 import type { FragmentType } from "relay-runtime";
 declare export opaque type ProductCreateFormData$fragmentType: FragmentType;
 export type ProductCreateFormData$data = {|
-  +productCategories: $ReadOnlyArray<?{|
-    +$fragmentSpreads: ProductFormCategoriesData$fragmentType,
-  |}>,
   +productAddons: $ReadOnlyArray<?{|
     +$fragmentSpreads: ProductFormAddonsData$fragmentType,
+  |}>,
+  +productCategories: $ReadOnlyArray<?{|
+    +$fragmentSpreads: ProductFormCategoriesData$fragmentType,
   |}>,
   +$fragmentType: ProductCreateFormData$fragmentType,
 |};

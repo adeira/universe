@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<d3a603a90ace21184676192ece0f3f64>>
+ * @generated SignedSource<<7d8c8233293f9b262d76640f15c3a87d>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -27,8 +27,8 @@ export type IndexPageQuery$data = {|
   |},
 |};
 export type IndexPageQuery = {|
-  variables: IndexPageQuery$variables,
   response: IndexPageQuery$data,
+  variables: IndexPageQuery$variables,
 |};
 */
 

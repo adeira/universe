@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<13a8c3ff7a92c7bf57f8a92da62991c5>>
+ * @generated SignedSource<<1639c280c2f457d85ce9a8b0c5273fb5>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -15,8 +15,8 @@ import type { Fragment, ReaderFragment } from 'relay-runtime';
 import type { FragmentType } from "relay-runtime";
 declare export opaque type TableCellTripleCuadrupleFelinaFragment$fragmentType: FragmentType;
 export type TableCellTripleCuadrupleFelinaFragment$data = {|
-  +dateOfVaccinationTripleFelina: ?string,
   +dateOfVaccinationCuadrupleFelina: ?string,
+  +dateOfVaccinationTripleFelina: ?string,
   +$fragmentType: TableCellTripleCuadrupleFelinaFragment$fragmentType,
 |};
 export type TableCellTripleCuadrupleFelinaFragment$key = {

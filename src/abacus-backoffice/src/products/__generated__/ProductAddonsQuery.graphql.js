@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<190caab33ddba117af4c7adf85fe7725>>
+ * @generated SignedSource<<fdc815bb2569edfe9f61b0ce6a74861c>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -30,8 +30,8 @@ export type ProductAddonsQuery$data = {|
   |},
 |};
 export type ProductAddonsQuery = {|
-  variables: ProductAddonsQuery$variables,
   response: ProductAddonsQuery$data,
+  variables: ProductAddonsQuery$variables,
 |};
 */
 

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<c26b535c1479f068515d14d7d190c8a9>>
+ * @generated SignedSource<<bba771b9d5d2c9daae94096c9dd43bbc>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -22,8 +22,8 @@ export type AnalyticsMostSoldProductsPageLayoutQuery$data = {|
   |},
 |};
 export type AnalyticsMostSoldProductsPageLayoutQuery = {|
-  variables: AnalyticsMostSoldProductsPageLayoutQuery$variables,
   response: AnalyticsMostSoldProductsPageLayoutQuery$data,
+  variables: AnalyticsMostSoldProductsPageLayoutQuery$variables,
 |};
 */
 

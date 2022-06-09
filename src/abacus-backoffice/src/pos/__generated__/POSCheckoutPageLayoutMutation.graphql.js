@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<83d9fa640f935d8a23a4e9ca9fa1ac8d>>
+ * @generated SignedSource<<3addc7d25a4e250f33487db095b34f9a>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -15,16 +15,16 @@ import type { ConcreteRequest, Mutation } from 'relay-runtime';
 export type SupportedCurrency = "MXN" | "%future added value";
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 export type PosCheckoutProductInput = {|
+  productAddons?: ?$ReadOnlyArray<PosCheckoutProductAddonInput>,
   productKey: string,
-  productUnits: number,
   productPriceUnitAmount: number,
   productPriceUnitAmountCurrency: SupportedCurrency,
-  productAddons?: ?$ReadOnlyArray<PosCheckoutProductAddonInput>,
+  productUnits: number,
 |};
 export type PosCheckoutProductAddonInput = {|
-  productAddonId: string,
   productAddonExtraPriceUnitAmount: number,
   productAddonExtraPriceUnitAmountCurrency: SupportedCurrency,
+  productAddonId: string,
 |};
 export type POSCheckoutPageLayoutMutation$variables = {|
   checkoutInput: $ReadOnlyArray<PosCheckoutProductInput>,
@@ -33,11 +33,11 @@ export type POSCheckoutPageLayoutMutation$variables = {|
 export type POSCheckoutPageLayoutMutation$data = {|
   +pos: {|
     +checkout: {|
-      +__typename: "PosCheckoutPayload",
-      +id: string,
-    |} | {|
       +__typename: "PosCheckoutError",
       +message: string,
+    |} | {|
+      +__typename: "PosCheckoutPayload",
+      +id: string,
     |} | {|
       // This will never be '%other', but we need some
       // value in case none of the concrete values match.
@@ -46,8 +46,8 @@ export type POSCheckoutPageLayoutMutation$data = {|
   |},
 |};
 export type POSCheckoutPageLayoutMutation = {|
-  variables: POSCheckoutPageLayoutMutation$variables,
   response: POSCheckoutPageLayoutMutation$data,
+  variables: POSCheckoutPageLayoutMutation$variables,
 |};
 */
 

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<990271d48e48c05fdca603ce74207bef>>
+ * @generated SignedSource<<6b8edf622b43bb0a35cfd155b9306222>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -21,22 +21,22 @@ export type ProductPageLayoutContentQuery$variables = {|
 export type ProductPageLayoutContentQuery$data = {|
   +commerce: {|
     +product: {|
-      +name: string,
       +description: ?string,
-      +price: {|
-        +unitAmount: number,
-        +unitAmountCurrency: SupportedCurrency,
-      |},
       +images: $ReadOnlyArray<{|
         +blurhash: string,
         +url: string,
       |}>,
+      +name: string,
+      +price: {|
+        +unitAmount: number,
+        +unitAmountCurrency: SupportedCurrency,
+      |},
     |},
   |},
 |};
 export type ProductPageLayoutContentQuery = {|
-  variables: ProductPageLayoutContentQuery$variables,
   response: ProductPageLayoutContentQuery$data,
+  variables: ProductPageLayoutContentQuery$variables,
 |};
 */
 
