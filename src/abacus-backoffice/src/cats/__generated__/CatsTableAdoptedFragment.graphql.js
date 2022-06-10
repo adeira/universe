@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<881e968975659939627672bf29431b33>>
+ * @generated SignedSource<<99de8b7b757c740190d9cb5e64a69d2d>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -17,13 +17,13 @@ import type { FragmentType } from "relay-runtime";
 declare export opaque type CatsTableAdoptedFragment$fragmentType: FragmentType;
 export type CatsTableAdoptedFragment$data = {|
   +adoptedCats: $ReadOnlyArray<{|
-    +order: number,
-    +name: string,
+    +dateOfAdoption: ?string,
     +dateOfCastration: ?string,
     +dateOfDeworming: ?string,
-    +dateOfAdoption: ?string,
-    +dateOfVaccinationRabies: ?string,
     +dateOfVaccinationLeucemiaFelina: ?string,
+    +dateOfVaccinationRabies: ?string,
+    +name: string,
+    +order: number,
     +$fragmentSpreads: TableCellTripleCuadrupleFelinaFragment$fragmentType,
   |}>,
   +$fragmentType: CatsTableAdoptedFragment$fragmentType,

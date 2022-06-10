@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<06f91a0f2519fe75deb7bc7d91069300>>
+ * @generated SignedSource<<e43a496b0b85643a5e72e47764f43f3d>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -18,15 +18,15 @@ export type AuthButtonsAuthorizeWebappMutation$variables = {|
 export type AuthButtonsAuthorizeWebappMutation$data = {|
   +auth: {|
     +authorizeWebapp: {|
-      +success: boolean,
-      +sessionToken: ?string,
       +failureMessage: ?string,
+      +sessionToken: ?string,
+      +success: boolean,
     |},
   |},
 |};
 export type AuthButtonsAuthorizeWebappMutation = {|
-  variables: AuthButtonsAuthorizeWebappMutation$variables,
   response: AuthButtonsAuthorizeWebappMutation$data,
+  variables: AuthButtonsAuthorizeWebappMutation$variables,
 |};
 */
 

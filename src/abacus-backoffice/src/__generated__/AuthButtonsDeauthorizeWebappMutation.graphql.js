@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<491c50b613ab7bff357971f52f5e9ff5>>
+ * @generated SignedSource<<2b2e0de449cee914864036a0ae030a37>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -18,13 +18,13 @@ export type AuthButtonsDeauthorizeWebappMutation$variables = {|
 export type AuthButtonsDeauthorizeWebappMutation$data = {|
   +auth: {|
     +deauthorize: {|
-      +__typename: string,
+      +__typename: "DeauthorizePayload",
     |},
   |},
 |};
 export type AuthButtonsDeauthorizeWebappMutation = {|
-  variables: AuthButtonsDeauthorizeWebappMutation$variables,
   response: AuthButtonsDeauthorizeWebappMutation$data,
+  variables: AuthButtonsDeauthorizeWebappMutation$variables,
 |};
 */
 

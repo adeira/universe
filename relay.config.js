@@ -25,9 +25,6 @@ module.exports = {
   projects: {
     abacus: {
       language: 'flow',
-      flowTypegen: {
-        phase: 'Final',
-      },
       schema: 'src/abacus/schema.graphql',
       // Require all GraphQL scalar types mapping to be defined, will throw if a GraphQL scalar
       // type doesn't have a JS type.

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<64b7820ab147c28256d72203f54d5b34>>
+ * @generated SignedSource<<9de1e8facc838e017caa958416ef7bb5>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -18,35 +18,35 @@ export type ProductMultilingualInputVisibility = "ESHOP" | "POS" | "%future adde
 import type { FragmentType } from "relay-runtime";
 declare export opaque type ProductEditFormData$fragmentType: FragmentType;
 export type ProductEditFormData$data = {|
-  +key: string,
-  +revision: string,
-  +availableCategories: $ReadOnlyArray<?{|
-    +$fragmentSpreads: ProductFormCategoriesData$fragmentType,
-  |}>,
   +availableAddons: $ReadOnlyArray<?{|
     +$fragmentSpreads: ProductFormAddonsData$fragmentType,
   |}>,
-  +price: {|
-    +unitAmount: number,
-  |},
-  +selectedCategories: $ReadOnlyArray<?{|
-    +id: string,
+  +availableCategories: $ReadOnlyArray<?{|
+    +$fragmentSpreads: ProductFormCategoriesData$fragmentType,
   |}>,
-  +selectedAddons: $ReadOnlyArray<?{|
-    +id: string,
-  |}>,
-  +visibility: $ReadOnlyArray<ProductMultilingualInputVisibility>,
   +enTranslation: ?{|
-    +name: string,
     +description: ?string,
+    +name: string,
   |},
   +esTranslation: ?{|
-    +name: string,
     +description: ?string,
+    +name: string,
   |},
   +images: $ReadOnlyArray<{|
     +name: string,
   |}>,
+  +key: string,
+  +price: {|
+    +unitAmount: number,
+  |},
+  +revision: string,
+  +selectedAddons: $ReadOnlyArray<?{|
+    +id: string,
+  |}>,
+  +selectedCategories: $ReadOnlyArray<?{|
+    +id: string,
+  |}>,
+  +visibility: $ReadOnlyArray<ProductMultilingualInputVisibility>,
   +$fragmentType: ProductEditFormData$fragmentType,
 |};
 export type ProductEditFormData$key = {

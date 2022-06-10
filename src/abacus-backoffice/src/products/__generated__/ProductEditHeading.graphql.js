@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<18c9760d5756efc592bd1861724be687>>
+ * @generated SignedSource<<3650f4cc599ca04aca527f8ac4f116fd>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -15,9 +15,9 @@ import type { Fragment, ReaderFragment } from 'relay-runtime';
 import type { FragmentType } from "relay-runtime";
 declare export opaque type ProductEditHeading$fragmentType: FragmentType;
 export type ProductEditHeading$data = {|
+  +isPublished: boolean,
   +key: string,
   +name: string,
-  +isPublished: boolean,
   +$fragmentType: ProductEditHeading$fragmentType,
 |};
 export type ProductEditHeading$key = {

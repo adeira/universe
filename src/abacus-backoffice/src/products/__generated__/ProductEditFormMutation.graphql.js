@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<e51e9a245d75a99f34811375c9a46754>>
+ * @generated SignedSource<<e22cb84c7eb1f0d17dcecd3716d2ba88>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -16,20 +16,20 @@ type ProductEditFormData$fragmentType = any;
 export type ProductMultilingualInputVisibility = "ESHOP" | "POS" | "%future added value";
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 export type ProductMultilingualInputTranslations = {|
+  description?: ?string,
   locale: SupportedLocale,
   name: string,
-  description?: ?string,
 |};
 export type ProductEditFormMutation$variables = {|
+  addons: $ReadOnlyArray<string>,
+  categories: $ReadOnlyArray<string>,
   clientLocale: SupportedLocale,
-  productKey: string,
-  productRevision: string,
   productImagesNames: $ReadOnlyArray<string>,
+  productKey: string,
   productPriceUnitAmount: number,
+  productRevision: string,
   translations: $ReadOnlyArray<ProductMultilingualInputTranslations>,
   visibility: $ReadOnlyArray<ProductMultilingualInputVisibility>,
-  categories: $ReadOnlyArray<string>,
-  addons: $ReadOnlyArray<string>,
 |};
 export type ProductEditFormMutation$data = {|
   +commerce: {|
@@ -50,8 +50,8 @@ export type ProductEditFormMutation$data = {|
   |},
 |};
 export type ProductEditFormMutation = {|
-  variables: ProductEditFormMutation$variables,
   response: ProductEditFormMutation$data,
+  variables: ProductEditFormMutation$variables,
 |};
 */
 

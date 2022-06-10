@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<0e32935da40449d2330ea4f874de0899>>
+ * @generated SignedSource<<d00db27dce9c76d05aa33471f3620dc7>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -37,8 +37,8 @@ export type ProductsGridModalBodyQuery$data = {|
   |},
 |};
 export type ProductsGridModalBodyQuery = {|
-  variables: ProductsGridModalBodyQuery$variables,
   response: ProductsGridModalBodyQuery$data,
+  variables: ProductsGridModalBodyQuery$variables,
 |};
 */
 

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<78b640ec54aa8acf412e41309cd8a597>>
+ * @generated SignedSource<<67b70d9bba307b9e5947c22876671a41>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -16,16 +16,16 @@ export type AnalyticsRedirectsPageQuery$variables = {||};
 export type AnalyticsRedirectsPageQuery$data = {|
   +analytics: {|
     +redirectHits: $ReadOnlyArray<{|
-      +uuid: string,
-      +redirectsTo: string,
       +description: string,
       +hits: number,
+      +redirectsTo: string,
+      +uuid: string,
     |}>,
   |},
 |};
 export type AnalyticsRedirectsPageQuery = {|
-  variables: AnalyticsRedirectsPageQuery$variables,
   response: AnalyticsRedirectsPageQuery$data,
+  variables: AnalyticsRedirectsPageQuery$variables,
 |};
 */
 

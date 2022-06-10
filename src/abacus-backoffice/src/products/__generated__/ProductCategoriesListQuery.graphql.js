@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<c754f6b87c0d2910a884693e346cace9>>
+ * @generated SignedSource<<c048cccd68127096e25058256ac6f725>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -25,8 +25,8 @@ export type ProductCategoriesListQuery$data = {|
   |},
 |};
 export type ProductCategoriesListQuery = {|
-  variables: ProductCategoriesListQuery$variables,
   response: ProductCategoriesListQuery$data,
+  variables: ProductCategoriesListQuery$variables,
 |};
 */
 

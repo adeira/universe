@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<6e05c9becadec1ab704edc4b1f3098ac>>
+ * @generated SignedSource<<169d9fce23041bc2e3e0bbb174df5eb2>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -12,7 +12,7 @@
 
 /*::
 import type { ConcreteRequest, Query } from 'relay-runtime';
-export type PriceSortDirection = "LOW_TO_HIGH" | "HIGH_TO_LOW" | "%future added value";
+export type PriceSortDirection = "HIGH_TO_LOW" | "LOW_TO_HIGH" | "%future added value";
 export type SupportedCurrency = "MXN" | "%future added value";
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 export type ShopLayoutContentQuery$variables = {|
@@ -22,22 +22,22 @@ export type ShopLayoutContentQuery$variables = {|
 export type ShopLayoutContentQuery$data = {|
   +commerce: {|
     +products: $ReadOnlyArray<?{|
+      +imageCover: ?{|
+        +blurhash: string,
+        +url: string,
+      |},
       +key: string,
       +name: string,
       +price: {|
         +unitAmount: number,
         +unitAmountCurrency: SupportedCurrency,
       |},
-      +imageCover: ?{|
-        +blurhash: string,
-        +url: string,
-      |},
     |}>,
   |},
 |};
 export type ShopLayoutContentQuery = {|
-  variables: ShopLayoutContentQuery$variables,
   response: ShopLayoutContentQuery$data,
+  variables: ShopLayoutContentQuery$variables,
 |};
 */
 

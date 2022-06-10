@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<ecb276c863fafcfdb653620e22d2c03b>>
+ * @generated SignedSource<<460d07cd873c30cf0641a43db8d5d4b0>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -23,8 +23,8 @@ export type ProductsCreateLayoutQuery$data = {|
   |},
 |};
 export type ProductsCreateLayoutQuery = {|
-  variables: ProductsCreateLayoutQuery$variables,
   response: ProductsCreateLayoutQuery$data,
+  variables: ProductsCreateLayoutQuery$variables,
 |};
 */
 

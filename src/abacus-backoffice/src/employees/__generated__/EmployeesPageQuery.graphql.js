@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<043f5551718a2ba2b882ee9571498c3d>>
+ * @generated SignedSource<<6f1ef9991a67c4fcd44e81eea87d4cec>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -16,15 +16,15 @@ export type EmployeesPageQuery$variables = {||};
 export type EmployeesPageQuery$data = {|
   +auth: {|
     +listUsers: $ReadOnlyArray<{|
-      +name: ?string,
       +hasEmailVerified: ?boolean,
       +isActive: boolean,
+      +name: ?string,
     |}>,
   |},
 |};
 export type EmployeesPageQuery = {|
-  variables: EmployeesPageQuery$variables,
   response: EmployeesPageQuery$data,
+  variables: EmployeesPageQuery$variables,
 |};
 */
 

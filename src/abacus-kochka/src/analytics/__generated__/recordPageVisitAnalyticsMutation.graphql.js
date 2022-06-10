@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<310d43083fddd78c1d8f7c1c0406084a>>
+ * @generated SignedSource<<111e35e24b95fb65392f684e2297abb2>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -13,23 +13,23 @@
 /*::
 import type { ConcreteRequest, Mutation } from 'relay-runtime';
 export type PageVisitInputLocation = {|
-  protocol?: ?string,
-  hostname?: ?string,
-  port?: ?string,
-  pathname?: ?string,
-  search?: ?string,
   hash?: ?string,
+  hostname?: ?string,
+  pathname?: ?string,
+  port?: ?string,
+  protocol?: ?string,
+  search?: ?string,
 |};
 export type PageVisitInputScreen = {|
   height?: ?string,
-  width?: ?string,
-  orientationType?: ?string,
   orientationAngle?: ?string,
+  orientationType?: ?string,
+  width?: ?string,
 |};
 export type recordPageVisitAnalyticsMutation$variables = {|
-  userAgent?: ?string,
   location: PageVisitInputLocation,
   screen: PageVisitInputScreen,
+  userAgent?: ?string,
 |};
 export type recordPageVisitAnalyticsMutation$data = {|
   +analytics: {|
@@ -39,8 +39,8 @@ export type recordPageVisitAnalyticsMutation$data = {|
   |},
 |};
 export type recordPageVisitAnalyticsMutation = {|
-  variables: recordPageVisitAnalyticsMutation$variables,
   response: recordPageVisitAnalyticsMutation$data,
+  variables: recordPageVisitAnalyticsMutation$variables,
 |};
 */
 

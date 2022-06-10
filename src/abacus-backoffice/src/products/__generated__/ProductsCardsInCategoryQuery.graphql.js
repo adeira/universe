@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<292e79d34defb228ef44f852201380f0>>
+ * @generated SignedSource<<04634c5f81f70abe36cfdc7c751f6afd>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -13,12 +13,12 @@
 /*::
 import type { ConcreteRequest, Query } from 'relay-runtime';
 type ProductsCardsData$fragmentType = any;
-export type PriceSortDirection = "LOW_TO_HIGH" | "HIGH_TO_LOW" | "%future added value";
+export type PriceSortDirection = "HIGH_TO_LOW" | "LOW_TO_HIGH" | "%future added value";
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 export type ProductsCardsInCategoryQuery$variables = {|
+  categories?: ?$ReadOnlyArray<string>,
   clientLocale: SupportedLocale,
   priceSortDirection: PriceSortDirection,
-  categories?: ?$ReadOnlyArray<string>,
 |};
 export type ProductsCardsInCategoryQuery$data = {|
   +commerce: {|
@@ -28,8 +28,8 @@ export type ProductsCardsInCategoryQuery$data = {|
   |},
 |};
 export type ProductsCardsInCategoryQuery = {|
-  variables: ProductsCardsInCategoryQuery$variables,
   response: ProductsCardsInCategoryQuery$data,
+  variables: ProductsCardsInCategoryQuery$variables,
 |};
 */
 

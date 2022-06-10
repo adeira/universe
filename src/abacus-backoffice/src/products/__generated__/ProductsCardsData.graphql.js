@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<274c25f130f4d46c48337c25c4a7eba1>>
+ * @generated SignedSource<<c4aeb9f7a11b174dff195236656a9d4f>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -17,17 +17,17 @@ import type { FragmentType } from "relay-runtime";
 declare export opaque type ProductsCardsData$fragmentType: FragmentType;
 export type ProductsCardsData$data = $ReadOnlyArray<{|
   +id: string,
-  +key: string,
-  +name: string,
   +imageCover: ?{|
     +blurhash: string,
     +url: string,
   |},
+  +isPublished: boolean,
+  +key: string,
+  +name: string,
   +price: {|
     +unitAmount: number,
     +unitAmountCurrency: SupportedCurrency,
   |},
-  +isPublished: boolean,
   +$fragmentType: ProductsCardsData$fragmentType,
 |}>;
 export type ProductsCardsData$key = $ReadOnlyArray<{
