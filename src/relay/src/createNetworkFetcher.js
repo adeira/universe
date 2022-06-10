@@ -10,15 +10,16 @@ type Headers = {
 };
 
 type AdditionalHeaders = Headers | Promise<Headers>;
-type RefetchConfig = {
+type FetchConfig = {
   +fetchTimeout?: number,
   +retryDelays?: $ReadOnlyArray<number>,
+  +credentials?: 'omit' | 'same-origin' | 'include',
 };
 
 export default function createNetworkFetcher(
   graphQLServerURL: string,
   additionalHeaders?: AdditionalHeaders,
-  refetchConfig?: RefetchConfig,
+  fetchConfig?: FetchConfig,
 ): (
   request: $FlowFixMe,
   variables: Variables,
@@ -40,7 +41,7 @@ export default function createNetworkFetcher(
       method: 'POST',
       headers,
       body,
-      ...refetchConfig,
+      ...fetchConfig,
     });
 
     return handleData(response);
