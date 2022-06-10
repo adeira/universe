@@ -16,6 +16,7 @@ module.exports = ({
         'Different-Header': 'err',
       }),
       case_4: createNetworkFetcher('//localhost'),
+      case_5: createNetworkFetcher('//localhost', {}, { credentials: 'include' }),
     };
   },
 
