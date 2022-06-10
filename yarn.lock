@@ -435,7 +435,7 @@ __metadata:
     blurhash: ^1.1.5
     fbt: ^1.0.0
     flow-enums-runtime: ^0.0.6
-    focus-trap-react: ^8.11.3
+    focus-trap-react: ^9.0.0
     playwright: ^1.22.2
     prop-types: ^15.8.1
     react: ^17.0.2
@@ -10105,16 +10105,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"focus-trap-react@npm:^8.11.3":
-  version: 8.11.3
-  resolution: "focus-trap-react@npm:8.11.3"
+"focus-trap-react@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "focus-trap-react@npm:9.0.0"
   dependencies:
     focus-trap: ^6.9.4
   peerDependencies:
     prop-types: ^15.8.1
-    react: ">=16.0.0"
-    react-dom: ">=16.0.0"
-  checksum: d293b0645b91b2e7c4dee2329ab4aaab50c09d2f935478702f5049f1801db5ac647e6547e96af5e57475b63f3ee7d1fa86026a4539ac98175f5da0d61d8ac89f
+    react: ">=16.3.0"
+    react-dom: ">=16.3.0"
+  checksum: 346a1bb59a87b2f201ce91f92c0f426b021929ef15688fcda457f5c9e14dd12fa3b2d9fe3dd2d0905215fb0df0c59bd486abd604ae9d2e3c3018dae574877b8d
   languageName: node
   linkType: hard
 
