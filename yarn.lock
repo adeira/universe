@@ -14,7 +14,7 @@ __metadata:
     "@adeira/icons": ^1.1.0
     "@adeira/js": ^2.1.1
     "@adeira/react-auth": ^0.1.0
-    "@adeira/relay": ^6.0.0
+    "@adeira/relay": ^5.2.1
     "@adeira/sx": ^0.29.1
     "@adeira/sx-design": ^0.28.0
     "@fbtjs/default-collection-transform": ^1.0.0
@@ -65,7 +65,7 @@ __metadata:
     "@adeira/hooks": ^0.3.0
     "@adeira/icons": ^1.1.0
     "@adeira/js": ^2.1.1
-    "@adeira/relay": ^6.0.0
+    "@adeira/relay": ^5.2.1
     "@adeira/sx": ^0.29.1
     "@adeira/sx-design": ^0.28.0
     "@adeira/sx-design-nextjs": ^0.3.2
@@ -355,7 +355,27 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/relay@^6.0.0, @adeira/relay@workspace:src/relay":
+"@adeira/relay@npm:^5.2.1":
+  version: 5.2.1
+  resolution: "@adeira/relay@npm:5.2.1"
+  dependencies:
+    "@adeira/fetch": ^2.1.0
+    "@adeira/js": ^2.1.1
+    "@babel/runtime": ^7.18.3
+    babel-plugin-relay: ^13.2.0
+    react-relay: ^13.2.0
+    relay-compiler: ^13.2.0
+    relay-runtime: ^13.2.0
+  peerDependencies:
+    graphql: ^16.5.0
+    react: ^17.0.2
+  bin:
+    adeira-relay-compiler: ./bin/compiler.js
+  checksum: 39b6381bff8b6c296d12dfaae00dd6e0cabd2a337b63f8c4fc48802e0bf4fe6da580aa9033a8c97bcc0a0b83a131aa64a566c8bed0869c93c6e59fa81da1ff4e
+  languageName: node
+  linkType: hard
+
+"@adeira/relay@workspace:src/relay":
   version: 0.0.0-use.local
   resolution: "@adeira/relay@workspace:src/relay"
   dependencies:
@@ -6093,6 +6113,17 @@ __metadata:
     lodash: ^4.17.15
     react-docgen: ^5.0.0
   checksum: 6126d358ac2cb27a9a7f145ab586b7a28cb19ef09ca37c4f08a853246a101328ffe6c87813e95b1b4ba05beb627285199f7d0ba16abfb61b35cc4febb6d5eabd
+  languageName: node
+  linkType: hard
+
+"babel-plugin-relay@npm:^13.2.0":
+  version: 13.2.0
+  resolution: "babel-plugin-relay@npm:13.2.0"
+  dependencies:
+    babel-plugin-macros: ^2.0.0
+    cosmiconfig: ^5.0.5
+    graphql: 15.3.0
+  checksum: 6f4e5203db933d7944e79bb3aff3a99ae4a3a45887e80a08ac81a26015146fdeb4481f306f2644e153c86b97b9d5e15d2ddca8b7b72d23e41f09b1b0055add60
   languageName: node
   linkType: hard
 
@@ -16061,6 +16092,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-relay@npm:^13.2.0":
+  version: 13.2.0
+  resolution: "react-relay@npm:13.2.0"
+  dependencies:
+    "@babel/runtime": ^7.0.0
+    fbjs: ^3.0.2
+    invariant: ^2.2.4
+    nullthrows: ^1.1.1
+    relay-runtime: 13.2.0
+  peerDependencies:
+    react: ^16.9.0 || ^17 || ^18
+  checksum: 2fcf09cc9f7799c2c27f8a931e103651f26077088320e994e17171ffd18a249a5a64e0d314330497e3ed0530579b1987506df89fd5fb4e391d4e4bc4b66312ee
+  languageName: node
+  linkType: hard
+
 "react-relay@npm:^14.0.0":
   version: 14.0.0
   resolution: "react-relay@npm:14.0.0"
@@ -16387,12 +16433,32 @@ __metadata:
   languageName: node
   linkType: hard
 
+"relay-compiler@npm:^13.2.0":
+  version: 13.2.0
+  resolution: "relay-compiler@npm:13.2.0"
+  bin:
+    relay-compiler: cli.js
+  checksum: 54adaf22ef408c7452ae6a27538730fe30f47449a2c129e26fc0b8667abc3faba7862b386d5658b0c5dcfe1a9bc3bcf400ede6f0fdd07a6c24366a4b4a4e0739
+  languageName: node
+  linkType: hard
+
 "relay-compiler@npm:^14.0.0":
   version: 14.0.0
   resolution: "relay-compiler@npm:14.0.0"
   bin:
     relay-compiler: cli.js
   checksum: 3ff56e2b2337085023b16b7444ba62b67bacb9d82691cd0bc6fe456548efdbf8125bff7e086ba277fd9af1aa55deb28372be7cea9b40e2b13ecc56f194c2e3f8
+  languageName: node
+  linkType: hard
+
+"relay-runtime@npm:13.2.0, relay-runtime@npm:^13.2.0":
+  version: 13.2.0
+  resolution: "relay-runtime@npm:13.2.0"
+  dependencies:
+    "@babel/runtime": ^7.0.0
+    fbjs: ^3.0.2
+    invariant: ^2.2.4
+  checksum: 4e03d5d3fabb12bd2e5f29da4e4664336af4077b215893e5e6cf4256e4b8f56a6ad1693b75465f1f6118bc682456714404e3f0fcdd51b5b6433a2ddd63ba8160
   languageName: node
   linkType: hard
 
