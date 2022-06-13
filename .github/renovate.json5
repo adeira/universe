@@ -14,20 +14,24 @@
       addLabels: ['automerge'],
     },
     {
-      groupName: 'SVGR packages',
-      matchPackagePatterns: ['^@svgr/'],
+      groupName: 'Clap packages (Rust)',
+      matchSourceUrlPrefixes: ['https://github.com/clap-rs/clap'],
     },
     {
-      groupName: 'Relay packages',
-      matchSourceUrlPrefixes: ['https://github.com/facebook/relay'],
-    },
-    {
-      groupName: 'FBT packages',
+      groupName: 'FBT packages (JavaScript)',
       matchSourceUrlPrefixes: ['https://github.com/facebook/fbt'],
     },
     {
-      groupName: 'Rusoto packages',
+      groupName: 'Relay packages (JavaScript)',
+      matchSourceUrlPrefixes: ['https://github.com/facebook/relay'],
+    },
+    {
+      groupName: 'Rusoto packages (Rust)',
       matchSourceUrlPrefixes: ['https://github.com/rusoto/rusoto'],
+    },
+    {
+      groupName: 'SVGR packages (JavaScript)',
+      matchPackagePatterns: ['^@svgr/'],
     },
   ],
   postUpdateOptions: ['yarnDedupeHighest'],
