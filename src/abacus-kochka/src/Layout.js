@@ -39,7 +39,7 @@ export default function Layout(props: Props): React.Node {
   return (
     <>
       {/* $FlowFixMe[incompatible-type]: cannot coerce FBT to a string */}
-      <NextSeo title={`KOCHKA Café · ${props.title}`} />
+      <NextSeo title={`${props.title} · KOCHKA Café`} />
 
       <div className={styles('wrapper')}>
         <div className={styles('navigation')}>
