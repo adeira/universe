@@ -1,49 +1,64 @@
-// eslint-disable-next-line ft-flow/require-valid-file-annotation,import/no-extraneous-dependencies
+// @flow
+
+// eslint-disable-next-line import/no-extraneous-dependencies
 const { expect } = require('@playwright/test');
 
+const { MainNavigationPage } = require('./MainNavigationPage');
+
+/*::
+const { AdoptPage } = require('./AdoptPage');
+const { ContributePage } = require('./ContributePage');
+const { JobsPage } = require('./JobsPage');
+const { MenuPage } = require('./MenuPage');
+const { RulesPage } = require('./RulesPage');
+const { ShopPage } = require('./ShopPage');
+
+import type { Page } from '../../Page.flow';
+*/
+
 exports.HomePage = class HomePage {
-  constructor(page, baseURL) {
+  /*::
+  declare page: Page;
+  declare baseURL: string;
+  */
+
+  constructor(page /*: Page */, baseURL /*: string */) {
     this.page = page;
     this.baseURL = baseURL;
   }
 
   async goto() {
     await this.page.goto(this.baseURL);
+    await expect(this.page).toHaveTitle(/^KOCHKA Café$/);
   }
 
-  async openMenuPage() {
-    await this.page.locator('a', { hasText: 'Menu' }).click();
-    await expect(this.page).toHaveTitle(/^KOCHKA Café · Café menu$/);
-    await expect(this.page.locator('h1', { hasText: 'Café menu' })).toBeVisible();
+  visitMenuPage() /*: Promise<MenuPage> */ {
+    const mainNavigationPage = new MainNavigationPage(this.page, this.baseURL);
+    return mainNavigationPage.visitMenuPage();
   }
 
-  async openAdoptPage() {
-    await this.page.locator('a', { hasText: 'Adopt' }).click();
-    await expect(this.page).toHaveTitle(/^KOCHKA Café · Adopt a cat$/);
-    await expect(this.page.locator('h1', { hasText: 'Adopt a cat' })).toBeVisible();
+  visitAdoptPage() /*: Promise<AdoptPage> */ {
+    const mainNavigationPage = new MainNavigationPage(this.page, this.baseURL);
+    return mainNavigationPage.visitAdoptPage();
   }
 
-  async openRulesPage() {
-    await this.page.locator('a', { hasText: 'Rules' }).click();
-    await expect(this.page).toHaveTitle(/^KOCHKA Café · Café rules$/);
-    await expect(this.page.locator('h1', { hasText: 'Café rules' })).toBeVisible();
+  visitRulesPage() /*: Promise<RulesPage> */ {
+    const mainNavigationPage = new MainNavigationPage(this.page, this.baseURL);
+    return mainNavigationPage.visitRulesPage();
   }
 
-  async openShopPage() {
-    await this.page.locator('a', { hasText: 'Shop' }).click();
-    await expect(this.page).toHaveTitle(/^KOCHKA Café · Online shop$/);
-    await expect(this.page.locator('h1', { hasText: 'Online shop' })).toBeVisible();
+  visitShopPage() /*: Promise<ShopPage> */ {
+    const mainNavigationPage = new MainNavigationPage(this.page, this.baseURL);
+    return mainNavigationPage.visitShopPage();
   }
 
-  async openJobsPage() {
-    await this.page.locator('a', { hasText: 'Jobs' }).click();
-    await expect(this.page).toHaveTitle(/^KOCHKA Café · Open positions$/);
-    await expect(this.page.locator('h1', { hasText: 'Open positions' })).toBeVisible();
+  visitJobsPage() /*: Promise<JobsPage> */ {
+    const mainNavigationPage = new MainNavigationPage(this.page, this.baseURL);
+    return mainNavigationPage.visitJobsPage();
   }
 
-  async openContributePage() {
-    await this.page.locator('a', { hasText: 'Contribute' }).click();
-    await expect(this.page).toHaveTitle(/^KOCHKA Café · Voluntary contribution$/);
-    await expect(this.page.locator('h1', { hasText: 'Voluntary contribution' })).toBeVisible();
+  visitContributePage() /*: Promise<ContributePage> */ {
+    const mainNavigationPage = new MainNavigationPage(this.page, this.baseURL);
+    return mainNavigationPage.visitContributePage();
   }
 };
