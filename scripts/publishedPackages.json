@@ -6,7 +6,6 @@
   "@adeira/fetch",
   "@adeira/fixtures-tester",
   "@adeira/flow-config-parser",
-  "@adeira/graphql-global-id",
   "@adeira/hooks",
   "@adeira/icons",
   "@adeira/js",
