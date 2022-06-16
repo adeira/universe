@@ -7,7 +7,6 @@
   "@adeira/fixtures-tester",
   "@adeira/flow-config-parser",
   "@adeira/graphql-global-id",
-  "@adeira/graphql-relay-fauna",
   "@adeira/hooks",
   "@adeira/icons",
   "@adeira/js",
