@@ -220,7 +220,7 @@ __metadata:
     "@adeira/graphql-global-id": ^2.1.0
     "@adeira/js": ^2.1.1
     "@babel/runtime": ^7.18.3
-    faunadb: ^4.5.4
+    faunadb: ^4.6.0
   peerDependencies:
     graphql: ^16.5.0
   languageName: unknown
@@ -10135,9 +10135,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"faunadb@npm:^4.5.4":
-  version: 4.5.4
-  resolution: "faunadb@npm:4.5.4"
+"faunadb@npm:^4.6.0":
+  version: 4.6.0
+  resolution: "faunadb@npm:4.6.0"
   dependencies:
     base64-js: ^1.2.0
     boxen: ^5.0.1
@@ -10149,7 +10149,7 @@ __metadata:
     node-abort-controller: ^3.0.1
     object-assign: ^4.1.0
     util-deprecate: ^1.0.2
-  checksum: 26d38b6ef865cc98bee9230f3ece2689997052f9fecd7afd47033e7b66968f3c74ce4521970119019938dc6f2881408650d29be39be890bffa4985d90d79f91d
+  checksum: d0adfe526094d705bc695e31cb3f8aa3d3fe18f3e2f84a2ed052b5fe90cbf158418d1af1456815861fb77daa8d872de6a58d326ab7ffc16aa99c310c264e0c9c
   languageName: node
   linkType: hard
 
