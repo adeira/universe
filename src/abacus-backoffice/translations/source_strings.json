@@ -2,21 +2,42 @@
  "phrases": [
   {
    "hashToLeaf": {
-    "BZw4CMwsfgTMU6KG5ThypQ==": {
-     "text": "Analytics: most sold products",
-     "desc": "analytics most sold products page heading"
+    "KpIOJjIJnCIEcIUkjmA+IA==": {
+     "text": "Analytics",
+     "desc": "analytics page heading"
     }
    },
    "filepath": "src/analytics/AnalyticsMostSoldProductsPageLayout.js",
-   "line_beg": 29,
-   "col_beg": 8,
-   "line_end": 29,
-   "col_end": 97,
+   "line_beg": 34,
+   "col_beg": 15,
+   "line_end": 34,
+   "col_end": 65,
    "project": "",
    "jsfbt": {
     "t": {
-     "desc": "analytics most sold products page heading",
-     "text": "Analytics: most sold products"
+     "desc": "analytics page heading",
+     "text": "Analytics"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "krtwwblKD0kjx95iNojWaQ==": {
+     "text": "Most sold products per quarter.",
+     "desc": "analytics page description"
+    }
+   },
+   "filepath": "src/analytics/AnalyticsMostSoldProductsPageLayout.js",
+   "line_beg": 35,
+   "col_beg": 19,
+   "line_end": 35,
+   "col_end": 95,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "analytics page description",
+     "text": "Most sold products per quarter."
     },
     "m": []
    }
@@ -180,6 +201,258 @@
     "t": {
      "desc": "analytics redirects page heading",
      "text": "Analytics: redirects"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "gFwIbjwhvNxaG5TUFHWZhQ==": {
+     "text": "January",
+     "desc": "month of January"
+    }
+   },
+   "filepath": "src/analytics/QuarterNumberToString.js",
+   "line_beg": 28,
+   "col_beg": 10,
+   "line_end": 28,
+   "col_end": 52,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "month of January",
+     "text": "January"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "1lywjHJI4xkJOa3hessv5w==": {
+     "text": "February",
+     "desc": "month of February"
+    }
+   },
+   "filepath": "src/analytics/QuarterNumberToString.js",
+   "line_beg": 29,
+   "col_beg": 10,
+   "line_end": 29,
+   "col_end": 54,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "month of February",
+     "text": "February"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "/UFtm8iHh0+WqfdSLshZxg==": {
+     "text": "March",
+     "desc": "month of March"
+    }
+   },
+   "filepath": "src/analytics/QuarterNumberToString.js",
+   "line_beg": 30,
+   "col_beg": 10,
+   "line_end": 30,
+   "col_end": 48,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "month of March",
+     "text": "March"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "JNfQAKmoncLC9GRX80pMgg==": {
+     "text": "April",
+     "desc": "month of April"
+    }
+   },
+   "filepath": "src/analytics/QuarterNumberToString.js",
+   "line_beg": 38,
+   "col_beg": 10,
+   "line_end": 38,
+   "col_end": 48,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "month of April",
+     "text": "April"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "kiRIQgldvSp5nw3zDdHkfw==": {
+     "text": "May",
+     "desc": "month of May"
+    }
+   },
+   "filepath": "src/analytics/QuarterNumberToString.js",
+   "line_beg": 39,
+   "col_beg": 10,
+   "line_end": 39,
+   "col_end": 44,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "month of May",
+     "text": "May"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "m1Lvh5WHsNf+xievIwVikw==": {
+     "text": "June",
+     "desc": "month of June"
+    }
+   },
+   "filepath": "src/analytics/QuarterNumberToString.js",
+   "line_beg": 40,
+   "col_beg": 10,
+   "line_end": 40,
+   "col_end": 46,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "month of June",
+     "text": "June"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "hfKDX+uw9pNKQ3eF188dUQ==": {
+     "text": "July",
+     "desc": "month of July"
+    }
+   },
+   "filepath": "src/analytics/QuarterNumberToString.js",
+   "line_beg": 48,
+   "col_beg": 10,
+   "line_end": 48,
+   "col_end": 46,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "month of July",
+     "text": "July"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "5iACs+iGwKVAI94novdGeQ==": {
+     "text": "August",
+     "desc": "month of August"
+    }
+   },
+   "filepath": "src/analytics/QuarterNumberToString.js",
+   "line_beg": 49,
+   "col_beg": 10,
+   "line_end": 49,
+   "col_end": 50,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "month of August",
+     "text": "August"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "ccR17+iLnUmpC3UssMi6Ow==": {
+     "text": "September",
+     "desc": "month of September"
+    }
+   },
+   "filepath": "src/analytics/QuarterNumberToString.js",
+   "line_beg": 50,
+   "col_beg": 10,
+   "line_end": 50,
+   "col_end": 56,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "month of September",
+     "text": "September"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "7DbvLfhNSJGQXD6gJqjRXQ==": {
+     "text": "October",
+     "desc": "month of October"
+    }
+   },
+   "filepath": "src/analytics/QuarterNumberToString.js",
+   "line_beg": 58,
+   "col_beg": 10,
+   "line_end": 58,
+   "col_end": 52,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "month of October",
+     "text": "October"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "s93qJM9/efJ+zec+g98RMg==": {
+     "text": "November",
+     "desc": "month of November"
+    }
+   },
+   "filepath": "src/analytics/QuarterNumberToString.js",
+   "line_beg": 59,
+   "col_beg": 10,
+   "line_end": 59,
+   "col_end": 54,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "month of November",
+     "text": "November"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "Xt3ofpgQPBPTr8xScq9Zhg==": {
+     "text": "December",
+     "desc": "month of December"
+    }
+   },
+   "filepath": "src/analytics/QuarterNumberToString.js",
+   "line_beg": 60,
+   "col_beg": 10,
+   "line_end": 60,
+   "col_end": 54,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "month of December",
+     "text": "December"
     },
     "m": []
    }
@@ -843,9 +1116,9 @@
     }
    },
    "filepath": "src/forms/FormSubmit.js",
-   "line_beg": 85,
+   "line_beg": 83,
    "col_beg": 10,
-   "line_end": 88,
+   "line_end": 86,
    "col_end": 11,
    "project": "",
    "jsfbt": {
@@ -1173,8 +1446,8 @@
   },
   {
    "hashToLeaf": {
-    "peb2EDuSrtkkz/e0EG4rWQ==": {
-     "text": "This section is currently under active development. Are you missing some features? Let us know!",
+    "ccIrZ+0SQB4nj71LTBRs8Q==": {
+     "text": "This section is currently under active development. Are you missing some features? Something is broken? Let us know!",
      "desc": "work in progress badge description"
     }
    },
@@ -1187,7 +1460,7 @@
    "jsfbt": {
     "t": {
      "desc": "work in progress badge description",
-     "text": "This section is currently under active development. Are you missing some features? Let us know!"
+     "text": "This section is currently under active development. Are you missing some features? Something is broken? Let us know!"
     },
     "m": []
    }

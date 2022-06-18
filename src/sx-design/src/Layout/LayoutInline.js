@@ -8,7 +8,7 @@ type Props = {
   +'spacing'?: 'small' | 'medium' | 'large' | 'none',
   +'data-testid'?: string,
   +'justifyContent'?: 'space-between' | 'space-evenly',
-  +'alignItems'?: 'start' | 'center' | 'end',
+  +'alignItems'?: 'start' | 'center' | 'end' | 'baseline',
   +'as'?: 'div' | 'nav',
   +'aria-label'?: Fbt,
 };
@@ -34,6 +34,7 @@ export default function LayoutInline(props: Props): Node {
         alignItemsStart: props.alignItems === 'start',
         alignItemsCenter: props.alignItems === 'center',
         alignItemsEnd: props.alignItems === 'end',
+        alignItemsBaseline: props.alignItems === 'baseline',
       })}
     >
       {props.children}
@@ -56,4 +57,5 @@ const styles = sx.create({
   alignItemsStart: { alignItems: 'start' },
   alignItemsCenter: { alignItems: 'center' },
   alignItemsEnd: { alignItems: 'end' },
+  alignItemsBaseline: { alignItems: 'baseline' },
 });

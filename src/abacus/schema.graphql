@@ -1,4 +1,4 @@
-# @generated SignedSource<<b495a53b0b9c53e3ad668836e935a9e9>>
+# @generated SignedSource<<4c8c5f0e1f131e8eff19c86fad19eac7>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -29,6 +29,12 @@ type ProductMultilingualTranslations {
   locale: SupportedLocale!
   name: String!
   description: String
+}
+
+type AnalyticsSoldProductQuarterlyInfo {
+  dateQuarter: Int!
+  dateYear: Int!
+  stats: [AnalyticsSoldProductInfo!]!
 }
 
 type Price {
@@ -533,8 +539,8 @@ type AuthMutation {
 }
 
 type AnalyticsQuery {
-  mostSoldProducts: [AnalyticsSoldProductInfo!]!
-  leastSoldProducts: [AnalyticsSoldProductInfo!]!
+  mostSoldProductsQuarterly: [AnalyticsSoldProductQuarterlyInfo!]!
+  leastSoldProductsQuarterly: [AnalyticsSoldProductQuarterlyInfo!]!
   redirectHits: [Redirect!]!
   dailyReports: [AnalyticsDailyReportInfo!]!
 }

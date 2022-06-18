@@ -34,7 +34,7 @@ export default function LayoutPage(props: Props): Node {
               title={
                 <fbt desc="work in progress badge description">
                   This section is currently under active development. Are you missing some features?
-                  Let us know!
+                  Something is broken? Let us know!
                 </fbt>
               }
             >
