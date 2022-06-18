@@ -5,7 +5,7 @@ metadata:
   name: 'arangodb-single-server'
 spec:
   mode: Single
-  image: 'arangodb/arangodb:3.9.1'
+  image: 'arangodb/arangodb:3.9.2'
   tls:
     caSecretName: None # TODO
   auth:
@@ -48,7 +48,7 @@ spec:
           restartPolicy: OnFailure
           initContainers:
             - name: dump-create
-              image: 'arangodb/arangodb:3.9.1'
+              image: 'arangodb/arangodb:3.9.2'
               imagePullPolicy: Always
               args:
                 - 'arangodump'
