@@ -1,5 +1,13 @@
 # Unreleased
 
+The Eslint Config now requires [`hermes-eslint`](https://www.npmjs.com/package/hermes-eslint) as an Eslint parser. Technically, the config works with any other parser (say `@babel/eslint-parser`) as well, however, some rules were adjusted for `hermes-eslint`. Notably:
+
+- `no-undef` was turned off (not needed, especially in combination with Flow - superfluous rule)
+- `ft-flow/define-flow-type` turned off (not needed with Hermes)
+- `ft-flow/use-flow-type` turned off (not needed with Hermes)
+- `react/jsx-uses-react` turned off (not needed with Hermes)
+- `react/jsx-uses-vars` turned off (not needed with Hermes)
+
 # 7.7.0
 
 - New rule [`@next/next/no-styled-jsx-in-document`](https://nextjs.org/docs/messages/no-styled-jsx-in-document) enabled.

@@ -20,7 +20,7 @@ testFixtures({
 });
 
 const ruleTester = new RuleTester({
-  parser: require.resolve('@babel/eslint-parser'),
+  parser: require.resolve('hermes-eslint'),
 });
 
 // This test makes sure we are reporting correct lines and columns:

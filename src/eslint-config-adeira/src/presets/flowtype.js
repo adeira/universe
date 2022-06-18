@@ -18,7 +18,7 @@ module.exports = ({
     'ft-flow/array-style-simple-type': OFF,
     'ft-flow/arrow-parens': OFF,
     'ft-flow/boolean-style': [NEXT_VERSION_ERROR, 'boolean'],
-    'ft-flow/define-flow-type': WARN,
+    'ft-flow/define-flow-type': OFF, // not needed with `hermes-eslint` parser
     'ft-flow/delimiter-dangle': OFF,
     'ft-flow/enforce-line-break': OFF,
     'ft-flow/enforce-suppression-code': ERROR,
@@ -73,7 +73,7 @@ module.exports = ({
     'ft-flow/type-id-match': OFF,
     'ft-flow/type-import-style': OFF,
     'ft-flow/union-intersection-spacing': OFF,
-    'ft-flow/use-flow-type': WARN,
+    'ft-flow/use-flow-type': OFF, // not needed with `hermes-eslint` parser
     'ft-flow/use-read-only-spread': ERROR,
     'ft-flow/valid-syntax': OFF,
 

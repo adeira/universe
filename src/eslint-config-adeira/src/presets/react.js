@@ -1,6 +1,6 @@
 // @flow
 
-const { ERROR, OFF, WARN, NEXT_VERSION_ERROR } = require('../constants');
+const { ERROR, OFF, NEXT_VERSION_ERROR } = require('../constants');
 const detectReactVersion = require('../detectReactVersion');
 
 /*::
@@ -76,8 +76,8 @@ module.exports = ({
     'react/jsx-props-no-spreading': OFF,
     'react/jsx-sort-default-props': OFF,
     'react/jsx-sort-props': OFF,
-    'react/jsx-uses-react': WARN,
-    'react/jsx-uses-vars': ERROR,
+    'react/jsx-uses-react': OFF, // not needed with `hermes-eslint` parser
+    'react/jsx-uses-vars': OFF, // not needed with `hermes-eslint` parser
     'react/no-access-state-in-setstate': ERROR,
     'react/no-array-index-key': OFF,
     'react/no-arrow-function-lifecycle': ERROR,

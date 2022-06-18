@@ -6,6 +6,7 @@ enum StatusDefault1 {
   Off,
 }
 
+// eslint-disable-next-line no-unused-vars
 enum StatusDefault2 of string {
   Active,
   Paused,
@@ -18,6 +19,7 @@ enum StatusString1 {
   Off = 'off',
 }
 
+// eslint-disable-next-line no-unused-vars
 enum StatusString2 of string {
   Active = 'active',
   Paused = 'paused',
@@ -30,12 +32,14 @@ enum StatusNumber1 {
   Off = 3,
 }
 
+// eslint-disable-next-line no-unused-vars
 enum StatusNumber2 of number {
   Active = 1,
   Paused = 2,
   Off = 3,
 }
 
+// eslint-disable-next-line no-unused-vars
 enum StatusBoolean1 {
   Active = true,
   Off = false,

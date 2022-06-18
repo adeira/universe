@@ -9,12 +9,10 @@ module.exports = {
     jest: true,
     node: true,
   },
-  parser: '@babel/eslint-parser', // TODO: consider moving this into `eslint-config-adeira`
+  parser: 'hermes-eslint',
   parserOptions: {
+    // https://github.com/facebook/hermes/blob/main/tools/hermes-parser/js/hermes-eslint/README.md
     sourceType: 'module',
-    ecmaVersion: 2021,
-    ecmaFeatures: {
-      jsx: false,
-    },
+    fbt: true,
   },
 };
