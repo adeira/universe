@@ -10,6 +10,13 @@ pub(in crate::analytics) struct AnalyticsSoldProductInfo {
     product_units: i32,
 }
 
+#[derive(Deserialize, Clone, juniper::GraphQLObject, Debug)]
+pub(in crate::analytics) struct AnalyticsSoldProductQuarterlyInfo {
+    date_quarter: i32, // 1, 2, 3, or 4
+    date_year: i32,    // 2021, 2022, ...
+    stats: Vec<AnalyticsSoldProductInfo>,
+}
+
 pub enum SortDirection {
     MostToLeast,
     LeastToMost,
@@ -95,7 +102,7 @@ pub(in crate::analytics) async fn get_redirect_hits(
 pub(in crate::analytics) async fn get_sold_product_stats(
     pool: &ConnectionPool,
     sort_direction: &SortDirection,
-) -> anyhow::Result<Vec<AnalyticsSoldProductInfo>> {
+) -> anyhow::Result<Vec<AnalyticsSoldProductQuarterlyInfo>> {
     let sort_direction = match sort_direction {
         SortDirection::MostToLeast => "DESC",
         SortDirection::LeastToMost => "ASC",
@@ -105,17 +112,37 @@ pub(in crate::analytics) async fn get_sold_product_stats(
         pool,
         r#"
             FOR checkout IN pos_checkouts
-              FOR selected_product IN checkout.selected_products
-                COLLECT product_id = selected_product.product_id
-                AGGREGATE product_units = SUM(selected_product.product_units)
-                INTO product_names = selected_product.product_name
-                SORT product_units @sort_direction
-                LIMIT 100
-                RETURN {
-                  "product_id": product_id,
-                  "product_name": LAST(product_names),
-                  "product_units": product_units
-                }
+              LET date_local = DATE_UTCTOLOCAL(checkout.created_date, "America/Mexico_City")
+
+              COLLECT
+                date_quarter = DATE_QUARTER(date_local),
+                date_year = DATE_YEAR(date_local)
+              INTO all_checkouts_per_quarter = {
+                selected_products: checkout.selected_products
+              }
+
+              SORT date_year DESC, date_quarter DESC
+
+              LET stats = (
+                FOR checkout IN all_checkouts_per_quarter
+                  FOR selected_product IN checkout.selected_products
+                    COLLECT product_id = selected_product.product_id
+                    AGGREGATE product_units = SUM(selected_product.product_units)
+                    INTO product_names = selected_product.product_name
+                    SORT product_units @sort_direction
+                    LIMIT 30
+                    RETURN {
+                      "product_id": product_id,
+                      "product_name": LAST(product_names),
+                      "product_units": product_units
+                    }
+              )
+
+              RETURN {
+                date_quarter,
+                date_year,
+                stats
+              }
         "#,
         hashmap_json![
             "sort_direction" => sort_direction,

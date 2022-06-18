@@ -1,6 +1,6 @@
 use crate::analytics::dal::{
     get_daily_reports, get_redirect_hits, get_sold_product_stats, AnalyticsDailyReportInfo,
-    AnalyticsSoldProductInfo, PageVisitInput, Redirect, SortDirection,
+    AnalyticsSoldProductQuarterlyInfo, PageVisitInput, Redirect, SortDirection,
 };
 use crate::arango::ConnectionPool;
 use crate::auth::rbac;
@@ -18,16 +18,16 @@ pub(crate) struct AnalyticsMutation;
 
 #[juniper::graphql_object(context = Context)]
 impl AnalyticsQuery {
-    async fn most_sold_products(
+    async fn most_sold_products_quarterly(
         context: &Context,
-    ) -> AbacusGraphQLResult<Vec<AnalyticsSoldProductInfo>> {
+    ) -> AbacusGraphQLResult<Vec<AnalyticsSoldProductQuarterlyInfo>> {
         rbac::verify_permissions(&context.user, &Analytics(GetCheckoutStats)).await?;
         Ok(get_sold_product_stats(&context.pool, &SortDirection::MostToLeast).await?)
     }
 
-    async fn least_sold_products(
+    async fn least_sold_products_quarterly(
         context: &Context,
-    ) -> AbacusGraphQLResult<Vec<AnalyticsSoldProductInfo>> {
+    ) -> AbacusGraphQLResult<Vec<AnalyticsSoldProductQuarterlyInfo>> {
         rbac::verify_permissions(&context.user, &Analytics(GetCheckoutStats)).await?;
         Ok(get_sold_product_stats(&context.pool, &SortDirection::LeastToMost).await?)
     }

@@ -17,12 +17,27 @@ export function getAllAttributes(element: HTMLElement): { [string]: string } {
   );
 }
 
+// TODO: move outside of "forms" (it's potentially for the whole FE)
 export function customRender(ui: $FlowFixMe, options: $FlowFixMe): $FlowFixMe {
   return render(ui, {
     wrapper: ({ children }) => {
       return (
         <RecoilRoot>
           <SxDesignProvider>{children}</SxDesignProvider>
+        </RecoilRoot>
+      );
+    },
+    ...options,
+  });
+}
+
+// TODO: move outside of "forms" (it's potentially for the whole FE)
+export function customRenderWithoutErrorBoundary(ui: $FlowFixMe, options: $FlowFixMe): $FlowFixMe {
+  return render(ui, {
+    wrapper: ({ children }) => {
+      return (
+        <RecoilRoot>
+          <SxDesignProvider disableErrorBoundary={true}>{children}</SxDesignProvider>
         </RecoilRoot>
       );
     },
