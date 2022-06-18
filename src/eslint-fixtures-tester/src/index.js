@@ -80,7 +80,7 @@ export default function testFixtures({
   }
 
   const ruleTester = new RuleTester({
-    parser: require.resolve('@babel/eslint-parser'),
+    parser: require.resolve('hermes-eslint'),
   });
 
   ruleTester.run('no-unused-stylesheet', rule, {

@@ -5,7 +5,7 @@ const RuleTester = require('eslint').RuleTester;
 const rule = require('../graphql-require-object-description');
 
 const ruleTester = new RuleTester({
-  parser: require.resolve('@babel/eslint-parser'),
+  parser: require.resolve('hermes-eslint'),
 });
 
 ruleTester.run('graphql-require-object-description', rule, {

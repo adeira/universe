@@ -42,8 +42,8 @@ it('returns request body with uploadables', () => {
     },
     { bbb: 222 }, // variables
     {
-      foo: new File(['foo'], 'foo.txt'), // eslint-disable-line no-undef
-      bar: new File(['bar'], 'bar.txt'), // eslint-disable-line no-undef
+      foo: new File(['foo'], 'foo.txt'),
+      bar: new File(['bar'], 'bar.txt'),
     },
   );
 
@@ -67,8 +67,8 @@ it('returns request body with uploadables - persistent queries', () => {
     },
     {}, // variables
     {
-      foo: new File(['foo'], 'foo.txt'), // eslint-disable-line no-undef
-      bar: new File(['bar'], 'bar.txt'), // eslint-disable-line no-undef
+      foo: new File(['foo'], 'foo.txt'),
+      bar: new File(['bar'], 'bar.txt'),
     },
   );
 

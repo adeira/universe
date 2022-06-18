@@ -157,7 +157,7 @@ module.exports = ({
     'no-restricted-globals': OFF,
     'no-shadow': OFF,
     'no-shadow-restricted-names': ERROR,
-    'no-undef': ERROR,
+    'no-undef': OFF, // not needed with Flow and `hermes-eslint` parser (superfluous rule)
     'no-undef-init': ERROR,
     'no-undefined': OFF,
     'no-unused-vars': [
