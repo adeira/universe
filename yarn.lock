@@ -22,7 +22,7 @@ __metadata:
     "@playwright/test": ^1.22.2
     "@testing-library/jest-dom": ^5.16.4
     "@testing-library/react": ^12.1.5
-    "@testing-library/react-hooks": ^8.0.0
+    "@testing-library/react-hooks": ^8.0.1
     babel-plugin-fbt: ^1.0.0
     babel-plugin-fbt-runtime: ^1.0.0
     d3: ^7.4.4
@@ -145,7 +145,7 @@ __metadata:
     prettier: ^2.7.1
     snapshot-diff: ^0.9.0
   peerDependencies:
-    eslint: ">=8.17.0"
+    eslint: ">=8.18.0"
   languageName: unknown
   linkType: soft
 
@@ -157,10 +157,10 @@ __metadata:
     "@adeira/js": ^2.1.1
     "@babel/eslint-parser": ^7.18.2
     "@babel/runtime": ^7.18.3
-    eslint: ^8.17.0
+    eslint: ^8.18.0
     jest-docblock: ^28.1.1
   peerDependencies:
-    eslint: ^8.17.0
+    eslint: ^8.18.0
   languageName: unknown
   linkType: soft
 
@@ -4610,9 +4610,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react-hooks@npm:^8.0.0":
-  version: 8.0.0
-  resolution: "@testing-library/react-hooks@npm:8.0.0"
+"@testing-library/react-hooks@npm:^8.0.1":
+  version: 8.0.1
+  resolution: "@testing-library/react-hooks@npm:8.0.1"
   dependencies:
     "@babel/runtime": ^7.12.5
     react-error-boundary: ^3.1.0
@@ -4628,7 +4628,7 @@ __metadata:
       optional: true
     react-test-renderer:
       optional: true
-  checksum: f45bd06601bf1d00e375c3d945b0e54b4d997b18402c45711deada7e8c4a8f569fe283973e6786c9ecd55e4bd01a43bd42546a2924453065880abf4b13dbafdb
+  checksum: 7fe44352e920deb5cb1876f80d64e48615232072c9d5382f1e0284b3aab46bb1c659a040b774c45cdf084a5257b8fe463f7e08695ad8480d8a15635d4d3d1f6d
   languageName: node
   linkType: hard
 
@@ -9333,7 +9333,7 @@ __metadata:
     "@adeira/flow-types-eslint": 0.0.0
     "@babel/eslint-parser": ^7.18.2
     "@babel/runtime": ^7.18.3
-    eslint: ^8.17.0
+    eslint: ^8.18.0
     fast-levenshtein: ^3.0.0
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
@@ -9598,10 +9598,10 @@ __metadata:
     "@babel/code-frame": ^7.16.7
     "@babel/eslint-parser": ^7.18.2
     "@babel/runtime": ^7.18.3
-    eslint: ^8.17.0
+    eslint: ^8.18.0
     react: ^17.0.2
   peerDependencies:
-    eslint: ^8.17.0
+    eslint: ^8.18.0
   languageName: unknown
   linkType: soft
 
@@ -9687,9 +9687,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.17.0":
-  version: 8.17.0
-  resolution: "eslint@npm:8.17.0"
+"eslint@npm:^8.18.0":
+  version: 8.18.0
+  resolution: "eslint@npm:8.18.0"
   dependencies:
     "@eslint/eslintrc": ^1.3.0
     "@humanwhocodes/config-array": ^0.9.2
@@ -9728,7 +9728,7 @@ __metadata:
     v8-compile-cache: ^2.0.3
   bin:
     eslint: bin/eslint.js
-  checksum: b484c96681c6b19f5b437f664623f1cd310d3ee9be88400d8450e086e664cd968a9dc202f0b0678578fd50e7a445b92586efe8c787de5073ff2f83213b00bb7b
+  checksum: d9b4b7488a9cee97608343cbb5ac652d3f316436f95ef0800cd9497c1c6f877b655a3275817989c02f1ff0d5dfd1959c5092af9251c7e3fcf60659da37752a10
   languageName: node
   linkType: hard
 
@@ -17061,7 +17061,7 @@ __metadata:
     "@babel/eslint-parser": ^7.18.2
     babel-jest: ^28.1.1
     babel-loader: ^8.2.5
-    eslint: ^8.17.0
+    eslint: ^8.18.0
     eslint-formatter-codeframe: ^7.32.1
     flow-bin: ^0.180.0
     glob: ^8.0.3
