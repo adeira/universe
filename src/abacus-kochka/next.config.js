@@ -47,6 +47,15 @@ module.exports = (withPlugins(
       esmExternals: 'loose',
       runtime: 'nodejs',
     },
+    redirects() {
+      return [
+        {
+          source: '/contribute',
+          destination: '/donate',
+          permanent: false,
+        },
+      ];
+    },
     webpack: (nextConfig) => {
       nextConfig.module.rules.push({
         type: 'javascript/auto',

@@ -4,7 +4,7 @@
 const { expect } = require('@playwright/test');
 
 const { AdoptPage } = require('./AdoptPage');
-const { ContributePage } = require('./ContributePage');
+const { DonatePage } = require('./DonatePage');
 const { JobsPage } = require('./JobsPage');
 const { MenuPage } = require('./MenuPage');
 const { RulesPage } = require('./RulesPage');
@@ -75,14 +75,12 @@ exports.MainNavigationPage = class MainNavigationPage {
     return jobsPage;
   }
 
-  async visitContributePage() /*: Promise<ContributePage> */ {
-    await this.page.locator('a', { hasText: 'Contribute' }).click();
-    const contributePage = new ContributePage(this.page, this.baseURL);
+  async visitDonatePage() /*: Promise<DonatePage> */ {
+    await this.page.locator('a', { hasText: 'Donate' }).click();
+    const contributePage = new DonatePage(this.page, this.baseURL);
 
-    await expect(contributePage.page).toHaveTitle(/^Voluntary contribution · KOCHKA Café$/);
-    await expect(
-      contributePage.page.locator('h1', { hasText: 'Voluntary contribution' }),
-    ).toBeVisible();
+    await expect(contributePage.page).toHaveTitle(/^Donate · KOCHKA Café$/);
+    await expect(contributePage.page.locator('h1', { hasText: 'Donate' })).toBeVisible();
 
     return contributePage;
   }

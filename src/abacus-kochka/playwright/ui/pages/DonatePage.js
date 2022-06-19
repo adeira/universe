@@ -4,7 +4,7 @@
 import type { Page } from '../../Page.flow.js';
 */
 
-exports.ContributePage = class ContributePage {
+exports.DonatePage = class DonatePage {
   /*::
   declare page: Page;
   declare baseURL: string;
