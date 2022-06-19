@@ -13,7 +13,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node-version: [14.x] # see: https://vercel.com/mrtnzlml/meta/settings
+        node-version: [16.x] # see: https://vercel.com/mrtnzlml/meta/settings
 
     steps:
       # https://github.com/actions/checkout
