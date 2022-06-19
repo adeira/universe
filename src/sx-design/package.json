@@ -15,7 +15,7 @@
   "sideEffects": false,
   "dependencies": {
     "@adeira/hooks": "^0.3.0",
-    "@adeira/icons": "^1.1.0",
+    "@adeira/icons": "^1.2.0",
     "@adeira/js": "^2.1.1",
     "@babel/runtime": "^7.18.3",
     "blurhash": "^1.1.5",
