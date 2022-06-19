@@ -1,17 +1,17 @@
 {
   "fb-locale": "es_MX",
   "translations": {
-    "4aOHtYbmcWhHdi94aqvM3g==": {
+    "+UKTAjplqxpMZBy+eRTpgg==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Contribución voluntaria",
+          "translation": "Donar",
           "variations": []
         }
       ]
     },
-    "T+NpfkAZAp+bLGBtDuSG4g==": {
+    "HsexnGgMGUG2L0PENdEAzg==": {
       "tokens": [],
       "types": [],
       "translations": [
@@ -41,52 +41,52 @@
         }
       ]
     },
-    "hNJdF5T8ZRQPBqRHQy+EWQ==": {
+    "bg+GaSCV3xqFWy+VCipSvQ==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Nos gustaría pedirte que consideres contribuir a KOCHKA Café para que podamos lograr este objetivo. Ayúdanos a comprarles mejor comida. Ayúdanos a comprarles más juguetes. Ayúdanos a hacer su vida increíble.",
+          "translation": "Nos gustaría pedirte que consideres donar a KOCHKA Café para que podamos lograr este objetivo. Ayúdanos a comprarles mejor comida. Ayúdanos a comprarles más juguetes. Ayúdanos a hacer su vida increíble.",
           "variations": []
         }
       ]
     },
-    "TZWdWO+kvimA1Jjp1DlvTw==": {
+    "uEbZa32O7ps8uxNfWudQ/w==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Contribución única",
+          "translation": "Donación única",
           "variations": []
         }
       ]
     },
-    "bZr1fe9zJldIOJ8L3xFdNA==": {
+    "xP9i4PMLmBhsqzNRswGYTw==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Demuéstranos tu apoyo enviando una contribución única. Sólo se te cobrará una vez.",
+          "translation": "Demuéstranos tu apoyo enviando una donación única. Sólo se te cobrará una vez.",
           "variations": []
         }
       ]
     },
-    "ejsLcPhQjCHyk4sR3EWxAA==": {
+    "3uqx4Dxydh4eUnZ0o/+sZA==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Contribución recurrente (mensual)",
+          "translation": "Donación recurrente (mensual)",
           "variations": []
         }
       ]
     },
-    "ooSK/rLOxewJkJbSdcdPMQ==": {
+    "PrCGDbv605MgToJuFa4s5A==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Una contribución recurrente es para las personas que quieren apoyar KOCHKA Café y principalmente a nuestros gatos mensualmente. No podemos expresar suficiente lo agradecidos que estamos.",
+          "translation": "Una donación recurrente es para las personas que quieren apoyar KOCHKA Café y principalmente a nuestros gatos mensualmente. No podemos expresar suficiente lo agradecidos que estamos.",
           "variations": []
         }
       ]
@@ -101,12 +101,12 @@
         }
       ]
     },
-    "xOijVgLac+Fx+3ST5k0jDQ==": {
+    "VV4ciBS/Cj1sidgXuJhHBw==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Serás redirigido a una página de Stripe externa ({=buy.stripe.com}) después de hacer clic en el botón de arriba donde puedes completar la contribución.",
+          "translation": "Serás redirigido a una página de Stripe externa ({=m1}) después de hacer clic en el botón de arriba donde puedes completar la donación.",
           "variations": []
         }
       ]
@@ -321,12 +321,12 @@
         }
       ]
     },
-    "sY3J2OVXDvprP9Yw1wPdWQ==": {
+    "ZCOy0IeX2BUMZsX9dTYOig==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Contribuciones",
+          "translation": "Donar",
           "variations": []
         }
       ]

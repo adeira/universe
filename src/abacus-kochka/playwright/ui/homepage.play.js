@@ -50,5 +50,5 @@ test('navigation to our contribute page from homepage', async ({ page, isMobile,
 
   const homepage = new HomePage(page, baseURL);
   await homepage.goto();
-  await homepage.visitContributePage();
+  await homepage.visitDonatePage();
 });

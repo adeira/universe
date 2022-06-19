@@ -59,9 +59,9 @@ export default function NavigationLinks(props: Props): React.Node {
         <MobileArrow useMobileVersion={useMobileVersion} />
       </LinkInternal>
 
-      <LinkInternal href="/contribute" xstyle={styles.link}>
+      <LinkInternal href="/donate" xstyle={styles.link}>
         <strong>
-          <fbt desc="link to the contribution page from our main navigation">Contribute️</fbt>
+          <fbt desc="link to the donation page from our main navigation">Donate</fbt>
         </strong>
         <MobileArrow useMobileVersion={useMobileVersion} />
       </LinkInternal>
