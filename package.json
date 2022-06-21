@@ -19,7 +19,7 @@
     "babel-loader": "^8.2.5",
     "eslint": "^8.18.0",
     "eslint-formatter-codeframe": "^7.32.1",
-    "flow-bin": "^0.180.0",
+    "flow-bin": "^0.180.1",
     "glob": "^8.0.3",
     "jest": "^28.1.1",
     "jest-environment-jsdom": "^28.1.1",
