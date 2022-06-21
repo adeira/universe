@@ -7,15 +7,3 @@
 # be requested for review when someone opens a pull request.
 
 * @adeira/devs
-
-# Why @adeira-github-bot? GitHub doesn't allow self-approve
-# of the PRs. However, at least one approval is required by
-# any codeowner and the projects below are having only one
-# main developer. Other Adeira devs can approve these PRs if
-# they want but @adeira-github-bot helps if they don't.
-
-/src/abacus/ @adeira/devs @adeira-github-bot
-/src/abacus-backoffice/ @adeira/devs @adeira-github-bot
-/src/abacus-kochka/ @adeira/devs @adeira-github-bot
-
-yarn.lock @adeira/devs @adeira-github-bot
