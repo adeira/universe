@@ -27,7 +27,7 @@
     "stylis": "^4.1.1"
   },
   "peerDependencies": {
-    "react": "^17.0.2"
+    "react": "^18.2.0"
   },
   "devDependencies": {
     "@adeira/fixtures-tester": "^1.1.1",
