@@ -223,7 +223,7 @@ __metadata:
     change-case: ^4.1.2
     prettier: ^2.7.1
   peerDependencies:
-    react: ^17.0.2
+    react: ^18.2.0
   languageName: unknown
   linkType: soft
 
@@ -336,7 +336,7 @@ __metadata:
     relay-test-utils: ^14.0.0
   peerDependencies:
     graphql: ^16.5.0
-    react: ^17.0.2
+    react: ^18.2.0
   bin:
     adeira-relay-compiler: ./bin/compiler.js
   languageName: unknown
@@ -364,7 +364,7 @@ __metadata:
   peerDependencies:
     "@adeira/sx-design": ^0.28.0
     next: ^12.1.6
-    react: ^17.0.2
+    react: ^18.2.0
   languageName: unknown
   linkType: soft
 
