@@ -35,6 +35,12 @@ export default function FormSubmit(props: Props): Node {
   const unmaskFormFieldErrors = useRecoilCallback(({ snapshot, set }) => (id) => {
     const errorsAtom = formStateAtomFamilyErrors(id);
     const errorsAtomContents = snapshot.getLoadable(errorsAtom).contents;
+    /* $FlowFixMe[incompatible-use] This comment suppresses an error when
+     * upgrading Recoil to version 0.7.4. To see the error delete this comment
+     * and run Flow. */
+    /* $FlowFixMe[prop-missing] This comment suppresses an error when upgrading
+     * Recoil to version 0.7.4. To see the error delete this comment and run
+     * Flow. */
     const hasErrors = errorsAtomContents.validationError != null;
     if (hasErrors === true) {
       // We re-render only fields with an error.
@@ -91,6 +97,9 @@ export default function FormSubmit(props: Props): Node {
     if (uploadables != null) {
       mutationConfig.uploadables = uploadables;
     }
+    /* $FlowFixMe[class-object-subtyping] This comment suppresses an error when
+     * upgrading Recoil to version 0.7.4. To see the error delete this comment
+     * and run Flow. */
     runMutation(mutationConfig);
   };
 
