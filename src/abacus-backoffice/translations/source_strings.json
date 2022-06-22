@@ -501,90 +501,6 @@
   },
   {
    "hashToLeaf": {
-    "dT/eh3zXjHNy5HXZH1EhsA==": {
-     "text": "Currently available cats",
-     "desc": "title of a section of currently available cats"
-    }
-   },
-   "filepath": "src/cats/CatsPage.js",
-   "line_beg": 26,
-   "col_beg": 10,
-   "line_end": 26,
-   "col_end": 99,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "title of a section of currently available cats",
-     "text": "Currently available cats"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "4/M8aLkISpiX62czEj3IUA==": {
-     "text": "List of cats currently living in KOCHKA Café.",
-     "desc": "description of a section of currently available cats"
-    }
-   },
-   "filepath": "src/cats/CatsPage.js",
-   "line_beg": 29,
-   "col_beg": 10,
-   "line_end": 31,
-   "col_end": 16,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "description of a section of currently available cats",
-     "text": "List of cats currently living in KOCHKA Café."
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "EXFpk5Vw2p1k38y43AcBZQ==": {
-     "text": "Adopted cats",
-     "desc": "title of a section of already adopted cats"
-    }
-   },
-   "filepath": "src/cats/CatsPage.js",
-   "line_beg": 38,
-   "col_beg": 10,
-   "line_end": 38,
-   "col_end": 83,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "title of a section of already adopted cats",
-     "text": "Adopted cats"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "6AoFu1ksuKbjM3tda2EHXA==": {
-     "text": "List of cats that are no longer in KOCHKA Café because they were adopted.",
-     "desc": "description of a section of already adopted cats"
-    }
-   },
-   "filepath": "src/cats/CatsPage.js",
-   "line_beg": 41,
-   "col_beg": 10,
-   "line_end": 43,
-   "col_end": 16,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "description of a section of already adopted cats",
-     "text": "List of cats that are no longer in KOCHKA Café because they were adopted."
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
     "TOmKk3DR+VXp59Mr7ax/3A==": {
      "text": "List of all our cats",
      "desc": "list of all our cats title"
@@ -627,16 +543,58 @@
   },
   {
    "hashToLeaf": {
+    "0Hz5nrdyHBzxLOWxycBz8A==": {
+     "text": "Adopted cats ({numberOfAdoptedCats})",
+     "desc": "title of a section of already adopted cats"
+    }
+   },
+   "filepath": "src/cats/CatsTableAdopted.js",
+   "line_beg": 37,
+   "col_beg": 8,
+   "line_end": 39,
+   "col_end": 14,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "title of a section of already adopted cats",
+     "text": "Adopted cats ({numberOfAdoptedCats})"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "6AoFu1ksuKbjM3tda2EHXA==": {
+     "text": "List of cats that are no longer in KOCHKA Café because they were adopted.",
+     "desc": "description of a section of already adopted cats"
+    }
+   },
+   "filepath": "src/cats/CatsTableAdopted.js",
+   "line_beg": 42,
+   "col_beg": 8,
+   "line_end": 44,
+   "col_end": 14,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "description of a section of already adopted cats",
+     "text": "List of cats that are no longer in KOCHKA Café because they were adopted."
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
     "s4htMawiaPZXaxWElrK25A==": {
      "text": "Order",
      "desc": "order of the cat (table header)"
     }
    },
    "filepath": "src/cats/CatsTableAdopted.js",
-   "line_beg": 38,
-   "col_beg": 18,
-   "line_end": 38,
-   "col_end": 73,
+   "line_beg": 49,
+   "col_beg": 20,
+   "line_end": 49,
+   "col_end": 75,
    "project": "",
    "jsfbt": {
     "t": {
@@ -654,10 +612,10 @@
     }
    },
    "filepath": "src/cats/CatsTableAdopted.js",
-   "line_beg": 42,
-   "col_beg": 18,
-   "line_end": 42,
-   "col_end": 82,
+   "line_beg": 53,
+   "col_beg": 20,
+   "line_end": 53,
+   "col_end": 84,
    "project": "",
    "jsfbt": {
     "t": {
@@ -675,10 +633,10 @@
     }
    },
    "filepath": "src/cats/CatsTableAdopted.js",
-   "line_beg": 47,
-   "col_beg": 12,
-   "line_end": 49,
-   "col_end": 18,
+   "line_beg": 58,
+   "col_beg": 14,
+   "line_end": 60,
+   "col_end": 20,
    "project": "",
    "jsfbt": {
     "t": {
@@ -696,10 +654,10 @@
     }
    },
    "filepath": "src/cats/CatsTableAdopted.js",
-   "line_beg": 55,
-   "col_beg": 12,
-   "line_end": 55,
-   "col_end": 94,
+   "line_beg": 66,
+   "col_beg": 14,
+   "line_end": 66,
+   "col_end": 96,
    "project": "",
    "jsfbt": {
     "t": {
@@ -717,10 +675,10 @@
     }
    },
    "filepath": "src/cats/CatsTableAdopted.js",
-   "line_beg": 60,
-   "col_beg": 18,
-   "line_end": 60,
-   "col_end": 92,
+   "line_beg": 71,
+   "col_beg": 20,
+   "line_end": 71,
+   "col_end": 94,
    "project": "",
    "jsfbt": {
     "t": {
@@ -738,10 +696,10 @@
     }
    },
    "filepath": "src/cats/CatsTableAdopted.js",
-   "line_beg": 64,
-   "col_beg": 18,
-   "line_end": 64,
-   "col_end": 88,
+   "line_beg": 75,
+   "col_beg": 20,
+   "line_end": 75,
+   "col_end": 90,
    "project": "",
    "jsfbt": {
     "t": {
@@ -759,10 +717,10 @@
     }
    },
    "filepath": "src/cats/CatsTableAdopted.js",
-   "line_beg": 69,
-   "col_beg": 12,
-   "line_end": 71,
-   "col_end": 18,
+   "line_beg": 80,
+   "col_beg": 14,
+   "line_end": 82,
+   "col_end": 20,
    "project": "",
    "jsfbt": {
     "t": {
@@ -780,15 +738,57 @@
     }
    },
    "filepath": "src/cats/CatsTableAdopted.js",
-   "line_beg": 77,
-   "col_beg": 12,
-   "line_end": 79,
-   "col_end": 18,
+   "line_beg": 88,
+   "col_beg": 14,
+   "line_end": 90,
+   "col_end": 20,
    "project": "",
    "jsfbt": {
     "t": {
      "desc": "vaccination leucemia felina (table header)",
      "text": "Vaccination \"leucemia felina\""
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "IkwYLMW0wYmcuLuM4rULoQ==": {
+     "text": "Currently available cats ({numberOfCurrentlyAvailableCats})",
+     "desc": "title of a section of currently available cats"
+    }
+   },
+   "filepath": "src/cats/CatsTableCurrent.js",
+   "line_beg": 37,
+   "col_beg": 8,
+   "line_end": 41,
+   "col_end": 14,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "title of a section of currently available cats",
+     "text": "Currently available cats ({numberOfCurrentlyAvailableCats})"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "4/M8aLkISpiX62czEj3IUA==": {
+     "text": "List of cats currently living in KOCHKA Café.",
+     "desc": "description of a section of currently available cats"
+    }
+   },
+   "filepath": "src/cats/CatsTableCurrent.js",
+   "line_beg": 44,
+   "col_beg": 8,
+   "line_end": 46,
+   "col_end": 14,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "description of a section of currently available cats",
+     "text": "List of cats currently living in KOCHKA Café."
     },
     "m": []
    }
@@ -801,10 +801,10 @@
     }
    },
    "filepath": "src/cats/CatsTableCurrent.js",
-   "line_beg": 38,
-   "col_beg": 18,
-   "line_end": 38,
-   "col_end": 73,
+   "line_beg": 51,
+   "col_beg": 20,
+   "line_end": 51,
+   "col_end": 75,
    "project": "",
    "jsfbt": {
     "t": {
@@ -822,10 +822,10 @@
     }
    },
    "filepath": "src/cats/CatsTableCurrent.js",
-   "line_beg": 42,
-   "col_beg": 18,
-   "line_end": 42,
-   "col_end": 82,
+   "line_beg": 55,
+   "col_beg": 20,
+   "line_end": 55,
+   "col_end": 84,
    "project": "",
    "jsfbt": {
     "t": {
@@ -843,10 +843,10 @@
     }
    },
    "filepath": "src/cats/CatsTableCurrent.js",
-   "line_beg": 47,
-   "col_beg": 12,
-   "line_end": 49,
-   "col_end": 18,
+   "line_beg": 60,
+   "col_beg": 14,
+   "line_end": 62,
+   "col_end": 20,
    "project": "",
    "jsfbt": {
     "t": {
@@ -864,10 +864,10 @@
     }
    },
    "filepath": "src/cats/CatsTableCurrent.js",
-   "line_beg": 55,
-   "col_beg": 12,
-   "line_end": 55,
-   "col_end": 94,
+   "line_beg": 68,
+   "col_beg": 14,
+   "line_end": 68,
+   "col_end": 96,
    "project": "",
    "jsfbt": {
     "t": {
@@ -885,10 +885,10 @@
     }
    },
    "filepath": "src/cats/CatsTableCurrent.js",
-   "line_beg": 60,
-   "col_beg": 18,
-   "line_end": 60,
-   "col_end": 88,
+   "line_beg": 73,
+   "col_beg": 20,
+   "line_end": 73,
+   "col_end": 90,
    "project": "",
    "jsfbt": {
     "t": {
@@ -906,10 +906,10 @@
     }
    },
    "filepath": "src/cats/CatsTableCurrent.js",
-   "line_beg": 65,
-   "col_beg": 12,
-   "line_end": 67,
-   "col_end": 18,
+   "line_beg": 78,
+   "col_beg": 14,
+   "line_end": 80,
+   "col_end": 20,
    "project": "",
    "jsfbt": {
     "t": {
@@ -927,10 +927,10 @@
     }
    },
    "filepath": "src/cats/CatsTableCurrent.js",
-   "line_beg": 73,
-   "col_beg": 12,
-   "line_end": 75,
-   "col_end": 18,
+   "line_beg": 86,
+   "col_beg": 14,
+   "line_end": 88,
+   "col_end": 20,
    "project": "",
    "jsfbt": {
     "t": {
@@ -948,10 +948,10 @@
     }
    },
    "filepath": "src/cats/CatsTableCurrent.js",
-   "line_beg": 91,
-   "col_beg": 22,
-   "line_end": 93,
-   "col_end": 28,
+   "line_beg": 104,
+   "col_beg": 24,
+   "line_end": 106,
+   "col_end": 30,
    "project": "",
    "jsfbt": {
     "t": {
@@ -1104,216 +1104,6 @@
     "t": {
      "desc": "list of employees title",
      "text": "List of employees"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "DG4YwlsppzoioQ32fEtyQQ==": {
-     "text": "Something unexpected happened and server could not process the request! 🙈",
-     "desc": "generic failure message after creating a product"
-    }
-   },
-   "filepath": "src/forms/FormSubmit.js",
-   "line_beg": 89,
-   "col_beg": 10,
-   "line_end": 92,
-   "col_end": 11,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "generic failure message after creating a product",
-     "text": "Something unexpected happened and server could not process the request! 🙈"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "99TUdsKRfseIC6G04zBOKg==": {
-     "text": "This field is mandatory",
-     "desc": "mandatory field description"
-    }
-   },
-   "filepath": "src/forms/private/BaseInputWrapper.js",
-   "line_beg": 33,
-   "col_beg": 21,
-   "line_end": 33,
-   "col_end": 90,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "mandatory field description",
-     "text": "This field is mandatory"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "wE1bsb1gMGsz4iECjopB3w==": {
-     "text": "Field \"{form field label}\" is required. Please select one of the provided values.",
-     "desc": "value not selected validation error message"
-    }
-   },
-   "filepath": "src/forms/private/getValidityStateMessage.js",
-   "line_beg": 20,
-   "col_beg": 8,
-   "line_end": 23,
-   "col_end": 14,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "value not selected validation error message",
-     "text": "Field \"{form field label}\" is required. Please select one of the provided values."
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "4SRlvooaQB6It8KVa1bG9g==": {
-     "text": "Field \"{form field label}\" is required. Please fill in this field.",
-     "desc": "value missing validation error message"
-    }
-   },
-   "filepath": "src/forms/private/getValidityStateMessage.js",
-   "line_beg": 27,
-   "col_beg": 6,
-   "line_end": 30,
-   "col_end": 12,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "value missing validation error message",
-     "text": "Field \"{form field label}\" is required. Please fill in this field."
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "Wtx7FHIevcq36g3jquWXKg==": {
-     "text": "Field \"{form field label}\" must be negative.",
-     "desc": "range overflow validation error message"
-    }
-   },
-   "filepath": "src/forms/private/getValidityStateMessage.js",
-   "line_beg": 38,
-   "col_beg": 8,
-   "line_end": 41,
-   "col_end": 14,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "range overflow validation error message",
-     "text": "Field \"{form field label}\" must be negative."
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "S6jnfCvIypCDROzYeKb25A==": {
-     "text": "Field \"{form field label}\" has to have value smaller than {form field min value}.",
-     "desc": "range overflow validation error message"
-    }
-   },
-   "filepath": "src/forms/private/getValidityStateMessage.js",
-   "line_beg": 45,
-   "col_beg": 6,
-   "line_end": 48,
-   "col_end": 12,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "range overflow validation error message",
-     "text": "Field \"{form field label}\" has to have value smaller than {form field min value}."
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "x8iZhY9utb/UaEMs13hB8Q==": {
-     "text": "Field \"{form field label}\" must be positive.",
-     "desc": "range underflow validation error message"
-    }
-   },
-   "filepath": "src/forms/private/getValidityStateMessage.js",
-   "line_beg": 56,
-   "col_beg": 8,
-   "line_end": 59,
-   "col_end": 14,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "range underflow validation error message",
-     "text": "Field \"{form field label}\" must be positive."
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "qstwPQ9btvcdowx9na89+A==": {
-     "text": "Field \"{form field label}\" has to have value larger than {form field min value}.",
-     "desc": "range underflow validation error message"
-    }
-   },
-   "filepath": "src/forms/private/getValidityStateMessage.js",
-   "line_beg": 63,
-   "col_beg": 6,
-   "line_end": 66,
-   "col_end": 12,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "range underflow validation error message",
-     "text": "Field \"{form field label}\" has to have value larger than {form field min value}."
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "xBtaPdxqvTa9ZLg6/y0y9Q==": {
-     "text": "Please enter a valid value. The two nearest valid values are {low boundary} and {high boundary}.",
-     "desc": "step mismatch validation error message"
-    }
-   },
-   "filepath": "src/forms/private/getValidityStateMessage.js",
-   "line_beg": 79,
-   "col_beg": 6,
-   "line_end": 83,
-   "col_end": 12,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "step mismatch validation error message",
-     "text": "Please enter a valid value. The two nearest valid values are {low boundary} and {high boundary}."
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "cXb0sWHtGL0NAVNk2AXyYw==": {
-     "text": "Field \"{form field label}\" is invalid.",
-     "desc": "generic validation error message"
-    }
-   },
-   "filepath": "src/forms/private/getValidityStateMessage.js",
-   "line_beg": 89,
-   "col_beg": 4,
-   "line_end": 91,
-   "col_end": 10,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "generic validation error message",
-     "text": "Field \"{form field label}\" is invalid."
     },
     "m": []
    }
@@ -3006,9 +2796,9 @@
     }
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 66,
+   "line_beg": 68,
    "col_beg": 15,
-   "line_end": 66,
+   "line_end": 68,
    "col_end": 86,
    "project": "",
    "jsfbt": {
@@ -3027,9 +2817,9 @@
     }
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 75,
+   "line_beg": 77,
    "col_beg": 12,
-   "line_end": 75,
+   "line_end": 77,
    "col_end": 99,
    "project": "",
    "jsfbt": {
@@ -3048,9 +2838,9 @@
     }
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 84,
+   "line_beg": 86,
    "col_beg": 12,
-   "line_end": 84,
+   "line_end": 86,
    "col_end": 99,
    "project": "",
    "jsfbt": {
@@ -3069,9 +2859,9 @@
     }
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 93,
+   "line_beg": 95,
    "col_beg": 10,
-   "line_end": 95,
+   "line_end": 97,
    "col_end": 16,
    "project": "",
    "jsfbt": {
@@ -3090,9 +2880,9 @@
     }
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 103,
+   "line_beg": 105,
    "col_beg": 10,
-   "line_end": 105,
+   "line_end": 107,
    "col_end": 16,
    "project": "",
    "jsfbt": {
@@ -3111,9 +2901,9 @@
     }
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 115,
+   "line_beg": 117,
    "col_beg": 10,
-   "line_end": 115,
+   "line_end": 117,
    "col_end": 99,
    "project": "",
    "jsfbt": {
@@ -3132,9 +2922,9 @@
     }
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 121,
+   "line_beg": 123,
    "col_beg": 15,
-   "line_end": 121,
+   "line_end": 123,
    "col_end": 84,
    "project": "",
    "jsfbt": {
@@ -3153,9 +2943,9 @@
     }
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 142,
+   "line_beg": 144,
    "col_beg": 15,
-   "line_end": 142,
+   "line_end": 144,
    "col_end": 82,
    "project": "",
    "jsfbt": {
@@ -3174,9 +2964,9 @@
     }
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 161,
+   "line_beg": 163,
    "col_beg": 12,
-   "line_end": 171,
+   "line_end": 173,
    "col_end": 18,
    "project": "",
    "jsfbt": {
@@ -3195,9 +2985,9 @@
     }
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 174,
+   "line_beg": 176,
    "col_beg": 16,
-   "line_end": 178,
+   "line_end": 180,
    "col_end": 22,
    "project": "",
    "jsfbt": {
@@ -3216,9 +3006,9 @@
     }
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 185,
+   "line_beg": 187,
    "col_beg": 10,
-   "line_end": 185,
+   "line_end": 187,
    "col_end": 73,
    "project": "",
    "jsfbt": {
@@ -3237,9 +3027,9 @@
     }
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 188,
+   "line_beg": 190,
    "col_beg": 10,
-   "line_end": 190,
+   "line_end": 192,
    "col_end": 16,
    "project": "",
    "jsfbt": {
