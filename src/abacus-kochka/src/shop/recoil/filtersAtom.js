@@ -1,9 +1,6 @@
 // @flow
 
 import { isBrowser } from '@adeira/js';
-/* $FlowFixMe[untyped-type-import] This comment suppresses an error when
- * upgrading Recoil to version 0.7.3. To see the error delete this comment and
- * run Flow. */
 import { atom, DefaultValue, type RecoilState } from 'recoil';
 
 export type State = {
@@ -84,7 +81,4 @@ export default (atom<State>({
       });
     },
   ],
-  /* $FlowFixMe[value-as-type] This comment suppresses an error when upgrading
-   * Recoil to version 0.7.3. To see the error delete this comment and run Flow.
-   */
 }): RecoilState<State>);
