@@ -6,7 +6,7 @@ pub struct CatInfo {
     _id: String,
     _key: String,
     name: String,
-    description: String,
+    description: Option<String>,
     order: i32,
     can_be_adopted: Option<bool>,
     date_adoption: Option<String>,
@@ -29,7 +29,7 @@ impl CatInfo {
         self.name.to_owned()
     }
 
-    fn description(&self) -> String {
+    fn description(&self) -> Option<String> {
         self.description.to_owned()
     }
 
