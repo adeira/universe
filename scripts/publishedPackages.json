@@ -14,7 +14,6 @@
   "@adeira/murmur-hash",
   "@adeira/react-auth",
   "@adeira/relay",
-  "@adeira/signed-source",
   "@adeira/sx",
   "@adeira/sx-design",
   "@adeira/sx-design-nextjs",
