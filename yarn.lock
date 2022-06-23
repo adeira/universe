@@ -11,7 +11,7 @@ __metadata:
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
     "@adeira/hooks": ^0.3.0
-    "@adeira/icons": ^2.0.0
+    "@adeira/icons": ^1.2.0
     "@adeira/js": ^2.1.1
     "@adeira/react-auth": ^0.1.0
     "@adeira/relay": ^6.0.0
@@ -63,7 +63,7 @@ __metadata:
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
     "@adeira/hooks": ^0.3.0
-    "@adeira/icons": ^2.0.0
+    "@adeira/icons": ^1.2.0
     "@adeira/js": ^2.1.1
     "@adeira/relay": ^6.0.0
     "@adeira/sx": ^0.29.1
@@ -212,7 +212,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/icons@^2.0.0, @adeira/icons@workspace:src/icons":
+"@adeira/icons@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "@adeira/icons@npm:1.2.0"
+  dependencies:
+    "@babel/runtime": ^7.17.9
+    "@loadable/component": ^5.15.2
+  peerDependencies:
+    react: ^17.0.2
+  checksum: 27961bfdaf32c06c3ac61da740ee9755807ada6b3e1d214659ad4a026fd5d03d96948117993c7a3dc44629a022ae4671922d4c2ab176c9eecfb0553c6bad2ef0
+  languageName: node
+  linkType: hard
+
+"@adeira/icons@workspace:src/icons":
   version: 0.0.0-use.local
   resolution: "@adeira/icons@workspace:src/icons"
   dependencies:
@@ -375,7 +387,7 @@ __metadata:
     "@adeira/babel-preset-adeira": ^4.0.0
     "@adeira/css-colors": ^2.2.0
     "@adeira/hooks": ^0.3.0
-    "@adeira/icons": ^2.0.0
+    "@adeira/icons": ^1.2.0
     "@adeira/js": ^2.1.1
     "@adeira/sx": ^0.29.1
     "@adeira/sx-jest-snapshot-serializer": ^0.1.0
@@ -2061,7 +2073,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.17.9, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.7.7, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.18.3
   resolution: "@babel/runtime@npm:7.18.3"
   dependencies:
@@ -2567,6 +2579,19 @@ __metadata:
     "@jridgewell/resolve-uri": ^3.0.3
     "@jridgewell/sourcemap-codec": ^1.4.10
   checksum: e38254e830472248ca10a6ed1ae75af5e8514f0680245a5e7b53bc3c030fd8691d4d3115d80595b45d3badead68269769ed47ecbbdd67db1343a11f05700e75a
+  languageName: node
+  linkType: hard
+
+"@loadable/component@npm:^5.15.2":
+  version: 5.15.2
+  resolution: "@loadable/component@npm:5.15.2"
+  dependencies:
+    "@babel/runtime": ^7.7.7
+    hoist-non-react-statics: ^3.3.1
+    react-is: ^16.12.0
+  peerDependencies:
+    react: ">=16.3.0"
+  checksum: dd027f3f9fb684613506fe48dcb656367a13731c139134fb71c2bc1734df4218fdb64e5ca80fa2575fdf52e1be0e0a2ec770f0ca77275706e66d1074d0835401
   languageName: node
   linkType: hard
 
@@ -10990,6 +11015,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"hoist-non-react-statics@npm:^3.3.1":
+  version: 3.3.2
+  resolution: "hoist-non-react-statics@npm:3.3.2"
+  dependencies:
+    react-is: ^16.7.0
+  checksum: b1538270429b13901ee586aa44f4cc3ecd8831c061d06cb8322e50ea17b3f5ce4d0e2e66394761e6c8e152cd8c34fb3b4b690116c6ce2bd45b18c746516cb9e8
+  languageName: node
+  linkType: hard
+
 "hosted-git-info@npm:^2.1.4, hosted-git-info@npm:^2.7.1":
   version: 2.8.9
   resolution: "hosted-git-info@npm:2.8.9"
@@ -15957,7 +15991,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-is@npm:^16.13.1":
+"react-is@npm:^16.12.0, react-is@npm:^16.13.1, react-is@npm:^16.7.0":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
