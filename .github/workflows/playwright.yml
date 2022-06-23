@@ -47,7 +47,7 @@ jobs:
 
       - name: Install Yarn dependencies
         if: steps.paths-filter.outputs.src == 'true'
-        run: yarn install --immutable
+        run: yarn install --immutable --immutable-cache --check-cache
 
       - name: Install Playwright
         if: steps.paths-filter.outputs.src == 'true'

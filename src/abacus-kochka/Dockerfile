@@ -4,14 +4,14 @@ FROM node:18.4.0-alpine AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 COPY package.json ./
-RUN yarn install # --immutable
+RUN yarn install # --immutable --immutable-cache --check-cache
 
 # Rebuild the source code only when needed
 FROM node:18.4.0-alpine AS builder
 WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
-RUN yarn build && yarn install # --immutable
+RUN yarn build && yarn install # --immutable --immutable-cache --check-cache
 
 # Production image, copy all the files and run next
 FROM node:18.4.0-alpine AS runner

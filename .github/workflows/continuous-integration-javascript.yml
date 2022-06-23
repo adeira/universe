@@ -32,7 +32,7 @@ jobs:
           cache: 'yarn'
 
       - name: Install Yarn dependencies
-        run: yarn install --immutable
+        run: yarn install --immutable --immutable-cache --check-cache
 
       # TODO: https://github.com/yarnpkg/berry/issues/2783
       # - name: Check Yarn versions releases

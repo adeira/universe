@@ -27,7 +27,7 @@ jobs:
           node-version: 14.x
 
       - name: Install Yarn dependencies
-        run: yarn install --immutable
+        run: yarn install --immutable --immutable-cache --check-cache
 
       - name: Publish NPM packages to the registry
         run: yarn monorepo-babel-node scripts/publishNPMPackages.js
