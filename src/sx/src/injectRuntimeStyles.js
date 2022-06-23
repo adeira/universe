@@ -3,7 +3,6 @@
 /* global document */
 
 import { invariant, warning } from '@adeira/js';
-import { compile, serialize, stringify, prefixer, middleware } from 'stylis';
 
 import StyleCollectorAtNode from './StyleCollectorAtNode';
 import StyleCollectorNode from './StyleCollectorNode';
@@ -63,12 +62,7 @@ export function injectRuntimeKeyframes(css: string, name: string) {
   };
 
   if (hasStyleRule(matchFunction) === false) {
-    const rules = [];
-    serialize(compile(css), middleware([prefixer, (rule) => rules.push(rule)]));
-
-    rules.forEach((rule) => {
-      styleSheet.insertRule(serialize([rule], stringify), styleSheet.cssRules.length);
-    });
+    styleSheet.insertRule(css, styleSheet.cssRules.length);
   }
 }
 
@@ -92,25 +86,16 @@ export default function injectRuntimeStyles(styleBuffer: StyleBufferType) {
     if (node instanceof StyleCollectorNode) {
       if (hasStyleRule(matchFunction(node)) === false) {
         // apply missing styles
-        const rule = serialize(
-          compile(node.printNodes({ trailingSemicolon: true }).join('')),
-          middleware([prefixer, stringify]),
-        );
-        styleSheet.insertRule(rule, insertIndex);
+        styleSheet.insertRule(node.printNodes().join(''), insertIndex);
       }
     } else if (node instanceof StyleCollectorAtNode) {
       // TODO: make sure we are not adding already added styles (?)
-      const rule = serialize(
-        compile(node.printNodes({ trailingSemicolon: true }).join('')),
-        middleware([prefixer, stringify]),
-      );
-      styleSheet.insertRule(rule, insertIndex);
+      styleSheet.insertRule(node.printNodes().join(''), insertIndex);
     } else if (node instanceof StyleCollectorPseudoNode) {
-      const nodes = node.printNodes({ trailingSemicolon: true });
+      const nodes = node.printNodes();
       for (const nodeElement of nodes) {
         // TODO: make sure we are not adding already added styles (?)
-        const rule = serialize(compile(nodeElement), middleware([prefixer, stringify]));
-        styleSheet.insertRule(rule, insertIndex);
+        styleSheet.insertRule(nodeElement, insertIndex);
       }
     } else {
       warning(false, 'Node not supported in runtime styles: %j', node);

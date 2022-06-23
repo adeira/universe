@@ -140,11 +140,9 @@ it('handles background:none specificity correctly', () => {
       background-image: none;
     }
     .vSqk6 {
-      -webkit-background-position: 0% 0%;
       background-position: 0% 0%;
     }
     ._1m2K58 {
-      -webkit-background-size: auto auto;
       background-size: auto auto;
     }
     ._2RyIOg {
@@ -154,7 +152,6 @@ it('handles background:none specificity correctly', () => {
       background-origin: padding-box;
     }
     ._3IDiTj {
-      -webkit-background-clip: border-box;
       background-clip: border-box;
     }
     ._376SiR {
@@ -198,7 +195,7 @@ it('works with keyframes', () => {
     <style
       data-adeira-sx="true"
     >
-      .P4y5l{-webkit-animation-name:_2rMlJa;animation-name:_2rMlJa;}.HDQox{-webkit-animation-duration:2s;animation-duration:2s;}@-webkit-keyframes _2rMlJa{from{opacity:0;}to{opacity:1;}}@keyframes _2rMlJa{from{opacity:0;}to{opacity:1;}}
+      .P4y5l{animation-name:_2rMlJa}.HDQox{animation-duration:2s}@keyframes _2rMlJa {from {opacity:0;}to {opacity:1;}}
     </style>
   `);
 });

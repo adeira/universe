@@ -1,6 +1,5 @@
 // @flow
 
-import { compile, serialize, stringify, prefixer, middleware } from 'stylis';
 import type { Element } from 'react';
 
 import StyleCollector from './StyleCollector';
@@ -11,8 +10,9 @@ import StyleCollector from './StyleCollector';
  */
 export default function getStyleTag(): Element<'style'> {
   const createStylesMarkup = () => {
-    const cssStyles = serialize(compile(StyleCollector.print()), middleware([prefixer, stringify]));
-    return { __html: cssStyles };
+    return {
+      __html: StyleCollector.print(),
+    };
   };
 
   return (

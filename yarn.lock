@@ -440,7 +440,6 @@ __metadata:
     react: ^18.2.0
     react-test-renderer: ^18.2.0
     snapshot-diff: ^0.9.0
-    stylis: ^4.1.1
   peerDependencies:
     react: ^18.2.0
   languageName: unknown
@@ -17803,13 +17802,6 @@ __metadata:
     babel-plugin-macros:
       optional: true
   checksum: 86d55819ebeabd283a574d2f44f7d3f8fa6b8c28fa41687ece161bf1e910e04965611618921d8f5cd33dc6dae1033b926a70421ae5ea045440a9861edc3e0d87
-  languageName: node
-  linkType: hard
-
-"stylis@npm:^4.1.1":
-  version: 4.1.1
-  resolution: "stylis@npm:4.1.1"
-  checksum: e9b0a086996a94c44d45933287731313f6ecdbf9334410231d882d31a1890fb36e34a7b163487e2d7f992c2044e4cb37179810fc6f758f359a431343c2374ed2
   languageName: node
   linkType: hard
 
