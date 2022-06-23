@@ -23,7 +23,6 @@ exports[`matches expected output: @supports.js 1`] = `
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 @supports (display: grid) {
   ._3GKV06._3GKV06 {
-    display: -ms-grid;
     display: grid;
   }
 }
@@ -121,7 +120,6 @@ exports[`matches expected output: autoprefix.js 1`] = `
 }
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 ._2D4soO {
-  -webkit-background-clip: text;
   background-clip: text;
 }
 
@@ -142,16 +140,7 @@ exports[`matches expected output: keyframes-from-to.js 1`] = `
 }
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 .P4y5l {
-  -webkit-animation-name: _2rMlJa;
   animation-name: _2rMlJa;
-}
-@-webkit-keyframes _2rMlJa {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
 @keyframes _2rMlJa {
   from {
@@ -179,19 +168,7 @@ exports[`matches expected output: keyframes-percentage.js 1`] = `
 }
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 ._3SIQcJ {
-  -webkit-animation-name: a2yPF;
   animation-name: a2yPF;
-}
-@-webkit-keyframes a2yPF {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-  25% {
-    opacity: 0.7;
-  }
 }
 @keyframes a2yPF {
   0% {
@@ -509,11 +486,9 @@ exports[`matches expected output: pseudo-classes.js 1`] = `
 }
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 .v2kHO {
-  -webkit-text-decoration: none;
   text-decoration: none;
 }
 .crve5:hover {
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
@@ -546,11 +521,9 @@ exports[`matches expected output: pseudo-classes-multiple.js 1`] = `
 }
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 .v2kHO {
-  -webkit-text-decoration: none;
   text-decoration: none;
 }
 ._30RBbb:hover {
-  -webkit-text-decoration: none;
   text-decoration: none;
 }
 ._1O0igU:hover {
@@ -636,11 +609,9 @@ exports[`matches expected output: pseudo-elements.js 1`] = `
 }
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 .v2kHO {
-  -webkit-text-decoration: none;
   text-decoration: none;
 }
 .crve5:hover {
-  -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 ._2sj7wN::after {
@@ -708,7 +679,6 @@ exports[`matches expected output: readme-example.js 1`] = `
   font-size: 32px;
 }
 .v2kHO {
-  -webkit-text-decoration: none;
   text-decoration: none;
 }
 .stDQH {

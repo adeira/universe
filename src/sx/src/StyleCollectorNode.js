@@ -55,8 +55,7 @@ export default class StyleCollectorNode implements StyleCollectorNodeInterface {
   printNodes(config?: PrintConfig): $ReadOnlyArray<string> {
     const className = `.${this.hash}`.repeat(config?.bumpSpecificity === true ? 2 : 1);
     const pseudo = config?.pseudo ?? '';
-    const trailingSemicolon = config?.trailingSemicolon ? ';' : '';
 
-    return [`${className}${pseudo}{${this.styleName}:${this.styleValue}${trailingSemicolon}}`];
+    return [`${className}${pseudo}{${this.styleName}:${this.styleValue}}`];
   }
 }
