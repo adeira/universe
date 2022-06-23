@@ -348,14 +348,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/signed-source@workspace:src/signed-source":
-  version: 0.0.0-use.local
-  resolution: "@adeira/signed-source@workspace:src/signed-source"
-  dependencies:
-    "@babel/runtime": ^7.18.3
-  languageName: unknown
-  linkType: soft
-
 "@adeira/sx-design-nextjs@^0.3.2, @adeira/sx-design-nextjs@workspace:src/sx-design-nextjs":
   version: 0.0.0-use.local
   resolution: "@adeira/sx-design-nextjs@workspace:src/sx-design-nextjs"
