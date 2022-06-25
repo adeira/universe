@@ -193,6 +193,7 @@ pub struct StripeWebhookPayloadData {
     pub object: serde_json::Value,
 }
 
+/// https://stripe.com/docs/api/events/object
 #[derive(Debug, Deserialize, Serialize)]
 pub struct StripeWebhookPayload {
     /// Unique identifier for the event object.
@@ -206,6 +207,12 @@ pub struct StripeWebhookPayload {
     /// Example: "2020-08-27"
     /// See: https://stripe.com/docs/api/events/object#event_object-api_version
     pub api_version: String,
+
+    /// Time at which the object was created. Measured in seconds since the Unix epoch.
+    ///
+    /// Example: 1656195734
+    /// See: https://stripe.com/docs/api/events/object#event_object-created
+    pub created: u64,
 
     /// Description of the event (e.g., `invoice.created` or `charge.refunded`).
     ///

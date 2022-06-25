@@ -83,6 +83,22 @@ pub(in crate::warp_server) async fn webhooks_stripe(
                         }
                     };
 
+                    match crate::stripe::dal::record_webhook_call(&pool, &stripe_webhook_payload)
+                        .await
+                    {
+                        Ok(_) => {}
+                        Err(error) => {
+                            tracing::error!(
+                                "Unable to record Stripe payload in our database: {}",
+                                error
+                            );
+                            return Ok(warp::reply::with_status(
+                                String::from("Unable to record Stripe payload in our database."),
+                                warp::http::StatusCode::INTERNAL_SERVER_ERROR,
+                            ));
+                        }
+                    }
+
                     let webhook_type = &stripe_webhook_payload.r#type;
                     match webhook_type {
                         StripeWebhookType::CheckoutSessionCompleted => {
