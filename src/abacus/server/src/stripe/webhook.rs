@@ -195,9 +195,26 @@ pub struct StripeWebhookPayloadData {
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct StripeWebhookPayload {
-    pub id: String,          // example: "evt_1JharIIHqwQFdWEmyvc4vCsx"
-    pub api_version: String, // example: "2020-08-27"
+    /// Unique identifier for the event object.
+    ///
+    /// Example: "evt_1JharIIHqwQFdWEmyvc4vCsx"
+    /// See: https://stripe.com/docs/api/events/object#event_object-id
+    pub id: String,
+
+    /// The Stripe API version used to render `data`.
+    ///
+    /// Example: "2020-08-27"
+    /// See: https://stripe.com/docs/api/events/object#event_object-api_version
+    pub api_version: String,
+
+    /// Description of the event (e.g., `invoice.created` or `charge.refunded`).
+    ///
+    /// See: https://stripe.com/docs/api/events/object#event_object-type
     pub r#type: StripeWebhookType,
+
+    /// Object containing data associated with the event.
+    ///
+    /// See: https://stripe.com/docs/api/events/object#event_object-data
     pub data: StripeWebhookPayloadData,
 }
 
