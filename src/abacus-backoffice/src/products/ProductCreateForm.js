@@ -5,8 +5,8 @@ import { fbt } from 'fbt';
 import { graphql, useFragment } from '@adeira/relay';
 import { useFlashMessages, FlashMessageTint } from '@adeira/sx-design';
 import { useRouter } from 'next/router';
+import { FormSubmit } from '@adeira/forms';
 
-import FormSubmit from '../forms/FormSubmit';
 import useApplicationLocale from '../useApplicationLocale';
 import ProductForm from './ProductForm';
 import type { ProductCreateFormData$key } from './__generated__/ProductCreateFormData.graphql';

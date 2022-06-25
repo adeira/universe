@@ -5,17 +5,19 @@ import { Kbd, Tooltip, MoneyFn } from '@adeira/sx-design';
 import { fbt } from 'fbt';
 import * as React from 'react';
 import sx from '@adeira/sx';
+import {
+  FormCheckboxList,
+  FormMultiSelect,
+  FormSelectOption,
+  FormMultiUpload,
+  FormNumber,
+  FormRoot,
+  FormSelect,
+  FormSubmit,
+  FormText,
+  FormTextArea,
+} from '@adeira/forms';
 
-import FormCheckboxList from '../forms/FormCheckboxList';
-import FormMultiSelect from '../forms/FormMultiSelect';
-import FormSelectOption from '../forms/FormSelectOption';
-import FormMultiUpload from '../forms/FormMultiUpload';
-import FormNumber from '../forms/FormNumber';
-import FormRoot from '../forms/FormRoot';
-import FormSelect from '../forms/FormSelect';
-import FormSubmit from '../forms/FormSubmit';
-import FormText from '../forms/FormText';
-import FormTextArea from '../forms/FormTextArea';
 import refineSupportedCurrencies from '../refineSupportedCurrencies';
 import type { ProductFormCategoriesData$key } from './__generated__/ProductFormCategoriesData.graphql';
 import type { ProductFormAddonsData$key } from './__generated__/ProductFormAddonsData.graphql';
