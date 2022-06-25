@@ -1,6 +1,6 @@
 // @flow
 
-import { Badge, LayoutInline } from '@adeira/sx-design';
+import { Badge, LayoutInline, Text } from '@adeira/sx-design';
 import * as React from 'react';
 import fbt from 'fbt';
 import sx from '@adeira/sx';
@@ -8,13 +8,12 @@ import sx from '@adeira/sx';
 import LanguageSwitch from './LanguageSwitch';
 import Link from './Link';
 import { LogoutButton } from './AuthButtons';
-import NavigationHeader from './NavigationHeader';
 
 export default function Navigation(): React.Node {
   return (
     <nav className={styles('navigation')}>
       <div className={styles('navigationHeader')}>
-        <NavigationHeader />
+        <Text size={24}>Abacus 🧮</Text>
       </div>
 
       <Link href="/" xstyle={styles.link} xstyleActive={styles.linkActive}>
