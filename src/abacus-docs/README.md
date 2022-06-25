@@ -1,3 +1,3 @@
-Modified fork of: https://markdoc.io/
-
-tktk
+```
+yarn workspace @adeira/abacus-docs dev
+```
