@@ -46,12 +46,12 @@ struct Certs {
 
 #[derive(Debug, Clone, Deserialize)]
 pub struct CertKey {
-    alg: String,
+    // Unused: alg: String,
     n: String, // modulus
     kid: String,
     e: String, // exponent
-    r#use: String,
-    kty: String,
+               // Unused: r#use: String,
+               // Unused: kty: String,
 }
 
 impl CertKey {
@@ -153,12 +153,12 @@ impl CachedCerts for CachedCertsMock {
     async fn get_key_by_kid(&mut self, _kid: &str) -> Option<CertKey> {
         // see: https://www.googleapis.com/oauth2/v3/certs
         Some(CertKey {
-            alg: "RS256".to_string(),
+            // Unused: alg: "RS256".to_string(),
             n: "t-EAePKVyMaQbjG96EP98IIB7-CJLeo4AZOdc1WVTfMZgdbN_csbY1WP25CrlXvhaIewRNEKTF9WkKGvsxowpYJ_18rtOYnz94mn9s_EvJaBtoEcixXedwMwniw78ayLyi4IGzCLhUopgLnwAFardde9ZxpEAVqMK3q4EdScMLebrdrTu63oZ2EpLLIvuC5tjitFXLtNb5v2yiOElX3nXntOF9OYTtpCRzKRVOZ1Lqcj7G3oWmmBmLrR-fRc5yFpLFRVHu-vdp4BGUh96t2flz95QxhIRF0zcuvRiCPWjdiRZgJ8wiSy627XeINqKaoVycW0TofFcz2xAix9GuNdqQ".to_string(),
             kid: "e197bf2e87bd1905575f9b6e5eb426eda5d574e3".to_string(),
             e: "AQAB".to_string(),
-            r#use: "sig".to_string(),
-            kty: "RSA".to_string(),
+            // Unused: r#use: "sig".to_string(),
+            // Unused: kty: "RSA".to_string(),
         })
     }
 }

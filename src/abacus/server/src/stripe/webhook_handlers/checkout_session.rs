@@ -9,7 +9,10 @@ use crate::stripe::CheckoutSession;
 ///  - send email to us about new order to be fulfilled
 ///
 /// See: https://stripe.com/docs/payments/checkout/fulfill-orders#fulfill
-pub(crate) async fn completed(pool: &ConnectionPool, data: &CheckoutSession) -> anyhow::Result<()> {
+pub(crate) async fn completed(
+    _pool: &ConnectionPool,
+    data: &CheckoutSession,
+) -> anyhow::Result<()> {
     // TODO: update our order in the database (careful with donations - not everything is an order)
     // TODO: send email to our customer
     // TODO: send email to us

@@ -30,7 +30,7 @@ pub(in crate::analytics) async fn record_page_visit(
         bail!("nothing to record (all values are empty)")
     }
 
-    crate::analytics::dal::record_page_visit(&pool, &page_visit).await
+    crate::analytics::dal::record_page_visit(pool, page_visit).await
 }
 
 #[cfg(test)]

@@ -63,9 +63,10 @@ pub struct Session {
     _id: String,
     _rev: String,
     _key: String,
-    last_access: String,
+    // Unused: last_access: String,
 }
 
+#[cfg(test)]
 impl Session {
     /// It is not possible to retrieve back the original session token, only hash (similar to how
     /// passwords would work).

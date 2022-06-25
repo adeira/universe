@@ -89,7 +89,7 @@ impl POSMutation {
                 let product_from_db = products
                     .as_ref()
                     .unwrap()
-                    .into_iter()
+                    .iter()
                     .find(|p| p.key() == selected_product.product_key.to_string())
                     .unwrap();
 
