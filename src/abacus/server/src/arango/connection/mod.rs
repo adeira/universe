@@ -82,7 +82,6 @@ pub type Connection = GenericConnection<crate::arango::client::reqwest::ReqwestC
 
 /// Connection is the top level API for this crate.
 /// It contains a http client, information about authentication, arangodb url.
-#[derive(Debug, Clone)]
 pub struct GenericConnection<C: ClientExt, S = Normal> {
     session: Arc<C>,
     arango_url: Url,

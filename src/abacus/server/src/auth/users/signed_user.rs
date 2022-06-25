@@ -1,4 +1,3 @@
-use crate::auth::google::Claims;
 use crate::auth::users::AnyUser;
 use serde::Deserialize;
 
@@ -11,7 +10,7 @@ pub struct SignedUser {
     _id: String,
     _rev: String,
     _key: String,
-    google: Option<Claims>,
+    // Unused: google: Option<Claims>,
 }
 
 impl SignedUser {
@@ -30,7 +29,7 @@ impl From<AnyUser> for SignedUser {
             _id: user._id,
             _rev: user._rev,
             _key: user._key,
-            google: None,
+            // Unused: google: None,
         }
     }
 }

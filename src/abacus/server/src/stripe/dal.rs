@@ -1,4 +1,4 @@
-use crate::arango::{resolve_aql, resolve_aql_vector, ConnectionPool, Document};
+use crate::arango::{resolve_aql, ConnectionPool, Document};
 use crate::stripe::webhook::StripeWebhookPayload;
 
 pub(in crate) async fn record_webhook_call(

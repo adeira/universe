@@ -18,6 +18,7 @@ pub struct ProductError {
 
 #[derive(juniper::GraphQLUnion)]
 #[graphql(context = Context)]
+#[allow(clippy::large_enum_variant)]
 pub enum ProductOrError {
     Product(Product),
     ProductError(ProductError),

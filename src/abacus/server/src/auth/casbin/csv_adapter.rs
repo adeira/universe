@@ -6,8 +6,6 @@ pub struct CSVAdapter {
     csv_content: String,
 }
 
-type LoadPolicyFileHandler = fn(String, &mut dyn Model);
-
 impl CSVAdapter {
     pub fn new(csv_content: &str) -> CSVAdapter {
         CSVAdapter {
@@ -21,7 +19,7 @@ impl Adapter for CSVAdapter {
     async fn load_policy(&self, m: &mut dyn Model) -> Result<()> {
         let mut lines = self.csv_content.lines();
 
-        while let Some(line) = lines.next() {
+        for line in lines.by_ref() {
             // load_policy_line:
             if let Some(tokens) = crate::auth::casbin::util::parse_csv_line(line) {
                 let key = &tokens[0];
@@ -39,11 +37,11 @@ impl Adapter for CSVAdapter {
         Ok(())
     }
 
-    async fn load_filtered_policy<'a>(&mut self, m: &mut dyn Model, f: Filter<'a>) -> Result<()> {
+    async fn load_filtered_policy<'a>(&mut self, _m: &mut dyn Model, _f: Filter<'a>) -> Result<()> {
         Ok(())
     }
 
-    async fn save_policy(&mut self, m: &mut dyn Model) -> Result<()> {
+    async fn save_policy(&mut self, _m: &mut dyn Model) -> Result<()> {
         Ok(())
     }
 

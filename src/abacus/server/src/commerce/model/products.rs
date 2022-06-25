@@ -167,8 +167,8 @@ impl Product {
     /// product with localized name, description etc.
     fn translation(&self, locale: SupportedLocale) -> Option<ProductMultilingualTranslations> {
         self.translations
-            .to_owned()
-            .into_iter()
+            .iter()
+            .cloned()
             .find(|translation| translation.locale == locale)
     }
 
