@@ -145,6 +145,17 @@ pub(in crate::warp_server) async fn webhooks_stripe(
     ))
 }
 
+pub(in crate::warp_server) async fn webhooks_wlcm(
+    _wlcm_webhook_payload_bytes: bytes::Bytes,
+) -> Result<impl Reply, Rejection> {
+    // Returning 200 means that we accepted the webhook successfully.
+    // We should return non-200 response only when we cannot process it.
+    Ok(warp::reply::with_status(
+        String::from("OK"), // TODO
+        warp::http::StatusCode::OK,
+    ))
+}
+
 pub(in crate::warp_server) async fn graphql_post(
     request: GraphQLRequest,
     pool: ConnectionPool,
