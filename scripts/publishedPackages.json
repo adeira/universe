@@ -6,6 +6,7 @@
   "@adeira/fetch",
   "@adeira/fixtures-tester",
   "@adeira/flow-config-parser",
+  "@adeira/forms",
   "@adeira/hooks",
   "@adeira/icons",
   "@adeira/js",

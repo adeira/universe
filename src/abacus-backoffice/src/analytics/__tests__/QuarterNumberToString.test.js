@@ -6,7 +6,7 @@
 import React from 'react';
 
 import QuarterNumberToString from '../QuarterNumberToString';
-import { customRender, customRenderWithoutErrorBoundary } from '../../forms/private/testUtils';
+import { customRender, customRenderWithoutErrorBoundary } from '../../testUtils';
 
 it('works as expected for Q1', () => {
   const { getByText } = customRender(<QuarterNumberToString quarterNumber={1} />);
