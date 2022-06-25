@@ -15,6 +15,7 @@ mod supported_countries;
 mod supported_currencies;
 mod supported_locales;
 
+pub mod dal;
 pub mod webhook;
 pub mod webhook_handlers;
 

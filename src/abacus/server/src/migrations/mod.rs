@@ -10,6 +10,7 @@ mod v0__migrations_init;
 mod v10__create_collection_archive;
 mod v11__create_collection_orders;
 mod v12__create_collection_cats;
+mod v13__create_collection_webhook_events_stripe;
 mod v1__create_collection_users_sessions;
 mod v2__create_document_user_anonymous;
 mod v3__create_document_user_admin;
@@ -75,6 +76,9 @@ pub async fn migrate(pool: &ConnectionPool) {
         }),
         ("v12__create_collection_cats", |db| {
             Box::pin(v12__create_collection_cats::migrate(db))
+        }),
+        ("v13__create_collection_webhook_events_stripe", |db| {
+            Box::pin(v13__create_collection_webhook_events_stripe::migrate(db))
         }),
     ];
 
