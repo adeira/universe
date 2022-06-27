@@ -18,13 +18,13 @@
   "main": "./src/index.js",
   "type": "commonjs",
   "dependencies": {
-    "@babel/runtime": "^7.18.3"
+    "@babel/runtime": "^7.18.6"
   },
   "devDependencies": {
     "@adeira/eslint-fixtures-tester": "0.1.0",
     "@adeira/flow-types-eslint": "0.0.0",
     "@adeira/sx": "^0.29.1",
-    "@babel/code-frame": "^7.16.7",
+    "@babel/code-frame": "^7.18.6",
     "@babel/eslint-parser": "^7.18.2",
     "eslint": "^8.18.0",
     "react": "^18.2.0"
