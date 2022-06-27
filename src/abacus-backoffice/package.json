@@ -22,7 +22,7 @@
     "@adeira/sx": "^0.29.1",
     "@adeira/sx-design": "^0.28.0",
     "@next/bundle-analyzer": "^12.1.6",
-    "d3": "^7.4.5",
+    "d3": "^7.5.0",
     "fbt": "^1.0.0",
     "graphql": "^16.5.0",
     "immutable": "^4.1.0",
