@@ -1,5 +1,7 @@
 # Unreleased
 
+- New rule [`@next/next/no-styled-jsx-in-document`](https://nextjs.org/docs/messages/no-styled-jsx-in-document) enabled.
+
 # 7.6.0
 
 - New rule [`no-constant-binary-expression`](https://eslint.org/docs/rules/no-constant-binary-expression) enabled (warnings or errors in strict mode).

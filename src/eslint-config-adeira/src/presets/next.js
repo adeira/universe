@@ -16,7 +16,6 @@ module.exports = ({
     '@next/next/google-font-preconnect': ERROR,
     '@next/next/inline-script-id': ERROR,
     '@next/next/next-script-for-ga': OFF, // TODO: https://github.com/vercel/next.js/issues/28635
-    '@next/next/no-assign-module-variable': NEXT_VERSION_ERROR,
     '@next/next/no-before-interactive-script-outside-document': NEXT_VERSION_ERROR,
     '@next/next/no-css-tags': ERROR,
     '@next/next/no-document-import-in-page': ERROR,
@@ -27,7 +26,7 @@ module.exports = ({
     '@next/next/no-img-element': ERROR,
     '@next/next/no-page-custom-font': ERROR,
     '@next/next/no-script-component-in-head': ERROR,
-    '@next/next/no-server-import-in-page': ERROR,
+    '@next/next/no-styled-jsx-in-document': NEXT_VERSION_ERROR,
     '@next/next/no-sync-scripts': ERROR,
     '@next/next/no-title-in-document-head': ERROR,
     '@next/next/no-typos': ERROR,
