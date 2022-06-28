@@ -1,5 +1,10 @@
 # Unreleased
 
+# 6.1.0
+
+- The network layer now takes `QueryResponseCache` into account.
+- Add experimental `RelayRehydratePreloadedQueries` query to allow usage of `usePreloadedQuery` in Next.js applications.
+
 # 6.0.0
 
 - Use Relay 14.0.0, see: https://github.com/facebook/relay/releases/tag/v14.0.0
