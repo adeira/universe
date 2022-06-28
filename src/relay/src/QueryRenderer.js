@@ -43,6 +43,9 @@ type Props<T> =
       +render: (ReadyState<?T>) => Node,
     }>;
 
+/**
+ * @deprecated Use `useLazyLoadQuery` or `usePreloadedQuery` instead.
+ */
 export default function QueryRenderer<T>(props: $ReadOnly<Props<T>>): Node {
   function renderQueryRendererResponse({ error, props: rendererProps, retry }: ReadyState<?T>) {
     if (error) {
@@ -76,7 +79,7 @@ export default function QueryRenderer<T>(props: $ReadOnly<Props<T>>): Node {
     }
 
     if (rendererProps == null) {
-      return props.onLoading ? props.onLoading() : <div data-testid="loading">Loading...</div>;
+      return props.onLoading ? props.onLoading() : <div data-testid="loading">Loading…</div>;
     }
 
     invariant(
