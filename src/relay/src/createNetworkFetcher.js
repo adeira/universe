@@ -1,9 +1,10 @@
 // @flow strict-local
 
 import fetchWithRetries from '@adeira/fetch';
-import type { UploadableMap, Variables } from 'relay-runtime';
+import { type UploadableMap, type Variables } from 'relay-runtime';
 
-import { handleData, getRequestBody, getHeaders } from './internal/helpers';
+import relayQueryResponseCache from './internal/QueryResponseCache';
+import { handleData, getRequestBody, getHeaders, isQuery } from './internal/helpers';
 
 type Headers = {
   +[key: string]: string,
@@ -26,6 +27,14 @@ export default function createNetworkFetcher(
   uploadables: ?UploadableMap,
 ) => Promise<$FlowFixMe | string> {
   return async function fetch(request, variables, uploadables) {
+    if (isQuery(request)) {
+      // TODO: take into account `cacheConfig.force`
+      const fromCache = relayQueryResponseCache.get(request.cacheID, variables);
+      if (fromCache != null) {
+        return Promise.resolve(fromCache);
+      }
+    }
+
     const body = getRequestBody(request, variables, uploadables);
 
     // sometimes it's necessary to get headers asynchronously (while refreshing authorization

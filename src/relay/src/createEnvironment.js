@@ -11,6 +11,7 @@ import type { RecordObjectMap } from 'relay-runtime/store/RelayStoreTypes';
 
 import createRelayStore from './internal/createRelayStore';
 import createRequestHandler from './internal/createRequestHandler';
+import relayQueryResponseCache from './internal/QueryResponseCache';
 import { RelayLogger, RelayRequiredFieldLogger } from './RelayLogger';
 
 type Options = {
@@ -33,8 +34,10 @@ function createNetwork(
 
 export default function createEnvironment(options: Options): Environment {
   const { fetchFn, subscribeFn, records, gcReleaseBufferSize, ...rest } = options;
-  return new RelayEnvironment({
-    network: createNetwork(fetchFn, subscribeFn),
+  const network = createNetwork(fetchFn, subscribeFn);
+
+  const environment = new RelayEnvironment({
+    network: network,
     log: RelayLogger,
     requiredFieldLogger: RelayRequiredFieldLogger,
     store: createRelayStore(records, {
@@ -42,4 +45,8 @@ export default function createEnvironment(options: Options): Environment {
     }),
     ...rest,
   });
+
+  // $FlowFixMe[prop-missing]: property responseCache is missing in INetwork
+  environment.getNetwork().responseCache = relayQueryResponseCache;
+  return environment;
 }
