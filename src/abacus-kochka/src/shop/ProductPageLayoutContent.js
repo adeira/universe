@@ -1,85 +1,93 @@
 // @flow
 
-import { graphql, QueryRenderer } from '@adeira/relay';
+import { graphql, useLazyLoadQuery } from '@adeira/relay';
 import sx from '@adeira/sx';
-import { Note, Text, Image, Money, LayoutBlock, MediaQueryDevice } from '@adeira/sx-design';
+import {
+  Note,
+  Text,
+  Image,
+  Money,
+  LayoutBlock,
+  MediaQueryDevice,
+  SupportedCurrencies,
+  MissingData,
+} from '@adeira/sx-design';
 import fbt from 'fbt';
 import React, { type Node } from 'react';
-import { useRouter } from 'next/router';
 
 import useViewerContext from '../hooks/useViewerContext';
 
-export default function ProductPageLayoutContent(): Node {
-  const router = useRouter();
-  const viewerContext = useViewerContext();
-  const productKey = router.query.product_key;
+type Props = {
+  +productKey: string,
+};
 
-  return (
-    <QueryRenderer
-      query={graphql`
-        query ProductPageLayoutContentQuery($clientLocale: SupportedLocale!, $productKey: ID!) {
-          commerce {
-            product: getPublishedProductByKey(
-              clientLocale: $clientLocale
-              productKey: $productKey
-            ) {
-              name
-              description
-              price {
-                unitAmount
-                unitAmountCurrency
-              }
-              images {
-                blurhash
-                url
-              }
+export default function ProductPageLayoutContent(props: Props): Node {
+  const viewerContext = useViewerContext();
+
+  const {
+    commerce: { product },
+    // eslint-disable-next-line relay/generated-flow-types -- https://github.com/relayjs/eslint-plugin-relay/issues/131
+  } = useLazyLoadQuery(
+    graphql`
+      query ProductPageLayoutContentQuery($clientLocale: SupportedLocale!, $productKey: ID!) {
+        commerce {
+          product: getPublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {
+            name
+            description
+            price {
+              unitAmount
+              unitAmountCurrency
+            }
+            images {
+              blurhash
+              url
             }
           }
         }
-      `}
-      variables={{
-        clientLocale: viewerContext.languageTag.graphql,
-        productKey,
-      }}
-      onResponse={({ commerce: { product } }) => {
-        return (
-          <div className={styles('layout')}>
-            <LayoutBlock>
-              {product.images.map((image) => (
-                <Image
-                  key={image.url}
-                  src={image.url}
-                  alt={product.name}
-                  blurhash={image.blurhash}
-                />
-              ))}
-            </LayoutBlock>
+      }
+    `,
+    {
+      clientLocale: viewerContext.languageTag.graphql,
+      productKey: props.productKey,
+    },
+  );
 
-            <LayoutBlock spacing="large">
-              <Text as="h1">{product.name}</Text>
+  const unitAmountCurrency = SupportedCurrencies.cast(product.price.unitAmountCurrency);
 
-              <Text size={24} weight={400}>
-                <Money
-                  priceUnitAmount={
-                    product.price.unitAmount / 100 // adjusted for centavo
-                  }
-                  priceUnitAmountCurrency={product.price.unitAmountCurrency}
-                />
-              </Text>
+  return (
+    <div className={styles('layout')}>
+      <LayoutBlock>
+        {product.images.map((image) => (
+          <Image key={image.url} src={image.url} alt={product.name} blurhash={image.blurhash} />
+        ))}
+      </LayoutBlock>
 
-              <p className={styles('description')}>{product.description}</p>
+      <LayoutBlock spacing="large">
+        <Text as="h1">{product.name}</Text>
 
-              <Note tint="warning">
-                <fbt desc="not about all our products being available only in person">
-                  All our products are currently available only in person in our café. We are
-                  working on making them available online as well.
-                </fbt>
-              </Note>
-            </LayoutBlock>
-          </div>
-        );
-      }}
-    />
+        <Text size={24} weight={400}>
+          {unitAmountCurrency == null ? (
+            <MissingData />
+          ) : (
+            <Money
+              priceUnitAmount={
+                product.price.unitAmount / 100 // adjusted for centavo
+              }
+              priceUnitAmountCurrency={unitAmountCurrency}
+            />
+          )}
+        </Text>
+
+        <p className={styles('description')}>{product.description}</p>
+
+        <Note tint="warning">
+          <fbt desc="not about all our products being available only in person">
+            All our products are currently available only in person in our café. We are working on
+            making them available online as well.
+          </fbt>
+        </Note>
+      </LayoutBlock>
+    </div>
   );
 }
 
