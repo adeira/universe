@@ -18,7 +18,7 @@
     "@adeira/hooks": "^0.3.0",
     "@adeira/icons": "^2.0.0",
     "@adeira/js": "^2.1.1",
-    "@adeira/relay": "^6.1.0",
+    "@adeira/relay": "^6.0.0",
     "@adeira/sx": "^0.29.1",
     "@adeira/sx-design": "^0.28.0",
     "@adeira/sx-design-nextjs": "^0.3.2",
