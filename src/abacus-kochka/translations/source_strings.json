@@ -1406,9 +1406,9 @@
     }
    },
    "filepath": "src/shop/ProductPageLayout.js",
-   "line_beg": 13,
+   "line_beg": 17,
    "col_beg": 13,
-   "line_end": 13,
+   "line_end": 17,
    "col_end": 58,
    "project": "",
    "jsfbt": {
@@ -1427,9 +1427,9 @@
     }
    },
    "filepath": "src/shop/ProductPageLayout.js",
-   "line_beg": 15,
+   "line_beg": 19,
    "col_beg": 8,
-   "line_end": 15,
+   "line_end": 19,
    "col_end": 92,
    "project": "",
    "jsfbt": {
@@ -1448,10 +1448,10 @@
     }
    },
    "filepath": "src/shop/ProductPageLayoutContent.js",
-   "line_beg": 73,
-   "col_beg": 16,
-   "line_end": 76,
-   "col_end": 22,
+   "line_beg": 84,
+   "col_beg": 10,
+   "line_end": 87,
+   "col_end": 16,
    "project": "",
    "jsfbt": {
     "t": {
@@ -1469,9 +1469,9 @@
     }
    },
    "filepath": "src/shop/ShopLayout.js",
-   "line_beg": 37,
+   "line_beg": 38,
    "col_beg": 13,
-   "line_end": 37,
+   "line_end": 38,
    "col_end": 58,
    "project": "",
    "jsfbt": {
@@ -1490,9 +1490,9 @@
     }
    },
    "filepath": "src/shop/ShopLayout.js",
-   "line_beg": 39,
+   "line_beg": 40,
    "col_beg": 8,
-   "line_end": 39,
+   "line_end": 40,
    "col_end": 92,
    "project": "",
    "jsfbt": {
@@ -1511,9 +1511,9 @@
     }
    },
    "filepath": "src/shop/ShopLayout.js",
-   "line_beg": 45,
+   "line_beg": 46,
    "col_beg": 12,
-   "line_end": 45,
+   "line_end": 46,
    "col_end": 76,
    "project": "",
    "jsfbt": {
@@ -1532,9 +1532,9 @@
     }
    },
    "filepath": "src/shop/ShopLayout.js",
-   "line_beg": 58,
+   "line_beg": 59,
    "col_beg": 14,
-   "line_end": 58,
+   "line_end": 59,
    "col_end": 65,
    "project": "",
    "jsfbt": {
@@ -1553,9 +1553,9 @@
     }
    },
    "filepath": "src/shop/ShopLayout.js",
-   "line_beg": 69,
+   "line_beg": 80,
    "col_beg": 12,
-   "line_end": 69,
+   "line_end": 80,
    "col_end": 70,
    "project": "",
    "jsfbt": {
@@ -1574,9 +1574,9 @@
     }
    },
    "filepath": "src/shop/ShopLayout.js",
-   "line_beg": 81,
+   "line_beg": 92,
    "col_beg": 14,
-   "line_end": 81,
+   "line_end": 92,
    "col_end": 78,
    "project": "",
    "jsfbt": {
@@ -1595,9 +1595,9 @@
     }
    },
    "filepath": "src/shop/ShopLayout.js",
-   "line_beg": 94,
+   "line_beg": 105,
    "col_beg": 14,
-   "line_end": 94,
+   "line_end": 105,
    "col_end": 79,
    "project": "",
    "jsfbt": {
@@ -1610,58 +1610,16 @@
   },
   {
    "hashToLeaf": {
-    "9nlQMh24gzrCe2wsI7rTrw==": {
-     "text": "retry",
-     "desc": "retry button title"
-    }
-   },
-   "filepath": "src/shop/ShopLayoutContent.js",
-   "line_beg": 67,
-   "col_beg": 18,
-   "line_end": 67,
-   "col_end": 60,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "retry button title",
-     "text": "retry"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "CA7qWNKuLlABfoiTt5lvUA==": {
-     "text": "unable to load eshop products",
-     "desc": "unable to load eshop products note"
-    }
-   },
-   "filepath": "src/shop/ShopLayoutContent.js",
-   "line_beg": 72,
-   "col_beg": 12,
-   "line_end": 72,
-   "col_end": 94,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "unable to load eshop products note",
-     "text": "unable to load eshop products"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
     "Vzx+hI2Z0PqPWhGFV/NbRA==": {
      "text": "There are no products yet.",
      "desc": "empty shop message"
     }
    },
    "filepath": "src/shop/ShopLayoutContent.js",
-   "line_beg": 80,
-   "col_beg": 14,
-   "line_end": 80,
-   "col_end": 77,
+   "line_beg": 56,
+   "col_beg": 8,
+   "line_end": 56,
+   "col_end": 71,
    "project": "",
    "jsfbt": {
     "t": {

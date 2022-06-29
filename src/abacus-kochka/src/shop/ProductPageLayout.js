@@ -6,7 +6,11 @@ import React, { type Node } from 'react';
 import Layout from '../Layout';
 import ProductPageLayoutContent from './ProductPageLayoutContent';
 
-export default function ProductPageLayout(): Node {
+type Props = {
+  +productKey: string,
+};
+
+export default function ProductPageLayout(props: Props): Node {
   return (
     <Layout
       withFullWidth={true}
@@ -15,7 +19,7 @@ export default function ProductPageLayout(): Node {
         <fbt desc="shop page subtitle">Support our cats by buying some of our products</fbt>
       }
     >
-      <ProductPageLayoutContent />
+      <ProductPageLayoutContent productKey={props.productKey} />
     </Layout>
   );
 }

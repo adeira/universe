@@ -1,9 +1,10 @@
 // @flow
 
+import { rangeMap } from '@adeira/js';
 import sx from '@adeira/sx';
-import { ButtonLink, MediaQueryDevice, Text } from '@adeira/sx-design';
+import { ButtonLink, LayoutGrid, MediaQueryDevice, Skeleton, Text } from '@adeira/sx-design';
 import fbt from 'fbt';
-import React, { type Node } from 'react';
+import React, { Suspense, type Node } from 'react';
 import { useSetRecoilState } from 'recoil';
 
 import filtersAtom, { type State as AtomState } from './recoil/filtersAtom';
@@ -61,7 +62,17 @@ export default function ShopLayout(): Node {
         </div>
 
         <div className={styles('shopGridContent')}>
-          <ShopLayoutContent />
+          <Suspense
+            fallback={
+              <LayoutGrid minColumnWidth="200px">
+                {rangeMap(12, (i) => (
+                  <Skeleton key={i} />
+                ))}
+              </LayoutGrid>
+            }
+          >
+            <ShopLayoutContent />
+          </Suspense>
         </div>
 
         <div className={styles('shopGridRelevance')}>
