@@ -1,71 +1,78 @@
 // @flow
 
-import { QueryRenderer, graphql } from '@adeira/relay';
+import { graphql, useFragment } from '@adeira/relay';
 import { MediaQueryDevice } from '@adeira/sx-design';
+import fbt from 'fbt';
 import React, { type Node } from 'react';
 import sx from '@adeira/sx';
 
-import MenuLoader from './menu/MenuLoader';
+import Layout from './Layout';
 import MenuSectionCiabattas from './menu/MenuSectionCiabattas';
 import MenuSectionCoffee from './menu/MenuSectionCoffee';
 import MenuSectionKochkadas from './menu/MenuSectionKochkadas';
 import MenuSectionOthers from './menu/MenuSectionOthers';
 import MenuSectionSpecialities from './menu/MenuSectionSpecialities';
 import MenuSectionTea from './menu/MenuSectionTea';
-import useViewerContext from './hooks/useViewerContext';
+import type { MenuFragment$key } from './__generated__/MenuFragment.graphql';
 
-export default function Menu(): Node {
-  const viewerContext = useViewerContext();
+type Props = {
+  +fragmentReference: MenuFragment$key,
+};
+
+export const MenuQuery = graphql`
+  query MenuQuery($clientLocale: SupportedLocale!) {
+    ...MenuFragment
+  }
+`;
+
+export default function Menu(props: Props): Node {
+  const relayProps = useFragment(
+    graphql`
+      fragment MenuFragment on Query {
+        menu {
+          ...MenuSectionCoffee
+          ...MenuSectionTea
+          ...MenuSectionSpecialities
+          ...MenuSectionOthers
+          ...MenuSectionKochkadas
+          ...MenuSectionCiabattas
+        }
+      }
+    `,
+    props.fragmentReference,
+  );
 
   return (
-    <QueryRenderer
-      query={graphql`
-        query MenuQuery($clientLocale: SupportedLocale!) {
-          menu {
-            ...MenuSectionCoffee
-            ...MenuSectionTea
-            ...MenuSectionSpecialities
-            ...MenuSectionOthers
-            ...MenuSectionKochkadas
-            ...MenuSectionCiabattas
-          }
-        }
-      `}
-      variables={{
-        clientLocale: viewerContext.languageTag.graphql,
-      }}
-      fetchPolicy="store-and-network"
-      onLoading={() => <MenuLoader />}
-      onResponse={(relayProps) => {
-        return (
-          <div className={styles('menuGrid')}>
-            <div className={styles('menuGridAreaCoffee')}>
-              <MenuSectionCoffee menuData={relayProps.menu} />
-            </div>
+    <Layout
+      title={<fbt desc="menu page title">Café menu</fbt>}
+      subtitle={<fbt desc="menu page subtitle">What do we offer</fbt>}
+    >
+      <div className={styles('menuGrid')}>
+        <div className={styles('menuGridAreaCoffee')}>
+          <MenuSectionCoffee menuData={relayProps.menu} />
+        </div>
 
-            <div className={styles('menuGridAreaTea')}>
-              <MenuSectionTea menuData={relayProps.menu} />
-            </div>
+        <div className={styles('menuGridAreaTea')}>
+          <MenuSectionTea menuData={relayProps.menu} />
+        </div>
 
-            <div className={styles('menuGridAreaSpecialities')}>
-              <MenuSectionSpecialities menuData={relayProps.menu} />
-            </div>
+        <div className={styles('menuGridAreaSpecialities')}>
+          <MenuSectionSpecialities menuData={relayProps.menu} />
+        </div>
 
-            <div className={styles('menuGridAreaOthers')}>
-              <MenuSectionOthers menuData={relayProps.menu} />
-            </div>
+        <div className={styles('menuGridAreaOthers')}>
+          <MenuSectionOthers menuData={relayProps.menu} />
+        </div>
 
-            <div className={styles('menuGridAreaKochkadas')}>
-              <MenuSectionKochkadas menuData={relayProps.menu} />
-            </div>
+        <div className={styles('menuGridAreaKochkadas')}>
+          <MenuSectionKochkadas menuData={relayProps.menu} />
+        </div>
 
-            <div className={styles('menuGridAreaCiabattas')}>
-              <MenuSectionCiabattas menuData={relayProps.menu} />
-            </div>
-          </div>
-        );
-      }}
-    />
+        <div className={styles('menuGridAreaCiabattas')}>
+          <MenuSectionCiabattas menuData={relayProps.menu} />
+        </div>
+      </div>
+    </Layout>
   );
 }
 

@@ -2,8 +2,10 @@
 
 import { createEnvironment, createNetworkFetcher, type Environment } from '@adeira/relay';
 
+import constants from './constants';
+
 const RelayEnvironment: Environment = createEnvironment({
-  fetchFn: createNetworkFetcher('https://abacus.kochka.com.mx/graphql'),
+  fetchFn: createNetworkFetcher(constants.graphqlServerURL),
 });
 
 export default RelayEnvironment;

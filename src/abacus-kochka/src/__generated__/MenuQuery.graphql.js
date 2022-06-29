@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<f8ac453605a3d124a8d3360c4fd5047b>>
+ * @generated SignedSource<<491e1361633ded65e55c12d897f894a4>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -12,20 +12,13 @@
 
 /*::
 import type { ConcreteRequest, Query } from 'relay-runtime';
-type MenuSectionCiabattas$fragmentType = any;
-type MenuSectionCoffee$fragmentType = any;
-type MenuSectionKochkadas$fragmentType = any;
-type MenuSectionOthers$fragmentType = any;
-type MenuSectionSpecialities$fragmentType = any;
-type MenuSectionTea$fragmentType = any;
+type MenuFragment$fragmentType = any;
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 export type MenuQuery$variables = {|
   clientLocale: SupportedLocale,
 |};
 export type MenuQuery$data = {|
-  +menu: {|
-    +$fragmentSpreads: MenuSectionCiabattas$fragmentType & MenuSectionCoffee$fragmentType & MenuSectionKochkadas$fragmentType & MenuSectionOthers$fragmentType & MenuSectionSpecialities$fragmentType & MenuSectionTea$fragmentType,
-  |},
+  +$fragmentSpreads: MenuFragment$fragmentType,
 |};
 export type MenuQuery = {|
   response: MenuQuery$data,
@@ -102,45 +95,9 @@ return {
     "name": "MenuQuery",
     "selections": [
       {
-        "alias": null,
         "args": null,
-        "concreteType": "MenuQuery",
-        "kind": "LinkedField",
-        "name": "menu",
-        "plural": false,
-        "selections": [
-          {
-            "args": null,
-            "kind": "FragmentSpread",
-            "name": "MenuSectionCoffee"
-          },
-          {
-            "args": null,
-            "kind": "FragmentSpread",
-            "name": "MenuSectionTea"
-          },
-          {
-            "args": null,
-            "kind": "FragmentSpread",
-            "name": "MenuSectionSpecialities"
-          },
-          {
-            "args": null,
-            "kind": "FragmentSpread",
-            "name": "MenuSectionOthers"
-          },
-          {
-            "args": null,
-            "kind": "FragmentSpread",
-            "name": "MenuSectionKochkadas"
-          },
-          {
-            "args": null,
-            "kind": "FragmentSpread",
-            "name": "MenuSectionCiabattas"
-          }
-        ],
-        "storageKey": null
+        "kind": "FragmentSpread",
+        "name": "MenuFragment"
       }
     ],
     "type": "Query",
@@ -268,18 +225,18 @@ return {
     ]
   },
   "params": {
-    "cacheID": "06a1abba789aea54bdd8b95c900fc8ce",
+    "cacheID": "e9a100d8ca35f6e7553afd6664478714",
     "id": null,
     "metadata": {},
     "name": "MenuQuery",
     "operationKind": "query",
-    "text": "query MenuQuery(\n  $clientLocale: SupportedLocale!\n) {\n  menu {\n    ...MenuSectionCoffee\n    ...MenuSectionTea\n    ...MenuSectionSpecialities\n    ...MenuSectionOthers\n    ...MenuSectionKochkadas\n    ...MenuSectionCiabattas\n  }\n}\n\nfragment MenuRow on Product {\n  name\n  description\n  price {\n    unitAmount\n    unitAmountCurrency\n  }\n}\n\nfragment MenuSectionCiabattas on MenuQuery {\n  ciabattasMenu: menu(clientLocale: $clientLocale, section: CIABATTAS) {\n    id\n    ...MenuRow\n  }\n}\n\nfragment MenuSectionCoffee on MenuQuery {\n  coffeeMenu: menu(clientLocale: $clientLocale, section: COFFEE) {\n    id\n    ...MenuRow\n  }\n}\n\nfragment MenuSectionKochkadas on MenuQuery {\n  kochkadasMenu: menu(clientLocale: $clientLocale, section: KOCHKADAS) {\n    id\n    ...MenuRow\n  }\n}\n\nfragment MenuSectionOthers on MenuQuery {\n  othersMenu: menu(clientLocale: $clientLocale, section: OTHERS) {\n    id\n    ...MenuRow\n  }\n}\n\nfragment MenuSectionSpecialities on MenuQuery {\n  specialitiesMenu: menu(clientLocale: $clientLocale, section: SPECIALITIES) {\n    id\n    ...MenuRow\n  }\n}\n\nfragment MenuSectionTea on MenuQuery {\n  teaMenu: menu(clientLocale: $clientLocale, section: TEA) {\n    id\n    ...MenuRow\n  }\n}\n"
+    "text": "query MenuQuery(\n  $clientLocale: SupportedLocale!\n) {\n  ...MenuFragment\n}\n\nfragment MenuFragment on Query {\n  menu {\n    ...MenuSectionCoffee\n    ...MenuSectionTea\n    ...MenuSectionSpecialities\n    ...MenuSectionOthers\n    ...MenuSectionKochkadas\n    ...MenuSectionCiabattas\n  }\n}\n\nfragment MenuRow on Product {\n  name\n  description\n  price {\n    unitAmount\n    unitAmountCurrency\n  }\n}\n\nfragment MenuSectionCiabattas on MenuQuery {\n  ciabattasMenu: menu(clientLocale: $clientLocale, section: CIABATTAS) {\n    id\n    ...MenuRow\n  }\n}\n\nfragment MenuSectionCoffee on MenuQuery {\n  coffeeMenu: menu(clientLocale: $clientLocale, section: COFFEE) {\n    id\n    ...MenuRow\n  }\n}\n\nfragment MenuSectionKochkadas on MenuQuery {\n  kochkadasMenu: menu(clientLocale: $clientLocale, section: KOCHKADAS) {\n    id\n    ...MenuRow\n  }\n}\n\nfragment MenuSectionOthers on MenuQuery {\n  othersMenu: menu(clientLocale: $clientLocale, section: OTHERS) {\n    id\n    ...MenuRow\n  }\n}\n\nfragment MenuSectionSpecialities on MenuQuery {\n  specialitiesMenu: menu(clientLocale: $clientLocale, section: SPECIALITIES) {\n    id\n    ...MenuRow\n  }\n}\n\nfragment MenuSectionTea on MenuQuery {\n  teaMenu: menu(clientLocale: $clientLocale, section: TEA) {\n    id\n    ...MenuRow\n  }\n}\n"
   }
 };
 })();
 
 if (__DEV__) {
-  (node/*: any*/).hash = "3ff31fb1abea8c770e7133bae7f9c138";
+  (node/*: any*/).hash = "4885edd21a783fd2a33a45223e699641";
 }
 
 module.exports = ((node/*: any*/)/*: Query<

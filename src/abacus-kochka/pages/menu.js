@@ -1,18 +1,36 @@
 // @flow
 
 import * as React from 'react';
-import fbt from 'fbt';
+import { usePreloadedQuery } from '@adeira/relay';
+import type { Context } from 'next';
 
-import Layout from '../src/Layout';
-import Menu from '../src/Menu';
+import LanguageTag from '../src/LanguageTag';
+import Menu, { MenuQuery } from '../src/Menu';
+import relayPreloadQuery from '../src/relayPreloadQuery';
 
-export default function MenuPage(): React.Node {
-  return (
-    <Layout
-      title={<fbt desc="menu page title">Café menu</fbt>}
-      subtitle={<fbt desc="menu page subtitle">What do we offer</fbt>}
-    >
-      <Menu />
-    </Layout>
-  );
+type Props = {
+  +relayPreloadedQueryRefs: {
+    +menuQuery: $FlowFixMe,
+  },
+};
+
+export default function MenuPage(props: Props): React.Node {
+  const data = usePreloadedQuery(MenuQuery, props.relayPreloadedQueryRefs.menuQuery);
+  return <Menu fragmentReference={data} />;
+}
+
+export async function getServerSideProps({ locale }: Context): Promise<{
+  +props: { +relayPreloadedQueries: { +menuQuery: $FlowFixMe } },
+}> {
+  // TODO: https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props#caching-with-server-side-rendering-ssr
+
+  return {
+    props: {
+      relayPreloadedQueries: {
+        menuQuery: await relayPreloadQuery(MenuQuery, {
+          clientLocale: LanguageTag.detectLanguageTag(locale).graphql,
+        }),
+      },
+    },
+  };
 }
