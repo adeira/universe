@@ -7,7 +7,7 @@ import Head from 'next/head';
 import sx from '@adeira/sx';
 import { RecoilRoot } from 'recoil';
 import { SkipLink, SxDesignProvider } from '@adeira/sx-design';
-import { RelayEnvironmentProvider } from '@adeira/relay';
+import { RelayEnvironmentProvider, RelayRehydratePreloadedQueries } from '@adeira/relay';
 import { useRouter } from 'next/router';
 
 import './_app.css';
@@ -17,8 +17,8 @@ import ViewerContextProvider from '../src/ViewerContextProvider';
 import initFbtTranslations from '../translations/initFbtTranslations';
 
 type Props = {
-  +Component: any,
-  +pageProps: any,
+  +Component: $FlowFixMe,
+  +pageProps: $FlowFixMe,
 };
 
 export default function MyApp({ Component, pageProps }: Props): React.Node {
@@ -26,7 +26,9 @@ export default function MyApp({ Component, pageProps }: Props): React.Node {
   const languageTag = initFbtTranslations(router.locale);
 
   useEffect(() => {
-    recordPageVisit(RelayEnvironment);
+    if (!__DEV__) {
+      recordPageVisit(RelayEnvironment);
+    }
   });
 
   return (
@@ -46,7 +48,7 @@ export default function MyApp({ Component, pageProps }: Props): React.Node {
                     </fbt>
                   }
                 />
-                <Component {...pageProps} />
+                <RelayRehydratePreloadedQueries Component={Component} pageProps={pageProps} />
               </div>
             </RecoilRoot>
           </ViewerContextProvider>

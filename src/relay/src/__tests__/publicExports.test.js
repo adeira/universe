@@ -29,6 +29,7 @@ it('exports only what we want to export', () => {
       "readInlineData",
       "RelayEnvironmentProvider",
       "RelayLogger",
+      "RelayRehydratePreloadedQueries",
       "RelayRequiredFieldLogger",
       "requestSubscription",
       "useEntryPointLoader",

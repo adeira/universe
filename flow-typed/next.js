@@ -1,11 +1,8 @@
-// flow-typed signature: a45e28abd4c3f3f783b03245280c308f
-// flow-typed version: 0cb8ee4963/next_v10.x.x/flow_>=v0.104.x
-
-declare module "next" {
+declare module 'next' {
   declare type RequestHandler = (
     req: http$IncomingMessage<>,
     res: http$ServerResponse,
-    parsedUrl: any
+    parsedUrl: any,
   ) => Promise<void>;
 
   declare type NextApp = {
@@ -16,27 +13,27 @@ declare module "next" {
       req: http$IncomingMessage<>,
       res: http$ServerResponse,
       pathname: string,
-      query?: Object
+      query?: Object,
     ): Promise<void>,
     renderToHTML(
       req: http$IncomingMessage<>,
       res: http$ServerResponse,
       pathname: string,
-      query?: Object
+      query?: Object,
     ): string,
     renderError(
       err: Error,
       req: http$IncomingMessage<>,
       res: http$ServerResponse,
       pathname: string,
-      query?: Object
+      query?: Object,
     ): Promise<void>,
     renderErrorToHTML(
       err: Error,
       req: http$IncomingMessage<>,
       res: http$ServerResponse,
       pathname: string,
-      query?: Object
+      query?: Object,
     ): string,
     ...
   };
@@ -56,6 +53,7 @@ declare module "next" {
     +res?: any,
     +xhr?: any,
     +err?: any,
+    +locale?: string,
     ...
   };
 
@@ -68,11 +66,11 @@ declare module "next" {
   declare export default (opts: Options) => NextApp;
 }
 
-declare module "next/head" {
+declare module 'next/head' {
   declare module.exports: Class<React$Component<any, any>>;
 }
 
-declare module "next/config" {
+declare module 'next/config' {
   declare module.exports: () => {
     publicRuntimeConfig: { [string]: string, ... },
     serverRuntimeConfig: { [string]: string, ... },
@@ -95,7 +93,7 @@ declare type URLObject = {
   ...
 };
 
-declare module "next/link" {
+declare module 'next/link' {
   declare export type Props = {
     prefetch?: boolean,
     shallow?: boolean,
@@ -111,28 +109,25 @@ declare module "next/link" {
   declare export default Class<React$Component<Props>>;
 }
 
-declare module "next/router" {
+declare module 'next/router' {
   declare export type RouteError = Error & { cancelled: boolean, ... };
   declare export type RouteCallback = (url: string) => void;
-  declare export type RouteErrorCallback = (
-    err: RouteError,
-    url: string
-  ) => void;
+  declare export type RouteErrorCallback = (err: RouteError, url: string) => void;
 
   declare export interface RouterEvents {
-    on(event: "routeChangeStart", cb: RouteCallback): RouterEvents,
-    on(event: "routeChangeComplete", cb: RouteCallback): RouterEvents,
-    on(event: "routeChangeError", cb: RouteErrorCallback): RouterEvents,
-    on(event: "beforeHistoryChange", cb: RouteCallback): RouterEvents,
-    on(event: "hashChangeStart", cb: RouteCallback): RouterEvents,
-    on(event: "hashChangeComplete", cb: RouteCallback): RouterEvents,
+    on(event: 'routeChangeStart', cb: RouteCallback): RouterEvents;
+    on(event: 'routeChangeComplete', cb: RouteCallback): RouterEvents;
+    on(event: 'routeChangeError', cb: RouteErrorCallback): RouterEvents;
+    on(event: 'beforeHistoryChange', cb: RouteCallback): RouterEvents;
+    on(event: 'hashChangeStart', cb: RouteCallback): RouterEvents;
+    on(event: 'hashChangeComplete', cb: RouteCallback): RouterEvents;
 
-    off(event: "routeChangeStart", cb: RouteCallback): RouterEvents,
-    off(event: "routeChangeComplete", cb: RouteCallback): RouterEvents,
-    off(event: "routeChangeError", cb: RouteErrorCallback): RouterEvents,
-    off(event: "beforeHistoryChange", cb: RouteCallback): RouterEvents,
-    off(event: "hashChangeStart", cb: RouteCallback): RouterEvents,
-    off(event: "hashChangeComplete", cb: RouteCallback): RouterEvents
+    off(event: 'routeChangeStart', cb: RouteCallback): RouterEvents;
+    off(event: 'routeChangeComplete', cb: RouteCallback): RouterEvents;
+    off(event: 'routeChangeError', cb: RouteErrorCallback): RouterEvents;
+    off(event: 'beforeHistoryChange', cb: RouteCallback): RouterEvents;
+    off(event: 'hashChangeStart', cb: RouteCallback): RouterEvents;
+    off(event: 'hashChangeComplete', cb: RouteCallback): RouterEvents;
   }
 
   declare export type EventChangeOptions = {
@@ -164,12 +159,12 @@ declare module "next/router" {
     push(
       url: string | URLObject,
       as: ?(string | URLObject),
-      options?: EventChangeOptions
+      options?: EventChangeOptions,
     ): Promise<boolean>,
     replace(
       url: string | URLObject,
       as: ?(string | URLObject),
-      options?: EventChangeOptions
+      options?: EventChangeOptions,
     ): Promise<boolean>,
     prefetch(url: string): Promise<any>,
     beforePopState(cb: BeforePopStateCallback): void,
@@ -177,7 +172,7 @@ declare module "next/router" {
   };
 
   declare export function withRouter<T>(
-    Component: React$ComponentType<T & { router: Router, ... }>
+    Component: React$ComponentType<T & { router: Router, ... }>,
   ): Class<React$Component<T>>;
 
   declare export function useRouter(): Router;
@@ -185,8 +180,8 @@ declare module "next/router" {
   declare export default Router;
 }
 
-declare module "next/document" {
-  import type { Context } from "next";
+declare module 'next/document' {
+  import type { Context } from 'next';
 
   declare type ComponentsEnhancer = any;
 
@@ -199,7 +194,7 @@ declare module "next/document" {
   declare export type DocumentContext = Context & {
     renderPage: (options?: ComponentsEnhancer) => RenderPageResult | Promise<RenderPageResult>,
     ...
-  }
+  };
 
   declare export var Head: Class<React$Component<any, any>>;
   declare export var Main: Class<React$Component<any, any>>;
@@ -211,9 +206,9 @@ declare module "next/document" {
   };
 }
 
-declare module "next/app" {
-  import type { Context, Page } from "next";
-  import type { Router } from "next/router";
+declare module 'next/app' {
+  import type { Context, Page } from 'next';
+  import type { Router } from 'next/router';
 
   declare export var Container: Class<React$Component<any, any>>;
 
@@ -224,10 +219,13 @@ declare module "next/app" {
     ...
   };
 
-  declare export default Class<React$Component<any, any>> & { getInitialProps: (appInitialProps: AppInitialProps) => Promise<any>, ... };
+  declare export default Class<React$Component<any, any>> & {
+    getInitialProps: (appInitialProps: AppInitialProps) => Promise<any>,
+    ...
+  };
 }
 
-declare module "next/dynamic" {
+declare module 'next/dynamic' {
   declare type ImportedComponent = Promise<null | React$ElementType>;
   declare type ComponentMapping = { [componentName: string]: ImportedComponent, ... };
 
@@ -239,7 +237,7 @@ declare module "next/dynamic" {
     ssr?: boolean,
     render?: (
       props: any,
-      loaded: { [componentName: string]: React$ElementType, ... }
+      loaded: { [componentName: string]: React$ElementType, ... },
     ) => React$ElementType,
     modules?: () => ComponentMapping,
     loadableGenerated?: {
@@ -252,6 +250,6 @@ declare module "next/dynamic" {
 
   declare export default function dynamic(
     dynamicOptions: any,
-    options: ?NextDynamicOptions
+    options: ?NextDynamicOptions,
   ): Object;
 }

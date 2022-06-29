@@ -386,21 +386,42 @@
   },
   {
    "hashToLeaf": {
-    "Pl7F+dP7nG7j/0rFiWi4wA==": {
-     "text": "Downloading fresh menu, please wait…",
-     "desc": "loading menu indicator description"
+    "LBAx+p8s256gLYAkVfbjkg==": {
+     "text": "Café menu",
+     "desc": "menu page title"
     }
    },
-   "filepath": "src/menu/MenuLoader.js",
-   "line_beg": 13,
-   "col_beg": 8,
-   "line_end": 13,
-   "col_end": 97,
+   "filepath": "src/Menu.js",
+   "line_beg": 47,
+   "col_beg": 13,
+   "line_end": 47,
+   "col_end": 56,
    "project": "",
    "jsfbt": {
     "t": {
-     "desc": "loading menu indicator description",
-     "text": "Downloading fresh menu, please wait…"
+     "desc": "menu page title",
+     "text": "Café menu"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "JnDGjOnTmmVcE/3sXdcBuA==": {
+     "text": "What do we offer",
+     "desc": "menu page subtitle"
+    }
+   },
+   "filepath": "src/Menu.js",
+   "line_beg": 48,
+   "col_beg": 16,
+   "line_end": 48,
+   "col_end": 69,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "menu page subtitle",
+     "text": "What do we offer"
     },
     "m": []
    }
@@ -1721,9 +1742,9 @@
     }
    },
    "filepath": "pages/_app.js",
-   "line_beg": 44,
+   "line_beg": 46,
    "col_beg": 20,
-   "line_end": 46,
+   "line_end": 48,
    "col_end": 26,
    "project": "",
    "jsfbt": {
@@ -2573,48 +2594,6 @@
     "t": {
      "desc": "stay tuned note",
      "text": "this page is not finished yet, stay tuned"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "LBAx+p8s256gLYAkVfbjkg==": {
-     "text": "Café menu",
-     "desc": "menu page title"
-    }
-   },
-   "filepath": "pages/menu.js",
-   "line_beg": 12,
-   "col_beg": 13,
-   "line_end": 12,
-   "col_end": 56,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "menu page title",
-     "text": "Café menu"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "JnDGjOnTmmVcE/3sXdcBuA==": {
-     "text": "What do we offer",
-     "desc": "menu page subtitle"
-    }
-   },
-   "filepath": "pages/menu.js",
-   "line_beg": 13,
-   "col_beg": 16,
-   "line_end": 13,
-   "col_end": 69,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "menu page subtitle",
-     "text": "What do we offer"
     },
     "m": []
    }
