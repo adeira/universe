@@ -349,6 +349,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@adeira/sx-design-headless@^0.1.0, @adeira/sx-design-headless@workspace:src/sx-design-headless":
+  version: 0.0.0-use.local
+  resolution: "@adeira/sx-design-headless@workspace:src/sx-design-headless"
+  dependencies:
+    "@adeira/icons": ^2.0.0
+    "@adeira/js": ^2.1.1
+    "@babel/runtime": ^7.18.6
+  peerDependencies:
+    react: ^18.2.0
+  languageName: unknown
+  linkType: soft
+
 "@adeira/sx-design-nextjs@^0.3.2, @adeira/sx-design-nextjs@workspace:src/sx-design-nextjs":
   version: 0.0.0-use.local
   resolution: "@adeira/sx-design-nextjs@workspace:src/sx-design-nextjs"
@@ -371,6 +383,7 @@ __metadata:
     "@adeira/icons": ^2.0.0
     "@adeira/js": ^2.1.1
     "@adeira/sx": ^0.29.1
+    "@adeira/sx-design-headless": ^0.1.0
     "@adeira/sx-jest-snapshot-serializer": ^0.1.0
     "@babel/core": ^7.18.6
     "@babel/runtime": ^7.18.6
