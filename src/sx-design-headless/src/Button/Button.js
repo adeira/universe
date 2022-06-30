@@ -30,7 +30,7 @@ export type Props = {
  * can navigate the disabled buttons (see: https://css-tricks.com/making-disabled-buttons-more-inclusive/).
  */
 export default function Button(
-  props: $ReadOnly<{ ...Props, +className: string }>,
+  props: $ReadOnly<{ ...Props, +className: ?string }>,
 ): Element<'button'> {
   const childrenCount = React.Children.count(props.children);
   if (childrenCount === 1) {
