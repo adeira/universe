@@ -1,0 +1,24 @@
+{
+  "name": "@adeira/sx-design-headless",
+  "description": "TKTK",
+  "homepage": "https://github.com/adeira/sx-design",
+  "bugs": "https://github.com/adeira/universe/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adeira/universe.git",
+    "directory": "src/sx-design-headless"
+  },
+  "license": "MIT",
+  "version": "0.1.0",
+  "main": "./index.js",
+  "type": "commonjs",
+  "sideEffects": false,
+  "dependencies": {
+    "@adeira/icons": "^2.0.0",
+    "@adeira/js": "^2.1.1",
+    "@babel/runtime": "^7.18.6"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  }
+}

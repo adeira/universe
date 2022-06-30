@@ -17,6 +17,7 @@
     "@adeira/hooks": "^0.3.0",
     "@adeira/icons": "^2.0.0",
     "@adeira/js": "^2.1.1",
+    "@adeira/sx-design-headless": "^0.1.0",
     "@babel/runtime": "^7.18.6",
     "blurhash": "^1.1.5",
     "fbt": "^1.0.0",
