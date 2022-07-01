@@ -162,8 +162,10 @@ pub(in crate::warp_server) async fn webhooks_stripe(
 }
 
 pub(in crate::warp_server) async fn webhooks_wlcm(
-    _wlcm_webhook_payload_bytes: bytes::Bytes,
+    wlcm_webhook_payload_bytes: bytes::Bytes,
 ) -> Result<impl Reply, Rejection> {
+    dbg!(wlcm_webhook_payload_bytes); // TODO: waiting for the WLCM implementation
+
     // Returning 200 means that we accepted the webhook successfully.
     // We should return non-200 response only when we cannot process it.
     Ok(warp::reply::with_status(
