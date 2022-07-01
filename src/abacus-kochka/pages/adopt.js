@@ -1,6 +1,6 @@
 // @flow
 
-import { LayoutBlock, Money, Table, Text, SupportedCurrencies } from '@adeira/sx-design';
+import { LayoutBlock, Money, Table, Text, SupportedCurrencies, Link } from '@adeira/sx-design';
 import * as React from 'react';
 import fbt from 'fbt';
 
@@ -51,6 +51,17 @@ export default function RulesPage(): React.Node {
             It is also necessary to visit us in person first to get familiar with our cats.
             It&apos;s not possible to adopt a cat from KOCHKA Café without visiting us first.
           </fbt>
+        </Text>
+        <Text as="p">
+          <strong>
+            Download:{' '}
+            <Link
+              href="https://d1816i3z8ujauh.cloudfront.net/FORMATO%20DE%20ADOPCIO%CC%81N%20KOCHKA%20CAFE%CC%81%20(empty).pdf"
+              target="_blank"
+            >
+              FORMATO DE ADOPCIÓN KOCHKA CAFÉ.pdf
+            </Link>
+          </strong>
         </Text>
 
         <Text as="h3">
