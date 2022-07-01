@@ -1,5 +1,6 @@
-#![deny(unused_must_use)]
+#![forbid(clippy::missing_panics_doc)]
 #![forbid(unsafe_code)]
+#![forbid(unused_must_use)]
 
 #[macro_use]
 mod global_macros;
