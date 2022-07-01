@@ -19,7 +19,7 @@ __metadata:
     "@adeira/sx-design": ^0.28.0
     "@fbtjs/default-collection-transform": ^1.0.0
     "@next/bundle-analyzer": ^12.2.0
-    "@playwright/test": ^1.23.0
+    "@playwright/test": ^1.23.1
     "@testing-library/jest-dom": ^5.16.4
     "@testing-library/react": ^13.3.0
     "@testing-library/react-hooks": ^8.0.1
@@ -33,7 +33,7 @@ __metadata:
     next-compose-plugins: ^2.2.1
     next-plugin-custom-babel-config: ^1.0.5
     next-transpile-modules: ^9.0.0
-    playwright: ^1.23.0
+    playwright: ^1.23.1
     react: ^18.2.0
     react-dom: ^18.2.0
     recoil: ^0.7.4
@@ -48,10 +48,10 @@ __metadata:
     "@babel/preset-flow": ^7.18.6
     "@markdoc/markdoc": ^0.1.3
     "@markdoc/next.js": ^0.1.5
-    "@playwright/test": ^1.23.0
+    "@playwright/test": ^1.23.1
     js-yaml: ^4.1.0
     next: ^12.2.0
-    playwright: ^1.23.0
+    playwright: ^1.23.1
     react: ^18.2.0
     react-dom: ^18.2.0
   languageName: unknown
@@ -70,7 +70,7 @@ __metadata:
     "@adeira/sx-design": ^0.28.0
     "@adeira/sx-design-nextjs": ^0.3.2
     "@fbtjs/default-collection-transform": ^1.0.0
-    "@playwright/test": ^1.23.0
+    "@playwright/test": ^1.23.1
     "@testing-library/react": ^13.3.0
     babel-plugin-fbt: ^1.0.0
     babel-plugin-fbt-runtime: ^1.0.0
@@ -81,7 +81,7 @@ __metadata:
     next-plugin-custom-babel-config: ^1.0.5
     next-seo: ^5.4.0
     next-transpile-modules: ^9.0.0
-    playwright: ^1.23.0
+    playwright: ^1.23.1
     react: ^18.2.0
     react-dom: ^18.2.0
     recoil: ^0.7.4
@@ -135,7 +135,7 @@ __metadata:
     eslint-plugin-jsx-a11y: ^6.6.0
     eslint-plugin-monorepo: ^0.3.2
     eslint-plugin-n: ^15.2.3
-    eslint-plugin-prettier: ^4.1.0
+    eslint-plugin-prettier: ^4.2.1
     eslint-plugin-promise: ^6.0.0
     eslint-plugin-react: ^7.30.1
     eslint-plugin-react-hooks: ^4.6.0
@@ -410,7 +410,7 @@ __metadata:
     "@babel/core": ^7.18.6
     "@babel/runtime": ^7.18.6
     "@fbtjs/default-collection-transform": ^1.0.0
-    "@playwright/test": ^1.23.0
+    "@playwright/test": ^1.23.1
     "@storybook/addon-a11y": ^6.5.9
     "@storybook/addon-actions": ^6.5.9
     "@storybook/addon-essentials": ^6.5.9
@@ -429,7 +429,7 @@ __metadata:
     fbt: ^1.0.0
     flow-enums-runtime: ^0.0.6
     focus-trap-react: ^9.0.2
-    playwright: ^1.23.0
+    playwright: ^1.23.1
     prop-types: ^15.8.1
     react: ^18.2.0
     react-blurhash: ^0.1.3
@@ -2879,15 +2879,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:^1.23.0":
-  version: 1.23.0
-  resolution: "@playwright/test@npm:1.23.0"
+"@playwright/test@npm:^1.23.1":
+  version: 1.23.1
+  resolution: "@playwright/test@npm:1.23.1"
   dependencies:
     "@types/node": "*"
-    playwright-core: 1.23.0
+    playwright-core: 1.23.1
   bin:
     playwright: cli.js
-  checksum: a2eab406da91c1204e0c9faa912c825b759470fc5d1ffdb5fd7d3b7584a4bed88b3d614a55c27b5f67cb191a7412920c217b78a009c757619964838bf127cf63
+  checksum: 27fc6b4424dfb0f0dfaaecb01a33bf77c0f95e6a1e635fe85dd4ad36e5053afdbe4ad1de4be1c5705e482451b43f7ddacf667f6c5b70ab5f8e32c30110211c29
   languageName: node
   linkType: hard
 
@@ -9185,9 +9185,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-prettier@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "eslint-plugin-prettier@npm:4.1.0"
+"eslint-plugin-prettier@npm:^4.2.1":
+  version: 4.2.1
+  resolution: "eslint-plugin-prettier@npm:4.2.1"
   dependencies:
     prettier-linter-helpers: ^1.0.0
   peerDependencies:
@@ -9196,7 +9196,7 @@ __metadata:
   peerDependenciesMeta:
     eslint-config-prettier:
       optional: true
-  checksum: 3f731b9988383851f1a42bd67a093461886fc56dc5d0ca4c72bdd0755dc0f843faedde843c1812710a75782a9711096aad22b6140fe7d6f996cc4a672c8b3643
+  checksum: b9e839d2334ad8ec7a5589c5cb0f219bded260839a857d7a486997f9870e95106aa59b8756ff3f37202085ebab658de382b0267cae44c3a7f0eb0bcc03a4f6d6
   languageName: node
   linkType: hard
 
@@ -15352,23 +15352,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.23.0":
-  version: 1.23.0
-  resolution: "playwright-core@npm:1.23.0"
+"playwright-core@npm:1.23.1":
+  version: 1.23.1
+  resolution: "playwright-core@npm:1.23.1"
   bin:
     playwright: cli.js
-  checksum: 5c111e66676aec3f072e8ac0d284d2c41e1f4f033e73343618b483d3189d0cb4f9de4829e4fd281f3c57510f53c5fb35718721461bf5b5ef3876da108d35f977
+  checksum: 1e6a3a7a9aaee1864b22195c7fef52b6980fcafc6d667749737455360a44a182a7035f12bfd76f298f957d1b99550420a8748f6a473ceeacf2cb2db42beb9be0
   languageName: node
   linkType: hard
 
-"playwright@npm:^1.23.0":
-  version: 1.23.0
-  resolution: "playwright@npm:1.23.0"
+"playwright@npm:^1.23.1":
+  version: 1.23.1
+  resolution: "playwright@npm:1.23.1"
   dependencies:
-    playwright-core: 1.23.0
+    playwright-core: 1.23.1
   bin:
     playwright: cli.js
-  checksum: 06a2f3e41b837fdf370cf931236b898f888db85888465945e5ca2d8f9476ab66d532f2adf2ea703e1be384df462dbced6984df08081fc496da717c7290e3233c
+  checksum: d42276dadf4b35d5220a248388480a65fbcbf907b490931a0f89f4834cc64e6576042744714887ae60881a6d950540688d6868918bb5041361117cfe5b2d92bd
   languageName: node
   linkType: hard
 
