@@ -17,6 +17,15 @@ const items = [
     ],
   },
   {
+    title: 'Barista',
+    links: [
+      { href: '/docs/recipes/coffee-drinks', children: 'Coffee drinks' },
+      { href: '/docs/recipes/organic-tea-blends', children: 'Organic tea blends' },
+      { href: '/docs/recipes/specialities', children: 'Specialities' },
+      { href: '/docs/recipes/others', children: 'Others' },
+    ],
+  },
+  {
     title: 'Advanced',
     links: [{ href: '/docs/bbva-terminal', children: 'BBVA terminal' }],
   },
