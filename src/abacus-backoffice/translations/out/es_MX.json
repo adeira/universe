@@ -85,9 +85,7 @@
     "35WFhP": "awaiting payment",
     "2aYXJC": "completed",
     "1aIKvR": "Eshop orders",
-    "2kqQC3": "Success",
     "2lfHFv": "Every order was fulfilled, good job!",
-    "1pft9x": "Warning",
     "36kEmC": {
       "*": {
         "*": "There are {count} orders which has to be fulfilled. Don't let the customer waiting!"
@@ -119,8 +117,7 @@
     "2s71ok": "Confirm selection (no addons)",
     "VSrdm": "{totalPrice}",
     "AhWrA": "Continuar con la compra",
-    "3yXPZF": "Note",
-    "4ffLFV": "nothing selected yet",
+    "1XEYDR": "Select a product",
     "Q3hBE": "There are no product add-ons yet.",
     "3h62CU": "free",
     "1pFYHY": "Product add-ons",

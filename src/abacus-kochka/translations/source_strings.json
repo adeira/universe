@@ -1442,27 +1442,6 @@
   },
   {
    "hashToLeaf": {
-    "l49sr1EfqnNgCGMNEwE7wQ==": {
-     "text": "Warning",
-     "desc": "warning note prefix"
-    }
-   },
-   "filepath": "src/shop/ProductPageLayoutContent.js",
-   "line_beg": 83,
-   "col_beg": 41,
-   "line_end": 83,
-   "col_end": 86,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "warning note prefix",
-     "text": "Warning"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
     "bU6rVH2V6ifH2RNffzFZ8g==": {
      "text": "All our products are currently available only in person in our café. We are working on making them available online as well.",
      "desc": "not about all our products being available only in person"
@@ -1625,27 +1604,6 @@
     "t": {
      "desc": "price relevance hight to low",
      "text": "Price: High to low"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "l49sr1EfqnNgCGMNEwE7wQ==": {
-     "text": "Warning",
-     "desc": "warning note prefix"
-    }
-   },
-   "filepath": "src/shop/ShopLayoutContent.js",
-   "line_beg": 55,
-   "col_beg": 39,
-   "line_end": 55,
-   "col_end": 84,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "warning note prefix",
-     "text": "Warning"
     },
     "m": []
    }
@@ -1826,9 +1784,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 12,
+   "line_beg": 20,
    "col_beg": 13,
-   "line_end": 12,
+   "line_end": 20,
    "col_end": 67,
    "project": "",
    "jsfbt": {
@@ -1847,9 +1805,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 13,
+   "line_beg": 21,
    "col_beg": 16,
-   "line_end": 13,
+   "line_end": 21,
    "col_end": 99,
    "project": "",
    "jsfbt": {
@@ -1868,9 +1826,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 17,
+   "line_beg": 25,
    "col_beg": 10,
-   "line_end": 19,
+   "line_end": 27,
    "col_end": 16,
    "project": "",
    "jsfbt": {
@@ -1889,9 +1847,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 22,
+   "line_beg": 30,
    "col_beg": 10,
-   "line_end": 27,
+   "line_end": 35,
    "col_end": 16,
    "project": "",
    "jsfbt": {
@@ -1910,9 +1868,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 30,
+   "line_beg": 38,
    "col_beg": 10,
-   "line_end": 33,
+   "line_end": 41,
    "col_end": 16,
    "project": "",
    "jsfbt": {
@@ -1931,9 +1889,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 37,
+   "line_beg": 45,
    "col_beg": 10,
-   "line_end": 39,
+   "line_end": 47,
    "col_end": 16,
    "project": "",
    "jsfbt": {
@@ -1952,9 +1910,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 42,
+   "line_beg": 50,
    "col_beg": 10,
-   "line_end": 47,
+   "line_end": 55,
    "col_end": 16,
    "project": "",
    "jsfbt": {
@@ -1973,9 +1931,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 50,
+   "line_beg": 58,
    "col_beg": 10,
-   "line_end": 53,
+   "line_end": 61,
    "col_end": 16,
    "project": "",
    "jsfbt": {
@@ -1994,9 +1952,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 68,
+   "line_beg": 74,
    "col_beg": 10,
-   "line_end": 68,
+   "line_end": 74,
    "col_end": 73,
    "project": "",
    "jsfbt": {
@@ -2015,9 +1973,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 72,
+   "line_beg": 78,
    "col_beg": 22,
-   "line_end": 72,
+   "line_end": 78,
    "col_end": 69,
    "project": "",
    "jsfbt": {
@@ -2036,9 +1994,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 74,
+   "line_beg": 80,
    "col_beg": 22,
-   "line_end": 74,
+   "line_end": 80,
    "col_end": 79,
    "project": "",
    "jsfbt": {
@@ -2057,9 +2015,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 80,
+   "line_beg": 86,
    "col_beg": 20,
-   "line_end": 80,
+   "line_end": 86,
    "col_end": 69,
    "project": "",
    "jsfbt": {
@@ -2078,9 +2036,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 86,
+   "line_beg": 92,
    "col_beg": 20,
-   "line_end": 86,
+   "line_end": 92,
    "col_end": 89,
    "project": "",
    "jsfbt": {
@@ -2099,9 +2057,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 94,
+   "line_beg": 100,
    "col_beg": 10,
-   "line_end": 94,
+   "line_end": 100,
    "col_end": 72,
    "project": "",
    "jsfbt": {
@@ -2120,9 +2078,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 98,
+   "line_beg": 104,
    "col_beg": 12,
-   "line_end": 98,
+   "line_end": 104,
    "col_end": 94,
    "project": "",
    "jsfbt": {
@@ -2141,9 +2099,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 101,
+   "line_beg": 107,
    "col_beg": 12,
-   "line_end": 103,
+   "line_end": 109,
    "col_end": 18,
    "project": "",
    "jsfbt": {
@@ -2162,9 +2120,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 106,
+   "line_beg": 112,
    "col_beg": 12,
-   "line_end": 106,
+   "line_end": 112,
    "col_end": 60,
    "project": "",
    "jsfbt": {
@@ -2183,9 +2141,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 109,
+   "line_beg": 115,
    "col_beg": 12,
-   "line_end": 109,
+   "line_end": 115,
    "col_end": 60,
    "project": "",
    "jsfbt": {
@@ -2204,9 +2162,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 113,
+   "line_beg": 119,
    "col_beg": 10,
-   "line_end": 117,
+   "line_end": 123,
    "col_end": 16,
    "project": "",
    "jsfbt": {
@@ -2225,9 +2183,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 121,
+   "line_beg": 127,
    "col_beg": 10,
-   "line_end": 121,
+   "line_end": 127,
    "col_end": 89,
    "project": "",
    "jsfbt": {
@@ -2246,9 +2204,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 124,
+   "line_beg": 130,
    "col_beg": 10,
-   "line_end": 124,
+   "line_end": 130,
    "col_end": 97,
    "project": "",
    "jsfbt": {
@@ -2267,9 +2225,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 128,
+   "line_beg": 134,
    "col_beg": 12,
-   "line_end": 128,
+   "line_end": 134,
    "col_end": 81,
    "project": "",
    "jsfbt": {
@@ -2288,9 +2246,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 131,
+   "line_beg": 137,
    "col_beg": 12,
-   "line_end": 133,
+   "line_end": 139,
    "col_end": 18,
    "project": "",
    "jsfbt": {
@@ -2309,9 +2267,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 136,
+   "line_beg": 142,
    "col_beg": 12,
-   "line_end": 138,
+   "line_end": 144,
    "col_end": 18,
    "project": "",
    "jsfbt": {
@@ -2330,9 +2288,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 141,
+   "line_beg": 147,
    "col_beg": 12,
-   "line_end": 141,
+   "line_end": 147,
    "col_end": 97,
    "project": "",
    "jsfbt": {
@@ -2351,9 +2309,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 144,
+   "line_beg": 150,
    "col_beg": 12,
-   "line_end": 146,
+   "line_end": 152,
    "col_end": 18,
    "project": "",
    "jsfbt": {
@@ -2495,42 +2453,45 @@
   },
   {
    "hashToLeaf": {
-    "l49sr1EfqnNgCGMNEwE7wQ==": {
-     "text": "Warning",
-     "desc": "warning note prefix"
-    }
-   },
-   "filepath": "pages/legal/privacy.js",
-   "line_beg": 15,
-   "col_beg": 39,
-   "line_end": 15,
-   "col_end": 84,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "warning note prefix",
-     "text": "Warning"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "DBkiBGwUIGGpVvTQloF43Q==": {
-     "text": "this page is not finished yet, stay tuned",
+    "vkKTXbmjjkpk+qeWJO4Eag==": {
+     "text": "{=Warning:} this page is not finished yet, stay tuned",
      "desc": "stay tuned note"
     }
    },
    "filepath": "pages/legal/privacy.js",
    "line_beg": 16,
    "col_beg": 8,
-   "line_end": 16,
-   "col_end": 83,
+   "line_end": 18,
+   "col_end": 14,
    "project": "",
    "jsfbt": {
     "t": {
      "desc": "stay tuned note",
-     "text": "this page is not finished yet, stay tuned"
+     "text": "{=Warning:} this page is not finished yet, stay tuned",
+     "tokenAliases": {
+      "=Warning:": "=m0"
+     }
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "qzzwTv2nU4vOW4lm7XKz1w==": {
+     "text": "Warning:",
+     "desc": "In the phrase: \"{=Warning:} this page is not finished yet, stay tuned\""
+    }
+   },
+   "filepath": "pages/legal/privacy.js",
+   "line_beg": 17,
+   "col_beg": 10,
+   "line_end": 17,
+   "col_end": 35,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "In the phrase: \"{=Warning:} this page is not finished yet, stay tuned\"",
+     "text": "Warning:"
     },
     "m": []
    }
@@ -2558,42 +2519,45 @@
   },
   {
    "hashToLeaf": {
-    "l49sr1EfqnNgCGMNEwE7wQ==": {
-     "text": "Warning",
-     "desc": "warning note prefix"
-    }
-   },
-   "filepath": "pages/legal/shipping.js",
-   "line_beg": 12,
-   "col_beg": 39,
-   "line_end": 12,
-   "col_end": 84,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "warning note prefix",
-     "text": "Warning"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "DBkiBGwUIGGpVvTQloF43Q==": {
-     "text": "this page is not finished yet, stay tuned",
+    "vkKTXbmjjkpk+qeWJO4Eag==": {
+     "text": "{=Warning:} this page is not finished yet, stay tuned",
      "desc": "stay tuned note"
     }
    },
    "filepath": "pages/legal/shipping.js",
    "line_beg": 13,
    "col_beg": 8,
-   "line_end": 13,
-   "col_end": 83,
+   "line_end": 15,
+   "col_end": 14,
    "project": "",
    "jsfbt": {
     "t": {
      "desc": "stay tuned note",
-     "text": "this page is not finished yet, stay tuned"
+     "text": "{=Warning:} this page is not finished yet, stay tuned",
+     "tokenAliases": {
+      "=Warning:": "=m0"
+     }
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "qzzwTv2nU4vOW4lm7XKz1w==": {
+     "text": "Warning:",
+     "desc": "In the phrase: \"{=Warning:} this page is not finished yet, stay tuned\""
+    }
+   },
+   "filepath": "pages/legal/shipping.js",
+   "line_beg": 14,
+   "col_beg": 10,
+   "line_end": 14,
+   "col_end": 35,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "In the phrase: \"{=Warning:} this page is not finished yet, stay tuned\"",
+     "text": "Warning:"
     },
     "m": []
    }
@@ -2621,42 +2585,45 @@
   },
   {
    "hashToLeaf": {
-    "l49sr1EfqnNgCGMNEwE7wQ==": {
-     "text": "Warning",
-     "desc": "warning note prefix"
-    }
-   },
-   "filepath": "pages/legal/terms.js",
-   "line_beg": 12,
-   "col_beg": 39,
-   "line_end": 12,
-   "col_end": 84,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "warning note prefix",
-     "text": "Warning"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "DBkiBGwUIGGpVvTQloF43Q==": {
-     "text": "this page is not finished yet, stay tuned",
+    "vkKTXbmjjkpk+qeWJO4Eag==": {
+     "text": "{=Warning:} this page is not finished yet, stay tuned",
      "desc": "stay tuned note"
     }
    },
    "filepath": "pages/legal/terms.js",
    "line_beg": 13,
    "col_beg": 8,
-   "line_end": 13,
-   "col_end": 83,
+   "line_end": 15,
+   "col_end": 14,
    "project": "",
    "jsfbt": {
     "t": {
      "desc": "stay tuned note",
-     "text": "this page is not finished yet, stay tuned"
+     "text": "{=Warning:} this page is not finished yet, stay tuned",
+     "tokenAliases": {
+      "=Warning:": "=m0"
+     }
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "qzzwTv2nU4vOW4lm7XKz1w==": {
+     "text": "Warning:",
+     "desc": "In the phrase: \"{=Warning:} this page is not finished yet, stay tuned\""
+    }
+   },
+   "filepath": "pages/legal/terms.js",
+   "line_beg": 14,
+   "col_beg": 10,
+   "line_end": 14,
+   "col_end": 35,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "In the phrase: \"{=Warning:} this page is not finished yet, stay tuned\"",
+     "text": "Warning:"
     },
     "m": []
    }
@@ -2726,27 +2693,6 @@
   },
   {
    "hashToLeaf": {
-    "l49sr1EfqnNgCGMNEwE7wQ==": {
-     "text": "Warning",
-     "desc": "warning note prefix"
-    }
-   },
-   "filepath": "pages/shop/checkout/cancel.js",
-   "line_beg": 14,
-   "col_beg": 39,
-   "line_end": 14,
-   "col_end": 84,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "warning note prefix",
-     "text": "Warning"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
     "yTWTRuVereo5ENKC6xCNSQ==": {
      "text": "Your order has been canceled and no money was charged. We are sorry to see you go. Feel free to get in touch with us and tell us what can we improve!",
      "desc": "canceled checkout message"
@@ -2804,27 +2750,6 @@
     "t": {
      "desc": "successful checkout page description",
      "text": "Thank you so much!"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "WSdt9glzZ7dZhYBu4DhX1Q==": {
-     "text": "Success",
-     "desc": "success note prefix"
-    }
-   },
-   "filepath": "pages/shop/checkout/success.js",
-   "line_beg": 17,
-   "col_beg": 39,
-   "line_end": 17,
-   "col_end": 84,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "success note prefix",
-     "text": "Success"
     },
     "m": []
    }

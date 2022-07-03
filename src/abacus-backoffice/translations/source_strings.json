@@ -1887,27 +1887,6 @@
   },
   {
    "hashToLeaf": {
-    "WSdt9glzZ7dZhYBu4DhX1Q==": {
-     "text": "Success",
-     "desc": "success note prefix"
-    }
-   },
-   "filepath": "src/orders/OrdersPageLayout.js",
-   "line_beg": 76,
-   "col_beg": 41,
-   "line_end": 76,
-   "col_end": 86,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "success note prefix",
-     "text": "Success"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
     "mRUmtylefgnPdmI3LO+DMQ==": {
      "text": "Every order was fulfilled, good job!",
      "desc": "success message displayed when there are no new orders waiting"
@@ -1923,27 +1902,6 @@
     "t": {
      "desc": "success message displayed when there are no new orders waiting",
      "text": "Every order was fulfilled, good job!"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "l49sr1EfqnNgCGMNEwE7wQ==": {
-     "text": "Warning",
-     "desc": "warning note prefix"
-    }
-   },
-   "filepath": "src/orders/OrdersPageLayout.js",
-   "line_beg": 81,
-   "col_beg": 41,
-   "line_end": 81,
-   "col_end": 86,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "warning note prefix",
-     "text": "Warning"
     },
     "m": []
    }
@@ -2370,27 +2328,6 @@
   },
   {
    "hashToLeaf": {
-    "l49sr1EfqnNgCGMNEwE7wQ==": {
-     "text": "Warning",
-     "desc": "warning note prefix"
-    }
-   },
-   "filepath": "src/pos/ProductsGrid.js",
-   "line_beg": 100,
-   "col_beg": 39,
-   "line_end": 100,
-   "col_end": 84,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "warning note prefix",
-     "text": "Warning"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
     "hm+55cMH8tgHDr9LTIW5jA==": {
      "text": "There are no products yet.",
      "desc": "empty shop (POS) message"
@@ -2517,63 +2454,21 @@
   },
   {
    "hashToLeaf": {
-    "zdCM8bSUEVcAGbnyr9AG/Q==": {
-     "text": "Note",
-     "desc": "default note prefix"
-    }
-   },
-   "filepath": "src/pos/ProductsSelectedRows.js",
-   "line_beg": 16,
-   "col_beg": 24,
-   "line_end": 16,
-   "col_end": 66,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "default note prefix",
-     "text": "Note"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "5KMdVDNvgqOewSfbxvUGIA==": {
-     "text": "nothing selected yet",
-     "desc": "text when nothing is selected in POS"
+    "Qn1VX/PksJMtNdTU8+0LVw==": {
+     "text": "Select a product",
+     "desc": "POS note suggesting to select a product from the grid"
     }
    },
    "filepath": "src/pos/ProductsSelectedRows.js",
    "line_beg": 17,
    "col_beg": 8,
    "line_end": 17,
-   "col_end": 83,
+   "col_end": 96,
    "project": "",
    "jsfbt": {
     "t": {
-     "desc": "text when nothing is selected in POS",
-     "text": "nothing selected yet"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "l49sr1EfqnNgCGMNEwE7wQ==": {
-     "text": "Warning",
-     "desc": "warning note prefix"
-    }
-   },
-   "filepath": "src/products/ProductAddons.js",
-   "line_beg": 36,
-   "col_beg": 39,
-   "line_end": 36,
-   "col_end": 84,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "warning note prefix",
-     "text": "Warning"
+     "desc": "POS note suggesting to select a product from the grid",
+     "text": "Select a product"
     },
     "m": []
    }
@@ -3330,27 +3225,6 @@
     "t": {
      "desc": "warning when product is not published",
      "text": "This product has not been published yet and might be invisible publicly."
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "l49sr1EfqnNgCGMNEwE7wQ==": {
-     "text": "Warning",
-     "desc": "warning note prefix"
-    }
-   },
-   "filepath": "src/products/ProductsCardsInCategory.js",
-   "line_beg": 51,
-   "col_beg": 39,
-   "line_end": 51,
-   "col_end": 84,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "warning note prefix",
-     "text": "Warning"
     },
     "m": []
    }
