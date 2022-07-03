@@ -97,7 +97,7 @@ export default function ProductsGrid(props: Props): Node {
 
   if (data.commerce.products.length === 0) {
     return (
-      <Note tint="warning" notePrefix={<fbt desc="warning note prefix">Warning</fbt>}>
+      <Note tint="warning">
         <fbt desc="empty shop (POS) message">There are no products yet.</fbt>
       </Note>
     );
