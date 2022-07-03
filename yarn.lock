@@ -16,7 +16,7 @@ __metadata:
     "@adeira/react-auth": ^0.1.0
     "@adeira/relay": ^6.1.0
     "@adeira/sx": ^0.29.1
-    "@adeira/sx-design": ^0.28.0
+    "@adeira/sx-design": ^0.29.0
     "@fbtjs/default-collection-transform": ^1.0.0
     "@next/bundle-analyzer": ^12.2.0
     "@playwright/test": ^1.23.1
@@ -67,7 +67,7 @@ __metadata:
     "@adeira/js": ^2.1.1
     "@adeira/relay": ^6.1.0
     "@adeira/sx": ^0.29.1
-    "@adeira/sx-design": ^0.28.0
+    "@adeira/sx-design": ^0.29.0
     "@adeira/sx-design-nextjs": ^0.3.2
     "@fbtjs/default-collection-transform": ^1.0.0
     "@playwright/test": ^1.23.1
@@ -367,7 +367,7 @@ __metadata:
   dependencies:
     "@babel/runtime": ^7.18.6
   peerDependencies:
-    "@adeira/sx-design": ^0.28.0
+    "@adeira/sx-design": ^0.29.0
     next: ^12.2.0
     react: ^18.2.0
   languageName: unknown
@@ -395,7 +395,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/sx-design@^0.28.0, @adeira/sx-design@workspace:src/sx-design":
+"@adeira/sx-design@^0.29.0, @adeira/sx-design@workspace:src/sx-design":
   version: 0.0.0-use.local
   resolution: "@adeira/sx-design@workspace:src/sx-design"
   dependencies:
