@@ -31,10 +31,22 @@ jobs:
         if: steps.paths-filter.outputs.src == 'true'
         with:
           profile: minimal
-          components: clippy
+          components: clippy, rustfmt
           toolchain: stable
           override: true
           target: 'x86_64-unknown-linux-gnu' # 64-bit Linux (kernel 2.6.32+, glibc 2.11+)
+
+      # https://github.com/actions-rs/cargo
+      - uses: actions-rs/cargo@v1.0.3
+        if: steps.paths-filter.outputs.src == 'true'
+        with:
+          command: fmt
+          args: >-
+            --all
+            --check
+            --verbose
+            --message-format=human
+            --manifest-path ${{ matrix.manifest }}
 
       # https://github.com/actions-rs/cargo
       - uses: actions-rs/cargo@v1.0.3
