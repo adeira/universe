@@ -7,6 +7,7 @@ import React from 'react';
 import fbt from 'fbt';
 
 import Button from '../Button/Button';
+import LayoutBlock from '../Layout/LayoutBlock';
 import Note from './Note';
 import { initFbt } from '../test-utils';
 import type { StoryTemplate } from '../types';
@@ -18,73 +19,32 @@ export default {
 };
 
 // 👇 We create a "template" of how args map to rendering
-const BasicTemplate = (args) => (
-  <Note
-    notePrefix={
-      <fbt desc="default note prefix" doNotExtract={true}>
-        Note
-      </fbt>
-    }
-    {...args}
-  />
+const BasicTemplate = (args) => <Note {...args} />;
+
+const ShowcaseTemplate = (args) => (
+  <LayoutBlock>
+    <Note {...args} tint="default">
+      this is a default note
+    </Note>
+    <Note {...args} tint="success">
+      this is a success note
+    </Note>
+    <Note {...args} tint="error">
+      this is an error note
+    </Note>
+    <Note {...args} tint="warning">
+      this is a warning note
+    </Note>
+  </LayoutBlock>
 );
 
-const Spacer = (props) => <div style={{ marginBottom: 10 }}>{props.children}</div>;
-const ShowcaseTemplate = (args) => (
-  <>
-    <Spacer>
-      <Note
-        {...args}
-        tint="default"
-        notePrefix={
-          <fbt desc="default note prefix" doNotExtract={true}>
-            Note
-          </fbt>
-        }
-      >
-        this is a default note
-      </Note>
-    </Spacer>
-    <Spacer>
-      <Note
-        {...args}
-        tint="success"
-        notePrefix={
-          <fbt desc="success note prefix" doNotExtract={true}>
-            Success
-          </fbt>
-        }
-      >
-        this is a success note
-      </Note>
-    </Spacer>
-    <Spacer>
-      <Note
-        {...args}
-        tint="error"
-        notePrefix={
-          <fbt desc="error note prefix" doNotExtract={true}>
-            Error
-          </fbt>
-        }
-      >
-        this is an error note
-      </Note>
-    </Spacer>
-    <Spacer>
-      <Note
-        {...args}
-        tint="warning"
-        notePrefix={
-          <fbt desc="warning note prefix" doNotExtract={true}>
-            Warning
-          </fbt>
-        }
-      >
-        this is a warning note
-      </Note>
-    </Spacer>
-  </>
+const ShowcaseActionTemplate = (args) => (
+  <LayoutBlock>
+    <Note {...args} tint="default" />
+    <Note {...args} tint="success" />
+    <Note {...args} tint="error" />
+    <Note {...args} tint="warning" />
+  </LayoutBlock>
 );
 
 initFbt();
@@ -104,7 +64,7 @@ NoteShowcase.argTypes = {
   action: { table: { disable: true } },
 };
 
-export const NoteWithAction: StoryTemplate<typeof Note> = BasicTemplate.bind({});
+export const NoteWithAction: StoryTemplate<typeof Note> = ShowcaseActionTemplate.bind({});
 NoteWithAction.storyName = 'With action button';
 NoteWithAction.args = {
   tint: 'default',

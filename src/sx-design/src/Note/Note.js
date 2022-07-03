@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import sx from '@adeira/sx';
-import { fbt } from 'fbt';
 
 import Button from '../Button/Button';
 
@@ -12,9 +11,6 @@ type Props = {
   // The `action` can either be a HTML `button` element or our component `Button` from SX Design.
   // In such case, the `tint` will be automatically propagated to the `Button`.
   +action?: ?RestrictedElement<'button'>,
-
-  // TODO: consider removing this property (added for backward compatibility)
-  +notePrefix?: FbtWithoutString,
 };
 
 export default function Note(props: Props): React.Node {
@@ -27,9 +23,7 @@ export default function Note(props: Props): React.Node {
         noteWarning: props.tint === 'warning',
       })}
     >
-      <div>
-        {props.notePrefix != null ? <strong>{props.notePrefix}:</strong> : null} {props.children}
-      </div>
+      <div>{props.children}</div>
       {props.action != null ? (
         <div>
           {props.action.type === Button
