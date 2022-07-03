@@ -80,7 +80,7 @@ export default function ProductPageLayoutContent(props: Props): Node {
 
         <p className={styles('description')}>{product.description}</p>
 
-        <Note tint="warning" notePrefix={<fbt desc="warning note prefix">Warning</fbt>}>
+        <Note tint="warning">
           <fbt desc="not about all our products being available only in person">
             All our products are currently available only in person in our café. We are working on
             making them available online as well.

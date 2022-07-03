@@ -14,7 +14,7 @@ type Props = {
   +action?: ?RestrictedElement<'button'>,
 
   // TODO: consider removing this property (added for backward compatibility)
-  +notePrefix: FbtWithoutString,
+  +notePrefix?: FbtWithoutString,
 };
 
 export default function Note(props: Props): React.Node {

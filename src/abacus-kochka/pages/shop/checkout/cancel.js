@@ -11,7 +11,7 @@ export default function ShopCheckoutCancelPage(): Node {
 
   return (
     <Layout title={<fbt desc="canceled checkout page title">Order canceled</fbt>}>
-      <Note tint="warning" notePrefix={<fbt desc="warning note prefix">Warning</fbt>}>
+      <Note tint="error">
         <fbt desc="canceled checkout message">
           Your order has been canceled and no money was charged. We are sorry to see you go. Feel
           free to get in touch with us and tell us what can we improve!

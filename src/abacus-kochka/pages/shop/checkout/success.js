@@ -14,7 +14,7 @@ export default function ShopCheckoutSuccessPage(): Node {
       title={<fbt desc="successful checkout page title">Order success 👍</fbt>}
       subtitle={<fbt desc="successful checkout page description">Thank you so much!</fbt>}
     >
-      <Note tint="success" notePrefix={<fbt desc="success note prefix">Success</fbt>}>
+      <Note tint="success">
         <fbt desc="successful checkout message">
           Please, check your email for the confirmation. Will keep you updated on the progress via
           email. Feel free to get in touch with us in case of any troubles!
