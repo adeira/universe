@@ -52,7 +52,7 @@ export default function ShopLayoutContent(): React.Node {
 
   if (products.length === 0) {
     return (
-      <Note tint="warning" notePrefix={<fbt desc="warning note prefix">Warning</fbt>}>
+      <Note tint="warning">
         <fbt desc="empty shop message">There are no products yet.</fbt>
       </Note>
     );
