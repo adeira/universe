@@ -25,7 +25,7 @@ __metadata:
     "@testing-library/react-hooks": ^8.0.1
     babel-plugin-fbt: ^1.0.0
     babel-plugin-fbt-runtime: ^1.0.0
-    d3: ^7.5.0
+    d3: ^7.6.1
     fbt: ^1.0.0
     graphql: ^16.5.0
     immutable: ^4.1.0
@@ -7768,12 +7768,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"d3-array@npm:2 - 3, d3-array@npm:2.10.0 - 3, d3-array@npm:2.5.0 - 3, d3-array@npm:3":
-  version: 3.0.1
-  resolution: "d3-array@npm:3.0.1"
+"d3-array@npm:2 - 3, d3-array@npm:2.10.0 - 3, d3-array@npm:2.5.0 - 3, d3-array@npm:3, d3-array@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "d3-array@npm:3.2.0"
   dependencies:
     internmap: 1 - 2
-  checksum: 6f182fa36cb5dee0ddab46697dac4facf95b6e14913a5db1c1a196d0b2cf459cff020e9199db5b9977cb0e20c22b486848a9c718ce060087eaf64ed39ebc0ee3
+  checksum: e236f6670b60b64abb6c435da25b5cbbdc2c7c0decdbf9355bc4cf6803d6da4fa820b7b78b9cbd127edb493555934a9788d45084c2f39d7c2e1a2b7aa48264a4
   languageName: node
   linkType: hard
 
@@ -7813,12 +7813,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"d3-contour@npm:3":
-  version: 3.0.1
-  resolution: "d3-contour@npm:3.0.1"
+"d3-contour@npm:4":
+  version: 4.0.0
+  resolution: "d3-contour@npm:4.0.0"
   dependencies:
-    d3-array: 2 - 3
-  checksum: efd5f092562c4883ac7372968e59018339e4448c816f9113c4d8a54c93bf93fa7395e9f97c7168dab2755aa3442c2e03e5170a3129567be15c64f8a17739089e
+    d3-array: ^3.2.0
+  checksum: 1f9b9e56d0966d98a4c740b6af32b4fa2d14424159644adc24f4eb0ab023afbd414938f63f95032a66407fb701f4966efe40875e2cc0460fb653a943d3fc86b0
   languageName: node
   linkType: hard
 
@@ -8048,16 +8048,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"d3@npm:^7.5.0":
-  version: 7.5.0
-  resolution: "d3@npm:7.5.0"
+"d3@npm:^7.6.1":
+  version: 7.6.1
+  resolution: "d3@npm:7.6.1"
   dependencies:
     d3-array: 3
     d3-axis: 3
     d3-brush: 3
     d3-chord: 3
     d3-color: 3
-    d3-contour: 3
+    d3-contour: 4
     d3-delaunay: 6
     d3-dispatch: 3
     d3-drag: 3
@@ -8082,7 +8082,7 @@ __metadata:
     d3-timer: 3
     d3-transition: 3
     d3-zoom: 3
-  checksum: fcb83acb1988141466a062175290f37c9db3fd6fbe9605b8cb5af2eedcf1b3aa1ca664ac87f6452aea97a5c3dfa0d5389ea922c4ec4ea7612fe04e28af48957b
+  checksum: af883cfeaf0a861afb2424edcb5419a5c56c84ddbc1ac9c7771c569f1926ace8db3cf0f4996038eb1db9700f7335e30c23b885199e0320a002893492ae83b415
   languageName: node
   linkType: hard
 
