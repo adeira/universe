@@ -33,7 +33,7 @@ export default function ProductAddons(): Node {
 
   if (data.commerce.productAddons.length === 0) {
     return (
-      <Note tint="warning" notePrefix={<fbt desc="warning note prefix">Warning</fbt>}>
+      <Note tint="warning">
         <fbt desc="empty product add-ons message">There are no product add-ons yet.</fbt>
       </Note>
     );

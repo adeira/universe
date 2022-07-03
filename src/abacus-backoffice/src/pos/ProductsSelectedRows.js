@@ -13,8 +13,8 @@ export default function ProductsSelectedRows(): React.Node {
 
   return selectedItems.size === 0 ? (
     <div className={styles('nothingSelected')}>
-      <Note notePrefix={<fbt desc="default note prefix">Note</fbt>}>
-        <fbt desc="text when nothing is selected in POS">nothing selected yet</fbt>
+      <Note>
+        <fbt desc="POS note suggesting to select a product from the grid">Select a product</fbt>
       </Note>
     </div>
   ) : (

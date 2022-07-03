@@ -73,12 +73,12 @@ export default function OrdersPageLayout(): Node {
   return (
     <LayoutPage isBeta={true} heading={<fbt desc="eshop orders page title">Eshop orders</fbt>}>
       <LayoutBlock>
-        <Note tint="success" notePrefix={<fbt desc="success note prefix">Success</fbt>}>
+        <Note tint="success">
           <fbt desc="success message displayed when there are no new orders waiting">
             Every order was fulfilled, good job!
           </fbt>
         </Note>
-        <Note tint="warning" notePrefix={<fbt desc="warning note prefix">Warning</fbt>}>
+        <Note tint="warning">
           <fbt desc="warning message displayed when there are new orders waiting">
             There{' '}
             <fbt:plural count={paidOrders} showCount="no" many="are">
