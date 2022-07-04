@@ -1,5 +1,6 @@
 // @flow
 
+import { DefaultSeo } from 'next-seo';
 import { useEffect } from 'react';
 import * as React from 'react';
 import fbt from 'fbt';
@@ -33,6 +34,15 @@ export default function MyApp({ Component, pageProps }: Props): React.Node {
 
   return (
     <React.StrictMode>
+      <DefaultSeo
+        defaultTitle="KOCHKA Café"
+        description={
+          <fbt desc="page description">
+            The newest and biggest cat café in Mexico City - with actually good coffee. 😻🤤🚀
+          </fbt>
+        }
+        titleTemplate="%s · KOCHKA Café"
+      />
       <SxDesignProvider locale={languageTag.bcp47} theme="light">
         <RelayEnvironmentProvider environment={RelayEnvironment}>
           <ViewerContextProvider languageTag={languageTag}>

@@ -1694,15 +1694,36 @@
   },
   {
    "hashToLeaf": {
+    "BGXLvLWN8vfov70AwqxQHQ==": {
+     "text": "The newest and biggest cat café in Mexico City - with actually good coffee. 😻🤤🚀",
+     "desc": "page description"
+    }
+   },
+   "filepath": "pages/_app.js",
+   "line_beg": 40,
+   "col_beg": 10,
+   "line_end": 42,
+   "col_end": 16,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "page description",
+     "text": "The newest and biggest cat café in Mexico City - with actually good coffee. 😻🤤🚀"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
     "9NSktf8Wasdbln+avfGiWQ==": {
      "text": "Skip to content",
      "desc": "hidden 'skip link' title which helps blind people to skip directly the main section and avoid the repetitive menu altogether"
     }
    },
    "filepath": "pages/_app.js",
-   "line_beg": 46,
+   "line_beg": 56,
    "col_beg": 20,
-   "line_end": 48,
+   "line_end": 58,
    "col_end": 26,
    "project": "",
    "jsfbt": {
