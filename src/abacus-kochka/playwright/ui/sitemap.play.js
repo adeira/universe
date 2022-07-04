@@ -4,7 +4,7 @@
 const { test, expect } = require('@playwright/test');
 
 test('navigation to our menu page from homepage', async ({ page, baseURL }) => {
-  await page.goto(`${baseURL}/sitemap.xml`);
+  await page.goto(`${baseURL}/unstable_sitemap.xml`);
 
   const numberOfPages = 11;
 
