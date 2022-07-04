@@ -12,7 +12,7 @@ export async function getServerSideProps({ res }: Context): $FlowFixMe {
     '!pages/sitemap.xml.js', // this file
 
     // Next.js specific:
-    '!pages/400.js',
+    '!pages/404.js',
     '!pages/500.js',
     '!pages/_*.js',
     '!pages/api',
@@ -24,7 +24,7 @@ export async function getServerSideProps({ res }: Context): $FlowFixMe {
   // TODO: fetch "shop" dynamic routes and append them to "pages" above
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
       ${pages
         .map((page) => {
           const path = page
@@ -33,7 +33,20 @@ export async function getServerSideProps({ res }: Context): $FlowFixMe {
             .replace(/\.mdx$/, '')
             .replace(/\/index$/, '');
 
-          return `<url><loc>${baseUrl + path}</loc><changefreq>weekly</changefreq></url>`;
+          // TODO: take languages from `next.config.js` into account automatically
+          // https://developers.google.com/search/docs/advanced/crawling/localized-versions#sitemap
+          return `<url>
+            <loc>${`${baseUrl}/es-mx${path}`}</loc>
+            <changefreq>weekly</changefreq>
+            <xhtml:link
+               rel="alternate"
+               hreflang="es-mx"
+               href="${`${baseUrl}/es-mx${path}`}"/>
+            <xhtml:link
+               rel="alternate"
+               hreflang="en-us"
+               href="${`${baseUrl}/en-us${path}`}"/>
+          </url>`;
         })
         .join('\n')}
     </urlset>
