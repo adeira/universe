@@ -9,7 +9,7 @@ export async function getServerSideProps({ res }: Context): $FlowFixMe {
 
   const pages = await globby([
     'pages/**/[a-z_0-9]*{.js,.mdx}',
-    '!pages/sitemap.xml.js', // this file
+    '!pages/unstable_sitemap.xml.js', // this file
 
     // Next.js specific:
     '!pages/404.js',

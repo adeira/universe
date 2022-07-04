@@ -6,4 +6,4 @@ Allow: /
 Host: https://kochka.com.mx
 
 # Sitemaps
-Sitemap: https://kochka.com.mx/sitemap.xml
+# TODO: Sitemap: https://kochka.com.mx/sitemap.xml
