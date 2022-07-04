@@ -6,7 +6,7 @@ import { RecoilRoot } from 'recoil';
 import { SxDesignProvider } from '@adeira/sx-design';
 import { useEffect, useState } from 'react';
 import { useSessionTokenAPI } from '@adeira/hooks';
-import Head from 'next/head';
+import { DefaultSeo } from 'next-seo';
 
 import './_app.css';
 import constants from '../src/constants';
@@ -44,10 +44,7 @@ export default function MyApp({ Component, pageProps }: $FlowFixMe): React.Node 
 
   return (
     <>
-      <Head>
-        {/* TODO: use NextSEO and update titles for POS */}
-        <title>Abacus!</title>
-      </Head>
+      <DefaultSeo defaultTitle="Abacus" titleTemplate="%s · Abacus" />
       <SxDesignProvider locale={applicationLocale.bcp47} theme="system">
         <RelayEnvironmentProvider environment={relayEnvironment}>
           <RecoilRoot>

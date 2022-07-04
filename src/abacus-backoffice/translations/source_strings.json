@@ -1452,10 +1452,10 @@
     }
    },
    "filepath": "src/LayoutPage.js",
-   "line_beg": 35,
-   "col_beg": 16,
-   "line_end": 38,
-   "col_end": 22,
+   "line_beg": 38,
+   "col_beg": 18,
+   "line_end": 41,
+   "col_end": 24,
    "project": "",
    "jsfbt": {
     "t": {
@@ -1473,10 +1473,10 @@
     }
    },
    "filepath": "src/LayoutPage.js",
-   "line_beg": 42,
-   "col_beg": 16,
-   "line_end": 42,
-   "col_end": 49,
+   "line_beg": 45,
+   "col_beg": 18,
+   "line_end": 45,
+   "col_end": 51,
    "project": "",
    "jsfbt": {
     "t": {
@@ -1515,9 +1515,9 @@
     }
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 20,
+   "line_beg": 21,
    "col_beg": 8,
-   "line_end": 20,
+   "line_end": 21,
    "col_end": 62,
    "project": "",
    "jsfbt": {
@@ -1536,9 +1536,9 @@
     }
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 23,
+   "line_beg": 24,
    "col_beg": 8,
-   "line_end": 23,
+   "line_end": 24,
    "col_end": 82,
    "project": "",
    "jsfbt": {
@@ -1557,9 +1557,9 @@
     }
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 26,
+   "line_beg": 27,
    "col_beg": 8,
-   "line_end": 26,
+   "line_end": 27,
    "col_end": 84,
    "project": "",
    "jsfbt": {
@@ -1578,9 +1578,9 @@
     }
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 29,
+   "line_beg": 30,
    "col_beg": 8,
-   "line_end": 29,
+   "line_end": 30,
    "col_end": 76,
    "project": "",
    "jsfbt": {
@@ -1599,9 +1599,9 @@
     }
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 33,
+   "line_beg": 34,
    "col_beg": 10,
-   "line_end": 33,
+   "line_end": 34,
    "col_end": 72,
    "project": "",
    "jsfbt": {
@@ -1620,9 +1620,9 @@
     }
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 40,
+   "line_beg": 41,
    "col_beg": 8,
-   "line_end": 40,
+   "line_end": 41,
    "col_end": 64,
    "project": "",
    "jsfbt": {
@@ -1641,9 +1641,9 @@
     }
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 43,
+   "line_beg": 44,
    "col_beg": 8,
-   "line_end": 43,
+   "line_end": 44,
    "col_end": 74,
    "project": "",
    "jsfbt": {
@@ -1662,9 +1662,9 @@
     }
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 46,
+   "line_beg": 47,
    "col_beg": 8,
-   "line_end": 46,
+   "line_end": 47,
    "col_end": 81,
    "project": "",
    "jsfbt": {
@@ -1683,9 +1683,9 @@
     }
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 49,
+   "line_beg": 50,
    "col_beg": 8,
-   "line_end": 49,
+   "line_end": 50,
    "col_end": 85,
    "project": "",
    "jsfbt": {
@@ -1704,15 +1704,57 @@
     }
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 56,
+   "line_beg": 57,
    "col_beg": 8,
-   "line_end": 58,
+   "line_end": 59,
    "col_end": 14,
    "project": "",
    "jsfbt": {
     "t": {
      "desc": "navigation link to analytics most sold products",
      "text": "Analytics: most sold products"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "SxzPQlajVfXZHeKak3WLVg==": {
+     "text": "PROD",
+     "desc": "prod as in production"
+    }
+   },
+   "filepath": "src/NavigationHeaderBadge.js",
+   "line_beg": 11,
+   "col_beg": 6,
+   "line_end": 11,
+   "col_end": 50,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "prod as in production",
+     "text": "PROD"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "eiK+SXRmiWN0jAu3fqx6ag==": {
+     "text": "DEV",
+     "desc": "dev as in development"
+    }
+   },
+   "filepath": "src/NavigationHeaderBadge.js",
+   "line_beg": 19,
+   "col_beg": 6,
+   "line_end": 19,
+   "col_end": 49,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "dev as in development",
+     "text": "DEV"
     },
     "m": []
    }
