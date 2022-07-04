@@ -15,7 +15,7 @@ import useApplicationLocale from '../src/useApplicationLocale';
 import initTranslations from '../translations/init';
 
 export default function MyApp({ Component, pageProps }: $FlowFixMe): React.Node {
-  const getLayout = Component.getLayout || ((page) => page);
+  const getLayout = Component.getLayout ?? ((page) => page);
 
   const applicationLocale = useApplicationLocale();
   initTranslations(applicationLocale.bcp47);
@@ -29,33 +29,32 @@ export default function MyApp({ Component, pageProps }: $FlowFixMe): React.Node 
     setHasMounted(true);
   }, []);
 
+  const relayEnvironment = React.useMemo(() => {
+    return createEnvironment({
+      fetchFn: createNetworkFetcher(constants.graphqlServerURL, {
+        ...(sessionToken != null && { Authorization: `Bearer ${sessionToken}` }),
+      }),
+    });
+  }, [sessionToken]);
+
   if (hasMounted === false) {
+    // We do not render the admin on server because `sessionToken` token is not available there.
     return null;
   }
 
-  let children;
-  if (sessionToken == null) {
-    children = <LoginPage />;
-  } else {
-    children = getLayout(<Component {...pageProps} />);
-  }
-
-  const relayEnvironment = createEnvironment({
-    fetchFn: createNetworkFetcher(constants.graphqlServerURL, {
-      ...(sessionToken != null && { Authorization: `Bearer ${sessionToken}` }),
-    }),
-  });
-
   return (
-    <React.StrictMode>
+    <>
       <Head>
+        {/* TODO: use NextSEO and update titles for POS */}
         <title>Abacus!</title>
       </Head>
       <SxDesignProvider locale={applicationLocale.bcp47} theme="system">
         <RelayEnvironmentProvider environment={relayEnvironment}>
-          <RecoilRoot>{children}</RecoilRoot>
+          <RecoilRoot>
+            {sessionToken == null ? <LoginPage /> : getLayout(<Component {...pageProps} />)}
+          </RecoilRoot>
         </RelayEnvironmentProvider>
       </SxDesignProvider>
-    </React.StrictMode>
+    </>
   );
 }
