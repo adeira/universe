@@ -3,17 +3,19 @@
 import { rangeMap } from '@adeira/js';
 import { graphql, useLazyLoadQuery } from '@adeira/relay';
 import { Tabs, Text, LayoutGrid, Skeleton, LayoutBlock } from '@adeira/sx-design';
-import React, { type Node, useState } from 'react';
+import React, { type Node } from 'react';
+import { useRecoilState } from 'recoil';
 
 import useApplicationLocale from '../useApplicationLocale';
 import ProductsCardsInCategory from './ProductsCardsInCategory';
+import activeTabAtom from './recoil/activeTabAtom';
 
 /**
- * This component first loads all available categories to render them and then it loads all products
- * for the first category (or for the selected category).
+ * This component first loads all available categories to render them, and then it loads all
+ * products for the first category (or for the selected category).
  */
 export default function ProductsCategories(): Node {
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useRecoilState(activeTabAtom);
 
   const applicationLocale = useApplicationLocale();
   // eslint-disable-next-line relay/generated-flow-types -- https://github.com/relayjs/eslint-plugin-relay/issues/131

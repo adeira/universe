@@ -20,6 +20,7 @@ __metadata:
     "@fbtjs/default-collection-transform": ^1.0.0
     "@next/bundle-analyzer": ^12.2.0
     "@playwright/test": ^1.23.1
+    "@recoiljs/refine": ^0.1.0
     "@testing-library/jest-dom": ^5.16.4
     "@testing-library/react": ^13.3.0
     "@testing-library/react-hooks": ^8.0.1
@@ -38,6 +39,7 @@ __metadata:
     react: ^18.2.0
     react-dom: ^18.2.0
     recoil: ^0.7.4
+    recoil-sync: ^0.1.0
   languageName: unknown
   linkType: soft
 
@@ -2936,6 +2938,13 @@ __metadata:
   version: 1.0.0-next.11
   resolution: "@polka/url@npm:1.0.0-next.11"
   checksum: db1626fb6d7167ce2de6223c95f0a5ff8e1e7c56b2e8709f904f219d8fcc7b075de842ea8bf0ed7af9f5bc350b166b286b241636982f10d0f02964f34215a0e0
+  languageName: node
+  linkType: hard
+
+"@recoiljs/refine@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "@recoiljs/refine@npm:0.1.0"
+  checksum: 92e900d83a33d02124c18a875a9ab29b3ffff828b5fc9cfc9fe83c45cd1f41ac12a3112c9434cc9deecb6f73f9b9d076cabc13898820acc3aee8e44380036b82
   languageName: node
   linkType: hard
 
@@ -16228,6 +16237,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"recoil-sync@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "recoil-sync@npm:0.1.0"
+  dependencies:
+    "@recoiljs/refine": ^0.1.0
+    transit-js: ^0.8.874
+  peerDependencies:
+    recoil: ">=0.7.3"
+  checksum: b638778176703be335838a1decb523a6ed9929df921ff6c26fdeed1b9bcf89fc8439a0887ac31c39445ac5f5db4ce32f41a079b7077d267165fa6e281a48a71e
+  languageName: node
+  linkType: hard
+
 "recoil@npm:^0.7.4":
   version: 0.7.4
   resolution: "recoil@npm:0.7.4"
@@ -18346,6 +18367,13 @@ __metadata:
   version: 0.0.3
   resolution: "tr46@npm:0.0.3"
   checksum: 726321c5eaf41b5002e17ffbd1fb7245999a073e8979085dacd47c4b4e8068ff5777142fc6726d6ca1fd2ff16921b48788b87225cbc57c72636f6efa8efbffe3
+  languageName: node
+  linkType: hard
+
+"transit-js@npm:^0.8.874":
+  version: 0.8.874
+  resolution: "transit-js@npm:0.8.874"
+  checksum: a1d3a78a0ce926320ba32cdd59a74104e1b440855497753b91f8e71831302b23adfb21416cdba30153305cf41cf96b75421a607a1799b676572fe6072ee04798
   languageName: node
   linkType: hard
 

@@ -3,6 +3,7 @@
 import * as React from 'react';
 import { createEnvironment, createNetworkFetcher, RelayEnvironmentProvider } from '@adeira/relay';
 import { RecoilRoot } from 'recoil';
+import { RecoilURLSyncJSON } from 'recoil-sync';
 import { SxDesignProvider } from '@adeira/sx-design';
 import { useEffect, useState } from 'react';
 import { useSessionTokenAPI } from '@adeira/hooks';
@@ -48,7 +49,9 @@ export default function MyApp({ Component, pageProps }: $FlowFixMe): React.Node 
       <SxDesignProvider locale={applicationLocale.bcp47} theme="system">
         <RelayEnvironmentProvider environment={relayEnvironment}>
           <RecoilRoot>
-            {sessionToken == null ? <LoginPage /> : getLayout(<Component {...pageProps} />)}
+            <RecoilURLSyncJSON storeKey="json-url" location={{ part: 'queryParams' }}>
+              {sessionToken == null ? <LoginPage /> : getLayout(<Component {...pageProps} />)}
+            </RecoilURLSyncJSON>
           </RecoilRoot>
         </RelayEnvironmentProvider>
       </SxDesignProvider>
