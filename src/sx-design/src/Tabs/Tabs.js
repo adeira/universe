@@ -55,7 +55,7 @@ export default function Tabs<T: string | number | null>(props: Props<T>): Node {
     const activeIndex = tabRefs.current.findIndex((tab) => tab === document.activeElement);
 
     if (activeIndex === -1) {
-      // none of the tabs is focused so we have to ignore all attempts to change the tab with arrows
+      // none of the tabs is focused, so we have to ignore all attempts to change the tab with arrows
       return;
     }
 
