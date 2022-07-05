@@ -50,7 +50,7 @@ __metadata:
     "@babel/core": ^7.18.6
     "@babel/preset-flow": ^7.18.6
     "@markdoc/markdoc": ^0.1.3
-    "@markdoc/next.js": ^0.1.5
+    "@markdoc/next.js": ^0.1.6
     "@playwright/test": ^1.23.1
     js-yaml: ^4.1.0
     next: ^12.2.0
@@ -2610,16 +2610,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@markdoc/next.js@npm:^0.1.5":
-  version: 0.1.5
-  resolution: "@markdoc/next.js@npm:0.1.5"
+"@markdoc/next.js@npm:^0.1.6":
+  version: 0.1.6
+  resolution: "@markdoc/next.js@npm:0.1.6"
   dependencies:
     js-yaml: ^4.1.0
   peerDependencies:
     "@markdoc/markdoc": ^0.1.1
     next: "*"
     react: "*"
-  checksum: 5936c5f358d7b5989a387812a1652a5eb1deba04db28fb4e5f08321fd0c42ab05c42c9bcbd579d365f9fc2e67b9b27c83532841ae7d06d522007ab208ab156a5
+  checksum: dd37285c80c83ecdd57ac3efa2ede4d32470fcd1a63c2bdda5a99b8458c8dce9d2ac0fb0dd4ea600535dc8edd3ce61b790ce6ad8a0e11c326f19b7e656c97b12
   languageName: node
   linkType: hard
 
@@ -9729,20 +9729,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-glob@npm:^3.1.1":
-  version: 3.2.7
-  resolution: "fast-glob@npm:3.2.7"
-  dependencies:
-    "@nodelib/fs.stat": ^2.0.2
-    "@nodelib/fs.walk": ^1.2.3
-    glob-parent: ^5.1.2
-    merge2: ^1.3.0
-    micromatch: ^4.0.4
-  checksum: 2f4708ff112d2b451888129fdd9a0938db88b105b0ddfd043c064e3c4d3e20eed8d7c7615f7565fee660db34ddcf08a2db1bf0ab3c00b87608e4719694642d78
-  languageName: node
-  linkType: hard
-
-"fast-glob@npm:^3.2.11":
+"fast-glob@npm:^3.1.1, fast-glob@npm:^3.2.11":
   version: 3.2.11
   resolution: "fast-glob@npm:3.2.11"
   dependencies:
