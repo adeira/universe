@@ -1,22 +1,40 @@
 // @flow
 
+import { usePreloadedQuery, type PreloadedQuery } from '@adeira/relay';
 import * as React from 'react';
 import type { Context } from 'next';
 
-import ProductPageLayout from '../../src/shop/ProductPageLayout';
+import LanguageTag from '../../src/LanguageTag';
+import relayPreloadQuery from '../../src/relayPreloadQuery';
+import ProductPageLayout, { ProductPageLayoutQuery } from '../../src/shop/ProductPageLayout';
+import type { ProductPageLayoutQuery as ProductPageLayoutQueryType } from '../../src/shop/__generated__/ProductPageLayoutQuery.graphql';
 
 type Props = {
-  +productKey: string,
+  +relayPreloadedQueryRefs: {
+    +productPageLayoutQuery: PreloadedQuery<ProductPageLayoutQueryType>,
+  },
 };
 
 export default function ShopProductPage(props: Props): React.Node {
-  return <ProductPageLayout productKey={props.productKey} />;
+  const data = usePreloadedQuery(
+    ProductPageLayoutQuery,
+    props.relayPreloadedQueryRefs.productPageLayoutQuery,
+  );
+  return <ProductPageLayout relayFragmentRef={data} />;
 }
 
-export function getServerSideProps(context: Context): { +props: Props } {
+export async function getServerSideProps({ locale, params }: Context): Promise<$FlowFixMe> {
   return {
     props: {
-      productKey: context.query.product_key,
+      relayPreloadedQueries: {
+        productPageLayoutQuery: await relayPreloadQuery<ProductPageLayoutQueryType>(
+          ProductPageLayoutQuery,
+          {
+            clientLocale: LanguageTag.detectLanguageTag(locale).graphql,
+            productKey: params.product_key,
+          },
+        ),
+      },
     },
   };
 }

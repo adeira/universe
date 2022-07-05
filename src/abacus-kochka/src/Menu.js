@@ -16,7 +16,7 @@ import MenuSectionTea from './menu/MenuSectionTea';
 import type { MenuFragment$key } from './__generated__/MenuFragment.graphql';
 
 type Props = {
-  +fragmentReference: MenuFragment$key,
+  +relayFragmentRef: MenuFragment$key,
 };
 
 export const MenuQuery = graphql`
@@ -26,7 +26,7 @@ export const MenuQuery = graphql`
 `;
 
 export default function Menu(props: Props): Node {
-  const relayProps = useFragment(
+  const data = useFragment(
     graphql`
       fragment MenuFragment on Query {
         menu {
@@ -39,7 +39,7 @@ export default function Menu(props: Props): Node {
         }
       }
     `,
-    props.fragmentReference,
+    props.relayFragmentRef,
   );
 
   return (
@@ -49,27 +49,27 @@ export default function Menu(props: Props): Node {
     >
       <div className={styles('menuGrid')}>
         <div className={styles('menuGridAreaCoffee')}>
-          <MenuSectionCoffee menuData={relayProps.menu} />
+          <MenuSectionCoffee menuData={data.menu} />
         </div>
 
         <div className={styles('menuGridAreaTea')}>
-          <MenuSectionTea menuData={relayProps.menu} />
+          <MenuSectionTea menuData={data.menu} />
         </div>
 
         <div className={styles('menuGridAreaSpecialities')}>
-          <MenuSectionSpecialities menuData={relayProps.menu} />
+          <MenuSectionSpecialities menuData={data.menu} />
         </div>
 
         <div className={styles('menuGridAreaOthers')}>
-          <MenuSectionOthers menuData={relayProps.menu} />
+          <MenuSectionOthers menuData={data.menu} />
         </div>
 
         <div className={styles('menuGridAreaKochkadas')}>
-          <MenuSectionKochkadas menuData={relayProps.menu} />
+          <MenuSectionKochkadas menuData={data.menu} />
         </div>
 
         <div className={styles('menuGridAreaCiabattas')}>
-          <MenuSectionCiabattas menuData={relayProps.menu} />
+          <MenuSectionCiabattas menuData={data.menu} />
         </div>
       </div>
     </Layout>

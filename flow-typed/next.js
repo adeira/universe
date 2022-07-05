@@ -53,8 +53,8 @@ declare module 'next' {
     +res?: any,
     +xhr?: any,
     +err?: any,
-    +locale?: string,
-    ...
+    +locale: string,
+    +params: { +[string]: any },
   };
 
   declare export type Page<T, S> = {

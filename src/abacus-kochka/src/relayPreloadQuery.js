@@ -1,15 +1,17 @@
 // @flow
 
-import { createNetworkFetcher, type Variables } from '@adeira/relay';
+import { createNetworkFetcher, type OperationType } from '@adeira/relay';
 
 import constants from './constants';
 
-type CustomPreloadQuery = { ... };
-
-export default async function relayPreloadQuery(
+export default async function relayPreloadQuery<TQuery: OperationType>(
   { params }: $FlowFixMe,
-  variables: Variables,
-): Promise<CustomPreloadQuery> {
+  variables: TQuery['variables'],
+): Promise<{
+  +params: $FlowFixMe,
+  +variables: TQuery['variables'],
+  +response: TQuery['response'],
+}> {
   const fetch = createNetworkFetcher(constants.graphqlServerURL);
   const response = await fetch(params, variables);
 
