@@ -1,6 +1,6 @@
 // @flow
 
-import { graphql, useLazyLoadQuery } from '@adeira/relay';
+import { graphql, useFragment } from '@adeira/relay';
 import sx from '@adeira/sx';
 import {
   Note,
@@ -15,41 +15,31 @@ import {
 import fbt from 'fbt';
 import React, { type Node } from 'react';
 
-import useViewerContext from '../hooks/useViewerContext';
+import type { ProductPageLayoutContentFragment$key } from './__generated__/ProductPageLayoutContentFragment.graphql';
 
 type Props = {
-  +productKey: string,
+  +relayFragmentRef: ProductPageLayoutContentFragment$key,
 };
 
 export default function ProductPageLayoutContent(props: Props): Node {
-  const viewerContext = useViewerContext();
-
-  const {
-    commerce: { product },
-    // eslint-disable-next-line relay/generated-flow-types -- https://github.com/relayjs/eslint-plugin-relay/issues/131
-  } = useLazyLoadQuery(
+  const { product } = useFragment(
     graphql`
-      query ProductPageLayoutContentQuery($clientLocale: SupportedLocale!, $productKey: ID!) {
-        commerce {
-          product: getPublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {
-            name
-            description
-            price {
-              unitAmount
-              unitAmountCurrency
-            }
-            images {
-              blurhash
-              url
-            }
+      fragment ProductPageLayoutContentFragment on CommerceQuery {
+        product: getPublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {
+          name
+          description
+          price {
+            unitAmount
+            unitAmountCurrency
+          }
+          images {
+            blurhash
+            url
           }
         }
       }
     `,
-    {
-      clientLocale: viewerContext.languageTag.graphql,
-      productKey: props.productKey,
-    },
+    props.relayFragmentRef,
   );
 
   const unitAmountCurrency = SupportedCurrencies.cast(product.price.unitAmountCurrency);
