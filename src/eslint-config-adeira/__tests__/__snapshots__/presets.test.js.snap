@@ -805,6 +805,7 @@ Object {
     "@next/next/google-font-preconnect": 2,
     "@next/next/inline-script-id": 2,
     "@next/next/next-script-for-ga": 0,
+    "@next/next/no-assign-module-variable": 1,
     "@next/next/no-before-interactive-script-outside-document": 1,
     "@next/next/no-css-tags": 2,
     "@next/next/no-document-import-in-page": 2,
