@@ -1,6 +1,6 @@
 // @flow strict-local
 
-import { globAsync, globSync } from './glob';
+import { globSync } from './glob';
 import { findRootPackageJson } from './findRootPackageJson';
 
 type MinimalPackageJSON = {
@@ -39,19 +39,6 @@ module.exports = {
       }).forEach((packageJSONLocation) => {
         cb(packageJSONLocation);
       });
-    });
-  },
-
-  getWorkspacesAsync(baseDirectory: string = __dirname): Promise<$ReadOnlyArray<string>> {
-    const rootPackageJSON = findRootPackageJson(baseDirectory);
-    const workspaces = __resolveWorkspaces(rootPackageJSON);
-    const workspacePromises = workspaces.map((workspace) => {
-      return globAsync(`${workspace}/package.json`, {
-        absolute: true,
-      });
-    });
-    return Promise.all(workspacePromises).then((packageJSONLocations) => {
-      return packageJSONLocations.flat();
     });
   },
 
