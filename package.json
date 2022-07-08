@@ -26,9 +26,6 @@
     "jest-runner-eslint": "^1.0.1",
     "prettier": "^2.7.1"
   },
-  "jest": {
-    "testRegex": "/scripts/jest/dontRunJestDirectly\\.js$"
-  },
   "jest-runner-eslint": {
     "cliOptions": {
       "fix": false,
