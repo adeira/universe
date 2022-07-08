@@ -302,7 +302,6 @@ __metadata:
     semver: ^7.3.7
   bin:
     monorepo-babel-node: bin/monorepo-babel-node.js
-    monorepo-run-tests: bin/monorepo-run-tests.js
   languageName: unknown
   linkType: soft
 

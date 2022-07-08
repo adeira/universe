@@ -14,8 +14,7 @@
   "type": "commonjs",
   "sideEffects": false,
   "bin": {
-    "monorepo-babel-node": "bin/monorepo-babel-node.js",
-    "monorepo-run-tests": "bin/monorepo-run-tests.js"
+    "monorepo-babel-node": "bin/monorepo-babel-node.js"
   },
   "dependencies": {
     "@adeira/js": "^2.1.1",
