@@ -34,7 +34,6 @@ const commonProjectConfig = {
 
 function tryToLoadWorkspaceConfig(configPath /*: string */) /*: Object */ {
   if (fs.existsSync(configPath)) {
-    console.warn('Loaded additional config %s', configPath.replace(__dirname, ''));
     return require(configPath);
   }
   return {};
