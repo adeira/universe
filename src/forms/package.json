@@ -28,7 +28,7 @@
     "babel-plugin-fbt-runtime": "^1.0.0"
   },
   "peerDependencies": {
-    "@adeira/relay": "^6.0.0",
+    "@adeira/relay": "^6.1.0",
     "react": "^18.2.0"
   },
   "scripts": {
