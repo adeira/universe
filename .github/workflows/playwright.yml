@@ -1,7 +1,5 @@
 name: Playwright
 
-# TODO: run this workflow periodically instead of on every push (?)
-
 on: [push]
 
 jobs:
@@ -17,12 +15,20 @@ jobs:
         include:
           - repository: '@adeira/abacus-backoffice'
             source: 'src/abacus-backoffice/**'
+            playwrightReportName: 'playwright-report-abacus-backoffice'
+            playwrightReportPath: 'src/abacus-backoffice/playwright/test-results/'
           - repository: '@adeira/abacus-docs'
             source: 'src/abacus-docs/**'
+            playwrightReportName: 'playwright-report-abacus-docs'
+            playwrightReportPath: 'src/abacus-docs/playwright/test-results/'
           - repository: '@adeira/abacus-kochka'
             source: 'src/abacus-kochka/**'
+            playwrightReportName: 'playwright-report-abacus-kochka'
+            playwrightReportPath: 'src/abacus-kochka/playwright/test-results/'
           - repository: '@adeira/sx-design'
             source: 'src/sx-design/**'
+            playwrightReportName: 'playwright-report-sx-design'
+            playwrightReportPath: 'src/sx-design/playwright/test-results/'
 
     runs-on: ubuntu-latest
 
@@ -60,4 +66,10 @@ jobs:
           # See: https://github.com/storybookjs/storybook/issues/16555
           NODE_OPTIONS: --openssl-legacy-provider
 
-      # TODO: upload Playwright artifacts, see: https://playwright.dev/docs/next/ci#github-actions
+      # https://github.com/actions/upload-artifact
+      - name: Upload Playwright test results
+        if: always()
+        uses: actions/upload-artifact@v3.1.0
+        with:
+          name: ${{ matrix.playwrightReportName }}
+          path: ${{ matrix.playwrightReportPath }}
