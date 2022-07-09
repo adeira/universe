@@ -44,3 +44,7 @@ body {
 body {
   font-size: 1rem;
 }
+
+ul {
+  margin-block: 0;
+}
