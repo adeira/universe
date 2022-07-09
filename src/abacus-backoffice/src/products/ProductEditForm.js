@@ -4,8 +4,8 @@ import React, { type Node } from 'react';
 import { fbt } from 'fbt';
 import { graphql, useFragment } from '@adeira/relay';
 import { useFlashMessages, FlashMessageTint } from '@adeira/sx-design';
+import { FormSubmit } from '@adeira/forms';
 
-import FormSubmit from '../forms/FormSubmit';
 import ProductForm from './ProductForm';
 import useApplicationLocale from '../useApplicationLocale';
 import type { ProductEditFormData$key } from './__generated__/ProductEditFormData.graphql';

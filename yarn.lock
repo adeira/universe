@@ -10,6 +10,7 @@ __metadata:
   resolution: "@adeira/abacus-backoffice@workspace:src/abacus-backoffice"
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
+    "@adeira/forms": ^0.1.0
     "@adeira/hooks": ^0.3.0
     "@adeira/icons": ^2.0.0
     "@adeira/js": ^2.1.1
@@ -204,6 +205,26 @@ __metadata:
 "@adeira/flow-types-eslint@0.0.0, @adeira/flow-types-eslint@workspace:src/flow-types-eslint":
   version: 0.0.0-use.local
   resolution: "@adeira/flow-types-eslint@workspace:src/flow-types-eslint"
+  languageName: unknown
+  linkType: soft
+
+"@adeira/forms@^0.1.0, @adeira/forms@workspace:src/forms":
+  version: 0.0.0-use.local
+  resolution: "@adeira/forms@workspace:src/forms"
+  dependencies:
+    "@adeira/js": ^2.1.1
+    "@adeira/sx": ^0.29.1
+    "@adeira/sx-design": ^0.29.0
+    "@babel/runtime": ^7.18.6
+    "@fbtjs/default-collection-transform": ^1.0.0
+    "@testing-library/jest-dom": ^5.16.4
+    babel-plugin-fbt: ^1.0.0
+    babel-plugin-fbt-runtime: ^1.0.0
+    fbt: ^1.0.0
+    recoil: ^0.7.4
+  peerDependencies:
+    "@adeira/relay": ^6.1.0
+    react: ^18.2.0
   languageName: unknown
   linkType: soft
 

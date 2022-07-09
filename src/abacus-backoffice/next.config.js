@@ -12,6 +12,7 @@ const withCustomBabelConfigFile = require('next-plugin-custom-babel-config')({
 const withTranspileModules = require('next-transpile-modules')([
   '@adeira/css-colors',
   '@adeira/fetch',
+  '@adeira/forms',
   '@adeira/hooks',
   '@adeira/icons',
   '@adeira/js',
@@ -19,6 +20,7 @@ const withTranspileModules = require('next-transpile-modules')([
   '@adeira/react-auth',
   '@adeira/relay',
   '@adeira/sx',
+  '@adeira/sx-design',
 ]);
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
