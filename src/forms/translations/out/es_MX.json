@@ -1,0 +1,14 @@
+{
+  "es_MX": {
+    "2Hiw4D": "¡Ocurrió algo inesperado y el servidor no pudo procesar la solicitud! 🙈",
+    "2D6gKP": "Este campo es obligatorio",
+    "1MCK1U": "Field \"{form field label}\" is required. Please select one of the provided values.",
+    "4f7pG9": "El campo \"{form field label}\" es obligatorio. Por favor, rellene este campo.",
+    "8A1j1": "El campo \"{form field label}\" debe ser negativo.",
+    "2AOyOV": "El campo \"{form field label}\" debe tener un valor menor que {form field min value}.",
+    "3SBUgM": "El campo \"{form field label}\" debe ser positivo.",
+    "DyJ2E": "El campo \"{form field label}\" debe tener un valor mayor que {form field min value}.",
+    "1OZewv": "Por favor ingrese un valor válido. Los dos valores válidos más cercanos son {low boundary} y {high boundary}.",
+    "ZcMj7": "El campo \"{form field label}\" es inválido."
+  }
+}
