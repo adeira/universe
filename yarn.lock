@@ -223,7 +223,7 @@ __metadata:
     fbt: ^1.0.0
     recoil: ^0.7.4
   peerDependencies:
-    "@adeira/relay": ^6.0.0
+    "@adeira/relay": ^6.1.0
     react: ^18.2.0
   languageName: unknown
   linkType: soft
