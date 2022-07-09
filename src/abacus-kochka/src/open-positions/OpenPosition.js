@@ -3,6 +3,8 @@
 import React, { type Node } from 'react';
 import { Badge, LayoutBlock, LayoutInline, Link, Text } from '@adeira/sx-design';
 
+import MinimumRequirements from './MinimumRequirements';
+
 type Props = {
   +title: FbtWithoutString,
   +description: FbtWithoutString,
@@ -24,6 +26,8 @@ export default function OpenPosition(props: Props): Node {
       </Text>
 
       <Text>{props.description}</Text>
+
+      <MinimumRequirements />
     </LayoutBlock>
   );
 }

@@ -7,7 +7,7 @@ import fbt from 'fbt';
 import FullTimeBadge from './badges/FullTimeBadge';
 import Layout from '../Layout';
 import OpenPosition from './OpenPosition';
-// import PositionAvailableBadge from './badges/PositionAvailableBadge';
+import PositionAvailableBadge from './badges/PositionAvailableBadge';
 import PositionUnavailableBadge from './badges/PositionUnavailableBadge';
 import SalaryBadge from './badges/SalaryBadge';
 
@@ -23,7 +23,6 @@ export default function OpenPositionsPageLayout(): React.Node {
              - bullshit free (admit we cannot offer great benefits now)
              - transparent/open company
              - we have cats
-             - min requirements: 18+, horario
          */}
         <OpenPosition
           title={
@@ -32,7 +31,7 @@ export default function OpenPositionsPageLayout(): React.Node {
             </fbt>
           }
           badges={[
-            <PositionUnavailableBadge key={1} />,
+            <PositionAvailableBadge key={1} />,
             <FullTimeBadge key={2} />,
             <SalaryBadge key={3} />,
           ]}
@@ -41,6 +40,22 @@ export default function OpenPositionsPageLayout(): React.Node {
               Person in this position is responsible for customer service, keeping the facilities
               clean, and assisting in the food preparation sector. This is a full-time position
               only.
+            </fbt>
+          }
+        />
+
+        <OpenPosition
+          title={<fbt desc="chef position title">Person responsible for food preparation</fbt>}
+          badges={[
+            <PositionAvailableBadge key={1} />,
+            <FullTimeBadge key={2} />,
+            <SalaryBadge key={3} />,
+          ]}
+          description={
+            <fbt desc="chef position description">
+              Person in charge of food preparation is responsible for preparing and improving our
+              food options as well as attending our clients and keeping the workplace clean. This is
+              a full-time position only.
             </fbt>
           }
         />
@@ -61,22 +76,6 @@ export default function OpenPositionsPageLayout(): React.Node {
               Barista is responsible for preparation of coffee based drinks, teas, milkshakes and
               other specialities as well as attending our clients and keeping the workplace clean.
               This is a full-time position only.
-            </fbt>
-          }
-        />
-
-        <OpenPosition
-          title={<fbt desc="chef position title">Person responsible for food preparation</fbt>}
-          badges={[
-            <PositionUnavailableBadge key={1} />,
-            <FullTimeBadge key={2} />,
-            <SalaryBadge key={3} />,
-          ]}
-          description={
-            <fbt desc="chef position description">
-              Person in charge of food preparation is responsible for preparing and improving our
-              food options as well as attending our clients and keeping the workplace clean. This is
-              a full-time position only.
             </fbt>
           }
         />

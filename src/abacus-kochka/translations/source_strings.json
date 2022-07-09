@@ -848,15 +848,99 @@
   },
   {
    "hashToLeaf": {
+    "80j6gR2PCEx8h7q1Yw/maw==": {
+     "text": "Minimum requirements:",
+     "desc": "minimum candidate requirements title"
+    }
+   },
+   "filepath": "src/open-positions/MinimumRequirements.js",
+   "line_beg": 11,
+   "col_beg": 8,
+   "line_end": 11,
+   "col_end": 84,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "minimum candidate requirements title",
+     "text": "Minimum requirements:"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "Vecpopj3C+XF7qsGdR9bkg==": {
+     "text": "likes cats",
+     "desc": "candidate requirement 1"
+    }
+   },
+   "filepath": "src/open-positions/MinimumRequirements.js",
+   "line_beg": 15,
+   "col_beg": 10,
+   "line_end": 15,
+   "col_end": 62,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "candidate requirement 1",
+     "text": "likes cats"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "JS8qYIsQ3x6/RihPBCJ/Zw==": {
+     "text": "18+ years old",
+     "desc": "candidate requirement 2"
+    }
+   },
+   "filepath": "src/open-positions/MinimumRequirements.js",
+   "line_beg": 18,
+   "col_beg": 10,
+   "line_end": 18,
+   "col_end": 65,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "candidate requirement 2",
+     "text": "18+ years old"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "M5ylTrfr4ZOF/YyP7f7RfQ==": {
+     "text": "available during our opening hours",
+     "desc": "candidate requirement 3"
+    }
+   },
+   "filepath": "src/open-positions/MinimumRequirements.js",
+   "line_beg": 21,
+   "col_beg": 10,
+   "line_end": 21,
+   "col_end": 86,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "candidate requirement 3",
+     "text": "available during our opening hours"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
     "Z1d6qX2L0fKBN6cEnxEOOw==": {
      "text": "Open positions",
      "desc": "open positions page title"
     }
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 17,
+   "line_beg": 18,
    "col_beg": 13,
-   "line_end": 17,
+   "line_end": 18,
    "col_end": 71,
    "project": "",
    "jsfbt": {
@@ -875,9 +959,9 @@
     }
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 18,
+   "line_beg": 19,
    "col_beg": 16,
-   "line_end": 18,
+   "line_end": 19,
    "col_end": 94,
    "project": "",
    "jsfbt": {
@@ -932,57 +1016,15 @@
   },
   {
    "hashToLeaf": {
-    "H8l+kJTbPzjEXskVb6pTvg==": {
-     "text": "Person responsible for beverage preparation (Barista)",
-     "desc": "barista position title"
-    }
-   },
-   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 50,
-   "col_beg": 12,
-   "line_end": 52,
-   "col_end": 18,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "barista position title",
-     "text": "Person responsible for beverage preparation (Barista)"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "lAd0Iecjt0/G66JSr54JvA==": {
-     "text": "Barista is responsible for preparation of coffee based drinks, teas, milkshakes and other specialities as well as attending our clients and keeping the workplace clean. This is a full-time position only.",
-     "desc": "barista position description"
-    }
-   },
-   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 60,
-   "col_beg": 12,
-   "line_end": 64,
-   "col_end": 18,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "barista position description",
-     "text": "Barista is responsible for preparation of coffee based drinks, teas, milkshakes and other specialities as well as attending our clients and keeping the workplace clean. This is a full-time position only."
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
     "jsZid4+O30Jhr5fT06nf2w==": {
      "text": "Person responsible for food preparation",
      "desc": "chef position title"
     }
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 69,
+   "line_beg": 49,
    "col_beg": 17,
-   "line_end": 69,
+   "line_end": 49,
    "col_end": 94,
    "project": "",
    "jsfbt": {
@@ -1001,6 +1043,48 @@
     }
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
+   "line_beg": 56,
+   "col_beg": 12,
+   "line_end": 60,
+   "col_end": 18,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "chef position description",
+     "text": "Person in charge of food preparation is responsible for preparing and improving our food options as well as attending our clients and keeping the workplace clean. This is a full-time position only."
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "H8l+kJTbPzjEXskVb6pTvg==": {
+     "text": "Person responsible for beverage preparation (Barista)",
+     "desc": "barista position title"
+    }
+   },
+   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
+   "line_beg": 66,
+   "col_beg": 12,
+   "line_end": 68,
+   "col_end": 18,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "barista position title",
+     "text": "Person responsible for beverage preparation (Barista)"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "lAd0Iecjt0/G66JSr54JvA==": {
+     "text": "Barista is responsible for preparation of coffee based drinks, teas, milkshakes and other specialities as well as attending our clients and keeping the workplace clean. This is a full-time position only.",
+     "desc": "barista position description"
+    }
+   },
+   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
    "line_beg": 76,
    "col_beg": 12,
    "line_end": 80,
@@ -1008,8 +1092,8 @@
    "project": "",
    "jsfbt": {
     "t": {
-     "desc": "chef position description",
-     "text": "Person in charge of food preparation is responsible for preparing and improving our food options as well as attending our clients and keeping the workplace clean. This is a full-time position only."
+     "desc": "barista position description",
+     "text": "Barista is responsible for preparation of coffee based drinks, teas, milkshakes and other specialities as well as attending our clients and keeping the workplace clean. This is a full-time position only."
     },
     "m": []
    }
