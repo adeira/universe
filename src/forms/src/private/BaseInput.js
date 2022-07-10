@@ -1,11 +1,10 @@
 // @flow
 
 import sx from '@adeira/sx';
-import { useRef, type Node } from 'react';
-import { useSetRecoilState } from 'recoil';
+import { useRef, type Node, useContext } from 'react';
 
-import { formStateUploadables } from './formState';
 import BaseInputWrapper from './BaseInputWrapper';
+import FormRootContext from '../FormRootContext';
 import useFormFieldState from './useFormFieldState';
 
 type PropsBase = {
@@ -45,7 +44,7 @@ type Props =
  */
 export default function BaseInput(props: $ReadOnly<Props>): Node {
   const inputRef = useRef(null);
-  const setUploadables = useSetRecoilState(formStateUploadables);
+  const formRootContext = useContext(FormRootContext);
   const [inputValue, updateInputValue, inputErrors] = useFormFieldState(
     inputRef,
     props.name,
@@ -55,7 +54,7 @@ export default function BaseInput(props: $ReadOnly<Props>): Node {
 
   const handleOnChange = (event) => {
     if (props.type === 'file') {
-      setUploadables(event.target.files);
+      formRootContext.setUploadables(event.target.files);
     }
 
     updateInputValue(

@@ -30,7 +30,7 @@ export default function BaseSelect(props: Props): Node {
   const [inputValue, updateInputValue, inputErrors] = useFormFieldState(
     selectRef,
     props.name,
-    props.value,
+    props.value ?? '',
     props.label,
   );
 

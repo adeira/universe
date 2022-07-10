@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<e02cb757a24ee520df2f4b7c46348086>>
+ * @generated SignedSource<<5a4c6cc07c6e270dde3818349e3ded9d>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -12,14 +12,10 @@
 
 /*::
 import type { Fragment, ReaderFragment } from 'relay-runtime';
-type ProductFormAddonsData$fragmentType = any;
 type ProductFormCategoriesData$fragmentType = any;
 import type { FragmentType } from "relay-runtime";
 declare export opaque type ProductCreateFormData$fragmentType: FragmentType;
 export type ProductCreateFormData$data = {|
-  +productAddons: $ReadOnlyArray<?{|
-    +$fragmentSpreads: ProductFormAddonsData$fragmentType,
-  |}>,
   +productCategories: $ReadOnlyArray<?{|
     +$fragmentSpreads: ProductFormCategoriesData$fragmentType,
   |}>,
@@ -32,15 +28,7 @@ export type ProductCreateFormData$key = {
 };
 */
 
-var node/*: ReaderFragment*/ = (function(){
-var v0 = [
-  {
-    "kind": "Variable",
-    "name": "clientLocale",
-    "variableName": "clientLocale"
-  }
-];
-return {
+var node/*: ReaderFragment*/ = {
   "argumentDefinitions": [
     {
       "kind": "RootArgument",
@@ -53,7 +41,13 @@ return {
   "selections": [
     {
       "alias": "productCategories",
-      "args": (v0/*: any*/),
+      "args": [
+        {
+          "kind": "Variable",
+          "name": "clientLocale",
+          "variableName": "clientLocale"
+        }
+      ],
       "concreteType": "ProductCategory",
       "kind": "LinkedField",
       "name": "searchAllProductCategories",
@@ -66,31 +60,14 @@ return {
         }
       ],
       "storageKey": null
-    },
-    {
-      "alias": "productAddons",
-      "args": (v0/*: any*/),
-      "concreteType": "ProductAddon",
-      "kind": "LinkedField",
-      "name": "searchAllProductAddons",
-      "plural": true,
-      "selections": [
-        {
-          "args": null,
-          "kind": "FragmentSpread",
-          "name": "ProductFormAddonsData"
-        }
-      ],
-      "storageKey": null
     }
   ],
   "type": "CommerceQuery",
   "abstractKey": null
 };
-})();
 
 if (__DEV__) {
-  (node/*: any*/).hash = "ff8090d2ca7b56d4e1f13870c0837098";
+  (node/*: any*/).hash = "bbfce75012a833b5ee776c3aac48e58a";
 }
 
 module.exports = ((node/*: any*/)/*: Fragment<

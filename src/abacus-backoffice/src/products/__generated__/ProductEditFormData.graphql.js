@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<9de1e8facc838e017caa958416ef7bb5>>
+ * @generated SignedSource<<371fe4b91721b7da69f2b209e255d11d>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -12,15 +12,11 @@
 
 /*::
 import type { Fragment, ReaderFragment } from 'relay-runtime';
-type ProductFormAddonsData$fragmentType = any;
 type ProductFormCategoriesData$fragmentType = any;
 export type ProductMultilingualInputVisibility = "ESHOP" | "POS" | "%future added value";
 import type { FragmentType } from "relay-runtime";
 declare export opaque type ProductEditFormData$fragmentType: FragmentType;
 export type ProductEditFormData$data = {|
-  +availableAddons: $ReadOnlyArray<?{|
-    +$fragmentSpreads: ProductFormAddonsData$fragmentType,
-  |}>,
   +availableCategories: $ReadOnlyArray<?{|
     +$fragmentSpreads: ProductFormCategoriesData$fragmentType,
   |}>,
@@ -40,9 +36,6 @@ export type ProductEditFormData$data = {|
     +unitAmount: number,
   |},
   +revision: string,
-  +selectedAddons: $ReadOnlyArray<?{|
-    +id: string,
-  |}>,
   +selectedCategories: $ReadOnlyArray<?{|
     +id: string,
   |}>,
@@ -64,24 +57,15 @@ var v0 = [
     "variableName": "clientLocale"
   }
 ],
-v1 = [
-  {
-    "alias": null,
-    "args": null,
-    "kind": "ScalarField",
-    "name": "id",
-    "storageKey": null
-  }
-],
-v2 = {
+v1 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "name",
   "storageKey": null
 },
-v3 = [
-  (v2/*: any*/),
+v2 = [
+  (v1/*: any*/),
   {
     "alias": null,
     "args": null,
@@ -133,22 +117,6 @@ return {
     },
     {
       "alias": null,
-      "args": (v0/*: any*/),
-      "concreteType": "ProductAddon",
-      "kind": "LinkedField",
-      "name": "availableAddons",
-      "plural": true,
-      "selections": [
-        {
-          "args": null,
-          "kind": "FragmentSpread",
-          "name": "ProductFormAddonsData"
-        }
-      ],
-      "storageKey": null
-    },
-    {
-      "alias": null,
       "args": null,
       "concreteType": "Price",
       "kind": "LinkedField",
@@ -172,17 +140,15 @@ return {
       "kind": "LinkedField",
       "name": "selectedCategories",
       "plural": true,
-      "selections": (v1/*: any*/),
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": (v0/*: any*/),
-      "concreteType": "ProductAddon",
-      "kind": "LinkedField",
-      "name": "selectedAddons",
-      "plural": true,
-      "selections": (v1/*: any*/),
+      "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "id",
+          "storageKey": null
+        }
+      ],
       "storageKey": null
     },
     {
@@ -205,7 +171,7 @@ return {
       "kind": "LinkedField",
       "name": "translation",
       "plural": false,
-      "selections": (v3/*: any*/),
+      "selections": (v2/*: any*/),
       "storageKey": "translation(locale:\"en_US\")"
     },
     {
@@ -221,7 +187,7 @@ return {
       "kind": "LinkedField",
       "name": "translation",
       "plural": false,
-      "selections": (v3/*: any*/),
+      "selections": (v2/*: any*/),
       "storageKey": "translation(locale:\"es_MX\")"
     },
     {
@@ -232,7 +198,7 @@ return {
       "name": "images",
       "plural": true,
       "selections": [
-        (v2/*: any*/)
+        (v1/*: any*/)
       ],
       "storageKey": null
     }
@@ -243,7 +209,7 @@ return {
 })();
 
 if (__DEV__) {
-  (node/*: any*/).hash = "681633a20f6272cb9d2dbeae0f7b4919";
+  (node/*: any*/).hash = "f477ba1c391b5897cd862dc6c92c35af";
 }
 
 module.exports = ((node/*: any*/)/*: Fragment<

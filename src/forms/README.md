@@ -8,8 +8,6 @@
 
 **Embracing HTML5 forms.** We are not trying to reinvent a wheel here. The design of these form elements is very similar to how HTML works including commonly known validation attributes. You should be able to prototype the form very quickly if you familiar with HTML forms. Solid Flow types are a big help in case you forget.
 
-**Support automatic form persistence (Recoil).** TKTK
-
 **No magic.** It won't try to create a form based on the GraphQL mutation inputs. It won't automatically fill the default values from your GraphQL query. You are in charge.
 
 ---

@@ -42,7 +42,9 @@ export default function BaseInputWrapper(props: Props): Node {
       {props.children}
 
       {props.hasValidationError ? (
-        <div className={styles('error')}>{props.validationError}</div>
+        <div className={styles('error')}>
+          <small>{props.validationError}</small>
+        </div>
       ) : null}
     </>
   );
