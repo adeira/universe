@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<460d07cd873c30cf0641a43db8d5d4b0>>
+ * @generated SignedSource<<97545a16a0a1af574a7e50b1b5bd0366>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -35,28 +35,7 @@ var v0 = [
     "kind": "LocalArgument",
     "name": "clientLocale"
   }
-],
-v1 = [
-  {
-    "kind": "Variable",
-    "name": "clientLocale",
-    "variableName": "clientLocale"
-  }
-],
-v2 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "id",
-  "storageKey": null
-},
-v3 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "name",
-  "storageKey": null
-};
+];
 return {
   "fragment": {
     "argumentDefinitions": (v0/*: any*/),
@@ -100,50 +79,30 @@ return {
         "selections": [
           {
             "alias": "productCategories",
-            "args": (v1/*: any*/),
+            "args": [
+              {
+                "kind": "Variable",
+                "name": "clientLocale",
+                "variableName": "clientLocale"
+              }
+            ],
             "concreteType": "ProductCategory",
             "kind": "LinkedField",
             "name": "searchAllProductCategories",
             "plural": true,
             "selections": [
-              (v2/*: any*/),
-              (v3/*: any*/)
-            ],
-            "storageKey": null
-          },
-          {
-            "alias": "productAddons",
-            "args": (v1/*: any*/),
-            "concreteType": "ProductAddon",
-            "kind": "LinkedField",
-            "name": "searchAllProductAddons",
-            "plural": true,
-            "selections": [
-              (v2/*: any*/),
-              (v3/*: any*/),
               {
                 "alias": null,
                 "args": null,
-                "concreteType": "Price",
-                "kind": "LinkedField",
-                "name": "priceExtra",
-                "plural": false,
-                "selections": [
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "unitAmount",
-                    "storageKey": null
-                  },
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "unitAmountCurrency",
-                    "storageKey": null
-                  }
-                ],
+                "kind": "ScalarField",
+                "name": "id",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "name",
                 "storageKey": null
               }
             ],
@@ -155,12 +114,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "f739a813949dc81d25ed314a8d6853c3",
+    "cacheID": "263ea7e228a4663d11b81938fa1d49f6",
     "id": null,
     "metadata": {},
     "name": "ProductsCreateLayoutQuery",
     "operationKind": "query",
-    "text": "query ProductsCreateLayoutQuery(\n  $clientLocale: SupportedLocale!\n) {\n  commerce {\n    ...ProductCreateFormData\n  }\n}\n\nfragment ProductCreateFormData on CommerceQuery {\n  productCategories: searchAllProductCategories(clientLocale: $clientLocale) {\n    ...ProductFormCategoriesData\n    id\n  }\n  productAddons: searchAllProductAddons(clientLocale: $clientLocale) {\n    ...ProductFormAddonsData\n    id\n  }\n}\n\nfragment ProductFormAddonsData on ProductAddon {\n  id\n  name\n  priceExtra {\n    unitAmount\n    unitAmountCurrency\n  }\n}\n\nfragment ProductFormCategoriesData on ProductCategory {\n  id\n  name\n}\n"
+    "text": "query ProductsCreateLayoutQuery(\n  $clientLocale: SupportedLocale!\n) {\n  commerce {\n    ...ProductCreateFormData\n  }\n}\n\nfragment ProductCreateFormData on CommerceQuery {\n  productCategories: searchAllProductCategories(clientLocale: $clientLocale) {\n    ...ProductFormCategoriesData\n    id\n  }\n}\n\nfragment ProductFormCategoriesData on ProductCategory {\n  id\n  name\n}\n"
   }
 };
 })();

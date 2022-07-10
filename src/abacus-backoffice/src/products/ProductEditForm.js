@@ -28,16 +28,10 @@ export default function ProductEditForm(props: Props): Node {
         availableCategories(clientLocale: $clientLocale) {
           ...ProductFormCategoriesData
         }
-        availableAddons(clientLocale: $clientLocale) {
-          ...ProductFormAddonsData
-        }
         price {
           unitAmount
         }
         selectedCategories(clientLocale: $clientLocale) {
-          id
-        }
-        selectedAddons(clientLocale: $clientLocale) {
           id
         }
         visibility
@@ -61,17 +55,9 @@ export default function ProductEditForm(props: Props): Node {
     <ProductForm
       // $FlowFixMe[incompatible-type]: https://github.com/facebook/relay/issues/2545
       availableCategories={data.availableCategories}
-      // $FlowFixMe[incompatible-type]: https://github.com/facebook/relay/issues/2545
-      availableAddons={data.availableAddons}
       selectedCategories={data.selectedCategories.reduce((acc, category) => {
         if (category != null) {
           acc.push(category.id);
-        }
-        return acc;
-      }, [])}
-      selectedAddons={data.selectedAddons.reduce((acc, addon) => {
-        if (addon != null) {
-          acc.push(addon.id);
         }
         return acc;
       }, [])}
@@ -100,7 +86,6 @@ export default function ProductEditForm(props: Props): Node {
               $translations: [ProductMultilingualInputTranslations!]!
               $visibility: [ProductMultilingualInputVisibility!]!
               $categories: [ID!]!
-              $addons: [ID!]!
             ) {
               commerce {
                 result: productUpdate(
@@ -113,7 +98,7 @@ export default function ProductEditForm(props: Props): Node {
                     translations: $translations
                     visibility: $visibility
                     categories: $categories
-                    addons: $addons
+                    addons: [] # TODO (currently unused)
                   }
                 ) {
                   ... on Product {
@@ -157,7 +142,6 @@ export default function ProductEditForm(props: Props): Node {
             ],
             visibility: formValues.visibility,
             categories: [formValues.category],
-            addons: formValues.addons,
           })}
           onCompleted={({ commerce: { result } }) => {
             if (result.__typename === 'ProductError') {

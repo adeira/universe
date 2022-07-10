@@ -27,9 +27,6 @@ export default function ProductCreateForm(props: Props): Node {
         productCategories: searchAllProductCategories(clientLocale: $clientLocale) {
           ...ProductFormCategoriesData
         }
-        productAddons: searchAllProductAddons(clientLocale: $clientLocale) {
-          ...ProductFormAddonsData
-        }
       }
     `,
     props.commerceData,
@@ -39,10 +36,7 @@ export default function ProductCreateForm(props: Props): Node {
     <ProductForm
       // $FlowFixMe[incompatible-type]: https://github.com/facebook/relay/issues/2545
       availableCategories={data.productCategories}
-      // $FlowFixMe[incompatible-type]: https://github.com/facebook/relay/issues/2545
-      availableAddons={data.productAddons}
       selectedCategories={[]}
-      selectedAddons={[]}
       name_en={''}
       name_es={''}
       description_en={''}
@@ -59,7 +53,6 @@ export default function ProductCreateForm(props: Props): Node {
               $translations: [ProductMultilingualInputTranslations!]!
               $visibility: [ProductMultilingualInputVisibility!]!
               $categories: [ID!]!
-              $addons: [ID!]!
             ) {
               commerce {
                 result: productCreate(
@@ -70,7 +63,7 @@ export default function ProductCreateForm(props: Props): Node {
                     translations: $translations
                     visibility: $visibility
                     categories: $categories
-                    addons: $addons
+                    addons: [] # TODO (currently unused)
                   }
                 ) {
                   ... on Product {
@@ -103,7 +96,6 @@ export default function ProductCreateForm(props: Props): Node {
             ],
             visibility: formValues.visibility,
             categories: [formValues.category],
-            addons: formValues.addons,
           })}
           onCompleted={({ commerce: { result } }) => {
             if (result.__typename === 'ProductError') {

@@ -1,12 +1,11 @@
 // @flow
 
 import { graphql, useFragment } from '@adeira/relay';
-import { Kbd, Tooltip, MoneyFn } from '@adeira/sx-design';
+import { Kbd, Tooltip } from '@adeira/sx-design';
 import { fbt } from 'fbt';
 import * as React from 'react';
 import sx from '@adeira/sx';
 import {
-  FormCheckboxList,
   FormMultiSelect,
   FormSelectOption,
   FormMultiUpload,
@@ -18,16 +17,12 @@ import {
   FormTextArea,
 } from '@adeira/forms';
 
-import refineSupportedCurrencies from '../refineSupportedCurrencies';
 import type { ProductFormCategoriesData$key } from './__generated__/ProductFormCategoriesData.graphql';
-import type { ProductFormAddonsData$key } from './__generated__/ProductFormAddonsData.graphql';
 
 // For re-usability purposes (see ProductCreateForm vs. ProductEditForm).
 export default function ProductForm(props: {
   +availableCategories: ProductFormCategoriesData$key,
-  +availableAddons: ProductFormAddonsData$key,
   +selectedCategories: $ReadOnlyArray<string>,
-  +selectedAddons: $ReadOnlyArray<string>,
   +name_en: ?string,
   +name_es: ?string,
   +description_en: ?string,
@@ -44,20 +39,6 @@ export default function ProductForm(props: {
       }
     `,
     props.availableCategories,
-  );
-
-  const productAddons = useFragment(
-    graphql`
-      fragment ProductFormAddonsData on ProductAddon @relay(plural: true) {
-        id
-        name
-        priceExtra {
-          unitAmount
-          unitAmountCurrency
-        }
-      }
-    `,
-    props.availableAddons,
   );
 
   return (
@@ -116,22 +97,6 @@ export default function ProductForm(props: {
         label={
           <fbt desc="form field name for product base price without add-ons">Base price (MXN)</fbt>
         }
-      />
-
-      <FormCheckboxList
-        name="addons"
-        label={<fbt desc="form field name for product add-ons">Product add-ons</fbt>}
-        selectedValues={props.selectedAddons}
-        availableValues={productAddons.reduce((acc, currentAddon) => {
-          acc[currentAddon.id] = `${currentAddon.name} +${MoneyFn({
-            priceUnitAmount: currentAddon.priceExtra.unitAmount / 100, // adjusted for centavo
-            priceUnitAmountCurrency: refineSupportedCurrencies(
-              currentAddon.priceExtra.unitAmountCurrency,
-            ),
-            locale: 'en-US', // TODO
-          })}`;
-          return acc;
-        }, {})}
       />
 
       <FormSelect

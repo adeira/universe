@@ -1,6 +1,5 @@
 // @flow
 
-export { default as FormCheckboxList } from './FormCheckboxList';
 export { default as FormMultiSelect } from './FormMultiSelect';
 export { default as FormSelectOption } from './FormSelectOption';
 export { default as FormMultiUpload } from './FormMultiUpload';

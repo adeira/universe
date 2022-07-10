@@ -2,16 +2,10 @@
 
 import { useMutation, type GraphQLTaggedNode, type Variables } from '@adeira/relay';
 import { fbt } from 'fbt';
-import { type Node } from 'react';
-import { useRecoilCallback, useRecoilValue } from 'recoil';
+import { type Node, useContext } from 'react';
 import { Button, useFlashMessages, FlashMessageTint } from '@adeira/sx-design';
 
-import {
-  formStateAtomFamily,
-  formStateAtomFamilyErrors,
-  formStateAtomFamilyIds,
-  formStateUploadables,
-} from './private/formState';
+import FormRootContext from './FormRootContext';
 
 type Props = {
   +children: FbtWithoutString,
@@ -28,33 +22,8 @@ type Props = {
  * 3. call the mutation
  */
 export default function FormSubmit(props: Props): Node {
-  const ids = useRecoilValue(formStateAtomFamilyIds);
-  const uploadables = useRecoilValue(formStateUploadables);
+  const formRootContext = useContext(FormRootContext);
   const [displayFleshMessage] = useFlashMessages();
-
-  const unmaskFormFieldErrors = useRecoilCallback(({ snapshot, set }) => (id) => {
-    const errorsAtom = formStateAtomFamilyErrors(id);
-    const errorsAtomContents = snapshot.getLoadable(errorsAtom).contents;
-    /* $FlowFixMe[incompatible-use] This comment suppresses an error when
-     * upgrading Recoil to version 0.7.4. To see the error delete this comment
-     * and run Flow. */
-    /* $FlowFixMe[prop-missing] This comment suppresses an error when upgrading
-     * Recoil to version 0.7.4. To see the error delete this comment and run
-     * Flow. */
-    const hasErrors = errorsAtomContents.validationError != null;
-    if (hasErrors === true) {
-      // We re-render only fields with an error.
-      set(errorsAtom, (prevState) => ({
-        ...prevState,
-        validationErrorHidden: false,
-      }));
-    }
-    return hasErrors;
-  });
-
-  const getFormFieldValue = useRecoilCallback(({ snapshot }) => (id) => {
-    return snapshot.getLoadable(formStateAtomFamily(id)).contents;
-  });
 
   // eslint-disable-next-line relay/generated-flow-types -- discovered when upgrading Relay Eslint plugin, FIXME
   const [runMutation, isMutationInProgress] = useMutation(props.mutation);
@@ -62,14 +31,17 @@ export default function FormSubmit(props: Props): Node {
   const handleButtonClick = (event) => {
     event.preventDefault();
 
+    formRootContext.unmaskFormFieldErrors();
+
     let hasErrors = false;
     const formValues = {};
-    ids.forEach((id) => {
-      const hasFieldErrors = unmaskFormFieldErrors(id);
-      if (hasFieldErrors === true) {
-        hasErrors = hasFieldErrors;
+    Object.keys(formRootContext.formFields).forEach((formFieldInputName) => {
+      const { inputName, inputValue, validationError } =
+        formRootContext.formFields[formFieldInputName];
+      formValues[inputName] = inputValue;
+      if (validationError != null) {
+        hasErrors = true;
       }
-      formValues[id] = getFormFieldValue(id);
     });
 
     if (hasErrors === true) {
@@ -94,12 +66,12 @@ export default function FormSubmit(props: Props): Node {
         );
       },
     };
+
+    const uploadables = formRootContext.uploadables;
     if (uploadables != null) {
       mutationConfig.uploadables = uploadables;
     }
-    /* $FlowFixMe[class-object-subtyping] This comment suppresses an error when
-     * upgrading Recoil to version 0.7.4. To see the error delete this comment
-     * and run Flow. */
+
     runMutation(mutationConfig);
   };
 

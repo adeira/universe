@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<11ee522777a5676dafbb06f8e7b26751>>
+ * @generated SignedSource<<f7f16a3d6b958d8a248a6c310d4dddd5>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -20,7 +20,6 @@ export type ProductMultilingualInputTranslations = {|
   name: string,
 |};
 export type ProductCreateFormMutation$variables = {|
-  addons: $ReadOnlyArray<string>,
   categories: $ReadOnlyArray<string>,
   clientLocale: SupportedLocale,
   productImagesNames: $ReadOnlyArray<string>,
@@ -53,39 +52,34 @@ var node/*: ConcreteRequest*/ = (function(){
 var v0 = {
   "defaultValue": null,
   "kind": "LocalArgument",
-  "name": "addons"
+  "name": "categories"
 },
 v1 = {
   "defaultValue": null,
   "kind": "LocalArgument",
-  "name": "categories"
+  "name": "clientLocale"
 },
 v2 = {
   "defaultValue": null,
   "kind": "LocalArgument",
-  "name": "clientLocale"
+  "name": "productImagesNames"
 },
 v3 = {
   "defaultValue": null,
   "kind": "LocalArgument",
-  "name": "productImagesNames"
+  "name": "productPriceUnitAmount"
 },
 v4 = {
   "defaultValue": null,
   "kind": "LocalArgument",
-  "name": "productPriceUnitAmount"
+  "name": "translations"
 },
 v5 = {
   "defaultValue": null,
   "kind": "LocalArgument",
-  "name": "translations"
-},
-v6 = {
-  "defaultValue": null,
-  "kind": "LocalArgument",
   "name": "visibility"
 },
-v7 = [
+v6 = [
   {
     "kind": "Variable",
     "name": "clientLocale",
@@ -94,9 +88,9 @@ v7 = [
   {
     "fields": [
       {
-        "kind": "Variable",
+        "kind": "Literal",
         "name": "addons",
-        "variableName": "addons"
+        "value": ([]/*: any*/)
       },
       {
         "kind": "Variable",
@@ -139,21 +133,21 @@ v7 = [
     "name": "productMultilingualInput"
   }
 ],
-v8 = {
+v7 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "__typename",
   "storageKey": null
 },
-v9 = {
+v8 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "name",
   "storageKey": null
 },
-v10 = {
+v9 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -168,8 +162,7 @@ return {
       (v2/*: any*/),
       (v3/*: any*/),
       (v4/*: any*/),
-      (v5/*: any*/),
-      (v6/*: any*/)
+      (v5/*: any*/)
     ],
     "kind": "Fragment",
     "metadata": null,
@@ -185,7 +178,7 @@ return {
         "selections": [
           {
             "alias": "result",
-            "args": (v7/*: any*/),
+            "args": (v6/*: any*/),
             "concreteType": null,
             "kind": "LinkedField",
             "name": "productCreate",
@@ -194,8 +187,8 @@ return {
               {
                 "kind": "InlineFragment",
                 "selections": [
-                  (v8/*: any*/),
-                  (v9/*: any*/)
+                  (v7/*: any*/),
+                  (v8/*: any*/)
                 ],
                 "type": "Product",
                 "abstractKey": null
@@ -203,8 +196,8 @@ return {
               {
                 "kind": "InlineFragment",
                 "selections": [
-                  (v8/*: any*/),
-                  (v10/*: any*/)
+                  (v7/*: any*/),
+                  (v9/*: any*/)
                 ],
                 "type": "ProductError",
                 "abstractKey": null
@@ -222,12 +215,11 @@ return {
   "kind": "Request",
   "operation": {
     "argumentDefinitions": [
+      (v1/*: any*/),
       (v2/*: any*/),
       (v3/*: any*/),
       (v4/*: any*/),
       (v5/*: any*/),
-      (v6/*: any*/),
-      (v1/*: any*/),
       (v0/*: any*/)
     ],
     "kind": "Operation",
@@ -243,17 +235,17 @@ return {
         "selections": [
           {
             "alias": "result",
-            "args": (v7/*: any*/),
+            "args": (v6/*: any*/),
             "concreteType": null,
             "kind": "LinkedField",
             "name": "productCreate",
             "plural": false,
             "selections": [
-              (v8/*: any*/),
+              (v7/*: any*/),
               {
                 "kind": "InlineFragment",
                 "selections": [
-                  (v9/*: any*/),
+                  (v8/*: any*/),
                   {
                     "alias": null,
                     "args": null,
@@ -268,7 +260,7 @@ return {
               {
                 "kind": "InlineFragment",
                 "selections": [
-                  (v10/*: any*/)
+                  (v9/*: any*/)
                 ],
                 "type": "ProductError",
                 "abstractKey": null
@@ -282,18 +274,18 @@ return {
     ]
   },
   "params": {
-    "cacheID": "00c8232f0b57981df0af028b799429d7",
+    "cacheID": "5fe353977788a058b2f03ceae02984d6",
     "id": null,
     "metadata": {},
     "name": "ProductCreateFormMutation",
     "operationKind": "mutation",
-    "text": "mutation ProductCreateFormMutation(\n  $clientLocale: SupportedLocale!\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n  $visibility: [ProductMultilingualInputVisibility!]!\n  $categories: [ID!]!\n  $addons: [ID!]!\n) {\n  commerce {\n    result: productCreate(clientLocale: $clientLocale, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility, categories: $categories, addons: $addons}) {\n      __typename\n      ... on Product {\n        __typename\n        name\n        id\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
+    "text": "mutation ProductCreateFormMutation(\n  $clientLocale: SupportedLocale!\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n  $visibility: [ProductMultilingualInputVisibility!]!\n  $categories: [ID!]!\n) {\n  commerce {\n    result: productCreate(clientLocale: $clientLocale, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility, categories: $categories, addons: []}) {\n      __typename\n      ... on Product {\n        __typename\n        name\n        id\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 
 if (__DEV__) {
-  (node/*: any*/).hash = "5281cea08ca8f73289b8cf2d5ac5af08";
+  (node/*: any*/).hash = "4f36d3ee0db88d27a4c104f0b1deace3";
 }
 
 module.exports = ((node/*: any*/)/*: Mutation<

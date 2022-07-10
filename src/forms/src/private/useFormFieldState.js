@@ -1,19 +1,17 @@
 // @flow
 
-import { useEffect, type ElementRef } from 'react';
-import { useRecoilState } from 'recoil';
+import { useEffect, useContext, type ElementRef } from 'react';
 
-import { formStateAtomFamilyErrors } from './formState';
+import FormRootContext from '../FormRootContext';
 import getValidityStateMessage from './getValidityStateMessage';
-import useFormFieldStateWithoutValidation from './useFormFieldStateWithoutValidation';
 
 type InputRef = { current: ElementRef<'input' | 'select' | 'textarea'> | null };
 type InputValue = $FlowFixMe;
 
-// Basically a wrapper around `useFormFieldStateWithoutValidation` adding HTML5 validation. Use it
-// when you are able to provide input React reference for the validation (otherwise do it manually).
+// This is the core of these forms - it registers each individual field to the form context and
+// manages its state. It also adds HTML5 validation.
 export default function useFormFieldState(
-  inputRef: InputRef,
+  inputRef: InputRef | null, // null when cannot provide on React ref (see FormCheckboxList)
   inputName: string,
   inputValue: InputValue,
   inputLabel: FbtWithoutString,
@@ -22,30 +20,34 @@ export default function useFormFieldState(
   (InputRef, InputValue) => void, // field value updater
   $FlowFixMe, // field errors
 ] {
-  const [fieldState, setFieldState] = useFormFieldStateWithoutValidation(inputName, inputValue);
-  const [inputErrorsState, setInputErrorsState] = useRecoilState(
-    formStateAtomFamilyErrors(inputName),
-  );
+  const formRootContext = useContext(FormRootContext);
 
   useEffect(() => {
-    // Check whether the input is valid after the initial render.
-    setInputErrorsState({
-      validationError: getValidityStateMessage(inputRef.current, inputLabel),
-      validationErrorHidden: true, // by default hidden
-    });
+    formRootContext.registerFormField(
+      inputName,
+      inputValue,
+      inputRef,
+      inputRef != null ? getValidityStateMessage(inputRef.current, inputLabel) : null, // validationError
+      true, // validationErrorHidden (by default hidden)
+    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [inputLabel, setInputErrorsState]);
+  }, []);
 
   function updateInputValue(newInputRef, newInputValue) {
-    // Register the new input value.
-    setFieldState(newInputValue);
-
-    // Check whether the input is valid after the user changed it.
-    setInputErrorsState({
-      validationError: getValidityStateMessage(newInputRef.current, inputLabel),
-      validationErrorHidden: false,
-    });
+    formRootContext.updateFormField(
+      inputName,
+      newInputValue,
+      inputRef != null ? getValidityStateMessage(inputRef.current, inputLabel) : null, // validationError
+      false, // validationErrorHidden
+    );
   }
 
-  return [fieldState, updateInputValue, inputErrorsState];
+  return [
+    formRootContext.formFields[inputName]?.inputValue ?? inputValue,
+    updateInputValue,
+    {
+      validationError: formRootContext.formFields[inputName]?.validationError ?? null,
+      validationErrorHidden: formRootContext.formFields[inputName]?.validationErrorHidden ?? true,
+    },
+  ];
 }
