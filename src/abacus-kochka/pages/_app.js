@@ -27,10 +27,16 @@ export default function MyApp({ Component, pageProps }: Props): React.Node {
   const languageTag = initFbtTranslations(router.locale);
 
   useEffect(() => {
-    if (!__DEV__) {
+    recordPageVisit(RelayEnvironment);
+    const handleRouteChange = () => {
       recordPageVisit(RelayEnvironment);
-    }
-  });
+    };
+    router.events.on('routeChangeComplete', handleRouteChange);
+    return () => {
+      // If the component is unmounted, unsubscribe from the event with the `off` method:
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <React.StrictMode>
