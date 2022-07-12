@@ -22,7 +22,7 @@
     "css-tree": "^2.1.0",
     "fast-levenshtein": "^3.0.0",
     "json-stable-stringify": "^1.0.1",
-    "mdn-data": "^2.0.27",
+    "mdn-data": "^2.0.28",
     "prettier": "^2.7.1"
   },
   "peerDependencies": {

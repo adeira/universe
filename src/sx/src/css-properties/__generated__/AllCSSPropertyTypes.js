@@ -15,7 +15,7 @@ export type AllCSSPropertyTypes = {
   +alignItems?: number | string, // https://developer.mozilla.org/docs/Web/CSS/align-items
   +alignSelf?: number | string, // https://developer.mozilla.org/docs/Web/CSS/align-self
   +alignTracks?: number | string, // https://developer.mozilla.org/docs/Web/CSS/align-tracks
-  +all?: 'initial' | 'inherit' | 'unset' | 'revert', // https://developer.mozilla.org/docs/Web/CSS/all
+  +all?: 'initial' | 'inherit' | 'unset' | 'revert' | 'revert-layer', // https://developer.mozilla.org/docs/Web/CSS/all
   +animation?: number | string, // https://developer.mozilla.org/docs/Web/CSS/animation
   +animationDelay?: string, // https://developer.mozilla.org/docs/Web/CSS/animation-delay
   +animationDirection?: number | string, // https://developer.mozilla.org/docs/Web/CSS/animation-direction
@@ -447,6 +447,7 @@ export type AllCSSPropertyTypes = {
     | 'saturation'
     | 'color'
     | 'luminosity'
+    | 'plus-lighter'
     | 'inherit'
     | 'initial'
     | 'unset',
