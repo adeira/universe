@@ -20,7 +20,7 @@ __metadata:
     "@adeira/sx-design": ^0.29.0
     "@fbtjs/default-collection-transform": ^1.0.0
     "@next/bundle-analyzer": ^12.2.2
-    "@playwright/test": ^1.23.2
+    "@playwright/test": ^1.23.3
     "@recoiljs/refine": ^0.1.0
     "@testing-library/jest-dom": ^5.16.4
     "@testing-library/react": ^13.3.0
@@ -36,7 +36,7 @@ __metadata:
     next-plugin-custom-babel-config: ^1.0.5
     next-seo: ^5.4.0
     next-transpile-modules: ^9.0.0
-    playwright: ^1.23.2
+    playwright: ^1.23.3
     react: ^18.2.0
     react-dom: ^18.2.0
     recoil: ^0.7.4
@@ -52,10 +52,10 @@ __metadata:
     "@babel/preset-flow": ^7.18.6
     "@markdoc/markdoc": ^0.1.3
     "@markdoc/next.js": ^0.1.6
-    "@playwright/test": ^1.23.2
+    "@playwright/test": ^1.23.3
     js-yaml: ^4.1.0
     next: ^12.2.2
-    playwright: ^1.23.2
+    playwright: ^1.23.3
     react: ^18.2.0
     react-dom: ^18.2.0
   languageName: unknown
@@ -74,7 +74,7 @@ __metadata:
     "@adeira/sx-design": ^0.29.0
     "@adeira/sx-design-nextjs": ^0.3.2
     "@fbtjs/default-collection-transform": ^1.0.0
-    "@playwright/test": ^1.23.2
+    "@playwright/test": ^1.23.3
     "@testing-library/react": ^13.3.0
     babel-plugin-fbt: ^1.0.0
     babel-plugin-fbt-runtime: ^1.0.0
@@ -86,7 +86,7 @@ __metadata:
     next-plugin-custom-babel-config: ^1.0.5
     next-seo: ^5.4.0
     next-transpile-modules: ^9.0.0
-    playwright: ^1.23.2
+    playwright: ^1.23.3
     react: ^18.2.0
     react-dom: ^18.2.0
     recoil: ^0.7.4
@@ -433,7 +433,7 @@ __metadata:
     "@babel/core": ^7.18.6
     "@babel/runtime": ^7.18.6
     "@fbtjs/default-collection-transform": ^1.0.0
-    "@playwright/test": ^1.23.2
+    "@playwright/test": ^1.23.3
     "@storybook/addon-a11y": ^6.5.9
     "@storybook/addon-actions": ^6.5.9
     "@storybook/addon-essentials": ^6.5.9
@@ -452,7 +452,7 @@ __metadata:
     fbt: ^1.0.0
     flow-enums-runtime: ^0.0.6
     focus-trap-react: ^9.0.2
-    playwright: ^1.23.2
+    playwright: ^1.23.3
     prop-types: ^15.8.1
     react: ^18.2.0
     react-blurhash: ^0.1.3
@@ -2903,15 +2903,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:^1.23.2":
-  version: 1.23.2
-  resolution: "@playwright/test@npm:1.23.2"
+"@playwright/test@npm:^1.23.3":
+  version: 1.23.3
+  resolution: "@playwright/test@npm:1.23.3"
   dependencies:
     "@types/node": "*"
-    playwright-core: 1.23.2
+    playwright-core: 1.23.3
   bin:
     playwright: cli.js
-  checksum: 3f01cc25d9e2095ee31a272cead11de859303f7c2e4ccdbd5a01985d51dd0d946da2b284b43fb0bcd6780e80939ef4b67215650572a3124a84339c760faa8460
+  checksum: 77e1ac3064c05cfb9d7ea165a2654433711f653cdf63e5040c08779002d1bdfcac4d55f4abd932e086d400fb4a84e37c5023f9535967d005f96b99aed4d3b858
   languageName: node
   linkType: hard
 
@@ -15395,23 +15395,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.23.2":
-  version: 1.23.2
-  resolution: "playwright-core@npm:1.23.2"
+"playwright-core@npm:1.23.3":
+  version: 1.23.3
+  resolution: "playwright-core@npm:1.23.3"
   bin:
     playwright: cli.js
-  checksum: 7e5c7adbc436c68e5de8535508746c2734393f77948c08ff1df7d21eaa518cd00d82f49c936b2776be6958dc2d7f18985582d72690ffeee7a59006267e22a391
+  checksum: e83cf0b05d791ded54e155fc8cb5689dcb57e02f315f23f5955d769fbb40685ce085218debbc6e617280b0d432e857631762c010586dfd19a6f14a5149384ecd
   languageName: node
   linkType: hard
 
-"playwright@npm:^1.23.2":
-  version: 1.23.2
-  resolution: "playwright@npm:1.23.2"
+"playwright@npm:^1.23.3":
+  version: 1.23.3
+  resolution: "playwright@npm:1.23.3"
   dependencies:
-    playwright-core: 1.23.2
+    playwright-core: 1.23.3
   bin:
     playwright: cli.js
-  checksum: 19b32fcc77375366643ac45009dd5a6d25a6a64258aa11da6030fd7bc6bf54366f3740fd7886ed5b03860ac48c4278b7cbd1483e924e3367ad2d3434efe57358
+  checksum: 4562fbc3e5027b84cac2dcbc3119593bf61012548adfb4bafb6b8c8b6e7ae605c2c45c494b4ef82d82651487fd3cdc6767ca56af0092bc8d5cc7177489ed473d
   languageName: node
   linkType: hard
 
