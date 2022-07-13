@@ -9,13 +9,14 @@ env:
 
 jobs:
   javascript-test:
-    name: JavaScript test
+    name: JavaScript test (${{ matrix.node-version }}; ${{ matrix.shard }})
     runs-on: ubuntu-latest
 
     strategy:
       fail-fast: false
       matrix:
-        node-version: [16.x, 18.x]
+        node-version: ['16.x', '18.x']
+        shard: ['1/2', '2/2']
 
     steps:
       # https://github.com/actions/checkout
@@ -29,14 +30,22 @@ jobs:
         uses: actions/setup-node@v3.4.0
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'yarn'
+
+      - name: Get Yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+
+      # https://github.com/actions/cache
+      - name: Restore Yarn cache
+        uses: actions/cache@v3.0.5
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: yarn-cache-folder-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
+          restore-keys: |
+            yarn-cache-folder-
 
       - name: Install Yarn dependencies
         run: yarn install --immutable
-
-      # TODO: https://github.com/yarnpkg/berry/issues/2783
-      # - name: Check Yarn versions releases
-      #   run: yarn version check
 
       # https://github.com/actions-rs/toolchain
       - uses: actions-rs/toolchain@v1.0.7
@@ -53,8 +62,8 @@ jobs:
       - name: Run Eslint check
         run: ./x lints
 
-      - name: Run Jest tests
-        run: ./x tests
+      - name: Run Jest tests (${{ matrix.shard }})
+        run: ./x tests --shard ${{ matrix.shard }}
 
       - name: Run monorepo scanner
         run: ./x scanner
