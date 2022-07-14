@@ -26,52 +26,24 @@ jobs:
               - 'src/abacus/**'
               - 'src/x/**'
 
-      # https://github.com/actions-rs/toolchain
-      - uses: actions-rs/toolchain@v1.0.7
+      # https://github.com/dtolnay/rust-toolchain
+      - uses: dtolnay/rust-toolchain@stable
         if: steps.paths-filter.outputs.src == 'true'
         with:
-          profile: minimal
           components: clippy, rustfmt
-          toolchain: stable
-          override: true
-          target: 'x86_64-unknown-linux-gnu' # 64-bit Linux (kernel 2.6.32+, glibc 2.11+)
 
-      # https://github.com/actions-rs/cargo
-      - uses: actions-rs/cargo@v1.0.3
+      # Cargo fmt
+      - run: cargo fmt --all --check --verbose --message-format=human --manifest-path ${{ matrix.manifest }}
         if: steps.paths-filter.outputs.src == 'true'
-        with:
-          command: fmt
-          args: >-
-            --all
-            --check
-            --verbose
-            --message-format=human
-            --manifest-path ${{ matrix.manifest }}
 
-      # https://github.com/actions-rs/cargo
-      - uses: actions-rs/cargo@v1.0.3
+      # Cargo clippy
+      # `--all-targets` + `--all-features` (in order to also check tests and non-default crate features)
+      - run: cargo clippy --locked --all-targets --all-features --manifest-path ${{ matrix.manifest }}
         if: steps.paths-filter.outputs.src == 'true'
-        with:
-          command: clippy
-          # `--all-targets` + `--all-features`   (in order to also check tests and non-default crate features)
-          args: >-
-            --locked
-            --all-targets
-            --all-features
-            --manifest-path ${{ matrix.manifest }}
-            --target x86_64-unknown-linux-gnu
 
-      # https://github.com/actions-rs/cargo
-      - name: Run all tests
-        uses: actions-rs/cargo@v1.0.3
+      # Cargo test
+      - run: cargo test --no-fail-fast --manifest-path ${{ matrix.manifest }} --color always
         if: steps.paths-filter.outputs.src == 'true'
-        with:
-          command: test
-          args: >-
-            --no-fail-fast
-            --manifest-path ${{ matrix.manifest }}
-            --target x86_64-unknown-linux-gnu
-            --color always
 
       # https://github.com/actions-rs/cargo
       # TODO: replace with `--include-ignored` once it's in stable Rust Compiler
