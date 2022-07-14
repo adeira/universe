@@ -16,13 +16,7 @@
 #
 # ## Prerequisites
 #
-# The script currently requires Rust to be installed on the machine. In the future this could be
-# done automatically either by providing the compiled binaries directly or installing Rust
-# automatically via `rustup`. For now, it's required to do it manually:
-#
-# Install Rust: https://www.rust-lang.org/tools/install
-#
-# Additionally, it's necessary to make this file executable:
+# It's necessary to make this file executable:
 #
 # ```
 # chmod +x ./x
@@ -47,10 +41,8 @@
 # ./x r -- --help
 # ```
 
-if ! command -v rustc &> /dev/null
-  (cd src/x && cargo run --release -- "$@")
-  exit
-then
-  echo "rustc could not be found, install Rust via https://www.rust-lang.org/tools/install"
-  exit
+if ! command -v rustup &> /dev/null ; then
+  curl --proto '=https' --tlsv1.2 --retry 10 --retry-connrefused -fsSL "https://sh.rustup.rs" | sh -s -- -y
 fi
+
+(cd src/x && cargo run -- "$@")
