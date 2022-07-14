@@ -19,21 +19,11 @@ jobs:
       # https://github.com/actions/checkout
       - uses: actions/checkout@v3.0.2
 
-      # https://github.com/actions-rs/toolchain
-      - uses: actions-rs/toolchain@v1.0.7
-        with:
-          profile: minimal
-          toolchain: stable
-          override: true
+      # https://github.com/dtolnay/rust-toolchain
+      - uses: dtolnay/rust-toolchain@stable
 
-      # https://github.com/actions-rs/cargo
-      - name: Run cargo-update
-        uses: actions-rs/cargo@v1.0.3
-        with:
-          command: update
-          args: >-
-            --manifest-path ${{ matrix.manifest }}
-            --color always
+      # Cargo update
+      - run: cargo update --manifest-path ${{ matrix.manifest }} --color always
 
       # https://github.com/peter-evans/create-pull-request
       - name: Create Pull Request
