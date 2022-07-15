@@ -8,10 +8,36 @@ metadata:
   namespace: default
   labels:
     app.kubernetes.io/name: kube-arangodb
-    helm.sh/chart: kube-arangodb-1.2.3
+    helm.sh/chart: kube-arangodb-1.2.14
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/instance: deployment
     release: deployment
+---
+# Source: kube-arangodb/templates/crd/cluster-role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: arango-deployment-operator-rbac-crd
+  labels:
+    app.kubernetes.io/name: kube-arangodb
+    helm.sh/chart: kube-arangodb-1.2.14
+    app.kubernetes.io/managed-by: Tiller
+    app.kubernetes.io/instance: deployment
+    release: deployment
+rules:
+  - apiGroups: ['apiextensions.k8s.io']
+    resources: ['customresourcedefinitions']
+    verbs: ['get', 'list', 'watch', 'update', 'delete']
+    resourceNames:
+      - 'arangodeployments.database.arangodb.com'
+      - 'arangoclustersynchronizations.database.arangodb.com'
+      - 'arangomembers.database.arangodb.com'
+      - 'arangotasks.database.arangodb.com'
+      - 'arangodeploymentreplications.replication.database.arangodb.com'
+      - 'arangobackups.backup.arangodb.com'
+      - 'arangobackuppolicies.backup.arangodb.com'
+      - 'arangojobs.apps.arangodb.com'
+      - 'arangolocalstorages.storage.arangodb.com'
 ---
 # Source: kube-arangodb/templates/deployment-operator/cluster-role.yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -20,7 +46,7 @@ metadata:
   name: arango-deployment-operator-rbac-deployment
   labels:
     app.kubernetes.io/name: kube-arangodb
-    helm.sh/chart: kube-arangodb-1.2.3
+    helm.sh/chart: kube-arangodb-1.2.14
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/instance: deployment
     release: deployment
@@ -32,6 +58,26 @@ rules:
     resources: ['namespaces', 'nodes', 'persistentvolumes']
     verbs: ['get', 'list']
 ---
+# Source: kube-arangodb/templates/crd/cluster-role-binding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: arango-deployment-operator-rbac-crd
+  labels:
+    app.kubernetes.io/name: kube-arangodb
+    helm.sh/chart: kube-arangodb-1.2.14
+    app.kubernetes.io/managed-by: Tiller
+    app.kubernetes.io/instance: deployment
+    release: deployment
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: arango-deployment-operator-rbac-crd
+subjects:
+  - kind: ServiceAccount
+    name: arango-deployment-operator
+    namespace: default
+---
 # Source: kube-arangodb/templates/deployment-operator/cluster-role-binding.yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -39,7 +85,7 @@ metadata:
   name: arango-deployment-operator-rbac-deployment
   labels:
     app.kubernetes.io/name: kube-arangodb
-    helm.sh/chart: kube-arangodb-1.2.3
+    helm.sh/chart: kube-arangodb-1.2.14
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/instance: deployment
     release: deployment
@@ -60,7 +106,7 @@ metadata:
   namespace: default
   labels:
     app.kubernetes.io/name: kube-arangodb
-    helm.sh/chart: kube-arangodb-1.2.3
+    helm.sh/chart: kube-arangodb-1.2.14
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/instance: deployment
     release: deployment
@@ -77,7 +123,7 @@ metadata:
   namespace: default
   labels:
     app.kubernetes.io/name: kube-arangodb
-    helm.sh/chart: kube-arangodb-1.2.3
+    helm.sh/chart: kube-arangodb-1.2.14
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/instance: deployment
     release: deployment
@@ -85,6 +131,12 @@ rules:
   - apiGroups: ['database.arangodb.com']
     resources:
       ['arangodeployments', 'arangodeployments/status', 'arangomembers', 'arangomembers/status']
+    verbs: ['*']
+  - apiGroups: ['database.arangodb.com']
+    resources: ['arangoclustersynchronizations', 'arangoclustersynchronizations/status']
+    verbs: ['*']
+  - apiGroups: ['database.arangodb.com']
+    resources: ['arangotasks', 'arangotasks/status']
     verbs: ['*']
   - apiGroups: ['']
     resources:
@@ -119,7 +171,7 @@ metadata:
   namespace: default
   labels:
     app.kubernetes.io/name: kube-arangodb
-    helm.sh/chart: kube-arangodb-1.2.3
+    helm.sh/chart: kube-arangodb-1.2.14
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/instance: deployment
     release: deployment
@@ -140,7 +192,7 @@ metadata:
   namespace: default
   labels:
     app.kubernetes.io/name: kube-arangodb
-    helm.sh/chart: kube-arangodb-1.2.3
+    helm.sh/chart: kube-arangodb-1.2.14
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/instance: deployment
     release: deployment
@@ -161,7 +213,7 @@ metadata:
   namespace: default
   labels:
     app.kubernetes.io/name: kube-arangodb
-    helm.sh/chart: kube-arangodb-1.2.3
+    helm.sh/chart: kube-arangodb-1.2.14
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/instance: deployment
     release: deployment
@@ -188,7 +240,7 @@ metadata:
   namespace: default
   labels:
     app.kubernetes.io/name: kube-arangodb
-    helm.sh/chart: kube-arangodb-1.2.3
+    helm.sh/chart: kube-arangodb-1.2.14
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/instance: deployment
     release: deployment
@@ -207,7 +259,7 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/name: kube-arangodb
-        helm.sh/chart: kube-arangodb-1.2.3
+        helm.sh/chart: kube-arangodb-1.2.14
         app.kubernetes.io/managed-by: Tiller
         app.kubernetes.io/instance: deployment
         release: deployment
@@ -218,10 +270,10 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
               - matchExpressions:
-                  - key: beta.kubernetes.io/arch
+                  - key: kubernetes.io/arch
                     operator: In
                     values:
-                      - amd64
+                      - 'amd64'
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
             - weight: 100
@@ -246,7 +298,7 @@ spec:
       containers:
         - name: operator
           imagePullPolicy: Always
-          image: arangodb/kube-arangodb:1.2.3
+          image: arangodb/kube-arangodb:1.2.14
           args:
             - --scope=legacy
             - --operator.deployment
@@ -306,6 +358,16 @@ spec:
           tolerationSeconds: 5
 
 ---
+# Source: kube-arangodb/templates/apps-operator/cluster-role-binding.yaml
+---
+# Source: kube-arangodb/templates/apps-operator/cluster-role.yaml
+---
+# Source: kube-arangodb/templates/apps-operator/role-binding.yaml
+---
+# Source: kube-arangodb/templates/apps-operator/role.yaml
+---
+# Source: kube-arangodb/templates/apps-operator/service-account-job.yaml
+---
 # Source: kube-arangodb/templates/backup-operator/cluster-role-binding.yaml
 ---
 # Source: kube-arangodb/templates/backup-operator/cluster-role.yaml
@@ -321,6 +383,14 @@ spec:
 # Source: kube-arangodb/templates/deployment-replications-operator/role-binding.yaml
 ---
 # Source: kube-arangodb/templates/deployment-replications-operator/role.yaml
+---
+# Source: kube-arangodb/templates/k2k-cluster-sync-operator/cluster-role-binding.yaml
+---
+# Source: kube-arangodb/templates/k2k-cluster-sync-operator/cluster-role.yaml
+---
+# Source: kube-arangodb/templates/k2k-cluster-sync-operator/role-binding.yaml
+---
+# Source: kube-arangodb/templates/k2k-cluster-sync-operator/role.yaml
 ---
 # Source: kube-arangodb/templates/storage-operator/cluster-role-binding.yaml
 ---
