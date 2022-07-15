@@ -720,6 +720,7 @@ Object {
     ],
     "jest/consistent-test-it": 0,
     "jest/expect-expect": 0,
+    "jest/max-expects": 0,
     "jest/max-nested-describe": Array [
       2,
       Object {
