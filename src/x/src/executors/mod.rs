@@ -2,6 +2,7 @@ use log::info;
 use std::process::{Command, Stdio};
 
 pub mod flow;
+pub mod install;
 pub mod lints;
 pub mod relay;
 pub mod scanner;
