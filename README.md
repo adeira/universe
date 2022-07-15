@@ -16,9 +16,9 @@
 git clone --depth=100 git@github.com:adeira/universe.git
 cd universe
 corepack enable
-yarn install
 
 chmod +x ./x
+./x install
 ./x --help
 ```
 

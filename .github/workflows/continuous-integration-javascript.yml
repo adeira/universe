@@ -43,11 +43,11 @@ jobs:
           restore-keys: |
             yarn-cache-folder-
 
-      - name: Install Yarn dependencies
-        run: yarn install --immutable
-
       # https://github.com/dtolnay/rust-toolchain
       - uses: dtolnay/rust-toolchain@stable
+
+      - name: Install Yarn dependencies
+        run: ./x install -- --immutable
 
       # We are purposefully expecting zero warnings in the output to make sure flowtests are
       # working as expected (Flow returns warnings for unused suppression comments).

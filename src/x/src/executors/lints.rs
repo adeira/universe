@@ -7,7 +7,7 @@ const PRETTIER_BIN: &str = "./node_modules/.bin/prettier";
 pub fn run_eslint_config_prettier_check() -> anyhow::Result<()> {
     execute_command(
         create_command(ESLINT_CONFIG_PRETTIER_BIN)
-            .unwrap()
+            .expect("Eslint config Prettier binary doesn't exist")
             .arg("src/js/src/invariant.js"),
     )
 }

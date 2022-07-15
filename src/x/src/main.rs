@@ -9,14 +9,14 @@ fn clap_fallthrough_subcommand(subcommand_name: &str) -> Command {
         .trailing_var_arg(true)
         .allow_hyphen_values(true)
         .arg(
-            Arg::new("trailing_args")
+            Arg::new("__trailing_args")
                 .takes_value(true)
                 .multiple_values(true),
         )
 }
 
 fn collect_trailing_args(matches: &ArgMatches) -> Vec<&str> {
-    match matches.values_of("trailing_args") {
+    match matches.values_of("__trailing_args") {
         Some(args) => args.collect(),
         None => vec![],
     }
@@ -34,7 +34,7 @@ fn main() -> anyhow::Result<()> {
         .subcommand(clap_fallthrough_subcommand("relay"))
         .subcommand(clap_fallthrough_subcommand("tests"))
         .subcommand(clap_fallthrough_subcommand("scanner"))
-        .subcommand(Command::new("install"));
+        .subcommand(clap_fallthrough_subcommand("install"));
 
     let matches = clap_app.get_matches();
 
@@ -58,11 +58,12 @@ fn main() -> anyhow::Result<()> {
         Some(("scanner", matches)) => {
             executors::scanner::run(&collect_trailing_args(matches))?;
         }
-        Some(("install", _matches)) => {
-            todo!("yarn install")
+        Some(("install", matches)) => {
+            executors::install::run(&collect_trailing_args(matches))?;
         }
         _ => {
             // TODO: how about exit codes?
+            executors::install::run(&vec![])?;
             executors::flow::run(&vec!["--max-warnings=0"])?;
             // TODO: DRY (?)
             executors::lints::run_eslint_config_prettier_check()?;
