@@ -14,6 +14,7 @@ module.exports = ({
     // Jest (https://github.com/jest-community/eslint-plugin-jest)
     'jest/consistent-test-it': OFF,
     'jest/expect-expect': OFF,
+    'jest/max-expects': OFF,
     'jest/max-nested-describe': [ERROR, { max: 5 }],
     'jest/no-alias-methods': NEXT_VERSION_ERROR,
     'jest/no-commented-out-tests': OFF,
