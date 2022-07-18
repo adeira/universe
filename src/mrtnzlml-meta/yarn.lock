@@ -277,9 +277,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/eslint-parser@npm:^7.18.2":
-  version: 7.18.2
-  resolution: "@babel/eslint-parser@npm:7.18.2"
+"@babel/eslint-parser@npm:^7.18.9":
+  version: 7.18.9
+  resolution: "@babel/eslint-parser@npm:7.18.9"
   dependencies:
     eslint-scope: ^5.1.1
     eslint-visitor-keys: ^2.1.0
@@ -287,7 +287,7 @@ __metadata:
   peerDependencies:
     "@babel/core": ">=7.11.0"
     eslint: ^7.5.0 || ^8.0.0
-  checksum: dc9328cf3304b25c9029682e6b6196761e18d3ab80d66c3085a69c6f240fa2db91b824a61672e94139e73683b7ceeefe9ff58acac1ee89fe73274007b16e43d5
+  checksum: ddbe0f9425c61a23069280948c0ad9cd4d6d46087cbc6386dd407a3ae6365c62e20f401ea42608aba21fcc2142b8d3d0878eb2f2192a7e5adbe355bdbc215aad
   languageName: node
   linkType: hard
 
@@ -8118,7 +8118,7 @@ __metadata:
   resolution: "meta@workspace:."
   dependencies:
     "@adeira/eslint-config": ^7.7.0
-    "@babel/eslint-parser": ^7.18.2
+    "@babel/eslint-parser": ^7.18.9
     "@docusaurus/core": ^2.0.0-rc.1
     "@docusaurus/preset-classic": ^2.0.0-rc.1
     eslint: ^8.20.0
