@@ -1051,7 +1051,9 @@ import(
 module.exports = function MyComponent(): React.Element<typeof React.Suspense> {
   return (
     <React.Suspense fallback={<div>Loading...</div>}>
+      
       <BoldTodoRenderer />
+    
     </React.Suspense>);
 
 };
@@ -1924,8 +1926,11 @@ const React = () => {};
 export default function Component(): Node {
   return (
     <>
+      
       <div>aaa</div>
+      
       <div>bbb</div>
+    
     </>);
 
 }
