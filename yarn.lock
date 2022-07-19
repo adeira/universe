@@ -179,7 +179,7 @@ __metadata:
     "@sinonjs/fake-timers": ^9.1.2
     cross-fetch: ^3.1.5
     form-data: ^4.0.0
-    msw: ^0.44.1
+    msw: ^0.44.2
   languageName: unknown
   linkType: soft
 
@@ -14098,9 +14098,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"msw@npm:^0.44.1":
-  version: 0.44.1
-  resolution: "msw@npm:0.44.1"
+"msw@npm:^0.44.2":
+  version: 0.44.2
+  resolution: "msw@npm:0.44.2"
   dependencies:
     "@mswjs/cookies": ^0.2.2
     "@mswjs/interceptors": ^0.17.2
@@ -14129,7 +14129,7 @@ __metadata:
       optional: true
   bin:
     msw: cli/index.js
-  checksum: 1854dfc6877861526d311f2df46ba1d8c58bc9850edcff06cb1ff37b329bf902095b225da96c5e877739a6cfcd95d37fe85605e8620ead3d577be47cb256ff37
+  checksum: 739d536ee09d1c0a2cbc9dbe917f167c42115a6548f99780850ce9a63a5e7c377cf9b5f1a3b497e85ce7304025ab22966e997fe73adbd8d2ab968b8685f15a24
   languageName: node
   linkType: hard
 
