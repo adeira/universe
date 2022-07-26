@@ -96,7 +96,6 @@ pub(in crate::menu) async fn get_section(
                     "3761831".to_string(), // Choco Salem
                     "3761904".to_string(), // Manzana Azrael
                     "3761963".to_string(), // Fresa Kitty
-                    "3762026".to_string(), // Arroz Snowball
                     "3762091".to_string(), // Banana Garfield
                 ],
             )
