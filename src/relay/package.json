@@ -20,15 +20,15 @@
     "@adeira/fetch": "^2.1.0",
     "@adeira/js": "^2.1.1",
     "@babel/runtime": "^7.18.9",
-    "babel-plugin-relay": "^14.0.0",
-    "react-relay": "^14.0.0",
-    "relay-compiler": "^14.0.0",
-    "relay-runtime": "^14.0.0"
+    "babel-plugin-relay": "^14.1.0",
+    "react-relay": "^14.1.0",
+    "relay-compiler": "^14.1.0",
+    "relay-runtime": "^14.1.0"
   },
   "devDependencies": {
     "react": "^18.2.0",
     "react-test-renderer": "^18.2.0",
-    "relay-test-utils": "^14.0.0"
+    "relay-test-utils": "^14.1.0"
   },
   "peerDependencies": {
     "graphql": "^16.5.0",
