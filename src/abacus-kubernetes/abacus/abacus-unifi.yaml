@@ -1,0 +1,73 @@
+# The Unifi service is currently configured as `NodePort` and need to be accessed via IP and PORT.
+#
+# Here is how to get the Node IP:
+#
+# ```
+# kubectl get nodes -o wide
+# ```
+#
+# And Node Port:
+#
+# ```
+# kubectl get svc
+# ```
+#
+# Use this information to notify the Unifi service about new APs, for example:
+#
+# ```
+# ssh ubnt@$AP-IP
+# set-inform http://146.190.14.199:30166/inform
+# ```
+#
+# Note: I wasn't able to notify the service via FQDN (TODO).
+#
+# More info:
+#
+# - https://help.ui.com/hc/en-us/articles/218506997-UniFi-Network-Required-Ports-Reference
+#
+apiVersion: v1
+kind: Service
+metadata:
+  name: abacus-unifi-service
+spec:
+  type: NodePort
+  selector:
+    app: abacus-unifi
+  ports:
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: 8443
+    - name: unifi-device-com
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+    - name: unifi-stun
+      protocol: UDP
+      port: 3478
+      targetPort: 3478
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: abacus-unifi-deployment
+  labels:
+    app: abacus-unifi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: abacus-unifi
+  template:
+    metadata:
+      labels:
+        app: abacus-unifi
+    spec:
+      containers:
+        - name: abacus-unifi
+          image: linuxserver/unifi-controller
+          ports:
+            - containerPort: 8443
+            - containerPort: 8080
+            - containerPort: 3478

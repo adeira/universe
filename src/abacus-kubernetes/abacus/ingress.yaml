@@ -3,9 +3,10 @@ kind: Ingress
 metadata:
   name: abacus-ingress
   annotations:
-    kubernetes.io/ingress.class: 'nginx'
+    kubernetes.io/ingress.class: 'nginx' # use the shared ingress-nginx
     cert-manager.io/cluster-issuer: 'letsencrypt-production'
     nginx.ingress.kubernetes.io/proxy-body-size: '16m'
+    nginx.ingress.kubernetes.io/backend-protocol: 'http'
 spec:
   tls:
     - hosts:
@@ -55,3 +56,36 @@ spec:
                 name: abacus-kochka-service
                 port:
                   number: 80
+
+---
+# We use multiple Ingress configurations (but shared Ingress resource) because we require different
+# configurations (annotations) for different hosts. For example, this Ingress configuration uses
+# HTTPS backend protocol (while the other Ingress config uses HTTP).
+#
+# Note: we use the same certificate issues here (let's encrypt), however, in order to make it work
+# we have to use different `spec.tls.secretName`! See: https://github.com/cert-manager/cert-manager/issues/841
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: abacus-https-ingress
+  annotations:
+    kubernetes.io/ingress.class: 'nginx' # use the shared ingress-nginx
+    cert-manager.io/cluster-issuer: 'letsencrypt-production'
+    nginx.ingress.kubernetes.io/proxy-body-size: '16m'
+    nginx.ingress.kubernetes.io/backend-protocol: 'https'
+spec:
+  tls:
+    - hosts:
+        - unifi.kochka.com.mx
+      secretName: abacus-tls-2
+  rules:
+    - host: unifi.kochka.com.mx
+      http:
+        paths:
+          - pathType: Prefix
+            path: '/'
+            backend:
+              service:
+                name: abacus-unifi-service
+                port:
+                  number: 443
