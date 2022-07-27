@@ -1,5 +1,9 @@
 # Unreleased
 
+# 6.2.0
+
+- Relay 14.1.0, see: https://github.com/facebook/relay/releases/tag/v14.1.0
+
 # 6.1.0
 
 - The network layer now takes `QueryResponseCache` into account.
