@@ -18,7 +18,7 @@
     "babel-loader": "^8.2.5",
     "eslint": "^8.20.0",
     "eslint-formatter-codeframe": "^7.32.1",
-    "flow-bin": "^0.183.0",
+    "flow-bin": "^0.183.1",
     "glob": "^8.0.3",
     "hermes-eslint": "^0.9.0",
     "jest": "^28.1.3",
