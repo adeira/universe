@@ -10,7 +10,7 @@ __metadata:
   resolution: "@adeira/abacus-backoffice@workspace:src/abacus-backoffice"
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
-    "@adeira/forms": ^0.2.0
+    "@adeira/forms": ^0.3.0
     "@adeira/hooks": ^0.3.0
     "@adeira/icons": ^2.0.0
     "@adeira/js": ^2.1.1
@@ -208,7 +208,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/forms@^0.2.0, @adeira/forms@workspace:src/forms":
+"@adeira/forms@^0.3.0, @adeira/forms@workspace:src/forms":
   version: 0.0.0-use.local
   resolution: "@adeira/forms@workspace:src/forms"
   dependencies:
