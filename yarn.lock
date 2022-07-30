@@ -10,7 +10,7 @@ __metadata:
   resolution: "@adeira/abacus-backoffice@workspace:src/abacus-backoffice"
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
-    "@adeira/forms": ^0.3.0
+    "@adeira/forms": ^0.2.0
     "@adeira/hooks": ^0.3.0
     "@adeira/icons": ^2.0.0
     "@adeira/js": ^2.1.1
@@ -208,7 +208,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/forms@^0.3.0, @adeira/forms@workspace:src/forms":
+"@adeira/forms@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "@adeira/forms@npm:0.2.0"
+  dependencies:
+    "@adeira/js": ^2.1.1
+    "@adeira/sx": ^0.29.1
+    "@adeira/sx-design": ^0.29.0
+    "@babel/runtime": ^7.18.6
+    fbt: ^1.0.0
+  peerDependencies:
+    "@adeira/relay": ^6.1.0
+    react: ^18.2.0
+  checksum: 5f83230eaa0b76ed379632dd9ffa904a1dc0fd8a323ba66a9d4f146b2e3fae03f35d2c4c8ebe78f640def2f997ef718df1792770a293c33f695babb4b9b63fbf
+  languageName: node
+  linkType: hard
+
+"@adeira/forms@workspace:src/forms":
   version: 0.0.0-use.local
   resolution: "@adeira/forms@workspace:src/forms"
   dependencies:
@@ -2099,7 +2115,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.18.9, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.18.6, @babel/runtime@npm:^7.18.9, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.18.9
   resolution: "@babel/runtime@npm:7.18.9"
   dependencies:
