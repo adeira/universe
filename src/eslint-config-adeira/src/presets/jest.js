@@ -46,6 +46,7 @@ module.exports = ({
     'jest/prefer-hooks-in-order': NEXT_VERSION_ERROR,
     'jest/prefer-hooks-on-top': ERROR,
     'jest/prefer-lowercase-title': OFF,
+    'jest/prefer-mock-promise-shorthand': OFF,
     'jest/prefer-snapshot-hint': OFF, // TODO: WARN (or NEXT_VERSION_ERROR)
     'jest/prefer-spy-on': OFF,
     'jest/prefer-strict-equal': OFF, // TODO: WARN
