@@ -16,22 +16,27 @@ type PropsBase = {
 
 type Props =
   | {
-      // <input type="text" />
+      // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/text
       ...PropsBase,
       +type: 'text',
       +value: string,
     }
   | {
-      // <input type="number" />
+      // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/password
+      ...PropsBase,
+      +type: 'password',
+    }
+  | {
+      // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number
       ...PropsBase,
       +type: 'number',
       +value: number,
       +min?: number,
       +max?: number,
-      +step?: number | 'any', // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number#htmlattrdefstep
+      +step?: number | 'any',
     }
   | {
-      // <input type="file" />
+      // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file
       ...PropsBase,
       +type: 'file',
       +multiple: boolean,
