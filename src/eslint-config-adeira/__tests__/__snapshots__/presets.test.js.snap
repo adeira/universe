@@ -757,6 +757,7 @@ Object {
     "jest/prefer-hooks-in-order": 1,
     "jest/prefer-hooks-on-top": 2,
     "jest/prefer-lowercase-title": 0,
+    "jest/prefer-mock-promise-shorthand": 0,
     "jest/prefer-snapshot-hint": 0,
     "jest/prefer-spy-on": 0,
     "jest/prefer-strict-equal": 0,
