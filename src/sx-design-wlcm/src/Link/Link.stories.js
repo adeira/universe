@@ -4,6 +4,7 @@
  */
 
 import React from 'react';
+import NextLink from 'next/link';
 
 import Link from './Link';
 import type { StoryTemplate } from '../types';
@@ -15,7 +16,7 @@ export default {
 };
 
 // 👇 We create a "template" of how args map to rendering
-const Template = (args) => <Link {...args} />;
+const Template = (args) => <Link nextLinkComponent={NextLink} {...args} />;
 
 // 👇 Each story then reuses that template
 export const Default: StoryTemplate<typeof Link> = Template.bind({});
