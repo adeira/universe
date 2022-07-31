@@ -17,7 +17,7 @@ __metadata:
     "@adeira/react-auth": ^0.1.0
     "@adeira/relay": ^6.2.0
     "@adeira/sx": ^0.29.1
-    "@adeira/sx-design": ^0.30.0
+    "@adeira/sx-design": ^0.29.0
     "@fbtjs/default-collection-transform": ^1.0.0
     "@next/bundle-analyzer": ^12.2.3
     "@playwright/test": ^1.24.2
@@ -71,7 +71,7 @@ __metadata:
     "@adeira/js": ^2.1.1
     "@adeira/relay": ^6.2.0
     "@adeira/sx": ^0.29.1
-    "@adeira/sx-design": ^0.30.0
+    "@adeira/sx-design": ^0.29.0
     "@fbtjs/default-collection-transform": ^1.0.0
     "@playwright/test": ^1.24.2
     "@testing-library/react": ^13.3.0
@@ -213,7 +213,7 @@ __metadata:
   dependencies:
     "@adeira/js": ^2.1.1
     "@adeira/sx": ^0.29.1
-    "@adeira/sx-design": ^0.30.0
+    "@adeira/sx-design": ^0.29.0
     "@babel/runtime": ^7.18.9
     "@fbtjs/default-collection-transform": ^1.0.0
     "@testing-library/jest-dom": ^5.16.4
@@ -383,6 +383,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@adeira/sx-design-headless@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "@adeira/sx-design-headless@npm:0.1.0"
+  dependencies:
+    "@adeira/icons": ^2.0.0
+    "@adeira/js": ^2.1.1
+    "@babel/runtime": ^7.18.6
+  peerDependencies:
+    react: ^18.2.0
+  checksum: 1621198b95da5375f1d420b22014ab582eb63650608aa12bc389213ae56bd78adf1d5c2d0cb9254a3a1b34371f63b52dcd9ae5b56f60b7f8abadd7be24442074
+  languageName: node
+  linkType: hard
+
 "@adeira/sx-design-wlcm@workspace:src/sx-design-wlcm":
   version: 0.0.0-use.local
   resolution: "@adeira/sx-design-wlcm@workspace:src/sx-design-wlcm"
@@ -408,7 +421,32 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/sx-design@^0.30.0, @adeira/sx-design@workspace:src/sx-design":
+"@adeira/sx-design@npm:^0.29.0":
+  version: 0.29.0
+  resolution: "@adeira/sx-design@npm:0.29.0"
+  dependencies:
+    "@adeira/hooks": ^0.3.0
+    "@adeira/icons": ^2.0.0
+    "@adeira/js": ^2.1.1
+    "@adeira/sx-design-headless": ^0.1.0
+    "@babel/runtime": ^7.18.6
+    blurhash: ^1.1.5
+    fbt: ^1.0.0
+    flow-enums-runtime: ^0.0.6
+    focus-trap-react: ^9.0.2
+    prop-types: ^15.8.1
+    react-blurhash: ^0.1.3
+    react-device-detect: ^2.2.2
+    react-table: ^7.8.0
+  peerDependencies:
+    "@adeira/sx": ^0.29.1
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: 063ea917d621e6ce24a066c681a485fce3bc2cc490e9cf3ec78f91d2302b8d76a2e220d28f7a2de5e30f91d3561a9f17587903f6b817d354f1460f648df581f7
+  languageName: node
+  linkType: hard
+
+"@adeira/sx-design@workspace:src/sx-design":
   version: 0.0.0-use.local
   resolution: "@adeira/sx-design@workspace:src/sx-design"
   dependencies:
@@ -2092,7 +2130,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.18.9, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.18.6, @babel/runtime@npm:^7.18.9, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.18.9
   resolution: "@babel/runtime@npm:7.18.9"
   dependencies:
