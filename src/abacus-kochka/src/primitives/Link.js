@@ -17,29 +17,34 @@ type Props = {
   +xstyle?: AllCSSProperties,
   +size?: TextSupportedSize,
   +weight?: TextSupportedWeight,
+  +target?: string,
 };
 
 /**
  * Use this link without worrying about the route language to navigate inside the application:
  *
  * ```
- * <LinkInternal href="/menu">Menu</LinkInternal>
+ * <Link href="/menu">Menu</Link>
  * ```
  *
  * (no `/en/menu` and similar)
  */
-export default function LinkInternal(props: Props): React.Node {
+export default function Link(props: Props): React.Node {
   const router = useRouter();
   const isActive = router.pathname === props.href;
 
   return (
     <Text size={props.size} weight={props.weight} as="span">
-      {/* TODO: use @adeira/sx-design-nextjs */}
-      <NextLink href={props.href} locale={router.locale} passHref={true}>
-        <SXLink href={props.href} isActive={isActive} xstyle={props.xstyle}>
-          {props.children}
-        </SXLink>
-      </NextLink>
+      <SXLink
+        nextLinkComponent={NextLink}
+        href={props.href}
+        locale={router.locale}
+        isActive={isActive}
+        xstyle={props.xstyle}
+        target={props.target}
+      >
+        {props.children}
+      </SXLink>
     </Text>
   );
 }

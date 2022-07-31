@@ -21,6 +21,7 @@ const withTranspileModules = require('next-transpile-modules')([
   '@adeira/relay',
   '@adeira/sx',
   '@adeira/sx-design',
+  '@adeira/sx-design-headless',
 ]);
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({

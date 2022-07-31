@@ -1,11 +1,12 @@
 // @flow
 
-import { LayoutBlock, Link } from '@adeira/sx-design';
+import { LayoutBlock } from '@adeira/sx-design';
 import * as React from 'react';
 import fbt from 'fbt';
 
 import FullTimeBadge from './badges/FullTimeBadge';
 import Layout from '../Layout';
+import Link from '../primitives/Link';
 import OpenPosition from './OpenPosition';
 import PositionAvailableBadge from './badges/PositionAvailableBadge';
 import PositionUnavailableBadge from './badges/PositionUnavailableBadge';

@@ -1,6 +1,7 @@
 // @flow
 
 import sx from '@adeira/sx';
+import NextLink from 'next/link';
 import { LinkButton } from '@adeira/sx-design';
 import { fbt } from 'fbt';
 import React, { type Node } from 'react';
@@ -18,7 +19,7 @@ export default function POSCheckoutSuccessPageLayout(): Node {
         </fbt>
       </div>
 
-      <LinkButton href="/pos/session">
+      <LinkButton nextLinkComponent={NextLink} href="/pos/session">
         <fbt desc="start a new POS session button">Start a new POS session</fbt>
       </LinkButton>
     </div>

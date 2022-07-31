@@ -1,6 +1,7 @@
 // @flow
 
 import Icon from '@adeira/icons';
+import NextLink from 'next/link';
 import {
   LayoutBlock,
   LayoutInline,
@@ -44,6 +45,7 @@ export default function DonationsOneTime(): React.Node {
                 href={stripeLink}
                 tint="success"
                 target="_blank"
+                nextLinkComponent={NextLink}
               >
                 <Money
                   priceUnitAmount={donationValue}

@@ -8,8 +8,8 @@ import { Text } from '@adeira/sx-design';
 
 import KochkaIcon from './design/svg/KochkaIcon';
 import LayoutFooter from './LayoutFooter';
-import LinkInternal from './LinkInternal';
 import Navigation from './Navigation';
+import Link from './primitives/Link';
 
 type Props =
   | {
@@ -42,9 +42,9 @@ export default function Layout(props: Props): React.Node {
 
       <div className={styles('wrapper')}>
         <div className={styles('navigation')}>
-          <LinkInternal href="/">
+          <Link href="/">
             <KochkaIcon size={65} />
-          </LinkInternal>
+          </Link>
           <Navigation />
         </div>
 

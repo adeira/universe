@@ -7,6 +7,7 @@ import Icon from '@adeira/icons';
 import React from 'react';
 import '@adeira/sx-jest-snapshot-serializer';
 import fbt from 'fbt';
+import NextLink from 'next/link';
 
 import LinkButton from '../LinkButton';
 import { initFbt, renderWithoutProviders, userEvent } from '../../test-utils';
@@ -15,43 +16,11 @@ beforeEach(() => {
   initFbt();
 });
 
-it('forwards React refs as expected', () => {
-  const ref = React.createRef();
-  const { container } = renderWithoutProviders(
-    <LinkButton ref={ref} href="https://localhost">
-      <fbt desc="link button title" doNotExtract={true}>
-        link button
-      </fbt>
-    </LinkButton>,
-  );
-
-  expect(ref.current).toBe(container.firstChild);
-  expect(ref.current?.nodeName).toBe('A');
-});
-
-it('calls onClick event', async () => {
-  const onClickFn = jest.fn();
-
-  const { getByText } = renderWithoutProviders(
-    <LinkButton href="#" onClick={onClickFn}>
-      <fbt desc="link button title" doNotExtract={true}>
-        link button with onClick callback
-      </fbt>
-    </LinkButton>,
-  );
-
-  expect(getByText('link button with onClick callback')).toBeInTheDocument();
-  expect(onClickFn).not.toHaveBeenCalled();
-
-  await userEvent.click(getByText('link button with onClick callback'));
-  expect(onClickFn).toHaveBeenCalledTimes(1);
-});
-
 it('does not call onClick event when disabled', async () => {
   const onClickFn = jest.fn();
 
   const { getByText } = renderWithoutProviders(
-    <LinkButton href="#" onClick={onClickFn} isDisabled={true}>
+    <LinkButton nextLinkComponent={NextLink} href="#" onClick={onClickFn} isDisabled={true}>
       <fbt desc="link button title" doNotExtract={true}>
         link button with onClick callback
       </fbt>
@@ -68,6 +37,7 @@ it('does not call onClick event when disabled', async () => {
 it('renders prefix and suffix icons', async () => {
   const { getByText, findByTestId } = renderWithoutProviders(
     <LinkButton
+      nextLinkComponent={NextLink}
       href="https://localhost"
       prefix={<Icon name="door" data-testid="door_icon" />}
       suffix={<Icon name="receipt" data-testid="receipt_icon" />}

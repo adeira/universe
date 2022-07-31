@@ -1,8 +1,9 @@
 // @flow
 
 import React, { type Node } from 'react';
-import { Badge, LayoutBlock, LayoutInline, Link, Text } from '@adeira/sx-design';
+import { Badge, LayoutBlock, LayoutInline, Text } from '@adeira/sx-design';
 
+import Link from '../primitives/Link';
 import MinimumRequirements from './MinimumRequirements';
 
 type Props = {

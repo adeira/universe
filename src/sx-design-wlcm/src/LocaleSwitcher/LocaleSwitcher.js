@@ -4,7 +4,7 @@ import NextLink from 'next/link';
 import React, { type Node } from 'react';
 import { useRouter } from 'next/router';
 
-import Link from './Link';
+import Link from '../Link/Link';
 
 type Props = {
   +nextLinkComponent: typeof NextLink,
@@ -16,10 +16,10 @@ export default function LocaleSwitcher(props: Props): Node {
   const otherLocales = locales.filter((locale) => locale !== activeLocale);
 
   const translationMap = {
+    // TODO: expand as needed
     'en-us': 'English',
     'es-mx': 'Español',
     'uk-ua': 'Українська',
-    // expand as needed
   };
 
   let separator = '';

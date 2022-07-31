@@ -5,7 +5,7 @@ import sx from '@adeira/sx';
 import fbt from 'fbt';
 import Icon from '@adeira/icons';
 
-import LinkInternal from './LinkInternal';
+import Link from './primitives/Link';
 
 type Props = {
   // The main difference between mobile and desktop version is that desktop renders the navigation
@@ -34,37 +34,37 @@ export default function NavigationLinks(props: Props): React.Node {
         mobileNavigation: useMobileVersion,
       })}
     >
-      <LinkInternal href="/menu" xstyle={styles.link}>
+      <Link href="/menu" xstyle={styles.link}>
         <fbt desc="link to the café menu from our main navigation">Menu</fbt>
         <MobileArrow useMobileVersion={useMobileVersion} />
-      </LinkInternal>
+      </Link>
 
-      <LinkInternal href="/adopt" xstyle={styles.link}>
+      <Link href="/adopt" xstyle={styles.link}>
         <fbt desc="link to the adoption page from our main navigation">Adopt</fbt>
         <MobileArrow useMobileVersion={useMobileVersion} />
-      </LinkInternal>
+      </Link>
 
-      <LinkInternal href="/rules" xstyle={styles.link}>
+      <Link href="/rules" xstyle={styles.link}>
         <fbt desc="link to the café rules from our main navigation">Rules</fbt>
         <MobileArrow useMobileVersion={useMobileVersion} />
-      </LinkInternal>
+      </Link>
 
-      <LinkInternal href="/shop" xstyle={styles.link}>
+      <Link href="/shop" xstyle={styles.link}>
         <fbt desc="link to the eshop from our main navigation">Shop</fbt>
         <MobileArrow useMobileVersion={useMobileVersion} />
-      </LinkInternal>
+      </Link>
 
-      <LinkInternal href="/open-positions" xstyle={styles.link}>
+      <Link href="/open-positions" xstyle={styles.link}>
         <fbt desc="footer navigation link to open positions">Jobs</fbt>
         <MobileArrow useMobileVersion={useMobileVersion} />
-      </LinkInternal>
+      </Link>
 
-      <LinkInternal href="/donate" xstyle={styles.link}>
+      <Link href="/donate" xstyle={styles.link}>
         <strong>
           <fbt desc="link to the donation page from our main navigation">Donate</fbt>
         </strong>
         <MobileArrow useMobileVersion={useMobileVersion} />
-      </LinkInternal>
+      </Link>
     </nav>
   );
 }

@@ -1,5 +1,6 @@
 // @flow
 
+import NextLink from 'next/link';
 import { type Node, type Element } from 'react';
 import fbt from 'fbt';
 
@@ -22,7 +23,11 @@ export const testFbt = (): Element<typeof Text> => {
 export const testAnchor = (): Element<typeof Text> => {
   return (
     <Text>
-      test <Link href="https://en.wikipedia.org/wiki/Imao_Keinen">yadada</Link> anchor
+      test{' '}
+      <Link nextLinkComponent={NextLink} href="https://en.wikipedia.org/wiki/Imao_Keinen">
+        yadada
+      </Link>{' '}
+      anchor
     </Text>
   );
 };

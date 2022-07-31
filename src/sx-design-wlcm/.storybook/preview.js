@@ -1,5 +1,6 @@
 // @flow
 
+import { RouterContext } from 'next/dist/shared/lib/router-context';
 import type { Node } from 'react';
 
 import './global.css';
@@ -43,6 +44,9 @@ export const parameters = {
   viewport: {
     viewports: customViewports,
     defaultViewport: 'tablet',
+  },
+  nextRouter: {
+    Provider: RouterContext.Provider,
   },
 };
 

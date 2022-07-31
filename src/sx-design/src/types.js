@@ -23,5 +23,6 @@ export type StoryTemplate<Component> = {
   // automatically by default making them optional.
   args: $Shape<ElementConfig<Component>>,
   argTypes: $Shape<$ObjMap<ElementConfig<Component>, () => { table: { disable: boolean } }>>,
+  parameters: $FlowFixMe,
   ...
 };

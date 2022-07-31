@@ -4,11 +4,10 @@ import * as React from 'react';
 import fbt from 'fbt';
 import NextLink from 'next/link';
 import sx from '@adeira/sx';
-import { LayoutInline } from '@adeira/sx-design';
-import { LocaleSwitcher } from '@adeira/sx-design-nextjs';
+import { LayoutInline, LocaleSwitcher } from '@adeira/sx-design';
 
-import LinkInternal from './LinkInternal';
 import Logo from './Logo';
+import Link from './primitives/Link';
 import SocialMediaIcons from './SocialMediaIcons';
 import useFeatureFlag from './hooks/useFeatureFlag';
 
@@ -24,21 +23,21 @@ export default function LayoutFooter(): React.Node {
 
         <div className={styles('columnLeft')}>
           <div>
-            <LinkInternal href="/legal/terms" xstyle={styles.link}>
+            <Link href="/legal/terms" xstyle={styles.link}>
               <fbt desc="footer navigation link to terms of use">Terms of use</fbt>
-            </LinkInternal>
+            </Link>
           </div>
           {pageShopOrdersEnabled === true ? (
             <div>
-              <LinkInternal href="/legal/shipping" xstyle={styles.link}>
+              <Link href="/legal/shipping" xstyle={styles.link}>
                 <fbt desc="footer navigation link to shipping and returns">Shipping & Returns</fbt>
-              </LinkInternal>
+              </Link>
             </div>
           ) : null}
           <div>
-            <LinkInternal href="/legal/privacy" xstyle={styles.link}>
+            <Link href="/legal/privacy" xstyle={styles.link}>
               <fbt desc="footer navigation link to privacy policy">Privacy Policy</fbt>
-            </LinkInternal>
+            </Link>
           </div>
         </div>
 

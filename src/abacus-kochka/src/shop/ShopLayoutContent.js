@@ -6,8 +6,8 @@ import { ProductCard, Note, LayoutGrid, SupportedCurrencies } from '@adeira/sx-d
 import { fbt } from 'fbt';
 import { useRecoilValue } from 'recoil';
 
-import LinkInternal from '../LinkInternal';
 import useViewerContext from '../hooks/useViewerContext';
+import Link from '../primitives/Link';
 import filtersAtom from './recoil/filtersAtom';
 
 export default function ShopLayoutContent(): React.Node {
@@ -71,7 +71,7 @@ export default function ShopLayoutContent(): React.Node {
         }
 
         return (
-          <LinkInternal key={product.key} href={`/shop/${product.key}`}>
+          <Link key={product.key} href={`/shop/${product.key}`}>
             <ProductCard
               priceUnitAmount={
                 product.price.unitAmount / 100 // adjusted for centavo
@@ -82,7 +82,7 @@ export default function ShopLayoutContent(): React.Node {
               imgSrc={product.imageCover?.url}
               imgAlt={product.name}
             />
-          </LinkInternal>
+          </Link>
         );
       })}
     </LayoutGrid>

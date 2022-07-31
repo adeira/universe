@@ -4,6 +4,7 @@
  */
 
 import React from 'react';
+import NextLink from 'next/link';
 import fbt from 'fbt';
 
 import Breadcrumb from '../Breadcrumb';
@@ -28,19 +29,25 @@ afterAll(() => {
 it('renders the breadcrumb without any issues', () => {
   const { getByText } = render(
     <Breadcrumb>
-      <Breadcrumb.Item href="#">
+      <Breadcrumb.Item nextLinkComponent={NextLink} href="#">
         <fbt desc="home" doNotExtract={true}>
           Home
         </fbt>
       </Breadcrumb.Item>
-      <Breadcrumb.Item href="#">
+      <Breadcrumb.Item nextLinkComponent={NextLink} href="#">
         <fbt desc="environment" doNotExtract={true}>
           Environment
         </fbt>
       </Breadcrumb.Item>
-      <Breadcrumb.Item href="#">Rural and countryside</Breadcrumb.Item>
-      <Breadcrumb.Item href="#">Rural development and land management</Breadcrumb.Item>
-      <Breadcrumb.Item href="#">Economic growth in rural areas</Breadcrumb.Item>
+      <Breadcrumb.Item nextLinkComponent={NextLink} href="#">
+        Rural and countryside
+      </Breadcrumb.Item>
+      <Breadcrumb.Item nextLinkComponent={NextLink} href="#">
+        Rural development and land management
+      </Breadcrumb.Item>
+      <Breadcrumb.Item nextLinkComponent={NextLink} href="#">
+        Economic growth in rural areas
+      </Breadcrumb.Item>
     </Breadcrumb>,
   );
 
