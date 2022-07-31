@@ -371,7 +371,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/sx-design-headless@^0.2.0, @adeira/sx-design-headless@workspace:src/sx-design-headless":
+"@adeira/sx-design-headless@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "@adeira/sx-design-headless@npm:0.1.0"
+  dependencies:
+    "@adeira/icons": ^2.0.0
+    "@adeira/js": ^2.1.1
+    "@babel/runtime": ^7.18.6
+  peerDependencies:
+    react: ^18.2.0
+  checksum: 1621198b95da5375f1d420b22014ab582eb63650608aa12bc389213ae56bd78adf1d5c2d0cb9254a3a1b34371f63b52dcd9ae5b56f60b7f8abadd7be24442074
+  languageName: node
+  linkType: hard
+
+"@adeira/sx-design-headless@workspace:src/sx-design-headless":
   version: 0.0.0-use.local
   resolution: "@adeira/sx-design-headless@workspace:src/sx-design-headless"
   dependencies:
@@ -388,7 +401,7 @@ __metadata:
   resolution: "@adeira/sx-design-wlcm@workspace:src/sx-design-wlcm"
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
-    "@adeira/sx-design-headless": ^0.2.0
+    "@adeira/sx-design-headless": ^0.1.0
     "@babel/runtime": ^7.18.9
     "@storybook/addon-a11y": ^6.5.9
     "@storybook/addon-actions": ^6.5.9
@@ -418,7 +431,7 @@ __metadata:
     "@adeira/icons": ^2.0.0
     "@adeira/js": ^2.1.1
     "@adeira/sx": ^0.29.1
-    "@adeira/sx-design-headless": ^0.2.0
+    "@adeira/sx-design-headless": ^0.1.0
     "@adeira/sx-jest-snapshot-serializer": ^0.1.0
     "@babel/core": ^7.18.9
     "@babel/runtime": ^7.18.9
@@ -2092,7 +2105,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.18.9, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.18.6, @babel/runtime@npm:^7.18.9, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.18.9
   resolution: "@babel/runtime@npm:7.18.9"
   dependencies:
