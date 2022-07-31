@@ -3,7 +3,7 @@
 import React, { type Element } from 'react';
 import {
   Button as ButtonHeadless,
-  type Props as PropsButtonHeadless,
+  type ButtonProps as ButtonHeadlessProps,
 } from '@adeira/sx-design-headless';
 
 import sharedButtonStyles from './styles';
@@ -11,7 +11,7 @@ import sharedButtonStyles from './styles';
 type RestrictedReactNode = number | Fbt | Iterable<RestrictedReactNode>;
 
 type Props = $ReadOnly<{
-  ...PropsButtonHeadless,
+  ...ButtonHeadlessProps,
   +size?: 'small' | 'medium' | 'large',
   +tint?:
     | 'default'
