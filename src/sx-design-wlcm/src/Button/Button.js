@@ -4,13 +4,13 @@ import sx from '@adeira/sx';
 import React, { type Element } from 'react';
 import {
   Button as ButtonHeadless,
-  type Props as PropsButtonHeadless,
+  type ButtonProps as ButtonHeadlessProps,
 } from '@adeira/sx-design-headless';
 
 type RestrictedReactNode = number | Fbt | Iterable<RestrictedReactNode>;
 
 type Props = $ReadOnly<{
-  ...PropsButtonHeadless,
+  ...ButtonHeadlessProps,
   +variant: 'primary' | 'secondary',
 }>;
 
@@ -44,7 +44,7 @@ const styles = sx.create({
     userSelect: 'none',
   },
   buttonPrimary: {
-    backgroundColor: '#3840D1', // TODO: extract to CSS var(..)
+    backgroundColor: '#3840d1', // TODO: extract to CSS var(..)
     color: 'white', // TODO: extract to CSS var(..)
     border: 0,
   },
