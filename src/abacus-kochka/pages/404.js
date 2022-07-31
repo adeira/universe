@@ -4,8 +4,8 @@ import { NextSeo } from 'next-seo';
 import * as React from 'react';
 import fbt from 'fbt';
 
+import Link from '../src/primitives/Link';
 import Layout from '../src/Layout';
-import LinkInternal from '../src/LinkInternal';
 
 export default function Custom404(): React.Node {
   // TODO: log this page and the reason why it happened
@@ -22,9 +22,9 @@ export default function Custom404(): React.Node {
           </fbt>
         </p>
         <p>
-          <LinkInternal href="/">
+          <Link href="/">
             <fbt desc="go back to homepage link title">Go back to Homepage</fbt>
-          </LinkInternal>
+          </Link>
         </p>
       </Layout>
     </>

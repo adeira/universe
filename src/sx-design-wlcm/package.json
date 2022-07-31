@@ -33,7 +33,8 @@
     "@storybook/addons": "^6.5.9",
     "@storybook/react": "^6.5.9",
     "@storybook/theming": "^6.5.9",
-    "next": "^12.2.3"
+    "next": "^12.2.3",
+    "storybook-addon-next-router": "^4.0.0"
   },
   "scripts": {
     "storybook": "start-storybook -p 6006"

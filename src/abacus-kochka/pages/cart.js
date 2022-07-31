@@ -4,7 +4,7 @@ import * as React from 'react';
 import fbt from 'fbt';
 import sx from '@adeira/sx';
 
-import LinkInternal from '../src/LinkInternal';
+import Link from '../src/primitives/Link';
 import Layout from '../src/Layout';
 
 export default function CartPage(): React.Node {
@@ -19,8 +19,7 @@ export default function CartPage(): React.Node {
     >
       <div className={styles('body')}>
         <fbt desc="empty shop cart">
-          There is nothing in the cart yet. Add something in{' '}
-          <LinkInternal href="/shop">our shop</LinkInternal>.
+          There is nothing in the cart yet. Add something in <Link href="/shop">our shop</Link>.
         </fbt>
       </div>
     </Layout>

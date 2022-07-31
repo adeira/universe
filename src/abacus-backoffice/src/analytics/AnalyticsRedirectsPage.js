@@ -1,6 +1,7 @@
 // @flow
 
 import fbt from 'fbt';
+import NextLink from 'next/link';
 import { Badge, Link, Table } from '@adeira/sx-design';
 import React, { type Node } from 'react';
 import { useLazyLoadQuery, graphql } from '@adeira/relay';
@@ -45,12 +46,16 @@ export default function AnalyticsRedirectsPage(): Node {
             </fbt>
           ),
           col2: (
-            <Link href={`https://abacus.kochka.com.mx/redirect/${redirect.uuid}`} target="_blank">
+            <Link
+              nextLinkComponent={NextLink}
+              href={`https://abacus.kochka.com.mx/redirect/${redirect.uuid}`}
+              target="_blank"
+            >
               https://abacus.kochka.com.mx/redirect/{redirect.uuid}
             </Link>
           ),
           col3: (
-            <Link href={redirect.redirectsTo} target="_blank">
+            <Link nextLinkComponent={NextLink} href={redirect.redirectsTo} target="_blank">
               {redirect.redirectsTo}
             </Link>
           ),

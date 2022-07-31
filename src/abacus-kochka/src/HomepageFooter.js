@@ -4,8 +4,9 @@ import * as React from 'react';
 import fbt from 'fbt';
 import NextLink from 'next/link';
 import sx from '@adeira/sx';
-import { Link } from '@adeira/sx-design';
-import { LocaleSwitcher } from '@adeira/sx-design-nextjs';
+import { LocaleSwitcher } from '@adeira/sx-design';
+
+import Link from './primitives/Link';
 
 export default function HomepageFooter(): React.Node {
   return (

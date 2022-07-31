@@ -18,7 +18,6 @@
   "@adeira/sx",
   "@adeira/sx-design",
   "@adeira/sx-design-headless",
-  "@adeira/sx-design-nextjs",
   "@adeira/sx-design-wlcm",
   "@adeira/sx-jest-snapshot-serializer",
   "eslint-plugin-adeira",

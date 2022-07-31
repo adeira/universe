@@ -1,6 +1,7 @@
 // @flow
 
 import Icon from '@adeira/icons';
+import NextLink from 'next/link';
 import {
   LayoutBlock,
   LayoutInline,
@@ -47,6 +48,7 @@ export default function DonationsRecurring(): React.Node {
                 href={stripeLink}
                 tint="warning"
                 target="_blank"
+                nextLinkComponent={NextLink}
               >
                 <fbt desc="recurring monetary value per month">
                   <fbt:param name="price">

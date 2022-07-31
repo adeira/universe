@@ -1,17 +1,10 @@
 // @flow
 
-import {
-  LayoutBlock,
-  Money,
-  Table,
-  Text,
-  SupportedCurrencies,
-  Link,
-  Note,
-} from '@adeira/sx-design';
+import { LayoutBlock, Money, Table, Text, SupportedCurrencies, Note } from '@adeira/sx-design';
 import * as React from 'react';
 import fbt from 'fbt';
 
+import Link from '../src/primitives/Link';
 import Layout from '../src/Layout';
 
 export default function RulesPage(): React.Node {

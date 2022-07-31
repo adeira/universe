@@ -1,6 +1,7 @@
 // @flow
 
 import Icon from '@adeira/icons';
+import NextLink from 'next/link';
 import { Entity, EntityField, LinkButton } from '@adeira/sx-design';
 import React, { type Node } from 'react';
 import fbt from 'fbt';
@@ -25,7 +26,12 @@ export default function POSAllSessionsPageLayout(): Node {
         />
         <EntityField
           title={
-            <LinkButton href="/pos/session" target="_blank" suffix={<Icon name="external" />}>
+            <LinkButton
+              nextLinkComponent={NextLink}
+              href="/pos/session"
+              target="_blank"
+              suffix={<Icon name="external" />}
+            >
               <fbt desc="navigation link to point of sales">Open POS session</fbt>
             </LinkButton>
           }

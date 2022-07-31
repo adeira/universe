@@ -2,7 +2,12 @@
 
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
-  addons: ['@storybook/addon-essentials', '@storybook/addon-links', '@storybook/addon-a11y'],
+  addons: [
+    '@storybook/addon-essentials',
+    '@storybook/addon-links',
+    '@storybook/addon-a11y',
+    'storybook-addon-next-router',
+  ],
   webpackFinal: (config /*: $FlowFixMe */) /*: $FlowFixMe */ => {
     // https://github.com/storybookjs/storybook/issues/16690
     config.module.rules.push({
