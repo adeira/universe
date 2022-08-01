@@ -3,8 +3,7 @@ name: Playwright
 on: [push]
 
 jobs:
-  playwright-test:
-    name: Playwright test
+  test:
     strategy:
       matrix:
         repository:

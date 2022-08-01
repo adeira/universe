@@ -1,4 +1,4 @@
-name: Continuous Integration (JavaScript)
+name: JavaScript
 
 on: [push]
 
@@ -8,8 +8,7 @@ env:
   BABEL_DISABLE_CACHE: '1'
 
 jobs:
-  javascript-test:
-    name: JavaScript test
+  test:
     runs-on: ubuntu-latest
 
     strategy:

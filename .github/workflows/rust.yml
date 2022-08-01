@@ -1,10 +1,9 @@
-name: Continuous Integration (Rust)
+name: Rust
 
 on: [push]
 
 jobs:
-  rust-test:
-    name: Rust test
+  test:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: true
