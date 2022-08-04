@@ -50,6 +50,8 @@ untyped-import
 emoji=true
 exact_by_default=true
 include_warnings=true
+inference_mode=constrain_writes
+
 facebook.fbt=FbtWithoutString
 
 ; https://flow.org/en/docs/enums/

@@ -42,7 +42,7 @@ export default class StyleCollectorPseudoNode implements StyleCollectorNodeInter
   }
 
   printNodes(config?: PrintConfig): $ReadOnlyArray<string> {
-    let output = [];
+    let output: $ReadOnlyArray<string> = [];
     this.nodes.forEach((node) => {
       output = output.concat(node.printNodes({ ...config, pseudo: this.pseudo }));
     });

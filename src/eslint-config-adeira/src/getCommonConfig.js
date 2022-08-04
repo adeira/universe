@@ -5,7 +5,7 @@ const changeNextVersionErrorLevel = require('./changeNextVersionErrorLevel');
 
 /*::
 
-import type { EslintConfig } from './EslintConfig.flow';
+import type { EslintConfig, EslintConfigOverrides } from './EslintConfig.flow';
 
 */
 
@@ -13,7 +13,8 @@ module.exports = function getCommonConfig(
   nextVersionErrorLevel /*: 0|1|2 */,
   baseConfig /*: EslintConfig */,
 ) /*: EslintConfig */ {
-  let overrides = [];
+  let overrides /*: EslintConfigOverrides */ = [];
+
   if (baseConfig.overrides != null) {
     overrides = baseConfig.overrides.map((override) => {
       return {

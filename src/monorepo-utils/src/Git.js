@@ -67,7 +67,7 @@ const Git = {
   },
 
   getChangesToTest() /*: $ReadOnlyArray<string> */ {
-    let changes = Git.getUntrackedFiles()
+    let changes /*: $ReadOnlyArray<string> */ = Git.getUntrackedFiles()
       .concat(Git.getWorktreeChangedFiles())
       .concat(Git.getChangedFiles());
     if (changes.length === 0) {
