@@ -107,6 +107,9 @@ export default class Changeset {
   }
 
   __clone(newProps: { [$Keys<ChangesetData>]: $Values<ChangesetData>, ... }): Changeset {
+    /* $FlowFixMe[prop-missing] This comment suppresses an error when upgrading
+     * Flow to version 0.184.0. To see the error delete this comment and run
+     * Flow. */
     return Object.assign(Object.create(Object.getPrototypeOf(this)), this, newProps);
   }
 }
