@@ -37,7 +37,11 @@ export default class StyleCollectorNode implements StyleCollectorNodeInterface {
 
   // eslint-disable-next-line no-unused-vars
   addNodes(nodes: Map<string, StyleCollectorNodeInterface>) {
-    invariant(false, 'StyleCollectorNode cannot have nested nodes,');
+    invariant(false, 'StyleCollectorNode cannot have nested nodes.');
+  }
+
+  getNodes(): Map<string, StyleCollectorNode> {
+    invariant(false, 'StyleCollectorNode cannot have nested nodes.');
   }
 
   getHash(): string {
@@ -52,10 +56,8 @@ export default class StyleCollectorNode implements StyleCollectorNodeInterface {
     return this.styleValue;
   }
 
-  printNodes(config?: PrintConfig): $ReadOnlyArray<string> {
-    const className = `.${this.hash}`.repeat(config?.bumpSpecificity === true ? 2 : 1);
-    const pseudo = config?.pseudo ?? '';
-
-    return [`${className}${pseudo}{${this.styleName}:${this.styleValue}}`];
+  // CSSStyleRule.selectorText
+  rehydrationIdentifier() {
+    return `.${this.getHash()}`;
   }
 }

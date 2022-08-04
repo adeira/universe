@@ -1,14 +1,16 @@
 // @flow
 
 import { isBrowser, nullthrows } from '@adeira/js';
-import stringify from 'json-stable-stringify';
+import stringifyStable from 'json-stable-stringify';
 
+import getStyleSheetFromStyleTag from './getStyleSheetFromStyleTag';
 import hash from './hashStyle';
-import type { AllCSSPropertyTypes } from './css-properties/__generated__/AllCSSPropertyTypes';
+import rehydrateStyles from './rehydrateStyles';
 import styleCollector from './StyleCollector';
 import transformStyleName from './transformStyleName';
 import transformStyleValue from './transformValue';
 import { injectRuntimeKeyframes } from './injectRuntimeStyles';
+import type { AllCSSPropertyTypes } from './css-properties/__generated__/AllCSSPropertyTypes';
 
 type KeyFrames = {
   +from?: AllCSSPropertyTypes,
@@ -30,10 +32,27 @@ const extractStyles = (styles: AllCSSPropertyTypes) => {
 
 const transformKey = (key: string) => key.replace(/\s/g, '');
 
+/**
+ * Helper function generating animation name. Usage:
+ *
+ * ```js
+ * const bounce = sx.keyframes({
+ *    '33%': { transform: `translateY(-1.4em)` },
+ *    '66%': { transform: `translateY(1.4em)` },
+ * });
+ *
+ * const styles = sx.create({
+ *    svgCircle: {
+ *      animationName: bounce,
+ *    }
+ *    // …
+ * });
+ * ```
+ */
 export default function keyframes(styleDefinitions: KeyFrames): string {
   let cssDefinition = '';
   // `from{maxHeight:0,opacity:0}` should be the same as `from{opacity:0,maxHeight:0}`
-  const parsedDefinitions: KeyFrames = JSON.parse(stringify(styleDefinitions));
+  const parsedDefinitions: KeyFrames = JSON.parse(stringifyStable(styleDefinitions));
 
   for (const key of Object.keys(parsedDefinitions)) {
     const styleValue = nullthrows(parsedDefinitions[key]);
@@ -42,13 +61,12 @@ export default function keyframes(styleDefinitions: KeyFrames): string {
 
   const name = hash(cssDefinition);
   const frame = `@keyframes ${name} {${cssDefinition}}`;
-  const exists = styleCollector.addKeyframe(name, frame);
+  styleCollector.collectKeyframe(name, frame);
 
-  if (isBrowser() && !exists) {
-    // It is possible that the keyframe was added on the server
-    // The StyleCollector will return false, but the injectRuntimeKeyframes checks
-    // If the rule is already added, so it won't be duplicated
-    injectRuntimeKeyframes(frame, name);
+  if (isBrowser()) {
+    const styleSheet = getStyleSheetFromStyleTag();
+    const rehydratedRules = rehydrateStyles(styleSheet);
+    injectRuntimeKeyframes(styleSheet, rehydratedRules, frame, name);
   }
 
   return name;

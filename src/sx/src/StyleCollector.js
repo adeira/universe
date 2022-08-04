@@ -3,6 +3,7 @@
 import { invariant, warning } from '@adeira/js';
 
 import expandShorthandProperties from './expandShorthandProperties';
+import printNodes from './printNodes';
 import StyleCollectorAtNode from './StyleCollectorAtNode';
 import StyleCollectorPseudoNode from './StyleCollectorPseudoNode';
 import { type StyleCollectorNodeInterface } from './StyleCollectorNodeInterface';
@@ -41,7 +42,7 @@ class StyleCollector {
   #styleBuffer: StyleBufferType = new Map();
   #keyframes: Map<string, string> = new Map();
 
-  collect(baseStyleSheet: { +[sheetName: string]: $FlowFixMe }): {
+  collectStylesheets(baseStyleSheet: { +[sheetName: string]: $FlowFixMe }): {
     +hashRegistry: HashRegistryType,
     +styleBuffer: StyleBufferType,
   } {
@@ -106,23 +107,17 @@ class StyleCollector {
     };
   }
 
-  print(): string {
-    let sxStyle = '';
-    this.#styleBuffer.forEach((node) => {
-      sxStyle += node.printNodes().join('');
-    });
-    this.#keyframes.forEach((node) => {
-      sxStyle += node;
-    });
-    return sxStyle;
+  collectKeyframe(name: string, value: string): void {
+    this.#keyframes.set(name, value);
   }
 
-  addKeyframe(name: string, value: string): boolean {
-    if (this.#keyframes.has(name)) {
-      return true;
-    }
-    this.#keyframes.set(name, value);
-    return false;
+  // TODO: remove
+  print(): string {
+    // TODO: print keyframes as well
+    //     this.#keyframes.forEach((node) => {
+    //       sxStyle += node;
+    //     });
+    return printNodes([...this.#styleBuffer]);
   }
 
   reset(): void {

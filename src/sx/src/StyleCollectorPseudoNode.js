@@ -1,5 +1,7 @@
 // @flow strict
 
+import type { AllCSSPseudoTypes } from './css-properties/__generated__/AllCSSPseudoTypes';
+import StyleCollectorNode from './StyleCollectorNode';
 import type { PrintConfig, StyleCollectorNodeInterface } from './StyleCollectorNodeInterface';
 
 /**
@@ -23,29 +25,40 @@ import type { PrintConfig, StyleCollectorNodeInterface } from './StyleCollectorN
  *   ],
  * }
  * ```
+ *
+ * Note that nesting pseudo classes is not allowed in SX.
  */
 export default class StyleCollectorPseudoNode implements StyleCollectorNodeInterface {
   pseudo: string;
-  nodes: Map<string, StyleCollectorNodeInterface>;
+  nodes: Map<string, StyleCollectorNode>;
 
-  constructor(pseudo: string, nodes: Map<string, StyleCollectorNodeInterface>) {
+  constructor(pseudo: $Keys<AllCSSPseudoTypes>, nodes: Map<string, StyleCollectorNode>) {
     this.pseudo = pseudo;
     this.nodes = nodes;
   }
 
-  addNodes(nodes: Map<string, StyleCollectorNodeInterface>) {
+  addNodes(nodes: Map<string, StyleCollectorNode>) {
     this.nodes = new Map([...this.nodes, ...nodes]);
+  }
+
+  getNodes(): Map<string, StyleCollectorNode> {
+    return this.nodes;
   }
 
   getPseudo(): string {
     return this.pseudo;
   }
 
-  printNodes(config?: PrintConfig): $ReadOnlyArray<string> {
-    let output = [];
-    this.nodes.forEach((node) => {
-      output = output.concat(node.printNodes({ ...config, pseudo: this.pseudo }));
-    });
-    return output;
-  }
+  // printNodes(config?: PrintConfig): $ReadOnlyArray<string> {
+  //   let output = [];
+  //   this.nodes.forEach((node) => {
+  //     output = output.concat(node.printNodes({ ...config, pseudo: this.pseudo }));
+  //   });
+  //   return output;
+  // }
+
+  // CSSStyleRule.selectorText
+  // rehydrationIdentifier() {
+  //   return `.${this.getHash()}`;
+  // }
 }

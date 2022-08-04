@@ -13,6 +13,7 @@ In conventional applications, CSS rules are duplicated throughout the stylesheet
   - [Automatic vendor prefixes](#automatic-vendor-prefixes)
 - [Server-side rendering](#server-side-rendering)
 - [Architecture](#architecture)
+  - [Runtime styles architecture](#runtime-styles-architecture)
 - [Prior Art](#prior-art)
 
 ## Installation and Usage
@@ -479,6 +480,14 @@ Internally, these steps are happening:
       ```
 
 5. and finally, we collect the values of the final object and print them as `className`
+
+### Runtime styles architecture
+
+Runtime styles are styles that were not rendered by server (are for whatever reason missing or SSR is not enabled). Here is how SX deals with this situation:
+
+1. SX tries to find `<style data-adeira-sx />` (or creates it if it doesn't exist yet) and does "rehydration" where it goes through the existing styles and remembers which ones are already applied.
+2. SX performs runtime injection of the styles while checking whether the styles already exist or not.
+3. The rest is the same.
 
 ## Prior Art
 
