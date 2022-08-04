@@ -49,6 +49,8 @@ untyped-import
 [options]
 emoji=true
 exact_by_default=true
+; TODO (true):
+exact_empty_objects=false
 include_warnings=true
 inference_mode=constrain_writes
 
@@ -69,6 +71,11 @@ suppress_type=$FlowFixMe
 ; This option is always ON in the strict mode. We are enabling it even for the classic mode.
 ; Function parameters are considered const (i.e., treated as if they were declared with const rather than let).
 experimental.const_params=true
+
+; TODO:
+experimental.enforce_local_inference_annotations=false
+experimental.enforce_this_annotations=false
+experimental.enforce_class_annotations=false
 
 relay_integration=true
 relay_integration.module_prefix=./__generated__/
