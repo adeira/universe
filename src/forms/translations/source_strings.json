@@ -2,9 +2,9 @@
  "phrases": [
   {
    "hashToLeaf": {
-    "DG4YwlsppzoioQ32fEtyQQ==": {
-     "text": "Something unexpected happened and server could not process the request! 🙈",
-     "desc": "generic failure message after creating a product"
+    "a4ZI29Ym/qYtXALFevGrKA==": {
+     "text": "Something unexpected happened and server could not process the request!",
+     "desc": "generic failure message after submitting a form"
     }
    },
    "filepath": "src/FormSubmit.js",
@@ -15,8 +15,8 @@
    "project": "",
    "jsfbt": {
     "t": {
-     "desc": "generic failure message after creating a product",
-     "text": "Something unexpected happened and server could not process the request! 🙈"
+     "desc": "generic failure message after submitting a form",
+     "text": "Something unexpected happened and server could not process the request!"
     },
     "m": []
    }

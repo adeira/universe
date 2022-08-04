@@ -1,7 +1,7 @@
 // @flow
 
 import { useMutation, type GraphQLTaggedNode, type Variables } from '@adeira/relay';
-import { fbt } from 'fbt';
+import { fbs } from 'fbt';
 import { type Node, useContext } from 'react';
 import { Button, useFlashMessages, FlashMessageTint } from '@adeira/sx-design';
 
@@ -58,9 +58,9 @@ export default function FormSubmit(props: Props): Node {
       onCompleted: props.onCompleted,
       onError: () => {
         displayFleshMessage(
-          fbt(
-            'Something unexpected happened and server could not process the request! 🙈',
-            'generic failure message after creating a product',
+          fbs(
+            'Something unexpected happened and server could not process the request!',
+            'generic failure message after submitting a form',
           ),
           { tint: FlashMessageTint.Error },
         );
