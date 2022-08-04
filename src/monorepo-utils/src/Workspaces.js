@@ -45,7 +45,7 @@ module.exports = {
   getWorkspacesSync(baseDirectory: string = __dirname): $ReadOnlyArray<string> {
     // used only in `.jest.config.js` where it's not possible to be async
     const rootPackageJSON = findRootPackageJson(baseDirectory);
-    let packageJSONLocations = [];
+    let packageJSONLocations: $ReadOnlyArray<string> = [];
     __resolveWorkspaces(rootPackageJSON).forEach((workspace) => {
       packageJSONLocations = packageJSONLocations.concat(
         globSync(`${workspace}/package.json`, {
