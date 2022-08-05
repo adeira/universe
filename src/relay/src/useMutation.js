@@ -48,7 +48,7 @@ export default function useMutation<T: MutationParameters>(
   const [commit, isMutationInFlight] = _useMutation(mutation);
 
   // this makes the commit more friendly in terms of DX
-  const modifiedCommit = (config) => {
+  const modifiedCommit = (config: HookMutationConfig<T>) => {
     const emptyVariables = (({}: any): VariablesOf<T>); // TODO: how to do this properly?
     return commit({
       ...config,
