@@ -15,7 +15,7 @@ const SESSION_IDENTIFIER = 'ABACUS_SESSION_TOKEN=';
 // See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
 // See: https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie
 export function useSessionTokenAPI(): UseSessionTokenAPI {
-  const setSessionToken = (sessionToken) => {
+  const setSessionToken = (sessionToken: null | string) => {
     try {
       const cookieValue = `${SESSION_IDENTIFIER}${encodeURIComponent(sessionToken ?? '')}`;
       const cookieAttributes = [
