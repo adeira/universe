@@ -56,7 +56,11 @@ function convertHexToRGBTriplet(hexColor: string): [number, number, number] {
   ];
 }
 
-function convertRGBToTriplet(r, g, b): [number, number, number] {
+function convertRGBToTriplet(
+  r: void | string,
+  g: void | string,
+  b: void | string,
+): [number, number, number] {
   return [
     Number(r?.endsWith('%') ? convertPercentageToNumber(r) : r),
     Number(g?.endsWith('%') ? convertPercentageToNumber(g) : g),
@@ -64,7 +68,7 @@ function convertRGBToTriplet(r, g, b): [number, number, number] {
   ];
 }
 
-function convertPercentageToNumber(percentage) {
+function convertPercentageToNumber(percentage: void | string) {
   const match = percentage?.match(/^(?<number>\d+)%$/)?.groups;
   return Math.round((255 / 100) * Number(match?.number));
 }
