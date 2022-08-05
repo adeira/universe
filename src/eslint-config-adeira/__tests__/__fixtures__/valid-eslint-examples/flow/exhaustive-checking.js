@@ -1,7 +1,7 @@
 // @flow strict
 
 // eslint-disable-next-line no-unused-vars
-const invariantMock = (condition, format, ...args) => {
+const invariantMock = (condition: boolean, format: string, ...args) => {
   if (!condition) {
     throw new Error(format);
   }

@@ -65,7 +65,7 @@ export function Alphabet2(): Element<'div'> {
   const [justClicked, updateJustClicked] = useState(null);
   const letters = Array.from({ length: 26 }, (_, i) => String.fromCharCode(A + i));
 
-  const handleClick = (letter) => {
+  const handleClick = (letter: string) => {
     updateJustClicked(letter);
   };
 
