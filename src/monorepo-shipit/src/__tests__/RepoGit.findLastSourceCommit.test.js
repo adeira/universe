@@ -4,7 +4,7 @@ import Changeset from '../Changeset';
 import RepoGitFake from '../RepoGitFake';
 import addTrackingData from '../filters/addTrackingData';
 
-function createGITRepoWithCommit(message) {
+function createGITRepoWithCommit(message: string) {
   const repo = new RepoGitFake();
   repo.commitPatch(
     new Changeset()
