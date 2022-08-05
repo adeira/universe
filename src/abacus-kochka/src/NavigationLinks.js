@@ -13,7 +13,7 @@ type Props = {
   +useMobileVersion: boolean,
 };
 
-function MobileArrow(props) {
+function MobileArrow(props: { +useMobileVersion: boolean }) {
   return (
     props.useMobileVersion && (
       <>
