@@ -1,8 +1,9 @@
 // @flow
 
 import expandShorthandProperties from '../expandShorthandProperties';
+import type StyleCollectorNode from '../StyleCollectorNode';
 
-function printNodes(node) {
+function printNodes(node: StyleCollectorNode) {
   return node.printNodes().join('');
 }
 
