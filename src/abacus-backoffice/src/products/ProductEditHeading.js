@@ -57,7 +57,7 @@ export default function ProductEditHeading(props: Props): React.Node {
     props.product,
   );
 
-  const handleArchiveProduct = (productKey) => {
+  const handleArchiveProduct = (productKey: string) => {
     archiveProductMutation({
       variables: {
         productKey,

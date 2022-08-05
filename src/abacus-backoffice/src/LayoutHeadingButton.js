@@ -13,10 +13,9 @@ type Props = {
 
 // TODO: move this `window.confirm` logic to SX Design (Button)?
 export default function LayoutHeadingButton(props: Props): Node {
-  const handleLinkButtonClick = (confirmMessage, callback) => {
-    if (
-      window.confirm(confirmMessage) // eslint-disable-line no-alert
-    ) {
+  const handleLinkButtonClick = (confirmMessage: FbtWithoutString, callback: () => void) => {
+    // eslint-disable-next-line no-alert
+    if (window.confirm(confirmMessage)) {
       callback();
     }
   };

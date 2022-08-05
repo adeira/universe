@@ -44,11 +44,11 @@ export default function ProductsEditLayout(props: Props): Node {
     },
   );
 
-  const handleImageDelete = (imageName) => {
+  const handleImageDelete = (imageName: string) => {
     setImagesToDelete((prev) => [...prev, imageName]);
   };
 
-  const handleUndoImageDelete = (imageName) => {
+  const handleUndoImageDelete = (imageName: string) => {
     setImagesToDelete((prev) => prev.filter((prevImageName) => prevImageName !== imageName));
   };
 

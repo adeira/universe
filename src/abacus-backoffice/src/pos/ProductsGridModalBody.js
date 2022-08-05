@@ -48,7 +48,7 @@ export default function ProductsGridModalBody(props: Props): Node {
     props.preloadedQueryRef,
   );
 
-  const handleFiltersChange = (selectedAddonIds) => {
+  const handleFiltersChange = (selectedAddonIds: $ReadOnlyArray<string>) => {
     const newSelectedProductAddons = new Map();
     for (const selectedAddonId of selectedAddonIds) {
       const addon = product.selectedAddons.find(
