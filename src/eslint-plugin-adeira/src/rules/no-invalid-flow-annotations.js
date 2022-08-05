@@ -3,7 +3,7 @@
 const levenshtein = require('fast-levenshtein');
 
 /*::
-import type { EslintRule } from '@adeira/flow-types-eslint';
+import type { EslintRule, Node } from '@adeira/flow-types-eslint';
 */
 
 function suggest(name /*: string */, alternativeNames /*: Array<string> */) /*: string */ {
@@ -25,7 +25,7 @@ module.exports = ({
   },
 
   create(context) {
-    function handleComment(comment) {
+    function handleComment(comment /*: Node */) {
       const value = comment.value.trim();
       let isNoFlowOrWeakFlow = false;
 

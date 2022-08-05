@@ -3,7 +3,7 @@
  * @flow
  */
 
-const graphql = (_) => {};
+const graphql = (_: Array<string>) => {};
 
 graphql`
   fragment MyFragment on SomeType {
