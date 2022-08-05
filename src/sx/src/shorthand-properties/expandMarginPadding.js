@@ -7,7 +7,15 @@ import { invariant } from '@adeira/js';
 
 import StyleCollectorNode from '../StyleCollectorNode';
 
-function isLogicalProperty(propertyName) {
+type AllowedPropertyNames =
+  | 'margin'
+  | 'marginBlock'
+  | 'marginInline'
+  | 'padding'
+  | 'paddingBlock'
+  | 'paddingInline';
+
+function isLogicalProperty(propertyName: AllowedPropertyNames) {
   return propertyName.endsWith('Block') || propertyName.endsWith('Inline');
 }
 
@@ -21,17 +29,16 @@ function isLogicalProperty(propertyName) {
  * Padding Inline -> Padding Inline Start/End
  */
 export default function expandMarginPadding(
-  propertyName:
-    | 'margin'
-    | 'marginBlock'
-    | 'marginInline'
-    | 'padding'
-    | 'paddingBlock'
-    | 'paddingInline',
+  propertyName: AllowedPropertyNames,
   propertyValue: string | number,
   hashSeed: string = '',
 ): $ReadOnlyArray<StyleCollectorNode> {
-  function getExpandedNodes(a, b, c, d) {
+  function getExpandedNodes(
+    a: number | string,
+    b: number | string,
+    c: number | string,
+    d: number | string,
+  ) {
     if (isLogicalProperty(propertyName)) {
       return [
         new StyleCollectorNode(`${propertyName}Start`, a, hashSeed),
