@@ -3,7 +3,7 @@
  * @flow
  */
 
-import React from 'react';
+import React, { type ElementConfig } from 'react';
 import fbt from 'fbt';
 
 import ErrorBoundary from './ErrorBoundary';
@@ -24,7 +24,7 @@ export default {
   },
 };
 
-const Throws = ({ short }) => {
+const Throws = ({ short }: { +short: boolean }) => {
   if (short === true) {
     throw new Error('short error message');
   }
@@ -37,13 +37,13 @@ Add a <Suspense fallback=...> component higher in the tree to provide a loading 
 };
 
 // 👇 We create a "template" of how args map to rendering
-const Template = (args) => (
+const Template = (args: ElementConfig<typeof ErrorBoundary>) => (
   <ErrorBoundary {...args}>
     <Throws short={false} />
   </ErrorBoundary>
 );
 
-const ShortTemplate = (args) => (
+const ShortTemplate = (args: ElementConfig<typeof ErrorBoundary>) => (
   <ErrorBoundary {...args}>
     <Throws short={true} />
   </ErrorBoundary>

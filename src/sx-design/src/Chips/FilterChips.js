@@ -21,7 +21,7 @@ type Props = {
 export default function FilterChips(props: Props): Node {
   const [, setSelectedFilters] = useState(new Set());
 
-  const handleChipClick = (value) => {
+  const handleChipClick = (value: string) => {
     const onFiltersChangeFn = props.onFiltersChange;
     if (onFiltersChangeFn == null) {
       return;

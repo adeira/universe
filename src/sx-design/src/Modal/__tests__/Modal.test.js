@@ -14,7 +14,7 @@ beforeEach(() => {
   initFbt();
 });
 
-function TestingComponent(props) {
+function TestingComponent(props: { +onClose?: () => void }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
