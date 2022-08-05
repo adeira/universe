@@ -28,7 +28,7 @@ export default function FormSubmit(props: Props): Node {
   // eslint-disable-next-line relay/generated-flow-types -- discovered when upgrading Relay Eslint plugin, FIXME
   const [runMutation, isMutationInProgress] = useMutation(props.mutation);
 
-  const handleButtonClick = (event) => {
+  const handleButtonClick = (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
     formRootContext.unmaskFormFieldErrors();
