@@ -1,5 +1,7 @@
 // @flow
 
+import type { GraphQLResponse } from 'relay-runtime';
+
 import createRequestHandler from '../createRequestHandler';
 
 let list;
@@ -10,10 +12,10 @@ beforeEach(() => {
 
 const observer = {
   start: () => list.push('start'),
-  next: (val) => {
+  next: (val: GraphQLResponse) => {
     return list.push(`next:${typeof val === 'object' ? JSON.stringify(val) : val}`);
   },
-  error: (err) => list.push(err),
+  error: (err: Error) => list.push(err),
   complete: () => list.push('complete'),
   unsubscribe: () => list.push('unsubscribe'),
 };
