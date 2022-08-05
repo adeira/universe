@@ -71,7 +71,7 @@ export default function parse(input: string): ParsedConfig {
   return parsedConfig;
 }
 
-function transformKeyValue(value) {
+function transformKeyValue(value: void | string) {
   if (value?.toLowerCase() === 'true') {
     return true;
   } else if (value?.toLowerCase() === 'false') {
