@@ -1,16 +1,13 @@
 // @flow
 
 import sx from '@adeira/sx';
-import React, { type Element } from 'react';
-import {
-  Button as ButtonHeadless,
-  type ButtonProps as ButtonHeadlessProps,
-} from '@adeira/sx-design-headless';
+import React, { type Element, type ElementConfig } from 'react';
+import { Button as ButtonHeadless } from '@adeira/sx-design-headless';
 
 type RestrictedReactNode = number | Fbt | Iterable<RestrictedReactNode>;
 
 type Props = $ReadOnly<{
-  ...ButtonHeadlessProps,
+  ...ElementConfig<typeof ButtonHeadless>,
   +variant: 'primary' | 'secondary',
 }>;
 

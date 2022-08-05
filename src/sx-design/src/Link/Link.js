@@ -1,17 +1,14 @@
 // @flow
 
-import * as React from 'react';
 import NextLink from 'next/link';
-import {
-  Link as LinkHeadless,
-  type LinkProps as LinkHeadlessProps,
-} from '@adeira/sx-design-headless';
+import { Link as LinkHeadless } from '@adeira/sx-design-headless';
 import sx, { type AllCSSProperties } from '@adeira/sx';
+import type { Node, ElementConfig } from 'react';
 
 import { MediaQueryMotion } from '../MediaQueries';
 
 type Props = $ReadOnly<{
-  ...LinkHeadlessProps,
+  ...ElementConfig<typeof LinkHeadless>,
   +isActive?: boolean,
   +xstyle?: AllCSSProperties,
   +href:
@@ -52,7 +49,7 @@ export default function Link({
   locale,
   nextLinkComponent: NextLinkComponent,
   ...props
-}: Props): React.Node {
+}: Props): Node {
   return (
     <NextLinkComponent href={href} passHref={true} as={as} locale={locale}>
       {/* $FlowExpectedError[prop-missing]: `href` should be provided automatically thanks to `passHref` */}

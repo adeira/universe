@@ -2,12 +2,13 @@
 
 import * as React from 'react';
 
-export type Props = {
+type Props = {
   +'href': string,
   +'children': React.Node,
   +'target'?: string,
   +'data-testid'?: string,
   +'onClick'?: (event: SyntheticEvent<HTMLAnchorElement>) => void,
+  +'className'?: ?string,
 };
 
 /**
@@ -33,10 +34,4 @@ export default (React.forwardRef(function Link(props, ref) {
       {props.children}
     </a>
   );
-}): React.AbstractComponent<
-  $ReadOnly<{
-    ...Props,
-    +className: ?string,
-  }>,
-  HTMLAnchorElement,
->);
+}): React.AbstractComponent<Props, HTMLAnchorElement>);
