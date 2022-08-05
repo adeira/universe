@@ -30,7 +30,7 @@ export function LoginButton(): Node {
       }
     `);
 
-  const successResponseGoogle = (googleIdToken) => {
+  const successResponseGoogle = (googleIdToken: string) => {
     authorizeMutation({
       variables: { googleIdToken },
       onCompleted: ({ auth: { authorizeWebapp } }) => {
