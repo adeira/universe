@@ -53,7 +53,7 @@ function hasStyleRule(match: (CSSRule) => boolean) {
 export function injectRuntimeKeyframes(css: string, name: string) {
   const styleSheet = getStyleTag();
 
-  const matchFunction = (cssRule) => {
+  const matchFunction = (cssRule: CSSRule) => {
     if (cssRule.type === CSSRule.KEYFRAMES_RULE) {
       const rule: CSSKeyframesRule = (cssRule: any);
       return rule.name === name;
@@ -70,7 +70,7 @@ export function injectRuntimeKeyframes(css: string, name: string) {
 export default function injectRuntimeStyles(styleBuffer: StyleBufferType) {
   const styleSheet = getStyleTag();
 
-  const matchFunction = (node) => (cssRule) => {
+  const matchFunction = (node: StyleCollectorNode) => (cssRule: CSSRule) => {
     if (cssRule.type === CSSRule.STYLE_RULE) {
       const styleRule = ((cssRule: any): CSSStyleRule);
       if (styleRule.selectorText === `.${node.getHash()}`) {
