@@ -7,7 +7,7 @@ import parsePatch from '../parsePatch';
 
 generateTestsFromFixtures(path.join(__dirname, 'fixtures', 'diffs'), operation);
 
-function operation(input) {
+function operation(input: string) {
   return new Promise((resolve) => {
     let hunks = '';
     let hunkNumber = 1;
