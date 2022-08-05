@@ -25,7 +25,11 @@ export const handleData = (response: Response): Promise<$FlowFixMe> | Promise<st
   return response.text();
 };
 
-function getRequestBodyWithUploadables(request, variables, uploadables): FormData {
+function getRequestBodyWithUploadables(
+  request: $FlowFixMe,
+  variables: Variables,
+  uploadables: UploadableMap,
+): FormData {
   const formData = new FormData();
   if (__DEV__ && request.text != null) {
     formData.append('query', request.text);
@@ -48,7 +52,7 @@ function getRequestBodyWithUploadables(request, variables, uploadables): FormDat
   return formData;
 }
 
-function getRequestBodyWithoutUplodables(request, variables): string {
+function getRequestBodyWithoutUplodables(request: $FlowFixMe, variables: Variables): string {
   let body = {};
   if (__DEV__ && request.text != null) {
     body = { query: request.text, variables };

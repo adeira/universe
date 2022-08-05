@@ -1,5 +1,7 @@
 // @flow
 
+import type { RecordSourceProxy } from 'relay-runtime';
+
 import {
   graphql,
   commitMutation,
@@ -43,7 +45,7 @@ const subscriptionConfig = {
   variables: {},
 };
 
-const localUpdater = (store) => {
+const localUpdater = (store: RecordSourceProxy) => {
   const favorite = store.get('unique:ID');
   if (favorite) {
     favorite.setValue(false, 'isNew');
