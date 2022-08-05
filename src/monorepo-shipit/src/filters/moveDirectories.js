@@ -10,7 +10,7 @@ export default function moveDirectories(
   changeset: Changeset,
   mapping: Map<string, string>,
 ): Changeset {
-  const rewriteCallback = (oldPath) => {
+  const rewriteCallback = (oldPath: string) => {
     let newPath = oldPath;
     for (const [src, dest] of mapping.entries()) {
       let matchFound = false;
