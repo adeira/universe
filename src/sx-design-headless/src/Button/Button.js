@@ -6,7 +6,7 @@ import React, { type Element } from 'react';
 
 type RestrictedReactNode = number | Fbt | Iterable<RestrictedReactNode>;
 
-export type Props = {
+type Props = {
   +'children': RestrictedReactNode | RestrictedElement<typeof Icon>,
   +'onClick': (event: SyntheticEvent<HTMLButtonElement>) => void,
   +'type'?:
@@ -18,6 +18,7 @@ export type Props = {
   +'prefix'?: RestrictedElement<typeof Icon>,
   +'suffix'?: RestrictedElement<typeof Icon>,
   +'aria-label'?: Fbt,
+  +'className'?: ?string,
 };
 
 /**
@@ -29,9 +30,7 @@ export type Props = {
  * elements while tabbing. Instead, we are preventing the `onClick` programmatically so users
  * can navigate the disabled buttons (see: https://css-tricks.com/making-disabled-buttons-more-inclusive/).
  */
-export default function Button(
-  props: $ReadOnly<{ ...Props, +className: ?string }>,
-): Element<'button'> {
+export default function Button(props: Props): Element<'button'> {
   const childrenCount = React.Children.count(props.children);
   if (childrenCount === 1) {
     React.Children.forEach(props.children, (child) => {
