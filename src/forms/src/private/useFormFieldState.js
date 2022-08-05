@@ -33,7 +33,7 @@ export default function useFormFieldState(
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  function updateInputValue(newInputRef, newInputValue) {
+  function updateInputValue(newInputRef: InputRef, newInputValue: InputValue) {
     formRootContext.updateFormField(
       inputName,
       newInputValue,
