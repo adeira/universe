@@ -1,6 +1,6 @@
 // @flow strict
 
-function graphqlTagMock(strings) {
+function graphqlTagMock(strings: Array<string>) {
   // noop mock
   return strings;
 }
