@@ -2,7 +2,7 @@
 
 import findBestTooltipPosition from '../findBestTooltipPosition';
 
-function getHoverArea({ top, left }) {
+function getHoverArea({ top, left }: { left: number, top: number }) {
   const width = 100;
   const height = 100;
   return {

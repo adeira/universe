@@ -6,7 +6,13 @@ import fbt from 'fbt';
 
 import { MediaQueryMotion } from '../MediaQueries';
 
-function SvgRect(props): Element<'rect'> {
+type SvgRectProps = {
+  +'data-testid': string,
+  +'x': string,
+  +'y': string,
+};
+
+function SvgRect(props: SvgRectProps): Element<'rect'> {
   return (
     <rect
       x={props.x}

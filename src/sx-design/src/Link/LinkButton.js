@@ -44,7 +44,7 @@ type Props = {
  * however, the `onClick` callback and link navigation are disabled.
  */
 export default function LinkButton(props: Props): Node {
-  const handleOnClick = (event) => {
+  const handleOnClick = (event: SyntheticEvent<HTMLAnchorElement>) => {
     if (props.isDisabled !== true) {
       props.onClick?.(event);
     } else {
