@@ -11,7 +11,7 @@ function shouldLint(context) {
   return /graphql|relay/i.test(context.getSourceCode().text);
 }
 
-function isGraphQLTag(tag) {
+function isGraphQLTag(tag /*: any */) {
   return tag.type === 'Identifier' && tag.name === 'graphql';
 }
 
