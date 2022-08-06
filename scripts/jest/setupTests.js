@@ -23,7 +23,7 @@ const isSpy = (spy: MaybeSpy): boolean %checks => {
 // Inspired by React itself: https://github.com/facebook/react/blob/7841d0695ae4bde9848cf8953baf34d312d0cced/scripts/jest/setupTests.js
 ['error', 'warn', 'log', 'info', 'groupCollapsed'].forEach((methodName) => {
   const unexpectedConsoleCallStacks = [];
-  const newMethod = function (format, ...args) {
+  const newMethod = function (format: $FlowFixMe, ...args: Array<$FlowFixMe>) {
     const stack = new Error().stack;
     unexpectedConsoleCallStacks.push([
       stack.substr(stack.indexOf('\n') + 1),
