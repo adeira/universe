@@ -72,7 +72,7 @@ export default function ProductsGrid(props: Props): Node {
     undefined,
   );
 
-  const handleItemClick = (productKey, product) => {
+  const handleItemClick = (productKey: string, product) => {
     if (product.hasSelectedAddons === true) {
       preloadModalQuery(
         {

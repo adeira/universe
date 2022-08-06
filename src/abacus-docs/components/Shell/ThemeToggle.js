@@ -89,7 +89,7 @@ export function ThemeToggle(): Node {
   const [theme, setTheme] = React.useState(undefined);
   const [, setHovering] = React.useState(false);
 
-  function setPreferredTheme(newTheme) {
+  function setPreferredTheme(newTheme: string) {
     setTheme(newTheme);
     try {
       localStorage.setItem('theme', newTheme);
