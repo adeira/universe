@@ -168,7 +168,7 @@ export default function fetchWithRetries(
      * Schedules another run of sendTimedRequest based on how much time has
      * passed between the time the last request was sent and now.
      */
-    function retryRequest(reason, resource): void {
+    function retryRequest(reason: string, resource: string): void {
       warning(false, `fetchWithRetries: ${reason} (${resource}), retrying.`);
 
       const retryDelay = _retryDelays[requestsAttempted - 1];
