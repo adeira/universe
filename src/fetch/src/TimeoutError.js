@@ -1,11 +1,11 @@
-// @flow strict-local
+// @flow
 
 import setPrototypeOf from './setPrototypeOf';
 
 /**
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error#Custom_Error_Types
  */
-function TimeoutError(message?: string): Error {
+function TimeoutError(this: any, message?: string): Error {
   const instance = new Error(message);
   /* $FlowFixMe[class-object-subtyping] This comment suppresses an error when
    * upgrading Flow to version 0.153.0. To see the error delete this comment

@@ -1,4 +1,4 @@
-// @flow strict-local
+// @flow
 
 import setPrototypeOf from './setPrototypeOf';
 
@@ -11,7 +11,7 @@ type ResponseErrorType = $ReadOnly<{
 /**
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error#Custom_Error_Types
  */
-function ResponseError(response: Response, message?: string): ResponseErrorType {
+function ResponseError(this: any, response: Response, message?: string): ResponseErrorType {
   const instance = new Error(message);
 
   // $FlowExpectedError[prop-missing]: property 'error.response' is unknown in Error (but that's fine, we are extending here)
