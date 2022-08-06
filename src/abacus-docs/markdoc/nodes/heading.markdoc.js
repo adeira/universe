@@ -4,7 +4,7 @@ import { Tag } from '@markdoc/markdoc';
 
 import { Heading } from '../../components/Heading';
 
-function generateID(children, attributes) {
+function generateID(children: $FlowFixMe, attributes: $FlowFixMe) {
   if (attributes.id && typeof attributes.id === 'string') {
     return attributes.id;
   }
