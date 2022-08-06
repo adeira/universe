@@ -76,7 +76,7 @@ export default class ShellCommand {
       maxBuffer: Infinity, // to prevent Error: spawnSync git ENOBUFS
     });
 
-    const maybeThrow = (error) => {
+    const maybeThrow = (error: Error) => {
       if (this.throwForNonZeroExit === true) {
         throw error;
       }
