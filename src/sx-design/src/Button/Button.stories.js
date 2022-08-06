@@ -5,7 +5,7 @@
 
 import Icon from '@adeira/icons';
 import fbt from 'fbt';
-import React from 'react';
+import React, { type ElementConfig } from 'react';
 
 import Button from './Button';
 import LayoutInline from '../Layout/LayoutInline';
@@ -25,7 +25,7 @@ export default {
 };
 
 // 👇 We create a "template" of how args map to rendering
-const BasicTemplate = (args) => (
+const BasicTemplate = (args: ElementConfig<typeof Button>) => (
   <LayoutInline>
     <Button {...args}>
       <fbt desc="button title" doNotExtract={true}>
@@ -50,7 +50,7 @@ const BasicTemplate = (args) => (
   </LayoutInline>
 );
 
-const ShowcaseTemplate = (args) => (
+const ShowcaseTemplate = (args: ElementConfig<typeof Button>) => (
   <LayoutInline>
     <Button {...args} tint="default">
       <fbt desc="default button title" doNotExtract={true}>
@@ -80,7 +80,7 @@ const ShowcaseTemplate = (args) => (
   </LayoutInline>
 );
 
-const SizesTemplate = (args) => (
+const SizesTemplate = (args: ElementConfig<typeof Button>) => (
   <LayoutInline>
     <Button {...args} size="small">
       <fbt desc="small button title" doNotExtract={true}>

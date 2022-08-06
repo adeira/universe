@@ -3,7 +3,7 @@
  * @flow
  */
 
-import React from 'react';
+import React, { type ElementConfig } from 'react';
 import fbt from 'fbt';
 
 import SkipLink from './SkipLink';
@@ -17,7 +17,7 @@ export default {
 };
 
 // 👇 We create a "template" of how args map to rendering
-const Template = (args) => (
+const Template = (args: ElementConfig<typeof SkipLink>) => (
   <div
     style={{
       position: 'relative',

@@ -3,7 +3,7 @@
  * @flow
  */
 
-import React from 'react';
+import React, { type ElementConfig } from 'react';
 
 import DateTime from './DateTime';
 import type { StoryTemplate } from '../types';
@@ -15,7 +15,7 @@ export default {
 };
 
 // 👇 We create a "template" of how args map to rendering
-const Template = (args) => <DateTime {...args} />;
+const Template = (args: ElementConfig<typeof DateTime>) => <DateTime {...args} />;
 
 // 👇 Each story then reuses that template
 export const Default: StoryTemplate<typeof DateTime> = Template.bind({});

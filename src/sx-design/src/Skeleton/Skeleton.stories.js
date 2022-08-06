@@ -3,7 +3,7 @@
  * @flow
  */
 
-import React from 'react';
+import React, { type ElementConfig } from 'react';
 import { rangeMap } from '@adeira/js';
 import fbt from 'fbt';
 
@@ -26,8 +26,8 @@ export default {
 initFbt();
 
 // 👇 We create a "template" of how args map to rendering
-const StandaloneTemplate = (args) => <Skeleton {...args} />;
-const GridTemplate = (args) => (
+const StandaloneTemplate = (args: ElementConfig<typeof Skeleton>) => <Skeleton {...args} />;
+const GridTemplate = (args: ElementConfig<typeof Skeleton>) => (
   <LayoutGrid minColumnWidth="150px">
     {rangeMap(16, (i) => (
       <Skeleton key={i} {...args} />

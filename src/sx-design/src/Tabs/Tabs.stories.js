@@ -3,7 +3,7 @@
  * @flow
  */
 
-import React, { useState } from 'react';
+import React, { useState, type ElementConfig } from 'react';
 import fbt from 'fbt';
 
 import LayoutBlock from '../Layout/LayoutBlock';
@@ -21,7 +21,7 @@ export default {
 initFbt();
 
 // 👇 We create a "template" of how args map to rendering
-const Template = (args) => {
+const Template = (args: ElementConfig<typeof Tabs>) => {
   const [selected, setSelected] = useState('apple');
   return (
     <LayoutBlock>

@@ -4,7 +4,7 @@
  */
 
 import { rangeMap } from '@adeira/js';
-import React, { useState } from 'react';
+import React, { useState, type ElementConfig } from 'react';
 import fbt from 'fbt';
 
 import Button from '../Button/Button';
@@ -24,7 +24,7 @@ export default {
 initFbt();
 
 // 👇 We create a "template" of how args map to rendering
-const TemplateEmpty = (args) => {
+const TemplateEmpty = (args: ElementConfig<typeof Modal>) => {
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -40,7 +40,7 @@ const TemplateEmpty = (args) => {
   );
 };
 
-const TemplateWithProductCards = (args) => {
+const TemplateWithProductCards = (args: ElementConfig<typeof Modal>) => {
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -66,7 +66,7 @@ const TemplateWithProductCards = (args) => {
   );
 };
 
-const TemplateWithModalInsideModal = (args) => {
+const TemplateWithModalInsideModal = (args: ElementConfig<typeof Modal>) => {
   const [open, setOpen] = useState(false);
   return (
     <>

@@ -4,7 +4,7 @@
  */
 
 import sx from '@adeira/sx';
-import React from 'react';
+import React, { type ElementConfig } from 'react';
 import fbt from 'fbt';
 
 import Link from './Link';
@@ -18,7 +18,7 @@ export default {
 };
 
 // 👇 We create a "template" of how args map to rendering
-const Template = (args) => <Link {...args} />;
+const Template = (args: ElementConfig<typeof Link>) => <Link {...args} />;
 
 /* eslint-disable sx/no-unused-stylesheet */
 const styles = sx.create({
