@@ -3,7 +3,7 @@
  * @flow
  */
 
-import React from 'react';
+import React, { type ElementConfig } from 'react';
 
 import Money from './Money';
 import { SupportedCurrencies } from '../constants';
@@ -32,7 +32,7 @@ export default {
 };
 
 // 👇 We create a "template" of how args map to rendering
-const Template = (args) => <Money {...args} />;
+const Template = (args: ElementConfig<typeof Money>) => <Money {...args} />;
 
 // 👇 Each story then reuses that template
 export const MXN: StoryTemplate<typeof Money> = Template.bind({});

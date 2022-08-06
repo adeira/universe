@@ -3,7 +3,7 @@
  * @flow
  */
 
-import React from 'react';
+import React, { type ElementConfig } from 'react';
 import fbt from 'fbt';
 
 import Button from '../Button/Button';
@@ -19,9 +19,9 @@ export default {
 };
 
 // 👇 We create a "template" of how args map to rendering
-const BasicTemplate = (args) => <Note {...args} />;
+const BasicTemplate = (args: ElementConfig<typeof Note>) => <Note {...args} />;
 
-const ShowcaseTemplate = (args) => (
+const ShowcaseTemplate = (args: ElementConfig<typeof Note>) => (
   <LayoutBlock>
     <Note {...args} tint="default">
       this is a default note
@@ -38,7 +38,7 @@ const ShowcaseTemplate = (args) => (
   </LayoutBlock>
 );
 
-const ShowcaseActionTemplate = (args) => (
+const ShowcaseActionTemplate = (args: ElementConfig<typeof Note>) => (
   <LayoutBlock>
     <Note {...args} tint="default" />
     <Note {...args} tint="success" />

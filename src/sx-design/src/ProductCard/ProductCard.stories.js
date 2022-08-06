@@ -3,7 +3,7 @@
  * @flow
  */
 
-import React from 'react';
+import React, { type ElementConfig } from 'react';
 import { rangeMap } from '@adeira/js';
 import fbt from 'fbt';
 
@@ -37,8 +37,8 @@ const BLURHASH = 'UIFrw^~Wx^NH.8D*t7%L.8RjMxRixu%ME1R+';
 initFbt();
 
 // 👇 We create a "template" of how args map to rendering
-const TemplateStandalone = (args) => <ProductCard {...args} />;
-const Template = (args) => (
+const TemplateStandalone = (args: ElementConfig<typeof ProductCard>) => <ProductCard {...args} />;
+const Template = (args: ElementConfig<typeof ProductCard>) => (
   <LayoutGrid minColumnWidth="200px">
     {rangeMap(16, (i) => (
       <ProductCard

@@ -3,7 +3,7 @@
  * @flow
  */
 
-import React from 'react';
+import React, { type ElementConfig } from 'react';
 import fbt from 'fbt';
 
 import Text from './Text';
@@ -26,9 +26,9 @@ const LONG_TEXT = `Lorem Ipsum is simply dummy text of the printing and typesett
       including versions of Lorem Ipsum.`;
 
 // 👇 We create a "template" of how args map to rendering
-const TemplateLongText = (args) => <Text {...args}>{LONG_TEXT}</Text>;
+const TemplateLongText = (args: ElementConfig<typeof Text>) => <Text {...args}>{LONG_TEXT}</Text>;
 
-const TemplateLongTextMaxWidth = (args) => (
+const TemplateLongTextMaxWidth = (args: ElementConfig<typeof Text>) => (
   <div style={{ maxWidth: '50%' }}>
     <Text {...args}>{LONG_TEXT}</Text>
   </div>

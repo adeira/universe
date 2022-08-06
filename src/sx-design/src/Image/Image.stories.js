@@ -3,7 +3,7 @@
  * @flow
  */
 
-import React from 'react';
+import React, { type ElementConfig } from 'react';
 
 import Image from './Image';
 import type { StoryTemplate } from '../types';
@@ -15,7 +15,7 @@ export default {
 };
 
 // 👇 We create a "template" of how args map to rendering
-const Template = (args) => <Image {...args} />;
+const Template = (args: ElementConfig<typeof Image>) => <Image {...args} />;
 
 // 👇 Each story then reuses that template
 export const DefaultImage: StoryTemplate<typeof Image> = Template.bind({});

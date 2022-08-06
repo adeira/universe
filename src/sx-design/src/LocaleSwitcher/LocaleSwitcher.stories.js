@@ -3,7 +3,7 @@
  * @flow
  */
 
-import React from 'react';
+import React, { type ElementConfig } from 'react';
 import NextLink from 'next/link';
 
 import LocaleSwitcher from './LocaleSwitcher';
@@ -16,7 +16,9 @@ export default {
 };
 
 // 👇 We create a "template" of how args map to rendering
-const Template = (args) => <LocaleSwitcher nextLinkComponent={NextLink} {...args} />;
+const Template = (args: ElementConfig<typeof LocaleSwitcher>) => (
+  <LocaleSwitcher nextLinkComponent={NextLink} {...args} />
+);
 
 // 👇 Each story then reuses that template
 export const Default: StoryTemplate<typeof LocaleSwitcher> = Template.bind({});

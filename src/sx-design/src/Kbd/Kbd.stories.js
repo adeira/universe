@@ -3,7 +3,7 @@
  * @flow
  */
 
-import React from 'react';
+import React, { type ElementConfig } from 'react';
 
 import Kbd from './Kbd';
 import type { StoryTemplate } from '../types';
@@ -15,7 +15,7 @@ export default {
 };
 
 // 👇 We create a "template" of how args map to rendering
-const Template = (args) => <Kbd {...args} />;
+const Template = (args: ElementConfig<typeof Kbd>) => <Kbd {...args} />;
 
 // 👇 Each story then reuses that template
 export const Alt: StoryTemplate<typeof Kbd> = Template.bind({});

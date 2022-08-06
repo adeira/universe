@@ -4,7 +4,7 @@
  */
 
 import fbt from 'fbt';
-import React from 'react';
+import React, { type ElementConfig } from 'react';
 
 import LayoutInline from './LayoutInline';
 import Placeholder from '../Placeholder/Placeholder';
@@ -18,7 +18,7 @@ export default {
 };
 
 // 👇 We create a "template" of how args map to rendering
-const BasicTemplate = (args) => (
+const BasicTemplate = (args: ElementConfig<typeof LayoutInline>) => (
   <LayoutInline {...args}>
     {/* 1..5 */}
     <Placeholder

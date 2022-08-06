@@ -3,7 +3,7 @@
  * @flow
  */
 
-import React from 'react';
+import React, { type ElementConfig } from 'react';
 
 import Entity from './Entity';
 import EntityField from './EntityField';
@@ -25,7 +25,7 @@ export default {
 };
 
 // 👇 We create a "template" of how args map to rendering
-const Template = (args) => (
+const Template = (args: ElementConfig<typeof Entity>) => (
   <LayoutBlock>
     <Entity {...args} />
     <Entity {...args} />

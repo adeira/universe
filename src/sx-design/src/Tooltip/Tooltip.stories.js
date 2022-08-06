@@ -3,7 +3,7 @@
  * @flow
  */
 
-import React from 'react';
+import React, { type ElementConfig } from 'react';
 import fbt from 'fbt';
 
 import Button from '../Button/Button';
@@ -24,7 +24,7 @@ export default {
 initFbt();
 
 // 👇 We create a "template" of how args map to rendering
-const Template = (args) => (
+const Template = (args: ElementConfig<typeof Tooltip>) => (
   <>
     {/* Top-left positions: */}
     <div style={{ position: 'absolute', top: '0', left: '0' }}>

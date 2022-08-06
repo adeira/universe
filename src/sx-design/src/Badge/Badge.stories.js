@@ -3,7 +3,7 @@
  * @flow
  */
 
-import React from 'react';
+import React, { type ElementConfig } from 'react';
 import fbt from 'fbt';
 
 import Badge from './Badge';
@@ -18,9 +18,9 @@ export default {
 };
 
 // 👇 We create a "template" of how args map to rendering
-const BasicTemplate = (args) => <Badge {...args} />;
+const BasicTemplate = (args: ElementConfig<typeof Badge>) => <Badge {...args} />;
 
-const ShowcaseTemplate = (args) => (
+const ShowcaseTemplate = (args: ElementConfig<typeof Badge>) => (
   <LayoutInline>
     <Badge {...args} tint="default" />
     <Badge {...args} tint="error" />

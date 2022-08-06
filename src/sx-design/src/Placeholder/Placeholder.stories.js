@@ -3,7 +3,7 @@
  * @flow
  */
 
-import React from 'react';
+import React, { type ElementConfig } from 'react';
 import fbt from 'fbt';
 
 import Placeholder from './Placeholder';
@@ -18,7 +18,7 @@ export default {
 };
 
 // 👇 We create a "template" of how args map to rendering
-const BasicTemplate = (args) => (
+const BasicTemplate = (args: ElementConfig<typeof Placeholder>) => (
   <LayoutBlock>
     <Placeholder width={'100%'} height={50} {...args} />
     <Placeholder width={'50%'} height={100} {...args} />
