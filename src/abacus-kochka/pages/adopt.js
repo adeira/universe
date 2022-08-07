@@ -56,7 +56,7 @@ export default function RulesPage(): React.Node {
         <Note tint="warning">
           Download:{' '}
           <Link
-            href="https://d1816i3z8ujauh.cloudfront.net/FORMATO%20DE%20ADOPCIO%CC%81N%20KOCHKA%20CAFE%CC%81%20(empty).pdf"
+            href="https://d1816i3z8ujauh.cloudfront.net/FORMATO%20DE%20ADOPCIO%CC%81N%20KOCHKA%20CAFE%CC%81%20(Ago%202022).pdf"
             target="_blank"
           >
             FORMATO DE ADOPCIÓN KOCHKA CAFÉ.pdf
