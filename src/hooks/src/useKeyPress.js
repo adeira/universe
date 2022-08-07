@@ -25,7 +25,7 @@ export function useKeyPress({
   const [isPressed, setPressed] = useState(false);
 
   useEffect(() => {
-    const handleKeyDown = (event) => {
+    const handleKeyDown = (event: KeyboardEvent) => {
       const { key: pressedKey } = event;
       if (key === pressedKey) {
         if (onKeyDown) {

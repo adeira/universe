@@ -6,8 +6,8 @@ import { findMonorepoRoot } from '@adeira/monorepo-utils';
 import stripAnsi from 'strip-ansi';
 import path from 'path';
 
-function transform(target) {
-  return (input) => {
+function transform(target: 'js' | 'js-esm' | 'flow') {
+  return (input: string) => {
     try {
       const oldEnv = process.env.NODE_ENV;
       process.env.NODE_ENV = 'production';

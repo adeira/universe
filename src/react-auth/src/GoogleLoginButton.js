@@ -18,7 +18,7 @@ type Props = {
 export default function GoogleLoginButton(props: Props): Node {
   const googleSignInButton = useRef(null);
 
-  const onGoogleSignIn = ({ credential }) => {
+  const onGoogleSignIn = ({ credential }: { +credential: string }) => {
     // https://developers.google.com/identity/gsi/web/reference/js-reference#CredentialResponse
     props.onGoogleSignIn(credential);
   };

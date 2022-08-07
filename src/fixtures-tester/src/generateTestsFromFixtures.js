@@ -47,8 +47,8 @@ export default function generateTestsFromFixtures( // eslint-disable-line jest/n
     expect(fixtures.length).toBeGreaterThan(0);
   });
 
-  const shouldSkip = (file) => /\.only\.\w+$/.test(file);
-  const isFile = (f) => fs.lstatSync(path.join(fixturesPath, f)).isFile();
+  const shouldSkip = (file: string) => /\.only\.\w+$/.test(file);
+  const isFile = (f: string) => fs.lstatSync(path.join(fixturesPath, f)).isFile();
   const onlyFixtures = fixtures.filter(shouldSkip);
   if (onlyFixtures.length) {
     /* eslint-disable jest/no-disabled-tests */

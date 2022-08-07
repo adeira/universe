@@ -36,7 +36,9 @@ export default function SxDesignProvider(props: Props): Node {
   useEffect(() => {
     if (typeof window === 'object' && window.matchMedia) {
       const mediaQueryList = window.matchMedia('(prefers-color-scheme: dark)');
-      const eventListener = (event) => setActualSystemColor(event.matches ? 'dark' : 'light');
+      const eventListener = (event: MediaQueryListEvent) => {
+        setActualSystemColor(event.matches ? 'dark' : 'light');
+      };
       mediaQueryList.addEventListener('change', eventListener);
       return () => mediaQueryList.removeEventListener('change', eventListener);
     }

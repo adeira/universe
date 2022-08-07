@@ -11,7 +11,7 @@ jest.mock('@adeira/shell-command', () => {
   return {
     ShellCommand: class {
       stdout = null;
-      constructor(path, git: any, noPager: any, ...commandArray) {
+      constructor(path: string, git: any, noPager: any, ...commandArray: Array<string>) {
         const command = commandArray.toString();
         if (command === 'rev-list,--max-parents=0,HEAD') {
           this.stdout =

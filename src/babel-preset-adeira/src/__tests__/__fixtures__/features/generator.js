@@ -2,7 +2,7 @@
 
 /* eslint-disable */
 
-function* generator(i) {
+function* generator(i: number) {
   yield i;
   yield i + 10;
 }

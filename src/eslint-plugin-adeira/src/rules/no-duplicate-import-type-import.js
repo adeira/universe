@@ -13,7 +13,11 @@ function typeNodeSpecifiersToImport(typeNode /*: ImportDeclaration */) /*: strin
   return typeNode.specifiers.map((i) => `type ${i.imported.name}`).join(',');
 }
 
-function autoFix(typeNode /*: ImportDeclaration */, valueNode /*: ImportDeclaration */, fixer) {
+function autoFix(
+  typeNode /*: ImportDeclaration */,
+  valueNode /*: ImportDeclaration */,
+  fixer /*: $FlowFixMe */,
+) {
   // Each import has an array of specifiers, we want to append our typeimport after the last import
   const { type, range } = valueNode.specifiers[valueNode.specifiers.length - 1];
 

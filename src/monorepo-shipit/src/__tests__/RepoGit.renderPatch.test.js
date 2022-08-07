@@ -1,9 +1,9 @@
 // @flow
 
 import RepoGit from '../RepoGitFake';
-import Changeset from '../Changeset';
+import Changeset, { type Diff } from '../Changeset';
 
-function createChangeset(diffs) {
+function createChangeset(diffs: null | Set<Diff>) {
   const emptyChangeset = new Changeset()
     .withID('mocked_id')
     .withTimestamp('mocked_timestamp')

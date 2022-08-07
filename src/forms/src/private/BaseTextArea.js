@@ -1,6 +1,6 @@
 // @flow
 
-import { type Node, useRef } from 'react';
+import { useRef, type Node } from 'react';
 import sx from '@adeira/sx';
 
 import BaseInputWrapper from './BaseInputWrapper';
@@ -28,8 +28,8 @@ export default function BaseTextArea(props: Props): Node {
     props.label,
   );
 
-  const handleOnChange = (event) => {
-    updateInputValue(textAreaRef, event.target.value);
+  const handleOnChange = (event: SyntheticEvent<HTMLTextAreaElement>) => {
+    updateInputValue(textAreaRef, event.currentTarget.value);
   };
 
   const hasError =

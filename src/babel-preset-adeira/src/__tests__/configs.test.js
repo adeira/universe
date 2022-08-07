@@ -33,7 +33,7 @@ test.each(matrix)(
   "emits correct config for target '%s' and environment '%j' and reactEnvironment '%s'",
   (target, environments, reactRuntime) => {
     const apiMock = {
-      assertVersion: (version) => {
+      assertVersion: (version: number) => {
         if (version !== 7) {
           throw new Error(`Only Babel API version 7 supported, given version: ${version}`);
         }

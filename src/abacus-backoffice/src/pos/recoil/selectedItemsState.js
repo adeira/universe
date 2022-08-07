@@ -20,7 +20,7 @@ export type AtomItemType = {
 type AtomValue = Immutable.List<AtomItemType>;
 
 const localStorageEffect =
-  (key) =>
+  (key: string) =>
   ({ setSelf, onSet }) => {
     if (!isBrowser()) {
       return;
@@ -28,7 +28,7 @@ const localStorageEffect =
 
     const savedValue = window.localStorage.getItem(key);
     if (savedValue != null && savedValue !== 'undefined') {
-      const reviver = function (key, value) {
+      const reviver = function (key: string | number, value: any) {
         return Immutable.isKeyed(value) ? value.toObject() : value.toList();
       };
       const revivedValue = ((Immutable.fromJS(JSON.parse(savedValue), reviver): any): AtomValue);
