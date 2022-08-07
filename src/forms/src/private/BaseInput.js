@@ -57,16 +57,16 @@ export default function BaseInput(props: $ReadOnly<Props>): Node {
     props.label,
   );
 
-  const handleOnChange = (event) => {
+  const handleOnChange = (event: SyntheticEvent<HTMLInputElement>) => {
     if (props.type === 'file') {
-      formRootContext.setUploadables(event.target.files);
+      formRootContext.setUploadables(event.currentTarget.files);
     }
 
     updateInputValue(
       inputRef,
       props.type === 'file'
-        ? Array.from(event.target.files ?? []).map((file) => file.name)
-        : event.target.value,
+        ? Array.from(event.currentTarget.files ?? []).map((file) => file.name)
+        : event.currentTarget.value,
     );
   };
 

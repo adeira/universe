@@ -1621,7 +1621,7 @@ exports[`matches expected output: generator.js: flow 1`] = `
 
 /* eslint-disable */
 
-function* generator(i) {
+function* generator(i: number) {
   yield i;
   yield i + 10;
 }
@@ -1636,7 +1636,7 @@ console.log(gen.next().value); // 20
 
 /* eslint-disable */
 
-function* generator(i) {
+function* generator(i: number) {
   yield i;
   yield i + 10;
 }
@@ -1653,7 +1653,7 @@ exports[`matches expected output: generator.js: js (old browsers) 1`] = `
 
 /* eslint-disable */
 
-function* generator(i) {
+function* generator(i: number) {
   yield i;
   yield i + 10;
 }
@@ -1705,7 +1705,7 @@ exports[`matches expected output: generator.js: js-esm (with ES6 import/export) 
 
 /* eslint-disable */
 
-function* generator(i) {
+function* generator(i: number) {
   yield i;
   yield i + 10;
 }

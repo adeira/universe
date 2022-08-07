@@ -1,7 +1,7 @@
 // @flow strict
 
 // eslint-disable-next-line no-unused-vars
-const invariantMock = (condition: boolean, format: string, ...args) => {
+const invariantMock = (condition: boolean, format: string, ...args: $ReadOnlyArray<mixed>) => {
   if (!condition) {
     throw new Error(format);
   }

@@ -46,7 +46,7 @@ export default function Button(props: Props): Element<'button'> {
     });
   }
 
-  const handleOnClick = (event) => {
+  const handleOnClick = (event: SyntheticEvent<HTMLButtonElement>) => {
     if (props.isDisabled !== true) {
       props.onClick(event);
     }

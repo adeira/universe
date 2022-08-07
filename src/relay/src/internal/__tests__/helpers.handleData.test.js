@@ -5,7 +5,7 @@ import { handleData } from '../helpers';
 const jsonMock = jest.fn();
 const textMock = jest.fn();
 
-const createResponse = (getMockFunction) => ({
+const createResponse = (getMockFunction: JestMockFn<$FlowFixMe, $FlowFixMe>) => ({
   headers: {
     get: getMockFunction,
   },

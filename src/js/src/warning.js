@@ -8,7 +8,7 @@ import sprintf from './sprintf';
  * paths. Removing the logging code for production environments will keep the
  * same logic and follow the same code paths.
  */
-function printWarning(format: string, ...args) {
+function printWarning(format: string, ...args: $ReadOnlyArray<mixed>) {
   const message = sprintf(format, ...args);
   if (typeof console !== 'undefined') {
     console.warn(message); // eslint-disable-line no-console

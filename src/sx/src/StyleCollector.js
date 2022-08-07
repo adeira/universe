@@ -47,7 +47,12 @@ class StyleCollector {
   } {
     const hashRegistry: HashRegistryType = new Map();
 
-    const traverse = (styleSheetName, styleSheetObject, styleBuffer, hashSeed = '') => {
+    const traverse = (
+      styleSheetName: string,
+      styleSheetObject,
+      styleBuffer: StyleBufferType,
+      hashSeed: string = '',
+    ) => {
       // we need to iterate it - there might be pseudo classes, at rules or leaf types
       for (const maybeName of Object.keys(styleSheetObject)) {
         const maybeValue = styleSheetObject[maybeName];

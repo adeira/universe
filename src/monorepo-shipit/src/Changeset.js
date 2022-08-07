@@ -2,7 +2,7 @@
 
 import { sprintf } from '@adeira/js';
 
-type Diff = {
+export type Diff = {
   +path: string,
   +body: string,
 };

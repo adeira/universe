@@ -3,8 +3,9 @@
 import ReactTestRenderer from 'react-test-renderer';
 import { createMockEnvironment, MockPayloadGenerator } from 'relay-test-utils';
 
-import { FetchTimeoutError, FetchResponseError, graphql } from '../index';
 import QueryRenderer from '../QueryRenderer';
+import { FetchTimeoutError, FetchResponseError, graphql } from '../index';
+import type { QueryRendererTestQuery$data } from './__generated__/QueryRendererTestQuery.graphql';
 
 let environment;
 let query;
@@ -21,8 +22,8 @@ beforeEach(() => {
     }
   `;
   variables = {};
-  onResponse = function onResponse(props) {
-    return <div data-testid="success">Nice one! {props.node.id}</div>;
+  onResponse = function onResponse(props: QueryRendererTestQuery$data) {
+    return <div data-testid="success">Nice one! {props.node?.id}</div>;
   };
 });
 
