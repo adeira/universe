@@ -1,5 +1,6 @@
 // @flow
 
+export { default as FormErrorMessages } from './FormErrorMessages';
 export { default as FormMultiSelect } from './FormMultiSelect';
 export { default as FormSelectOption } from './FormSelectOption';
 export { default as FormMultiUpload } from './FormMultiUpload';
