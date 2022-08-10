@@ -5,9 +5,9 @@ import { type Node } from 'react';
 import BaseInput from './private/BaseInput';
 
 type Props = {
-  +'value': ?string,
   +'label': FbtWithoutString,
   +'name': string,
+  +'value'?: ?string,
   +'data-testid'?: string,
   +'required'?: boolean,
 };

@@ -14,11 +14,12 @@ beforeEach(() => {
 });
 
 it('renders basic "FormText" input as expected', () => {
+  // This test should be using only the necessary fields.
+
   const { getByTestId } = customRender(
     <FormText
       data-testid="text-input"
       name="text-input-name"
-      value="text value"
       label={
         <fbt doNotExtract={true} desc={'text label'}>
           text label
@@ -36,13 +37,15 @@ it('renders basic "FormText" input as expected', () => {
       "data-testid": "text-input",
       "name": "text-input-name",
       "type": "text",
-      "value": "text value",
+      "value": "",
     }
     `,
   );
 });
 
 it('renders complex "FormText" input as expected', () => {
+  // This test should be using as many fields as possible.
+
   const { getByTestId } = customRender(
     <FormText
       data-testid="text-input"
