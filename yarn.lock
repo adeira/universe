@@ -484,7 +484,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.3.0
     change-case: ^4.1.2
-    css-tree: ^2.1.0
+    css-tree: ^2.2.0
     fast-levenshtein: ^3.0.0
     json-stable-stringify: ^1.0.1
     mdn-data: ^2.0.28
@@ -7682,13 +7682,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css-tree@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "css-tree@npm:2.1.0"
+"css-tree@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "css-tree@npm:2.2.0"
   dependencies:
-    mdn-data: 2.0.27
+    mdn-data: 2.0.28
     source-map-js: ^1.0.1
-  checksum: 254c66a76f6a01d5161605162b17c1792fb3f96966d1cabec3435c551372707c02f6ca6c15f967bee7699f0b254437037c3fdb5eea0cd76ac2377cc8ac1f1d1d
+  checksum: 1baa428a9f4cfe66e8a68319b77c1e01ab500f85c299598306330e9cecd2cf59fdea0981f59cd5a9c3a330f243e18de5cbd60f939c702c09244fe08ee970e6b9
   languageName: node
   linkType: hard
 
@@ -13629,14 +13629,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mdn-data@npm:2.0.27":
-  version: 2.0.27
-  resolution: "mdn-data@npm:2.0.27"
-  checksum: df94012b7b50d5ac7b862dd603c0cd2712c47e5a7b8a1d914054989d6d798320459319dd99d17ba6d0ff39a9fb50b117c9e8bf88a767635849719ff44912614e
-  languageName: node
-  linkType: hard
-
-"mdn-data@npm:^2.0.28":
+"mdn-data@npm:2.0.28, mdn-data@npm:^2.0.28":
   version: 2.0.28
   resolution: "mdn-data@npm:2.0.28"
   checksum: f51d587a6ebe8e426c3376c74ea6df3e19ec8241ed8e2466c9c8a3904d5d04397199ea4f15b8d34d14524b5de926d8724ae85207984be47e165817c26e49e0aa
