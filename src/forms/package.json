@@ -9,7 +9,7 @@
     "directory": "src/forms"
   },
   "license": "MIT",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "main": "./src/index.js",
   "type": "commonjs",
   "sideEffects": false,
