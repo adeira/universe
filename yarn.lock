@@ -10,7 +10,7 @@ __metadata:
   resolution: "@adeira/abacus-backoffice@workspace:src/abacus-backoffice"
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
-    "@adeira/forms": ^0.4.0
+    "@adeira/forms": ^0.3.1
     "@adeira/hooks": ^0.3.0
     "@adeira/icons": ^2.0.0
     "@adeira/js": ^2.1.1
@@ -207,7 +207,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/forms@^0.4.0, @adeira/forms@workspace:src/forms":
+"@adeira/forms@npm:^0.3.1":
+  version: 0.3.1
+  resolution: "@adeira/forms@npm:0.3.1"
+  dependencies:
+    "@adeira/js": ^2.1.1
+    "@adeira/sx": ^0.29.1
+    "@adeira/sx-design": ^0.30.0
+    "@babel/runtime": ^7.18.9
+    fbt: ^1.0.0
+  peerDependencies:
+    "@adeira/relay": ^6.2.0
+    react: ^18.2.0
+  checksum: b39d1c91b9c893f999d6a1c461deedffbbe79694226225fe52ee2d63d8c0852f5c2a22644195e9f555bf9c0533f062987f22c072faed7611a92e1731313f00a2
+  languageName: node
+  linkType: hard
+
+"@adeira/forms@workspace:src/forms":
   version: 0.0.0-use.local
   resolution: "@adeira/forms@workspace:src/forms"
   dependencies:
