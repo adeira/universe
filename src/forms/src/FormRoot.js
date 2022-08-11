@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 
+import FormEmail from './FormEmail';
 import FormErrorMessages from './FormErrorMessages';
 import FormMultiSelect from './FormMultiSelect';
 import FormMultiUpload from './FormMultiUpload';
@@ -16,6 +17,7 @@ import FormTextArea from './FormTextArea';
 type Props = {
   +children: React.ChildrenArray<
     | RestrictedElement<'div'> // allows additional styles inside `FormRoot`
+    | RestrictedElement<typeof FormEmail>
     | RestrictedElement<typeof FormErrorMessages>
     | RestrictedElement<typeof FormMultiSelect>
     | RestrictedElement<typeof FormMultiUpload>

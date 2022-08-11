@@ -22,6 +22,12 @@ type Props =
       +value: string,
     }
   | {
+      // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email
+      ...PropsBase,
+      +type: 'email',
+      +value: string,
+    }
+  | {
       // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/password
       ...PropsBase,
       +type: 'password',
