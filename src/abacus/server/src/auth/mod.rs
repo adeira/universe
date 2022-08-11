@@ -71,7 +71,7 @@ pub(in crate::auth) async fn deauthorize(
 }
 
 /// This function verifies the session token and returns either authorized OR anonymous user.
-pub(in crate) async fn resolve_user_from_session_token(
+pub(crate) async fn resolve_user_from_session_token(
     pool: &crate::arango::ConnectionPool,
     session_token: &str,
 ) -> User {

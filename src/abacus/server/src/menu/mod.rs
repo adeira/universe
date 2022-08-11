@@ -2,7 +2,7 @@ use crate::commerce::api::Product;
 use crate::graphql_context::Context;
 use crate::locale::SupportedLocale;
 
-pub(in crate) mod api;
+pub(crate) mod api;
 
 #[derive(juniper::GraphQLEnum)]
 pub(crate) enum MenuSections {

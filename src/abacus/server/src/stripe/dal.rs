@@ -1,7 +1,7 @@
 use crate::arango::{resolve_aql, ConnectionPool, Document};
 use crate::stripe::webhook::StripeWebhookPayload;
 
-pub(in crate) async fn record_webhook_call(
+pub(crate) async fn record_webhook_call(
     pool: &ConnectionPool,
     stripe_webhook_payload: &StripeWebhookPayload,
 ) -> anyhow::Result<Document<StripeWebhookPayload>> {

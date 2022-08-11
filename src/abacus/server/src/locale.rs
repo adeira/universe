@@ -1,7 +1,7 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(juniper::GraphQLEnum, Serialize, Deserialize, Debug, Clone, PartialEq)]
-pub(in crate) enum SupportedLocale {
+pub(crate) enum SupportedLocale {
     #[graphql(name = "en_US")]
     #[serde(rename = "en_US")]
     EnUS,
