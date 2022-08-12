@@ -381,12 +381,12 @@
         }
       ]
     },
-    "Q0LCVBMPiK9JJ/WYmxyX4g==": {
+    "zGIfa1+0CxMJT7oq0fVNUA==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "{money} / mensual",
+          "translation": "{money} / mensual {negotiable}",
           "variations": []
         }
       ]
@@ -1277,6 +1277,16 @@
       "translations": [
         {
           "translation": "Por favor, revisa tu correo electrónico para la confirmación. Te mantendremos actualizado sobre el progreso por correo electrónico ¡No dudes en ponerte en contacto con nosotros en caso de cualquier problema!",
+          "variations": []
+        }
+      ]
+    },
+    "aFc9ytStqfLsuT5qAFFImg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "(negociable)",
           "variations": []
         }
       ]

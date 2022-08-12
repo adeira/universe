@@ -116,9 +116,9 @@
     }
    },
    "filepath": "src/donations/DonationsOneTime.js",
-   "line_beg": 30,
+   "line_beg": 31,
    "col_beg": 8,
-   "line_end": 30,
+   "line_end": 31,
    "col_end": 70,
    "project": "",
    "jsfbt": {
@@ -137,9 +137,9 @@
     }
    },
    "filepath": "src/donations/DonationsOneTime.js",
-   "line_beg": 33,
+   "line_beg": 34,
    "col_beg": 8,
-   "line_end": 35,
+   "line_end": 36,
    "col_end": 14,
    "project": "",
    "jsfbt": {
@@ -158,9 +158,9 @@
     }
    },
    "filepath": "src/donations/DonationsRecurring.js",
-   "line_beg": 30,
+   "line_beg": 31,
    "col_beg": 8,
-   "line_end": 30,
+   "line_end": 31,
    "col_end": 84,
    "project": "",
    "jsfbt": {
@@ -179,9 +179,9 @@
     }
    },
    "filepath": "src/donations/DonationsRecurring.js",
-   "line_beg": 35,
+   "line_beg": 36,
    "col_beg": 8,
-   "line_end": 38,
+   "line_end": 39,
    "col_end": 14,
    "project": "",
    "jsfbt": {
@@ -200,9 +200,9 @@
     }
    },
    "filepath": "src/donations/DonationsRecurring.js",
-   "line_beg": 51,
+   "line_beg": 53,
    "col_beg": 16,
-   "line_end": 59,
+   "line_end": 61,
    "col_end": 22,
    "project": "",
    "jsfbt": {
@@ -287,9 +287,9 @@
     }
    },
    "filepath": "src/HomepageFooter.js",
-   "line_beg": 14,
+   "line_beg": 15,
    "col_beg": 8,
-   "line_end": 14,
+   "line_end": 15,
    "col_end": 67,
    "project": "",
    "jsfbt": {
@@ -308,9 +308,9 @@
     }
    },
    "filepath": "src/HomepageFooter.js",
-   "line_beg": 19,
+   "line_beg": 20,
    "col_beg": 10,
-   "line_end": 19,
+   "line_end": 20,
    "col_end": 95,
    "project": "",
    "jsfbt": {
@@ -329,9 +329,9 @@
     }
    },
    "filepath": "src/LayoutFooter.js",
-   "line_beg": 28,
+   "line_beg": 27,
    "col_beg": 14,
-   "line_end": 28,
+   "line_end": 27,
    "col_end": 83,
    "project": "",
    "jsfbt": {
@@ -350,9 +350,9 @@
     }
    },
    "filepath": "src/LayoutFooter.js",
-   "line_beg": 34,
+   "line_beg": 33,
    "col_beg": 16,
-   "line_end": 34,
+   "line_end": 33,
    "col_end": 99,
    "project": "",
    "jsfbt": {
@@ -371,9 +371,9 @@
     }
    },
    "filepath": "src/LayoutFooter.js",
-   "line_beg": 40,
+   "line_beg": 39,
    "col_beg": 14,
-   "line_end": 40,
+   "line_end": 39,
    "col_end": 87,
    "project": "",
    "jsfbt": {
@@ -827,21 +827,42 @@
   },
   {
    "hashToLeaf": {
-    "Q0LCVBMPiK9JJ/WYmxyX4g==": {
-     "text": "{money} / month",
+    "zGIfa1+0CxMJT7oq0fVNUA==": {
+     "text": "{money} / month {negotiable}",
      "desc": "salary badge text"
     }
    },
    "filepath": "src/open-positions/badges/SalaryBadge.js",
-   "line_beg": 10,
+   "line_beg": 16,
    "col_beg": 6,
-   "line_end": 15,
+   "line_end": 33,
    "col_end": 12,
    "project": "",
    "jsfbt": {
     "t": {
      "desc": "salary badge text",
-     "text": "{money} / month"
+     "text": "{money} / month {negotiable}"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "aFc9ytStqfLsuT5qAFFImg==": {
+     "text": "(negotiable)",
+     "desc": "negotiable"
+    }
+   },
+   "filepath": "src/open-positions/badges/SalaryBadge.js",
+   "line_beg": 27,
+   "col_beg": 14,
+   "line_end": 27,
+   "col_end": 55,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "negotiable",
+     "text": "(negotiable)"
     },
     "m": []
    }
@@ -974,99 +995,15 @@
   },
   {
    "hashToLeaf": {
-    "mubLlA5AQxRA7td64tC29g==": {
-     "text": "Person responsible for our premises and customers (Ayudante General)",
-     "desc": "assistant position title"
-    }
-   },
-   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 30,
-   "col_beg": 12,
-   "line_end": 32,
-   "col_end": 18,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "assistant position title",
-     "text": "Person responsible for our premises and customers (Ayudante General)"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "YWTm5M86w76d43pJKYXN7w==": {
-     "text": "Person in this position is responsible for customer service, keeping the facilities clean, and assisting in the food preparation sector. This is a full-time position only.",
-     "desc": "assistant position description"
-    }
-   },
-   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 40,
-   "col_beg": 12,
-   "line_end": 44,
-   "col_end": 18,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "assistant position description",
-     "text": "Person in this position is responsible for customer service, keeping the facilities clean, and assisting in the food preparation sector. This is a full-time position only."
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "jsZid4+O30Jhr5fT06nf2w==": {
-     "text": "Person responsible for food preparation",
-     "desc": "chef position title"
-    }
-   },
-   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 49,
-   "col_beg": 17,
-   "line_end": 49,
-   "col_end": 94,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "chef position title",
-     "text": "Person responsible for food preparation"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "wf4j48fLHP425fhfMR8e7A==": {
-     "text": "Person in charge of food preparation is responsible for preparing and improving our food options as well as attending our clients and keeping the workplace clean. This is a full-time position only.",
-     "desc": "chef position description"
-    }
-   },
-   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 56,
-   "col_beg": 12,
-   "line_end": 60,
-   "col_end": 18,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "chef position description",
-     "text": "Person in charge of food preparation is responsible for preparing and improving our food options as well as attending our clients and keeping the workplace clean. This is a full-time position only."
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
     "H8l+kJTbPzjEXskVb6pTvg==": {
      "text": "Person responsible for beverage preparation (Barista)",
      "desc": "barista position title"
     }
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 66,
+   "line_beg": 31,
    "col_beg": 12,
-   "line_end": 68,
+   "line_end": 33,
    "col_end": 18,
    "project": "",
    "jsfbt": {
@@ -1085,9 +1022,9 @@
     }
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 76,
+   "line_beg": 46,
    "col_beg": 12,
-   "line_end": 80,
+   "line_end": 50,
    "col_end": 18,
    "project": "",
    "jsfbt": {
@@ -1100,15 +1037,99 @@
   },
   {
    "hashToLeaf": {
+    "mubLlA5AQxRA7td64tC29g==": {
+     "text": "Person responsible for our premises and customers (Ayudante General)",
+     "desc": "assistant position title"
+    }
+   },
+   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
+   "line_beg": 56,
+   "col_beg": 12,
+   "line_end": 58,
+   "col_end": 18,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "assistant position title",
+     "text": "Person responsible for our premises and customers (Ayudante General)"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "YWTm5M86w76d43pJKYXN7w==": {
+     "text": "Person in this position is responsible for customer service, keeping the facilities clean, and assisting in the food preparation sector. This is a full-time position only.",
+     "desc": "assistant position description"
+    }
+   },
+   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
+   "line_beg": 70,
+   "col_beg": 12,
+   "line_end": 74,
+   "col_end": 18,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "assistant position description",
+     "text": "Person in this position is responsible for customer service, keeping the facilities clean, and assisting in the food preparation sector. This is a full-time position only."
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "jsZid4+O30Jhr5fT06nf2w==": {
+     "text": "Person responsible for food preparation",
+     "desc": "chef position title"
+    }
+   },
+   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
+   "line_beg": 79,
+   "col_beg": 17,
+   "line_end": 79,
+   "col_end": 94,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "chef position title",
+     "text": "Person responsible for food preparation"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "wf4j48fLHP425fhfMR8e7A==": {
+     "text": "Person in charge of food preparation is responsible for preparing and improving our food options as well as attending our clients and keeping the workplace clean. This is a full-time position only.",
+     "desc": "chef position description"
+    }
+   },
+   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
+   "line_beg": 90,
+   "col_beg": 12,
+   "line_end": 94,
+   "col_end": 18,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "chef position description",
+     "text": "Person in charge of food preparation is responsible for preparing and improving our food options as well as attending our clients and keeping the workplace clean. This is a full-time position only."
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
     "8Pm7esp/+gf54h5wjnhtIA==": {
      "text": "Mystery Shopper",
      "desc": "mystery shopper position title"
     }
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 85,
+   "line_beg": 99,
    "col_beg": 17,
-   "line_end": 85,
+   "line_end": 99,
    "col_end": 81,
    "project": "",
    "jsfbt": {
@@ -1127,9 +1148,9 @@
     }
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 88,
+   "line_beg": 102,
    "col_beg": 12,
-   "line_end": 92,
+   "line_end": 106,
    "col_end": 18,
    "project": "",
    "jsfbt": {
@@ -1148,9 +1169,9 @@
     }
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 97,
+   "line_beg": 111,
    "col_beg": 17,
-   "line_end": 97,
+   "line_end": 111,
    "col_end": 87,
    "project": "",
    "jsfbt": {
@@ -1169,9 +1190,9 @@
     }
    },
    "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 100,
+   "line_beg": 114,
    "col_beg": 12,
-   "line_end": 109,
+   "line_end": 123,
    "col_end": 18,
    "project": "",
    "jsfbt": {
@@ -1784,9 +1805,9 @@
     }
    },
    "filepath": "pages/_app.js",
-   "line_beg": 40,
+   "line_beg": 46,
    "col_beg": 10,
-   "line_end": 42,
+   "line_end": 48,
    "col_end": 16,
    "project": "",
    "jsfbt": {
@@ -1805,9 +1826,9 @@
     }
    },
    "filepath": "pages/_app.js",
-   "line_beg": 56,
+   "line_beg": 62,
    "col_beg": 20,
-   "line_end": 58,
+   "line_end": 64,
    "col_end": 26,
    "project": "",
    "jsfbt": {
@@ -1889,9 +1910,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 20,
+   "line_beg": 13,
    "col_beg": 13,
-   "line_end": 20,
+   "line_end": 13,
    "col_end": 67,
    "project": "",
    "jsfbt": {
@@ -1910,9 +1931,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 21,
+   "line_beg": 14,
    "col_beg": 16,
-   "line_end": 21,
+   "line_end": 14,
    "col_end": 99,
    "project": "",
    "jsfbt": {
@@ -1931,9 +1952,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 25,
+   "line_beg": 18,
    "col_beg": 10,
-   "line_end": 27,
+   "line_end": 20,
    "col_end": 16,
    "project": "",
    "jsfbt": {
@@ -1952,9 +1973,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 30,
+   "line_beg": 23,
    "col_beg": 10,
-   "line_end": 35,
+   "line_end": 28,
    "col_end": 16,
    "project": "",
    "jsfbt": {
@@ -1973,9 +1994,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 38,
+   "line_beg": 31,
    "col_beg": 10,
-   "line_end": 41,
+   "line_end": 34,
    "col_end": 16,
    "project": "",
    "jsfbt": {
@@ -1994,9 +2015,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 45,
+   "line_beg": 38,
    "col_beg": 10,
-   "line_end": 47,
+   "line_end": 40,
    "col_end": 16,
    "project": "",
    "jsfbt": {
@@ -2015,9 +2036,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 50,
+   "line_beg": 43,
    "col_beg": 10,
-   "line_end": 55,
+   "line_end": 48,
    "col_end": 16,
    "project": "",
    "jsfbt": {
@@ -2036,9 +2057,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 58,
+   "line_beg": 51,
    "col_beg": 10,
-   "line_end": 61,
+   "line_end": 54,
    "col_end": 16,
    "project": "",
    "jsfbt": {
@@ -2057,9 +2078,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 74,
+   "line_beg": 67,
    "col_beg": 10,
-   "line_end": 74,
+   "line_end": 67,
    "col_end": 73,
    "project": "",
    "jsfbt": {
@@ -2078,9 +2099,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 78,
+   "line_beg": 71,
    "col_beg": 22,
-   "line_end": 78,
+   "line_end": 71,
    "col_end": 69,
    "project": "",
    "jsfbt": {
@@ -2099,9 +2120,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 80,
+   "line_beg": 73,
    "col_beg": 22,
-   "line_end": 80,
+   "line_end": 73,
    "col_end": 79,
    "project": "",
    "jsfbt": {
@@ -2120,9 +2141,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 86,
+   "line_beg": 79,
    "col_beg": 20,
-   "line_end": 86,
+   "line_end": 79,
    "col_end": 69,
    "project": "",
    "jsfbt": {
@@ -2141,9 +2162,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 92,
+   "line_beg": 85,
    "col_beg": 20,
-   "line_end": 92,
+   "line_end": 85,
    "col_end": 89,
    "project": "",
    "jsfbt": {
@@ -2162,9 +2183,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 100,
+   "line_beg": 93,
    "col_beg": 10,
-   "line_end": 100,
+   "line_end": 93,
    "col_end": 72,
    "project": "",
    "jsfbt": {
@@ -2183,9 +2204,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 104,
+   "line_beg": 97,
    "col_beg": 12,
-   "line_end": 104,
+   "line_end": 97,
    "col_end": 94,
    "project": "",
    "jsfbt": {
@@ -2204,9 +2225,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 107,
+   "line_beg": 100,
    "col_beg": 12,
-   "line_end": 109,
+   "line_end": 102,
    "col_end": 18,
    "project": "",
    "jsfbt": {
@@ -2225,9 +2246,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 112,
+   "line_beg": 105,
    "col_beg": 12,
-   "line_end": 112,
+   "line_end": 105,
    "col_end": 60,
    "project": "",
    "jsfbt": {
@@ -2246,9 +2267,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 115,
+   "line_beg": 108,
    "col_beg": 12,
-   "line_end": 115,
+   "line_end": 108,
    "col_end": 60,
    "project": "",
    "jsfbt": {
@@ -2267,9 +2288,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 119,
+   "line_beg": 112,
    "col_beg": 10,
-   "line_end": 123,
+   "line_end": 116,
    "col_end": 16,
    "project": "",
    "jsfbt": {
@@ -2288,9 +2309,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 127,
+   "line_beg": 120,
    "col_beg": 10,
-   "line_end": 127,
+   "line_end": 120,
    "col_end": 89,
    "project": "",
    "jsfbt": {
@@ -2309,9 +2330,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 130,
+   "line_beg": 123,
    "col_beg": 10,
-   "line_end": 130,
+   "line_end": 123,
    "col_end": 97,
    "project": "",
    "jsfbt": {
@@ -2330,9 +2351,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 134,
+   "line_beg": 127,
    "col_beg": 12,
-   "line_end": 134,
+   "line_end": 127,
    "col_end": 81,
    "project": "",
    "jsfbt": {
@@ -2351,9 +2372,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 137,
+   "line_beg": 130,
    "col_beg": 12,
-   "line_end": 139,
+   "line_end": 132,
    "col_end": 18,
    "project": "",
    "jsfbt": {
@@ -2372,9 +2393,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 142,
+   "line_beg": 135,
    "col_beg": 12,
-   "line_end": 144,
+   "line_end": 137,
    "col_end": 18,
    "project": "",
    "jsfbt": {
@@ -2393,9 +2414,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 147,
+   "line_beg": 140,
    "col_beg": 12,
-   "line_end": 147,
+   "line_end": 140,
    "col_end": 97,
    "project": "",
    "jsfbt": {
@@ -2414,9 +2435,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 150,
+   "line_beg": 143,
    "col_beg": 12,
-   "line_end": 152,
+   "line_end": 145,
    "col_end": 18,
    "project": "",
    "jsfbt": {
@@ -2479,7 +2500,7 @@
    "filepath": "pages/cart.js",
    "line_beg": 21,
    "col_beg": 8,
-   "line_end": 24,
+   "line_end": 23,
    "col_end": 14,
    "project": "",
    "jsfbt": {
@@ -2487,7 +2508,7 @@
      "desc": "empty shop cart",
      "text": "There is nothing in the cart yet. Add something in {=our shop}.",
      "tokenAliases": {
-      "=our shop": "=m2"
+      "=our shop": "=m1"
      }
     },
     "m": []
@@ -2501,10 +2522,10 @@
     }
    },
    "filepath": "pages/cart.js",
-   "line_beg": 23,
-   "col_beg": 10,
-   "line_end": 23,
-   "col_end": 60,
+   "line_beg": 22,
+   "col_beg": 61,
+   "line_end": 22,
+   "col_end": 95,
    "project": "",
    "jsfbt": {
     "t": {

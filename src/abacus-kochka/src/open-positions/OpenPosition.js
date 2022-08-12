@@ -1,7 +1,7 @@
 // @flow
 
 import React, { type Node } from 'react';
-import { Badge, LayoutBlock, LayoutInline, Text } from '@adeira/sx-design';
+import { LayoutBlock, LayoutInline, Text } from '@adeira/sx-design';
 
 import Link from '../primitives/Link';
 import MinimumRequirements from './MinimumRequirements';
@@ -9,7 +9,7 @@ import MinimumRequirements from './MinimumRequirements';
 type Props = {
   +title: FbtWithoutString,
   +description: FbtWithoutString,
-  +badges?: $ReadOnlyArray<RestrictedElement<typeof Badge>>,
+  +badges?: $ReadOnlyArray<Node>,
 };
 
 export default function OpenPosition(props: Props): Node {

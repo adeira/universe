@@ -1,6 +1,6 @@
 // @flow
 
-import { LayoutBlock } from '@adeira/sx-design';
+import { LayoutBlock, SupportedCurrencies } from '@adeira/sx-design';
 import * as React from 'react';
 import fbt from 'fbt';
 
@@ -25,6 +25,32 @@ export default function OpenPositionsPageLayout(): React.Node {
              - transparent/open company
              - we have cats
          */}
+
+        <OpenPosition
+          title={
+            <fbt desc="barista position title">
+              Person responsible for beverage preparation (Barista)
+            </fbt>
+          }
+          badges={[
+            <PositionAvailableBadge key={1} />,
+            <FullTimeBadge key={2} />,
+            <SalaryBadge
+              key={3}
+              priceUnitAmount={6000}
+              priceUnitAmountCurrency={SupportedCurrencies.MXN}
+              isPriceNegotiable={true}
+            />,
+          ]}
+          description={
+            <fbt desc="barista position description">
+              Barista is responsible for preparation of coffee based drinks, teas, milkshakes and
+              other specialities as well as attending our clients and keeping the workplace clean.
+              This is a full-time position only.
+            </fbt>
+          }
+        />
+
         <OpenPosition
           title={
             <fbt desc="assistant position title">
@@ -32,9 +58,13 @@ export default function OpenPositionsPageLayout(): React.Node {
             </fbt>
           }
           badges={[
-            <PositionAvailableBadge key={1} />,
+            <PositionUnavailableBadge key={1} />,
             <FullTimeBadge key={2} />,
-            <SalaryBadge key={3} />,
+            <SalaryBadge
+              key={3}
+              priceUnitAmount={6000}
+              priceUnitAmountCurrency={SupportedCurrencies.MXN}
+            />,
           ]}
           description={
             <fbt desc="assistant position description">
@@ -48,35 +78,19 @@ export default function OpenPositionsPageLayout(): React.Node {
         <OpenPosition
           title={<fbt desc="chef position title">Person responsible for food preparation</fbt>}
           badges={[
-            <PositionAvailableBadge key={1} />,
+            <PositionUnavailableBadge key={1} />,
             <FullTimeBadge key={2} />,
-            <SalaryBadge key={3} />,
+            <SalaryBadge
+              key={3}
+              priceUnitAmount={6000}
+              priceUnitAmountCurrency={SupportedCurrencies.MXN}
+            />,
           ]}
           description={
             <fbt desc="chef position description">
               Person in charge of food preparation is responsible for preparing and improving our
               food options as well as attending our clients and keeping the workplace clean. This is
               a full-time position only.
-            </fbt>
-          }
-        />
-
-        <OpenPosition
-          title={
-            <fbt desc="barista position title">
-              Person responsible for beverage preparation (Barista)
-            </fbt>
-          }
-          badges={[
-            <PositionUnavailableBadge key={1} />,
-            <FullTimeBadge key={2} />,
-            <SalaryBadge key={3} />,
-          ]}
-          description={
-            <fbt desc="barista position description">
-              Barista is responsible for preparation of coffee based drinks, teas, milkshakes and
-              other specialities as well as attending our clients and keeping the workplace clean.
-              This is a full-time position only.
             </fbt>
           }
         />
