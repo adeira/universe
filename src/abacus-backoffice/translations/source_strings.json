@@ -50,9 +50,9 @@
     }
    },
    "filepath": "src/analytics/AnalyticsRedirectsPage.js",
-   "line_beg": 26,
+   "line_beg": 27,
    "col_beg": 18,
-   "line_end": 26,
+   "line_end": 27,
    "col_end": 71,
    "project": "",
    "jsfbt": {
@@ -71,9 +71,9 @@
     }
    },
    "filepath": "src/analytics/AnalyticsRedirectsPage.js",
-   "line_beg": 27,
+   "line_beg": 28,
    "col_beg": 18,
-   "line_end": 27,
+   "line_end": 28,
    "col_end": 75,
    "project": "",
    "jsfbt": {
@@ -92,9 +92,9 @@
     }
    },
    "filepath": "src/analytics/AnalyticsRedirectsPage.js",
-   "line_beg": 29,
+   "line_beg": 30,
    "col_beg": 18,
-   "line_end": 29,
+   "line_end": 30,
    "col_end": 85,
    "project": "",
    "jsfbt": {
@@ -113,9 +113,9 @@
     }
    },
    "filepath": "src/analytics/AnalyticsRedirectsPage.js",
-   "line_beg": 33,
+   "line_beg": 34,
    "col_beg": 18,
-   "line_end": 33,
+   "line_end": 34,
    "col_end": 82,
    "project": "",
    "jsfbt": {
@@ -138,9 +138,9 @@
     }
    },
    "filepath": "src/analytics/AnalyticsRedirectsPage.js",
-   "line_beg": 41,
+   "line_beg": 42,
    "col_beg": 12,
-   "line_end": 45,
+   "line_end": 46,
    "col_end": 18,
    "project": "",
    "jsfbt": {
@@ -171,9 +171,9 @@
     }
    },
    "filepath": "src/analytics/AnalyticsRedirectsPage.js",
-   "line_beg": 60,
+   "line_beg": 65,
    "col_beg": 14,
-   "line_end": 60,
+   "line_end": 65,
    "col_end": 52,
    "project": "",
    "jsfbt": {
@@ -963,153 +963,6 @@
   },
   {
    "hashToLeaf": {
-    "wXxqr4P+NzW6b6NUHmNH/A==": {
-     "text": "Status",
-     "desc": "status of an employee record"
-    }
-   },
-   "filepath": "src/employees/EmployeesPage.js",
-   "line_beg": 25,
-   "col_beg": 18,
-   "line_end": 25,
-   "col_end": 71,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "status of an employee record",
-     "text": "Status"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "SoHvemP3nPna3V7E0KnAvg==": {
-     "text": "Name",
-     "desc": "name of the employee"
-    }
-   },
-   "filepath": "src/employees/EmployeesPage.js",
-   "line_beg": 26,
-   "col_beg": 18,
-   "line_end": 26,
-   "col_end": 61,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "name of the employee",
-     "text": "Name"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "cDuUp7H3Z3pcA1USmdXIyw==": {
-     "text": "active",
-     "desc": "active user - label title"
-    }
-   },
-   "filepath": "src/employees/EmployeesPage.js",
-   "line_beg": 33,
-   "col_beg": 14,
-   "line_end": 33,
-   "col_end": 64,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "active user - label title",
-     "text": "active"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "J0MsIYnMPKiz7ubGl3IyyA==": {
-     "text": "inactive",
-     "desc": "inactive user - label title"
-    }
-   },
-   "filepath": "src/employees/EmployeesPage.js",
-   "line_beg": 37,
-   "col_beg": 14,
-   "line_end": 37,
-   "col_end": 68,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "inactive user - label title",
-     "text": "inactive"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "ljdn3Wlj6+RtF2CehM///w==": {
-     "text": "email verified",
-     "desc": "user has email verifies - label title"
-    }
-   },
-   "filepath": "src/employees/EmployeesPage.js",
-   "line_beg": 43,
-   "col_beg": 14,
-   "line_end": 43,
-   "col_end": 84,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "user has email verifies - label title",
-     "text": "email verified"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "eOYUb4Hm7JmwXrcob9M5iw==": {
-     "text": "email NOT verified",
-     "desc": "user doesn't have email verifies - label title"
-    }
-   },
-   "filepath": "src/employees/EmployeesPage.js",
-   "line_beg": 47,
-   "col_beg": 14,
-   "line_end": 47,
-   "col_end": 97,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "user doesn't have email verifies - label title",
-     "text": "email NOT verified"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "Qa3mUMhym3NPzuJNq7P/Ng==": {
-     "text": "List of employees",
-     "desc": "list of employees title"
-    }
-   },
-   "filepath": "src/employees/EmployeesPageLayout.js",
-   "line_beg": 11,
-   "col_beg": 39,
-   "line_end": 11,
-   "col_end": 98,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "list of employees title",
-     "text": "List of employees"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
     "1Wn4zgyl6icIpNtS9VnEdw==": {
      "text": "Daily reports (last 30 days)",
      "desc": "daily reports heading"
@@ -1404,36 +1257,15 @@
   },
   {
    "hashToLeaf": {
-    "c3mR1ZSr1gvq0r3554Bsmg==": {
-     "text": "Employees",
-     "desc": "navigation link to employees"
-    }
-   },
-   "filepath": "src/Navigation.js",
-   "line_beg": 41,
-   "col_beg": 8,
-   "line_end": 41,
-   "col_end": 64,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "navigation link to employees",
-     "text": "Employees"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
     "kTEIDnRDTeVEDtUWiDW4tQ==": {
      "text": "Our cats",
      "desc": "navigation link to the list of our cats"
     }
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 44,
+   "line_beg": 41,
    "col_beg": 8,
-   "line_end": 44,
+   "line_end": 41,
    "col_end": 74,
    "project": "",
    "jsfbt": {
@@ -1452,9 +1284,9 @@
     }
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 47,
+   "line_beg": 44,
    "col_beg": 8,
-   "line_end": 47,
+   "line_end": 44,
    "col_end": 81,
    "project": "",
    "jsfbt": {
@@ -1473,9 +1305,9 @@
     }
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 50,
+   "line_beg": 47,
    "col_beg": 8,
-   "line_end": 50,
+   "line_end": 47,
    "col_end": 85,
    "project": "",
    "jsfbt": {
@@ -1494,9 +1326,9 @@
     }
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 57,
+   "line_beg": 54,
    "col_beg": 8,
-   "line_end": 59,
+   "line_end": 56,
    "col_end": 14,
    "project": "",
    "jsfbt": {
@@ -1805,9 +1637,9 @@
     }
    },
    "filepath": "src/pos/POSAllSessionsPageLayout.js",
-   "line_beg": 14,
+   "line_beg": 15,
    "col_beg": 15,
-   "line_end": 14,
+   "line_end": 15,
    "col_end": 77,
    "project": "",
    "jsfbt": {
@@ -1826,9 +1658,9 @@
     }
    },
    "filepath": "src/pos/POSAllSessionsPageLayout.js",
-   "line_beg": 16,
+   "line_beg": 17,
    "col_beg": 8,
-   "line_end": 18,
+   "line_end": 19,
    "col_end": 14,
    "project": "",
    "jsfbt": {
@@ -1847,9 +1679,9 @@
     }
    },
    "filepath": "src/pos/POSAllSessionsPageLayout.js",
-   "line_beg": 23,
+   "line_beg": 24,
    "col_beg": 17,
-   "line_end": 23,
+   "line_end": 24,
    "col_end": 65,
    "project": "",
    "jsfbt": {
@@ -1868,9 +1700,9 @@
     }
    },
    "filepath": "src/pos/POSAllSessionsPageLayout.js",
-   "line_beg": 29,
+   "line_beg": 35,
    "col_beg": 14,
-   "line_end": 29,
+   "line_end": 35,
    "col_end": 82,
    "project": "",
    "jsfbt": {
@@ -2103,9 +1935,9 @@
     }
    },
    "filepath": "src/pos/POSCheckoutSuccessPageLayout.js",
-   "line_beg": 12,
+   "line_beg": 13,
    "col_beg": 8,
-   "line_end": 12,
+   "line_end": 13,
    "col_end": 74,
    "project": "",
    "jsfbt": {
@@ -2124,9 +1956,9 @@
     }
    },
    "filepath": "src/pos/POSCheckoutSuccessPageLayout.js",
-   "line_beg": 16,
+   "line_beg": 17,
    "col_beg": 8,
-   "line_end": 18,
+   "line_end": 19,
    "col_end": 14,
    "project": "",
    "jsfbt": {
@@ -2145,9 +1977,9 @@
     }
    },
    "filepath": "src/pos/POSCheckoutSuccessPageLayout.js",
-   "line_beg": 22,
+   "line_beg": 23,
    "col_beg": 8,
-   "line_end": 22,
+   "line_end": 23,
    "col_end": 80,
    "project": "",
    "jsfbt": {
@@ -2418,9 +2250,9 @@
     }
    },
    "filepath": "src/products/ProductCreateForm.js",
-   "line_beg": 114,
+   "line_beg": 106,
    "col_beg": 16,
-   "line_end": 120,
+   "line_end": 112,
    "col_end": 22,
    "project": "",
    "jsfbt": {
@@ -2439,9 +2271,9 @@
     }
    },
    "filepath": "src/products/ProductCreateForm.js",
-   "line_beg": 126,
+   "line_beg": 118,
    "col_beg": 10,
-   "line_end": 126,
+   "line_end": 118,
    "col_end": 88,
    "project": "",
    "jsfbt": {
@@ -2460,9 +2292,9 @@
     }
    },
    "filepath": "src/products/ProductEditForm.js",
-   "line_beg": 167,
+   "line_beg": 151,
    "col_beg": 16,
-   "line_end": 173,
+   "line_end": 157,
    "col_end": 22,
    "project": "",
    "jsfbt": {
@@ -2481,9 +2313,9 @@
     }
    },
    "filepath": "src/products/ProductEditForm.js",
-   "line_beg": 179,
+   "line_beg": 163,
    "col_beg": 10,
-   "line_end": 179,
+   "line_end": 163,
    "col_end": 78,
    "project": "",
    "jsfbt": {
@@ -2796,9 +2628,9 @@
     }
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 68,
+   "line_beg": 49,
    "col_beg": 15,
-   "line_end": 68,
+   "line_end": 49,
    "col_end": 86,
    "project": "",
    "jsfbt": {
@@ -2817,9 +2649,9 @@
     }
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 77,
+   "line_beg": 58,
    "col_beg": 12,
-   "line_end": 77,
+   "line_end": 58,
    "col_end": 99,
    "project": "",
    "jsfbt": {
@@ -2838,9 +2670,9 @@
     }
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 86,
+   "line_beg": 67,
    "col_beg": 12,
-   "line_end": 86,
+   "line_end": 67,
    "col_end": 99,
    "project": "",
    "jsfbt": {
@@ -2859,9 +2691,9 @@
     }
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 95,
+   "line_beg": 76,
    "col_beg": 10,
-   "line_end": 97,
+   "line_end": 78,
    "col_end": 16,
    "project": "",
    "jsfbt": {
@@ -2880,9 +2712,9 @@
     }
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 105,
+   "line_beg": 86,
    "col_beg": 10,
-   "line_end": 107,
+   "line_end": 88,
    "col_end": 16,
    "project": "",
    "jsfbt": {
@@ -2901,9 +2733,9 @@
     }
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 117,
+   "line_beg": 98,
    "col_beg": 10,
-   "line_end": 117,
+   "line_end": 98,
    "col_end": 99,
    "project": "",
    "jsfbt": {
@@ -2916,36 +2748,15 @@
   },
   {
    "hashToLeaf": {
-    "w4OCUvDKiEitRE0ST0MTpw==": {
-     "text": "Product add-ons",
-     "desc": "form field name for product add-ons"
-    }
-   },
-   "filepath": "src/products/ProductForm.js",
-   "line_beg": 123,
-   "col_beg": 15,
-   "line_end": 123,
-   "col_end": 84,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "form field name for product add-ons",
-     "text": "Product add-ons"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
     "Zw/DJGKH2E8Y7hZ7abThWQ==": {
      "text": "Product category",
      "desc": "product category selectbox label"
     }
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 144,
+   "line_beg": 109,
    "col_beg": 15,
-   "line_end": 144,
+   "line_end": 109,
    "col_end": 82,
    "project": "",
    "jsfbt": {
@@ -2964,9 +2775,9 @@
     }
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 163,
+   "line_beg": 128,
    "col_beg": 12,
-   "line_end": 173,
+   "line_end": 138,
    "col_end": 18,
    "project": "",
    "jsfbt": {
@@ -2985,9 +2796,9 @@
     }
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 176,
+   "line_beg": 141,
    "col_beg": 16,
-   "line_end": 180,
+   "line_end": 145,
    "col_end": 22,
    "project": "",
    "jsfbt": {
@@ -3006,9 +2817,9 @@
     }
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 187,
+   "line_beg": 152,
    "col_beg": 10,
-   "line_end": 187,
+   "line_end": 152,
    "col_end": 73,
    "project": "",
    "jsfbt": {
@@ -3027,9 +2838,9 @@
     }
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 190,
+   "line_beg": 155,
    "col_beg": 10,
-   "line_end": 192,
+   "line_end": 157,
    "col_end": 16,
    "project": "",
    "jsfbt": {
