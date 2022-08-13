@@ -37,9 +37,6 @@ export default function Navigation(): React.Node {
           <Badge tint="default">0</Badge>
         </LayoutInline>
       </Link>
-      <Link href="/employees" xstyle={styles.link} xstyleActive={styles.linkActive}>
-        <fbt desc="navigation link to employees">Employees</fbt>
-      </Link>
       <Link href="/cats" xstyle={styles.link} xstyleActive={styles.linkActive}>
         <fbt desc="navigation link to the list of our cats">Our cats</fbt>
       </Link>
