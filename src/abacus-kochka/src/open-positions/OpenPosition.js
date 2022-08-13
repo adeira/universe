@@ -10,6 +10,7 @@ type Props = {
   +title: FbtWithoutString,
   +description: FbtWithoutString,
   +badges?: $ReadOnlyArray<Node>,
+  +googleFormURL?: string,
 };
 
 export default function OpenPosition(props: Props): Node {
@@ -19,12 +20,14 @@ export default function OpenPosition(props: Props): Node {
 
       {props.badges != null ? <LayoutInline>{props.badges}</LayoutInline> : null}
 
-      <Text>
-        👉 Apply here:{' '}
-        <Link href="https://forms.gle/JDKwgRiUK8yA7Bw5A" target="_blank">
-          Talent Pool on Google Forms
-        </Link>
-      </Text>
+      {props.googleFormURL != null ? (
+        <Text weight={700}>
+          👉 Apply here:{' '}
+          <Link href={props.googleFormURL} target="_blank">
+            Google Forms
+          </Link>
+        </Text>
+      ) : null}
 
       <Text>{props.description}</Text>
 
