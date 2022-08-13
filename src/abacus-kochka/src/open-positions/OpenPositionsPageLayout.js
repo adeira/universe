@@ -27,6 +27,7 @@ export default function OpenPositionsPageLayout(): React.Node {
          */}
 
         <OpenPosition
+          googleFormURL="https://forms.gle/FKK9ZqeH7BRNh6ZE9"
           title={
             <fbt desc="barista position title">
               Person responsible for beverage preparation (Barista)
@@ -52,6 +53,7 @@ export default function OpenPositionsPageLayout(): React.Node {
         />
 
         <OpenPosition
+          googleFormURL="https://forms.gle/sCJ1wmcKUC6Vyxu67"
           title={
             <fbt desc="assistant position title">
               Person responsible for our premises and customers (Ayudante General)
