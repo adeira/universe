@@ -8,40 +8,62 @@ import Navigation from './Navigation';
 
 type Props = {
   +children: Node,
+  +navigationLinks?: $ReadOnlyArray<Node>,
 };
 
 export default function LayoutApp(props: Props): Node {
   return (
-    <div className={styles('mainGrid')}>
+    <div>
       <div className={styles('navigation')}>
         <Navigation />
       </div>
 
-      <main className={styles('main')}>
-        <ErrorBoundary>
-          <React.Suspense fallback={<Loader />}>{props.children}</React.Suspense>
-        </ErrorBoundary>
-      </main>
+      <div className={styles('contentRoot')}>
+        <div>
+          {props.navigationLinks != null ? (
+            <div className={styles('navigationLinksWrapper')}>
+              {props.navigationLinks?.map((navigationLink, index) => (
+                <div key={index} className={styles('navigationLink')}>
+                  {navigationLink}
+                </div>
+              ))}
+            </div>
+          ) : null}
+        </div>
+
+        <main className={styles('main')}>
+          <ErrorBoundary>
+            <React.Suspense fallback={<Loader />}>{props.children}</React.Suspense>
+          </ErrorBoundary>
+        </main>
+      </div>
     </div>
   );
 }
 
 const styles = sx.create({
-  mainGrid: {
+  navigation: {
+    position: 'sticky',
+    top: 0,
+    backgroundColor: 'rgba(var(--sx-background))',
+  },
+  contentRoot: {
     display: 'flex',
     flexDirection: 'row',
-    minHeight: '100vh',
-  },
-  navigation: {
-    flex: 1,
-    width: '200px',
-    position: 'fixed',
-    backgroundColor: 'rgba(var(--sx-accent-1))',
+    gap: 20,
+    backgroundColor: 'rgba(var(--sx-background))',
+    paddingBlock: 'var(--sx-spacing-medium)',
+    paddingInline: 'var(--sx-spacing-large)',
   },
   main: {
-    flex: 1,
-    marginInlineStart: '200px',
-    padding: '1rem',
-    backgroundColor: 'rgba(var(--sx-background))',
+    width: '100%',
+  },
+  navigationLinksWrapper: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: 150,
+  },
+  navigationLink: {
+    paddingBlock: 3,
   },
 });
