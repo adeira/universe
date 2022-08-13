@@ -2,7 +2,7 @@
 
 import React, { type Element, type Node } from 'react';
 
-import LayoutApp from '../../src/LayoutApp';
+import ProductsLayout from '../../src/products/ProductsLayout';
 import ProductsCreateLayout from '../../src/products/ProductsCreateLayout';
 
 export default function ProductsCreatePage(): Node {
@@ -11,4 +11,4 @@ export default function ProductsCreatePage(): Node {
 
 ProductsCreatePage.getLayout = (
   page: Element<typeof ProductsCreatePage>,
-): Element<typeof LayoutApp> => <LayoutApp>{page}</LayoutApp>;
+): Element<typeof ProductsLayout> => <ProductsLayout>{page}</ProductsLayout>;

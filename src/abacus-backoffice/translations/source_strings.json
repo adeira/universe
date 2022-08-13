@@ -1158,10 +1158,10 @@
     }
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 21,
-   "col_beg": 8,
-   "line_end": 21,
-   "col_end": 62,
+   "line_beg": 26,
+   "col_beg": 10,
+   "line_end": 26,
+   "col_end": 64,
    "project": "",
    "jsfbt": {
     "t": {
@@ -1173,63 +1173,21 @@
   },
   {
    "hashToLeaf": {
-    "/8dxxPpm1jE4TgUkZhPJgg==": {
-     "text": "Products inventory",
-     "desc": "navigation link to products inventory"
+    "8Y4S5DdFz0OITOBb1sfWLw==": {
+     "text": "Products",
+     "desc": "navigation link to products page"
     }
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 24,
-   "col_beg": 8,
-   "line_end": 24,
-   "col_end": 82,
+   "line_beg": 29,
+   "col_beg": 10,
+   "line_end": 29,
+   "col_end": 69,
    "project": "",
    "jsfbt": {
     "t": {
-     "desc": "navigation link to products inventory",
-     "text": "Products inventory"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "vkD1IJNOUFj39Y/UUOiFqA==": {
-     "text": "Products categories",
-     "desc": "navigation link to products categories"
-    }
-   },
-   "filepath": "src/Navigation.js",
-   "line_beg": 27,
-   "col_beg": 8,
-   "line_end": 27,
-   "col_end": 84,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "navigation link to products categories",
-     "text": "Products categories"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "TBRrWr/fT2P42StmgtFd5w==": {
-     "text": "Product add-ons",
-     "desc": "navigation link to product add-ons"
-    }
-   },
-   "filepath": "src/Navigation.js",
-   "line_beg": 30,
-   "col_beg": 8,
-   "line_end": 30,
-   "col_end": 76,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "navigation link to product add-ons",
-     "text": "Product add-ons"
+     "desc": "navigation link to products page",
+     "text": "Products"
     },
     "m": []
    }
@@ -1242,10 +1200,10 @@
     }
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 34,
-   "col_beg": 10,
-   "line_end": 34,
-   "col_end": 72,
+   "line_beg": 33,
+   "col_beg": 12,
+   "line_end": 33,
+   "col_end": 74,
    "project": "",
    "jsfbt": {
     "t": {
@@ -1263,10 +1221,10 @@
     }
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 41,
-   "col_beg": 8,
-   "line_end": 41,
-   "col_end": 74,
+   "line_beg": 40,
+   "col_beg": 10,
+   "line_end": 40,
+   "col_end": 76,
    "project": "",
    "jsfbt": {
     "t": {
@@ -1284,10 +1242,10 @@
     }
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 44,
-   "col_beg": 8,
-   "line_end": 44,
-   "col_end": 81,
+   "line_beg": 43,
+   "col_beg": 10,
+   "line_end": 43,
+   "col_end": 83,
    "project": "",
    "jsfbt": {
     "t": {
@@ -1305,10 +1263,10 @@
     }
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 47,
-   "col_beg": 8,
-   "line_end": 47,
-   "col_end": 85,
+   "line_beg": 46,
+   "col_beg": 10,
+   "line_end": 46,
+   "col_end": 87,
    "project": "",
    "jsfbt": {
     "t": {
@@ -1326,10 +1284,10 @@
     }
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 54,
-   "col_beg": 8,
-   "line_end": 56,
-   "col_end": 14,
+   "line_beg": 53,
+   "col_beg": 10,
+   "line_end": 55,
+   "col_end": 16,
    "project": "",
    "jsfbt": {
     "t": {
@@ -2979,21 +2937,84 @@
   },
   {
    "hashToLeaf": {
-    "MCv6Mi3QzsVh3PZbzS9LxA==": {
-     "text": "Products inventory",
-     "desc": "products inventory title"
+    "pReCNja5RSvAfT7p33CCmg==": {
+     "text": "Inventory",
+     "desc": "navigation link to products inventory"
+    }
+   },
+   "filepath": "src/products/ProductsLayout.js",
+   "line_beg": 19,
+   "col_beg": 10,
+   "line_end": 19,
+   "col_end": 75,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "navigation link to products inventory",
+     "text": "Inventory"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "4vnPOOxPtZX6QOnERPLTuQ==": {
+     "text": "Categories",
+     "desc": "navigation link to products categories"
+    }
+   },
+   "filepath": "src/products/ProductsLayout.js",
+   "line_beg": 27,
+   "col_beg": 10,
+   "line_end": 27,
+   "col_end": 77,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "navigation link to products categories",
+     "text": "Categories"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "1F6ym/+28iMZKwS9G67YIQ==": {
+     "text": "Add-ons",
+     "desc": "navigation link to product add-ons"
+    }
+   },
+   "filepath": "src/products/ProductsLayout.js",
+   "line_beg": 35,
+   "col_beg": 10,
+   "line_end": 35,
+   "col_end": 70,
+   "project": "",
+   "jsfbt": {
+    "t": {
+     "desc": "navigation link to product add-ons",
+     "text": "Add-ons"
+    },
+    "m": []
+   }
+  },
+  {
+   "hashToLeaf": {
+    "IhEYKNeWtngFkuEK+F4fzw==": {
+     "text": "Products",
+     "desc": "products page title"
     }
    },
    "filepath": "src/products/ProductsPageLayout.js",
    "line_beg": 15,
    "col_beg": 15,
    "line_end": 15,
-   "col_end": 76,
+   "col_end": 61,
    "project": "",
    "jsfbt": {
     "t": {
-     "desc": "products inventory title",
-     "text": "Products inventory"
+     "desc": "products page title",
+     "text": "Products"
     },
     "m": []
    }

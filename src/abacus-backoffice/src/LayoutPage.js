@@ -1,6 +1,6 @@
 // @flow
 
-import { Badge, LayoutBlock, LayoutInline, Loader, Text, Tooltip } from '@adeira/sx-design';
+import { Badge, LayoutInline, Loader, Text, Tooltip } from '@adeira/sx-design';
 import { NextSeo } from 'next-seo';
 import React, { type ChildrenArray, type Element, type Node } from 'react';
 import sx from '@adeira/sx';
@@ -25,7 +25,7 @@ export default function LayoutPage(props: Props): Node {
   return (
     <>
       <NextSeo title={props.heading} />
-      <LayoutBlock>
+      <div className={styles('content')}>
         <LayoutInline>
           <span className={styles('heading')}>
             <Text as="h1">{props.heading}</Text>
@@ -60,12 +60,15 @@ export default function LayoutPage(props: Props): Node {
         <div className={styles('main')}>
           <React.Suspense fallback={<Loader />}>{props.children}</React.Suspense>
         </div>
-      </LayoutBlock>
+      </div>
     </>
   );
 }
 
 const styles = sx.create({
+  content: {
+    width: '100%',
+  },
   heading: {
     color: 'rgba(var(--sx-foreground))',
   },

@@ -3,7 +3,7 @@
 import React, { type Element, type Node } from 'react';
 import { useRouter } from 'next/router';
 
-import LayoutApp from '../../../src/LayoutApp';
+import ProductsLayout from '../../../src/products/ProductsLayout';
 import ProductsEditLayout from '../../../src/products/ProductsEditLayout';
 
 export default function ProductsEditPage(): Node {
@@ -21,4 +21,4 @@ export default function ProductsEditPage(): Node {
 
 ProductsEditPage.getLayout = (
   page: Element<typeof ProductsEditPage>,
-): Element<typeof LayoutApp> => <LayoutApp>{page}</LayoutApp>;
+): Element<typeof ProductsLayout> => <ProductsLayout>{page}</ProductsLayout>;
