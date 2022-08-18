@@ -21,7 +21,7 @@ __metadata:
     "@fbtjs/default-collection-transform": ^1.0.0
     "@next/bundle-analyzer": ^12.2.5
     "@playwright/test": ^1.25.0
-    "@recoiljs/refine": ^0.1.0
+    "@recoiljs/refine": ^0.1.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.3.0
     "@testing-library/react-hooks": ^8.0.1
@@ -2960,10 +2960,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@recoiljs/refine@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "@recoiljs/refine@npm:0.1.0"
-  checksum: 92e900d83a33d02124c18a875a9ab29b3ffff828b5fc9cfc9fe83c45cd1f41ac12a3112c9434cc9deecb6f73f9b9d076cabc13898820acc3aee8e44380036b82
+"@recoiljs/refine@npm:^0.1.0, @recoiljs/refine@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "@recoiljs/refine@npm:0.1.1"
+  checksum: 63b3e468f4ce7417cd13470f39a85a7318b902d411121759fc0a7ee427cd8882328a2c999ef0913e086f0c99f732e5478378b4ebe514bd811bb6e96333c747c3
   languageName: node
   linkType: hard
 
