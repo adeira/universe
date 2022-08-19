@@ -371,7 +371,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/sx-design-headless@^0.2.0, @adeira/sx-design-headless@workspace:src/sx-design-headless":
+"@adeira/sx-design-headless@^0.2.1, @adeira/sx-design-headless@workspace:src/sx-design-headless":
   version: 0.0.0-use.local
   resolution: "@adeira/sx-design-headless@workspace:src/sx-design-headless"
   dependencies:
@@ -388,7 +388,7 @@ __metadata:
   resolution: "@adeira/sx-design-wlcm@workspace:src/sx-design-wlcm"
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
-    "@adeira/sx-design-headless": ^0.2.0
+    "@adeira/sx-design-headless": ^0.2.1
     "@babel/runtime": ^7.18.9
     "@storybook/addon-a11y": ^6.5.10
     "@storybook/addon-actions": ^6.5.10
@@ -418,7 +418,7 @@ __metadata:
     "@adeira/icons": ^2.0.0
     "@adeira/js": ^2.1.1
     "@adeira/sx": ^0.29.1
-    "@adeira/sx-design-headless": ^0.2.0
+    "@adeira/sx-design-headless": ^0.2.1
     "@adeira/sx-jest-snapshot-serializer": ^0.1.0
     "@babel/core": ^7.18.10
     "@babel/runtime": ^7.18.9

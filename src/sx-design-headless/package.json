@@ -9,7 +9,7 @@
     "directory": "src/sx-design-headless"
   },
   "license": "MIT",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "./index.js",
   "type": "commonjs",
   "sideEffects": false,
