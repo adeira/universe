@@ -62,7 +62,7 @@ export default function Link({
 
 const styles = sx.create({
   default: {
-    'color': '#3840d1', // TODO: extract to CSS var(..)
+    'color': 'var(--wlcm-primary)',
     'cursor': 'pointer',
     'textDecorationColor': 'transparent',
     'textDecorationLine': 'underline',
