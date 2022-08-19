@@ -21,7 +21,7 @@ __metadata:
     "@fbtjs/default-collection-transform": ^1.0.0
     "@next/bundle-analyzer": ^12.2.5
     "@playwright/test": ^1.25.0
-    "@recoiljs/refine": ^0.1.0
+    "@recoiljs/refine": ^0.1.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.3.0
     "@testing-library/react-hooks": ^8.0.1
@@ -2960,10 +2960,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@recoiljs/refine@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "@recoiljs/refine@npm:0.1.0"
-  checksum: 92e900d83a33d02124c18a875a9ab29b3ffff828b5fc9cfc9fe83c45cd1f41ac12a3112c9434cc9deecb6f73f9b9d076cabc13898820acc3aee8e44380036b82
+"@recoiljs/refine@npm:^0.1.0, @recoiljs/refine@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "@recoiljs/refine@npm:0.1.1"
+  checksum: 63b3e468f4ce7417cd13470f39a85a7318b902d411121759fc0a7ee427cd8882328a2c999ef0913e086f0c99f732e5478378b4ebe514bd811bb6e96333c747c3
   languageName: node
   linkType: hard
 
@@ -10039,12 +10039,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"flow-bin@npm:^0.184.0":
-  version: 0.184.0
-  resolution: "flow-bin@npm:0.184.0"
+"flow-bin@npm:^0.185.0":
+  version: 0.185.0
+  resolution: "flow-bin@npm:0.185.0"
   bin:
     flow: cli.js
-  checksum: 10d47bc78b40cc08db8ae43b6bc44c7b63fc2ad778a42c9287b9bc280877b7e7320ce728dd99c4ce1ab645ebd2f3f7946deca7a820788fd85d6fe1bf017049b8
+  checksum: 0e99bebb6c4c99a30c2619d89f991bba1f4e3d55da61482c332c58266a59d69ceef633f7c3eba0da0cf59e784bc50752e40a31c3f7b81d8ba554265d7baebd6f
   languageName: node
   linkType: hard
 
@@ -16714,7 +16714,7 @@ __metadata:
     babel-loader: ^8.2.5
     eslint: ^8.22.0
     eslint-formatter-codeframe: ^7.32.1
-    flow-bin: ^0.184.0
+    flow-bin: ^0.185.0
     glob: ^8.0.3
     hermes-eslint: ^0.9.0
     jest: ^28.1.3
