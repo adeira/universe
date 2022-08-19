@@ -4,6 +4,7 @@ import { RouterContext } from 'next/dist/shared/lib/router-context';
 import type { Node } from 'react';
 
 import './global.css';
+import SxDesignWlcmProvider from '../src/SxDesignWlcmProvider';
 
 const DARK_MODE_BACKGROUND = '#333';
 
@@ -52,14 +53,10 @@ export const parameters = {
 
 export const decorators = [
   (Story: $FlowFixMe): Node => {
-    return <Story />;
-    // return (
-    //   <SxDesignProvider
-    //     locale={globals.locale}
-    //     theme={globals.backgrounds?.value === DARK_MODE_BACKGROUND ? 'dark' : 'light'}
-    //   >
-    //     <Story />
-    //   </SxDesignProvider>
-    // );
+    return (
+      <SxDesignWlcmProvider>
+        <Story />
+      </SxDesignWlcmProvider>
+    );
   },
 ];

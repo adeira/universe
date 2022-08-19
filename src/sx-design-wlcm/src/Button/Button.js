@@ -41,7 +41,7 @@ const styles = sx.create({
     userSelect: 'none',
   },
   buttonPrimary: {
-    backgroundColor: '#3840d1', // TODO: extract to CSS var(..)
+    backgroundColor: 'var(--wlcm-primary)',
     color: 'white', // TODO: extract to CSS var(..)
     border: 0,
   },
