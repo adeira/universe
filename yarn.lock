@@ -40,7 +40,7 @@ __metadata:
     react: ^18.2.0
     react-dom: ^18.2.0
     recoil: ^0.7.5
-    recoil-sync: ^0.1.0
+    recoil-sync: ^0.1.1
   languageName: unknown
   linkType: soft
 
@@ -2960,7 +2960,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@recoiljs/refine@npm:^0.1.0, @recoiljs/refine@npm:^0.1.1":
+"@recoiljs/refine@npm:^0.1.1":
   version: 0.1.1
   resolution: "@recoiljs/refine@npm:0.1.1"
   checksum: 63b3e468f4ce7417cd13470f39a85a7318b902d411121759fc0a7ee427cd8882328a2c999ef0913e086f0c99f732e5478378b4ebe514bd811bb6e96333c747c3
@@ -16176,15 +16176,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"recoil-sync@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "recoil-sync@npm:0.1.0"
+"recoil-sync@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "recoil-sync@npm:0.1.1"
   dependencies:
-    "@recoiljs/refine": ^0.1.0
+    "@recoiljs/refine": ^0.1.1
     transit-js: ^0.8.874
   peerDependencies:
     recoil: ">=0.7.3"
-  checksum: b638778176703be335838a1decb523a6ed9929df921ff6c26fdeed1b9bcf89fc8439a0887ac31c39445ac5f5db4ce32f41a079b7077d267165fa6e281a48a71e
+  checksum: f2b5186b4dbab8003840b6041e91c58778c974a68388d47d1c70ab700f43c351bb71ced8c7827142345b753f2b9cd56287ce0a17545c504bf27fea6a86e33000
   languageName: node
   linkType: hard
 
