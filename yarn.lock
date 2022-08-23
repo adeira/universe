@@ -268,7 +268,7 @@ __metadata:
     "@babel/runtime": ^7.18.9
     chalk: ^4.1.2
     is-ci: ^3.0.1
-    npm-packlist: ^5.1.1
+    npm-packlist: ^5.1.2
     npm-registry-client: ^8.6.0
     rimraf: ^3.0.2
     semver: ^7.3.7
@@ -14427,6 +14427,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"npm-normalize-package-bin@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "npm-normalize-package-bin@npm:2.0.0"
+  checksum: 7c5379f9b188b564c4332c97bdd9a5d6b7b15f02b5823b00989d6a0e6fb31eb0280f02b0a924f930e1fcaf00e60fae333aec8923d2a4c7747613c7d629d8aa25
+  languageName: node
+  linkType: hard
+
 "npm-package-arg@npm:^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0":
   version: 6.1.1
   resolution: "npm-package-arg@npm:6.1.1"
@@ -14439,17 +14446,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm-packlist@npm:^5.1.1":
-  version: 5.1.1
-  resolution: "npm-packlist@npm:5.1.1"
+"npm-packlist@npm:^5.1.2":
+  version: 5.1.2
+  resolution: "npm-packlist@npm:5.1.2"
   dependencies:
     glob: ^8.0.1
     ignore-walk: ^5.0.1
     npm-bundled: ^1.1.2
-    npm-normalize-package-bin: ^1.0.1
+    npm-normalize-package-bin: ^2.0.0
   bin:
     npm-packlist: bin/index.js
-  checksum: 28dab153744ceb4695b82a9032d14aa2bfb855d38344a09052673d07860a4d8725f808ed23996e6f2792c48e11f5d147632c159f798d2c24dac92b51a884f0c6
+  checksum: 68750c29111b9d724ab344ad599349fdee6a86357d07be0b2203503686006331f4d49950ab36cddf23f3e146960bcc79ac5c67fdb2ae56279a5bc836eb7f46e2
   languageName: node
   linkType: hard
 
