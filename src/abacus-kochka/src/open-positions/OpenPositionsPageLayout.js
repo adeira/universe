@@ -38,9 +38,9 @@ export default function OpenPositionsPageLayout(): React.Node {
             <FullTimeBadge key={2} />,
             <SalaryBadge
               key={3}
-              priceUnitAmount={6000}
+              priceUnitAmount={7000}
               priceUnitAmountCurrency={SupportedCurrencies.MXN}
-              isPriceNegotiable={true}
+              isPriceNegotiable={false}
             />,
           ]}
           description={
