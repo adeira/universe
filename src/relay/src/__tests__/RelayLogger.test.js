@@ -45,14 +45,14 @@ describe('Relay Logger', () => {
 
     expect(consoleErrorSpy).not.toHaveBeenCalled();
     expect(consoleGroupCollapsedSpy.mock.calls).toMatchInlineSnapshot(`
-      Array [
-        Array [
+      [
+        [
           "%s%s%s",
           "[Relay] ",
           "execute.start ",
           "MyAwesomeQuery",
         ],
-        Array [
+        [
           "%s%s",
           "[Relay] ",
           "execute.complete",
@@ -60,24 +60,24 @@ describe('Relay Logger', () => {
       ]
     `);
     expect(consoleLogSpy.mock.calls).toMatchInlineSnapshot(`
-      Array [
-        Array [
-          Object {
-            "cacheConfig": Object {},
+      [
+        [
+          {
+            "cacheConfig": {},
             "executeId": 100000,
-            "params": Object {
+            "params": {
               "cacheID": "",
               "id": null,
-              "metadata": Object {},
+              "metadata": {},
               "name": "MyAwesomeQuery",
               "operationKind": "query",
               "text": "query MyAwesomeQuery{id}",
             },
-            "variables": Object {},
+            "variables": {},
           },
         ],
-        Array [
-          Object {
+        [
+          {
             "executeId": 100000,
           },
         ],
@@ -96,8 +96,8 @@ describe('Relay Required Field Logger', () => {
 
     expect(consoleErrorSpy).not.toHaveBeenCalled();
     expect(consoleGroupCollapsedSpy.mock.calls).toMatchInlineSnapshot(`
-      Array [
-        Array [
+      [
+        [
           "%s%c%s%c%s",
           "[Relay ",
           "color:orange",
@@ -109,15 +109,15 @@ describe('Relay Required Field Logger', () => {
       ]
     `);
     expect(consoleLogSpy.mock.calls).toMatchInlineSnapshot(`
-      Array [
-        Array [
-          Object {
+      [
+        [
+          {
             "fieldPath": "mock",
             "kind": "missing_field.log",
             "owner": "mock",
           },
         ],
-        Array [
+        [
           "Directive @required(action: LOG) was used somewhere in the code to mark one of the fields required. Unfortunately, server didn't return this field resulting in this message.",
         ],
       ]

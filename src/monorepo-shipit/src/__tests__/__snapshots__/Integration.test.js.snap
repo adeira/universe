@@ -2,9 +2,9 @@
 
 exports[`creates correct changeset from commit cc7b3818e06f95c2732f75f165a2b98c6eeab135, filters it and renders it as expected: 1 - parsed changeset without filters 1`] = `
 Changeset {
-  "author": "\\"dependabot[bot]\\" <49699333+dependabot[bot]@users.noreply.github.com>",
-  "coAuthorLines": Array [],
-  "debugMessages": Array [],
+  "author": ""dependabot[bot]" <49699333+dependabot[bot]@users.noreply.github.com>",
+  "coAuthorLines": [],
+  "debugMessages": [],
   "description": "Bumps [prettier](https://github.com/prettier/prettier) from 2.3.0 to 2.3.1.
 - [Release notes](https://github.com/prettier/prettier/releases)
 - [Changelog](https://github.com/prettier/prettier/blob/main/CHANGELOG.md)
@@ -19,73 +19,73 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] <support@github.com>",
   "diffs": Set {
-    Object {
+    {
       "body": "index 33c6b476374a38f54e7aa3a92d4f9aed68c34624..dd10ce35969c86ef2c5bd8c59e58bb1fea865a58 100644
 --- a/src/eslint-config-adeira/package.json
 +++ b/src/eslint-config-adeira/package.json
 @@ -26,7 +26,7 @@
-     \\"eslint-plugin-react-native\\": \\"^3.11.0\\",
-     \\"eslint-plugin-relay\\": \\"^1.8.2\\",
-     \\"eslint-plugin-sx\\": \\"^0.11.0\\",
--    \\"prettier\\": \\"^2.3.0\\"
-+    \\"prettier\\": \\"^2.3.1\\"
+     "eslint-plugin-react-native": "^3.11.0",
+     "eslint-plugin-relay": "^1.8.2",
+     "eslint-plugin-sx": "^0.11.0",
+-    "prettier": "^2.3.0"
++    "prettier": "^2.3.1"
    },
-   \\"devDependencies\\": {
-     \\"deep-diff\\": \\"^1.0.2\\",
+   "devDependencies": {
+     "deep-diff": "^1.0.2",
 ",
       "path": "src/eslint-config-adeira/package.json",
     },
-    Object {
+    {
       "body": "index dd99feca88cc2c4f0561b8b2274d547f4194251a..3dfbae6752edf8d4390293bc3b3c8edb7b26bf56 100644
 --- a/src/sx-jest-snapshot-serializer/package.json
 +++ b/src/sx-jest-snapshot-serializer/package.json
 @@ -11,7 +11,7 @@
-   \\"dependencies\\": {
-     \\"@adeira/sx\\": \\"^0.25.0\\",
-     \\"@babel/runtime\\": \\"^7.14.0\\",
--    \\"prettier\\": \\"^2.3.0\\",
-+    \\"prettier\\": \\"^2.3.1\\",
-     \\"pretty-format\\": \\"^27.0.2\\"
+   "dependencies": {
+     "@adeira/sx": "^0.25.0",
+     "@babel/runtime": "^7.14.0",
+-    "prettier": "^2.3.0",
++    "prettier": "^2.3.1",
+     "pretty-format": "^27.0.2"
    },
-   \\"devDependencies\\": {
+   "devDependencies": {
 ",
       "path": "src/sx-jest-snapshot-serializer/package.json",
     },
-    Object {
+    {
       "body": "index d486c00d03f695c9ff320d25b0a2523ed6330a6a..3a2c4845ffd37e77e97e71af73c97b4913ca6a1a 100644
 --- a/src/sx/package.json
 +++ b/src/sx/package.json
 @@ -19,7 +19,7 @@
-     \\"fast-levenshtein\\": \\"^3.0.0\\",
-     \\"json-stable-stringify\\": \\"^1.0.1\\",
-     \\"mdn-data\\": \\"^2.0.19\\",
--    \\"prettier\\": \\"^2.3.0\\",
-+    \\"prettier\\": \\"^2.3.1\\",
-     \\"stylis\\": \\"^4.0.10\\"
+     "fast-levenshtein": "^3.0.0",
+     "json-stable-stringify": "^1.0.1",
+     "mdn-data": "^2.0.19",
+-    "prettier": "^2.3.0",
++    "prettier": "^2.3.1",
+     "stylis": "^4.0.10"
    },
-   \\"peerDependencies\\": {
+   "peerDependencies": {
 ",
       "path": "src/sx/package.json",
     },
-    Object {
+    {
       "body": "index 63ed36a5e5c003c175d9d91a2786b8c1746d11cb..ad33f54ed4ad0afbe5a4561502bfdda0823ef574 100644
 --- a/yarn.lock
 +++ b/yarn.lock
 @@ -14086,10 +14086,10 @@ prettier-linter-helpers@^1.0.0:
    dependencies:
-     fast-diff \\"^1.1.2\\"
+     fast-diff "^1.1.2"
  
 -prettier@^2.0.1, prettier@^2.3.0:
--  version \\"2.3.0\\"
--  resolved \\"https://registry.yarnpkg.com/prettier/-/prettier-2.3.0.tgz#b6a5bf1284026ae640f17f7ff5658a7567fc0d18\\"
+-  version "2.3.0"
+-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.3.0.tgz#b6a5bf1284026ae640f17f7ff5658a7567fc0d18"
 -  integrity sha512-kXtO4s0Lz/DW/IJ9QdWhAf7/NmPWQXkFr/r/WkR3vyI+0v8amTDxiaQSLzs8NBlytfLWX/7uQUMIW677yLKl4w==
 +prettier@^2.0.1, prettier@^2.3.1:
-+  version \\"2.3.1\\"
-+  resolved \\"https://registry.yarnpkg.com/prettier/-/prettier-2.3.1.tgz#76903c3f8c4449bc9ac597acefa24dc5ad4cbea6\\"
++  version "2.3.1"
++  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.3.1.tgz#76903c3f8c4449bc9ac597acefa24dc5ad4cbea6"
 +  integrity sha512-p+vNbgpLjif/+D+DwAZAbndtRrR0md0MwfmOVN9N+2RgyACMT+7tfaRnT+WDPkqnuVwleyuBIG2XBxKDme3hPA==
  
  prettier@~2.2.1:
-   version \\"2.2.1\\"
+   version "2.2.1"
 ",
       "path": "yarn.lock",
     },
@@ -98,10 +98,10 @@ Signed-off-by: dependabot[bot] <support@github.com>",
 
 exports[`creates correct changeset from commit cc7b3818e06f95c2732f75f165a2b98c6eeab135, filters it and renders it as expected: 2 - parsed changeset WITH applied filters 1`] = `
 Changeset {
-  "author": "\\"dependabot[bot]\\" <49699333+dependabot[bot]@users.noreply.github.com>",
-  "coAuthorLines": Array [],
-  "debugMessages": Array [
-    "ADD TRACKING DATA: \\"adeira-source-id: cc7b3818e06f95c2732f75f165a2b98c6eeab135\\"",
+  "author": ""dependabot[bot]" <49699333+dependabot[bot]@users.noreply.github.com>",
+  "coAuthorLines": [],
+  "debugMessages": [
+    "ADD TRACKING DATA: "adeira-source-id: cc7b3818e06f95c2732f75f165a2b98c6eeab135"",
   ],
   "description": "Bumps [prettier](https://github.com/prettier/prettier) from 2.3.0 to 2.3.1.
 - [Release notes](https://github.com/prettier/prettier/releases)
@@ -119,19 +119,19 @@ Signed-off-by: dependabot[bot] <support@github.com>
 
 adeira-source-id: cc7b3818e06f95c2732f75f165a2b98c6eeab135",
   "diffs": Set {
-    Object {
+    {
       "body": "index 33c6b476374a38f54e7aa3a92d4f9aed68c34624..dd10ce35969c86ef2c5bd8c59e58bb1fea865a58 100644
 --- a/package.json
 +++ b/package.json
 @@ -26,7 +26,7 @@
-     \\"eslint-plugin-react-native\\": \\"^3.11.0\\",
-     \\"eslint-plugin-relay\\": \\"^1.8.2\\",
-     \\"eslint-plugin-sx\\": \\"^0.11.0\\",
--    \\"prettier\\": \\"^2.3.0\\"
-+    \\"prettier\\": \\"^2.3.1\\"
+     "eslint-plugin-react-native": "^3.11.0",
+     "eslint-plugin-relay": "^1.8.2",
+     "eslint-plugin-sx": "^0.11.0",
+-    "prettier": "^2.3.0"
++    "prettier": "^2.3.1"
    },
-   \\"devDependencies\\": {
-     \\"deep-diff\\": \\"^1.0.2\\",
+   "devDependencies": {
+     "deep-diff": "^1.0.2",
 ",
       "path": "package.json",
     },
@@ -144,7 +144,7 @@ adeira-source-id: cc7b3818e06f95c2732f75f165a2b98c6eeab135",
 
 exports[`creates correct changeset from commit cc7b3818e06f95c2732f75f165a2b98c6eeab135, filters it and renders it as expected: 3 - rendered changeset 1`] = `
 "From cc7b3818e06f95c2732f75f165a2b98c6eeab135 Mon Sep 17 00:00:00 2001
-From: \\"dependabot[bot]\\" <49699333+dependabot[bot]@users.noreply.github.com>
+From: "dependabot[bot]" <49699333+dependabot[bot]@users.noreply.github.com>
 Date: Mon, 7 Jun 2021 05:12:25 +0000
 Subject: [PATCH] Bump prettier from 2.3.0 to 2.3.1
 
@@ -169,14 +169,14 @@ index 33c6b476374a38f54e7aa3a92d4f9aed68c34624..dd10ce35969c86ef2c5bd8c59e58bb1f
 --- a/package.json
 +++ b/package.json
 @@ -26,7 +26,7 @@
-     \\"eslint-plugin-react-native\\": \\"^3.11.0\\",
-     \\"eslint-plugin-relay\\": \\"^1.8.2\\",
-     \\"eslint-plugin-sx\\": \\"^0.11.0\\",
--    \\"prettier\\": \\"^2.3.0\\"
-+    \\"prettier\\": \\"^2.3.1\\"
+     "eslint-plugin-react-native": "^3.11.0",
+     "eslint-plugin-relay": "^1.8.2",
+     "eslint-plugin-sx": "^0.11.0",
+-    "prettier": "^2.3.0"
++    "prettier": "^2.3.1"
    },
-   \\"devDependencies\\": {
-     \\"deep-diff\\": \\"^1.0.2\\",
+   "devDependencies": {
+     "deep-diff": "^1.0.2",
 
 --
 2.21.0
@@ -186,23 +186,23 @@ index 33c6b476374a38f54e7aa3a92d4f9aed68c34624..dd10ce35969c86ef2c5bd8c59e58bb1f
 exports[`creates correct changeset from commit f1cc780d89183b4304ae5c22536baec6ef9736ba, filters it and renders it as expected: 1 - parsed changeset without filters 1`] = `
 Changeset {
   "author": "=?UTF-8?q?Martin=20Zl=C3=A1mal?= <mrtnzlml@gmail.com>",
-  "coAuthorLines": Array [],
-  "debugMessages": Array [],
+  "coAuthorLines": [],
+  "debugMessages": [],
   "description": "",
   "diffs": Set {
-    Object {
+    {
       "body": "index 23e30baaaa8e3453263fc15c174d4b11ab3a0a6b..5ddd96afcdf20ad5dc36f140d0caa7baaacfb63c 100644
 --- a/src/abacus/src/warp_graphql/models.rs
 +++ b/src/abacus/src/warp_graphql/models.rs
 @@ -24,7 +24,7 @@ pub(in crate::warp_graphql) async fn get_current_user(
                          }
                          User::AnonymousUser(_) => {
-                             tracing::error!(\\"Unmatched session token 🛑\\");
--                            Err(String::from(\\"Session token doesn't mach any user.\\"))
-+                            Err(String::from(\\"Session token doesn't match any user.\\"))
+                             tracing::error!("Unmatched session token 🛑");
+-                            Err(String::from("Session token doesn't mach any user."))
++                            Err(String::from("Session token doesn't match any user."))
                          }
                          User::AuthorizedUser(user) => {
-                             tracing::debug!(\\"Using authorized user: {} 👍\\", user.id());
+                             tracing::debug!("Using authorized user: {} 👍", user.id());
 ",
       "path": "src/abacus/src/warp_graphql/models.rs",
     },
@@ -216,25 +216,25 @@ Changeset {
 exports[`creates correct changeset from commit f1cc780d89183b4304ae5c22536baec6ef9736ba, filters it and renders it as expected: 2 - parsed changeset WITH applied filters 1`] = `
 Changeset {
   "author": "=?UTF-8?q?Martin=20Zl=C3=A1mal?= <mrtnzlml@gmail.com>",
-  "coAuthorLines": Array [],
-  "debugMessages": Array [
-    "ADD TRACKING DATA: \\"adeira-source-id: f1cc780d89183b4304ae5c22536baec6ef9736ba\\"",
+  "coAuthorLines": [],
+  "debugMessages": [
+    "ADD TRACKING DATA: "adeira-source-id: f1cc780d89183b4304ae5c22536baec6ef9736ba"",
   ],
   "description": "adeira-source-id: f1cc780d89183b4304ae5c22536baec6ef9736ba",
   "diffs": Set {
-    Object {
+    {
       "body": "index 23e30baaaa8e3453263fc15c174d4b11ab3a0a6b..5ddd96afcdf20ad5dc36f140d0caa7baaacfb63c 100644
 --- a/src/warp_graphql/models.rs
 +++ b/src/warp_graphql/models.rs
 @@ -24,7 +24,7 @@ pub(in crate::warp_graphql) async fn get_current_user(
                          }
                          User::AnonymousUser(_) => {
-                             tracing::error!(\\"Unmatched session token 🛑\\");
--                            Err(String::from(\\"Session token doesn't mach any user.\\"))
-+                            Err(String::from(\\"Session token doesn't match any user.\\"))
+                             tracing::error!("Unmatched session token 🛑");
+-                            Err(String::from("Session token doesn't mach any user."))
++                            Err(String::from("Session token doesn't match any user."))
                          }
                          User::AuthorizedUser(user) => {
-                             tracing::debug!(\\"Using authorized user: {} 👍\\", user.id());
+                             tracing::debug!("Using authorized user: {} 👍", user.id());
 ",
       "path": "src/warp_graphql/models.rs",
     },
@@ -260,12 +260,12 @@ index 23e30baaaa8e3453263fc15c174d4b11ab3a0a6b..5ddd96afcdf20ad5dc36f140d0caa7ba
 @@ -24,7 +24,7 @@ pub(in crate::warp_graphql) async fn get_current_user(
                          }
                          User::AnonymousUser(_) => {
-                             tracing::error!(\\"Unmatched session token 🛑\\");
--                            Err(String::from(\\"Session token doesn't mach any user.\\"))
-+                            Err(String::from(\\"Session token doesn't match any user.\\"))
+                             tracing::error!("Unmatched session token 🛑");
+-                            Err(String::from("Session token doesn't mach any user."))
++                            Err(String::from("Session token doesn't match any user."))
                          }
                          User::AuthorizedUser(user) => {
-                             tracing::debug!(\\"Using authorized user: {} 👍\\", user.id());
+                             tracing::debug!("Using authorized user: {} 👍", user.id());
 
 --
 2.21.0

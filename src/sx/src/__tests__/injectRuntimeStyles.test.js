@@ -24,7 +24,7 @@ it('injects runtime styles', () => {
 
   expect(styleTag?.sheet?.cssRules).toHaveLength(2);
   expect(styleTag?.sheet?.cssRules).toMatchInlineSnapshot(`
-    Array [
+    [
       CSSStyleRule {
         "__ends": 19,
         "__starts": 0,
@@ -37,7 +37,7 @@ it('injects runtime styles', () => {
         "style": CSSStyleDeclaration {
           "0": "opacity",
           "__starts": 8,
-          "_importants": Object {
+          "_importants": {
             "opacity": "",
           },
           "length": 1,
@@ -57,7 +57,7 @@ it('injects runtime styles', () => {
         "style": CSSStyleDeclaration {
           "0": "height",
           "__starts": 7,
-          "_importants": Object {
+          "_importants": {
             "height": "",
           },
           "height": "100px",

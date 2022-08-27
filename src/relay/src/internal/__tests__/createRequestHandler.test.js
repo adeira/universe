@@ -82,16 +82,16 @@ it('works as expected with query error', (done) => {
         'complete',
       ]);
       expect(consoleSpy.mock.calls).toMatchInlineSnapshot(`
-        Array [
-          Array [
+        [
+          [
             "error 1",
-            Object {
+            {
               "message": "error 1",
             },
           ],
-          Array [
+          [
             "error 2",
-            Object {
+            {
               "message": "error 2",
             },
           ],
@@ -135,10 +135,10 @@ it('works as expected with CRITICAL query error', (done) => {
     .finally(() => {
       expect(list).toStrictEqual(['start', new Error('error 2')]);
       expect(consoleSpy.mock.calls).toMatchInlineSnapshot(`
-        Array [
-          Array [
+        [
+          [
             "error 1",
-            Object {
+            {
               "message": "error 1",
             },
           ],
@@ -212,16 +212,16 @@ it('works as expected with mutation error', (done) => {
         'complete',
       ]);
       expect(consoleSpy.mock.calls).toMatchInlineSnapshot(`
-        Array [
-          Array [
+        [
+          [
             "error 1",
-            Object {
+            {
               "message": "error 1",
             },
           ],
-          Array [
+          [
             "error 2",
-            Object {
+            {
               "message": "error 2",
             },
           ],
@@ -265,10 +265,10 @@ it('works as expected with CRITICAL mutation error', (done) => {
     .finally(() => {
       expect(list).toStrictEqual(['start', new Error('error 2')]);
       expect(consoleSpy.mock.calls).toMatchInlineSnapshot(`
-        Array [
-          Array [
+        [
+          [
             "error 1",
-            Object {
+            {
               "message": "error 1",
             },
           ],

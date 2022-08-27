@@ -8,7 +8,7 @@ describe('physical CSS borders', () => {
   it('expands border as expected', () => {
     expect(expandBorder('border', 'red')).toEqual(expandShorthandProperties('border', 'red', ''));
     expect(expandBorder('border', 'red').map(printNodes)).toMatchInlineSnapshot(`
-      Array [
+      [
         "._37Z8WG{border-width:medium}",
         "._1QzWHp{border-style:none}",
         "._3mBzuo{border-color:#f00}",
@@ -22,10 +22,10 @@ describe('physical CSS borders', () => {
     );
     expect(expandBorder('border', '4mm ridge rgba(170, 50, 220, .6)').map(printNodes))
       .toMatchInlineSnapshot(`
-        Array [
-          "._4kdXYU{border:4mm ridge rgba(170, 50, 220, .6)}",
-        ]
-      `);
+      [
+        "._4kdXYU{border:4mm ridge rgba(170, 50, 220, .6)}",
+      ]
+    `);
   });
 });
 
@@ -35,7 +35,7 @@ describe('logical CSS block borders', () => {
       expandShorthandProperties('borderBlock', 'red', ''),
     );
     expect(expandBorder('borderBlock', 'red').map(printNodes)).toMatchInlineSnapshot(`
-      Array [
+      [
         "._2vfLjv{border-block-width:medium}",
         "._2ENQ5g{border-block-style:none}",
         ".Q9cUa{border-block-color:#f00}",
@@ -49,10 +49,10 @@ describe('logical CSS block borders', () => {
     );
     expect(expandBorder('borderBlock', '4mm ridge rgba(170, 50, 220, .6)').map(printNodes))
       .toMatchInlineSnapshot(`
-        Array [
-          "._2RPo2I{border-block:4mm ridge rgba(170, 50, 220, .6)}",
-        ]
-      `);
+      [
+        "._2RPo2I{border-block:4mm ridge rgba(170, 50, 220, .6)}",
+      ]
+    `);
   });
 });
 
@@ -62,7 +62,7 @@ describe('logical CSS inline borders', () => {
       expandShorthandProperties('borderInline', 'red', ''),
     );
     expect(expandBorder('borderInline', 'red').map(printNodes)).toMatchInlineSnapshot(`
-      Array [
+      [
         "._25D1Lj{border-inline-width:medium}",
         "._2H7Sk2{border-inline-style:none}",
         "._9hos4{border-inline-color:#f00}",
@@ -76,9 +76,9 @@ describe('logical CSS inline borders', () => {
     );
     expect(expandBorder('borderInline', '4mm ridge rgba(170, 50, 220, .6)').map(printNodes))
       .toMatchInlineSnapshot(`
-        Array [
-          "._1FXcjx{border-inline:4mm ridge rgba(170, 50, 220, .6)}",
-        ]
-      `);
+      [
+        "._1FXcjx{border-inline:4mm ridge rgba(170, 50, 220, .6)}",
+      ]
+    `);
   });
 });

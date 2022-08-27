@@ -10,7 +10,7 @@ function printNodes(node: StyleCollectorNode) {
 it('ignores unknown properties', () => {
   expect(expandShorthandProperties('unknownProperty', 'thisShouldNotChange').map(printNodes))
     .toMatchInlineSnapshot(`
-    Array [
+    [
       "._3BbwKd{unknown-property:thisShouldNotChange}",
     ]
   `);

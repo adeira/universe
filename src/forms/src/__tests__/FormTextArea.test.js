@@ -31,7 +31,7 @@ it('renders basic "FormTextArea" input as expected', () => {
   expect(getAllAttributes(getByTestId('text-area-input'))).toMatchInlineSnapshot(
     { class: expect.any(String) },
     `
-    Object {
+    {
       "class": Any<String>,
       "data-testid": "text-area-input",
       "name": "text-area-input-name",
@@ -60,7 +60,7 @@ it('renders complex "FormTextArea" input as expected', () => {
   expect(getAllAttributes(getByTestId('text-area-input'))).toMatchInlineSnapshot(
     { class: expect.any(String) },
     `
-    Object {
+    {
       "class": Any<String>,
       "data-testid": "text-area-input",
       "name": "text-area-input-name",

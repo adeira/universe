@@ -31,7 +31,7 @@ it('renders basic "FormMultiUpload" input as expected', () => {
   expect(getAllAttributes(getByTestId('file-input'))).toMatchInlineSnapshot(
     { class: expect.any(String) },
     `
-    Object {
+    {
       "accept": "image/jpeg,image/png",
       "class": Any<String>,
       "data-testid": "file-input",
@@ -39,6 +39,6 @@ it('renders basic "FormMultiUpload" input as expected', () => {
       "name": "file-input-name",
       "type": "file",
     }
-    `,
+  `,
   );
 });

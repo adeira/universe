@@ -26,35 +26,35 @@ it('retries the request if the previous attempt timed-out', async () => {
   expect(fetch.mock.calls).toHaveLength(4);
 
   expect(fetch.mock.calls).toMatchInlineSnapshot(`
-    Array [
-      Array [
+    [
+      [
         "https://localhost",
-        Object {
-          "headers": Object {
+        {
+          "headers": {
             "User-Agent": "@adeira/fetch (+https://github.com/adeira/universe)",
           },
         },
       ],
-      Array [
+      [
         "https://localhost",
-        Object {
-          "headers": Object {
+        {
+          "headers": {
             "User-Agent": "@adeira/fetch (+https://github.com/adeira/universe)",
           },
         },
       ],
-      Array [
+      [
         "https://localhost",
-        Object {
-          "headers": Object {
+        {
+          "headers": {
             "User-Agent": "@adeira/fetch (+https://github.com/adeira/universe)",
           },
         },
       ],
-      Array [
+      [
         "https://localhost",
-        Object {
-          "headers": Object {
+        {
+          "headers": {
             "User-Agent": "@adeira/fetch (+https://github.com/adeira/universe)",
           },
         },

@@ -16,7 +16,7 @@ it('works with simple styles', () => {
       },
     }),
   ).toMatchInlineSnapshot(`
-    Object {
+    {
       "hashRegistry": Map {
         "test" => Map {
           "color" => "_2dHaKY",
@@ -55,7 +55,7 @@ it('works with pseudo styles', () => {
       },
     }),
   ).toMatchInlineSnapshot(`
-    Object {
+    {
       "hashRegistry": Map {
         "lol" => Map {
           "font-size" => "_39Fbhf",
@@ -103,6 +103,7 @@ it('works with mediaQueries', () => {
           color: 'blue',
         },
       },
+
       nestedMedia: {
         '@media print': {
           'color': 'red',
@@ -113,7 +114,7 @@ it('works with mediaQueries', () => {
       },
     }),
   ).toMatchInlineSnapshot(`
-    Object {
+    {
       "hashRegistry": Map {
         "test" => Map {
           "color@media (min-width: 900px)" => "_1iHvvo",

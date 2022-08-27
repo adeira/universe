@@ -9,7 +9,7 @@ it('expands overflow as expected', () => {
     expandShorthandProperties('overflow', 'visible', ''),
   );
   expect(expandOverflow('overflow', 'visible').map(printNodes)).toMatchInlineSnapshot(`
-    Array [
+    [
       "._25umgG{overflow-x:visible}",
       "._2tdzbW{overflow-y:visible}",
     ]
@@ -19,7 +19,7 @@ it('expands overflow as expected', () => {
     expandShorthandProperties('overflow', 'hidden visible', ''),
   );
   expect(expandOverflow('overflow', 'hidden visible').map(printNodes)).toMatchInlineSnapshot(`
-    Array [
+    [
       "._4x3KLH{overflow-x:hidden}",
       "._2tdzbW{overflow-y:visible}",
     ]
@@ -29,7 +29,7 @@ it('expands overflow as expected', () => {
     expandShorthandProperties('overflow', 'unset', ''),
   );
   expect(expandOverflow('overflow', 'unset').map(printNodes)).toMatchInlineSnapshot(`
-    Array [
+    [
       "._385HMz{overflow-x:unset}",
       "._1fxwLm{overflow-y:unset}",
     ]
@@ -40,7 +40,7 @@ it('expands overflow as expected', () => {
     expandShorthandProperties('overflow', 'aaa bbb ccc', ''),
   );
   expect(expandOverflow('overflow', 'aaa bbb ccc').map(printNodes)).toMatchInlineSnapshot(`
-    Array [
+    [
       "._4y1zXJ{overflow-x:aaa bbb ccc}",
       "._3UWS63{overflow-y:aaa bbb ccc}",
     ]

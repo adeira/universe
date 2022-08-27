@@ -9,7 +9,7 @@ it('expands background as expected', () => {
     expandShorthandProperties('background', 'red', ''),
   );
   expect(expandBackground('background', 'red').map(printNodes)).toMatchInlineSnapshot(`
-    Array [
+    [
       "._2rGYXd{background-image:none}",
       ".vSqk6{background-position:0% 0%}",
       "._1m2K58{background-size:auto auto}",
@@ -25,7 +25,7 @@ it('expands background as expected', () => {
     expandShorthandProperties('background', 'none', ''),
   );
   expect(expandBackground('background', 'none').map(printNodes)).toMatchInlineSnapshot(`
-    Array [
+    [
       "._2rGYXd{background-image:none}",
       ".vSqk6{background-position:0% 0%}",
       "._1m2K58{background-size:auto auto}",
@@ -49,8 +49,8 @@ it('ignores more complex background syntaxes', () => {
       printNodes,
     ),
   ).toMatchInlineSnapshot(`
-    Array [
-      "._3yHEnM{background:no-repeat url(\\"../../media/examples/lizard.png\\")}",
+    [
+      "._3yHEnM{background:no-repeat url("../../media/examples/lizard.png")}",
     ]
   `);
 });

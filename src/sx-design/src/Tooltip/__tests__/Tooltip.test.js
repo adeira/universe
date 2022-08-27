@@ -140,7 +140,7 @@ it('throws an error when HTML node with ID #react-portal-root is missing', () =>
       />,
     ),
   ).toThrowErrorMatchingInlineSnapshot(
-    `"Some components require HTML node with ID \\"#sx-design-react-portal-root\\" (none was found). Did you forget to call \\"<SxDesignProvider />\\" somewhere in the application root?"`,
+    `"Some components require HTML node with ID "#sx-design-react-portal-root" (none was found). Did you forget to call "<SxDesignProvider />" somewhere in the application root?"`,
   );
 
   consoleSpy.mockRestore();

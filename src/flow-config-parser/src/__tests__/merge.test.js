@@ -18,8 +18,8 @@ it('merges [ignore] correctly', () => {
 
 
     [ignore]
-    <PROJECT_ROOT>/\\\\.git/.*
-    <PROJECT_ROOT>/\\\\.hg/.*
+    <PROJECT_ROOT>/\\.git/.*
+    <PROJECT_ROOT>/\\.hg/.*
 
     [include]
 

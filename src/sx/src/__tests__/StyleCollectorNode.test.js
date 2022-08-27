@@ -8,12 +8,12 @@ it('works as expected', () => {
   expect(node.getStyleName()).toBe('color');
   expect(node.getStyleValue()).toBe('#f00');
   expect(node.printNodes()).toMatchInlineSnapshot(`
-    Array [
+    [
       "._324Crd{color:#f00}",
     ]
   `);
   expect(node.printNodes({ pseudo: ':hover' })).toMatchInlineSnapshot(`
-    Array [
+    [
       "._324Crd:hover{color:#f00}",
     ]
   `);
@@ -23,7 +23,7 @@ it('works as expected', () => {
       bumpSpecificity: true,
     }),
   ).toMatchInlineSnapshot(`
-    Array [
+    [
       "._324Crd._324Crd:hover{color:#f00}",
     ]
   `);
@@ -34,12 +34,12 @@ it('hashed the transformed values rather than raw input', () => {
   const node2 = new StyleCollectorNode('color', '#f00');
 
   expect(node1.printNodes()).toMatchInlineSnapshot(`
-    Array [
+    [
       "._324Crd{color:#f00}",
     ]
   `);
   expect(node2.printNodes()).toMatchInlineSnapshot(`
-    Array [
+    [
       "._324Crd{color:#f00}",
     ]
   `);
