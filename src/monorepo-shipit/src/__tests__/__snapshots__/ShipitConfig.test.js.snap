@@ -3,15 +3,15 @@
 exports[`creates and runs the default filters 1`] = `
 Changeset {
   "author": "John Doe <john@doe.com>",
-  "coAuthorLines": Array [],
-  "debugMessages": Array [
-    "ADD TRACKING DATA: \\"adeira-source-id: 1234567890\\"",
+  "coAuthorLines": [],
+  "debugMessages": [
+    "ADD TRACKING DATA: "adeira-source-id: 1234567890"",
   ],
   "description": "Test description
 
 adeira-source-id: 1234567890",
   "diffs": Set {
-    Object {
+    {
       "body": "new file mode 100644
 index 0000000000000000000000000000000000000000..1111111111111111111111111111111111111111
 --- /dev/null
@@ -20,7 +20,7 @@ index 0000000000000000000000000000000000000000..11111111111111111111111111111111
 +fake content",
       "path": "/destination_path/fakeFile_1.txt",
     },
-    Object {
+    {
       "body": "new file mode 100644
 index 0000000000000000000000000000000000000000..1111111111111111111111111111111111111111
 --- /dev/null
@@ -39,12 +39,12 @@ index 0000000000000000000000000000000000000000..11111111111111111111111111111111
 exports[`creates and runs the default filters with Co-authored-by 1`] = `
 Changeset {
   "author": "John Doe <john@doe.com>",
-  "coAuthorLines": Array [
+  "coAuthorLines": [
     "Co-authored-by: Trond Bergquist <trond_bergquist@hotmail.com>",
     "Co-authored-by: Patricia Bergquist <patricia_bergquist@hotmail.com>",
   ],
-  "debugMessages": Array [
-    "ADD TRACKING DATA: \\"adeira-source-id: 1234567890\\"",
+  "debugMessages": [
+    "ADD TRACKING DATA: "adeira-source-id: 1234567890"",
   ],
   "description": "Test description
 
@@ -53,7 +53,7 @@ adeira-source-id: 1234567890
 Co-authored-by: Trond Bergquist <trond_bergquist@hotmail.com>
 Co-authored-by: Patricia Bergquist <patricia_bergquist@hotmail.com>",
   "diffs": Set {
-    Object {
+    {
       "body": "new file mode 100644
 index 0000000000000000000000000000000000000000..1111111111111111111111111111111111111111
 --- /dev/null
@@ -62,7 +62,7 @@ index 0000000000000000000000000000000000000000..11111111111111111111111111111111
 +fake content",
       "path": "/destination_path/fakeFile_1.txt",
     },
-    Object {
+    {
       "body": "new file mode 100644
 index 0000000000000000000000000000000000000000..1111111111111111111111111111111111111111
 --- /dev/null

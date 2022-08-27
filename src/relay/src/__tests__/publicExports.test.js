@@ -9,7 +9,7 @@ it('exports only what we want to export', () => {
       return a.localeCompare(b);
     }),
   ).toMatchInlineSnapshot(`
-    Array [
+    [
       "commitLocalUpdate",
       "commitMutation",
       "ConnectionHandler",

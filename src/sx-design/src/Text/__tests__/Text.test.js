@@ -94,7 +94,7 @@ it('prints warning when incorrectly nesting HTML nodes', () => {
 
   expect(getByText('invalid nesting')).toBeInTheDocument();
   expect(capturedConsoleCalls).toMatchInlineSnapshot(`
-    Array [
+    [
       "Warning: validateDOMNesting(...): <p> cannot appear as a descendant of <p>.",
     ]
   `);

@@ -5,9 +5,9 @@ exports[`prints the config correctly 1`] = `
 .+/node_modules/.+
 
 [ignore]
-<PROJECT_ROOT>/\\\\.git/.*
-.+/.+\\\\.gzip\\\\.js
-.+/\\\\.next/.+
+<PROJECT_ROOT>/\\.git/.*
+.+/.+\\.gzip\\.js
+.+/\\.next/.+
 .+/bazel-bin/.+
 .+/bazel-out/.+
 .+/bazel-testlogs/.+

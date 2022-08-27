@@ -31,9 +31,9 @@ it('appends items as expected', () => {
   const renderHookResult = renderSelectedItemsHook();
 
   expect(print(renderHookResult)).toMatchInlineSnapshot(`
-    Object {
+    {
       "selectedItems": Immutable.List [],
-      "stats": Object {
+      "stats": {
         "totalPrice": 0,
         "totalSelectedItems": 0,
       },
@@ -50,18 +50,18 @@ it('appends items as expected', () => {
   });
 
   expect(print(renderHookResult)).toMatchInlineSnapshot(`
-    Object {
+    {
       "selectedItems": Immutable.List [
-        Object {
+        {
           "__compositeID": "i_1",
-          "itemAddons": Array [],
+          "itemAddons": [],
           "itemID": "i_1",
           "itemTitle": "I title 1",
           "itemUnitAmount": 10000,
           "units": 1,
         },
       ],
-      "stats": Object {
+      "stats": {
         "totalPrice": 10000,
         "totalSelectedItems": 1,
       },
@@ -78,26 +78,26 @@ it('appends items as expected', () => {
   });
 
   expect(print(renderHookResult)).toMatchInlineSnapshot(`
-    Object {
+    {
       "selectedItems": Immutable.List [
-        Object {
+        {
           "__compositeID": "i_1",
-          "itemAddons": Array [],
+          "itemAddons": [],
           "itemID": "i_1",
           "itemTitle": "I title 1",
           "itemUnitAmount": 10000,
           "units": 1,
         },
-        Object {
+        {
           "__compositeID": "i_2",
-          "itemAddons": Array [],
+          "itemAddons": [],
           "itemID": "i_2",
           "itemTitle": "I title 2",
           "itemUnitAmount": 10000,
           "units": 1,
         },
       ],
-      "stats": Object {
+      "stats": {
         "totalPrice": 20000,
         "totalSelectedItems": 2,
       },
@@ -114,26 +114,26 @@ it('appends items as expected', () => {
   });
 
   expect(print(renderHookResult)).toMatchInlineSnapshot(`
-    Object {
+    {
       "selectedItems": Immutable.List [
-        Object {
+        {
           "__compositeID": "i_1",
-          "itemAddons": Array [],
+          "itemAddons": [],
           "itemID": "i_1",
           "itemTitle": "I title 1",
           "itemUnitAmount": 10000,
           "units": 2,
         },
-        Object {
+        {
           "__compositeID": "i_2",
-          "itemAddons": Array [],
+          "itemAddons": [],
           "itemID": "i_2",
           "itemTitle": "I title 2",
           "itemUnitAmount": 10000,
           "units": 1,
         },
       ],
-      "stats": Object {
+      "stats": {
         "totalPrice": 30000,
         "totalSelectedItems": 3,
       },
@@ -145,9 +145,9 @@ it('manipulates item counts correctly', () => {
   const renderHookResult = renderSelectedItemsHook();
 
   expect(print(renderHookResult)).toMatchInlineSnapshot(`
-    Object {
+    {
       "selectedItems": Immutable.List [],
-      "stats": Object {
+      "stats": {
         "totalPrice": 0,
         "totalSelectedItems": 0,
       },
@@ -178,26 +178,26 @@ it('manipulates item counts correctly', () => {
   });
 
   expect(print(renderHookResult)).toMatchInlineSnapshot(`
-    Object {
+    {
       "selectedItems": Immutable.List [
-        Object {
+        {
           "__compositeID": "i_1",
-          "itemAddons": Array [],
+          "itemAddons": [],
           "itemID": "i_1",
           "itemTitle": "I title 1",
           "itemUnitAmount": 10000,
           "units": 2,
         },
-        Object {
+        {
           "__compositeID": "i_2",
-          "itemAddons": Array [],
+          "itemAddons": [],
           "itemID": "i_2",
           "itemTitle": "I title 2",
           "itemUnitAmount": 10000,
           "units": 1,
         },
       ],
-      "stats": Object {
+      "stats": {
         "totalPrice": 30000,
         "totalSelectedItems": 3,
       },
@@ -209,26 +209,26 @@ it('manipulates item counts correctly', () => {
     renderHookResult.current.decreaseUnits('i_1');
   });
   expect(print(renderHookResult)).toMatchInlineSnapshot(`
-    Object {
+    {
       "selectedItems": Immutable.List [
-        Object {
+        {
           "__compositeID": "i_1",
-          "itemAddons": Array [],
+          "itemAddons": [],
           "itemID": "i_1",
           "itemTitle": "I title 1",
           "itemUnitAmount": 10000,
           "units": 1,
         },
-        Object {
+        {
           "__compositeID": "i_2",
-          "itemAddons": Array [],
+          "itemAddons": [],
           "itemID": "i_2",
           "itemTitle": "I title 2",
           "itemUnitAmount": 10000,
           "units": 1,
         },
       ],
-      "stats": Object {
+      "stats": {
         "totalPrice": 20000,
         "totalSelectedItems": 2,
       },
@@ -240,18 +240,18 @@ it('manipulates item counts correctly', () => {
     renderHookResult.current.decreaseUnits('i_1');
   });
   expect(print(renderHookResult)).toMatchInlineSnapshot(`
-    Object {
+    {
       "selectedItems": Immutable.List [
-        Object {
+        {
           "__compositeID": "i_2",
-          "itemAddons": Array [],
+          "itemAddons": [],
           "itemID": "i_2",
           "itemTitle": "I title 2",
           "itemUnitAmount": 10000,
           "units": 1,
         },
       ],
-      "stats": Object {
+      "stats": {
         "totalPrice": 10000,
         "totalSelectedItems": 1,
       },
@@ -263,9 +263,9 @@ it('manipulates item counts correctly', () => {
     renderHookResult.current.decreaseUnits('i_2');
   });
   expect(print(renderHookResult)).toMatchInlineSnapshot(`
-    Object {
+    {
       "selectedItems": Immutable.List [],
-      "stats": Object {
+      "stats": {
         "totalPrice": 0,
         "totalSelectedItems": 0,
       },
@@ -277,9 +277,9 @@ it('manipulates item counts correctly', () => {
     renderHookResult.current.decreaseUnits('wtf');
   });
   expect(print(renderHookResult)).toMatchInlineSnapshot(`
-    Object {
+    {
       "selectedItems": Immutable.List [],
-      "stats": Object {
+      "stats": {
         "totalPrice": 0,
         "totalSelectedItems": 0,
       },
@@ -291,9 +291,9 @@ it('preserves order of insertion', () => {
   const renderHookResult = renderSelectedItemsHook();
 
   expect(print(renderHookResult)).toMatchInlineSnapshot(`
-    Object {
+    {
       "selectedItems": Immutable.List [],
-      "stats": Object {
+      "stats": {
         "totalPrice": 0,
         "totalSelectedItems": 0,
       },
@@ -319,26 +319,26 @@ it('preserves order of insertion', () => {
   });
 
   expect(print(renderHookResult)).toMatchInlineSnapshot(`
-    Object {
+    {
       "selectedItems": Immutable.List [
-        Object {
+        {
           "__compositeID": "i_1",
-          "itemAddons": Array [],
+          "itemAddons": [],
           "itemID": "i_1",
           "itemTitle": "I title 1",
           "itemUnitAmount": 10000,
           "units": 1,
         },
-        Object {
+        {
           "__compositeID": "i_2",
-          "itemAddons": Array [],
+          "itemAddons": [],
           "itemID": "i_2",
           "itemTitle": "I title 2",
           "itemUnitAmount": 10000,
           "units": 1,
         },
       ],
-      "stats": Object {
+      "stats": {
         "totalPrice": 20000,
         "totalSelectedItems": 2,
       },
@@ -371,26 +371,26 @@ it('preserves order of insertion', () => {
   });
 
   expect(print(renderHookResult)).toMatchInlineSnapshot(`
-    Object {
+    {
       "selectedItems": Immutable.List [
-        Object {
+        {
           "__compositeID": "i_2",
-          "itemAddons": Array [],
+          "itemAddons": [],
           "itemID": "i_2",
           "itemTitle": "I title 2",
           "itemUnitAmount": 10000,
           "units": 1,
         },
-        Object {
+        {
           "__compositeID": "i_1",
-          "itemAddons": Array [],
+          "itemAddons": [],
           "itemID": "i_1",
           "itemTitle": "I title 1",
           "itemUnitAmount": 10000,
           "units": 1,
         },
       ],
-      "stats": Object {
+      "stats": {
         "totalPrice": 20000,
         "totalSelectedItems": 2,
       },
@@ -402,9 +402,9 @@ it('resets selected items correctly', () => {
   const renderHookResult = renderSelectedItemsHook();
 
   expect(print(renderHookResult)).toMatchInlineSnapshot(`
-    Object {
+    {
       "selectedItems": Immutable.List [],
-      "stats": Object {
+      "stats": {
         "totalPrice": 0,
         "totalSelectedItems": 0,
       },
@@ -430,26 +430,26 @@ it('resets selected items correctly', () => {
   });
 
   expect(print(renderHookResult)).toMatchInlineSnapshot(`
-    Object {
+    {
       "selectedItems": Immutable.List [
-        Object {
+        {
           "__compositeID": "i_1",
-          "itemAddons": Array [],
+          "itemAddons": [],
           "itemID": "i_1",
           "itemTitle": "I title 1",
           "itemUnitAmount": 10000,
           "units": 1,
         },
-        Object {
+        {
           "__compositeID": "i_2",
-          "itemAddons": Array [],
+          "itemAddons": [],
           "itemID": "i_2",
           "itemTitle": "I title 2",
           "itemUnitAmount": 10000,
           "units": 1,
         },
       ],
-      "stats": Object {
+      "stats": {
         "totalPrice": 20000,
         "totalSelectedItems": 2,
       },
@@ -462,9 +462,9 @@ it('resets selected items correctly', () => {
   });
 
   expect(print(renderHookResult)).toMatchInlineSnapshot(`
-    Object {
+    {
       "selectedItems": Immutable.List [],
-      "stats": Object {
+      "stats": {
         "totalPrice": 0,
         "totalSelectedItems": 0,
       },
@@ -476,9 +476,9 @@ it('appends items with addons as expected', () => {
   const renderHookResult = renderSelectedItemsHook();
 
   expect(print(renderHookResult)).toMatchInlineSnapshot(`
-    Object {
+    {
       "selectedItems": Immutable.List [],
-      "stats": Object {
+      "stats": {
         "totalPrice": 0,
         "totalSelectedItems": 0,
       },
@@ -496,18 +496,18 @@ it('appends items with addons as expected', () => {
   });
 
   expect(print(renderHookResult)).toMatchInlineSnapshot(`
-    Object {
+    {
       "selectedItems": Immutable.List [
-        Object {
+        {
           "__compositeID": "i_1",
-          "itemAddons": Array [],
+          "itemAddons": [],
           "itemID": "i_1",
           "itemTitle": "I title 1",
           "itemUnitAmount": 10000,
           "units": 1,
         },
       ],
-      "stats": Object {
+      "stats": {
         "totalPrice": 10000,
         "totalSelectedItems": 1,
       },
@@ -537,25 +537,25 @@ it('appends items with addons as expected', () => {
   });
 
   expect(print(renderHookResult)).toMatchInlineSnapshot(`
-    Object {
+    {
       "selectedItems": Immutable.List [
-        Object {
+        {
           "__compositeID": "i_1",
-          "itemAddons": Array [],
+          "itemAddons": [],
           "itemID": "i_1",
           "itemTitle": "I title 1",
           "itemUnitAmount": 10000,
           "units": 1,
         },
-        Object {
+        {
           "__compositeID": "i_1%i_a_1%i_a_2",
-          "itemAddons": Array [
-            Object {
+          "itemAddons": [
+            {
               "itemAddonExtraPrice": 1000,
               "itemAddonID": "i_a_1",
               "itemAddonTitle": "I addon title 1",
             },
-            Object {
+            {
               "itemAddonExtraPrice": 500,
               "itemAddonID": "i_a_2",
               "itemAddonTitle": "I addon title 2",
@@ -567,7 +567,7 @@ it('appends items with addons as expected', () => {
           "units": 2,
         },
       ],
-      "stats": Object {
+      "stats": {
         "totalPrice": 33000,
         "totalSelectedItems": 3,
       },
@@ -579,9 +579,9 @@ it('appends items with addons with a stable order', () => {
   const renderHookResult = renderSelectedItemsHook();
 
   expect(print(renderHookResult)).toMatchInlineSnapshot(`
-    Object {
+    {
       "selectedItems": Immutable.List [],
-      "stats": Object {
+      "stats": {
         "totalPrice": 0,
         "totalSelectedItems": 0,
       },
@@ -612,17 +612,17 @@ it('appends items with addons with a stable order', () => {
 
   const snapshotA = print(renderHookResult);
   expect(snapshotA).toMatchInlineSnapshot(`
-    Object {
+    {
       "selectedItems": Immutable.List [
-        Object {
+        {
           "__compositeID": "i_1%i_a_1%i_a_2",
-          "itemAddons": Array [
-            Object {
+          "itemAddons": [
+            {
               "itemAddonExtraPrice": 1000,
               "itemAddonID": "i_a_1",
               "itemAddonTitle": "I addon title 1",
             },
-            Object {
+            {
               "itemAddonExtraPrice": 500,
               "itemAddonID": "i_a_2",
               "itemAddonTitle": "I addon title 2",
@@ -634,7 +634,7 @@ it('appends items with addons with a stable order', () => {
           "units": 2,
         },
       ],
-      "stats": Object {
+      "stats": {
         "totalPrice": 23000,
         "totalSelectedItems": 2,
       },
@@ -674,9 +674,9 @@ it('increases item units with addons correctly', () => {
   const renderHookResult = renderSelectedItemsHook();
 
   expect(print(renderHookResult)).toMatchInlineSnapshot(`
-    Object {
+    {
       "selectedItems": Immutable.List [],
-      "stats": Object {
+      "stats": {
         "totalPrice": 0,
         "totalSelectedItems": 0,
       },
@@ -712,25 +712,25 @@ it('increases item units with addons correctly', () => {
   });
 
   expect(print(renderHookResult)).toMatchInlineSnapshot(`
-    Object {
+    {
       "selectedItems": Immutable.List [
-        Object {
+        {
           "__compositeID": "i_1",
-          "itemAddons": Array [],
+          "itemAddons": [],
           "itemID": "i_1",
           "itemTitle": "I title 1",
           "itemUnitAmount": 10000,
           "units": 1,
         },
-        Object {
+        {
           "__compositeID": "i_2%i_a_1%i_a_2",
-          "itemAddons": Array [
-            Object {
+          "itemAddons": [
+            {
               "itemAddonExtraPrice": 1000,
               "itemAddonID": "i_a_1",
               "itemAddonTitle": "I addon title 1",
             },
-            Object {
+            {
               "itemAddonExtraPrice": 800,
               "itemAddonID": "i_a_2",
               "itemAddonTitle": "I addon title 2",
@@ -742,7 +742,7 @@ it('increases item units with addons correctly', () => {
           "units": 2,
         },
       ],
-      "stats": Object {
+      "stats": {
         "totalPrice": 43600,
         "totalSelectedItems": 3,
       },
@@ -754,25 +754,25 @@ it('increases item units with addons correctly', () => {
     renderHookResult.current.increaseUnits('i_1');
   });
   expect(print(renderHookResult)).toMatchInlineSnapshot(`
-    Object {
+    {
       "selectedItems": Immutable.List [
-        Object {
+        {
           "__compositeID": "i_1",
-          "itemAddons": Array [],
+          "itemAddons": [],
           "itemID": "i_1",
           "itemTitle": "I title 1",
           "itemUnitAmount": 10000,
           "units": 2,
         },
-        Object {
+        {
           "__compositeID": "i_2%i_a_1%i_a_2",
-          "itemAddons": Array [
-            Object {
+          "itemAddons": [
+            {
               "itemAddonExtraPrice": 1000,
               "itemAddonID": "i_a_1",
               "itemAddonTitle": "I addon title 1",
             },
-            Object {
+            {
               "itemAddonExtraPrice": 800,
               "itemAddonID": "i_a_2",
               "itemAddonTitle": "I addon title 2",
@@ -784,7 +784,7 @@ it('increases item units with addons correctly', () => {
           "units": 2,
         },
       ],
-      "stats": Object {
+      "stats": {
         "totalPrice": 53600,
         "totalSelectedItems": 4,
       },
@@ -796,25 +796,25 @@ it('increases item units with addons correctly', () => {
     renderHookResult.current.increaseUnits('i_2%i_a_1%i_a_2');
   });
   expect(print(renderHookResult)).toMatchInlineSnapshot(`
-    Object {
+    {
       "selectedItems": Immutable.List [
-        Object {
+        {
           "__compositeID": "i_1",
-          "itemAddons": Array [],
+          "itemAddons": [],
           "itemID": "i_1",
           "itemTitle": "I title 1",
           "itemUnitAmount": 10000,
           "units": 2,
         },
-        Object {
+        {
           "__compositeID": "i_2%i_a_1%i_a_2",
-          "itemAddons": Array [
-            Object {
+          "itemAddons": [
+            {
               "itemAddonExtraPrice": 1000,
               "itemAddonID": "i_a_1",
               "itemAddonTitle": "I addon title 1",
             },
-            Object {
+            {
               "itemAddonExtraPrice": 800,
               "itemAddonID": "i_a_2",
               "itemAddonTitle": "I addon title 2",
@@ -826,7 +826,7 @@ it('increases item units with addons correctly', () => {
           "units": 3,
         },
       ],
-      "stats": Object {
+      "stats": {
         "totalPrice": 70400,
         "totalSelectedItems": 5,
       },

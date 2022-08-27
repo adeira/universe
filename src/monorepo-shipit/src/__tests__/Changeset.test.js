@@ -21,8 +21,8 @@ test('immutability of the changesets', () => {
   // everything in the original changeset should be empty
   expect(originalChangeset).toMatchInlineSnapshot(`
     Changeset {
-      "coAuthorLines": Array [],
-      "debugMessages": Array [],
+      "coAuthorLines": [],
+      "debugMessages": [],
     }
   `);
 
@@ -30,17 +30,17 @@ test('immutability of the changesets', () => {
   expect(modifiedChangeset1).toMatchInlineSnapshot(`
     Changeset {
       "author": "John Doe",
-      "coAuthorLines": Array [],
-      "debugMessages": Array [
+      "coAuthorLines": [],
+      "debugMessages": [
         "DEBUG yadada",
       ],
       "description": "new description",
       "diffs": Set {
-        Object {
+        {
           "body": "AAA",
           "path": "aaa",
         },
-        Object {
+        {
           "body": "BBB",
           "path": "bbb",
         },
@@ -60,14 +60,14 @@ test('immutability of the changesets', () => {
   expect(modifiedChangeset2).toMatchInlineSnapshot(`
     Changeset {
       "author": "John Doe",
-      "coAuthorLines": Array [],
-      "debugMessages": Array [
+      "coAuthorLines": [],
+      "debugMessages": [
         "DEBUG yadada",
         "DEBUG should be appended",
       ],
       "description": "even newer description",
       "diffs": Set {
-        Object {
+        {
           "body": "CCC",
           "path": "ccc",
         },

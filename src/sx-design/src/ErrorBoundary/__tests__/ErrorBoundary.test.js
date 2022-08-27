@@ -71,7 +71,7 @@ it('does not render the error message in production', () => {
   expect(spy.mock.calls[0][0]).toMatchInlineSnapshot(
     /^Error: Uncaught \[Error: yadada]/,
     `
-    Object {
+    {
       "_suppressLogging": true,
     }
   `,

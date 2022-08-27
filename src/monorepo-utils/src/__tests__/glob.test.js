@@ -31,11 +31,11 @@ describe('glob', () => {
       (error, filenames) => {
         expect(error).toBeNull();
         expect(filenames.map((filename) => filename.replace(__dirname, ''))).toMatchInlineSnapshot(`
-        Array [
-          "/fixtures/glob/aaa/file.js",
-          "/fixtures/glob/aaa/subfolder/file.js",
-        ]
-      `);
+          [
+            "/fixtures/glob/aaa/file.js",
+            "/fixtures/glob/aaa/subfolder/file.js",
+          ]
+        `);
         done();
       },
     );
@@ -72,11 +72,11 @@ describe('globSync', () => {
       root: path.join(__dirname, 'fixtures', 'glob', 'aaa'),
     });
     expect(filenames.map((filename) => filename.replace(__dirname, ''))).toMatchInlineSnapshot(`
-        Array [
-          "/fixtures/glob/aaa/file.js",
-          "/fixtures/glob/aaa/subfolder/file.js",
-        ]
-      `);
+      [
+        "/fixtures/glob/aaa/file.js",
+        "/fixtures/glob/aaa/subfolder/file.js",
+      ]
+    `);
   });
 });
 
@@ -103,10 +103,10 @@ describe('globAsync', () => {
       root: path.join(__dirname, 'fixtures', 'glob', 'aaa'),
     });
     expect(filenames.map((filename) => filename.replace(__dirname, ''))).toMatchInlineSnapshot(`
-        Array [
-          "/fixtures/glob/aaa/file.js",
-          "/fixtures/glob/aaa/subfolder/file.js",
-        ]
-      `);
+      [
+        "/fixtures/glob/aaa/file.js",
+        "/fixtures/glob/aaa/subfolder/file.js",
+      ]
+    `);
   });
 });

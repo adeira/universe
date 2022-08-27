@@ -1,24 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Base preset: Base preset 1`] = `
-Object {
-  "globals": Object {
+{
+  "globals": {
     "FormData": "readonly",
     "__DEV__": "readonly",
     "global": "readonly",
     "globalThis": "readonly",
   },
-  "overrides": Array [
-    Object {
-      "files": Array [
+  "overrides": [
+    {
+      "files": [
         "**/__generated__/*.graphql.js",
       ],
-      "rules": Object {
+      "rules": {
         "eslint-comments/no-unlimited-disable": 0,
       },
     },
   ],
-  "plugins": Array [
+  "plugins": [
     "eslint-plugin-import",
     "eslint-plugin-monorepo",
     "eslint-plugin-n",
@@ -28,10 +28,10 @@ Object {
     "eslint-plugin-sx",
     "eslint-plugin-prettier",
   ],
-  "rules": Object {
-    "accessor-pairs": Array [
+  "rules": {
+    "accessor-pairs": [
       1,
-      Object {
+      {
         "setWithoutGet": true,
       },
     ],
@@ -44,9 +44,9 @@ Object {
     "arrow-body-style": 0,
     "block-scoped-var": 0,
     "callback-return": 0,
-    "camelcase": Array [
+    "camelcase": [
       2,
-      Object {
+      {
         "ignoreDestructuring": false,
         "properties": "never",
       },
@@ -54,15 +54,15 @@ Object {
     "capitalized-comments": 0,
     "class-methods-use-this": 0,
     "complexity": 0,
-    "consistent-return": Array [
+    "consistent-return": [
       2,
-      Object {
+      {
         "treatUndefinedAsUnspecified": false,
       },
     ],
     "consistent-this": 0,
     "constructor-super": 2,
-    "curly": Array [
+    "curly": [
       2,
       "all",
     ],
@@ -70,7 +70,7 @@ Object {
     "default-case-last": 2,
     "default-param-last": 2,
     "dot-notation": 2,
-    "eqeqeq": Array [
+    "eqeqeq": [
       2,
       "smart",
     ],
@@ -99,10 +99,10 @@ Object {
     "import/dynamic-import-chunkname": 0,
     "import/export": 2,
     "import/exports-last": 0,
-    "import/extensions": Array [
+    "import/extensions": [
       2,
       "never",
-      Object {
+      {
         "json": "always",
       },
     ],
@@ -115,9 +115,9 @@ Object {
     "import/newline-after-import": 2,
     "import/no-absolute-path": 2,
     "import/no-amd": 2,
-    "import/no-anonymous-default-export": Array [
+    "import/no-anonymous-default-export": [
       2,
-      Object {
+      {
         "allowAnonymousClass": false,
         "allowAnonymousFunction": false,
         "allowArray": true,
@@ -133,10 +133,10 @@ Object {
     "import/no-deprecated": 0,
     "import/no-duplicates": 2,
     "import/no-dynamic-require": 0,
-    "import/no-extraneous-dependencies": Array [
+    "import/no-extraneous-dependencies": [
       2,
-      Object {
-        "devDependencies": Array [
+      {
+        "devDependencies": [
           "**/*.spec.js",
           "**/*.stories.js",
           "**/*.test.js",
@@ -162,10 +162,10 @@ Object {
     "import/no-restricted-paths": 0,
     "import/no-self-import": 2,
     "import/no-unassigned-import": 0,
-    "import/no-unresolved": Array [
+    "import/no-unresolved": [
       2,
-      Object {
-        "ignore": Array [
+      {
+        "ignore": [
           "^__generated__/",
         ],
       },
@@ -173,15 +173,15 @@ Object {
     "import/no-unused-modules": 0,
     "import/no-useless-path-segments": 2,
     "import/no-webpack-loader-syntax": 2,
-    "import/order": Array [
+    "import/order": [
       2,
-      Object {
-        "groups": Array [
-          Array [
+      {
+        "groups": [
+          [
             "builtin",
             "external",
           ],
-          Array [
+          [
             "parent",
             "sibling",
           ],
@@ -194,10 +194,10 @@ Object {
     "import/unambiguous": 0,
     "init-declarations": 0,
     "line-comment-position": 0,
-    "lines-between-class-members": Array [
+    "lines-between-class-members": [
       1,
       "always",
-      Object {
+      {
         "exceptAfterSingleLine": true,
       },
     ],
@@ -214,10 +214,10 @@ Object {
     "multiline-comment-style": 0,
     "n/callback-return": 0,
     "n/exports-style": 0,
-    "n/file-extension-in-import": Array [
+    "n/file-extension-in-import": [
       2,
       "always",
-      Object {
+      {
         ".js": "never",
       },
     ],
@@ -255,9 +255,9 @@ Object {
     "n/prefer-promises/fs": 0,
     "n/process-exit-as-throw": 2,
     "n/shebang": 2,
-    "new-cap": Array [
+    "new-cap": [
       1,
-      Object {
+      {
         "capIsNew": false,
         "newIsCap": true,
       },
@@ -276,9 +276,9 @@ Object {
     "no-console": 2,
     "no-const-assign": 2,
     "no-constant-binary-expression": 1,
-    "no-constant-condition": Array [
+    "no-constant-condition": [
       2,
-      Object {
+      {
         "checkLoops": false,
       },
     ],
@@ -295,9 +295,9 @@ Object {
     "no-duplicate-case": 2,
     "no-duplicate-imports": 0,
     "no-else-return": 2,
-    "no-empty": Array [
+    "no-empty": [
       1,
-      Object {
+      {
         "allowEmptyCatch": true,
       },
     ],
@@ -313,19 +313,19 @@ Object {
     "no-extra-label": 2,
     "no-fallthrough": 2,
     "no-func-assign": 2,
-    "no-global-assign": Array [
+    "no-global-assign": [
       2,
-      Object {
-        "exceptions": Array [
+      {
+        "exceptions": [
           "Map",
           "Set",
         ],
       },
     ],
-    "no-implicit-coercion": Array [
+    "no-implicit-coercion": [
       2,
-      Object {
-        "allow": Array [
+      {
+        "allow": [
           "!!",
         ],
       },
@@ -340,9 +340,9 @@ Object {
     "no-irregular-whitespace": 2,
     "no-iterator": 2,
     "no-label-var": 2,
-    "no-labels": Array [
+    "no-labels": [
       2,
-      Object {
+      {
         "allowLoop": true,
         "allowSwitch": true,
       },
@@ -376,9 +376,9 @@ Object {
     "no-promise-executor-return": 2,
     "no-proto": 2,
     "no-prototype-builtins": 2,
-    "no-redeclare": Array [
+    "no-redeclare": [
       2,
-      Object {
+      {
         "builtinGlobals": true,
       },
     ],
@@ -418,9 +418,9 @@ Object {
     "no-unused-expressions": 0,
     "no-unused-labels": 1,
     "no-unused-private-class-members": 2,
-    "no-unused-vars": Array [
+    "no-unused-vars": [
       2,
-      Object {
+      {
         "args": "after-used",
         "argsIgnorePattern": "^_$",
         "ignoreRestSiblings": true,
@@ -442,18 +442,18 @@ Object {
     "no-warning-comments": 0,
     "no-with": 2,
     "object-shorthand": 0,
-    "one-var": Array [
+    "one-var": [
       1,
-      Object {
+      {
         "initialized": "never",
       },
     ],
     "operator-assignment": 1,
     "padding-line-between-statements": 0,
     "prefer-arrow-callback": 0,
-    "prefer-const": Array [
+    "prefer-const": [
       2,
-      Object {
+      {
         "destructuring": "all",
       },
     ],
@@ -468,9 +468,9 @@ Object {
     "prefer-rest-params": 1,
     "prefer-spread": 1,
     "prefer-template": 2,
-    "prettier/prettier": Array [
+    "prettier/prettier": [
       2,
-      Object {
+      {
         "bracketSpacing": true,
         "printWidth": 100,
         "quoteProps": "consistent",
@@ -502,13 +502,13 @@ Object {
     "sort-imports": 0,
     "sort-keys": 0,
     "sort-vars": 0,
-    "spaced-comment": Array [
+    "spaced-comment": [
       2,
       "always",
-      Object {
-        "block": Object {
+      {
+        "block": {
           "balanced": true,
-          "markers": Array [
+          "markers": [
             ":",
             "::",
           ],
@@ -521,9 +521,9 @@ Object {
     "sx/use-logical-properties": 2,
     "sx/valid-usage": 2,
     "symbol-description": 2,
-    "use-isnan": Array [
+    "use-isnan": [
       2,
-      Object {
+      {
         "enforceForSwitchCase": true,
       },
     ],
@@ -532,10 +532,10 @@ Object {
     "vars-on-top": 2,
     "yoda": 2,
   },
-  "settings": Object {
-    "import/resolver": Object {
-      "node": Object {
-        "extensions": Array [
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
           ".js",
           ".jsx",
           ".android.js",
@@ -550,28 +550,28 @@ Object {
 `;
 
 exports[`FBT preset: FBT preset 1`] = `
-Object {
-  "globals": Object {
+{
+  "globals": {
     "FormData": "readonly",
     "__DEV__": "readonly",
     "global": "readonly",
     "globalThis": "readonly",
   },
-  "overrides": Array [],
-  "plugins": Array [
+  "overrides": [],
+  "plugins": [
     "eslint-plugin-fbt",
     "eslint-plugin-prettier",
   ],
-  "rules": Object {
-    "curly": Array [
+  "rules": {
+    "curly": [
       2,
       "all",
     ],
     "fbt/no-empty-strings": 1,
     "fbt/no-unwrapped-strings": 0,
-    "prettier/prettier": Array [
+    "prettier/prettier": [
       2,
-      Object {
+      {
         "bracketSpacing": true,
         "printWidth": 100,
         "quoteProps": "consistent",
@@ -581,26 +581,26 @@ Object {
       },
     ],
   },
-  "settings": Object {},
+  "settings": {},
 }
 `;
 
 exports[`Flowtype preset: Flowtype preset 1`] = `
-Object {
-  "globals": Object {
+{
+  "globals": {
     "FormData": "readonly",
     "__DEV__": "readonly",
     "global": "readonly",
     "globalThis": "readonly",
   },
-  "overrides": Array [],
-  "plugins": Array [
+  "overrides": [],
+  "plugins": [
     "eslint-plugin-ft-flow",
     "eslint-plugin-fb-flow",
     "eslint-plugin-prettier",
   ],
-  "rules": Object {
-    "curly": Array [
+  "rules": {
+    "curly": [
       2,
       "all",
     ],
@@ -612,7 +612,7 @@ Object {
     "ft-flow/array-style-complex-type": 0,
     "ft-flow/array-style-simple-type": 0,
     "ft-flow/arrow-parens": 0,
-    "ft-flow/boolean-style": Array [
+    "ft-flow/boolean-style": [
       1,
       "boolean",
     ],
@@ -622,7 +622,7 @@ Object {
     "ft-flow/enforce-suppression-code": 2,
     "ft-flow/generic-spacing": 0,
     "ft-flow/interface-id-match": 0,
-    "ft-flow/newline-after-flow-annotation": Array [
+    "ft-flow/newline-after-flow-annotation": [
       2,
       "always",
     ],
@@ -636,15 +636,15 @@ Object {
     "ft-flow/no-mutable-array": 0,
     "ft-flow/no-primitive-constructor-types": 1,
     "ft-flow/no-types-missing-file-annotation": 2,
-    "ft-flow/no-unused-expressions": Array [
+    "ft-flow/no-unused-expressions": [
       2,
-      Object {
+      {
         "allowTaggedTemplates": true,
       },
     ],
-    "ft-flow/no-weak-types": Array [
+    "ft-flow/no-weak-types": [
       2,
-      Object {
+      {
         "Function": true,
         "Object": true,
         "any": false,
@@ -658,15 +658,15 @@ Object {
     "ft-flow/require-indexer-name": 0,
     "ft-flow/require-inexact-type": 0,
     "ft-flow/require-parameter-type": 0,
-    "ft-flow/require-readonly-react-props": Array [
+    "ft-flow/require-readonly-react-props": [
       2,
-      Object {
+      {
         "useImplicitExactTypes": true,
       },
     ],
     "ft-flow/require-return-type": 0,
     "ft-flow/require-types-at-top": 0,
-    "ft-flow/require-valid-file-annotation": Array [
+    "ft-flow/require-valid-file-annotation": [
       2,
       "always",
     ],
@@ -684,9 +684,9 @@ Object {
     "ft-flow/use-flow-type": 0,
     "ft-flow/use-read-only-spread": 2,
     "ft-flow/valid-syntax": 0,
-    "prettier/prettier": Array [
+    "prettier/prettier": [
       2,
-      Object {
+      {
         "bracketSpacing": true,
         "printWidth": 100,
         "quoteProps": "consistent",
@@ -696,34 +696,34 @@ Object {
       },
     ],
   },
-  "settings": Object {},
+  "settings": {},
 }
 `;
 
 exports[`Jest preset: Jest preset 1`] = `
-Object {
-  "globals": Object {
+{
+  "globals": {
     "FormData": "readonly",
     "__DEV__": "readonly",
     "global": "readonly",
     "globalThis": "readonly",
   },
-  "overrides": Array [],
-  "plugins": Array [
+  "overrides": [],
+  "plugins": [
     "eslint-plugin-jest",
     "eslint-plugin-prettier",
   ],
-  "rules": Object {
-    "curly": Array [
+  "rules": {
+    "curly": [
       2,
       "all",
     ],
     "jest/consistent-test-it": 0,
     "jest/expect-expect": 0,
     "jest/max-expects": 0,
-    "jest/max-nested-describe": Array [
+    "jest/max-nested-describe": [
       2,
-      Object {
+      {
         "max": 5,
       },
     ],
@@ -773,9 +773,9 @@ Object {
     "jest/valid-expect": 2,
     "jest/valid-expect-in-promise": 2,
     "jest/valid-title": 2,
-    "prettier/prettier": Array [
+    "prettier/prettier": [
       2,
-      Object {
+      {
         "bracketSpacing": true,
         "printWidth": 100,
         "quoteProps": "consistent",
@@ -785,24 +785,24 @@ Object {
       },
     ],
   },
-  "settings": Object {},
+  "settings": {},
 }
 `;
 
 exports[`Next preset: Next preset 1`] = `
-Object {
-  "globals": Object {
+{
+  "globals": {
     "FormData": "readonly",
     "__DEV__": "readonly",
     "global": "readonly",
     "globalThis": "readonly",
   },
-  "overrides": Array [],
-  "plugins": Array [
+  "overrides": [],
+  "plugins": [
     "@next/eslint-plugin-next",
     "eslint-plugin-prettier",
   ],
-  "rules": Object {
+  "rules": {
     "@next/next/google-font-display": 2,
     "@next/next/google-font-preconnect": 2,
     "@next/next/inline-script-id": 2,
@@ -823,13 +823,13 @@ Object {
     "@next/next/no-title-in-document-head": 2,
     "@next/next/no-typos": 2,
     "@next/next/no-unwanted-polyfillio": 2,
-    "curly": Array [
+    "curly": [
       2,
       "all",
     ],
-    "prettier/prettier": Array [
+    "prettier/prettier": [
       2,
-      Object {
+      {
         "bracketSpacing": true,
         "printWidth": 100,
         "quoteProps": "consistent",
@@ -839,25 +839,25 @@ Object {
       },
     ],
   },
-  "settings": Object {},
+  "settings": {},
 }
 `;
 
 exports[`React preset: React preset 1`] = `
-Object {
-  "globals": Object {
+{
+  "globals": {
     "FormData": "readonly",
     "__DEV__": "readonly",
     "global": "readonly",
     "globalThis": "readonly",
   },
-  "overrides": Array [
-    Object {
-      "files": Array [
+  "overrides": [
+    {
+      "files": [
         "**/__tests__/**/*.[jt]s?(x)",
         "**/?(*.)+(spec|test).[jt]s?(x)",
       ],
-      "rules": Object {
+      "rules": {
         "jest-dom/prefer-checked": 1,
         "jest-dom/prefer-empty": 1,
         "jest-dom/prefer-enabled-disabled": 1,
@@ -877,7 +877,7 @@ Object {
         "testing-library/no-await-sync-query": 2,
         "testing-library/no-container": 0,
         "testing-library/no-debugging-utils": 2,
-        "testing-library/no-dom-import": Array [
+        "testing-library/no-dom-import": [
           2,
           "react",
         ],
@@ -902,7 +902,7 @@ Object {
       },
     },
   ],
-  "plugins": Array [
+  "plugins": [
     "eslint-plugin-react",
     "eslint-plugin-react-hooks",
     "eslint-plugin-react-native",
@@ -911,8 +911,8 @@ Object {
     "eslint-plugin-testing-library",
     "eslint-plugin-prettier",
   ],
-  "rules": Object {
-    "curly": Array [
+  "rules": {
+    "curly": [
       2,
       "all",
     ],
@@ -937,16 +937,16 @@ Object {
     "jsx-a11y/media-has-caption": 0,
     "jsx-a11y/mouse-events-have-key-events": 0,
     "jsx-a11y/no-access-key": 2,
-    "jsx-a11y/no-autofocus": Array [
+    "jsx-a11y/no-autofocus": [
       2,
-      Object {
+      {
         "ignoreNonDOM": true,
       },
     ],
-    "jsx-a11y/no-distracting-elements": Array [
+    "jsx-a11y/no-distracting-elements": [
       2,
-      Object {
-        "elements": Array [
+      {
+        "elements": [
           "marquee",
           "blink",
         ],
@@ -962,9 +962,9 @@ Object {
     "jsx-a11y/role-supports-aria-props": 2,
     "jsx-a11y/scope": 2,
     "jsx-a11y/tabindex-no-positive": 2,
-    "prettier/prettier": Array [
+    "prettier/prettier": [
       2,
-      Object {
+      {
         "bracketSpacing": true,
         "printWidth": 100,
         "quoteProps": "consistent",
@@ -973,9 +973,9 @@ Object {
         "trailingComma": "all",
       },
     ],
-    "react-hooks/exhaustive-deps": Array [
+    "react-hooks/exhaustive-deps": [
       2,
-      Object {
+      {
         "additionalHooks": "useRecoilCallback",
       },
     ],
@@ -988,9 +988,9 @@ Object {
     "react-native/sort-styles": 0,
     "react-native/split-platform-components": 0,
     "react/boolean-prop-naming": 0,
-    "react/button-has-type": Array [
+    "react/button-has-type": [
       2,
-      Object {
+      {
         "button": true,
         "reset": false,
         "submit": true,
@@ -1000,10 +1000,10 @@ Object {
     "react/destructuring-assignment": 0,
     "react/display-name": 0,
     "react/forbid-component-props": 0,
-    "react/forbid-dom-props": Array [
+    "react/forbid-dom-props": [
       2,
-      Object {
-        "forbid": Array [
+      {
+        "forbid": [
           "class",
           "for",
         ],
@@ -1020,18 +1020,18 @@ Object {
     "react/jsx-filename-extension": 0,
     "react/jsx-fragments": 0,
     "react/jsx-handler-names": 0,
-    "react/jsx-key": Array [
+    "react/jsx-key": [
       2,
-      Object {
+      {
         "checkFragmentShorthand": true,
         "checkKeyMustBeforeSpread": true,
         "warnOnDuplicates": true,
       },
     ],
     "react/jsx-max-depth": 0,
-    "react/jsx-no-bind": Array [
+    "react/jsx-no-bind": [
       2,
-      Object {
+      {
         "allowArrowFunctions": true,
         "allowBind": false,
         "allowFunctions": false,
@@ -1068,9 +1068,9 @@ Object {
     "react/no-find-dom-node": 2,
     "react/no-invalid-html-attribute": 2,
     "react/no-is-mounted": 2,
-    "react/no-multi-comp": Array [
+    "react/no-multi-comp": [
       2,
-      Object {
+      {
         "ignoreStateless": true,
       },
     ],
@@ -1084,9 +1084,9 @@ Object {
     "react/no-unescaped-entities": 2,
     "react/no-unknown-property": 2,
     "react/no-unsafe": 0,
-    "react/no-unstable-nested-components": Array [
+    "react/no-unstable-nested-components": [
       2,
-      Object {
+      {
         "allowAsProps": true,
       },
     ],
@@ -1094,7 +1094,7 @@ Object {
     "react/no-unused-prop-types": 0,
     "react/no-unused-state": 0,
     "react/no-will-update-set-state": 0,
-    "react/prefer-es6-class": Array [
+    "react/prefer-es6-class": [
       2,
       "always",
     ],
@@ -1107,11 +1107,11 @@ Object {
     "react/require-optimization": 0,
     "react/require-render-return": 2,
     "react/self-closing-comp": 2,
-    "react/sort-comp": Array [
+    "react/sort-comp": [
       2,
-      Object {
-        "groups": Object {
-          "lifecycle": Array [
+      {
+        "groups": {
+          "lifecycle": [
             "displayName",
             "propTypes",
             "contextTypes",
@@ -1139,12 +1139,12 @@ Object {
             "componentDidCatch",
             "componentWillUnmount",
           ],
-          "rendering": Array [
+          "rendering": [
             "/^render.+$/",
             "render",
           ],
         },
-        "order": Array [
+        "order": [
           "type-annotations",
           "static-variables",
           "static-methods",
@@ -1161,8 +1161,8 @@ Object {
     "react/style-prop-object": 2,
     "react/void-dom-elements-no-children": 2,
   },
-  "settings": Object {
-    "react": Object {
+  "settings": {
+    "react": {
       "version": Any<String>,
     },
   },
@@ -1170,26 +1170,26 @@ Object {
 `;
 
 exports[`Relay preset: Relay preset 1`] = `
-Object {
-  "globals": Object {
+{
+  "globals": {
     "FormData": "readonly",
     "__DEV__": "readonly",
     "global": "readonly",
     "globalThis": "readonly",
   },
-  "overrides": Array [],
-  "plugins": Array [
+  "overrides": [],
+  "plugins": [
     "eslint-plugin-relay",
     "eslint-plugin-prettier",
   ],
-  "rules": Object {
-    "curly": Array [
+  "rules": {
+    "curly": [
       2,
       "all",
     ],
-    "prettier/prettier": Array [
+    "prettier/prettier": [
       2,
-      Object {
+      {
         "bracketSpacing": true,
         "printWidth": 100,
         "quoteProps": "consistent",
@@ -1208,6 +1208,6 @@ Object {
     "relay/no-future-added-value": 2,
     "relay/unused-fields": 2,
   },
-  "settings": Object {},
+  "settings": {},
 }
 `;

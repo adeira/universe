@@ -44,7 +44,7 @@ it('renders basic "FormMultiSelect" input as expected', () => {
   expect(getAllAttributes(getByTestId('multi-select'))).toMatchInlineSnapshot(
     { class: expect.any(String) },
     `
-    Object {
+    {
       "class": Any<String>,
       "data-testid": "multi-select",
       "multiple": "",

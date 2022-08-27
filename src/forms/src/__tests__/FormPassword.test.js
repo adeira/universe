@@ -30,14 +30,14 @@ it('renders basic "FormPassword" input as expected', () => {
   expect(getAllAttributes(getByTestId('password-input'))).toMatchInlineSnapshot(
     { class: expect.any(String) },
     `
-    Object {
+    {
       "class": Any<String>,
       "data-testid": "password-input",
       "name": "password-input-name",
       "type": "password",
       "value": "",
     }
-    `,
+  `,
   );
 });
 
@@ -59,7 +59,7 @@ it('renders complex "FormPassword" input as expected', () => {
   expect(getAllAttributes(getByTestId('password-input'))).toMatchInlineSnapshot(
     { class: expect.any(String) },
     `
-    Object {
+    {
       "class": Any<String>,
       "data-testid": "password-input",
       "name": "password-input-name",

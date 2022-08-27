@@ -13,8 +13,8 @@ it('adds tracking data', () => {
   expect(changeset).toMatchInlineSnapshot(`
     Changeset {
       "author": "John Doe",
-      "coAuthorLines": Array [],
-      "debugMessages": Array [],
+      "coAuthorLines": [],
+      "debugMessages": [],
       "description": "Commit description",
       "id": "MOCK_COMMIT_ID",
       "subject": "Commit subject",
@@ -24,9 +24,9 @@ it('adds tracking data', () => {
   expect(addTrackingData(changeset)).toMatchInlineSnapshot(`
     Changeset {
       "author": "John Doe",
-      "coAuthorLines": Array [],
-      "debugMessages": Array [
-        "ADD TRACKING DATA: \\"adeira-source-id: MOCK_COMMIT_ID\\"",
+      "coAuthorLines": [],
+      "debugMessages": [
+        "ADD TRACKING DATA: "adeira-source-id: MOCK_COMMIT_ID"",
       ],
       "description": "Commit description
 
@@ -51,11 +51,11 @@ it('adds tracking data with Co-authored-by line', () => {
   expect(changeset).toMatchInlineSnapshot(`
     Changeset {
       "author": "John Doe",
-      "coAuthorLines": Array [
+      "coAuthorLines": [
         "Co-authored-by: Trond Bergquist <trond_bergquist@hotmail.com>",
         "Co-authored-by: Patricia Bergquist <patricia_bergquist@hotmail.com>",
       ],
-      "debugMessages": Array [],
+      "debugMessages": [],
       "description": "Commit description",
       "id": "MOCK_COMMIT_ID",
       "subject": "Commit subject",
@@ -65,12 +65,12 @@ it('adds tracking data with Co-authored-by line', () => {
   expect(addTrackingData(changeset)).toMatchInlineSnapshot(`
     Changeset {
       "author": "John Doe",
-      "coAuthorLines": Array [
+      "coAuthorLines": [
         "Co-authored-by: Trond Bergquist <trond_bergquist@hotmail.com>",
         "Co-authored-by: Patricia Bergquist <patricia_bergquist@hotmail.com>",
       ],
-      "debugMessages": Array [
-        "ADD TRACKING DATA: \\"adeira-source-id: MOCK_COMMIT_ID\\"",
+      "debugMessages": [
+        "ADD TRACKING DATA: "adeira-source-id: MOCK_COMMIT_ID"",
       ],
       "description": "Commit description
 
