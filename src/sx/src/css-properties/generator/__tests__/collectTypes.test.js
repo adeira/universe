@@ -31,8 +31,8 @@ it('panics for more complex syntaxes', () => {
   const result = collectTypes('<number-percentage>{1,4} && fill?');
   expect(result).toBeNull();
   expect(consoleSpy.mock.calls).toMatchInlineSnapshot(`
-    Array [
-      Array [
+    [
+      [
         "❌ PANIC 1 (unsupported Group): <number-percentage>{1,4} && fill?",
       ],
     ]

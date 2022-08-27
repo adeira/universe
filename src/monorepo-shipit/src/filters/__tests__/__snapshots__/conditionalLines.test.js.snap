@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`comments lines correctly - no comment end 1`] = `
-Object {
+{
   "input": "index 1fa2ce4..499116a 100644
 --- a/foo
 +++ b/foo
@@ -32,7 +32,7 @@ Object {
 `;
 
 exports[`comments lines correctly - with comment end 1`] = `
-Object {
+{
   "input": "index 5bcc9b1..17467d2 100644
 --- a/foo
 +++ b/foo
@@ -63,7 +63,7 @@ Object {
 `;
 
 exports[`enables and disables lines as needed 1`] = `
-Object {
+{
   "input": "index 1fa2ce4..499116a 100644
 --- a/foo
 +++ b/foo
@@ -90,7 +90,7 @@ Object {
 `;
 
 exports[`works with comments in comments 1`] = `
-Object {
+{
   "input": "index 1fa2ce4..499116a 100644
 --- a/foo
 +++ b/foo

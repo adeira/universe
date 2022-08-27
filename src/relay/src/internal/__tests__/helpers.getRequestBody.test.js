@@ -13,7 +13,7 @@ it('returns request body without uploadables', () => {
       },
       {}, // variables
     ),
-  ).toMatchInlineSnapshot(`"{\\"query\\":\\"{__typename}\\",\\"variables\\":{}}"`);
+  ).toMatchInlineSnapshot(`"{"query":"{__typename}","variables":{}}"`);
 });
 
 it('returns request body without uploadables - persistent queries', () => {
@@ -24,7 +24,7 @@ it('returns request body without uploadables - persistent queries', () => {
       },
       { aaa: 111 }, // variables
     ),
-  ).toMatchInlineSnapshot(`"{\\"documentId\\":\\"1234567890\\",\\"variables\\":{\\"aaa\\":111}}"`);
+  ).toMatchInlineSnapshot(`"{"documentId":"1234567890","variables":{"aaa":111}}"`);
 });
 
 function serializeFormData(formData: FormData) {
@@ -51,11 +51,11 @@ it('returns request body with uploadables', () => {
 
   // $FlowExpectedError[incompatible-call]: Flow knows it could be a string as well but we know it's a FormData type
   expect(serializeFormData(formData)).toMatchInlineSnapshot(`
-Object {
+{
   "bar": File {},
   "foo": File {},
   "query": "{__typename}",
-  "variables": "{\\"bbb\\":222}",
+  "variables": "{"bbb":222}",
 }
 `);
 });
@@ -76,7 +76,7 @@ it('returns request body with uploadables - persistent queries', () => {
 
   // $FlowExpectedError[incompatible-call]: Flow knows it could be a string as well but we know it's a FormData type
   expect(serializeFormData(formData)).toMatchInlineSnapshot(`
-Object {
+{
   "bar": File {},
   "documentId": "1234567890",
   "foo": File {},

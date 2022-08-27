@@ -9,7 +9,7 @@ it('returns minimal valid config correctly', () => {
     path.join(__dirname, 'fixtures', 'configs', 'valid-minimal.js'),
   );
   expect(config).toMatchInlineSnapshot(`
-    Object {
+    {
       "getPathMappings": [Function],
       "getStaticConfig": [Function],
     }
@@ -21,7 +21,7 @@ it('returns minimal valid config correctly', () => {
     }
   `);
   expect(config.getStaticConfig()).toMatchInlineSnapshot(`
-    Object {
+    {
       "repository": "git@github.com/adeira/relay-example.git",
     }
   `);
@@ -32,7 +32,7 @@ it('returns valid config with branches correctly', () => {
     path.join(__dirname, 'fixtures', 'configs', 'valid-branches.js'),
   );
   expect(config).toMatchInlineSnapshot(`
-    Object {
+    {
       "getBranchConfig": [Function],
       "getPathMappings": [Function],
       "getStaticConfig": [Function],
@@ -45,7 +45,7 @@ it('returns valid config with branches correctly', () => {
     }
   `);
   expect(config.getStaticConfig()).toMatchInlineSnapshot(`
-    Object {
+    {
       "repository": "git@github.com/adeira/relay-example.git",
     }
   `);

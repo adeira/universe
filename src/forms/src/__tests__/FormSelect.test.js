@@ -43,7 +43,7 @@ it('renders basic "FormSelect" input as expected', () => {
   expect(getAllAttributes(getByTestId('normal-select'))).toMatchInlineSnapshot(
     { class: expect.any(String) },
     `
-    Object {
+    {
       "class": Any<String>,
       "data-testid": "normal-select",
     }

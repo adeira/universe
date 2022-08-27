@@ -32,14 +32,14 @@ it('renders basic "FormEmail" input as expected', () => {
   expect(getAllAttributes(getByTestId('email-input'))).toMatchInlineSnapshot(
     { class: expect.any(String) },
     `
-    Object {
+    {
       "class": Any<String>,
       "data-testid": "email-input",
       "name": "email-input-name",
       "type": "email",
       "value": "",
     }
-    `,
+  `,
   );
 });
 
@@ -64,7 +64,7 @@ it('renders complex "FormEmail" input as expected', () => {
   expect(getAllAttributes(getByTestId('email-input'))).toMatchInlineSnapshot(
     { class: expect.any(String) },
     `
-    Object {
+    {
       "class": Any<String>,
       "data-testid": "email-input",
       "name": "email-input-name",
