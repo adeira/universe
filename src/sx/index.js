@@ -35,8 +35,7 @@ import StyleCollector from './src/StyleCollector';
  */
 function composeStylesheets(...stylesheets: $ReadOnlyArray<?AllCSSProperties | false>): ?string {
   // Should we support deeply nested styles or leave it like this and overwrite them?
-  // $FlowIssue[not-an-object]: https://github.com/facebook/flow/issues/1414
-  const mergedStylesheet = Object.assign({}, ...stylesheets.filter(isObject));
+  const mergedStylesheet = Object.assign(({}: $FlowFixMe), ...stylesheets.filter(isObject));
   if (Object.keys(mergedStylesheet).length === 0) {
     // happens when composing "nothing" which is a valid input
     return undefined;

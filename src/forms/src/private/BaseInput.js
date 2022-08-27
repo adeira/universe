@@ -14,40 +14,45 @@ type PropsBase = {
   +'required'?: boolean,
 };
 
-type Props =
-  | {
-      // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/text
-      ...PropsBase,
-      +type: 'text',
-      +value: string,
-    }
-  | {
-      // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email
-      ...PropsBase,
-      +type: 'email',
-      +value: string,
-    }
-  | {
-      // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/password
-      ...PropsBase,
-      +type: 'password',
-    }
-  | {
-      // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number
-      ...PropsBase,
-      +type: 'number',
-      +value: number,
-      +min?: number,
-      +max?: number,
-      +step?: number | 'any',
-    }
-  | {
-      // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file
-      ...PropsBase,
-      +type: 'file',
-      +multiple: boolean,
-      +accept: string,
-    };
+// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/text
+type PropsText = $ReadOnly<{
+  ...PropsBase,
+  +type: 'text',
+  +value: string,
+}>;
+
+// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email
+type PropsEmail = $ReadOnly<{
+  ...PropsBase,
+  +type: 'email',
+  +value: string,
+}>;
+
+// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/password
+type PropsPassword = $ReadOnly<{
+  ...PropsBase,
+  +type: 'password',
+}>;
+
+// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number
+type PropsNumber = $ReadOnly<{
+  ...PropsBase,
+  +type: 'number',
+  +value: number,
+  +min?: number,
+  +max?: number,
+  +step?: number | 'any',
+}>;
+
+// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file
+type PropsFile = $ReadOnly<{
+  ...PropsBase,
+  +type: 'file',
+  +multiple: boolean,
+  +accept: string,
+}>;
+
+type Props = PropsText | PropsEmail | PropsPassword | PropsNumber | PropsFile;
 
 /**
  * This is a generic input component with very wide API (similar to https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input).
@@ -81,7 +86,7 @@ export default function BaseInput(props: $ReadOnly<Props>): Node {
 
   // eslint-disable-next-line prefer-object-spread
   const extraConditionalProps = Object.assign(
-    {},
+    ({}: $FlowFixMe),
     props.type === 'number' ? { min: props.min, max: props.max, step: props.step } : {},
     props.type === 'file'
       ? { accept: props.accept, multiple: props.multiple }

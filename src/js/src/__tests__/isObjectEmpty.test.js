@@ -6,7 +6,7 @@ it('is an empty object', () => {
   expect(isObjectEmpty({})).toBe(true);
 });
 
-const obj = {};
+const obj: { test?: string } = {};
 Object.defineProperty(obj, 'test', {
   enumerable: false,
   value: 'test',

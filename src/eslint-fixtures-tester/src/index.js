@@ -7,18 +7,20 @@ import { extract, parse } from 'jest-docblock';
 import { sprintf } from '@adeira/js';
 import type { EslintRule } from '@adeira/flow-types-eslint';
 
-function createErrorObject(pragma: string): {
-  +message?: string,
-  +line?: number,
-  +column?: number,
-  +endLine?: number,
-  +endColumn?: number,
+type ErrorObject = {
+  message?: string,
+  line?: number,
+  column?: number,
+  endLine?: number,
+  endColumn?: number,
   ...
-} {
+};
+
+function createErrorObject(pragma: string): ErrorObject {
   const locations = pragma.match(
     /\((?<line>\d+):(?<column>\d+);(?<endLine>\d+):(?<endColumn>\d+)\)\s+(?<message>.+)/,
   );
-  const error = {};
+  const error: ErrorObject = {};
   error.message = pragma;
   if (locations) {
     const groups = locations.groups;
