@@ -1,6 +1,11 @@
 name: Continuous Integration (Rust)
 
-on: [push]
+on:
+  push:
+    branches-ignore:
+      # We do not run tests on master as the changes were already tested when opening a PR,
+      # and we require every PR to be up-to-date before merging it to master.
+      - master
 
 jobs:
   rust-test:
