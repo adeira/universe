@@ -1,6 +1,6 @@
 // @flow
 
-const { NEXT_VERSION_ERROR, OFF } = require('../constants');
+const { ERROR, OFF } = require('../constants');
 
 /*::
 
@@ -12,7 +12,7 @@ module.exports = ({
   plugins: ['eslint-plugin-fbt'],
   rules: {
     // FBT: https://github.com/alexandernanberg/eslint-plugin-fbt
-    'fbt/no-empty-strings': NEXT_VERSION_ERROR,
+    'fbt/no-empty-strings': ERROR,
     'fbt/no-unwrapped-strings': OFF, // TODO
   },
 } /*: EslintConfig */);

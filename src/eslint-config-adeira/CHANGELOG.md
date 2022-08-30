@@ -10,6 +10,13 @@ The Eslint Config now requires [`hermes-eslint`](https://www.npmjs.com/package/h
 
 Some rules previously showing warnings (or errors in the strict mode) were upgraded to errors:
 
+- `no-constant-binary-expression`
+- `fbt/no-empty-strings`
+- `ft-flow/boolean-style`
+- `jest/no-alias-methods`, `jest/prefer-comparison-matcher`, `jest/prefer-equality-matcher`, `jest/prefer-hooks-in-order`
+- `react/iframe-missing-sandbox`, `react/jsx-no-leaked-render`
+- `jest-dom/prefer-checked`, `jest-dom/prefer-empty`, `jest-dom/prefer-enabled-disabled`, `jest-dom/prefer-focus`, `jest-dom/prefer-in-document`, `jest-dom/prefer-required`, `jest-dom/prefer-to-have-attribute`, `jest-dom/prefer-to-have-class`, `jest-dom/prefer-to-have-style`, `jest-dom/prefer-to-have-text-content`, `jest-dom/prefer-to-have-value`
+- `testing-library/no-global-regexp-flag-in-query`
 - `@next/next/no-assign-module-variable`, `@next/next/no-before-interactive-script-outside-document`, `@next/next/no-head-element`, and `@next/next/no-styled-jsx-in-document`
 
 Additionally:

@@ -1,6 +1,6 @@
 // @flow
 
-const { ERROR, OFF, NEXT_VERSION_ERROR } = require('../constants');
+const { ERROR, OFF } = require('../constants');
 const detectReactVersion = require('../detectReactVersion');
 
 /*::
@@ -39,7 +39,7 @@ module.exports = ({
     'react/forbid-foreign-prop-types': OFF,
     'react/forbid-prop-types': OFF,
     'react/hook-use-state': OFF,
-    'react/iframe-missing-sandbox': NEXT_VERSION_ERROR,
+    'react/iframe-missing-sandbox': ERROR,
     'react/jsx-boolean-value': OFF,
     'react/jsx-curly-brace-presence': OFF,
     'react/jsx-filename-extension': OFF,
@@ -67,7 +67,7 @@ module.exports = ({
     'react/jsx-no-comment-textnodes': ERROR,
     'react/jsx-no-constructed-context-values': ERROR,
     'react/jsx-no-duplicate-props': ERROR,
-    'react/jsx-no-leaked-render': NEXT_VERSION_ERROR,
+    'react/jsx-no-leaked-render': ERROR,
     'react/jsx-no-literals': OFF,
     'react/jsx-no-target-blank': ERROR,
     'react/jsx-no-undef': ERROR,
@@ -231,17 +231,17 @@ module.exports = ({
       files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
       rules: {
         // Testing Library - Jest DOM (https://github.com/testing-library/eslint-plugin-jest-dom)
-        'jest-dom/prefer-checked': NEXT_VERSION_ERROR,
-        'jest-dom/prefer-empty': NEXT_VERSION_ERROR,
-        'jest-dom/prefer-enabled-disabled': NEXT_VERSION_ERROR,
-        'jest-dom/prefer-focus': NEXT_VERSION_ERROR,
-        'jest-dom/prefer-in-document': NEXT_VERSION_ERROR,
-        'jest-dom/prefer-required': NEXT_VERSION_ERROR,
-        'jest-dom/prefer-to-have-attribute': NEXT_VERSION_ERROR,
-        'jest-dom/prefer-to-have-class': NEXT_VERSION_ERROR,
-        'jest-dom/prefer-to-have-style': NEXT_VERSION_ERROR,
-        'jest-dom/prefer-to-have-text-content': NEXT_VERSION_ERROR,
-        'jest-dom/prefer-to-have-value': NEXT_VERSION_ERROR,
+        'jest-dom/prefer-checked': ERROR,
+        'jest-dom/prefer-empty': ERROR,
+        'jest-dom/prefer-enabled-disabled': ERROR,
+        'jest-dom/prefer-focus': ERROR,
+        'jest-dom/prefer-in-document': ERROR,
+        'jest-dom/prefer-required': ERROR,
+        'jest-dom/prefer-to-have-attribute': ERROR,
+        'jest-dom/prefer-to-have-class': ERROR,
+        'jest-dom/prefer-to-have-style': ERROR,
+        'jest-dom/prefer-to-have-text-content': ERROR,
+        'jest-dom/prefer-to-have-value': ERROR,
 
         // Testing Library - React (https://github.com/testing-library/eslint-plugin-testing-library)
         'testing-library/await-async-query': OFF, // TODO: seems to be broken for some `findAllByProps` in our codebase
@@ -253,7 +253,7 @@ module.exports = ({
         'testing-library/no-container': OFF,
         'testing-library/no-debugging-utils': ERROR,
         'testing-library/no-dom-import': [ERROR, 'react'],
-        'testing-library/no-global-regexp-flag-in-query': NEXT_VERSION_ERROR,
+        'testing-library/no-global-regexp-flag-in-query': ERROR,
         'testing-library/no-manual-cleanup': OFF,
         'testing-library/no-node-access': OFF,
         'testing-library/no-promise-in-fire-event': ERROR,
