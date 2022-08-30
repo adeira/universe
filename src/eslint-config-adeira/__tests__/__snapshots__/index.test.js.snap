@@ -418,6 +418,7 @@ exports[`rules snapshot: all stable rules 1`] = `
     "jest/no-test-return-statement": 2,
     "jest/prefer-called-with": 2,
     "jest/prefer-comparison-matcher": 1,
+    "jest/prefer-each": 1,
     "jest/prefer-equality-matcher": 1,
     "jest/prefer-expect-assertions": 0,
     "jest/prefer-expect-resolves": 2,
@@ -1207,8 +1208,10 @@ Snapshot Diff:
 @@ --- --- @@
       "jest/prefer-called-with": 2,
 -     "jest/prefer-comparison-matcher": 1,
+-     "jest/prefer-each": 1,
 -     "jest/prefer-equality-matcher": 1,
 +     "jest/prefer-comparison-matcher": 2,
++     "jest/prefer-each": 2,
 +     "jest/prefer-equality-matcher": 2,
       "jest/prefer-expect-assertions": 0,
       "jest/prefer-expect-resolves": 2,
