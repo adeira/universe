@@ -30,7 +30,6 @@ module.exports = ({
     'jest/no-identical-title': ERROR,
     'jest/no-interpolation-in-snapshots': ERROR,
     'jest/no-jasmine-globals': ERROR,
-    'jest/no-jest-import': ERROR,
     'jest/no-large-snapshots': OFF,
     'jest/no-mocks-import': ERROR,
     'jest/no-restricted-matchers': OFF,
