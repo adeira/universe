@@ -40,6 +40,7 @@ module.exports = ({
     'jest/no-test-return-statement': ERROR,
     'jest/prefer-called-with': ERROR,
     'jest/prefer-comparison-matcher': NEXT_VERSION_ERROR,
+    'jest/prefer-each': NEXT_VERSION_ERROR,
     'jest/prefer-equality-matcher': NEXT_VERSION_ERROR,
     'jest/prefer-expect-assertions': OFF,
     'jest/prefer-expect-resolves': ERROR,

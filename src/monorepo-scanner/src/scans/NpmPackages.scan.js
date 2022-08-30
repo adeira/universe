@@ -14,21 +14,17 @@ for (const workspaceLocation of workspaceLocations) {
 
 const npmPackages = require(path.join(root, 'scripts', 'publishedPackages.json'));
 
-for (const npmPackage of npmPackages) {
-  test(`${npmPackage} exists and has "@babel/runtime" dependency`, () => {
-    const packageJson = workspaceMap.get(npmPackage);
-    // $FlowIssue[incompatible-call]: https://github.com/facebook/flow/issues/3018
-    expect(packageJson !== undefined).toGiveHelp(
-      'You are trying to release a non existing package',
-    );
+test.each(npmPackages)(`"%s" exists and has "@babel/runtime" dependency`, (npmPackage) => {
+  const packageJson = workspaceMap.get(npmPackage);
+  // $FlowIssue[incompatible-call]: https://github.com/facebook/flow/issues/3018
+  expect(packageJson !== undefined).toGiveHelp('You are trying to release a non existing package');
 
-    // Private field should not be defined in public packages:
-    expect(packageJson?.private).toBeUndefined();
+  // Private field should not be defined in public packages:
+  expect(packageJson?.private).toBeUndefined();
 
-    const packageName = packageJson?.name ?? 'unknown';
-    // $FlowIssue[incompatible-call]: https://github.com/facebook/flow/issues/3018
-    expect(packageJson?.dependencies?.['@babel/runtime'] !== undefined).toGiveHelp(
-      `Package '${packageName}' is being transpiled via Babel for NPM and it requires '@babel/runtime' to be in dependencies.`,
-    );
-  });
-}
+  const packageName = packageJson?.name ?? 'unknown';
+  // $FlowIssue[incompatible-call]: https://github.com/facebook/flow/issues/3018
+  expect(packageJson?.dependencies?.['@babel/runtime'] !== undefined).toGiveHelp(
+    `Package '${packageName}' is being transpiled via Babel for NPM and it requires '@babel/runtime' to be in dependencies.`,
+  );
+});
