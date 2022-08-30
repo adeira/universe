@@ -8,6 +8,10 @@ The Eslint Config now requires [`hermes-eslint`](https://www.npmjs.com/package/h
 - `react/jsx-uses-react` turned off (not needed with Hermes)
 - `react/jsx-uses-vars` turned off (not needed with Hermes)
 
+Some rules previously showing warnings (or errors in the strict mode) were upgraded to errors:
+
+- `@next/next/no-assign-module-variable`, `@next/next/no-before-interactive-script-outside-document`, `@next/next/no-head-element`, and `@next/next/no-styled-jsx-in-document`
+
 Additionally:
 
 - New rule [`jest/prefer-each`](https://github.com/jest-community/eslint-plugin-jest/blob/00d632f0ead1be0136314aa022b832cd3410d3da/docs/rules/prefer-each.md) enabled (warnings or errors in strict mode).
