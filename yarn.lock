@@ -120,7 +120,40 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/eslint-config@^8.0.0, @adeira/eslint-config@workspace:src/eslint-config-adeira":
+"@adeira/eslint-config@npm:^7.7.0":
+  version: 7.7.0
+  resolution: "@adeira/eslint-config@npm:7.7.0"
+  dependencies:
+    "@babel/runtime": ^7.18.6
+    "@next/eslint-plugin-next": ^12.2.2
+    eslint-config-prettier: ^8.5.0
+    eslint-plugin-adeira: ^0.15.0
+    eslint-plugin-eslint-comments: ^3.2.0
+    eslint-plugin-fb-flow: ^0.0.4
+    eslint-plugin-fbt: ^0.6.0
+    eslint-plugin-ft-flow: ^2.0.1
+    eslint-plugin-import: ^2.26.0
+    eslint-plugin-jest: ^26.5.3
+    eslint-plugin-jest-dom: ^4.0.2
+    eslint-plugin-jsx-a11y: ^6.6.0
+    eslint-plugin-monorepo: ^0.3.2
+    eslint-plugin-n: ^15.2.4
+    eslint-plugin-prettier: ^4.2.1
+    eslint-plugin-promise: ^6.0.0
+    eslint-plugin-react: ^7.30.1
+    eslint-plugin-react-hooks: ^4.6.0
+    eslint-plugin-react-native: ^4.0.0
+    eslint-plugin-relay: ^1.8.3
+    eslint-plugin-sx: ^0.14.0
+    eslint-plugin-testing-library: ^5.5.1
+    prettier: ^2.7.1
+  peerDependencies:
+    eslint: ">=8.19.0"
+  checksum: a52aeafa75e294c2c7eff815fb260659c567dfa6e4f7388476c8c13af3913a3dc135bb3b675acdafe30e4c9bf04e0835b6b7306f71970222b89eaf70da558abc
+  languageName: node
+  linkType: hard
+
+"@adeira/eslint-config@workspace:src/eslint-config-adeira":
   version: 0.0.0-use.local
   resolution: "@adeira/eslint-config@workspace:src/eslint-config-adeira"
   dependencies:
@@ -2104,7 +2137,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.18.9, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.18.6, @babel/runtime@npm:^7.18.9, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.18.9
   resolution: "@babel/runtime@npm:7.18.9"
   dependencies:
@@ -2742,7 +2775,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/eslint-plugin-next@npm:^12.2.5":
+"@next/eslint-plugin-next@npm:^12.2.2, @next/eslint-plugin-next@npm:^12.2.5":
   version: 12.2.5
   resolution: "@next/eslint-plugin-next@npm:12.2.5"
   dependencies:
@@ -9112,6 +9145,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-plugin-jest@npm:^26.5.3":
+  version: 26.9.0
+  resolution: "eslint-plugin-jest@npm:26.9.0"
+  dependencies:
+    "@typescript-eslint/utils": ^5.10.0
+  peerDependencies:
+    "@typescript-eslint/eslint-plugin": ^5.0.0
+    eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
+  peerDependenciesMeta:
+    "@typescript-eslint/eslint-plugin":
+      optional: true
+    jest:
+      optional: true
+  checksum: 6d5fd5c95368f1ca2640389aeb7ce703d6202493c3ec6bdedb4eaca37233710508b0c75829e727765a16fd27029a466d34202bc7f2811c752038ccbbce224400
+  languageName: node
+  linkType: hard
+
 "eslint-plugin-jest@npm:^27.0.1":
   version: 27.0.1
   resolution: "eslint-plugin-jest@npm:27.0.1"
@@ -9129,7 +9179,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jsx-a11y@npm:^6.6.1":
+"eslint-plugin-jsx-a11y@npm:^6.6.0, eslint-plugin-jsx-a11y@npm:^6.6.1":
   version: 6.6.1
   resolution: "eslint-plugin-jsx-a11y@npm:6.6.1"
   dependencies:
@@ -9167,7 +9217,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-n@npm:^15.2.5":
+"eslint-plugin-n@npm:^15.2.4, eslint-plugin-n@npm:^15.2.5":
   version: 15.2.5
   resolution: "eslint-plugin-n@npm:15.2.5"
   dependencies:
@@ -9200,7 +9250,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-promise@npm:^6.0.1":
+"eslint-plugin-promise@npm:^6.0.0, eslint-plugin-promise@npm:^6.0.1":
   version: 6.0.1
   resolution: "eslint-plugin-promise@npm:6.0.1"
   peerDependencies:
@@ -9237,7 +9287,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react@npm:^7.31.1":
+"eslint-plugin-react@npm:^7.30.1, eslint-plugin-react@npm:^7.31.1":
   version: 7.31.1
   resolution: "eslint-plugin-react@npm:7.31.1"
   dependencies:
@@ -9287,7 +9337,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"eslint-plugin-testing-library@npm:^5.6.0":
+"eslint-plugin-testing-library@npm:^5.5.1, eslint-plugin-testing-library@npm:^5.6.0":
   version: 5.6.0
   resolution: "eslint-plugin-testing-library@npm:5.6.0"
   dependencies:
@@ -16724,7 +16774,7 @@ __metadata:
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
-    "@adeira/eslint-config": ^8.0.0
+    "@adeira/eslint-config": ^7.7.0
     "@adeira/monorepo-utils": ^0.11.0
     "@babel/cli": ^7.18.10
     "@babel/core": ^7.18.13
