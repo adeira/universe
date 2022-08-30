@@ -1,5 +1,7 @@
 # Unreleased
 
+# 8.0.0
+
 The Eslint Config now requires [`hermes-eslint`](https://www.npmjs.com/package/hermes-eslint) as an Eslint parser. Technically, the config works with any other parser (say `@babel/eslint-parser`) as well, however, some rules were adjusted for `hermes-eslint`. Notably:
 
 - `no-undef` was turned off (not needed, especially in combination with Flow - superfluous rule)
