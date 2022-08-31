@@ -178,7 +178,7 @@ __metadata:
     "@sinonjs/fake-timers": ^9.1.2
     cross-fetch: ^3.1.5
     form-data: ^4.0.0
-    msw: ^0.45.0
+    msw: ^0.46.0
   languageName: unknown
   linkType: soft
 
@@ -14055,9 +14055,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"msw@npm:^0.45.0":
-  version: 0.45.0
-  resolution: "msw@npm:0.45.0"
+"msw@npm:^0.46.0":
+  version: 0.46.0
+  resolution: "msw@npm:0.46.0"
   dependencies:
     "@mswjs/cookies": ^0.2.2
     "@mswjs/interceptors": ^0.17.2
@@ -14076,11 +14076,11 @@ __metadata:
     path-to-regexp: ^6.2.0
     statuses: ^2.0.0
     strict-event-emitter: ^0.2.0
-    type-fest: ^1.2.2
+    type-fest: ^2.19.0
     yargs: ^17.3.1
   peerDependencies:
     graphql: ^15.0.0 || ^16.0.0
-    typescript: ">= 4.2.x <= 4.7.x"
+    typescript: ">= 4.2.x <= 4.8.x"
   peerDependenciesMeta:
     graphql:
       optional: true
@@ -14088,7 +14088,7 @@ __metadata:
       optional: true
   bin:
     msw: cli/index.js
-  checksum: a615d77d1c754ffddefc888237d6adcf362c495859b3c6ae43437de88be837ffabb55e11893a4290d304383262e19c80d86b2d33ded123a5bfc5c9e97d8f4884
+  checksum: 722ed4b149ab1b80715803fd7bba24e51a3741f43b223e3ab4421b31a2df258e777175137e63f14853cf5b6f6444c8e709c581c8d9486b30ed03bb5a17dea017
   languageName: node
   linkType: hard
 
@@ -18479,10 +18479,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"type-fest@npm:^1.2.2":
-  version: 1.4.0
-  resolution: "type-fest@npm:1.4.0"
-  checksum: b011c3388665b097ae6a109a437a04d6f61d81b7357f74cbcb02246f2f5bd72b888ae33631b99871388122ba0a87f4ff1c94078e7119ff22c70e52c0ff828201
+"type-fest@npm:^2.19.0":
+  version: 2.19.0
+  resolution: "type-fest@npm:2.19.0"
+  checksum: a4ef07ece297c9fba78fc1bd6d85dff4472fe043ede98bd4710d2615d15776902b595abf62bd78339ed6278f021235fb28a96361f8be86ed754f778973a0d278
   languageName: node
   linkType: hard
 
