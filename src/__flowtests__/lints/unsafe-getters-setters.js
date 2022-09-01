@@ -2,7 +2,7 @@
 
 /* eslint-disable accessor-pairs */
 
-export const o = {
+export const ooo = {
   // $FlowExpectedError[unsafe-getters-setters]
   get a(): number {
     return 4;
@@ -10,7 +10,7 @@ export const o = {
 
   // $FlowExpectedError[unsafe-getters-setters]
   set b(x: number): void {
-    this.c = x;
+    ooo.c = x;
   },
 
   c: 10,
