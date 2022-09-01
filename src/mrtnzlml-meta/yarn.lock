@@ -277,20 +277,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/eslint-parser@npm:^7.18.9":
-  version: 7.18.9
-  resolution: "@babel/eslint-parser@npm:7.18.9"
-  dependencies:
-    eslint-scope: ^5.1.1
-    eslint-visitor-keys: ^2.1.0
-    semver: ^6.3.0
-  peerDependencies:
-    "@babel/core": ">=7.11.0"
-    eslint: ^7.5.0 || ^8.0.0
-  checksum: ddbe0f9425c61a23069280948c0ad9cd4d6d46087cbc6386dd407a3ae6365c62e20f401ea42608aba21fcc2142b8d3d0878eb2f2192a7e5adbe355bdbc215aad
-  languageName: node
-  linkType: hard
-
 "@babel/generator@npm:^7.12.5, @babel/generator@npm:^7.18.6, @babel/generator@npm:^7.18.7":
   version: 7.18.7
   resolution: "@babel/generator@npm:7.18.7"
@@ -5676,7 +5662,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-visitor-keys@npm:^2.0.0, eslint-visitor-keys@npm:^2.1.0":
+"eslint-visitor-keys@npm:^2.0.0":
   version: 2.1.0
   resolution: "eslint-visitor-keys@npm:2.1.0"
   checksum: e3081d7dd2611a35f0388bbdc2f5da60b3a3c5b8b6e928daffff7391146b434d691577aa95064c8b7faad0b8a680266bcda0a42439c18c717b80e6718d7e267d
@@ -6778,6 +6764,33 @@ __metadata:
   bin:
     he: bin/he
   checksum: 3d4d6babccccd79c5c5a3f929a68af33360d6445587d628087f39a965079d84f18ce9c3d3f917ee1e3978916fc833bb8b29377c3b403f919426f91bc6965e7a7
+  languageName: node
+  linkType: hard
+
+"hermes-eslint@npm:^0.9.0":
+  version: 0.9.0
+  resolution: "hermes-eslint@npm:0.9.0"
+  dependencies:
+    esrecurse: ^4.3.0
+    hermes-estree: 0.9.0
+    hermes-parser: 0.9.0
+  checksum: 625521c81c449eee97b7f27f2b61a14d345f1d3327511e226c445ee278ad60af0631c9fdd6a37a4e489487dde6ca174555e5a3b970ecc251a423a93a9ce82e1b
+  languageName: node
+  linkType: hard
+
+"hermes-estree@npm:0.9.0":
+  version: 0.9.0
+  resolution: "hermes-estree@npm:0.9.0"
+  checksum: 8d5e5cc0b81454ba0b7197eeff6708a18eb09e0233123d8b6b9e9e31c9a319620e7ec7d810ae1ff4936c8c6d5b91965e2dc08ad26d3717536226296a3c0fcf1e
+  languageName: node
+  linkType: hard
+
+"hermes-parser@npm:0.9.0":
+  version: 0.9.0
+  resolution: "hermes-parser@npm:0.9.0"
+  dependencies:
+    hermes-estree: 0.9.0
+  checksum: 2b9d6bc48e3e1f118d874f9992d243f8d43769e1aa1fdbdd825d37b24b53e74311b078f3115c54eb9343696de7aef5ebca37d836e464f77f890e5443a7d7b017
   languageName: node
   linkType: hard
 
@@ -8143,10 +8156,10 @@ __metadata:
   resolution: "meta@workspace:."
   dependencies:
     "@adeira/eslint-config": ^8.0.0
-    "@babel/eslint-parser": ^7.18.9
     "@docusaurus/core": ^2.0.1
     "@docusaurus/preset-classic": ^2.0.1
     eslint: ^8.23.0
+    hermes-eslint: ^0.9.0
     react: ^17.0.2
     react-dom: ^17.0.2
   languageName: unknown

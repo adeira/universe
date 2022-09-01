@@ -18,8 +18,8 @@
   },
   "devDependencies": {
     "@adeira/eslint-config": "^8.0.0",
-    "@babel/eslint-parser": "^7.18.9",
-    "eslint": "^8.23.0"
+    "eslint": "^8.23.0",
+    "hermes-eslint": "^0.9.0"
   },
   "browserslist": {
     "production": [

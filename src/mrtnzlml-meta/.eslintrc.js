@@ -1,13 +1,6 @@
 module.exports = {
   root: true,
-  parser: '@babel/eslint-parser',
-  parserOptions: {
-    requireConfigFile: false,
-    ecmaVersion: 2021,
-    ecmaFeatures: {
-      jsx: false,
-    },
-  },
+  parser: 'hermes-eslint',
   env: {
     node: true,
   },
