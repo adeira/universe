@@ -60,7 +60,7 @@ export default function OpenPositionsPageLayout(): React.Node {
             </fbt>
           }
           badges={[
-            <PositionUnavailableBadge key={1} />,
+            <PositionAvailableBadge key={1} />,
             <FullTimeBadge key={2} />,
             <SalaryBadge
               key={3}
