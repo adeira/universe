@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<7d8c8233293f9b262d76640f15c3a87d>>
+ * @generated SignedSource<<81d2961ba0e31e266f9c1989a99556fc>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -13,8 +13,8 @@
 /*::
 import type { ConcreteRequest, Query } from 'relay-runtime';
 type DailyIncomeMeterFragment$fragmentType = any;
-export type IndexPageQuery$variables = {||};
-export type IndexPageQuery$data = {|
+export type AnalyticsDailyReportsQuery$variables = {||};
+export type AnalyticsDailyReportsQuery$data = {|
   +analytics: {|
     +dailyReports: $ReadOnlyArray<{|
       +dateDay: string,
@@ -26,9 +26,9 @@ export type IndexPageQuery$data = {|
     |}>,
   |},
 |};
-export type IndexPageQuery = {|
-  response: IndexPageQuery$data,
-  variables: IndexPageQuery$variables,
+export type AnalyticsDailyReportsQuery = {|
+  response: AnalyticsDailyReportsQuery$data,
+  variables: AnalyticsDailyReportsQuery$variables,
 |};
 */
 
@@ -70,7 +70,7 @@ return {
     "argumentDefinitions": [],
     "kind": "Fragment",
     "metadata": null,
-    "name": "IndexPageQuery",
+    "name": "AnalyticsDailyReportsQuery",
     "selections": [
       {
         "alias": null,
@@ -109,7 +109,7 @@ return {
   "operation": {
     "argumentDefinitions": [],
     "kind": "Operation",
-    "name": "IndexPageQuery",
+    "name": "AnalyticsDailyReportsQuery",
     "selections": [
       {
         "alias": null,
@@ -163,21 +163,21 @@ return {
     ]
   },
   "params": {
-    "cacheID": "91e3332c6fb51370add27a31d4f6ca11",
+    "cacheID": "b1125e547b911af69ba5f9242d84347c",
     "id": null,
     "metadata": {},
-    "name": "IndexPageQuery",
+    "name": "AnalyticsDailyReportsQuery",
     "operationKind": "query",
-    "text": "query IndexPageQuery {\n  analytics {\n    dailyReports {\n      dateDay\n      ...DailyIncomeMeterFragment\n      productsSummary {\n        productName\n        totalUnits\n      }\n    }\n  }\n}\n\nfragment DailyIncomeMeterFragment on AnalyticsDailyReportInfo {\n  total {\n    unitAmount\n    unitAmountCurrency\n  }\n}\n"
+    "text": "query AnalyticsDailyReportsQuery {\n  analytics {\n    dailyReports {\n      dateDay\n      ...DailyIncomeMeterFragment\n      productsSummary {\n        productName\n        totalUnits\n      }\n    }\n  }\n}\n\nfragment DailyIncomeMeterFragment on AnalyticsDailyReportInfo {\n  total {\n    unitAmount\n    unitAmountCurrency\n  }\n}\n"
   }
 };
 })();
 
 if (__DEV__) {
-  (node/*: any*/).hash = "f0747d4b4fbdf60de454e4e3889ba467";
+  (node/*: any*/).hash = "56f00366df78d5b29efd2d50bb916d80";
 }
 
 module.exports = ((node/*: any*/)/*: Query<
-  IndexPageQuery$variables,
-  IndexPageQuery$data,
+  AnalyticsDailyReportsQuery$variables,
+  AnalyticsDailyReportsQuery$data,
 >*/);
