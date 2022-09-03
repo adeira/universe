@@ -11,15 +11,23 @@ pub(in crate::analytics) struct AnalyticsSoldProductInfo {
 }
 
 #[derive(Deserialize, Clone, juniper::GraphQLObject, Debug)]
-pub(in crate::analytics) struct AnalyticsSoldProductQuarterlyInfo {
-    date_quarter: i32, // 1, 2, 3, or 4
-    date_year: i32,    // 2021, 2022, ...
+pub(in crate::analytics) struct AnalyticsSoldProductTimeFrameInfo {
+    time_frame: i32, // 1, 2, 3, … depending on the selected time frame (can represent weeks, months, quarters, …)
+    date_year: i32,  // 2021, 2022, …
     stats: Vec<AnalyticsSoldProductInfo>,
 }
 
 pub enum SortDirection {
     MostToLeast,
     LeastToMost,
+}
+
+#[derive(juniper::GraphQLEnum)]
+pub enum TimeFrame {
+    Year,
+    Quarter,
+    Month,
+    IsoWeek,
 }
 
 #[derive(Deserialize)]
@@ -98,54 +106,36 @@ pub(in crate::analytics) async fn get_redirect_hits(
     .await
 }
 
-/// Returns most or least sold products (all time). By default, limited to 100 first results.
+/// Returns most or least sold products (all time) grouped by the given time frame.
 pub(in crate::analytics) async fn get_sold_product_stats(
     pool: &ConnectionPool,
     sort_direction: &SortDirection,
-) -> anyhow::Result<Vec<AnalyticsSoldProductQuarterlyInfo>> {
+    time_frame: &TimeFrame,
+) -> anyhow::Result<Vec<AnalyticsSoldProductTimeFrameInfo>> {
     let sort_direction = match sort_direction {
         SortDirection::MostToLeast => "DESC",
         SortDirection::LeastToMost => "ASC",
     };
 
+    // See:
+    // https://www.arangodb.com/docs/stable/aql/functions-date.html#date_year
+    // https://www.arangodb.com/docs/stable/aql/functions-date.html#date_quarter
+    // https://www.arangodb.com/docs/stable/aql/functions-date.html#date_month
+    // https://www.arangodb.com/docs/stable/aql/functions-date.html#date_isoweek
+    let time_frame_fn = match time_frame {
+        TimeFrame::Year => "DATE_YEAR",
+        TimeFrame::Quarter => "DATE_QUARTER",
+        TimeFrame::Month => "DATE_MONTH",
+        TimeFrame::IsoWeek => "DATE_ISOWEEK",
+    };
+
     resolve_aql_vector(
         pool,
-        r#"
-            FOR checkout IN pos_checkouts
-              LET date_local = DATE_UTCTOLOCAL(checkout.created_date, "America/Mexico_City")
-
-              COLLECT
-                date_quarter = DATE_QUARTER(date_local),
-                date_year = DATE_YEAR(date_local)
-              INTO all_checkouts_per_quarter = {
-                selected_products: checkout.selected_products
-              }
-
-              SORT date_year DESC, date_quarter DESC
-
-              LET stats = (
-                FOR checkout IN all_checkouts_per_quarter
-                  FOR selected_product IN checkout.selected_products
-                    COLLECT product_id = selected_product.product_id
-                    AGGREGATE product_units = SUM(selected_product.product_units)
-                    INTO product_names = selected_product.product_name
-                    SORT product_units @sort_direction
-                    LIMIT 30
-                    RETURN {
-                      "product_id": product_id,
-                      "product_name": LAST(product_names),
-                      "product_units": product_units
-                    }
-              )
-
-              RETURN {
-                date_quarter,
-                date_year,
-                stats
-              }
-        "#,
+        include_str!("aql/get_sold_product_stats.aql"),
         hashmap_json![
+            "limit" => 40, // TODO: we can eventually expose this via GraphQL
             "sort_direction" => sort_direction,
+            "time_frame_fn" => time_frame_fn,
         ],
     )
     .await
@@ -180,41 +170,7 @@ pub(in crate::analytics) async fn get_daily_reports(
 ) -> anyhow::Result<Vec<AnalyticsDailyReportInfo>> {
     resolve_aql_vector(
         pool,
-        r#"
-            FOR checkout IN pos_checkouts
-              COLLECT date_day = DATE_TRUNC(DATE_UTCTOLOCAL(checkout.created_date, "America/Mexico_City"), "day") INTO bucket
-              SORT date_day DESC
-              LIMIT 30
-              LET products_summary = (
-                FOR checkout IN bucket
-                  FOR selected_product IN checkout.checkout.selected_products
-                    COLLECT product_id = selected_product.product_id
-                    AGGREGATE
-                      total_units = SUM(selected_product.product_units),
-                      total_units_price = SUM(selected_product.product_units * selected_product.product_price_unit_amount)
-                    INTO groups = {
-                      product_name: selected_product.product_name,
-                      product_price_unit_amount: selected_product.product_price_unit_amount,
-                      product_units: selected_product.product_units
-                    }
-                    SORT total_units DESC
-                    RETURN {
-                      "product_id": product_id,
-                      "product_name": LAST(groups[*].product_name),
-                      "unit_price": LAST(groups[*].product_price_unit_amount),
-                      "total_units": total_units,
-                      "total_units_price": total_units_price
-                    }
-              )
-              return {
-                date_day,
-                total: {
-                  unit_amount: SUM(products_summary[*].total_units_price),
-                  unit_amount_currency: "MXN", // TODO
-                },
-                products_summary
-              }
-        "#,
+        include_str!("aql/get_daily_reports.aql"),
         hashmap_json![],
     )
     .await

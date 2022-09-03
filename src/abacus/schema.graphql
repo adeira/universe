@@ -32,12 +32,6 @@ type ProductMultilingualTranslations {
   description: String
 }
 
-type AnalyticsSoldProductQuarterlyInfo {
-  dateQuarter: Int!
-  dateYear: Int!
-  stats: [AnalyticsSoldProductInfo!]!
-}
-
 type Price {
   """
     The unit amount in centavo to be charged, represented as a whole integer.
@@ -309,6 +303,13 @@ input PageVisitInputLocation {
   "https://developer.mozilla.org/en-US/docs/Web/API/Location/hash" hash: String
 }
 
+enum TimeFrame {
+  YEAR
+  QUARTER
+  MONTH
+  ISO_WEEK
+}
+
 type CatsQuery {
   listAllCats(allCatsFilter: AllCatsFilter): [CatInfo!]!
 }
@@ -539,9 +540,23 @@ type AuthMutation {
   deauthorize(sessionToken: String!): DeauthorizePayload!
 }
 
+type AnalyticsSoldProductTimeFrameInfo {
+  timeFrame: Int!
+  dateYear: Int!
+  stats: [AnalyticsSoldProductInfo!]!
+}
+
 type AnalyticsQuery {
-  mostSoldProductsQuarterly: [AnalyticsSoldProductQuarterlyInfo!]!
-  leastSoldProductsQuarterly: [AnalyticsSoldProductQuarterlyInfo!]!
+  """
+    Returns the most sold products in the selected timeframe (per week, month, quarter, …).
+    Check also `leastSoldProducts` query for the least sold products.
+  """
+  mostSoldProducts(timeFrame: TimeFrame!): [AnalyticsSoldProductTimeFrameInfo!]!
+  """
+    Returns the least sold products in the selected timeframe (per week, month, quarter, …).
+    Check also `mostSoldProducts` query for the most sold products.
+  """
+  leastSoldProducts(timeFrame: TimeFrame!): [AnalyticsSoldProductTimeFrameInfo!]!
   redirectHits: [Redirect!]!
   dailyReports: [AnalyticsDailyReportInfo!]!
 }

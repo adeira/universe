@@ -1,0 +1,37 @@
+/// Expected query parameters:
+///
+/// _none_
+///
+FOR checkout IN pos_checkouts
+  COLLECT date_day = DATE_TRUNC(DATE_UTCTOLOCAL(checkout.created_date, "America/Mexico_City"), "day") INTO bucket
+  SORT date_day DESC
+  LIMIT 30
+  LET products_summary = (
+    FOR checkout IN bucket
+      FOR selected_product IN checkout.checkout.selected_products
+        COLLECT product_id = selected_product.product_id
+        AGGREGATE
+          total_units = SUM(selected_product.product_units),
+          total_units_price = SUM(selected_product.product_units * selected_product.product_price_unit_amount)
+        INTO groups = {
+          product_name: selected_product.product_name,
+          product_price_unit_amount: selected_product.product_price_unit_amount,
+          product_units: selected_product.product_units
+        }
+        SORT total_units DESC
+        RETURN {
+          "product_id": product_id,
+          "product_name": LAST(groups[*].product_name),
+          "unit_price": LAST(groups[*].product_price_unit_amount),
+          "total_units": total_units,
+          "total_units_price": total_units_price
+        }
+  )
+  return {
+    date_day,
+    total: {
+      unit_amount: SUM(products_summary[*].total_units_price),
+      unit_amount_currency: "MXN", // TODO
+    },
+    products_summary
+  }

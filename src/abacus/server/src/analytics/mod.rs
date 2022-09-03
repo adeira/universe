@@ -1,6 +1,6 @@
 use crate::analytics::dal::{
     get_daily_reports, get_redirect_hits, get_sold_product_stats, AnalyticsDailyReportInfo,
-    AnalyticsSoldProductQuarterlyInfo, PageVisitInput, Redirect, SortDirection,
+    AnalyticsSoldProductTimeFrameInfo, PageVisitInput, Redirect, SortDirection, TimeFrame,
 };
 use crate::arango::ConnectionPool;
 use crate::auth::rbac;
@@ -18,18 +18,24 @@ pub(crate) struct AnalyticsMutation;
 
 #[juniper::graphql_object(context = Context)]
 impl AnalyticsQuery {
-    async fn most_sold_products_quarterly(
+    /// Returns the most sold products in the selected timeframe (per week, month, quarter, …).
+    /// Check also `leastSoldProducts` query for the least sold products.
+    async fn most_sold_products(
         context: &Context,
-    ) -> AbacusGraphQLResult<Vec<AnalyticsSoldProductQuarterlyInfo>> {
+        time_frame: TimeFrame,
+    ) -> AbacusGraphQLResult<Vec<AnalyticsSoldProductTimeFrameInfo>> {
         rbac::verify_permissions(&context.user, &Analytics(GetCheckoutStats)).await?;
-        Ok(get_sold_product_stats(&context.pool, &SortDirection::MostToLeast).await?)
+        Ok(get_sold_product_stats(&context.pool, &SortDirection::MostToLeast, &time_frame).await?)
     }
 
-    async fn least_sold_products_quarterly(
+    /// Returns the least sold products in the selected timeframe (per week, month, quarter, …).
+    /// Check also `mostSoldProducts` query for the most sold products.
+    async fn least_sold_products(
         context: &Context,
-    ) -> AbacusGraphQLResult<Vec<AnalyticsSoldProductQuarterlyInfo>> {
+        time_frame: TimeFrame,
+    ) -> AbacusGraphQLResult<Vec<AnalyticsSoldProductTimeFrameInfo>> {
         rbac::verify_permissions(&context.user, &Analytics(GetCheckoutStats)).await?;
-        Ok(get_sold_product_stats(&context.pool, &SortDirection::LeastToMost).await?)
+        Ok(get_sold_product_stats(&context.pool, &SortDirection::LeastToMost, &time_frame).await?)
     }
 
     async fn redirect_hits(context: &Context) -> AbacusGraphQLResult<Vec<Redirect>> {
