@@ -1,19 +1,19 @@
 // @flow
 
-import * as React from 'react';
-import { LayoutBlock, Table, Text, DateTime } from '@adeira/sx-design';
+import React, { type Node } from 'react';
 import { graphql, useLazyLoadQuery } from '@adeira/relay';
-import fbt from 'fbt';
 import sx from '@adeira/sx';
+import { DateTime, LayoutBlock, Table, Text } from '@adeira/sx-design';
+import fbt from 'fbt';
 
 import BarChart from '../d3/BarChart';
 import DailyIncomeMeter from './DailyIncomeMeter';
 
-export default function IndexPage(): React.Node {
+export default function AnalyticsDailyReports(): Node {
   // eslint-disable-next-line relay/generated-flow-types -- https://github.com/relayjs/eslint-plugin-relay/issues/131
   const data = useLazyLoadQuery(
     graphql`
-      query IndexPageQuery {
+      query AnalyticsDailyReportsQuery {
         analytics {
           dailyReports {
             dateDay

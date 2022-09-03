@@ -1,14 +1,12 @@
 // @flow
 
-import React, { type Element, type Node } from 'react';
-
-import IndexPageLayout from '../src/index/IndexPageLayout';
-import LayoutApp from '../src/LayoutApp';
+import React, { type Node } from 'react';
+import { fbt } from 'fbt';
 
 export default function IndexPage(): Node {
-  return <IndexPageLayout />;
+  return (
+    <div>
+      <fbt desc="welcome index message">Welcome home!</fbt>
+    </div>
+  );
 }
-
-IndexPage.getLayout = (page: Element<typeof IndexPage>): Element<typeof LayoutApp> => (
-  <LayoutApp>{page}</LayoutApp>
-);

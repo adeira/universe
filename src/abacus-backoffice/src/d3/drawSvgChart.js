@@ -62,7 +62,8 @@ export default function drawSvgChart(
       text
         .filter((d) => {
           // short bars
-          const textLength = text.node().getComputedTextLength();
+          const extraPadding = 100;
+          const textLength = text.node().getComputedTextLength() + extraPadding;
           return x(d.value) - x(0) < textLength;
         })
         .attr('dx', +4)

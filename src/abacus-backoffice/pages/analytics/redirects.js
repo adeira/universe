@@ -2,8 +2,8 @@
 
 import React, { type Element, type Node } from 'react';
 
+import AnalyticsLayout from '../../src/analytics/AnalyticsLayout';
 import AnalyticsRedirectsPageLayout from '../../src/analytics/AnalyticsRedirectsPageLayout';
-import LayoutApp from '../../src/LayoutApp';
 
 export default function AnalyticsRedirectsPage(): Node {
   return <AnalyticsRedirectsPageLayout />;
@@ -11,4 +11,4 @@ export default function AnalyticsRedirectsPage(): Node {
 
 AnalyticsRedirectsPage.getLayout = (
   page: Element<typeof AnalyticsRedirectsPage>,
-): Element<typeof LayoutApp> => <LayoutApp>{page}</LayoutApp>;
+): Element<typeof AnalyticsLayout> => <AnalyticsLayout>{page}</AnalyticsLayout>;

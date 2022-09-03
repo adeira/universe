@@ -2,13 +2,13 @@
 
 import React, { type Element, type Node } from 'react';
 
-import AnalyticsMostSoldProductsPageLayout from '../../src/analytics/AnalyticsMostSoldProductsPageLayout';
-import LayoutApp from '../../src/LayoutApp';
+import AnalyticsLayout from '../../src/analytics/AnalyticsLayout';
+import AnalyticsMostLeastSoldProductsPageLayout from '../../src/analytics/AnalyticsMostLeastSoldProductsPageLayout';
 
 export default function AnalyticsMostSoldProductsPage(): Node {
-  return <AnalyticsMostSoldProductsPageLayout />;
+  return <AnalyticsMostLeastSoldProductsPageLayout />;
 }
 
 AnalyticsMostSoldProductsPage.getLayout = (
   page: Element<typeof AnalyticsMostSoldProductsPage>,
-): Element<typeof LayoutApp> => <LayoutApp>{page}</LayoutApp>;
+): Element<typeof AnalyticsLayout> => <AnalyticsLayout>{page}</AnalyticsLayout>;
