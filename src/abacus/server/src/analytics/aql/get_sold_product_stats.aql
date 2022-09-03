@@ -1,0 +1,38 @@
+/// Expected query parameters:
+///
+/// @limit: {number}
+/// @sort_direction: ASC, DESC
+/// @time_frame_fn: DATE_YEAR, DATE_QUARTER, DATE_MONTH, DATE_ISOWEEK
+///
+FOR checkout IN pos_checkouts
+  LET date_local = DATE_UTCTOLOCAL(checkout.created_date, "America/Mexico_City")
+
+  COLLECT
+    time_frame = CALL(@time_frame_fn, date_local),
+    date_year = DATE_YEAR(date_local)
+  INTO all_checkouts_per_quarter = {
+    selected_products: checkout.selected_products
+  }
+
+  SORT date_year DESC, time_frame DESC
+
+  LET stats = (
+    FOR checkout IN all_checkouts_per_quarter
+      FOR selected_product IN checkout.selected_products
+        COLLECT product_id = selected_product.product_id
+        AGGREGATE product_units = SUM(selected_product.product_units)
+        INTO product_names = selected_product.product_name
+        SORT product_units @sort_direction
+        LIMIT @limit
+        RETURN {
+          "product_id": product_id,
+          "product_name": LAST(product_names),
+          "product_units": product_units
+        }
+  )
+
+  RETURN {
+    time_frame,
+    date_year,
+    stats
+  }
