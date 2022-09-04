@@ -6,7 +6,6 @@ import { useRouter } from 'next/router';
 import React, { type Node } from 'react';
 import { Button } from '@adeira/sx-design';
 
-import CheckoutReceipt from './CheckoutReceipt';
 import useSelectedItemsApi from './recoil/selectedItemsState';
 
 export default function POSCheckoutFailurePageLayout(): Node {
@@ -26,14 +25,9 @@ export default function POSCheckoutFailurePageLayout(): Node {
 
       <div className={styles('help')}>
         <fbt desc="checkout failure help message">
-          What now? Please, write down the checkout items (<strong>
-            what, how many, for how much
-          </strong>) and continue with the sales to make sure customers are happy. Also, please,{' '}
-          <strong>let us know</strong> as soon as possible!
+          The order was <strong>not</strong> recorded!
         </fbt>
       </div>
-
-      <CheckoutReceipt />
 
       <Button onClick={handleStartNewPOSSessionClick}>
         <fbt desc="start a new POS session button">Start a new POS session</fbt>

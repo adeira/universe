@@ -54,6 +54,7 @@ const styles = sx.create({
     backgroundColor: 'rgba(var(--sx-background))',
     paddingBlock: 'var(--sx-spacing-medium)',
     paddingInline: 'var(--sx-spacing-large)',
+    minHeight: '100vh',
   },
   main: {
     width: '100%',

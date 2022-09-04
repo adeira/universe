@@ -1421,27 +1421,6 @@
   },
   {
    "hashToLeaf": {
-    "iCBctDdcz6yDLlNQGi9HBw==": {
-     "text": "Total:",
-     "desc": "total price title"
-    }
-   },
-   "filepath": "src/pos/CheckoutReceipt.js",
-   "line_beg": 87,
-   "col_beg": 12,
-   "line_end": 87,
-   "col_end": 54,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "total price title",
-     "text": "Total:"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
     "lRjlKW0rrAaO8qfcIV8w4w==": {
      "text": "All POS Sessions",
      "desc": "all POS sessions page title"
@@ -1532,9 +1511,9 @@
     }
    },
    "filepath": "src/pos/POSCheckoutFailurePageLayout.js",
-   "line_beg": 24,
+   "line_beg": 23,
    "col_beg": 8,
-   "line_end": 24,
+   "line_end": 23,
    "col_end": 87,
    "project": "",
    "jsfbt": {
@@ -1547,24 +1526,23 @@
   },
   {
    "hashToLeaf": {
-    "s8rtQvFOZDW+FkdYzzzvlw==": {
-     "text": "What now? Please, write down the checkout items ({=what, how many, for how much}) and continue with the sales to make sure customers are happy. Also, please, {=let us know} as soon as possible!",
+    "IuqGA3LU4mcPbzQGJR7NdQ==": {
+     "text": "The order was {=not} recorded!",
      "desc": "checkout failure help message"
     }
    },
    "filepath": "src/pos/POSCheckoutFailurePageLayout.js",
-   "line_beg": 28,
+   "line_beg": 27,
    "col_beg": 8,
-   "line_end": 33,
+   "line_end": 29,
    "col_end": 14,
    "project": "",
    "jsfbt": {
     "t": {
      "desc": "checkout failure help message",
-     "text": "What now? Please, write down the checkout items ({=what, how many, for how much}) and continue with the sales to make sure customers are happy. Also, please, {=let us know} as soon as possible!",
+     "text": "The order was {=not} recorded!",
      "tokenAliases": {
-      "=what, how many, for how much": "=m1",
-      "=let us know": "=m4"
+      "=not": "=m1"
      }
     },
     "m": []
@@ -1572,42 +1550,21 @@
   },
   {
    "hashToLeaf": {
-    "YKp/EkYHblp67+ck1TD68w==": {
-     "text": "what, how many, for how much",
-     "desc": "In the phrase: \"What now? Please, write down the checkout items ({=what, how many, for how much}) and continue with the sales to make sure customers are happy. Also, please, {=let us know} as soon as possible!\""
+    "44HB/mNwydWEQAlLzQ9xMg==": {
+     "text": "not",
+     "desc": "In the phrase: \"The order was {=not} recorded!\""
     }
    },
    "filepath": "src/pos/POSCheckoutFailurePageLayout.js",
-   "line_beg": 29,
-   "col_beg": 59,
-   "line_end": 31,
-   "col_end": 19,
+   "line_beg": 28,
+   "col_beg": 24,
+   "line_end": 28,
+   "col_end": 44,
    "project": "",
    "jsfbt": {
     "t": {
-     "desc": "In the phrase: \"What now? Please, write down the checkout items ({=what, how many, for how much}) and continue with the sales to make sure customers are happy. Also, please, {=let us know} as soon as possible!\"",
-     "text": "what, how many, for how much"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "KWAJuuyMvDgwEBS74Bf14Q==": {
-     "text": "let us know",
-     "desc": "In the phrase: \"What now? Please, write down the checkout items ({=what, how many, for how much}) and continue with the sales to make sure customers are happy. Also, please, {=let us know} as soon as possible!\""
-    }
-   },
-   "filepath": "src/pos/POSCheckoutFailurePageLayout.js",
-   "line_beg": 32,
-   "col_beg": 10,
-   "line_end": 32,
-   "col_end": 38,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "In the phrase: \"What now? Please, write down the checkout items ({=what, how many, for how much}) and continue with the sales to make sure customers are happy. Also, please, {=let us know} as soon as possible!\"",
-     "text": "let us know"
+     "desc": "In the phrase: \"The order was {=not} recorded!\"",
+     "text": "not"
     },
     "m": []
    }
@@ -1620,9 +1577,9 @@
     }
    },
    "filepath": "src/pos/POSCheckoutFailurePageLayout.js",
-   "line_beg": 39,
+   "line_beg": 33,
    "col_beg": 8,
-   "line_end": 39,
+   "line_end": 33,
    "col_end": 80,
    "project": "",
    "jsfbt": {
@@ -1635,37 +1592,16 @@
   },
   {
    "hashToLeaf": {
-    "Uwsynldmzkm43wwA8z+rWQ==": {
-     "text": "Are you sure you want to reset the checkout session and start over? All selected items will be removed.",
-     "desc": "reset checkout session confirmation message"
-    }
-   },
-   "filepath": "src/pos/POSCheckoutPageLayout.js",
-   "line_beg": 77,
-   "col_beg": 8,
-   "line_end": 80,
-   "col_end": 9,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "reset checkout session confirmation message",
-     "text": "Are you sure you want to reset the checkout session and start over? All selected items will be removed."
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
     "jmBOT2K+ZO2hIL+wYQyinw==": {
      "text": "Go back",
      "desc": "go back to POS text"
     }
    },
    "filepath": "src/pos/POSCheckoutPageLayout.js",
-   "line_beg": 92,
-   "col_beg": 35,
-   "line_end": 92,
-   "col_end": 80,
+   "line_beg": 89,
+   "col_beg": 10,
+   "line_end": 89,
+   "col_end": 55,
    "project": "",
    "jsfbt": {
     "t": {
@@ -1677,63 +1613,21 @@
   },
   {
    "hashToLeaf": {
-    "X15wJnkWMiCincs1C+MeFw==": {
-     "text": "Did you receive the money?",
-     "desc": "checkout question before continuing"
+    "blT6alLtQ7Mus3/Axyvv/w==": {
+     "text": "Finish checkout",
+     "desc": "finish checkout button text"
     }
    },
    "filepath": "src/pos/POSCheckoutPageLayout.js",
-   "line_beg": 101,
-   "col_beg": 8,
-   "line_end": 101,
-   "col_end": 88,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "checkout question before continuing",
-     "text": "Did you receive the money?"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "MfLT6Yq4YBMxi+dW96zMNg==": {
-     "text": "Yes, finish checkout",
-     "desc": "process checkout button text"
-    }
-   },
-   "filepath": "src/pos/POSCheckoutPageLayout.js",
-   "line_beg": 106,
+   "line_beg": 98,
    "col_beg": 10,
-   "line_end": 106,
-   "col_end": 77,
+   "line_end": 98,
+   "col_end": 71,
    "project": "",
    "jsfbt": {
     "t": {
-     "desc": "process checkout button text",
-     "text": "Yes, finish checkout"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "P3UvwgozOxL8sg8ODM5D/A==": {
-     "text": "No, start over",
-     "desc": "reset checkout button text"
-    }
-   },
-   "filepath": "src/pos/POSCheckoutPageLayout.js",
-   "line_beg": 109,
-   "col_beg": 10,
-   "line_end": 109,
-   "col_end": 69,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "reset checkout button text",
-     "text": "No, start over"
+     "desc": "finish checkout button text",
+     "text": "Finish checkout"
     },
     "m": []
    }
@@ -2916,21 +2810,21 @@
   },
   {
    "hashToLeaf": {
-    "CgvNdlmJjIJBtaj+j/r6sQ==": {
-     "text": "Welcome home!",
+    "sU7RFZDA/z5GgMJ/Ms0WXg==": {
+     "text": "WIP",
      "desc": "welcome index message"
     }
    },
    "filepath": "pages/index.js",
-   "line_beg": 9,
-   "col_beg": 6,
-   "line_end": 9,
-   "col_end": 59,
+   "line_beg": 14,
+   "col_beg": 8,
+   "line_end": 14,
+   "col_end": 51,
    "project": "",
    "jsfbt": {
     "t": {
      "desc": "welcome index message",
-     "text": "Welcome home!"
+     "text": "WIP"
     },
     "m": []
    }
