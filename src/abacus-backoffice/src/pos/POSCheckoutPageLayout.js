@@ -3,21 +3,25 @@
 import { graphql, useMutation } from '@adeira/relay';
 import sx from '@adeira/sx';
 import Icon from '@adeira/icons';
-import { Button, LayoutInline } from '@adeira/sx-design';
+import { Button, MoneyFn, SupportedCurrencies, Text, Money, LinkButton } from '@adeira/sx-design';
 import { useRouter } from 'next/router';
-import React, { type Node } from 'react';
+import Image from 'next/image';
+import React, { useState, type Node } from 'react';
 import { fbt } from 'fbt';
+import NextLink from 'next/link';
 
-import Link from '../Link';
 import useApplicationLocale from '../useApplicationLocale';
-import CheckoutReceipt from './CheckoutReceipt';
+import MoneyBillSelector from './MoneyBillSelector';
+import MoneyCoinSelector from './MoneyCoinSelector';
 import useSelectedItemsApi, { type AtomItemType } from './recoil/selectedItemsState';
 import type { POSCheckoutPageLayoutMutation } from './__generated__/POSCheckoutPageLayoutMutation.graphql';
 
 export default function POSCheckoutPageLayout(): Node {
+  const [receivedMoney, setReceivedMoney] = useState(0);
   const applicationLocale = useApplicationLocale();
-  const { reset, selectedItems } = useSelectedItemsApi();
+  const { stats, reset, selectedItems } = useSelectedItemsApi();
   const router = useRouter();
+  const { bcp47 } = useApplicationLocale();
 
   const [checkout, isCheckoutPending] = useMutation<POSCheckoutPageLayoutMutation>(graphql`
     mutation POSCheckoutPageLayoutMutation(
@@ -70,77 +74,210 @@ export default function POSCheckoutPageLayout(): Node {
     });
   };
 
-  const handleResetCheckoutClick = () => {
-    if (
-      // eslint-disable-next-line no-alert
-      window.confirm(
-        fbt(
-          'Are you sure you want to reset the checkout session and start over? All selected items will be removed.',
-          'reset checkout session confirmation message',
-        ),
-      )
-    ) {
-      reset();
-      router.push('/pos/session');
-    }
-  };
+  const handleIncrease = (value) => setReceivedMoney((prevValue) => prevValue + value);
+  const handleDecrease = (value) => setReceivedMoney((prevValue) => Math.max(prevValue - value, 0));
 
   return (
     <div className={styles('root')}>
-      <div className={styles('goback')}>
-        <Link href="/pos/session" xstyle={styles.gobackLink}>
-          <Icon name="backward" /> <fbt desc="go back to POS text">Go back</fbt>
-        </Link>
-      </div>
+      <div className={styles('topRow')}>
+        <LinkButton
+          href="/pos/session"
+          tint="secondary"
+          nextLinkComponent={NextLink}
+          prefix={<Icon name="backward" />}
+        >
+          <fbt desc="go back to POS text">Go back</fbt>
+        </LinkButton>
 
-      <div className={styles('checkoutReceipt')}>
-        <CheckoutReceipt disableButtons={true} />
-      </div>
-
-      <div className={styles('question')}>
-        <fbt desc="checkout question before continuing">Did you receive the money?</fbt>
-      </div>
-
-      <LayoutInline>
-        <Button onClick={handleProcessCheckoutClick} isDisabled={isCheckoutPending} tint="default">
-          <fbt desc="process checkout button text">Yes, finish checkout</fbt>
+        <Button
+          onClick={handleProcessCheckoutClick}
+          isDisabled={isCheckoutPending}
+          tint="default"
+          suffix={<Icon name="check" />}
+        >
+          <fbt desc="finish checkout button text">Finish checkout</fbt>
         </Button>
-        <Button onClick={handleResetCheckoutClick} isDisabled={isCheckoutPending} tint="secondary">
-          <fbt desc="reset checkout button text">No, start over</fbt>
-        </Button>
-      </LayoutInline>
+      </div>
+
+      <div className={styles('moneySelector')}>
+        <div className={styles('billSelector')}>
+          <MoneyBillSelector
+            billImage={<Image src="/money/MXN/20.png" width={159} height={86} />}
+            onIncrease={() => handleIncrease(20)}
+            onDecrease={() => handleDecrease(20)}
+          />
+          <MoneyBillSelector
+            billImage={<Image src="/money/MXN/50.png" width={165} height={86} />}
+            onIncrease={() => handleIncrease(50)}
+            onDecrease={() => handleDecrease(50)}
+          />
+          <MoneyBillSelector
+            billImage={<Image src="/money/MXN/100.png" width={174} height={86} />}
+            onIncrease={() => handleIncrease(100)}
+            onDecrease={() => handleDecrease(100)}
+          />
+          <MoneyBillSelector
+            billImage={<Image src="/money/MXN/200.png" width={184} height={86} />}
+            onIncrease={() => handleIncrease(200)}
+            onDecrease={() => handleDecrease(200)}
+          />
+          <MoneyBillSelector
+            billImage={<Image src="/money/MXN/500.png" width={194} height={86} />}
+            onIncrease={() => handleIncrease(500)}
+            onDecrease={() => handleDecrease(500)}
+          />
+          <MoneyBillSelector
+            billImage={<Image src="/money/MXN/1000.png" width={200} height={86} />}
+            onIncrease={() => handleIncrease(1000)}
+            onDecrease={() => handleDecrease(1000)}
+          />
+        </div>
+
+        <div className={styles('coinSelector')}>
+          <MoneyCoinSelector
+            value={MoneyFn({
+              priceUnitAmount: 0.5,
+              priceUnitAmountCurrency: SupportedCurrencies.MXN,
+              locale: bcp47,
+            })}
+            onIncrease={() => handleIncrease(0.5)}
+            onDecrease={() => handleDecrease(0.5)}
+          />
+          <MoneyCoinSelector
+            value={MoneyFn({
+              priceUnitAmount: 1,
+              priceUnitAmountCurrency: SupportedCurrencies.MXN,
+              locale: bcp47,
+            })}
+            onIncrease={() => handleIncrease(1)}
+            onDecrease={() => handleDecrease(1)}
+          />
+          <MoneyCoinSelector
+            value={MoneyFn({
+              priceUnitAmount: 2,
+              priceUnitAmountCurrency: SupportedCurrencies.MXN,
+              locale: bcp47,
+            })}
+            onIncrease={() => handleIncrease(2)}
+            onDecrease={() => handleDecrease(2)}
+          />
+          <MoneyCoinSelector
+            value={MoneyFn({
+              priceUnitAmount: 5,
+              priceUnitAmountCurrency: SupportedCurrencies.MXN,
+              locale: bcp47,
+            })}
+            onIncrease={() => handleIncrease(5)}
+            onDecrease={() => handleDecrease(5)}
+          />
+          <MoneyCoinSelector
+            value={MoneyFn({
+              priceUnitAmount: 10,
+              priceUnitAmountCurrency: SupportedCurrencies.MXN,
+              locale: bcp47,
+            })}
+            onIncrease={() => handleIncrease(10)}
+            onDecrease={() => handleDecrease(10)}
+          />
+        </div>
+
+        <div className={styles('moneySelectorSummary')}>
+          <div>
+            Total:{' '}
+            <Text size={32}>
+              <Money
+                priceUnitAmount={stats.totalPrice / 100} // adjusted for centavo
+                priceUnitAmountCurrency={SupportedCurrencies.MXN} // TODO
+              />
+            </Text>
+          </div>
+          <div>
+            Received:{' '}
+            <Text size={24} weight={200}>
+              <Money
+                priceUnitAmount={receivedMoney}
+                priceUnitAmountCurrency={SupportedCurrencies.MXN} // TODO
+              />
+            </Text>
+          </div>
+          <div>
+            Return:{' '}
+            <Text size={24}>
+              <Money
+                priceUnitAmount={Math.max(receivedMoney - stats.totalPrice / 100, 0)} // adjusted for centavo
+                priceUnitAmountCurrency={SupportedCurrencies.MXN} // TODO
+              />
+            </Text>
+          </div>
+          <div>
+            <div>
+              +10% ={' '}
+              <Money
+                priceUnitAmount={(stats.totalPrice * 0.1 + stats.totalPrice) / 100} // adjusted for centavo
+                priceUnitAmountCurrency={SupportedCurrencies.MXN} // TODO
+              />
+            </div>
+            <div>
+              +15% ={' '}
+              <Money
+                priceUnitAmount={(stats.totalPrice * 0.15 + stats.totalPrice) / 100} // adjusted for centavo
+                priceUnitAmountCurrency={SupportedCurrencies.MXN} // TODO
+              />
+            </div>
+            <div>
+              +20% ={' '}
+              <Money
+                priceUnitAmount={(stats.totalPrice * 0.2 + stats.totalPrice) / 100} // adjusted for centavo
+                priceUnitAmountCurrency={SupportedCurrencies.MXN} // TODO
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
 
 const styles = sx.create({
   root: {
-    color: 'white',
-    backgroundColor: 'rgba(var(--sx-success-light))',
-    height: '100vh',
-    textAlign: 'center',
+    '--sx-money-text-color': 'white',
+    'color': 'white',
+    'backgroundColor': 'rgba(var(--sx-success-light))',
+    'height': '100vh',
+    'display': 'flex',
+    'flexDirection': 'column',
+    'alignItems': 'start',
+    'justifyContent': 'space-between',
+    'padding': 50,
+  },
+  topRow: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+  },
+  moneySelector: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    width: '100%',
+  },
+  billSelector: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
+    gap: 5,
   },
-  goback: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
+  coinSelector: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: 5,
   },
-  gobackLink: {
-    fontSize: '2rem',
-    margin: '1rem',
-    color: 'white',
-  },
-  checkoutReceipt: {
-    width: 400,
-    backgroundColor: 'rgba(var(--sx-background))',
-    color: 'rgba(var(--sx-foreground))',
-  },
-  question: {
-    fontSize: '2rem',
-    marginBlock: '2rem',
+  moneySelectorSummary: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 20,
   },
 });

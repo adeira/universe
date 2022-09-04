@@ -2,21 +2,17 @@
 
 import Icon from '@adeira/icons';
 import sx from '@adeira/sx';
-import { Button, LayoutInline, Money, MoneyFn, Text, SupportedCurrencies } from '@adeira/sx-design';
+import { Button, LayoutInline, Money, Text, SupportedCurrencies } from '@adeira/sx-design';
 import React, { type Node } from 'react';
-import fbt from 'fbt';
 
-import useApplicationLocale from '../useApplicationLocale';
 import useSelectedItemsApi from './recoil/selectedItemsState';
 
 type Props = {
   +disableButtons?: boolean,
-  +disableTotal?: boolean,
 };
 
 export default function CheckoutReceipt(props: Props): Node {
-  const { stats, selectedItems, increaseUnits, decreaseUnits } = useSelectedItemsApi();
-  const { bcp47 } = useApplicationLocale();
+  const { selectedItems, increaseUnits, decreaseUnits } = useSelectedItemsApi();
 
   return (
     <div className={styles('summary')}>
@@ -80,21 +76,6 @@ export default function CheckoutReceipt(props: Props): Node {
           </div>
         );
       })}
-
-      {!props.disableTotal && (
-        <div className={styles('summaryRowTotal')}>
-          <div>
-            <fbt desc="total price title">Total:</fbt>
-          </div>
-          <div>
-            {MoneyFn({
-              priceUnitAmount: stats.totalPrice / 100, // adjusted for centavo
-              priceUnitAmountCurrency: SupportedCurrencies.MXN, // TODO
-              locale: bcp47,
-            })}
-          </div>
-        </div>
-      )}
     </div>
   );
 }

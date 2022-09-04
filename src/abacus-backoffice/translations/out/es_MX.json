@@ -69,21 +69,16 @@
         "_1": "There is {count} order which has to be fulfilled. Don't let the customer waiting!"
       }
     },
-    "3E6cUK": "Total:",
     "38ByvQ": "All POS Sessions",
     "DyKOs": "Here you can find all active POS sessions.",
     "3TM5a5": "Mexico City",
     "2zLAiM": "Abrir sesión de TPV",
     "4iTy9t": "Oh no! Something is broken. 🤨",
-    "3P7uMS": "What now? Please, write down the checkout items ({=m1}) and continue with the sales to make sure customers are happy. Also, please, {=m4} as soon as possible!",
-    "4ddioV": "what, how many, for how much",
-    "2jFJMo": "let us know",
+    "3dEwLV": "The order was {=m1} recorded!",
+    "2Q27wp": "not",
     "35IWq0": "Iniciar una nueva sesión de TPV",
-    "3wjiUv": "¿Está seguro de que desea restablecer la sesión de compra y comenzar de nuevo? Todos los elementos seleccionados serán eliminados.",
     "33X2yh": "Go back",
-    "EkfPW": "¿Recibiste el dinero?",
-    "34YNRd": "Sí, finalizar la compra",
-    "3HZJvH": "No, empezar de nuevo",
+    "3Gjreg": "Finish checkout",
     "1hoQT7": "Well done! 👍",
     "2Acnym": "¡Ahora puedes volver atrás y servir a otro cliente!",
     "2QnCvw": "There are no products yet.",
@@ -138,6 +133,6 @@
     "5Kp3k": "Products inventory",
     "4jOEjB": "All products available across all our services are here.",
     "TeM0w": "Crear un nuevo producto",
-    "4gmL3N": "Welcome home!"
+    "4jmrqq": "WIP"
   }
 }
