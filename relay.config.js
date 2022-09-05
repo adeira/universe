@@ -40,6 +40,9 @@ module.exports = {
       featureFlags: {
         no_inline: { kind: 'enabled' },
       },
+      flowTypegen: {
+        no_future_proof_enums: false, // enable to remove "%future added value" from enum types
+      },
       ...abacusPersistConfig,
     },
   },
