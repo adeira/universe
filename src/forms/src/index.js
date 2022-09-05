@@ -1,5 +1,9 @@
 // @flow
 
+// TODO: newly exporting these components
+export { default as BaseInput } from './private/BaseInput';
+
+// TODO: remove these components (use individual design systems)
 export { default as FormEmail } from './FormEmail';
 export { default as FormErrorMessages } from './FormErrorMessages';
 export { default as FormMultiSelect } from './FormMultiSelect';

@@ -16,7 +16,6 @@ type Props = {
   +disableSemanticLabel?: boolean,
 };
 
-// TODO: remove this one
 export default function BaseInputWrapper(props: Props): Node {
   const input = (
     <>

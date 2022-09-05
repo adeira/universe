@@ -1,9 +1,7 @@
 // @flow
 
-import sx from '@adeira/sx';
-import { useRef, type Node, useContext } from 'react';
+import { useRef, useEffect, useContext, type Node } from 'react';
 
-import BaseInputWrapper from './BaseInputWrapper';
 import FormRootContext from '../FormRootContext';
 import useFormFieldState from './useFormFieldState';
 
@@ -93,38 +91,27 @@ export default function BaseInput(props: $ReadOnly<Props>): Node {
       : { value: inputValue },
   );
 
+  // TODO:
+  useEffect(() => {
+    if (hasError === true) {
+      props.onDisplayValidationError(inputErrors.validationError);
+    } else {
+      props.onHideValidationError(inputErrors.validationError);
+    }
+  }, [hasError]);
+
   return (
-    <BaseInputWrapper
-      label={props.label}
+    <input
+      data-testid={props['data-testid']}
+      className={props.className}
+      ref={inputRef}
+      type={props.type}
+      name={props.name}
+      onChange={handleOnChange}
+      onFocus={props.onFocus}
+      onBlur={props.onBlur}
       required={props.required}
-      hasValidationError={hasError}
-      validationError={inputErrors.validationError}
-    >
-      <input
-        data-testid={props['data-testid']}
-        className={styles({
-          input: true,
-          inputError: hasError,
-        })}
-        ref={inputRef}
-        type={props.type}
-        name={props.name}
-        onChange={handleOnChange}
-        required={props.required}
-        {...extraConditionalProps}
-      />
-    </BaseInputWrapper>
+      {...extraConditionalProps}
+    />
   );
 }
-
-const styles = sx.create({
-  input: {
-    width: '100%',
-    border: '2px solid rgba(var(--sx-accent-2))',
-    borderRadius: 5,
-    padding: '8px 12px',
-  },
-  inputError: {
-    border: '2px solid rgba(var(--sx-error))',
-  },
-});

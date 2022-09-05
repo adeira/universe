@@ -402,6 +402,7 @@ __metadata:
   resolution: "@adeira/sx-design-wlcm@workspace:src/sx-design-wlcm"
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
+    "@adeira/forms": ^0.4.0
     "@adeira/sx-design-headless": ^0.2.1
     "@babel/runtime": ^7.20.6
     "@storybook/addon-a11y": ^6.5.13
