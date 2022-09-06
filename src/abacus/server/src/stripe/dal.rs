@@ -1,6 +1,16 @@
 use crate::arango::{resolve_aql, ConnectionPool, Document};
 use crate::stripe::webhook::StripeWebhookPayload;
 
+/// Records the complete Stripe webhook payload.
+///
+/// If a document with the specified `_key` value exists already, nothing will be done and no write
+/// operation will be carried out. The insert operation will return success in this case.
+///
+/// `RETURN NEW` will only return the document in case it was inserted. In case the document already
+/// existed, `RETURN NEW` will return `null`.
+///
+/// The aforementioned behavior is important in case Stripe sends the same event with the same event
+/// ID twice (it happened before).
 pub(crate) async fn record_webhook_call(
     pool: &ConnectionPool,
     stripe_webhook_payload: &StripeWebhookPayload,
@@ -15,7 +25,7 @@ pub(crate) async fn record_webhook_call(
               created: @webhook_created,
               type: @webhook_type,
               data: @webhook_data,
-            } INTO webhook_events_stripe
+            } INTO webhook_events_stripe OPTIONS { overwriteMode: "ignore" }
             RETURN NEW
         "#,
         hashmap_json![
