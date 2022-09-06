@@ -11,12 +11,14 @@ pub enum CheckoutSessionMode {
     Payment,
 }
 
-/// Technically, there are other checkout methof types but we support only "card" at the moment.
-/// TODO: OXXO
+/// Technically, there are other checkout method types but we support only "card" and "oxxo"
+/// at the moment.
 #[derive(Clone, Debug, Deserialize, Serialize)]
 pub enum CheckoutSessionPaymentMethodTypes {
     #[serde(rename = "card")]
     Card,
+    #[serde(rename = "oxxo")]
+    Oxxo,
 }
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
@@ -157,5 +159,29 @@ impl CheckoutSession {
     /// The URL to the Checkout Session. Users should be redirected here so they can pay the order.
     fn payment_url(&self) -> Option<String> {
         self.url.to_owned()
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::stripe::webhook::{StripeWebhookPayload, StripeWebhookType};
+
+    #[test]
+    fn test_checkout_session_parsing_1() {
+        let stripe_webhook_payload = serde_json::from_str::<StripeWebhookPayload>(include_str!(
+            "test_fixtures/checkout__session__completed__1.json"
+        ))
+        .unwrap();
+
+        assert!(matches!(
+            stripe_webhook_payload.r#type,
+            StripeWebhookType::CheckoutSessionCompleted { .. }
+        ));
+
+        assert_eq!(
+            serde_json::from_value::<CheckoutSession>(stripe_webhook_payload.data.object).is_ok(),
+            true
+        );
     }
 }

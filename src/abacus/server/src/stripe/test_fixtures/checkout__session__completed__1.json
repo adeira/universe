@@ -1,0 +1,87 @@
+{
+  "id": "evt_REDACTED",
+  "object": "event",
+  "api_version": "2020-08-27",
+  "created": 1662484036,
+  "data": {
+    "object": {
+      "id": "cs_live_REDACTED",
+      "object": "checkout.session",
+      "after_expiration": null,
+      "allow_promotion_codes": false,
+      "amount_subtotal": 10000,
+      "amount_total": 10000,
+      "automatic_tax": {
+        "enabled": false,
+        "status": null
+      },
+      "billing_address_collection": "auto",
+      "cancel_url": "https://stripe.com",
+      "client_reference_id": null,
+      "consent": null,
+      "consent_collection": null,
+      "currency": "mxn",
+      "customer": "cus_REDACTED",
+      "customer_creation": "always",
+      "customer_details": {
+        "address": {
+          "city": null,
+          "country": "MX",
+          "line1": null,
+          "line2": null,
+          "postal_code": null,
+          "state": null
+        },
+        "email": "REDACTED",
+        "name": "REDACTED",
+        "phone": null,
+        "tax_exempt": "none",
+        "tax_ids": []
+      },
+      "customer_email": null,
+      "expires_at": 1662570353,
+      "livemode": true,
+      "locale": "auto",
+      "metadata": {},
+      "mode": "payment",
+      "payment_intent": "pi_REDACTED",
+      "payment_link": "plink_REDACTED",
+      "payment_method_collection": "always",
+      "payment_method_options": {
+        "card": {
+          "installments": {
+            "enabled": false
+          }
+        }
+      },
+      "payment_method_types": ["card", "oxxo"],
+      "payment_status": "paid",
+      "phone_number_collection": {
+        "enabled": false
+      },
+      "recovered_from": null,
+      "setup_intent": null,
+      "shipping": null,
+      "shipping_address_collection": null,
+      "shipping_options": [],
+      "shipping_rate": null,
+      "status": "complete",
+      "submit_type": "auto",
+      "subscription": null,
+      "success_url": "https://stripe.com",
+      "total_details": {
+        "amount_discount": 0,
+        "amount_shipping": 0,
+        "amount_tax": 0
+      },
+      "url": null
+    }
+  },
+  "livemode": true,
+  "pending_webhooks": 1,
+  "request": {
+    "id": null,
+    "idempotency_key": null
+  },
+  "type": "checkout.session.completed"
+}
