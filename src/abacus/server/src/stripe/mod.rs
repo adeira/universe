@@ -19,6 +19,9 @@ pub mod dal;
 pub mod webhook;
 pub mod webhook_handlers;
 
+#[cfg(test)]
+mod tests;
+
 #[derive(Debug, Clone)]
 pub struct StripeCheckoutSessionCreateProductInput {
     pub(crate) product_name: String,

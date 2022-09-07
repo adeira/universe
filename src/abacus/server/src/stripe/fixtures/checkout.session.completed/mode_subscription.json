@@ -36,23 +36,19 @@
         "name": "REDACTED",
         "phone": null,
         "tax_exempt": "none",
-        "tax_ids": [
-        ]
+        "tax_ids": []
       },
       "customer_email": null,
       "expires_at": 1662590250,
       "livemode": true,
       "locale": "auto",
-      "metadata": {
-      },
+      "metadata": {},
       "mode": "subscription",
       "payment_intent": null,
       "payment_link": "plink_REDACTED",
       "payment_method_collection": "always",
       "payment_method_options": null,
-      "payment_method_types": [
-        "card"
-      ],
+      "payment_method_types": ["card"],
       "payment_status": "paid",
       "phone_number_collection": {
         "enabled": false
@@ -61,8 +57,7 @@
       "setup_intent": null,
       "shipping": null,
       "shipping_address_collection": null,
-      "shipping_options": [
-      ],
+      "shipping_options": [],
       "shipping_rate": null,
       "status": "complete",
       "submit_type": "auto",
