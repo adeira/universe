@@ -87,18 +87,63 @@ pub enum StripeWebhookType {
     CustomerSubscriptionUpdated,
     #[serde(rename = "customer.updated")]
     CustomerUpdated,
+
+    /// Occurs whenever a new invoice is created.
     #[serde(rename = "invoice.created")]
     InvoiceCreated,
+
+    /// Occurs whenever a draft invoice is deleted.
+    #[serde(rename = "invoice.deleted")]
+    InvoiceDeleted,
+
+    /// Occurs whenever a draft invoice cannot be finalized.
+    #[serde(rename = "invoice.finalization_failed")]
+    InvoiceFinalizationFailed,
+
+    /// Occurs whenever a draft invoice is finalized and updated to be an open invoice.
     #[serde(rename = "invoice.finalized")]
     InvoiceFinalized,
+
+    /// Occurs whenever an invoice is marked uncollectible.
+    #[serde(rename = "invoice.marked_uncollectible")]
+    InvoiceMarkedUncollectible,
+
+    /// Occurs whenever an invoice payment attempt succeeds or an invoice is marked as paid
+    /// out-of-band.
+    #[serde(rename = "invoice.paid")]
+    InvoicePaid,
+
+    /// Occurs whenever an invoice payment attempt requires further user action to complete.
     #[serde(rename = "invoice.payment_action_required")]
     InvoicePaymentActionRequired,
+
+    /// Occurs whenever an invoice payment attempt fails, due either to a declined payment or to
+    /// the lack of a stored payment method.
     #[serde(rename = "invoice.payment_failed")]
     InvoicePaymentFailed,
+
+    /// Occurs whenever an invoice payment attempt succeeds.
     #[serde(rename = "invoice.payment_succeeded")]
     InvoicePaymentSucceeded,
+
+    /// Occurs whenever an invoice email is sent out.
+    #[serde(rename = "invoice.sent")]
+    InvoiceSent,
+
+    /// Occurs X number of days before a subscription is scheduled to create an invoice that is
+    /// automatically charged—where X is determined by your subscriptions settings. Note: The
+    /// received `Invoice` object will not have an invoice ID.
+    #[serde(rename = "invoice.upcoming")]
+    InvoiceUpcoming,
+
+    /// Occurs whenever an invoice changes (e.g., the invoice amount).
     #[serde(rename = "invoice.updated")]
     InvoiceUpdated,
+
+    /// Occurs whenever an invoice is voided.
+    #[serde(rename = "invoice.voided")]
+    InvoiceVoided,
+
     #[serde(rename = "issuing_authorization.request")]
     IssuingAuthorizationRequest,
     #[serde(rename = "issuing_card.created")]
