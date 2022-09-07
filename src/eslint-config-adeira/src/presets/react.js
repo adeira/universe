@@ -100,7 +100,17 @@ module.exports = ({
     'react/no-this-in-sfc': ERROR,
     'react/no-typos': OFF,
     'react/no-unescaped-entities': ERROR,
-    'react/no-unknown-property': ERROR,
+    'react/no-unknown-property': [
+      ERROR,
+      {
+        ignore: [
+          // To support `<style global jsx>` from Next.js
+          // See: https://nextjs.org/docs/basic-features/built-in-css-support#css-in-js
+          'jsx',
+          'global',
+        ],
+      },
+    ],
     'react/no-unsafe': OFF,
     'react/no-unstable-nested-components': [ERROR, { allowAsProps: true }],
     'react/no-unused-class-component-methods': ERROR,
