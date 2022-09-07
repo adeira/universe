@@ -3,12 +3,20 @@ use crate::stripe::supported_currencies::StripeSupportedCurrency;
 use crate::stripe::supported_locales::StripeSupportedLocales;
 use serde::{Deserialize, Serialize};
 
-/// Technically, there are other checkout modes but we support only "payment".
+/// See: https://stripe.com/docs/api/checkout/sessions/object#checkout_session_object-mode
 #[derive(Copy, Clone, Debug, Deserialize, Serialize, Eq, PartialEq)]
 pub enum CheckoutSessionMode {
-    // Accept one-time payments for cards, iDEAL, and more.
+    /// Accept one-time payments for cards, iDEAL, and more.
     #[serde(rename = "payment")]
     Payment,
+
+    /// Save payment details to charge your customers later.
+    #[serde(rename = "setup")]
+    Setup,
+
+    /// Use Stripe Billing to set up fixed-price subscriptions.
+    #[serde(rename = "subscription")]
+    Subscription,
 }
 
 /// Technically, there are other checkout method types but we support only "card" and "oxxo"
@@ -56,6 +64,7 @@ pub struct CheckoutSessionItem {
     pub quantity: i32,
 }
 
+/// See: https://stripe.com/docs/api/checkout/sessions/object
 #[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct CheckoutSession {
     /// Unique identifier for the checkout session.
@@ -167,20 +176,40 @@ mod tests {
     use super::*;
     use crate::stripe::webhook::{StripeWebhookPayload, StripeWebhookType};
 
+    // Tests parsing of webhook event type `checkout.session.completed` in "payment" mode.
     #[test]
-    fn test_checkout_session_parsing_1() {
-        let stripe_webhook_payload = serde_json::from_str::<StripeWebhookPayload>(include_str!(
-            "test_fixtures/checkout__session__completed__1.json"
+    fn test_checkout_session_parsing_mode_payment() {
+        let webhook_payload = serde_json::from_str::<StripeWebhookPayload>(include_str!(
+            "test_fixtures/checkout_session_completed_mode_payment.json"
         ))
         .unwrap();
 
         assert!(matches!(
-            stripe_webhook_payload.r#type,
+            webhook_payload.r#type,
             StripeWebhookType::CheckoutSessionCompleted { .. }
         ));
 
         assert_eq!(
-            serde_json::from_value::<CheckoutSession>(stripe_webhook_payload.data.object).is_ok(),
+            serde_json::from_value::<CheckoutSession>(webhook_payload.data.object).is_ok(),
+            true
+        );
+    }
+
+    // Tests parsing of webhook event type `checkout.session.completed` in "subscription" mode.
+    #[test]
+    fn test_checkout_session_completed_mode_subscription() {
+        let webhook_payload = serde_json::from_str::<StripeWebhookPayload>(include_str!(
+            "test_fixtures/checkout_session_completed_mode_subscription.json"
+        ))
+        .unwrap();
+
+        assert!(matches!(
+            webhook_payload.r#type,
+            StripeWebhookType::CheckoutSessionCompleted { .. }
+        ));
+
+        assert_eq!(
+            serde_json::from_value::<CheckoutSession>(webhook_payload.data.object).is_ok(),
             true
         );
     }
