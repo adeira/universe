@@ -8,7 +8,8 @@ const ERROR = 2;
 
 module.exports = {
   rules: {
-    // we are having here fixtures with invalid SX definitions on purpose
+    // We are having here fixtures with invalid SX definitions (and other Eslint rules) on purpose:
     'sx/no-unused-stylesheet': OFF,
+    'react/no-unknown-property': OFF,
   },
 };
