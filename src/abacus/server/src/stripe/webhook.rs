@@ -150,6 +150,12 @@ pub enum StripeWebhookType {
     IssuingCardCreated,
     #[serde(rename = "issuing_cardholder.created")]
     IssuingCardholderCreated,
+
+    /// Occurs when a PaymentIntent has funds to be captured. Check the `amount_capturable` property
+    /// on the PaymentIntent to determine the amount that can be captured. You may capture the
+    /// PaymentIntent with an `amount_to_capture` value up to the specified amount.
+    ///
+    /// More info: https://stripe.com/docs/api/payment_intents/capture
     #[serde(rename = "payment_intent.amount_capturable_updated")]
     PaymentIntentAmountCapturableUpdated,
 
@@ -161,9 +167,22 @@ pub enum StripeWebhookType {
     #[serde(rename = "payment_intent.created")]
     PaymentIntentCreated,
 
+    /// Occurs when funds are applied to a `customer_balance` PaymentIntent and the
+    /// `amount_remaining` changes.
+    #[serde(rename = "payment_intent.partially_funded")]
+    PaymentIntentPartiallyFunded,
+
     /// Occurs when a PaymentIntent has failed the attempt to create a payment method or a payment.
     #[serde(rename = "payment_intent.payment_failed")]
     PaymentIntentPaymentFailed,
+
+    /// Occurs when a PaymentIntent has started processing.
+    #[serde(rename = "payment_intent.processing")]
+    PaymentIntentProcessing,
+
+    /// Occurs when a PaymentIntent transitions to requires_action state.
+    #[serde(rename = "payment_intent.requires_action")]
+    PaymentIntentRequiresAction,
 
     /// Occurs when a PaymentIntent has successfully completed payment.
     #[serde(rename = "payment_intent.succeeded")]
