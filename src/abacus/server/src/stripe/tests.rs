@@ -50,3 +50,16 @@ fn test_invoice_paid() {
         StripeWebhookType::InvoicePaid { .. }
     ));
 }
+
+#[test]
+fn test_payment_intent_requires_action() {
+    let webhook_payload = serde_json::from_str::<StripeWebhookPayload>(include_str!(
+        "fixtures/payment_intent.requires_action.json"
+    ))
+    .unwrap();
+
+    assert!(matches!(
+        webhook_payload.r#type,
+        StripeWebhookType::PaymentIntentRequiresAction { .. }
+    ));
+}
