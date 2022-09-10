@@ -108,7 +108,7 @@ fn create_stripe_api_client(stripe_restricted_api_key: &str) -> anyhow::Result<C
     // https://stripe.com/docs/api/versioning
     headers.insert(
         "Stripe-Version",
-        header::HeaderValue::from_static("2020-08-27"),
+        header::HeaderValue::from_static("2022-08-01"),
     );
 
     // https://stripe.com/docs/api/authentication
