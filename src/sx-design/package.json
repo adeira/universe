@@ -19,7 +19,7 @@
     "@adeira/js": "^2.1.1",
     "@adeira/sx-design-headless": "^0.2.1",
     "@babel/runtime": "^7.19.0",
-    "blurhash": "^1.1.5",
+    "blurhash": "^2.0.0",
     "fbt": "^1.0.0",
     "flow-enums-runtime": "^0.0.6",
     "focus-trap-react": "^10.0.0",
