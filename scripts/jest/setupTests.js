@@ -16,6 +16,9 @@ type MaybeSpy =
   | { ... };
 
 const isSpy = (spy: MaybeSpy): boolean %checks => {
+  /* $FlowFixMe[incompatible-use] This comment suppresses an error when
+   * upgrading Flow to version 0.187.0. To see the error delete this comment
+   * and run Flow. */
   return spy.calls != null && typeof spy.calls.count === 'function';
 };
 
