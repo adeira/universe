@@ -14,6 +14,7 @@ const abacusPersistConfig /*: $FlowFixMe */ =
       }
     : {};
 
+// See: https://github.com/facebook/relay/tree/main/packages/relay-compiler#configuration
 module.exports = {
   root: '.',
   sources: {
@@ -41,7 +42,15 @@ module.exports = {
         no_inline: { kind: 'enabled' },
       },
       flowTypegen: {
-        no_future_proof_enums: false, // enable to remove "%future added value" from enum types
+        // Enable to remove "%future added value" from enum types (not recommended):
+        no_future_proof_enums: false,
+      },
+      schemaConfig: {
+        // Name of the globally unique ID field on the `Node` interface.
+        nodeInterfaceIdField: 'id',
+        // Restricts the type of all fields named `id` to `ID`.
+        // Learn why: https://github.com/facebook/relay/commit/d0a39283d45854922119b779c4ac7014fd402d20
+        nonNodeIdFields: {},
       },
       ...abacusPersistConfig,
     },

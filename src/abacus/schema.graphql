@@ -472,7 +472,7 @@ type AuthQuery {
 }
 
 type AnyUser {
-  id: String!
+  id: ID!
   isActive: Boolean!
   "Name is a full name of the user (\"John Doe\")."
   name: String
