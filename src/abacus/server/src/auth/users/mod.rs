@@ -27,8 +27,8 @@ pub struct AnyUser {
 
 #[juniper::graphql_object]
 impl AnyUser {
-    pub(crate) fn id(&self) -> String {
-        self._id.to_owned()
+    pub(crate) fn id(&self) -> juniper::ID {
+        juniper::ID::from(self._id.to_owned())
     }
 
     pub(crate) fn is_active(&self) -> bool {
