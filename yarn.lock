@@ -50,7 +50,7 @@ __metadata:
   dependencies:
     "@babel/core": ^7.19.1
     "@babel/preset-flow": ^7.18.6
-    "@markdoc/markdoc": ^0.1.7
+    "@markdoc/markdoc": ^0.1.8
     "@markdoc/next.js": ^0.1.7
     "@playwright/test": ^1.25.2
     js-yaml: ^4.1.0
@@ -2593,10 +2593,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@markdoc/markdoc@npm:^0.1.7":
-  version: 0.1.7
-  resolution: "@markdoc/markdoc@npm:0.1.7"
-  checksum: 802a76a6171791e58b72fb92f4f869348ced18a45f159174d9bc0db1cd1041e077ed34b7328c266d2ea94834e27e540b69534e0267396390e2e1cd8f10769322
+"@markdoc/markdoc@npm:^0.1.8":
+  version: 0.1.8
+  resolution: "@markdoc/markdoc@npm:0.1.8"
+  dependencies:
+    "@types/markdown-it": "*"
+    "@types/react": "*"
+  checksum: 07e47c29906339c5b3a62021497b60b8e626a6563fb7d6ad2f24081d0a4895e0e04722f1b793d844e03bbf7066cb64fe49db84c0483a953e7061d4469a97d355
   languageName: node
   linkType: hard
 
@@ -4855,10 +4858,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/linkify-it@npm:*":
+  version: 3.0.2
+  resolution: "@types/linkify-it@npm:3.0.2"
+  checksum: dff8f10fafb885422474e456596f12d518ec4cdd6c33cca7a08e7c86b912d301ed91cf5a7613e148c45a12600dc9ab3d85ad16d5b48dc1aaeda151a68f16b536
+  languageName: node
+  linkType: hard
+
 "@types/lodash@npm:^4.14.167":
   version: 4.14.182
   resolution: "@types/lodash@npm:4.14.182"
   checksum: 7dd137aa9dbabd632408bd37009d984655164fa1ecc3f2b6eb94afe35bf0a5852cbab6183148d883e9c73a958b7fec9a9bcf7c8e45d41195add6a18c34958209
+  languageName: node
+  linkType: hard
+
+"@types/markdown-it@npm:*":
+  version: 12.2.3
+  resolution: "@types/markdown-it@npm:12.2.3"
+  dependencies:
+    "@types/linkify-it": "*"
+    "@types/mdurl": "*"
+  checksum: 868824a3e4d00718ba9cd4762cf16694762a670860f4b402e6e9f952b6841a2027488bdc55d05c2b960bf5078df21a9d041270af7e8949514645fe88fdb722ac
   languageName: node
   linkType: hard
 
@@ -4868,6 +4888,13 @@ __metadata:
   dependencies:
     "@types/unist": "*"
   checksum: 5318624af815ac531e49de06da1d9458f1570f87274dced00353a240b2d2c4260f1fdd40c5e65784e4a4f49b0c5eb43f77faee60def723b501880ab3747b9916
+  languageName: node
+  linkType: hard
+
+"@types/mdurl@npm:*":
+  version: 1.0.2
+  resolution: "@types/mdurl@npm:1.0.2"
+  checksum: 79c7e523b377f53cf1f5a240fe23d0c6cae856667692bd21bf1d064eafe5ccc40ae39a2aa0a9a51e8c94d1307228c8f6b121e847124591a9a828c3baf65e86e2
   languageName: node
   linkType: hard
 
