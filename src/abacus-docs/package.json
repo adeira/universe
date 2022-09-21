@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@markdoc/markdoc": "^0.1.8",
-    "@markdoc/next.js": "^0.1.7",
+    "@markdoc/next.js": "^0.1.8",
     "js-yaml": "^4.1.0",
     "next": "^12.3.1",
     "react": "^18.2.0",
