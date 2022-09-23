@@ -268,7 +268,7 @@ __metadata:
     "@babel/runtime": ^7.19.0
     chalk: ^4.1.2
     is-ci: ^3.0.1
-    npm-packlist: ^6.0.0
+    npm-packlist: ^6.0.1
     npm-registry-client: ^8.6.0
     rimraf: ^3.0.2
     semver: ^7.3.7
@@ -2859,9 +2859,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@npmcli/arborist@npm:^5.0.4":
-  version: 5.6.2
-  resolution: "@npmcli/arborist@npm:5.6.2"
+"@npmcli/arborist@npm:^5.0.4 || ^6.0.0 || ^6.0.0-pre.0":
+  version: 6.0.0-pre.1
+  resolution: "@npmcli/arborist@npm:6.0.0-pre.1"
   dependencies:
     "@isaacs/string-locale-compare": ^1.1.0
     "@npmcli/installed-package-contents": ^1.0.7
@@ -2901,7 +2901,7 @@ __metadata:
     walk-up-path: ^1.0.0
   bin:
     arborist: bin/index.js
-  checksum: 24d24c9ff42b380a80b9fee9f8b11952668da17ff3e9d64f337520570462b17280ec61540fd0401c4875689e57470901a33ec63276227d5f39bcc2f3d4ac8682
+  checksum: d2ac649d77292a436a04ba68f2741a66d9db9d2f462421b3d6af47a245cf3d0adc9edfa41842762893bc9d68b8b6fea0e18d11d17083d2ef205237cab0e5f3c3
   languageName: node
   linkType: hard
 
@@ -15019,15 +15019,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm-packlist@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "npm-packlist@npm:6.0.0"
+"npm-packlist@npm:^6.0.1":
+  version: 6.0.1
+  resolution: "npm-packlist@npm:6.0.1"
   dependencies:
-    "@npmcli/arborist": ^5.0.4
+    "@npmcli/arborist": ^5.0.4 || ^6.0.0 || ^6.0.0-pre.0
     ignore-walk: ^5.0.1
   bin:
     npm-packlist: bin/index.js
-  checksum: 17ccdc793a087e729972b4a7bb97ae1c3b66f0f03417bc21311526e6da3aa84bdfaae97dcb136c45e55bb43a2adc0940cc1baa5e8b860754c86c9bbd7c7d904d
+  checksum: 633fb29bff4e270a183da42b320555df022f75b9fc12563d444035ca16290fa9ec894fb37bdca554d5a98b8c58c72c151205ffac76fc8bd85c4fc63a715255b8
   languageName: node
   linkType: hard
 
