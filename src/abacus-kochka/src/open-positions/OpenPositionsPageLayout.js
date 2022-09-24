@@ -8,7 +8,7 @@ import FullTimeBadge from './badges/FullTimeBadge';
 import Layout from '../Layout';
 import Link from '../primitives/Link';
 import OpenPosition from './OpenPosition';
-import PositionAvailableBadge from './badges/PositionAvailableBadge';
+// import PositionAvailableBadge from './badges/PositionAvailableBadge';
 import PositionUnavailableBadge from './badges/PositionUnavailableBadge';
 import SalaryBadge from './badges/SalaryBadge';
 
@@ -34,7 +34,7 @@ export default function OpenPositionsPageLayout(): React.Node {
             </fbt>
           }
           badges={[
-            <PositionAvailableBadge key={1} />,
+            <PositionUnavailableBadge key={1} />,
             <FullTimeBadge key={2} />,
             <SalaryBadge
               key={3}
@@ -60,7 +60,7 @@ export default function OpenPositionsPageLayout(): React.Node {
             </fbt>
           }
           badges={[
-            <PositionAvailableBadge key={1} />,
+            <PositionUnavailableBadge key={1} />,
             <FullTimeBadge key={2} />,
             <SalaryBadge
               key={3}
