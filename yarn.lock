@@ -438,7 +438,7 @@ __metadata:
     babel-loader: ^8.2.5
     babel-plugin-fbt: ^1.0.0
     babel-plugin-fbt-runtime: ^1.0.0
-    blurhash: ^2.0.0
+    blurhash: ^2.0.1
     fbt: ^1.0.0
     flow-enums-runtime: ^0.0.6
     focus-trap-react: ^10.0.0
@@ -6774,10 +6774,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"blurhash@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "blurhash@npm:2.0.0"
-  checksum: b7d9f0f414d08784add6c6424259204b2422b65ba81a72b05668b3bd016ec9ed1534cacc36ed26f1cf735e90db80ee00653ac90e5f27f52de604d715391a3221
+"blurhash@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "blurhash@npm:2.0.1"
+  checksum: 800eb05dc15405aa1f881ff8ee4205b8ee5949072205aee7fa8a1406f50bb4b61eec659d45c7effe24c2ada40f896acbd070b4768cf2570ad22e2debef6507d6
   languageName: node
   linkType: hard
 
