@@ -78,13 +78,33 @@ export default function RulesPage(): React.Node {
             {
               col1: <fbt desc="table cell: adult cat">Adult cat</fbt>,
               col2: (
-                <Money priceUnitAmount={1000} priceUnitAmountCurrency={SupportedCurrencies.MXN} />
+                <span>
+                  <s>
+                    <Money
+                      priceUnitAmount={1000}
+                      priceUnitAmountCurrency={SupportedCurrencies.MXN}
+                    />
+                  </s>{' '}
+                  <strong>
+                    <Money priceUnitAmount={0} priceUnitAmountCurrency={SupportedCurrencies.MXN} />
+                  </strong>
+                </span>
               ),
             },
             {
               col1: <fbt desc="table cell: kitten under 1 year">Kitten under 1 year</fbt>,
               col2: (
-                <Money priceUnitAmount={1500} priceUnitAmountCurrency={SupportedCurrencies.MXN} />
+                <span>
+                  <s>
+                    <Money
+                      priceUnitAmount={1500}
+                      priceUnitAmountCurrency={SupportedCurrencies.MXN}
+                    />
+                  </s>{' '}
+                  <strong>
+                    <Money priceUnitAmount={0} priceUnitAmountCurrency={SupportedCurrencies.MXN} />
+                  </strong>
+                </span>
               ),
             },
           ]}
