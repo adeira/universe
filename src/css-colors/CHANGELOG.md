@@ -1,5 +1,9 @@
 # Unreleased
 
+# 2.3.0
+
+Removed deprecated functions `isBright` and `isDark`
+
 # 2.2.0
 
 - Added experimental function `convertToRGBTriplet`. Purpose of this function is to get any supported [color value](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) and convert it to the internal RGB triplet value.

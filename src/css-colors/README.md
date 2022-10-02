@@ -94,25 +94,6 @@ hex3ToHex6('#639'); // #663399
 hex6ToHex3('#663399'); // #639
 ```
 
-## Is the color bright or dark? (DEPRECATED)
-
-This function can be used to detect whether the color is bright or dark, so you can decide whether you should use white or black text for the color background (or vice versa):
-
-```js
-import { isDark, isBright } from '@adeira/css-colors';
-
-isDark([0, 0, 0]); // true (it's black)
-isBright([0, 0, 0]); // false
-
-isDark([144, 238, 144]); // false (lightgreen)
-isBright([144, 238, 144]); // true
-
-isDark([255, 255, 255]); // false (it's white)
-isBright([255, 255, 255]); // true
-```
-
-_Please note that while this function is simple, it takes into account only one color. Consider using [`calculateContrastRatio`](#what-is-the-color-contrast-ratio) and/or [`isAccessible`](#is-the-pair-of-colors-accessible) described above where you can specify 2 colors (for example, text and its background)._
-
 ## `convertToRGBTriplet`
 
 TKTK
