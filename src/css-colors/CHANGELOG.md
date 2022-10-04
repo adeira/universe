@@ -1,8 +1,6 @@
 # Unreleased
 
-# 2.3.0
-
-Removed deprecated functions `isBright` and `isDark`
+- Removed deprecated functions `isBright` and `isDark`.
 
 # 2.2.0
 
