@@ -17,7 +17,7 @@ jobs:
 
     steps:
       # https://github.com/actions/checkout
-      - uses: actions/checkout@v3.0.2
+      - uses: actions/checkout@v3.1.0
 
       # https://github.com/dtolnay/rust-toolchain
       - uses: dtolnay/rust-toolchain@stable
