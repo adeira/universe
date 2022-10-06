@@ -13,7 +13,14 @@ type Props = {
 
 export default function UndoHistory(props: Props): Element<'svg'> {
   return (
-    <svg height="1em" viewBox="0 0 21 21" width="1em" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg
+      height="1em"
+      viewBox="0 0 21 21"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      {...props}
+    >
       <g fill="none" fillRule="evenodd">
         <path
           d="M2.5 10.55a8 8 0 1 1 1.073 3.952"

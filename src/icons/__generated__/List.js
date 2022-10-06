@@ -13,7 +13,14 @@ type Props = {
 
 export default function List(props: Props): Element<'svg'> {
   return (
-    <svg height="1em" viewBox="0 0 21 21" width="1em" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg
+      height="1em"
+      viewBox="0 0 21 21"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      {...props}
+    >
       <g fill="none" fillRule="evenodd">
         <path
           d="M15.5 10.5h-7m7 4h-7m7-8h-7"

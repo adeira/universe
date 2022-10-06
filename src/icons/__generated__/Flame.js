@@ -13,7 +13,14 @@ type Props = {
 
 export default function Flame(props: Props): Element<'svg'> {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 21 21" {...props}>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      viewBox="0 0 21 21"
+      role="img"
+      {...props}
+    >
       <g
         fill="none"
         fillRule="evenodd"

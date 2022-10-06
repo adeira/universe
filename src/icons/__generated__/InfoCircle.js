@@ -13,7 +13,14 @@ type Props = {
 
 export default function InfoCircle(props: Props): Element<'svg'> {
   return (
-    <svg height="1em" viewBox="0 0 21 21" width="1em" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg
+      height="1em"
+      viewBox="0 0 21 21"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      {...props}
+    >
       <g fill="none" fillRule="evenodd" transform="translate(2 2)">
         <g stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
           <circle cx={8.5} cy={8.5} r={8} />

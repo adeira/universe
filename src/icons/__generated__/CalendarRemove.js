@@ -13,7 +13,14 @@ type Props = {
 
 export default function CalendarRemove(props: Props): Element<'svg'> {
   return (
-    <svg height="1em" viewBox="0 0 21 21" width="1em" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg
+      height="1em"
+      viewBox="0 0 21 21"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      {...props}
+    >
       <path
         d="M4.5 2.5h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2v-12a2 2 0 0 1 2-2zm-2 4h16m-5 6h-6"
         fill="none"
