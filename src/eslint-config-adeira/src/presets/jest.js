@@ -32,6 +32,7 @@ module.exports = ({
     'jest/no-jasmine-globals': ERROR,
     'jest/no-large-snapshots': OFF,
     'jest/no-mocks-import': ERROR,
+    'jest/no-restricted-jest-methods': OFF,
     'jest/no-restricted-matchers': OFF,
     'jest/no-standalone-expect': ERROR,
     'jest/no-test-callback': OFF,
