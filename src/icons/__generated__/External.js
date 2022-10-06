@@ -13,7 +13,14 @@ type Props = {
 
 export default function External(props: Props): Element<'svg'> {
   return (
-    <svg height="1em" viewBox="0 0 21 21" width="1em" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg
+      height="1em"
+      viewBox="0 0 21 21"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      {...props}
+    >
       <path
         d="M18.5 8.5v-5h-5m5 0-7 7m-1-7h-5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-4"
         fill="none"
