@@ -743,6 +743,7 @@ exports[`Jest preset: Jest preset 1`] = `
     "jest/no-jasmine-globals": 2,
     "jest/no-large-snapshots": 0,
     "jest/no-mocks-import": 2,
+    "jest/no-restricted-jest-methods": 0,
     "jest/no-restricted-matchers": 0,
     "jest/no-standalone-expect": 2,
     "jest/no-test-callback": 0,
