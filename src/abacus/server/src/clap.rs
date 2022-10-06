@@ -75,21 +75,15 @@ mod tests {
 
     #[test]
     fn generated_clap_usage_test_long_help() {
-        let mut output = Vec::new();
-        generate_clap_app().write_long_help(&mut output).unwrap();
-
         insta::with_settings!({snapshot_path => "__snapshots__"}, {
-            insta::assert_snapshot!(String::from_utf8(output).unwrap())
+            insta::assert_snapshot!(generate_clap_app().render_long_help().to_string())
         });
     }
 
     #[test]
     fn generated_clap_usage_test_short_help() {
-        let mut output = Vec::new();
-        generate_clap_app().write_help(&mut output).unwrap();
-
         insta::with_settings!({snapshot_path => "__snapshots__"}, {
-            insta::assert_snapshot!(String::from_utf8(output).unwrap())
+            insta::assert_snapshot!(generate_clap_app().render_help().to_string())
         });
     }
 }
