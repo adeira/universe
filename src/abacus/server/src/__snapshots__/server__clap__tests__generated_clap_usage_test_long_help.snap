@@ -1,54 +1,46 @@
 ---
 source: server/src/clap.rs
-assertion_line: 84
+assertion_line: 82
 expression: "String::from_utf8(output).unwrap()"
-
 ---
-server 0.0.0
-Martin Zlámal <mrtnzlml@gmail.com>
+Usage: server [OPTIONS] [COMMAND]
 
-USAGE:
-    server [OPTIONS] [SUBCOMMAND]
+Commands:
+  generate-cli-completions
+          
+  help
+          Print this message or the help of the given subcommand(s)
 
-OPTIONS:
-        --arangodb-database <arangodb-database>
-            [default: abacus]
+Options:
+      --no-migrations
+          Skips database migrations
 
-        --arangodb-password <arangodb-password>
-            [default: ]
+      --arangodb-url <arangodb-url>
+          [default: http://127.0.0.1:8529/]
 
-        --arangodb-url <arangodb-url>
-            [default: http://127.0.0.1:8529/]
+      --arangodb-database <arangodb-database>
+          [default: abacus]
 
-        --arangodb-username <arangodb-username>
-            [default: abacus]
+      --arangodb-username <arangodb-username>
+          [default: abacus]
 
-    -h, --help
-            Print help information
+      --arangodb-password <arangodb-password>
+          [default: ]
 
-        --no-migrations
-            Skips database migrations
+      --stripe-restricted-api-key <stripe-restricted-api-key>
+          Restricted Stripe.com API key (prefixed by 'rk_*') to be used when calling Stripe.com APIs. Secret API key should never be used directly in this application. More information:
+          https://stripe.com/docs/keys#limit-access
+          
+          [env: STRIPE_RESTRICTED_API_KEY=]
 
-        --stripe-restricted-api-key <stripe-restricted-api-key>
-            Restricted Stripe.com API key (prefixed by 'rk_*') to be used when calling Stripe.com
-            APIs. Secret API key should never be used directly in this application. More
-            information: https://stripe.com/docs/keys#limit-access
-            
-            [env: STRIPE_RESTRICTED_API_KEY=]
+      --stripe-webhook-secret <stripe-webhook-secret>
+          Stripe generates a unique secret key for each webhooks endpoint. It is being used for verifying the webhook payload signature to make sure that only Stripe.com can send these payloads.
+          
+          [env: STRIPE_WEBHOOK_SECRET=]
 
-        --stripe-webhook-secret <stripe-webhook-secret>
-            Stripe generates a unique secret key for each webhooks endpoint. It is being used for
-            verifying the webhook payload signature to make sure that only Stripe.com can send these
-            payloads.
-            
-            [env: STRIPE_WEBHOOK_SECRET=]
+  -h, --help
+          Print help information (use `-h` for a summary)
 
-    -V, --version
-            Print version information
-
-SUBCOMMANDS:
-    generate-cli-completions
-            
-    help
-            Print this message or the help of the given subcommand(s)
+  -V, --version
+          Print version information
 

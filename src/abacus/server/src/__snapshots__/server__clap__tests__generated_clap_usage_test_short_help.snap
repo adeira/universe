@@ -1,44 +1,22 @@
 ---
 source: server/src/clap.rs
-assertion_line: 94
+assertion_line: 92
 expression: "String::from_utf8(output).unwrap()"
-
 ---
-server 0.0.0
-Martin Zlámal <mrtnzlml@gmail.com>
+Usage: server [OPTIONS] [COMMAND]
 
-USAGE:
-    server [OPTIONS] [SUBCOMMAND]
+Commands:
+  generate-cli-completions  
+  help                      Print this message or the help of the given subcommand(s)
 
-OPTIONS:
-        --arangodb-database <arangodb-database>
-            [default: abacus]
-
-        --arangodb-password <arangodb-password>
-            [default: ]
-
-        --arangodb-url <arangodb-url>
-            [default: http://127.0.0.1:8529/]
-
-        --arangodb-username <arangodb-username>
-            [default: abacus]
-
-    -h, --help
-            Print help information
-
-        --no-migrations
-            Skips database migrations
-
-        --stripe-restricted-api-key <stripe-restricted-api-key>
-            Restricted Stripe.com API key (prefixed by 'rk_*') [env: STRIPE_RESTRICTED_API_KEY=]
-
-        --stripe-webhook-secret <stripe-webhook-secret>
-            Secret key for webhooks verification. [env: STRIPE_WEBHOOK_SECRET=]
-
-    -V, --version
-            Print version information
-
-SUBCOMMANDS:
-    generate-cli-completions    
-    help                        Print this message or the help of the given subcommand(s)
+Options:
+      --no-migrations                                          Skips database migrations
+      --arangodb-url <arangodb-url>                            [default: http://127.0.0.1:8529/]
+      --arangodb-database <arangodb-database>                  [default: abacus]
+      --arangodb-username <arangodb-username>                  [default: abacus]
+      --arangodb-password <arangodb-password>                  [default: ]
+      --stripe-restricted-api-key <stripe-restricted-api-key>  Restricted Stripe.com API key (prefixed by 'rk_*') [env: STRIPE_RESTRICTED_API_KEY=]
+      --stripe-webhook-secret <stripe-webhook-secret>          Secret key for webhooks verification. [env: STRIPE_WEBHOOK_SECRET=]
+  -h, --help                                                   Print help information (use `--help` for more detail)
+  -V, --version                                                Print version information
 
