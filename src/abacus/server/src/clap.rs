@@ -1,36 +1,36 @@
 use clap::{Arg, Command, ValueHint};
 
-pub fn generate_clap_app() -> Command<'static> {
+pub fn generate_clap_app() -> Command {
     clap::command!()
         .arg(
             Arg::new("no-migrations")
                 .long("no-migrations")
-                .takes_value(false)
+                .num_args(0)
                 .help("Skips database migrations"),
         )
         .arg(
             Arg::new("arangodb-url")
                 .long("arangodb-url")
-                .takes_value(true)
+                .num_args(1)
                 .default_value("http://127.0.0.1:8529/")
                 .value_hint(ValueHint::Url),
         )
         .arg(
             Arg::new("arangodb-database")
                 .long("arangodb-database")
-                .takes_value(true)
+                .num_args(1)
                 .default_value("abacus"),
         )
         .arg(
             Arg::new("arangodb-username")
                 .long("arangodb-username")
-                .takes_value(true)
+                .num_args(1)
                 .default_value("abacus"),
         )
         .arg(
             Arg::new("arangodb-password")
                 .long("arangodb-password")
-                .takes_value(true)
+                .num_args(1)
                 .default_value(""),
         )
         .arg(
@@ -43,7 +43,7 @@ pub fn generate_clap_app() -> Command<'static> {
                     Stripe.com APIs. Secret API key should never be used directly in this application. \
                     More information: https://stripe.com/docs/keys#limit-access",
                 )
-                .takes_value(true),
+                .num_args(1),
         )
         .arg(
             Arg::new("stripe-webhook-secret")
@@ -55,15 +55,15 @@ pub fn generate_clap_app() -> Command<'static> {
                     used for verifying the webhook payload signature to make sure that only \
                     Stripe.com can send these payloads.",
                 )
-                .takes_value(true),
+                .num_args(1),
         ).subcommand(
             Command::new("generate-cli-completions")
                 .override_help("Generate CLI completions for specified shells.")
                 .arg(
                     Arg::new("shell")
                         .long("shell")
-                        .takes_value(true)
-                        .possible_values(&["bash", "zsh"])
+                        .num_args(1)
+                        .value_parser(["bash", "zsh"])
                         .required(true)
                 )
         )

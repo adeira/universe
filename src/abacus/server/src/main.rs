@@ -62,11 +62,11 @@ async fn main() {
     // for the following requests. DO NOT create it in the GraphQL context extractor!
     let cli_matches = generate_clap_app().get_matches();
     if let Some(subcommand_match) = cli_matches.subcommand_matches("generate-cli-completions") {
-        if let Some(shell) = subcommand_match.value_of("shell") {
+        if let Some(shell) = subcommand_match.get_one::<String>("shell") {
             let mut clap_app = generate_clap_app();
             let clap_app_name = clap_app.get_name().to_string();
             tracing::info!("Generating completion file for {}...", shell);
-            match shell {
+            match shell.as_ref() {
                 "bash" => clap_complete::generate(
                     Bash,
                     &mut clap_app,
@@ -86,13 +86,13 @@ async fn main() {
     }
 
     let pool = get_database_connection_pool(
-        cli_matches.value_of("arangodb-url").unwrap(),
-        cli_matches.value_of("arangodb-database").unwrap(),
-        cli_matches.value_of("arangodb-username").unwrap(),
-        cli_matches.value_of("arangodb-password").unwrap(),
+        cli_matches.get_one::<String>("arangodb-url").unwrap(),
+        cli_matches.get_one::<String>("arangodb-database").unwrap(),
+        cli_matches.get_one::<String>("arangodb-username").unwrap(),
+        cli_matches.get_one::<String>("arangodb-password").unwrap(),
     );
 
-    if !cli_matches.is_present("no-migrations") {
+    if !cli_matches.get_flag("no-migrations") {
         // Preferably, migrations would NOT be ran during the server start.
         // But we do it now for the simplicity.
         migrations::migrate(&pool).await;
@@ -103,10 +103,10 @@ async fn main() {
     let graphql_schema = create_graphql_schema();
     let global_configuration = GlobalConfiguration {
         stripe_restricted_api_key: cli_matches
-            .value_of("stripe-restricted-api-key")
+            .get_one::<String>("stripe-restricted-api-key")
             .map(String::from),
         stripe_webhook_secret: cli_matches
-            .value_of("stripe-webhook-secret")
+            .get_one::<String>("stripe-webhook-secret")
             .map(String::from),
     };
 
