@@ -1,7 +1,7 @@
 ---
 source: server/src/clap.rs
-assertion_line: 82
-expression: "String::from_utf8(output).unwrap()"
+assertion_line: 79
+expression: generate_clap_app().render_long_help().to_string()
 ---
 Usage: server [OPTIONS] [COMMAND]
 
@@ -28,8 +28,7 @@ Options:
           [default: ]
 
       --stripe-restricted-api-key <stripe-restricted-api-key>
-          Restricted Stripe.com API key (prefixed by 'rk_*') to be used when calling Stripe.com APIs. Secret API key should never be used directly in this application. More information:
-          https://stripe.com/docs/keys#limit-access
+          Restricted Stripe.com API key (prefixed by 'rk_*') to be used when calling Stripe.com APIs. Secret API key should never be used directly in this application. More information: https://stripe.com/docs/keys#limit-access
           
           [env: STRIPE_RESTRICTED_API_KEY=]
 
