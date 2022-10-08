@@ -3,7 +3,7 @@ use serde::{Deserialize, Serialize};
 use typed_builder::TypedBuilder;
 
 /// Options for document insertion.
-#[derive(Debug, Serialize, Deserialize, PartialEq, TypedBuilder)]
+#[derive(Debug, Serialize, Deserialize, PartialEq, Eq, TypedBuilder)]
 #[builder(doc)]
 #[serde(rename_all = "camelCase")]
 pub struct InsertOptions {
@@ -65,7 +65,7 @@ impl Default for InsertOptions {
 }
 
 /// Options for document update,
-#[derive(Debug, Serialize, Deserialize, PartialEq, TypedBuilder)]
+#[derive(Debug, Serialize, Deserialize, PartialEq, Eq, TypedBuilder)]
 #[builder(doc)]
 #[serde(rename_all = "camelCase")]
 pub struct UpdateOptions {
@@ -119,7 +119,7 @@ impl Default for UpdateOptions {
     }
 }
 
-#[derive(Debug, Serialize, Deserialize, PartialEq)]
+#[derive(Debug, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "camelCase")]
 pub enum OverwriteMode {
     /// If a document with the specified _key value exists already,

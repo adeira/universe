@@ -33,10 +33,7 @@ impl deadpool::managed::Manager for ConnectionManager {
             &self.username,
             &self.password,
         );
-        match connection.await {
-            Ok(connection) => Ok(connection),
-            Err(err) => Err(err),
-        }
+        connection.await
     }
 
     /// Tries to recycle a connection returning `Err` if the object could not be recycled.

@@ -1,7 +1,7 @@
 use serde::{Deserialize, Serialize};
 use typed_builder::TypedBuilder;
 
-#[derive(Debug, Serialize, Deserialize, PartialEq)]
+#[derive(Debug, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "lowercase")]
 pub enum AnalyzerFeature {
     Frequency,
@@ -9,7 +9,7 @@ pub enum AnalyzerFeature {
     Position,
 }
 
-#[derive(Debug, Serialize, Deserialize, PartialEq)]
+#[derive(Debug, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "lowercase")]
 pub enum AnalyzerCase {
     Lower,
@@ -17,14 +17,14 @@ pub enum AnalyzerCase {
     Upper,
 }
 
-#[derive(Debug, Serialize, Deserialize, PartialEq)]
+#[derive(Debug, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "lowercase")]
 pub enum NgramStreamType {
     Binary,
     Utf8,
 }
 
-#[derive(Debug, Serialize, Deserialize, TypedBuilder, PartialEq)]
+#[derive(Debug, Serialize, Deserialize, TypedBuilder, PartialEq, Eq)]
 #[builder(doc)]
 pub struct DelimiterAnalyzerProperties {
     /// The value will be used as delimiter to split text into tokens as specified
@@ -34,14 +34,14 @@ pub struct DelimiterAnalyzerProperties {
     pub delimiter: Option<String>,
 }
 
-#[derive(Debug, Serialize, Deserialize, TypedBuilder, PartialEq)]
+#[derive(Debug, Serialize, Deserialize, TypedBuilder, PartialEq, Eq)]
 #[builder(doc)]
 pub struct StemAnalyzerProperties {
     /// Format: `language[_COUNTRY][.encoding][@variant]`
     pub locale: String,
 }
 
-#[derive(Debug, Serialize, Deserialize, TypedBuilder, PartialEq)]
+#[derive(Debug, Serialize, Deserialize, TypedBuilder, PartialEq, Eq)]
 #[builder(doc)]
 pub struct NormAnalyzerProperties {
     /// Format: `language[_COUNTRY][.encoding][@variant]`
@@ -58,7 +58,7 @@ pub struct NormAnalyzerProperties {
     pub accent: Option<bool>,
 }
 
-#[derive(Debug, Serialize, Deserialize, TypedBuilder, PartialEq)]
+#[derive(Debug, Serialize, Deserialize, TypedBuilder, PartialEq, Eq)]
 #[builder(doc)]
 #[serde(rename_all = "camelCase")]
 pub struct NgramAnalyzerProperties {
@@ -77,7 +77,7 @@ pub struct NgramAnalyzerProperties {
     pub stream_type: Option<NgramStreamType>,
 }
 
-#[derive(Debug, Serialize, Deserialize, TypedBuilder, PartialEq)]
+#[derive(Debug, Serialize, Deserialize, TypedBuilder, PartialEq, Eq)]
 #[builder(doc)]
 #[serde(rename_all = "camelCase")]
 pub struct TextAnalyzerProperties {
@@ -114,7 +114,7 @@ pub struct TextAnalyzerProperties {
     pub stemming: Option<bool>,
 }
 
-#[derive(Debug, Serialize, Deserialize, PartialEq)]
+#[derive(Debug, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "camelCase", tag = "type")]
 pub enum AnalyzerInfo {
     /// The `identity` Analyzer does not take additional properties.

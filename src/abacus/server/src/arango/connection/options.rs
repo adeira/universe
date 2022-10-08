@@ -57,21 +57,21 @@ pub(crate) struct CreateDatabase<'a> {
     options: Option<CreateDatabaseOptions>,
 }
 
-#[derive(Serialize, PartialEq, Deserialize)]
+#[derive(Serialize, PartialEq, Eq, Deserialize)]
 pub enum ClusterRole {
     Coordinator,
     DBServer,
     Agent,
 }
 
-#[derive(Serialize, PartialEq, Deserialize)]
+#[derive(Serialize, PartialEq, Eq, Deserialize)]
 #[serde(rename_all = "lowercase")]
 pub enum Engine {
     RocksDB,
     MMFiles,
 }
 
-#[derive(Serialize, PartialEq, Deserialize)]
+#[derive(Serialize, PartialEq, Eq, Deserialize)]
 #[serde(rename_all = "UPPERCASE")]
 pub enum ClusterStatus {
     Good,
@@ -79,7 +79,7 @@ pub enum ClusterStatus {
     Failed,
 }
 
-#[derive(Serialize, PartialEq, Deserialize)]
+#[derive(Serialize, PartialEq, Eq, Deserialize)]
 #[serde(rename_all = "UPPERCASE")]
 pub enum SyncStatus {
     Serving,

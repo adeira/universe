@@ -48,7 +48,7 @@ pub struct TransactionSettings {
     max_transaction_size: Option<usize>,
 }
 
-#[derive(Debug, Serialize, Deserialize, PartialEq)]
+#[derive(Debug, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "lowercase")]
 pub enum Status {
     Running,
