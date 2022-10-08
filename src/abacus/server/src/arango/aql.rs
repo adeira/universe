@@ -257,7 +257,7 @@ impl<'a, __query, __count, __batch_size, __cache, __memory_limit, __ttl, __optio
     }
 }
 
-#[derive(Debug, Serialize, TypedBuilder, PartialEq)]
+#[derive(Debug, Serialize, TypedBuilder, PartialEq, Eq)]
 #[builder(doc)]
 #[serde(rename_all = "camelCase")]
 pub struct AqlOptions {

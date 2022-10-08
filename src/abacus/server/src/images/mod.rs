@@ -118,12 +118,12 @@ pub(crate) async fn process_new_images(
 
     rbac::verify_permissions(&context.user, &Files(UploadFile)).await?;
 
-    return if let Some(uploadables) = &context.uploadables {
+    if let Some(uploadables) = &context.uploadables {
         let images = process_new_images_authorized(uploadables).await?;
         Ok(images)
     } else {
         anyhow::bail!("there are no images to process")
-    };
+    }
 }
 
 /// This is technically similar to `process_new_images` except it takes image updates into account.
@@ -140,12 +140,12 @@ pub(crate) async fn process_updated_images(
     validate_uploadables(context, product_multilingual_input)?;
     rbac::verify_permissions(&context.user, &Files(UploadFile)).await?;
 
-    return if let Some(uploadables) = &context.uploadables {
+    if let Some(uploadables) = &context.uploadables {
         let images = process_new_images_authorized(uploadables).await?;
         Ok(images)
     } else {
         anyhow::bail!("there are no images to process")
-    };
+    }
 }
 
 async fn process_new_images_authorized(

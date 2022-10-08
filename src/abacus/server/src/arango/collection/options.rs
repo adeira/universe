@@ -5,7 +5,7 @@ use typed_builder::TypedBuilder;
 use crate::arango::collection::CollectionType;
 
 /// Options for create a collection
-#[derive(Serialize, PartialEq, TypedBuilder)]
+#[derive(Serialize, PartialEq, Eq, TypedBuilder)]
 #[builder(doc)]
 #[serde(rename_all = "camelCase")]
 pub struct CreateParameters {
@@ -39,7 +39,7 @@ where
     }
 }
 /// Options for create a collection
-#[derive(Serialize, PartialEq, TypedBuilder)]
+#[derive(Serialize, PartialEq, Eq, TypedBuilder)]
 #[builder(doc)]
 #[serde(rename_all = "camelCase")]
 pub struct CreateOptions<'a> {
@@ -193,7 +193,7 @@ fn is_true(x: &bool) -> bool {
     *x
 }
 
-#[derive(Debug, Deserialize, Serialize, TypedBuilder, PartialEq)]
+#[derive(Debug, Deserialize, Serialize, TypedBuilder, PartialEq, Eq)]
 #[builder(doc)]
 #[serde(rename_all = "camelCase")]
 pub struct KeyOptions {
@@ -235,7 +235,7 @@ impl Default for KeyOptions {
 }
 
 /// Options for checksum
-#[derive(Serialize, Deserialize, PartialEq, TypedBuilder)]
+#[derive(Serialize, Deserialize, PartialEq, Eq, TypedBuilder)]
 #[builder(doc)]
 #[serde(rename_all = "camelCase")]
 pub struct ChecksumOptions {
