@@ -2155,7 +2155,7 @@ dependencies = [
  "tracing-subscriber",
  "typed-builder",
  "url",
- "uuid 1.2.0",
+ "uuid 1.2.1",
  "valico",
  "warp",
 ]
@@ -2677,9 +2677,9 @@ dependencies = [
 
 [[package]]
 name = "uuid"
-version = "1.2.0"
+version = "1.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "683f0a095f6dcf74520a5f17a12452ae6f970abbd2443299a1e226fd38195f2b"
+checksum = "feb41e78f93363bb2df8b0e86a2ca30eed7806ea16ea0c790d757cf93f79be83"
 dependencies = [
  "getrandom 0.2.7",
 ]
