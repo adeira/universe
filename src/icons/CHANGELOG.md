@@ -1,5 +1,9 @@
 # Unreleased
 
+# 2.1.0
+
+All icons now have extra `role="img"` property for improved accessibility.
+
 # 2.0.0
 
 This package now uses `React.lazy` internally and requires React version 18+
