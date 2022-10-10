@@ -399,7 +399,7 @@ __metadata:
     "@storybook/react": ^6.5.11
     "@storybook/theming": ^6.5.12
     next: ^12.3.1
-    storybook-addon-next-router: ^4.0.0
+    storybook-addon-next-router: ^4.0.1
   peerDependencies:
     "@adeira/sx": ^0.29.1
     next: ^12.3.1
@@ -450,7 +450,7 @@ __metadata:
     react-device-detect: ^2.2.2
     react-dom: ^18.2.0
     react-table: ^7.8.0
-    storybook-addon-next-router: ^4.0.0
+    storybook-addon-next-router: ^4.0.1
   peerDependencies:
     "@adeira/sx": ^0.29.1
     next: ^12.3.1
@@ -18244,11 +18244,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"storybook-addon-next-router@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "storybook-addon-next-router@npm:4.0.0"
+"storybook-addon-next-router@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "storybook-addon-next-router@npm:4.0.1"
   dependencies:
-    tslib: ^2.3.0
+    tslib: 2.4.0
   peerDependencies:
     "@storybook/addon-actions": ^6.0.0
     "@storybook/addons": ^6.0.0
@@ -18256,7 +18256,7 @@ __metadata:
     next: ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 3e203fe069d41faa43a0274ecc09d60871b92457bd2c642ead0eeca792188241a658c4f52b7e8dcce8392569fd54192c1e384d7813e3f84a899d27cd22009c62
+  checksum: f83c5282046e7a2173329e136d6e38faac3e7e4b05a09e22def6f3b6c590a78d7c4fbb5847a225fca4baeea55ad9d2005f44fbd3be907c1d6eba1d859ecc7aac
   languageName: node
   linkType: hard
 
@@ -19085,17 +19085,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tslib@npm:2.4.0, tslib@npm:^2.0.0, tslib@npm:^2.0.1, tslib@npm:^2.0.3, tslib@npm:^2.4.0":
+  version: 2.4.0
+  resolution: "tslib@npm:2.4.0"
+  checksum: 8c4aa6a3c5a754bf76aefc38026134180c053b7bd2f81338cb5e5ebf96fefa0f417bff221592bf801077f5bf990562f6264fecbc42cd3309b33872cb6fc3b113
+  languageName: node
+  linkType: hard
+
 "tslib@npm:^1.8.1, tslib@npm:^1.9.0":
   version: 1.14.1
   resolution: "tslib@npm:1.14.1"
   checksum: dbe628ef87f66691d5d2959b3e41b9ca0045c3ee3c7c7b906cc1e328b39f199bb1ad9e671c39025bd56122ac57dfbf7385a94843b1cc07c60a4db74795829acd
-  languageName: node
-  linkType: hard
-
-"tslib@npm:^2.0.0, tslib@npm:^2.0.1, tslib@npm:^2.0.3, tslib@npm:^2.3.0, tslib@npm:^2.4.0":
-  version: 2.4.0
-  resolution: "tslib@npm:2.4.0"
-  checksum: 8c4aa6a3c5a754bf76aefc38026134180c053b7bd2f81338cb5e5ebf96fefa0f417bff221592bf801077f5bf990562f6264fecbc42cd3309b33872cb6fc3b113
   languageName: node
   linkType: hard
 
