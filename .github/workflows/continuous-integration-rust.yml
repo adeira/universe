@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v3.1.0
 
       # https://github.com/dorny/paths-filter
-      - uses: dorny/paths-filter@v2.11.0
+      - uses: dorny/paths-filter@v2.11.1
         id: paths-filter
         with:
           filters: |
