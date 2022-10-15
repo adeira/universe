@@ -7,6 +7,7 @@ pub fn run(trailing_args: &Vec<&str>) -> anyhow::Result<()> {
     execute_command(
         create_command(JEST_BIN)
             .expect("Jest binary doesn't exist")
+            .arg("--showSeed")
             .arg("--config")
             .arg(JEST_CONFIG)
             .args(trailing_args),
