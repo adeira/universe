@@ -58,8 +58,9 @@ export default {
         (error /* , data , raw, res */) => {
           if (error) {
             reject(error);
+          } else {
+            resolve();
           }
-          resolve();
         },
       );
     });
