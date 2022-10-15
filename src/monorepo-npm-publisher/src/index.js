@@ -10,6 +10,7 @@ import packlist from 'npm-packlist';
 import { Workspaces } from '@adeira/monorepo-utils';
 import isCI from 'is-ci';
 import chalk from 'chalk';
+import Arborist from '@npmcli/arborist';
 
 import log from './log';
 import NPM from './NPM';
@@ -64,7 +65,9 @@ export default async function publish(options: Options) {
         } else {
           log('🚀 Preparing %s for release (latest: %s)', chalkPackageName, latest);
 
-          const filenames = await packlist({ path: packageFolderPath });
+          const arborist = new Arborist({ path: packageFolderPath });
+          const arboristTree = await arborist.loadActual();
+          const filenames = await packlist(arboristTree);
           for (const filename of filenames) {
             const destinationFileName = path.join(options.buildCache, packageFolderName, filename);
 
