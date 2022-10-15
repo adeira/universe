@@ -6,6 +6,95 @@ sidebar_label: Relay directives
 
 Relay supports many (mostly) client-only directives which help you to describe your clients needs and behavior better. They usually abstract some low-level implementation so you can easily stop using them when needed. Here is a complete list of them:
 
+## @alias
+
+The `@alias` directive allows you to expose a spread fragment — either a named fragment spread or an inline fragment — as a named field within your selection. This allows Relay to provide additional type safety in the case where your fragment's type may not match the parent selection.
+
+Let's look at an example. Imagine you have a component that renders information about a `Viewer`:
+
+```js
+function MyViewer({viewerKey}) {
+  const {name} = useFragment(graphql`
+    fragment MyViewer on Viewer {
+      name @required(action: THROW)
+    }`, viewerKey);
+
+  return `My name is ${name}. That's ${name.length} letters long!`;
+}
+```
+
+To use that component in a component that has a fragment on `Node` (which `Viewer` implements), you could write something like this:
+
+```js
+function MyNode({nodeKey}) {
+  const node = useFragment(graphql`
+    fragment MyFragment on Node {
+      ...MyViewer
+    }`, nodeKey);
+  
+  return <MyViewer viewerKey={node} />
+}
+```
+
+_Can you spot the problem?_ We don’t actually know that the node we are passing to `<MyViewer />` is actually a `Viewer` `<MyViewer />`. If `<MyNode />` tries to render a `Comment` — which also implements `Node` — we will get a runtime error in `<MyViewer />` because the field name is not present on `Comment`.
+
+```text
+TypeError: Cannot read properties of undefined (reading 'length')
+```
+
+Not only do we not get a type letting us know that about this potential issue, but **even at runtime, there is no way to check** if `node` implements `Viewer` because `Viewer` is an abstract type!
+
+### Enter Aliased Fragments
+
+Aliased fragments can solve this problem. Here's what `<MyNode />` would look like using them:
+
+```js
+function MyNode({nodeKey}) {
+  const node = useFragment(graphql`
+    fragment MyFragment on Node {
+      ...MyViewer @alias(as: "my_viewer")
+    }`, nodeKey);
+  
+  // Relay returns the fragment key as its own nullable property
+  if(node.my_viewer == null) {
+    return null;
+  }
+  
+  // Because `my_viewer` is typed as nullable, Flow/TypeScript will
+  // show an error if you try to use the `my_viewer` without first
+  // performing a null check.
+  //                          VVVVVVVVVVVVVV 
+  return <MyViewer viewerKey={node.my_viewer} />
+}
+```
+
+With this approach, you can see that Relay exposes the fragment key as its own nullable property, which allows us to check that `node` actually implements `Viewer` and even allows Flow to enforce that the component handles the possibility!
+
+Inline fragments can suffer from a similar problem.
+
+### Under the Hood
+
+For people familiar with Relay, or curious to learn, here is a brief description of how this feature is implemented:
+
+Under the hood, `@alias` is implemented entirely within Relay (compiler and runtime). It does not require any server support. The Relay compiler interprets the `@alias` directive, and generates types indicating that the fragment key, or inline fragment data, will be attached to the new field, rather than directly on the parent object. In the Relay runtime artifact, it wraps the fragment node with a new node indicating the name of the alias and additional information about the type of the fragment.
+
+The Relay compiler also inserts an additional field into the spread which allows it to determine if the fragment has matched:
+
+```graphql
+fragment Foo on Node {
+  ... on Viewer {
+    isViewer: __typename # <-- Relay inserts this
+    name
+  }
+}
+```
+
+Relay can now check for the existence of the `isViewer` field in the response to know if the fragment matched.
+
+When Relay reads the content of your fragment out of the store using its runtime artifact, it uses this information to attach the fragment key to this new field, rather than attaching it directly to the parent object.
+
+_Source: https://github.com/facebook/relay/issues/3990#issuecomment-1175369449_
+
 ## @assignable
 
 Directive `@assignable` can be used on a fragment with a single field `__typename` like so:
