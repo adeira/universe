@@ -811,6 +811,7 @@ exports[`rules snapshot: all stable rules 1`] = `
     "promise/avoid-new": 0,
     "promise/catch-or-return": 0,
     "promise/no-callback-in-promise": 0,
+    "promise/no-multiple-resolved": 1,
     "promise/no-native": 0,
     "promise/no-nesting": 1,
     "promise/no-new-statics": 2,
@@ -1178,4 +1179,9 @@ Snapshot Diff:
 -     "jest/prefer-each": 1,
 +     "jest/prefer-each": 2,
       "jest/prefer-equality-matcher": 2,
+@@ --- --- @@
+      "promise/no-callback-in-promise": 0,
+-     "promise/no-multiple-resolved": 1,
++     "promise/no-multiple-resolved": 2,
+      "promise/no-native": 0,
 `;

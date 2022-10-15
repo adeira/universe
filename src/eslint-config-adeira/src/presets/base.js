@@ -1,6 +1,6 @@
 // @flow
 
-const { ERROR, OFF, WARN } = require('../constants');
+const { ERROR, OFF, WARN, NEXT_VERSION_ERROR } = require('../constants');
 
 /*::
 
@@ -422,6 +422,7 @@ module.exports = ({
     'promise/avoid-new': OFF,
     'promise/catch-or-return': OFF,
     'promise/no-callback-in-promise': OFF,
+    'promise/no-multiple-resolved': NEXT_VERSION_ERROR,
     'promise/no-native': OFF,
     'promise/no-nesting': WARN,
     'promise/no-new-statics': ERROR,
