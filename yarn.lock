@@ -269,7 +269,7 @@ __metadata:
     "@npmcli/arborist": ^5.6.2
     chalk: ^4.1.2
     is-ci: ^3.0.1
-    npm-packlist: ^7.0.0
+    npm-packlist: ^7.0.1
     npm-registry-client: ^8.6.0
     rimraf: ^3.0.2
     semver: ^7.3.8
@@ -11808,6 +11808,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ignore-walk@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "ignore-walk@npm:6.0.0"
+  dependencies:
+    minimatch: ^5.0.1
+  checksum: b94da5517922d65a721f95caa8a884bb8672e80a29691cc3402a4db1eb77f61165dc5c499d8c8efe5e3d9874ff3e9ab05734234ad929b28ba219cf73197ea98c
+  languageName: node
+  linkType: hard
+
 "ignore@npm:^3.3.5":
   version: 3.3.10
   resolution: "ignore@npm:3.3.10"
@@ -15020,12 +15029,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm-packlist@npm:^7.0.0":
-  version: 7.0.0
-  resolution: "npm-packlist@npm:7.0.0"
+"npm-packlist@npm:^7.0.1":
+  version: 7.0.1
+  resolution: "npm-packlist@npm:7.0.1"
   dependencies:
-    ignore-walk: ^5.0.1
-  checksum: 43bd3a822c9d68c327b16d595f4a0073af38d49357bcfecfca5999568b61d1e804c6f3ed1720a7b3e41ba0d0053d0b18e3c86922c91a33e7e84d60c33ef7e558
+    ignore-walk: ^6.0.0
+  checksum: 328c646ab92cb06dadb3c9c8cd51e1200f74d76685093566c6aba41aadd1799774583bd20bb43e8aca681d9ed4253772ac95f880e21bc8aba95be74a6fbb99f8
   languageName: node
   linkType: hard
 
