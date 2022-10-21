@@ -39,6 +39,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = test;
 
 /* eslint-disable no-return-await */
+
 async function test() {
   return await 'this';
 }
@@ -55,7 +56,10 @@ export default async function test(): Promise<string> {
 }
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+
+
 /* eslint-disable no-return-await */
+
 export default async function test() {
   return await 'this';
 }
@@ -98,10 +102,11 @@ const bbb: string = aaa;
 "use strict";
 
 // SEE: https://github.com/babel/babel/issues/8684
-
 /* eslint-disable */
-const aaa = 1; // $FlowExpectedError[incompatible-type]: this line should stay here because \`aaa\` is incompatible with \`bbb\`
 
+const aaa = 1;
+
+// $FlowExpectedError[incompatible-type]: this line should stay here because \`aaa\` is incompatible with \`bbb\`
 const bbb = aaa;
 `;
 
@@ -117,11 +122,13 @@ const aaa = 1;
 const bbb: string = aaa;
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+
 // SEE: https://github.com/babel/babel/issues/8684
-
 /* eslint-disable */
-const aaa = 1; // $FlowExpectedError[incompatible-type]: this line should stay here because \`aaa\` is incompatible with \`bbb\`
 
+const aaa = 1;
+
+// $FlowExpectedError[incompatible-type]: this line should stay here because \`aaa\` is incompatible with \`bbb\`
 const bbb = aaa;
 `;
 
@@ -286,14 +293,13 @@ module.exports = { executeNodeScript, supportsESM };
 "use strict";
 
 // See: https://github.com/babel/babel/issues/9810
+
 const executeNodeScript = (aaa, bbb, ccc) => {
   return [aaa, bbb, ccc];
 };
-
 const supportsESM = target => {
   return target === 'js-esm';
 };
-
 module.exports = {
   executeNodeScript,
   supportsESM
@@ -323,15 +329,16 @@ const supportsESM = (target: string) /*: boolean %checks */ => {
 module.exports = { executeNodeScript, supportsESM };
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+
+
 // See: https://github.com/babel/babel/issues/9810
+
 const executeNodeScript = (aaa, bbb, ccc) => {
   return [aaa, bbb, ccc];
 };
-
 const supportsESM = target => {
   return target === 'js-esm';
 };
-
 module.exports = {
   executeNodeScript,
   supportsESM
@@ -376,6 +383,7 @@ new Set<() => void>([]);
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 #!/usr/bin/env node
+
 // See: https://github.com/babel/babel/issues/9921
 
 /* eslint-disable */
@@ -398,6 +406,7 @@ new Set<() => void>([]);
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 #!/usr/bin/env node
+
 // See: https://github.com/babel/babel/issues/9921
 
 /* eslint-disable */
@@ -480,6 +489,7 @@ const re = /(?<x>.*)/u; // eslint-disable-line no-unused-vars
 
 // https://github.com/babel/babel/issues/10367
 // https://github.com/babel/babel/pull/10447
+
 const re = /(?<x>.*)/u; // eslint-disable-line no-unused-vars
 `;
 
@@ -493,8 +503,11 @@ exports[`matches expected output: babel-issue-10367.js: js-esm (with ES6 import/
 const re = /(?<x>.*)/u; // eslint-disable-line no-unused-vars
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+
+
 // https://github.com/babel/babel/issues/10367
 // https://github.com/babel/babel/pull/10447
+
 const re = /(?<x>.*)/u; // eslint-disable-line no-unused-vars
 `;
 
@@ -538,10 +551,13 @@ const hugeButString = BigInt('9007199254740991');
 "use strict";
 
 /* eslint-disable */
-const theBiggestInt = 9007199254740991n;
-const alsoHuge = BigInt(9007199254740991); // ↪ 9007199254740991n
 
-const hugeButString = BigInt('9007199254740991'); // ↪ 9007199254740991n
+const theBiggestInt = 9007199254740991n;
+const alsoHuge = BigInt(9007199254740991);
+// ↪ 9007199254740991n
+
+const hugeButString = BigInt('9007199254740991');
+// ↪ 9007199254740991n
 `;
 
 exports[`matches expected output: bigint.js: js-esm (with ES6 import/export) 1`] = `
@@ -558,10 +574,13 @@ const hugeButString = BigInt('9007199254740991');
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 /* eslint-disable */
-const theBiggestInt = 9007199254740991n;
-const alsoHuge = BigInt(9007199254740991); // ↪ 9007199254740991n
 
-const hugeButString = BigInt('9007199254740991'); // ↪ 9007199254740991n
+const theBiggestInt = 9007199254740991n;
+const alsoHuge = BigInt(9007199254740991);
+// ↪ 9007199254740991n
+
+const hugeButString = BigInt('9007199254740991');
+// ↪ 9007199254740991n
 `;
 
 exports[`matches expected output: capturing-groups.js: flow 1`] = `
@@ -600,6 +619,7 @@ console.log(re.exec('1999-02-29')?.groups?.year);
 var _re$exec, _re$exec$groups;
 
 /*  eslint-disable no-console */
+
 const re = /(?<year>\\d{4})-(?<month>\\d{2})-(?<day>\\d{2})/;
 console.log((_re$exec = re.exec('1999-02-29')) === null || _re$exec === void 0 ? void 0 : (_re$exec$groups = _re$exec.groups) === null || _re$exec$groups === void 0 ? void 0 : _re$exec$groups.year);
 `;
@@ -618,6 +638,7 @@ console.log(re.exec('1999-02-29')?.groups?.year);
 var _re$exec, _re$exec$groups;
 
 /*  eslint-disable no-console */
+
 const re = /(?<year>\\d{4})-(?<month>\\d{2})-(?<day>\\d{2})/;
 console.log((_re$exec = re.exec('1999-02-29')) === null || _re$exec === void 0 ? void 0 : (_re$exec$groups = _re$exec.groups) === null || _re$exec$groups === void 0 ? void 0 : _re$exec$groups.year);
 `;
@@ -636,7 +657,8 @@ export default class ClassFields {
 
 export default class ClassFields {
   publicField: number = 1;
-  #privateField: number = 2;}
+  #privateField: number = 2;
+}
 `;
 
 exports[`matches expected output: class-fields.js: js (old browsers) 1`] = `
@@ -652,32 +674,24 @@ export default class ClassFields {
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-
 var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
-
 function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
-
 function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
-
 var _privateField = /*#__PURE__*/new WeakMap();
 
 class ClassFields {
   constructor() {
     (0, _defineProperty2.default)(this, "publicField", 1);
-
     _classPrivateFieldInitSpec(this, _privateField, {
       writable: true,
       value: 2
     });
   }
-
 }
-
 exports.default = ClassFields;
 `;
 
@@ -692,23 +706,18 @@ export default class ClassFields {
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 import _defineProperty from "@babel/runtime/helpers/esm/defineProperty";
-
 function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
-
 function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
-
 var _privateField = /*#__PURE__*/new WeakMap();
 
 export default class ClassFields {
   constructor() {
     _defineProperty(this, "publicField", 1);
-
     _classPrivateFieldInitSpec(this, _privateField, {
       writable: true,
       value: 2
     });
   }
-
 }
 `;
 
@@ -745,8 +754,8 @@ if (__DEV__) {
     __DEV__: 'value',
 
     // this should change (replaceable __DEV__ value):
-    key: __DEV__ });
-
+    key: __DEV__
+  });
 }
 `;
 
@@ -773,6 +782,7 @@ if (__DEV__) {
 "use strict";
 
 /* eslint-disable no-console */
+
 if (process.env.NODE_ENV !== "production") {
   const dev = process.env.NODE_ENV !== "production" ? 'foo' : 'bar';
   console.log(dev);
@@ -805,7 +815,10 @@ if (__DEV__) {
 }
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+
+
 /* eslint-disable no-console */
+
 if (process.env.NODE_ENV !== "production") {
   const dev = process.env.NODE_ENV !== "production" ? 'foo' : 'bar';
   console.log(dev);
@@ -981,16 +994,13 @@ module.exports = function MyComponent(): React.Element<typeof React.Suspense> {
 "use strict";
 
 var _jsxRuntime = require("react/jsx-runtime");
-
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 /* eslint-disable */
+
 const React = require('react');
-
 const BoldTodoRenderer = React.lazy(() => Promise.resolve().then(() => _interopRequireWildcard(require('./BoldTodoRenderer'))));
-
 module.exports = function MyComponent() {
   return /*#__PURE__*/(0, _jsxRuntime.jsx)(React.Suspense, {
     fallback: /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
@@ -1028,11 +1038,11 @@ module.exports = function MyComponent(): React.Element<typeof React.Suspense> {
 import { jsx as _jsx } from "react/jsx-runtime";
 
 /* eslint-disable */
+
 const React = require('react');
-
-const BoldTodoRenderer = React.lazy(() => import( // $FlowExpectedError[cannot-resolve-module]
+const BoldTodoRenderer = React.lazy(() => import(
+// $FlowExpectedError[cannot-resolve-module]
 './BoldTodoRenderer'));
-
 module.exports = function MyComponent() {
   return /*#__PURE__*/_jsx(React.Suspense, {
     fallback: /*#__PURE__*/_jsx("div", {
@@ -1077,6 +1087,7 @@ console.warn(x);
 "use strict";
 
 /* eslint-disable */
+
 const x = (1 ** 2) ** 3 ** 4;
 console.warn(x);
 `;
@@ -1092,7 +1103,10 @@ const x: number = (1 ** 2) ** (3 ** 4);
 console.warn(x);
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+
+
 /* eslint-disable */
+
 const x = (1 ** 2) ** 3 ** 4;
 console.warn(x);
 `;
@@ -1314,53 +1328,42 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.f = exports.e = exports.d = exports.c = exports.b = exports.a = void 0;
-
 const StatusDefault1 = require("flow-enums-runtime").Mirrored(["Active", "Paused", "Off"]);
-
 const StatusDefault2 = require("flow-enums-runtime").Mirrored(["Active", "Paused", "Off"]);
-
 const StatusString1 = require("flow-enums-runtime")({
   Active: 'active',
   Paused: 'paused',
   Off: 'off'
 });
-
 const StatusString2 = require("flow-enums-runtime")({
   Active: 'active',
   Paused: 'paused',
   Off: 'off'
 });
-
 const StatusNumber1 = require("flow-enums-runtime")({
   Active: 1,
   Paused: 2,
   Off: 3
 });
-
 const StatusNumber2 = require("flow-enums-runtime")({
   Active: 1,
   Paused: 2,
   Off: 3
 });
-
 const StatusBoolean1 = require("flow-enums-runtime")({
   Active: true,
   Off: false
 });
-
 const StatusBoolean2 = require("flow-enums-runtime")({
   Active: true,
   Off: false
 });
-
 const StatusSymbol = require("flow-enums-runtime")({
   Active: Symbol("Active"),
   Paused: Symbol("Paused"),
   Off: Symbol("Off")
 });
-
 const StatusUnknownMembers = require("flow-enums-runtime").Mirrored(["Active", "Paused", "Off"]);
-
 const a = StatusDefault1.Active;
 exports.a = a;
 const b = StatusString1.Active;
@@ -1447,51 +1450,41 @@ export const f: StatusUnknownMembers = StatusUnknownMembers.Active;
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 const StatusDefault1 = require("flow-enums-runtime").Mirrored(["Active", "Paused", "Off"]);
-
 const StatusDefault2 = require("flow-enums-runtime").Mirrored(["Active", "Paused", "Off"]);
-
 const StatusString1 = require("flow-enums-runtime")({
   Active: 'active',
   Paused: 'paused',
   Off: 'off'
 });
-
 const StatusString2 = require("flow-enums-runtime")({
   Active: 'active',
   Paused: 'paused',
   Off: 'off'
 });
-
 const StatusNumber1 = require("flow-enums-runtime")({
   Active: 1,
   Paused: 2,
   Off: 3
 });
-
 const StatusNumber2 = require("flow-enums-runtime")({
   Active: 1,
   Paused: 2,
   Off: 3
 });
-
 const StatusBoolean1 = require("flow-enums-runtime")({
   Active: true,
   Off: false
 });
-
 const StatusBoolean2 = require("flow-enums-runtime")({
   Active: true,
   Off: false
 });
-
 const StatusSymbol = require("flow-enums-runtime")({
   Active: Symbol("Active"),
   Paused: Symbol("Paused"),
   Off: Symbol("Off")
 });
-
 const StatusUnknownMembers = require("flow-enums-runtime").Mirrored(["Active", "Paused", "Off"]);
-
 export const a = StatusDefault1.Active;
 export const b = StatusString1.Active;
 export const c = StatusNumber1.Active;
@@ -1552,14 +1545,13 @@ console.log(gen.next().value); // 20
 "use strict";
 
 /* eslint-disable */
+
 function* generator(i) {
   yield i;
   yield i + 10;
 }
-
 const gen = generator(10);
 console.log(gen.next().value); // 10
-
 console.log(gen.next().value); // 20
 `;
 
@@ -1580,15 +1572,16 @@ console.log(gen.next().value); // 10
 console.log(gen.next().value); // 20
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+
+
 /* eslint-disable */
+
 function* generator(i) {
   yield i;
   yield i + 10;
 }
-
 const gen = generator(10);
 console.log(gen.next().value); // 10
-
 console.log(gen.next().value); // 20
 `;
 
@@ -1614,6 +1607,7 @@ invariant(Math.random(), 'This should stay AS IS!');
 "use strict";
 
 /* eslint-disable */
+
 invariant(Math.random(), 'This should stay AS IS!');
 `;
 
@@ -1625,6 +1619,7 @@ invariant(Math.random(), 'This should stay AS IS!');
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 /* eslint-disable */
+
 invariant(Math.random(), 'This should stay AS IS!');
 `;
 
@@ -1662,10 +1657,9 @@ invariant(Math.random(), 'You shall not pass %s!', 'Jerry');
 "use strict";
 
 var _js = require("@adeira/js");
-
 var _else = require("else");
-
 /* eslint-disable */
+
 !Math.random() ? process.env.NODE_ENV !== "production" ? (0, _js.invariant)(false, 'You shall not pass!') : (0, _js.invariant)(false) : void 0;
 !Math.random() ? process.env.NODE_ENV !== "production" ? (0, _js.invariant)(false, 'You shall not pass %s!', 'Jerry') : (0, _js.invariant)(false) : void 0;
 `;
@@ -1682,6 +1676,7 @@ invariant(Math.random(), 'You shall not pass %s!', 'Jerry');
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 /* eslint-disable */
+
 import { invariant } from '@adeira/js';
 import { something } from 'else';
 !Math.random() ? process.env.NODE_ENV !== "production" ? invariant(false, 'You shall not pass!') : invariant(false) : void 0;
@@ -1719,10 +1714,10 @@ invariant(Math.random(), 'You shall not pass %s!', 'Jerry');
 "use strict";
 
 /* eslint-disable */
+
 const {
   invariant
 } = require('@adeira/js');
-
 !Math.random() ? process.env.NODE_ENV !== "production" ? invariant(false, 'You shall not pass!') : invariant(false) : void 0;
 !Math.random() ? process.env.NODE_ENV !== "production" ? invariant(false, 'You shall not pass %s!', 'Jerry') : invariant(false) : void 0;
 `;
@@ -1738,10 +1733,10 @@ invariant(Math.random(), 'You shall not pass %s!', 'Jerry');
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 /* eslint-disable */
+
 const {
   invariant
 } = require('@adeira/js');
-
 !Math.random() ? process.env.NODE_ENV !== "production" ? invariant(false, 'You shall not pass!') : invariant(false) : void 0;
 !Math.random() ? process.env.NODE_ENV !== "production" ? invariant(false, 'You shall not pass %s!', 'Jerry') : invariant(false) : void 0;
 `;
@@ -1804,11 +1799,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = Component;
-
 var _jsxRuntime = require("react/jsx-runtime");
 
 const React = () => {};
-
 function Component() {
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
     children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
@@ -1843,7 +1836,6 @@ import { Fragment as _Fragment } from "react/jsx-runtime";
 import { jsxs as _jsxs } from "react/jsx-runtime";
 
 const React = () => {};
-
 export default function Component() {
   return /*#__PURE__*/_jsxs(_Fragment, {
     children: [/*#__PURE__*/_jsx("div", {
@@ -1889,6 +1881,7 @@ const message = 0xa0_b0_c0;
 "use strict";
 
 /* eslint-disable */
+
 const budget = 1000000000000;
 const nibbles = 0b1010000110000101;
 const message = 0xa0b0c0;
@@ -1905,7 +1898,10 @@ const nibbles = 0b1010_0001_1000_0101;
 const message = 0xa0_b0_c0;
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+
+
 /* eslint-disable */
+
 const budget = 1000000000000;
 const nibbles = 0b1010000110000101;
 const message = 0xa0b0c0;
@@ -1944,8 +1940,10 @@ try {
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 "use strict";
 
-try {// ...
-} catch {// ...
+try {
+  // ...
+} catch {
+  // ...
 }
 `;
 
@@ -1960,8 +1958,12 @@ try {
 }
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-try {// ...
-} catch {// ...
+
+
+try {
+  // ...
+} catch {
+  // ...
 }
 `;
 
@@ -1994,7 +1996,6 @@ module.exports = function (a: ?{ +[string]: any, ... }): string {
 
 module.exports = function (a) {
   var _a$b;
-
   return (_a$b = a === null || a === void 0 ? void 0 : a.b) !== null && _a$b !== void 0 ? _a$b : 'default';
 };
 `;
@@ -2008,9 +2009,10 @@ module.exports = function (a: ?{ +[string]: any, ... }): string {
 };
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+
+
 module.exports = function (a) {
   var _a$b;
-
   return (_a$b = a === null || a === void 0 ? void 0 : a.b) !== null && _a$b !== void 0 ? _a$b : 'default';
 };
 `;
@@ -2044,8 +2046,8 @@ module.exports = function (a: AnyObject, ...rest: Array<any>): AnyObject {
   const { b, ...c } = a;
   return {
     ...b,
-    ...c };
-
+    ...c
+  };
 };
 `;
 
@@ -2070,13 +2072,15 @@ module.exports = function (a: AnyObject, ...rest: Array<any>): AnyObject {
 "use strict";
 
 /* eslint-disable no-console */
+
 module.exports = function (a, ...rest) {
   console.warn([1, ...rest]);
   const {
     b,
     ...c
   } = a;
-  return { ...b,
+  return {
+    ...b,
     ...c
   };
 };
@@ -2100,14 +2104,18 @@ module.exports = function (a: AnyObject, ...rest: Array<any>): AnyObject {
 };
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+
+
 /* eslint-disable no-console */
+
 module.exports = function (a, ...rest) {
   console.warn([1, ...rest]);
   const {
     b,
     ...c
   } = a;
-  return { ...b,
+  return {
+    ...b,
     ...c
   };
 };
@@ -2135,6 +2143,7 @@ exports[`matches expected output: throw-expressions.js: js (old browsers) 1`] = 
 "use strict";
 
 /* eslint-disable */
+
 () => function (e) {
   throw e;
 }(new Error(''));
@@ -2148,6 +2157,7 @@ exports[`matches expected output: throw-expressions.js: js-esm (with ES6 import/
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 /* eslint-disable */
+
 () => function (e) {
   throw e;
 }(new Error(''));
@@ -2175,6 +2185,7 @@ warning(Math.random(), 'This should stay AS IS!');
 "use strict";
 
 /* eslint-disable */
+
 warning(Math.random(), 'This should stay AS IS!');
 `;
 
@@ -2186,6 +2197,7 @@ warning(Math.random(), 'This should stay AS IS!');
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 /* eslint-disable */
+
 warning(Math.random(), 'This should stay AS IS!');
 `;
 
@@ -2223,10 +2235,9 @@ warning(Math.random(), 'I am warning you %s!', 'René');
 "use strict";
 
 var _js = require("@adeira/js");
-
 var _else = require("else");
-
 /* eslint-disable */
+
 process.env.NODE_ENV !== "production" ? (0, _js.warning)(Math.random(), 'I am warning you!') : void 0;
 process.env.NODE_ENV !== "production" ? (0, _js.warning)(Math.random(), 'I am warning you %s!', 'René') : void 0;
 `;
@@ -2243,6 +2254,7 @@ warning(Math.random(), 'I am warning you %s!', 'René');
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 /* eslint-disable */
+
 import { warning } from '@adeira/js';
 import { something } from 'else';
 process.env.NODE_ENV !== "production" ? warning(Math.random(), 'I am warning you!') : void 0;
@@ -2280,10 +2292,10 @@ warning(Math.random(), 'I am warning you %s!', 'René');
 "use strict";
 
 /* eslint-disable */
+
 const {
   warning
 } = require('@adeira/js');
-
 process.env.NODE_ENV !== "production" ? warning(Math.random(), 'I am warning you!') : void 0;
 process.env.NODE_ENV !== "production" ? warning(Math.random(), 'I am warning you %s!', 'René') : void 0;
 `;
@@ -2299,10 +2311,10 @@ warning(Math.random(), 'I am warning you %s!', 'René');
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 /* eslint-disable */
+
 const {
   warning
 } = require('@adeira/js');
-
 process.env.NODE_ENV !== "production" ? warning(Math.random(), 'I am warning you!') : void 0;
 process.env.NODE_ENV !== "production" ? warning(Math.random(), 'I am warning you %s!', 'René') : void 0;
 `;
