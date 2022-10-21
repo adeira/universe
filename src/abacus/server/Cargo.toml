@@ -10,11 +10,11 @@ publish = false
 [dependencies]
 anyhow = { version = "1.0.66", default-features = false, features = ["std"] }
 async-trait = "0.1.58"
-base64 = "0.13.0"
+base64 = "0.13.1"
 blurhash-wasm = { git = "https://github.com/fpapado/blurhash-rust-wasm", branch = "master" }
 bytes = "1.2.1"
 casbin = "2.0.9"
-clap = { version = "4.0.17", default-features = false, features = ["std", "cargo", "color", "deprecated", "env", "error-context", "help", "suggestions", "unicode", "usage"] }
+clap = { version = "4.0.18", default-features = false, features = ["std", "cargo", "color", "deprecated", "env", "error-context", "help", "suggestions", "unicode", "usage"] }
 clap_complete = { version = "4.0.3", default-features = false }
 data-encoding = "2.3.2"
 deadpool = { version = "0.9.5", default-features = false, features = ["managed"] }
