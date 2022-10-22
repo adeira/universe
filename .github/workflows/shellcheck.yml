@@ -1,0 +1,20 @@
+name: shellcheck
+
+on:
+  push:
+    branches-ignore:
+      # We do not run tests on master as the changes were already tested when opening a PR,
+      # and we require every PR to be up-to-date before merging it to master.
+      - master
+
+jobs:
+  shellcheck:
+    runs-on: ubuntu-latest
+
+    steps:
+      # https://github.com/actions/checkout
+      - uses: actions/checkout@v3.1.0
+
+      - name: Run ShellCheck
+        # TODO: expand as needed (./**/*.sh)
+        run: shellcheck --enable=all --color=always ./x
