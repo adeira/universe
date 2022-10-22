@@ -6,15 +6,14 @@ import path from 'path';
 import util from 'util';
 import semver from 'semver';
 import rimraf from 'rimraf';
-import packlist from 'npm-packlist';
 import { Workspaces } from '@adeira/monorepo-utils';
 import isCI from 'is-ci';
 import chalk from 'chalk';
-import Arborist from '@npmcli/arborist';
 
 import log from './log';
 import NPM from './NPM';
 import transformFileVariants from './transformFileVariants';
+import { collectFilenames } from './collectFilenames';
 
 type Options = {
   +dryRun: boolean,
@@ -65,9 +64,7 @@ export default async function publish(options: Options) {
         } else {
           log('🚀 Preparing %s for release (latest: %s)', chalkPackageName, latest);
 
-          const arborist = new Arborist({ path: packageFolderPath });
-          const arboristTree = await arborist.loadActual();
-          const filenames = await packlist(arboristTree);
+          const filenames = await collectFilenames(packageFolderPath);
           for (const filename of filenames) {
             const destinationFileName = path.join(options.buildCache, packageFolderName, filename);
 
