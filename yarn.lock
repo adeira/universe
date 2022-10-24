@@ -2340,7 +2340,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/environment@npm:^29.2.1, @jest/environment@npm:^29.2.2":
+"@jest/environment@npm:^29.2.2":
   version: 29.2.2
   resolution: "@jest/environment@npm:29.2.2"
   dependencies:
@@ -2371,7 +2371,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/fake-timers@npm:^29.2.1, @jest/fake-timers@npm:^29.2.2":
+"@jest/fake-timers@npm:^29.2.2":
   version: 29.2.2
   resolution: "@jest/fake-timers@npm:29.2.2"
   dependencies:
@@ -6113,7 +6113,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-jest@npm:^29.2.1, babel-jest@npm:^29.2.2":
+"babel-jest@npm:^29.2.2":
   version: 29.2.2
   resolution: "babel-jest@npm:29.2.2"
   dependencies:
@@ -12661,16 +12661,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-environment-jsdom@npm:^29.2.1":
-  version: 29.2.1
-  resolution: "jest-environment-jsdom@npm:29.2.1"
+"jest-environment-jsdom@npm:^29.2.2":
+  version: 29.2.2
+  resolution: "jest-environment-jsdom@npm:29.2.2"
   dependencies:
-    "@jest/environment": ^29.2.1
-    "@jest/fake-timers": ^29.2.1
+    "@jest/environment": ^29.2.2
+    "@jest/fake-timers": ^29.2.2
     "@jest/types": ^29.2.1
     "@types/jsdom": ^20.0.0
     "@types/node": "*"
-    jest-mock: ^29.2.1
+    jest-mock: ^29.2.2
     jest-util: ^29.2.1
     jsdom: ^20.0.0
   peerDependencies:
@@ -12678,7 +12678,7 @@ __metadata:
   peerDependenciesMeta:
     canvas:
       optional: true
-  checksum: 7e721fefad2d3a3849e6b85dc387985b9b9e4fcc43e07627886b54e88c714ba49ab7a1b009118572ff597f75ab183d00fd934705d88e90b7c0ddf8d3d0048c9a
+  checksum: ba612bf496a124ea58579f40b1a027cd6cfe9f4650c8131b757aed2644a2621843c2d4455079ae932416e7c1bd04fa85e362d9113442b5b8b9b2dbee1c5dcfa4
   languageName: node
   linkType: hard
 
@@ -12797,7 +12797,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-mock@npm:^29.2.1, jest-mock@npm:^29.2.2":
+"jest-mock@npm:^29.2.2":
   version: 29.2.2
   resolution: "jest-mock@npm:29.2.2"
   dependencies:
@@ -17254,7 +17254,7 @@ __metadata:
     "@adeira/monorepo-utils": ^0.11.0
     "@babel/cli": ^7.19.3
     "@babel/core": ^7.19.6
-    babel-jest: ^29.2.1
+    babel-jest: ^29.2.2
     babel-loader: ^8.2.5
     eslint: ^8.26.0
     eslint-formatter-codeframe: ^7.32.1
@@ -17262,7 +17262,7 @@ __metadata:
     glob: ^8.0.3
     hermes-eslint: ^0.9.0
     jest: ^29.2.2
-    jest-environment-jsdom: ^29.2.1
+    jest-environment-jsdom: ^29.2.2
     prettier: ^2.7.1
   languageName: unknown
   linkType: soft
