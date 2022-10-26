@@ -34,7 +34,7 @@ __metadata:
     next: ^12.3.1
     next-compose-plugins: ^2.2.1
     next-plugin-custom-babel-config: ^1.0.5
-    next-seo: ^5.8.0
+    next-seo: ^5.9.0
     next-transpile-modules: ^9.1.0
     playwright: ^1.27.1
     react: ^18.2.0
@@ -83,7 +83,7 @@ __metadata:
     next: ^12.3.1
     next-compose-plugins: ^2.2.1
     next-plugin-custom-babel-config: ^1.0.5
-    next-seo: ^5.8.0
+    next-seo: ^5.9.0
     next-transpile-modules: ^9.1.0
     playwright: ^1.27.1
     react: ^18.2.0
@@ -14494,14 +14494,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-seo@npm:^5.8.0":
-  version: 5.8.0
-  resolution: "next-seo@npm:5.8.0"
+"next-seo@npm:^5.9.0":
+  version: 5.9.0
+  resolution: "next-seo@npm:5.9.0"
   peerDependencies:
     next: ^8.1.1-canary.54 || >=9.0.0
     react: ">=16.0.0"
     react-dom: ">=16.0.0"
-  checksum: 203288a44beba6dbc8218fc638675c48e4b3e807cc867f3274cc2af90fbfce9955f3b0c1a87a4f91bff7a287ed8184af8a33b52f0314d12ff940a882eb81d7aa
+  checksum: bcf9539756d9877ad3bbbc7ed225155837176c206674bac66a0f00e3e02ff20aa32fabf97ae9bc5578685e88d91b0467c193f6aaf9513bf5fbe9b472bc41c4ab
   languageName: node
   linkType: hard
 
