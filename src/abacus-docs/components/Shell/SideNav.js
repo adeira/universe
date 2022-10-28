@@ -44,9 +44,7 @@ export function SideNav(): Node {
               const active = router.pathname === link.href;
               return (
                 <li key={link.href} className={active ? 'active' : ''}>
-                  <Link {...link}>
-                    <a href={link.href}>{link.children}</a>
-                  </Link>
+                  <Link {...link}>{link.children}</Link>
                 </li>
               );
             })}

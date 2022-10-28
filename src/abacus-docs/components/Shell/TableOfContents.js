@@ -25,10 +25,7 @@ export function TableOfContents({ toc }: Props): Node {
                   .filter(Boolean)
                   .join(' ')}
               >
-                <Link href={href} passHref>
-                  {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                  <a>{item.title}</a>
-                </Link>
+                <Link href={href}>{item.title}</Link>
               </li>
             );
           })}

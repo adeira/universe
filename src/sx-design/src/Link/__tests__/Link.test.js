@@ -17,7 +17,7 @@ beforeEach(() => {
 
 it('renders the link as expected - internal link', () => {
   const { container } = renderWithoutProviders(
-    <Link nextLinkComponent={NextLink} href="assets/yadada">
+    <Link nextLinkComponent={NextLink} href="/assets/yadada">
       <fbt desc="internal link title" doNotExtract={true}>
         internal link
       </fbt>
@@ -74,7 +74,7 @@ it('renders the link as expected - internal link', () => {
 
 it('renders the link as expected - internal link with target _blank', () => {
   const { container } = renderWithoutProviders(
-    <Link nextLinkComponent={NextLink} href="assets/yadada" target="_blank">
+    <Link nextLinkComponent={NextLink} href="/assets/yadada" target="_blank">
       <fbt desc="internal link with target title" doNotExtract={true}>
         internal link with target _blank
       </fbt>
