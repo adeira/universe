@@ -17,6 +17,7 @@ export type AllCSSPropertyTypes = {
   +alignTracks?: number | string, // https://developer.mozilla.org/docs/Web/CSS/align-tracks
   +all?: 'initial' | 'inherit' | 'unset' | 'revert' | 'revert-layer', // https://developer.mozilla.org/docs/Web/CSS/all
   +animation?: number | string, // https://developer.mozilla.org/docs/Web/CSS/animation
+  +animationComposition?: number | string, // https://developer.mozilla.org/docs/Web/CSS/animation-composition
   +animationDelay?: string, // https://developer.mozilla.org/docs/Web/CSS/animation-delay
   +animationDirection?: number | string, // https://developer.mozilla.org/docs/Web/CSS/animation-direction
   +animationDuration?: string, // https://developer.mozilla.org/docs/Web/CSS/animation-duration
@@ -235,7 +236,9 @@ export type AllCSSPropertyTypes = {
     | 'inherit'
     | 'initial'
     | 'unset',
+  +caret?: number | string,
   +caretColor?: string, // https://developer.mozilla.org/docs/Web/CSS/caret-color
+  +caretShape?: 'auto' | 'bar' | 'block' | 'underscore' | 'inherit' | 'initial' | 'unset',
   +clear?:  // https://developer.mozilla.org/docs/Web/CSS/clear
     | 'none'
     | 'left'
@@ -262,6 +265,11 @@ export type AllCSSPropertyTypes = {
   +columnWidth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/column-width
   +columns?: number | string, // https://developer.mozilla.org/docs/Web/CSS/columns
   +contain?: number | string, // https://developer.mozilla.org/docs/Web/CSS/contain
+  +containIntrinsicSize?: number | string, // https://developer.mozilla.org/docs/Web/CSS/contain-intrinsic-size
+  +containIntrinsicBlockSize?: number | string, // https://developer.mozilla.org/docs/Web/CSS/contain-intrinsic-block-size
+  +containIntrinsicHeight?: number | string, // https://developer.mozilla.org/docs/Web/CSS/contain-intrinsic-height
+  +containIntrinsicInlineSize?: number | string, // https://developer.mozilla.org/docs/Web/CSS/contain-intrinsic-inline-size
+  +containIntrinsicWidth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/contain-intrinsic-width
   +content?: number | string, // https://developer.mozilla.org/docs/Web/CSS/content
   +contentVisibility?: 'visible' | 'auto' | 'hidden' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/content-visibility
   +counterIncrement?: number | string, // https://developer.mozilla.org/docs/Web/CSS/counter-increment
@@ -420,6 +428,8 @@ export type AllCSSPropertyTypes = {
   +maskSize?: number | string, // https://developer.mozilla.org/docs/Web/CSS/mask-size
   +maskType?: 'luminance' | 'alpha' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/mask-type
   +masonryAutoFlow?: number | string, // https://developer.mozilla.org/docs/Web/CSS/masonry-auto-flow
+  +mathDepth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/math-depth
+  +mathShift?: 'normal' | 'compact' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/math-shift
   +mathStyle?: 'normal' | 'compact' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/math-style
   +maxBlockSize?: number | string, // https://developer.mozilla.org/docs/Web/CSS/max-block-size
   +maxHeight?: number | string, // https://developer.mozilla.org/docs/Web/CSS/max-height
@@ -621,6 +631,16 @@ export type AllCSSPropertyTypes = {
   +scrollSnapAlign?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-snap-align
   +scrollSnapStop?: 'normal' | 'always' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/scroll-snap-stop
   +scrollSnapType?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-snap-type
+  +scrollTimeline?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-timeline
+  +scrollTimelineAxis?:  // https://developer.mozilla.org/docs/Web/CSS/scroll-timeline-axis
+    | 'block'
+    | 'inline'
+    | 'vertical'
+    | 'horizontal'
+    | 'inherit'
+    | 'initial'
+    | 'unset',
+  +scrollTimelineName?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-timeline-name
   +shapeImageThreshold?: number | string, // https://developer.mozilla.org/docs/Web/CSS/shape-image-threshold
   +shapeMargin?: number | string, // https://developer.mozilla.org/docs/Web/CSS/shape-margin
   +shapeOutside?: number | string, // https://developer.mozilla.org/docs/Web/CSS/shape-outside
