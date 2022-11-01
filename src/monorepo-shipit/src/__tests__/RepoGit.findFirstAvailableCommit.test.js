@@ -29,17 +29,15 @@ jest.mock('@adeira/shell-command', () => {
         }
       }
 
-      getStdout() {
+      getStdout(): $FlowFixMe {
         return this.stdout;
       }
 
-      runSynchronously() {
-        // $FlowExpectedError[escaped-generic]
+      runSynchronously(): $FlowFixMe {
         return this;
       }
 
-      setEnvironmentVariables() {
-        // $FlowExpectedError[escaped-generic]
+      setEnvironmentVariables(): $FlowFixMe {
         return this;
       }
     },

@@ -7,7 +7,7 @@ const graphql = require('graphql');
 import type { EslintRule } from '@adeira/flow-types-eslint';
 */
 
-function shouldLint(context) {
+function shouldLint(context: $FlowFixMe) {
   return /graphql|relay/i.test(context.getSourceCode().text);
 }
 
@@ -38,7 +38,7 @@ module.exports = ({
           // we are not validating Relay usages here (relay/rule-graphql-syntax does it already)
           // but we are trying to be quite benevolent here
 
-          const checkSelections = (selections) => {
+          const checkSelections = (selections /*: $FlowFixMe */) => {
             for (const selection of selections) {
               if (
                 selection.kind === 'InlineFragment' &&

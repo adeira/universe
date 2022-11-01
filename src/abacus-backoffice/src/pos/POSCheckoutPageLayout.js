@@ -74,8 +74,9 @@ export default function POSCheckoutPageLayout(): Node {
     });
   };
 
-  const handleIncrease = (value) => setReceivedMoney((prevValue) => prevValue + value);
-  const handleDecrease = (value) => setReceivedMoney((prevValue) => Math.max(prevValue - value, 0));
+  const handleIncrease = (value: number) => setReceivedMoney((prevValue) => prevValue + value);
+  const handleDecrease = (value: number) =>
+    setReceivedMoney((prevValue) => Math.max(prevValue - value, 0));
 
   return (
     <div className={styles('root')}>
