@@ -36,7 +36,7 @@ export default class StyleCollectorNode implements StyleCollectorNodeInterface {
   }
 
   // eslint-disable-next-line no-unused-vars
-  addNodes(nodes: Map<string, StyleCollectorNodeInterface>) {
+  addNodes(nodes: Map<string, StyleCollectorNodeInterface>): empty {
     invariant(false, 'StyleCollectorNode cannot have nested nodes,');
   }
 

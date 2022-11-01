@@ -21,7 +21,7 @@ type AtomValue = Immutable.List<AtomItemType>;
 
 const localStorageEffect =
   (key: string) =>
-  ({ setSelf, onSet }) => {
+  ({ setSelf, onSet }: $FlowFixMe) => {
     if (!isBrowser()) {
       return;
     }

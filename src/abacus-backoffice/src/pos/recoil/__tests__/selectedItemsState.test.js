@@ -20,7 +20,7 @@ function renderSelectedItemsHook() {
   return result;
 }
 
-function print(renderHookResult) {
+function print(renderHookResult: $FlowFixMe) {
   return {
     selectedItems: renderHookResult.current.selectedItems,
     stats: renderHookResult.current.stats,

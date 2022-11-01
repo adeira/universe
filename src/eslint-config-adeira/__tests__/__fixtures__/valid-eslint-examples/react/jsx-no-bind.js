@@ -7,7 +7,7 @@ import/no-extraneous-dependencies,
 react/no-multi-comp
 */
 
-import { PureComponent, Component, useState, type Element } from 'react';
+import { PureComponent, Component, useState, type Element, type Node } from 'react';
 
 type LetterProps = {
   +letter: string,
@@ -17,7 +17,7 @@ type LetterProps = {
 const A = 65; // ASCII character code
 
 class Letter extends PureComponent<LetterProps> {
-  render() {
+  render(): Node {
     console.warn('Rendering letter %s', this.props.letter);
     return <li onClick={this.props.onClick}>{this.props.letter}</li>;
   }

@@ -54,7 +54,7 @@ export default function create<T: SheetDefinitions>(sheetDefinitions: T): Create
     injectRuntimeStyles(styleBuffer);
   }
 
-  function sxFunction(maybeObject: any, ...styleSheetsSelectors) {
+  function sxFunction(maybeObject: any, ...styleSheetsSelectors: $FlowFixMe) {
     let sheetDefinitionNames;
     if (isObject(maybeObject)) {
       invariant(

@@ -49,7 +49,7 @@ class StyleCollector {
 
     const traverse = (
       styleSheetName: string,
-      styleSheetObject,
+      styleSheetObject: $FlowFixMe,
       styleBuffer: StyleBufferType,
       hashSeed: string = '',
     ) => {

@@ -5,7 +5,7 @@
 import { Component, type Element, type ChildrenArray, type Node } from 'react';
 
 class Button extends Component<{ +disabled?: boolean }> {
-  render() {
+  render(): Node {
     return null;
   }
 }

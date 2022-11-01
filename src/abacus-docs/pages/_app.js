@@ -12,7 +12,10 @@ const TITLE = 'Adeira DOC';
 
 const FONTS_BASE_URL = '/fonts';
 
-function collectHeadings(node: $FlowFixMe, sections = []): $ReadOnlyArray<$FlowFixMe> {
+function collectHeadings(
+  node: $FlowFixMe,
+  sections: Array<$FlowFixMe> = [],
+): $ReadOnlyArray<$FlowFixMe> {
   if (node) {
     if (node.name === 'Heading') {
       const title = node.children[0];

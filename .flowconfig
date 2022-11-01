@@ -71,11 +71,6 @@ suppress_type=$FlowFixMe
 ; Function parameters are considered const (i.e., treated as if they were declared with const rather than let).
 experimental.const_params=true
 
-; TODO:
-experimental.enforce_local_inference_annotations=false
-experimental.enforce_this_annotations=false
-experimental.enforce_class_annotations=false
-
 relay_integration=true
 relay_integration.module_prefix=./__generated__/
 ; TODO: consider removing the following excludes
