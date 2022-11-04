@@ -13,14 +13,7 @@ type Props = {
 
 export default function PhoneLandscape(props: Props): Element<'svg'> {
   return (
-    <svg
-      height="1em"
-      viewBox="0 0 21 21"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-      role="img"
-      {...props}
-    >
+    <svg height="1em" viewBox="0 0 21 21" width="1em" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
         d="M3.5 14.475V8.5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6a2 2 0 0 1-1.85 1.994l-.155.006-10-.025a2 2 0 0 1-1.995-2zm12-4.975v4"
         fill="none"

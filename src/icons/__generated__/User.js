@@ -13,14 +13,7 @@ type Props = {
 
 export default function User(props: Props): Element<'svg'> {
   return (
-    <svg
-      height="1em"
-      viewBox="0 0 21 21"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-      role="img"
-      {...props}
-    >
+    <svg height="1em" viewBox="0 0 21 21" width="1em" xmlns="http://www.w3.org/2000/svg" {...props}>
       <g fill="none" fillRule="evenodd" stroke="currentColor" strokeLinejoin="round">
         <path d="m11.5 4.5 2 2v1a3 3 0 0 1-5.995.176L7.5 6.5z" strokeLinecap="round" />
         <path d="M5.5 12V7.5a5 5 0 1 1 10 0V12" />
