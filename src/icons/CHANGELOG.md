@@ -1,5 +1,7 @@
 # Unreleased
 
+# 2.1.1
+
 Reverted extra `role="img"` property for all icons. For more details see: https://github.com/gregberge/svgr/pull/789
 
 # 2.1.0

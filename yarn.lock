@@ -12,7 +12,7 @@ __metadata:
     "@adeira/babel-preset-adeira": ^4.0.0
     "@adeira/forms": ^0.4.0
     "@adeira/hooks": ^0.3.0
-    "@adeira/icons": ^2.1.0
+    "@adeira/icons": ^2.1.1
     "@adeira/js": ^2.1.1
     "@adeira/react-auth": ^0.1.0
     "@adeira/relay": ^6.2.0
@@ -67,7 +67,7 @@ __metadata:
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
     "@adeira/hooks": ^0.3.0
-    "@adeira/icons": ^2.1.0
+    "@adeira/icons": ^2.1.1
     "@adeira/js": ^2.1.1
     "@adeira/relay": ^6.2.0
     "@adeira/sx": ^0.29.1
@@ -236,7 +236,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/icons@^2.1.0, @adeira/icons@workspace:src/icons":
+"@adeira/icons@^2.1.1, @adeira/icons@workspace:src/icons":
   version: 0.0.0-use.local
   resolution: "@adeira/icons@workspace:src/icons"
   dependencies:
@@ -376,7 +376,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@adeira/sx-design-headless@workspace:src/sx-design-headless"
   dependencies:
-    "@adeira/icons": ^2.1.0
+    "@adeira/icons": ^2.1.1
     "@adeira/js": ^2.1.1
     "@babel/runtime": ^7.20.1
   peerDependencies:
@@ -416,7 +416,7 @@ __metadata:
     "@adeira/babel-preset-adeira": ^4.0.0
     "@adeira/css-colors": ^2.2.0
     "@adeira/hooks": ^0.3.0
-    "@adeira/icons": ^2.1.0
+    "@adeira/icons": ^2.1.1
     "@adeira/js": ^2.1.1
     "@adeira/sx": ^0.29.1
     "@adeira/sx-design-headless": ^0.2.1

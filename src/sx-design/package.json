@@ -15,7 +15,7 @@
   "sideEffects": false,
   "dependencies": {
     "@adeira/hooks": "^0.3.0",
-    "@adeira/icons": "^2.1.0",
+    "@adeira/icons": "^2.1.1",
     "@adeira/js": "^2.1.1",
     "@adeira/sx-design-headless": "^0.2.1",
     "@babel/runtime": "^7.20.1",
