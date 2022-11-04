@@ -11,6 +11,7 @@ jobs:
   playwright-test:
     name: Playwright test
     strategy:
+      fail-fast: false
       matrix:
         repository:
           - '@adeira/abacus-backoffice'
