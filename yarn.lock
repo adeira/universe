@@ -35,7 +35,7 @@ __metadata:
     next-compose-plugins: ^2.2.1
     next-plugin-custom-babel-config: ^1.0.5
     next-seo: ^5.9.0
-    next-transpile-modules: ^9.1.0
+    next-transpile-modules: ^10.0.0
     playwright: ^1.27.1
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -84,7 +84,7 @@ __metadata:
     next-compose-plugins: ^2.2.1
     next-plugin-custom-babel-config: ^1.0.5
     next-seo: ^5.9.0
-    next-transpile-modules: ^9.1.0
+    next-transpile-modules: ^10.0.0
     playwright: ^1.27.1
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -14569,13 +14569,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-transpile-modules@npm:^9.1.0":
-  version: 9.1.0
-  resolution: "next-transpile-modules@npm:9.1.0"
+"next-transpile-modules@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "next-transpile-modules@npm:10.0.0"
   dependencies:
     enhanced-resolve: ^5.10.0
-    escalade: ^3.1.1
-  checksum: 8cc46196db3c2d2063fb29fe5b4d03c21065ab08130085b24d61e4ed512d99c12083d28179771cf02f70f8bf5970db0781a228aacf6cc61662dbdcabaddfc472
+  checksum: 3300fc7081f63b2c9487588db7cbe718f209dfd2111adec22d9c8af0e3c8ade2d95fd45f91e045546d78d98cafc78a49431de9a623360d33831b5e694bf007c9
   languageName: node
   linkType: hard
 
