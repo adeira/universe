@@ -11,7 +11,7 @@ type Props = {
 
 export default function BarChart(props: Props): Node {
   const svg = React.useRef(null);
-  const [width, setWidth] = useState(null);
+  const [width, setWidth] = useState<null | number>(null);
 
   React.useEffect(() => {
     if (width != null) {

@@ -58,6 +58,9 @@ function prefixKey(prefix: string, key: string) {
 const prefixes = ['webkit'];
 Object.keys(isUnitlessNumber).forEach(function (prop) {
   prefixes.forEach(function (prefix) {
+    /* $FlowFixMe[prop-missing] This comment suppresses an error when upgrading
+     * Flow to version 0.191.0. To see the error delete this comment and run
+     * Flow. */
     isUnitlessNumber[prefixKey(prefix, prop)] = isUnitlessNumber[prop];
   });
 });

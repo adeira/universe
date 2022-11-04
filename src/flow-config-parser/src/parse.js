@@ -56,6 +56,9 @@ export default function parse(input: string): ParsedConfig {
         const rawValue = keyValueMatch.groups?.rawValue;
         const key = rawKey?.trim();
         if (parsedConfig[currentSection] === null) {
+          /* $FlowFixMe[prop-missing] This comment suppresses an error when
+           * upgrading Flow to version 0.191.0. To see the error delete this
+           * comment and run Flow. */
           parsedConfig[currentSection] = {};
         }
         if (KNOWN_LIST_OPTIONS.includes(key)) {

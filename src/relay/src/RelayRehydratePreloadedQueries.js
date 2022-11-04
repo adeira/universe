@@ -70,6 +70,9 @@ export default function RelayRehydratePreloadedQueries({ Component, pageProps }:
       // $FlowFixMe[prop-missing]: property responseCache is missing in INetwork
       environment.getNetwork().responseCache.set(params.cacheID, variables, response);
 
+      /* $FlowFixMe[prop-missing] This comment suppresses an error when
+       * upgrading Flow to version 0.191.0. To see the error delete this
+       * comment and run Flow. */
       relayPreloadedQueryRefs[queryName] = {
         environment,
         fetchKey: params.id,

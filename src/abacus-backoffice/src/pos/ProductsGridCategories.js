@@ -14,7 +14,7 @@ import ProductsGrid from './ProductsGrid';
  * for the first category (or for the selected category).
  */
 export default function ProductsGridCategories(): Node {
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState<null | string>(null);
 
   const applicationLocale = useApplicationLocale();
   // eslint-disable-next-line relay/generated-flow-types -- https://github.com/relayjs/eslint-plugin-relay/issues/131
