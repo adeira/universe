@@ -28,7 +28,7 @@ it('returns request body without uploadables - persistent queries', () => {
 });
 
 function serializeFormData(formData: FormData) {
-  const object = {};
+  const object: { [string]: FormDataEntryValue } = {};
   for (const [key, value] of formData.entries()) {
     object[key] = value;
   }

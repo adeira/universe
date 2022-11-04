@@ -86,7 +86,7 @@ const moon = (
 );
 
 export function ThemeToggle(): Node {
-  const [theme, setTheme] = React.useState(undefined);
+  const [theme, setTheme] = React.useState<void | string>(undefined);
   const [, setHovering] = React.useState(false);
 
   function setPreferredTheme(newTheme: string) {

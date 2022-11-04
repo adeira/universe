@@ -16,7 +16,7 @@ type Props = {
 
 export default function ProductsEditLayout(props: Props): Node {
   const applicationLocale = useApplicationLocale();
-  const [imagesToDelete, setImagesToDelete] = useState([]);
+  const [imagesToDelete, setImagesToDelete] = useState<Array<string>>([]);
 
   // eslint-disable-next-line relay/generated-flow-types -- https://github.com/relayjs/eslint-plugin-relay/issues/131
   const data = useLazyLoadQuery(

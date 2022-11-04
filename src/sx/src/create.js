@@ -74,7 +74,7 @@ export default function create<T: SheetDefinitions>(sheetDefinitions: T): Create
       );
     }
 
-    const selectedStyles = {};
+    const selectedStyles: { [string]: void | string } = {};
     for (const sheetDefinitionName of sheetDefinitionNames) {
       if (sheetDefinitionName != null && sheetDefinitionName !== false) {
         invariant(

@@ -19,7 +19,7 @@ type Props = {
  */
 export default function Skeleton(props: Props): Node {
   const childrenRef = useRef(null);
-  const [childrenRect, setChildrenRect] = useState(null);
+  const [childrenRect, setChildrenRect] = useState<null | { height: number, width: number }>(null);
 
   if (props.show != null) {
     // Property `show` makes only sense when there is a children. It's commonly used for hiding the
