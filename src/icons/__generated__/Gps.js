@@ -13,14 +13,7 @@ type Props = {
 
 export default function Gps(props: Props): Element<'svg'> {
   return (
-    <svg
-      height="1em"
-      viewBox="0 0 21 21"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-      role="img"
-      {...props}
-    >
+    <svg height="1em" viewBox="0 0 21 21" width="1em" xmlns="http://www.w3.org/2000/svg" {...props}>
       <g fill="none" fillRule="evenodd" transform="translate(2 2)">
         <path
           d="M8.5 14.5c3.329 0 6-2.645 6-5.973 0-3.329-2.671-6.027-6-6.027s-6 2.698-6 6.027c0 3.328 2.671 5.973 6 5.973z"
