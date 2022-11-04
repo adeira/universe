@@ -13,7 +13,7 @@ type Props = {
 
 export default function Boxes(props: Props): Element<'svg'> {
   return (
-    <svg width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" role="img" {...props}>
+    <svg width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" {...props}>
       <g
         stroke="currentColor"
         strokeLinecap="round"
