@@ -49,7 +49,6 @@ untyped-import
 [options]
 emoji=true
 exact_by_default=true
-exact_empty_objects=true
 include_warnings=true
 inference_mode=constrain_writes
 

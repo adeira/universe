@@ -31,6 +31,9 @@ const TEMPLATES_PATH = path.join(__dirname, 'templates');
     const sourceFile = path.join(SOURCE_PATH, originalFilename);
     const destinationFile = path.join(DESTINATION_PATH, `${componentNamePascalCase}.js`);
 
+    /* $FlowFixMe[unused-promise-in-async-scope] This comment suppresses an
+     * error when upgrading Flow to version 0.192.0. To see the error delete
+     * this comment and run Flow. */
     svg2jsx(fs.readFileSync(sourceFile, 'utf8'), componentNamePascalCase).then(
       (transformedIcon) => {
         warning(false, destinationFile);

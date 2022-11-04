@@ -10,6 +10,9 @@ it('works as expected - resolves', async () => {
 
   const handleThen = jest.fn();
   const handleCatch = jest.fn();
+  /* $FlowFixMe[unused-promise-in-async-scope] This comment suppresses an error
+   * when upgrading Flow to version 0.192.0. To see the error delete this
+   * comment and run Flow. */
   promise.then(handleThen).catch(handleCatch);
 
   expect(deferred.isSettled()).toBe(false);
@@ -29,6 +32,9 @@ it('works as expected - rejects', async () => {
 
   const handleThen = jest.fn();
   const handleCatch = jest.fn();
+  /* $FlowFixMe[unused-promise-in-async-scope] This comment suppresses an error
+   * when upgrading Flow to version 0.192.0. To see the error delete this
+   * comment and run Flow. */
   promise.then(handleThen).catch(handleCatch);
 
   expect(deferred.isSettled()).toBe(false);
@@ -46,6 +52,9 @@ it('works as expected - alternative approach to resolve', async () => {
 
   const handleThen = jest.fn();
   const handleCatch = jest.fn();
+  /* $FlowFixMe[unused-promise-in-async-scope] This comment suppresses an error
+   * when upgrading Flow to version 0.192.0. To see the error delete this
+   * comment and run Flow. */
   deferred.then(handleThen).catch(handleCatch);
 
   expect(deferred.isSettled()).toBe(false);

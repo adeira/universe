@@ -110,6 +110,9 @@ export default function create<T: SheetDefinitions>(sheetDefinitions: T): Create
 
   // expose the hash registry for external styles merging
   for (const sheetDefinitionKey of Object.keys(sheetDefinitions)) {
+    /* $FlowFixMe[prop-missing] This comment suppresses an error when upgrading
+     * Flow to version 0.192.0. To see the error delete this comment and run
+     * Flow. */
     sxFunction[sheetDefinitionKey] = sheetDefinitions[sheetDefinitionKey];
   }
 
