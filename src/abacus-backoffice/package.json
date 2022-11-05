@@ -16,7 +16,7 @@
   "dependencies": {
     "@adeira/forms": "^0.4.0",
     "@adeira/hooks": "^0.3.0",
-    "@adeira/icons": "^2.1.0",
+    "@adeira/icons": "^2.1.1",
     "@adeira/js": "^2.1.1",
     "@adeira/react-auth": "^0.1.0",
     "@adeira/relay": "^6.2.0",

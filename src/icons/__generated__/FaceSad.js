@@ -13,14 +13,7 @@ type Props = {
 
 export default function FaceSad(props: Props): Element<'svg'> {
   return (
-    <svg
-      height="1em"
-      viewBox="0 0 21 21"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-      role="img"
-      {...props}
-    >
+    <svg height="1em" viewBox="0 0 21 21" width="1em" xmlns="http://www.w3.org/2000/svg" {...props}>
       <g fill="none" fillRule="evenodd" transform="translate(2 2)">
         <path
           d="M8.5 16.5a8 8 0 1 0 0-16 8 8 0 0 0 0 16z"

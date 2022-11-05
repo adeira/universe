@@ -13,14 +13,7 @@ type Props = {
 
 export default function Keyboard(props: Props): Element<'svg'> {
   return (
-    <svg
-      height="1em"
-      viewBox="0 0 21 21"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-      role="img"
-      {...props}
-    >
+    <svg height="1em" viewBox="0 0 21 21" width="1em" xmlns="http://www.w3.org/2000/svg" {...props}>
       <g fill="none" fillRule="evenodd">
         <path
           d="M19.5 13.5v-6a2 2 0 0 0-2-2h-14a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"
