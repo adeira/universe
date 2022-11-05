@@ -1000,7 +1000,9 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 /* eslint-disable */
 
 const React = require('react');
-const BoldTodoRenderer = React.lazy(() => Promise.resolve().then(() => _interopRequireWildcard(require('./BoldTodoRenderer'))));
+const BoldTodoRenderer = React.lazy(() => Promise.resolve().then(() => _interopRequireWildcard(require(
+// $FlowExpectedError[cannot-resolve-module]
+'./BoldTodoRenderer'))));
 module.exports = function MyComponent() {
   return /*#__PURE__*/(0, _jsxRuntime.jsx)(React.Suspense, {
     fallback: /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
@@ -1921,6 +1923,7 @@ try {
 // @flow strict
 
 try {
+
   // ...
 } catch {
   // ...
