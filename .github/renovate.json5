@@ -1,4 +1,7 @@
 {
+  "kubernetes": {
+    "fileMatch": ["src/abacus-kubernetes/.+\\.yaml$"]
+  },
   extends: ['config:base'],
   ignoreDeps: [
     // Pure ESM, see: https://github.com/adeira/universe/issues/2341
