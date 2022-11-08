@@ -16,11 +16,11 @@
     "@adeira/flow-types-eslint": "0.0.0",
     "@adeira/js": "^2.1.1",
     "@babel/runtime": "^7.20.1",
-    "eslint": "^8.26.0",
+    "eslint": "^8.27.0",
     "hermes-eslint": "^0.9.0",
     "jest-docblock": "^29.2.0"
   },
   "peerDependencies": {
-    "eslint": "^8.26.0"
+    "eslint": "^8.27.0"
   }
 }
