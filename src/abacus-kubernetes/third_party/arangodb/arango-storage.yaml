@@ -277,7 +277,7 @@ spec:
       containers:
         - name: operator
           imagePullPolicy: Always
-          image: arangodb/kube-arangodb:1.2.14
+          image: arangodb/kube-arangodb:1.2.20
           args:
             - --scope=legacy
             - --operator.storage
