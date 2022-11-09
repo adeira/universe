@@ -1,5 +1,14 @@
 {
-  extends: ['config:base'],
+  extends: [
+    ':ignoreModulesAndTests',
+    'npm:unpublishSafe',
+    'group:monorepos',
+    'group:recommended',
+    'workarounds:all',
+  ],
+  prHourlyLimit: 0,
+  prConcurrentLimit: 0,
+  dependencyDashboard: true,
   labels: ['dependencies'],
   postUpdateOptions: ['yarnDedupeHighest'],
   rangeStrategy: 'bump',
