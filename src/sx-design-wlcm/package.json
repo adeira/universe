@@ -19,7 +19,7 @@
   },
   "peerDependencies": {
     "@adeira/sx": "^0.29.1",
-    "next": "^12.3.2",
+    "next": "^12.3.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -33,7 +33,7 @@
     "@storybook/addons": "^6.5.13",
     "@storybook/react": "^6.5.13",
     "@storybook/theming": "^6.5.13",
-    "next": "^12.3.2",
+    "next": "^12.3.3",
     "storybook-addon-next-router": "^4.0.1"
   },
   "scripts": {
