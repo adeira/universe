@@ -20,14 +20,20 @@
       matchUpdateTypes: ['patch'],
       addLabels: ['automerge'],
     },
+    // Group dependencies by pattern:
     {
       groupName: 'SVGR packages (JavaScript)',
-      matchPackagePatterns: ['^@svgr/'],
+      matchPackagePatterns: ['^@svgr\\/'],
     },
     {
       groupName: 'cert-manager packages (K8s)',
       matchPackagePatterns: ['^quay\\.io\\/jetstack\\/cert-manager-'],
     },
+    {
+      groupName: 'ingress-nginx packages (K8s)',
+      matchPackagePatterns: ['^k8s\\.gcr\\.io\\/ingress-nginx\\/'],
+    },
+    // Group dependencies by URL prefix:
     {
       groupName: 'Clap packages (Rust)',
       matchSourceUrlPrefixes: ['https://github.com/clap-rs/clap'],
