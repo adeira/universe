@@ -84,6 +84,7 @@ module.exports = ({
     'no-div-regex': WARN,
     'no-else-return': ERROR,
     'no-empty-function': OFF,
+    'no-empty-static-block': NEXT_VERSION_ERROR,
     'no-empty-pattern': ERROR,
     'no-eq-null': OFF,
     'no-eval': ERROR,
@@ -258,6 +259,7 @@ module.exports = ({
     'no-constant-binary-expression': ERROR,
     'no-dupe-class-members': ERROR,
     'no-duplicate-imports': OFF,
+    'no-new-native-nonconstructor': NEXT_VERSION_ERROR,
     'no-new-symbol': WARN,
     'no-restricted-imports': OFF, // see: node/no-restricted-import (https://github.com/mysticatea/eslint-plugin-node/pull/206)
     'no-this-before-super': ERROR,

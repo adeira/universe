@@ -1,6 +1,7 @@
 # Unreleased
 
 - Enable new rule [`promise/no-multiple-resolved`](https://github.com/eslint-community/eslint-plugin-promise/blob/72cfdc8b512a835a6d4cbc3ea2079bc4d234a6f2/docs/rules/no-multiple-resolved.md) (warnings or errors in the strict mode).
+- New rules [`no-empty-static-block`](https://eslint.org/docs/latest/rules/no-empty-static-block) and [`no-new-native-nonconstructor`](https://eslint.org/docs/latest/rules/no-new-native-nonconstructor) enabled (warnings or errors in the strict mode).
 
 # 8.0.0
 
