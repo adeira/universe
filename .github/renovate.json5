@@ -1,8 +1,13 @@
 {
-  "kubernetes": {
-    "fileMatch": ["src/abacus-kubernetes/.+\\.yaml$"]
-  },
   extends: ['config:base'],
+  labels: ['dependencies'],
+  postUpdateOptions: ['yarnDedupeHighest'],
+  rangeStrategy: 'bump',
+  semanticCommits: 'disabled',
+  updateInternalDeps: true,
+  kubernetes: {
+    fileMatch: ['src/abacus-kubernetes/.+\\.yaml$'],
+  },
   ignoreDeps: [
     // Pure ESM, see: https://github.com/adeira/universe/issues/2341
     'chalk',
@@ -10,11 +15,14 @@
     'refractor',
     'strip-ansi',
   ],
-  labels: ['dependencies'],
   packageRules: [
     {
       matchUpdateTypes: ['patch'],
       addLabels: ['automerge'],
+    },
+    {
+      groupName: 'SVGR packages (JavaScript)',
+      matchPackagePatterns: ['^@svgr/'],
     },
     {
       groupName: 'Clap packages (Rust)',
@@ -33,12 +41,8 @@
       matchSourceUrlPrefixes: ['https://github.com/rusoto/rusoto'],
     },
     {
-      groupName: 'SVGR packages (JavaScript)',
-      matchPackagePatterns: ['^@svgr/'],
+      groupName: 'cert-manager packages (K8s)',
+      matchSourceUrlPrefixes: ['https://github.com/cert-manager/cert-manager'],
     },
   ],
-  postUpdateOptions: ['yarnDedupeHighest'],
-  rangeStrategy: 'bump',
-  semanticCommits: 'disabled',
-  updateInternalDeps: true,
 }
