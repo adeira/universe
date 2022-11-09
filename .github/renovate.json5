@@ -25,6 +25,10 @@
       matchPackagePatterns: ['^@svgr/'],
     },
     {
+      groupName: 'cert-manager packages (K8s)',
+      matchPackagePatterns: ['^quay\\.io\\/jetstack\\/cert-manager-'],
+    },
+    {
       groupName: 'Clap packages (Rust)',
       matchSourceUrlPrefixes: ['https://github.com/clap-rs/clap'],
     },
@@ -39,10 +43,6 @@
     {
       groupName: 'Rusoto packages (Rust)',
       matchSourceUrlPrefixes: ['https://github.com/rusoto/rusoto'],
-    },
-    {
-      groupName: 'cert-manager packages (K8s)',
-      matchSourceUrlPrefixes: ['https://github.com/cert-manager/cert-manager'],
     },
   ],
 }
