@@ -32,9 +32,9 @@ dependencies = [
 
 [[package]]
 name = "ahash"
-version = "0.8.1"
+version = "0.8.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "464b3811b747f8f7ebc8849c9c728c39f6ac98a055edad93baf9eb330e3f8f9d"
+checksum = "bf6ccdb167abbf410dcb915cabd428929d7f6a04980b54a11f26a39f1c7f7107"
 dependencies = [
  "cfg-if",
  "getrandom 0.2.8",
@@ -763,10 +763,8 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c05aeb6a22b8f62540c194aac980f2115af067bfe15a0734d7277a768d396b31"
 dependencies = [
  "cfg-if",
- "js-sys",
  "libc",
  "wasi 0.11.0+wasi-snapshot-preview1",
- "wasm-bindgen",
 ]
 
 [[package]]
@@ -1408,9 +1406,9 @@ dependencies = [
 
 [[package]]
 name = "os_str_bytes"
-version = "6.3.1"
+version = "6.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3baf96e39c5359d2eb0dd6ccb42c62b91d9678aa68160d261b9e0ccbf9e9dea9"
+checksum = "7b5bf27447411e9ee3ff51186bf7a08e16c341efdde93f4d823e8844429bed7e"
 
 [[package]]
 name = "overload"
@@ -1904,7 +1902,7 @@ version = "1.10.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6eec3a3db30f591ece18c66b3db4c9fa26f3bce20bc821c50550968361f84333"
 dependencies = [
- "ahash 0.8.1",
+ "ahash 0.8.2",
  "bitflags",
  "instant",
  "num-traits",
