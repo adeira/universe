@@ -4,6 +4,7 @@
  */
 
 import React from 'react';
+import semver from 'semver';
 
 import DateTime from '../DateTime';
 import SxDesignProvider from '../../SxDesignProvider';
@@ -51,7 +52,13 @@ it('works correctly for `es-MX` locale', () => {
       <DateTime value="2022-04-16T01:00:00.000Z" formatOptions={dateTimeFormatOptions} />
     </SxDesignProvider>,
   );
-  expect(getByText('16 abr 2022 01:00:00')).toBeInTheDocument();
+
+  // Change in ICU 72.1 (https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V19.md#19.1.0)
+  if (semver.gte(process.versions.node, '19.1.0')) {
+    expect(getByText('16 abr 2022, 01:00:00')).toBeInTheDocument();
+  } else {
+    expect(getByText('16 abr 2022 01:00:00')).toBeInTheDocument();
+  }
 });
 
 it('works correctly for `cs-CZ` locale', () => {
@@ -81,9 +88,17 @@ it('works correctly with additional format options', () => {
       />
     </SxDesignProvider>,
   );
-  expect(
-    getByText('sobota 16. dubna 2022 našeho letopočtu 1:00:00 Koordinovaný světový čas'),
-  ).toBeInTheDocument();
+
+  // Change in ICU 72.1 (https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V19.md#19.1.0)
+  if (semver.gte(process.versions.node, '19.1.0')) {
+    expect(
+      getByText('sobota 16. dubna 2022 našeho letopočtu v 1:00:00, koordinovaný světový čas'),
+    ).toBeInTheDocument();
+  } else {
+    expect(
+      getByText('sobota 16. dubna 2022 našeho letopočtu 1:00:00 Koordinovaný světový čas'),
+    ).toBeInTheDocument();
+  }
 });
 
 it('handles invalid date value gracefully', () => {
