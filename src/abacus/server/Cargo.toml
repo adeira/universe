@@ -14,7 +14,7 @@ base64 = "0.13.1"
 blurhash-wasm = { git = "https://github.com/fpapado/blurhash-rust-wasm", branch = "master" }
 bytes = "1.2.1"
 casbin = "2.0.9"
-clap = { version = "4.0.23", default-features = false, features = ["std", "cargo", "color", "deprecated", "env", "error-context", "help", "suggestions", "unicode", "usage"] }
+clap = { version = "4.0.25", default-features = false, features = ["std", "cargo", "color", "deprecated", "env", "error-context", "help", "suggestions", "unicode", "usage"] }
 clap_complete = { version = "4.0.5", default-features = false }
 data-encoding = "2.3.2"
 deadpool = { version = "0.9.5", default-features = false, features = ["managed"] }
@@ -43,11 +43,11 @@ tracing = "0.1.37"
 tracing-subscriber = { version = "0.3.16", default-features = false, features = ["smallvec", "fmt", "ansi", "tracing-log", "std", "env-filter"] }
 typed-builder = "0.11.0"
 url = "2.3.1"
-uuid = { version = "1.2.1", default-features = false, features = ["std", "v4"] }
+uuid = { version = "1.2.2", default-features = false, features = ["std", "v4"] }
 warp = { version = "0.3.3", default-features = false, features = ["multipart", "compression"] }
 
 [dev-dependencies]
-insta = { version = "1.21.0", default-features = false, features = ["colors", "ron", "redactions", "json"] }
+insta = { version = "1.21.1", default-features = false, features = ["colors", "ron", "redactions", "json"] }
 proptest = "1.0.0"
 tokio = { version = "1.21.2", default-features = false, features = ["full"] }
 valico = "3.6.1"
