@@ -46,6 +46,9 @@ const localStorageEffect =
 
 const selectedItemsAtom = atom<AtomValue>({
   key: 'selectedItems',
+  /* $FlowFixMe[incompatible-call] This comment suppresses an error when
+   * upgrading Flow to version 0.193.0. To see the error delete this comment
+   * and run Flow. */
   default: Immutable.List(),
   effects: [localStorageEffect('abacus-backoffice:pos:selectedItems')],
 });
@@ -185,6 +188,9 @@ export default function useSelectedItemsApi(): {
       });
     },
     reset: () => {
+      /* $FlowFixMe[incompatible-call] This comment suppresses an error when
+       * upgrading Flow to version 0.193.0. To see the error delete this
+       * comment and run Flow. */
       setSelectedItems(() => Immutable.List());
     },
     stats: selectedItemsStats,
