@@ -132,7 +132,7 @@ __metadata:
     eslint-plugin-eslint-comments: ^3.2.0
     eslint-plugin-fb-flow: ^0.0.4
     eslint-plugin-fbt: ^0.6.0
-    eslint-plugin-ft-flow: ^2.0.1
+    eslint-plugin-ft-flow: ^2.0.3
     eslint-plugin-import: ^2.26.0
     eslint-plugin-jest: ^27.1.5
     eslint-plugin-jest-dom: ^4.0.3
@@ -9450,16 +9450,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-ft-flow@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "eslint-plugin-ft-flow@npm:2.0.1"
+"eslint-plugin-ft-flow@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "eslint-plugin-ft-flow@npm:2.0.3"
   dependencies:
     lodash: ^4.17.21
     string-natural-compare: ^3.0.1
   peerDependencies:
     "@babel/eslint-parser": ^7.12.0
     eslint: ^8.1.0
-  checksum: f9519a9d93c6e883cb1ddf73c18aaff0d40ee555c60fa00f47f24aa73fb255fa6754217fb19a07ec0b1f244f8bc73f539389caa2189a4e9c33a1e8efbe538ec4
+  checksum: 6272f7c352154875dc85c7dcd7cf66f6ed926a9a6aba81c675583bcc6695147597d6b9a6db0f643a387d14eccd61dc36daf20eec1c49e91ce1c63c01ffe295f7
   languageName: node
   linkType: hard
 
