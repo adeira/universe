@@ -103,32 +103,68 @@ export default function POSCheckoutPageLayout(): Node {
       <div className={styles('moneySelector')}>
         <div className={styles('billSelector')}>
           <MoneyBillSelector
-            billImage={<Image src="/money/MXN/20.png" width={159} height={86} />}
+            billImage={
+              <Image src="/money/MXN/20.png" width={159} height={86} alt="20 MXN" priority={true} />
+            }
             onIncrease={() => handleIncrease(20)}
             onDecrease={() => handleDecrease(20)}
           />
           <MoneyBillSelector
-            billImage={<Image src="/money/MXN/50.png" width={165} height={86} />}
+            billImage={
+              <Image src="/money/MXN/50.png" width={165} height={86} alt="50 MXN" priority={true} />
+            }
             onIncrease={() => handleIncrease(50)}
             onDecrease={() => handleDecrease(50)}
           />
           <MoneyBillSelector
-            billImage={<Image src="/money/MXN/100.png" width={174} height={86} />}
+            billImage={
+              <Image
+                src="/money/MXN/100.png"
+                width={174}
+                height={86}
+                alt="100 MXN"
+                priority={true}
+              />
+            }
             onIncrease={() => handleIncrease(100)}
             onDecrease={() => handleDecrease(100)}
           />
           <MoneyBillSelector
-            billImage={<Image src="/money/MXN/200.png" width={184} height={86} />}
+            billImage={
+              <Image
+                src="/money/MXN/200.png"
+                width={184}
+                height={86}
+                alt="200 MXN"
+                priority={true}
+              />
+            }
             onIncrease={() => handleIncrease(200)}
             onDecrease={() => handleDecrease(200)}
           />
           <MoneyBillSelector
-            billImage={<Image src="/money/MXN/500.png" width={194} height={86} />}
+            billImage={
+              <Image
+                src="/money/MXN/500.png"
+                width={194}
+                height={86}
+                alt="500 MXN"
+                priority={true}
+              />
+            }
             onIncrease={() => handleIncrease(500)}
             onDecrease={() => handleDecrease(500)}
           />
           <MoneyBillSelector
-            billImage={<Image src="/money/MXN/1000.png" width={200} height={86} />}
+            billImage={
+              <Image
+                src="/money/MXN/1000.png"
+                width={200}
+                height={86}
+                alt="1000 MXN"
+                priority={true}
+              />
+            }
             onIncrease={() => handleIncrease(1000)}
             onDecrease={() => handleDecrease(1000)}
           />
