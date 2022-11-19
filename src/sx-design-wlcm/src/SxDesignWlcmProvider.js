@@ -13,6 +13,7 @@ export default function SxDesignWlcmProvider(props: Props): Node {
 
 const styles = sx.create({
   base: {
-    '--wlcm-primary': '#3840d1',
+    '--wlcm-primary': '#2563EB',
+    '--wlcm-radius': '12px',
   },
 });

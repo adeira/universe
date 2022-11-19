@@ -23,9 +23,11 @@ const BasicTemplate = (args: ElementConfig<typeof Button>) => (
     <Button {...args} variant="primary">
       Primary button
     </Button>
+    {/*
     <Button {...args} variant="secondary">
       Secondary button
     </Button>
+    */}
   </>
 );
 
