@@ -19,8 +19,7 @@ export default function Button(props: Props): Element<typeof ButtonHeadless> {
       {...propsHeadless}
       className={styles({
         buttonBase: true,
-        buttonPrimary: variant === 'primary',
-        buttonSecondary: variant === 'secondary',
+        buttonPrimary: true, // TODO: other variants
       })}
     />
   );
@@ -28,10 +27,9 @@ export default function Button(props: Props): Element<typeof ButtonHeadless> {
 
 const styles = sx.create({
   buttonBase: {
-    borderRadius: '100px', // TODO: extract to CSS var(..)
+    borderRadius: 'var(--wlcm-radius)',
     paddingBlock: '10px',
     width: '100%',
-    textTransform: 'uppercase',
     cursor: 'pointer',
     display: 'inline-block',
     font: 'inherit',
@@ -42,12 +40,7 @@ const styles = sx.create({
   },
   buttonPrimary: {
     backgroundColor: 'var(--wlcm-primary)',
-    color: 'white', // TODO: extract to CSS var(..)
+    color: 'white',
     border: 0,
-  },
-  buttonSecondary: {
-    backgroundColor: 'white', // TODO: extract to CSS var(..)
-    color: '#333333', // TODO: extract to CSS var(..)
-    border: '1px solid #333333', // TODO: extract to CSS var(..)
   },
 });
