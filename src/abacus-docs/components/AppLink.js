@@ -7,22 +7,14 @@ type Props = {
   +href: string,
   +children: Node,
   +className?: string,
-  +target?: string,
 };
 
 export function AppLink(props: Props): Node {
-  const target = props.target ?? (props.href.startsWith('http') ? '_blank' : undefined);
+  // TODO: open external links via `target=_blank`
 
   return (
-    <Link {...props} passHref>
-      {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-      <a
-        target={target}
-        rel={target === '_blank' ? 'noreferrer' : undefined}
-        className={props.className}
-      >
-        {props.children}
-      </a>
+    <Link {...props} className={props.className}>
+      {props.children}
     </Link>
   );
 }

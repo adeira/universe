@@ -51,7 +51,13 @@ export default function Link({
   ...props
 }: Props): Node {
   return (
-    <NextLinkComponent href={href} passHref={true} as={as} locale={locale}>
+    <NextLinkComponent
+      href={href}
+      passHref={true}
+      legacyBehavior={true} // TODO: migrate to the modern behavior
+      as={as}
+      locale={locale}
+    >
       {/* $FlowExpectedError[prop-missing]: `href` should be provided automatically thanks to `passHref` */}
       <LinkHeadless
         data-testid={props['data-testid']}
