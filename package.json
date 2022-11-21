@@ -6,7 +6,7 @@
   ],
   "engines": {
     "node": ">=v14.21.1",
-    "yarn": ">=3.2.4"
+    "yarn": ">=3.3.0"
   },
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^4.0.0",
@@ -25,5 +25,5 @@
     "jest-environment-jsdom": "^29.3.1",
     "prettier": "^2.7.1"
   },
-  "packageManager": "yarn@3.2.4"
+  "packageManager": "yarn@3.3.0"
 }
