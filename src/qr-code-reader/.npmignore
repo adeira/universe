@@ -1,0 +1,6 @@
+.storybook
+__flowtests__
+__tests__
+
+**/*.stories.js
+**/*.stories.mdx

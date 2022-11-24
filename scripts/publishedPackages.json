@@ -13,6 +13,7 @@
   "@adeira/monorepo-npm-publisher",
   "@adeira/monorepo-utils",
   "@adeira/murmur-hash",
+  "@adeira/qr-code-reader",
   "@adeira/react-auth",
   "@adeira/relay",
   "@adeira/sx",
