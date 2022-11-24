@@ -5,14 +5,6 @@ const { test } = require('@playwright/test');
 
 const { HomePage } = require('./pages/HomePage');
 
-test('navigation to our menu page from homepage', async ({ page, isMobile, baseURL }) => {
-  test.skip(isMobile === true);
-
-  const homepage = new HomePage(page, baseURL);
-  await homepage.goto();
-  await homepage.visitMenuPage();
-});
-
 test('navigation to our adopt page from homepage', async ({ page, isMobile, baseURL }) => {
   test.skip(isMobile === true);
 
