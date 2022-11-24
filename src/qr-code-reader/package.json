@@ -1,0 +1,24 @@
+{
+  "name": "@adeira/qr-code-reader",
+  "description": "TKTK",
+  "homepage": "https://github.com/adeira/universe",
+  "bugs": "https://github.com/adeira/universe/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adeira/universe.git",
+    "directory": "src/qr-code-reader"
+  },
+  "license": "MIT",
+  "version": "0.1.0",
+  "main": "./index.js",
+  "type": "commonjs",
+  "sideEffects": false,
+  "dependencies": {
+    "@babel/runtime": "^7.20.1",
+    "jsqr": "^1.4.0"
+  },
+  "peerDependencies": {
+    "@adeira/sx": "^0.29.1",
+    "react": "^18.2.0"
+  }
+}
