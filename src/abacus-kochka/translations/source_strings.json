@@ -344,174 +344,6 @@
   },
   {
    "hashToLeaf": {
-    "LBAx+p8s256gLYAkVfbjkg==": {
-     "text": "Café menu",
-     "desc": "menu page title"
-    }
-   },
-   "filepath": "src/Menu.js",
-   "line_beg": 47,
-   "col_beg": 13,
-   "line_end": 47,
-   "col_end": 56,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "menu page title",
-     "text": "Café menu"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "JnDGjOnTmmVcE/3sXdcBuA==": {
-     "text": "What do we offer",
-     "desc": "menu page subtitle"
-    }
-   },
-   "filepath": "src/Menu.js",
-   "line_beg": 48,
-   "col_beg": 16,
-   "line_end": 48,
-   "col_end": 69,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "menu page subtitle",
-     "text": "What do we offer"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "5Uo3fUafAa4fCL9VT1ddJw==": {
-     "text": "Ciabattas & Sandwiches",
-     "desc": "ciabattas and sandwiches subtitle in our menu"
-    }
-   },
-   "filepath": "src/menu/MenuSectionCiabattas.js",
-   "line_beg": 31,
-   "col_beg": 8,
-   "line_end": 31,
-   "col_end": 94,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "ciabattas and sandwiches subtitle in our menu",
-     "text": "Ciabattas & Sandwiches"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "2YO+c7f7liBd/0oWsDx7MQ==": {
-     "text": "Coffee drinks",
-     "desc": "coffee subtitle in our menu"
-    }
-   },
-   "filepath": "src/menu/MenuSectionCoffee.js",
-   "line_beg": 31,
-   "col_beg": 8,
-   "line_end": 31,
-   "col_end": 67,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "coffee subtitle in our menu",
-     "text": "Coffee drinks"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "49oC4KNe7YsynNra1tiIDw==": {
-     "text": "Kochkadas",
-     "desc": "kochkadas subtitle in our menu"
-    }
-   },
-   "filepath": "src/menu/MenuSectionKochkadas.js",
-   "line_beg": 31,
-   "col_beg": 8,
-   "line_end": 31,
-   "col_end": 66,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "kochkadas subtitle in our menu",
-     "text": "Kochkadas"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "dSc4laDASdxP9wQdGFEbfA==": {
-     "text": "Others",
-     "desc": "others subtitle in our menu"
-    }
-   },
-   "filepath": "src/menu/MenuSectionOthers.js",
-   "line_beg": 31,
-   "col_beg": 8,
-   "line_end": 31,
-   "col_end": 60,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "others subtitle in our menu",
-     "text": "Others"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "x6UgjVUbrHri7VzawP9UtA==": {
-     "text": "Specialities",
-     "desc": "specialities subtitle in our menu"
-    }
-   },
-   "filepath": "src/menu/MenuSectionSpecialities.js",
-   "line_beg": 31,
-   "col_beg": 8,
-   "line_end": 31,
-   "col_end": 72,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "specialities subtitle in our menu",
-     "text": "Specialities"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "8tuzzzf1dwqFSTF0rx1UHA==": {
-     "text": "Organic tea blends",
-     "desc": "organic tea subtitle in our menu"
-    }
-   },
-   "filepath": "src/menu/MenuSectionTea.js",
-   "line_beg": 31,
-   "col_beg": 8,
-   "line_end": 31,
-   "col_end": 77,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "organic tea subtitle in our menu",
-     "text": "Organic tea blends"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
     "1YLqzX/PtbBOLtiUcdmO5g==": {
      "text": "Navigation",
      "desc": "menu button displayed on smaller screens"
@@ -554,36 +386,15 @@
   },
   {
    "hashToLeaf": {
-    "kuYCBlo2uo0CL2XQvd1JAw==": {
-     "text": "Menu",
-     "desc": "link to the café menu from our main navigation"
-    }
-   },
-   "filepath": "src/NavigationLinks.js",
-   "line_beg": 38,
-   "col_beg": 8,
-   "line_end": 38,
-   "col_end": 77,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "link to the café menu from our main navigation",
-     "text": "Menu"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
     "2/2YfHIOTQBPe2NN5iDzHA==": {
      "text": "Adopt",
      "desc": "link to the adoption page from our main navigation"
     }
    },
    "filepath": "src/NavigationLinks.js",
-   "line_beg": 43,
+   "line_beg": 38,
    "col_beg": 8,
-   "line_end": 43,
+   "line_end": 38,
    "col_end": 82,
    "project": "",
    "jsfbt": {
@@ -596,36 +407,15 @@
   },
   {
    "hashToLeaf": {
-    "d/e8AfwzGWzIJOwgxriEMg==": {
-     "text": "Rules",
-     "desc": "link to the café rules from our main navigation"
-    }
-   },
-   "filepath": "src/NavigationLinks.js",
-   "line_beg": 48,
-   "col_beg": 8,
-   "line_end": 48,
-   "col_end": 79,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "link to the café rules from our main navigation",
-     "text": "Rules"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
     "631OVUZDEQF6mtbD8NUyHg==": {
      "text": "Shop",
      "desc": "link to the eshop from our main navigation"
     }
    },
    "filepath": "src/NavigationLinks.js",
-   "line_beg": 53,
+   "line_beg": 43,
    "col_beg": 8,
-   "line_end": 53,
+   "line_end": 43,
    "col_end": 73,
    "project": "",
    "jsfbt": {
@@ -644,315 +434,15 @@
     }
    },
    "filepath": "src/NavigationLinks.js",
-   "line_beg": 59,
+   "line_beg": 49,
    "col_beg": 10,
-   "line_end": 59,
+   "line_end": 49,
    "col_end": 85,
    "project": "",
    "jsfbt": {
     "t": {
      "desc": "link to the donation page from our main navigation",
      "text": "Donate"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "ON2POsGqFJpEnyYUlxozWA==": {
-     "text": "We have 3 main rules that everyone must follow when visiting KOCHKA Café:",
-     "desc": "paragraph"
-    }
-   },
-   "filepath": "src/Rules.js",
-   "line_beg": 11,
-   "col_beg": 8,
-   "line_end": 13,
-   "col_end": 14,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "paragraph",
-     "text": "We have 3 main rules that everyone must follow when visiting KOCHKA Café:"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "oOv/8vqrpu1YkjCPr/0Ovw==": {
-     "text": "It is {=prohibited to give our cats any food or drinks}. It can be dangerous for them. They have their own diet, Please, protect your plates and cups.",
-     "desc": "rule"
-    }
-   },
-   "filepath": "src/Rules.js",
-   "line_beg": 18,
-   "col_beg": 12,
-   "line_end": 21,
-   "col_end": 18,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "rule",
-     "text": "It is {=prohibited to give our cats any food or drinks}. It can be dangerous for them. They have their own diet, Please, protect your plates and cups.",
-     "tokenAliases": {
-      "=prohibited to give our cats any food or drinks": "=m1"
-     }
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "KPoYsofs2ww6ajkxKqytuw==": {
-     "text": "prohibited to give our cats any food or drinks",
-     "desc": "In the phrase: \"It is {=prohibited to give our cats any food or drinks}. It can be dangerous for them. They have their own diet, Please, protect your plates and cups.\""
-    }
-   },
-   "filepath": "src/Rules.js",
-   "line_beg": 19,
-   "col_beg": 20,
-   "line_end": 19,
-   "col_end": 83,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "In the phrase: \"It is {=prohibited to give our cats any food or drinks}. It can be dangerous for them. They have their own diet, Please, protect your plates and cups.\"",
-     "text": "prohibited to give our cats any food or drinks"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "GOsw7+RyC2A6XAE4c9t7yQ==": {
-     "text": "Every visitor must {=treat our cats respectfully}. Treat them like any other adult person - they are not kids. We ask you not to cary them. Wait for them to approach you instead.",
-     "desc": "rule"
-    }
-   },
-   "filepath": "src/Rules.js",
-   "line_beg": 24,
-   "col_beg": 12,
-   "line_end": 28,
-   "col_end": 18,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "rule",
-     "text": "Every visitor must {=treat our cats respectfully}. Treat them like any other adult person - they are not kids. We ask you not to cary them. Wait for them to approach you instead.",
-     "tokenAliases": {
-      "=treat our cats respectfully": "=m1"
-     }
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "Zo/0lqlJL8OqwBIeekTJ9g==": {
-     "text": "treat our cats respectfully",
-     "desc": "In the phrase: \"Every visitor must {=treat our cats respectfully}. Treat them like any other adult person - they are not kids. We ask you not to cary them. Wait for them to approach you instead.\""
-    }
-   },
-   "filepath": "src/Rules.js",
-   "line_beg": 25,
-   "col_beg": 33,
-   "line_end": 25,
-   "col_end": 77,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "In the phrase: \"Every visitor must {=treat our cats respectfully}. Treat them like any other adult person - they are not kids. We ask you not to cary them. Wait for them to approach you instead.\"",
-     "text": "treat our cats respectfully"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "D5Z3jlGunJSWfgZ0AEclgQ==": {
-     "text": "Be careful when entering KOCHKA Café so that our cats do not run away.",
-     "desc": "rule"
-    }
-   },
-   "filepath": "src/Rules.js",
-   "line_beg": 31,
-   "col_beg": 12,
-   "line_end": 33,
-   "col_end": 18,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "rule",
-     "text": "Be careful when entering KOCHKA Café so that our cats do not run away."
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "HZFWX4pwanRspVzyvzKIEg==": {
-     "text": "Additionally, we have other rules that are just as important:",
-     "desc": "paragraph"
-    }
-   },
-   "filepath": "src/Rules.js",
-   "line_beg": 38,
-   "col_beg": 8,
-   "line_end": 38,
-   "col_end": 97,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "paragraph",
-     "text": "Additionally, we have other rules that are just as important:"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "y5XYH9F/uvwUXGAykCo7sA==": {
-     "text": "Do not wake up our cats or interrupt them while they are eating.",
-     "desc": "rule"
-    }
-   },
-   "filepath": "src/Rules.js",
-   "line_beg": 43,
-   "col_beg": 12,
-   "line_end": 43,
-   "col_end": 99,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "rule",
-     "text": "Do not wake up our cats or interrupt them while they are eating."
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "/t+xI2an+VOt0etSs48GmQ==": {
-     "text": "Cats are very sensitive. Be careful with loud and sudden noises, which could scare them.",
-     "desc": "rule"
-    }
-   },
-   "filepath": "src/Rules.js",
-   "line_beg": 46,
-   "col_beg": 12,
-   "line_end": 49,
-   "col_end": 18,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "rule",
-     "text": "Cats are very sensitive. Be careful with loud and sudden noises, which could scare them."
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "2M/LRaQwR7k0iYNW0dlxJg==": {
-     "text": "Leave your pets at home. Other pets are not allowed here.",
-     "desc": "rule"
-    }
-   },
-   "filepath": "src/Rules.js",
-   "line_beg": 52,
-   "col_beg": 12,
-   "line_end": 52,
-   "col_end": 92,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "rule",
-     "text": "Leave your pets at home. Other pets are not allowed here."
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "D4p5G21fI6ApDMCTySYecw==": {
-     "text": "We are not responsible for any injuries caused by our cats - they are very playful, and they do not mean it. Pay special attention to your kids. Feel free to ask for medical aid when needed.",
-     "desc": "rule"
-    }
-   },
-   "filepath": "src/Rules.js",
-   "line_beg": 55,
-   "col_beg": 12,
-   "line_end": 59,
-   "col_end": 18,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "rule",
-     "text": "We are not responsible for any injuries caused by our cats - they are very playful, and they do not mean it. Pay special attention to your kids. Feel free to ask for medical aid when needed."
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "u01M6MR9XEEj81zz9hMjhQ==": {
-     "text": "Hygiene is important. Wash your hand when playing with our cats.",
-     "desc": "rule"
-    }
-   },
-   "filepath": "src/Rules.js",
-   "line_beg": 62,
-   "col_beg": 12,
-   "line_end": 62,
-   "col_end": 99,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "rule",
-     "text": "Hygiene is important. Wash your hand when playing with our cats."
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "EKVHIyGsE7I5vu2LtlYz6Q==": {
-     "text": "We highly discourage you from visiting us in case you are allergic to cats.",
-     "desc": "rule"
-    }
-   },
-   "filepath": "src/Rules.js",
-   "line_beg": 65,
-   "col_beg": 12,
-   "line_end": 67,
-   "col_end": 18,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "rule",
-     "text": "We highly discourage you from visiting us in case you are allergic to cats."
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "dpYGaDV5nBHTHU/I/qisQg==": {
-     "text": "Please, follow our rules. Misbehaving guests will be asked to leave.",
-     "desc": "rule"
-    }
-   },
-   "filepath": "src/Rules.js",
-   "line_beg": 70,
-   "col_beg": 12,
-   "line_end": 72,
-   "col_end": 18,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "rule",
-     "text": "Please, follow our rules. Misbehaving guests will be asked to leave."
     },
     "m": []
    }
@@ -2204,48 +1694,6 @@
     "t": {
      "desc": "In the phrase: \"{=Warning:} this page is not finished yet, stay tuned\"",
      "text": "Warning:"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "4Lq/FsVpaCdipRFwvV9Uvw==": {
-     "text": "Café rules",
-     "desc": "our rules page title"
-    }
-   },
-   "filepath": "pages/rules.js",
-   "line_beg": 12,
-   "col_beg": 13,
-   "line_end": 12,
-   "col_end": 62,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "our rules page title",
-     "text": "Café rules"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "IzoLTCoaqKTH3w0tUhRTSg==": {
-     "text": "How to be friends with our cats",
-     "desc": "our rules page subtitle"
-    }
-   },
-   "filepath": "pages/rules.js",
-   "line_beg": 13,
-   "col_beg": 16,
-   "line_end": 13,
-   "col_end": 89,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "our rules page subtitle",
-     "text": "How to be friends with our cats"
     },
     "m": []
    }

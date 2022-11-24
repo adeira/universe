@@ -13,14 +13,6 @@ test('navigation to our adopt page from homepage', async ({ page, isMobile, base
   await homepage.visitAdoptPage();
 });
 
-test('navigation to our rules page from homepage', async ({ page, isMobile, baseURL }) => {
-  test.skip(isMobile === true);
-
-  const homepage = new HomePage(page, baseURL);
-  await homepage.goto();
-  await homepage.visitRulesPage();
-});
-
 test('navigation to our shop page from homepage', async ({ page, isMobile, baseURL }) => {
   test.skip(isMobile === true);
 

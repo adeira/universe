@@ -8,7 +8,6 @@ const { MainNavigationPage } = require('./MainNavigationPage');
 /*::
 const { AdoptPage } = require('./AdoptPage');
 const { DonatePage } = require('./DonatePage');
-const { RulesPage } = require('./RulesPage');
 const { ShopPage } = require('./ShopPage');
 
 import type { Page } from '../../Page.flow';
@@ -33,11 +32,6 @@ exports.HomePage = class HomePage {
   visitAdoptPage() /*: Promise<AdoptPage> */ {
     const mainNavigationPage = new MainNavigationPage(this.page, this.baseURL);
     return mainNavigationPage.visitAdoptPage();
-  }
-
-  visitRulesPage() /*: Promise<RulesPage> */ {
-    const mainNavigationPage = new MainNavigationPage(this.page, this.baseURL);
-    return mainNavigationPage.visitRulesPage();
   }
 
   visitShopPage() /*: Promise<ShopPage> */ {
