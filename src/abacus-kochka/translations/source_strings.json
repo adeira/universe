@@ -680,525 +680,21 @@
   },
   {
    "hashToLeaf": {
-    "YPZm79WHjwd2E30wVWe3VA==": {
-     "text": "Jobs",
-     "desc": "footer navigation link to open positions"
-    }
-   },
-   "filepath": "src/NavigationLinks.js",
-   "line_beg": 58,
-   "col_beg": 8,
-   "line_end": 58,
-   "col_end": 71,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "footer navigation link to open positions",
-     "text": "Jobs"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
     "ZCOy0IeX2BUMZsX9dTYOig==": {
      "text": "Donate",
      "desc": "link to the donation page from our main navigation"
     }
    },
    "filepath": "src/NavigationLinks.js",
-   "line_beg": 64,
+   "line_beg": 59,
    "col_beg": 10,
-   "line_end": 64,
+   "line_end": 59,
    "col_end": 85,
    "project": "",
    "jsfbt": {
     "t": {
      "desc": "link to the donation page from our main navigation",
      "text": "Donate"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "5PQUikdPXG3uo/yYO/JTdg==": {
-     "text": "Full-time",
-     "desc": "full-time badge text"
-    }
-   },
-   "filepath": "src/open-positions/badges/FullTimeBadge.js",
-   "line_beg": 10,
-   "col_beg": 6,
-   "line_end": 10,
-   "col_end": 54,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "full-time badge text",
-     "text": "Full-time"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "UlvVrCqWYA+OrWslYYmc8A==": {
-     "text": "You can apply in our Talent Pool in case you are interested.",
-     "desc": "available job badge description"
-    }
-   },
-   "filepath": "src/open-positions/badges/PositionAvailableBadge.js",
-   "line_beg": 11,
-   "col_beg": 8,
-   "line_end": 13,
-   "col_end": 14,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "available job badge description",
-     "text": "You can apply in our Talent Pool in case you are interested."
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "54UcAAD/aCdp0ssaexfvTA==": {
-     "text": "Available",
-     "desc": "available job badge text"
-    }
-   },
-   "filepath": "src/open-positions/badges/PositionAvailableBadge.js",
-   "line_beg": 20,
-   "col_beg": 10,
-   "line_end": 20,
-   "col_end": 62,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "available job badge text",
-     "text": "Available"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "UU5kEMYHicF1zn9DeP8QNw==": {
-     "text": "This position is currently unavailable, however, we encourage you to submit your data in our Talent Pool in case you are interested and we might get back to you.",
-     "desc": "unavailable job badge description"
-    }
-   },
-   "filepath": "src/open-positions/badges/PositionUnavailableBadge.js",
-   "line_beg": 11,
-   "col_beg": 8,
-   "line_end": 14,
-   "col_end": 14,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "unavailable job badge description",
-     "text": "This position is currently unavailable, however, we encourage you to submit your data in our Talent Pool in case you are interested and we might get back to you."
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "tEIYeVlKn5IC1LJpK2S4aw==": {
-     "text": "Unavailable",
-     "desc": "unavailable job badge text"
-    }
-   },
-   "filepath": "src/open-positions/badges/PositionUnavailableBadge.js",
-   "line_beg": 19,
-   "col_beg": 11,
-   "line_end": 19,
-   "col_end": 67,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "unavailable job badge text",
-     "text": "Unavailable"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "zGIfa1+0CxMJT7oq0fVNUA==": {
-     "text": "{money} / month {negotiable}",
-     "desc": "salary badge text"
-    }
-   },
-   "filepath": "src/open-positions/badges/SalaryBadge.js",
-   "line_beg": 16,
-   "col_beg": 6,
-   "line_end": 33,
-   "col_end": 12,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "salary badge text",
-     "text": "{money} / month {negotiable}"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "aFc9ytStqfLsuT5qAFFImg==": {
-     "text": "(negotiable)",
-     "desc": "negotiable"
-    }
-   },
-   "filepath": "src/open-positions/badges/SalaryBadge.js",
-   "line_beg": 27,
-   "col_beg": 14,
-   "line_end": 27,
-   "col_end": 55,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "negotiable",
-     "text": "(negotiable)"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "80j6gR2PCEx8h7q1Yw/maw==": {
-     "text": "Minimum requirements:",
-     "desc": "minimum candidate requirements title"
-    }
-   },
-   "filepath": "src/open-positions/MinimumRequirements.js",
-   "line_beg": 11,
-   "col_beg": 8,
-   "line_end": 11,
-   "col_end": 84,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "minimum candidate requirements title",
-     "text": "Minimum requirements:"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "Vecpopj3C+XF7qsGdR9bkg==": {
-     "text": "likes cats",
-     "desc": "candidate requirement 1"
-    }
-   },
-   "filepath": "src/open-positions/MinimumRequirements.js",
-   "line_beg": 15,
-   "col_beg": 10,
-   "line_end": 15,
-   "col_end": 62,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "candidate requirement 1",
-     "text": "likes cats"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "JS8qYIsQ3x6/RihPBCJ/Zw==": {
-     "text": "18+ years old",
-     "desc": "candidate requirement 2"
-    }
-   },
-   "filepath": "src/open-positions/MinimumRequirements.js",
-   "line_beg": 18,
-   "col_beg": 10,
-   "line_end": 18,
-   "col_end": 65,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "candidate requirement 2",
-     "text": "18+ years old"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "M5ylTrfr4ZOF/YyP7f7RfQ==": {
-     "text": "available during our opening hours",
-     "desc": "candidate requirement 3"
-    }
-   },
-   "filepath": "src/open-positions/MinimumRequirements.js",
-   "line_beg": 21,
-   "col_beg": 10,
-   "line_end": 21,
-   "col_end": 86,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "candidate requirement 3",
-     "text": "available during our opening hours"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "Z1d6qX2L0fKBN6cEnxEOOw==": {
-     "text": "Open positions",
-     "desc": "open positions page title"
-    }
-   },
-   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 18,
-   "col_beg": 13,
-   "line_end": 18,
-   "col_end": 71,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "open positions page title",
-     "text": "Open positions"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "vowqupCy07qqoGcmRVowvw==": {
-     "text": "Would you like to work with us?",
-     "desc": "open positions page subtitle"
-    }
-   },
-   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 19,
-   "col_beg": 16,
-   "line_end": 19,
-   "col_end": 94,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "open positions page subtitle",
-     "text": "Would you like to work with us?"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "H8l+kJTbPzjEXskVb6pTvg==": {
-     "text": "Person responsible for beverage preparation (Barista)",
-     "desc": "barista position title"
-    }
-   },
-   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 31,
-   "col_beg": 12,
-   "line_end": 33,
-   "col_end": 18,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "barista position title",
-     "text": "Person responsible for beverage preparation (Barista)"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "lAd0Iecjt0/G66JSr54JvA==": {
-     "text": "Barista is responsible for preparation of coffee based drinks, teas, milkshakes and other specialities as well as attending our clients and keeping the workplace clean. This is a full-time position only.",
-     "desc": "barista position description"
-    }
-   },
-   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 46,
-   "col_beg": 12,
-   "line_end": 50,
-   "col_end": 18,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "barista position description",
-     "text": "Barista is responsible for preparation of coffee based drinks, teas, milkshakes and other specialities as well as attending our clients and keeping the workplace clean. This is a full-time position only."
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "mubLlA5AQxRA7td64tC29g==": {
-     "text": "Person responsible for our premises and customers (Ayudante General)",
-     "desc": "assistant position title"
-    }
-   },
-   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 56,
-   "col_beg": 12,
-   "line_end": 58,
-   "col_end": 18,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "assistant position title",
-     "text": "Person responsible for our premises and customers (Ayudante General)"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "YWTm5M86w76d43pJKYXN7w==": {
-     "text": "Person in this position is responsible for customer service, keeping the facilities clean, and assisting in the food preparation sector. This is a full-time position only.",
-     "desc": "assistant position description"
-    }
-   },
-   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 70,
-   "col_beg": 12,
-   "line_end": 74,
-   "col_end": 18,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "assistant position description",
-     "text": "Person in this position is responsible for customer service, keeping the facilities clean, and assisting in the food preparation sector. This is a full-time position only."
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "jsZid4+O30Jhr5fT06nf2w==": {
-     "text": "Person responsible for food preparation",
-     "desc": "chef position title"
-    }
-   },
-   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 79,
-   "col_beg": 17,
-   "line_end": 79,
-   "col_end": 94,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "chef position title",
-     "text": "Person responsible for food preparation"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "wf4j48fLHP425fhfMR8e7A==": {
-     "text": "Person in charge of food preparation is responsible for preparing and improving our food options as well as attending our clients and keeping the workplace clean. This is a full-time position only.",
-     "desc": "chef position description"
-    }
-   },
-   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 90,
-   "col_beg": 12,
-   "line_end": 94,
-   "col_end": 18,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "chef position description",
-     "text": "Person in charge of food preparation is responsible for preparing and improving our food options as well as attending our clients and keeping the workplace clean. This is a full-time position only."
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "8Pm7esp/+gf54h5wjnhtIA==": {
-     "text": "Mystery Shopper",
-     "desc": "mystery shopper position title"
-    }
-   },
-   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 99,
-   "col_beg": 17,
-   "line_end": 99,
-   "col_end": 81,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "mystery shopper position title",
-     "text": "Mystery Shopper"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "BOp9L6wr5H8DAJ5jtd5J9g==": {
-     "text": "Mystery Shopper is responsible for making sure that we always provide the best services and products to our customers. It does so by visiting our café (secretly) while pretending to be a normal customer and later reporting any observations.",
-     "desc": "mystery shopper position description"
-    }
-   },
-   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 102,
-   "col_beg": 12,
-   "line_end": 106,
-   "col_end": 18,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "mystery shopper position description",
-     "text": "Mystery Shopper is responsible for making sure that we always provide the best services and products to our customers. It does so by visiting our café (secretly) while pretending to be a normal customer and later reporting any observations."
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "kOqAkB7LlUNdQoxTwvBwxA==": {
-     "text": "Open-source Developer",
-     "desc": "mystery shopper position title"
-    }
-   },
-   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 111,
-   "col_beg": 17,
-   "line_end": 111,
-   "col_end": 87,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "mystery shopper position title",
-     "text": "Open-source Developer"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "BBV+tJ0lbDfoiR6aqPvgJg==": {
-     "text": "Open-source Developer is responsible for developing software running behind the scenes of KOCHKA Café. We use Git, JavaScript, and Rust and all our code us publicly available {github link}.",
-     "desc": "mystery shopper position description"
-    }
-   },
-   "filepath": "src/open-positions/OpenPositionsPageLayout.js",
-   "line_beg": 114,
-   "col_beg": 12,
-   "line_end": 123,
-   "col_end": 18,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "mystery shopper position description",
-     "text": "Open-source Developer is responsible for developing software running behind the scenes of KOCHKA Café. We use Git, JavaScript, and Rust and all our code us publicly available {github link}."
     },
     "m": []
    }
@@ -2162,9 +1658,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 85,
+   "line_beg": 95,
    "col_beg": 20,
-   "line_end": 85,
+   "line_end": 95,
    "col_end": 89,
    "project": "",
    "jsfbt": {
@@ -2183,9 +1679,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 93,
+   "line_beg": 113,
    "col_beg": 10,
-   "line_end": 93,
+   "line_end": 113,
    "col_end": 72,
    "project": "",
    "jsfbt": {
@@ -2204,9 +1700,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 97,
+   "line_beg": 117,
    "col_beg": 12,
-   "line_end": 97,
+   "line_end": 117,
    "col_end": 94,
    "project": "",
    "jsfbt": {
@@ -2225,9 +1721,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 100,
+   "line_beg": 120,
    "col_beg": 12,
-   "line_end": 102,
+   "line_end": 122,
    "col_end": 18,
    "project": "",
    "jsfbt": {
@@ -2246,9 +1742,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 105,
+   "line_beg": 125,
    "col_beg": 12,
-   "line_end": 105,
+   "line_end": 125,
    "col_end": 60,
    "project": "",
    "jsfbt": {
@@ -2267,9 +1763,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 108,
+   "line_beg": 128,
    "col_beg": 12,
-   "line_end": 108,
+   "line_end": 128,
    "col_end": 60,
    "project": "",
    "jsfbt": {
@@ -2288,9 +1784,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 112,
+   "line_beg": 132,
    "col_beg": 10,
-   "line_end": 116,
+   "line_end": 136,
    "col_end": 16,
    "project": "",
    "jsfbt": {
@@ -2309,9 +1805,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 120,
+   "line_beg": 140,
    "col_beg": 10,
-   "line_end": 120,
+   "line_end": 140,
    "col_end": 89,
    "project": "",
    "jsfbt": {
@@ -2330,9 +1826,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 123,
+   "line_beg": 143,
    "col_beg": 10,
-   "line_end": 123,
+   "line_end": 143,
    "col_end": 97,
    "project": "",
    "jsfbt": {
@@ -2351,9 +1847,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 127,
+   "line_beg": 147,
    "col_beg": 12,
-   "line_end": 127,
+   "line_end": 147,
    "col_end": 81,
    "project": "",
    "jsfbt": {
@@ -2372,9 +1868,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 130,
+   "line_beg": 150,
    "col_beg": 12,
-   "line_end": 132,
+   "line_end": 152,
    "col_end": 18,
    "project": "",
    "jsfbt": {
@@ -2393,9 +1889,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 135,
+   "line_beg": 155,
    "col_beg": 12,
-   "line_end": 137,
+   "line_end": 157,
    "col_end": 18,
    "project": "",
    "jsfbt": {
@@ -2414,9 +1910,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 140,
+   "line_beg": 160,
    "col_beg": 12,
-   "line_end": 140,
+   "line_end": 160,
    "col_end": 97,
    "project": "",
    "jsfbt": {
@@ -2435,9 +1931,9 @@
     }
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 143,
+   "line_beg": 163,
    "col_beg": 12,
-   "line_end": 145,
+   "line_end": 165,
    "col_end": 18,
    "project": "",
    "jsfbt": {

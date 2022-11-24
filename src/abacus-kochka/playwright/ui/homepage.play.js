@@ -37,14 +37,6 @@ test('navigation to our shop page from homepage', async ({ page, isMobile, baseU
   await homepage.visitShopPage();
 });
 
-test('navigation to our jobs page from homepage', async ({ page, isMobile, baseURL }) => {
-  test.skip(isMobile === true);
-
-  const homepage = new HomePage(page, baseURL);
-  await homepage.goto();
-  await homepage.visitJobsPage();
-});
-
 test('navigation to our contribute page from homepage', async ({ page, isMobile, baseURL }) => {
   test.skip(isMobile === true);
 

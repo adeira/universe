@@ -8,7 +8,6 @@ const { MainNavigationPage } = require('./MainNavigationPage');
 /*::
 const { AdoptPage } = require('./AdoptPage');
 const { DonatePage } = require('./DonatePage');
-const { JobsPage } = require('./JobsPage');
 const { MenuPage } = require('./MenuPage');
 const { RulesPage } = require('./RulesPage');
 const { ShopPage } = require('./ShopPage');
@@ -50,11 +49,6 @@ exports.HomePage = class HomePage {
   visitShopPage() /*: Promise<ShopPage> */ {
     const mainNavigationPage = new MainNavigationPage(this.page, this.baseURL);
     return mainNavigationPage.visitShopPage();
-  }
-
-  visitJobsPage() /*: Promise<JobsPage> */ {
-    const mainNavigationPage = new MainNavigationPage(this.page, this.baseURL);
-    return mainNavigationPage.visitJobsPage();
   }
 
   visitDonatePage() /*: Promise<DonatePage> */ {

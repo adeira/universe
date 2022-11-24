@@ -54,11 +54,6 @@ export default function NavigationLinks(props: Props): React.Node {
         <MobileArrow useMobileVersion={useMobileVersion} />
       </Link>
 
-      <Link href="/open-positions" xstyle={styles.link}>
-        <fbt desc="footer navigation link to open positions">Jobs</fbt>
-        <MobileArrow useMobileVersion={useMobileVersion} />
-      </Link>
-
       <Link href="/donate" xstyle={styles.link}>
         <strong>
           <fbt desc="link to the donation page from our main navigation">Donate</fbt>

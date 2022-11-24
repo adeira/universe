@@ -6,7 +6,7 @@ const { test, expect } = require('@playwright/test');
 test('navigation to our menu page from homepage', async ({ page, baseURL }) => {
   await page.goto(`${baseURL}/unstable_sitemap.xml`);
 
-  const numberOfPages = 11;
+  const numberOfPages = 10;
 
   // How to capture the sitemap better? (good for now just to know it works)
   await expect(page.locator('url > loc').count()).resolves.toBe(numberOfPages);
