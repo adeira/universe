@@ -5,7 +5,6 @@ const { expect } = require('@playwright/test');
 
 const { AdoptPage } = require('./AdoptPage');
 const { DonatePage } = require('./DonatePage');
-const { JobsPage } = require('./JobsPage');
 const { MenuPage } = require('./MenuPage');
 const { RulesPage } = require('./RulesPage');
 const { ShopPage } = require('./ShopPage');
@@ -63,16 +62,6 @@ exports.MainNavigationPage = class MainNavigationPage {
     await expect(shopPage.page.locator('h1', { hasText: 'Online shop' })).toBeVisible();
 
     return shopPage;
-  }
-
-  async visitJobsPage() /*: Promise<JobsPage> */ {
-    await this.page.locator('a', { hasText: 'Jobs' }).click();
-    const jobsPage = new JobsPage(this.page, this.baseURL);
-
-    await expect(jobsPage.page).toHaveTitle(/^Open positions · KOCHKA Café$/);
-    await expect(jobsPage.page.locator('h1', { hasText: 'Open positions' })).toBeVisible();
-
-    return jobsPage;
   }
 
   async visitDonatePage() /*: Promise<DonatePage> */ {
