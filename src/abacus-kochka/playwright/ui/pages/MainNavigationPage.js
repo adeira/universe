@@ -5,7 +5,6 @@ const { expect } = require('@playwright/test');
 
 const { AdoptPage } = require('./AdoptPage');
 const { DonatePage } = require('./DonatePage');
-const { MenuPage } = require('./MenuPage');
 const { RulesPage } = require('./RulesPage');
 const { ShopPage } = require('./ShopPage');
 
@@ -22,16 +21,6 @@ exports.MainNavigationPage = class MainNavigationPage {
   constructor(page /*: Page */, baseURL /*: string */) {
     this.page = page;
     this.baseURL = baseURL;
-  }
-
-  async visitMenuPage() /*: Promise<MenuPage> */ {
-    await this.page.locator('a', { hasText: 'Menu' }).click();
-    const menuPage = new MenuPage(this.page, this.baseURL);
-
-    await expect(menuPage.page).toHaveTitle(/^Café menu · KOCHKA Café$/);
-    await expect(menuPage.page.locator('h1', { hasText: 'Café menu' })).toBeVisible();
-
-    return menuPage;
   }
 
   async visitAdoptPage() /*: Promise<AdoptPage> */ {

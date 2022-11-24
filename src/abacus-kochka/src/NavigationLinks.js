@@ -34,11 +34,6 @@ export default function NavigationLinks(props: Props): React.Node {
         mobileNavigation: useMobileVersion,
       })}
     >
-      <Link href="/menu" xstyle={styles.link}>
-        <fbt desc="link to the café menu from our main navigation">Menu</fbt>
-        <MobileArrow useMobileVersion={useMobileVersion} />
-      </Link>
-
       <Link href="/adopt" xstyle={styles.link}>
         <fbt desc="link to the adoption page from our main navigation">Adopt</fbt>
         <MobileArrow useMobileVersion={useMobileVersion} />

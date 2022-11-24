@@ -8,7 +8,6 @@ const { MainNavigationPage } = require('./MainNavigationPage');
 /*::
 const { AdoptPage } = require('./AdoptPage');
 const { DonatePage } = require('./DonatePage');
-const { MenuPage } = require('./MenuPage');
 const { RulesPage } = require('./RulesPage');
 const { ShopPage } = require('./ShopPage');
 
@@ -29,11 +28,6 @@ exports.HomePage = class HomePage {
   async goto() {
     await this.page.goto(this.baseURL);
     await expect(this.page).toHaveTitle(/^KOCHKA Café$/);
-  }
-
-  visitMenuPage() /*: Promise<MenuPage> */ {
-    const mainNavigationPage = new MainNavigationPage(this.page, this.baseURL);
-    return mainNavigationPage.visitMenuPage();
   }
 
   visitAdoptPage() /*: Promise<AdoptPage> */ {
