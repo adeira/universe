@@ -16,6 +16,11 @@ pub fn run_prettier_check() -> anyhow::Result<()> {
     execute_command(
         create_command(PRETTIER_BIN)
             .expect("Prettier binary doesn't exist")
+            .arg("--cache")
+            .arg("--cache-strategy")
+            .arg("content")
+            .arg("--cache-location")
+            .arg("node_modules/.cache/.cache_prettier")
             .arg("--check")
             .arg("src/**/*.{md,css}")
             .arg("--check")
