@@ -24,9 +24,7 @@ export default function Homepage(): React.Node {
 
             <div className={styles('catchPhrase')}>
               <Text size={32} weight={200}>
-                <fbt desc="catch phrase">
-                  Come to enjoy a coffee from Chiapas and spend some time with our lovely cats.
-                </fbt>
+                <fbt desc="catch phrase">Giving a second chance to our rescued cats. 😻</fbt>
               </Text>
             </div>
           </div>
