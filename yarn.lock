@@ -169,7 +169,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/fetch@^2.1.0, @adeira/fetch@workspace:src/fetch":
+"@adeira/fetch@workspace:src/fetch":
   version: 0.0.0-use.local
   resolution: "@adeira/fetch@workspace:src/fetch"
   dependencies:
@@ -360,7 +360,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@adeira/relay@workspace:src/relay"
   dependencies:
-    "@adeira/fetch": ^2.1.0
     "@adeira/js": ^2.1.1
     "@babel/runtime": ^7.20.1
     babel-plugin-relay: ^14.1.0

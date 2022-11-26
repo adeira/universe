@@ -1,6 +1,5 @@
 // @flow strict-local
 
-import fetchWithRetries from '@adeira/fetch';
 import { type UploadableMap, type Variables } from 'relay-runtime';
 
 import relayQueryResponseCache from './internal/QueryResponseCache';
@@ -12,8 +11,6 @@ type Headers = {
 
 type AdditionalHeaders = Headers | Promise<Headers>;
 type FetchConfig = {
-  +fetchTimeout?: number,
-  +retryDelays?: $ReadOnlyArray<number>,
   +credentials?: 'omit' | 'same-origin' | 'include',
 };
 
@@ -26,7 +23,7 @@ export default function createNetworkFetcher(
   variables: Variables,
   uploadables: ?UploadableMap,
 ) => Promise<$FlowFixMe | string> {
-  return async function fetch(request, variables, uploadables) {
+  return async function networkFetcher(request, variables, uploadables) {
     if (isQuery(request)) {
       // TODO: take into account `cacheConfig.force`
       const fromCache = relayQueryResponseCache.get(request.cacheID, variables);
@@ -46,7 +43,7 @@ export default function createNetworkFetcher(
       ...resolvedAdditionalHeaders,
     };
 
-    const response = await fetchWithRetries(graphQLServerURL, {
+    const response = await fetch(graphQLServerURL, {
       method: 'POST',
       headers,
       body,

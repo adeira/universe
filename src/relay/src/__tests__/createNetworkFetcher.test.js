@@ -1,18 +1,21 @@
 // @flow
 
-import originalFetch from '@adeira/fetch';
-
 import createNetworkFetcher from '../createNetworkFetcher';
 
-jest.mock('@adeira/fetch', () =>
-  jest.fn().mockImplementation(() => ({
+const originalFetch = globalThis.fetch;
+beforeEach(() => {
+  globalThis.fetch = jest.fn().mockImplementation(() => ({
     headers: {
       get: () => 'application/json',
     },
     json: () => ({ mock: 'ok' }),
     text: () => {},
-  })),
-);
+  }));
+});
+
+afterEach(() => {
+  globalThis.fetch = originalFetch;
+});
 
 const request = { text: 'mocked request.text' };
 const variables = { mock: true };
@@ -25,7 +28,7 @@ it('works with additional headers', async () => {
   });
 
   await expect(fetcher(request, variables)).resolves.toEqual({ mock: 'ok' });
-  expect(originalFetch).toHaveBeenCalledWith('//localhost', {
+  expect(fetch).toHaveBeenCalledWith('//localhost', {
     body: expectedBody,
     headers: {
       'Accept': 'application/json',
@@ -48,7 +51,7 @@ it('works with promised headers', async () => {
   const fetcher = createNetworkFetcher('//localhost', headers);
 
   await expect(fetcher(request, variables)).resolves.toEqual({ mock: 'ok' });
-  expect(originalFetch).toHaveBeenCalledWith('//localhost', {
+  expect(fetch).toHaveBeenCalledWith('//localhost', {
     body: expectedBody,
     headers: {
       'Accept': 'application/json',
@@ -59,20 +62,19 @@ it('works with promised headers', async () => {
   });
 });
 
-it('accepts refetchConfig', async () => {
+it('accepts fetchConfig', async () => {
   const fetcher = createNetworkFetcher(
     '//localhost',
     {
       'X-Client': 'https://github.com/adeira/relay-example',
     },
     {
-      fetchTimeout: 60000,
-      retryDelays: [200, 50000, 90],
+      credentials: 'include',
     },
   );
 
   await expect(fetcher(request, variables)).resolves.toEqual({ mock: 'ok' });
-  expect(originalFetch).toHaveBeenCalledWith('//localhost', {
+  expect(fetch).toHaveBeenCalledWith('//localhost', {
     body: expectedBody,
     headers: {
       'Accept': 'application/json',
@@ -80,7 +82,6 @@ it('accepts refetchConfig', async () => {
       'X-Client': 'https://github.com/adeira/relay-example',
     },
     method: 'POST',
-    fetchTimeout: 60000,
-    retryDelays: [200, 50000, 90],
+    credentials: 'include',
   });
 });

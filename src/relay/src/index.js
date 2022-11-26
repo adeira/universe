@@ -1,17 +1,12 @@
 // @flow
 
 // Our `@adeira/relay` additions:
-export {
-  ResponseError as FetchResponseError,
-  TimeoutError as FetchTimeoutError,
-} from '@adeira/fetch';
 export { default as createEnvironment } from './createEnvironment';
 export { default as createNetworkFetcher } from './createNetworkFetcher';
 export { RelayLogger, RelayRequiredFieldLogger } from './RelayLogger';
 export { default as RelayRehydratePreloadedQueries } from './RelayRehydratePreloadedQueries';
 
 // Relay Modern (wrapped):
-export { default as QueryRenderer } from './QueryRenderer';
 export { default as useLazyLoadQuery } from './useLazyLoadQuery';
 
 // Relay Modern (re-exported):
