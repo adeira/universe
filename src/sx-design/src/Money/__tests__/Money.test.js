@@ -4,7 +4,6 @@
  */
 
 import * as React from 'react';
-import semver from 'semver';
 
 import Money, { MoneyFn } from '../Money';
 import { render } from '../../test-utils';
@@ -68,8 +67,8 @@ test.each`
         priceUnitAmountCurrency: currency,
       }),
     ).toBe(
-      // There is a difference between these Node.js versions:
-      semver.gte(process.versions.node, '19.1.0') ? expectedFnNew : expectedFnOld,
+      // Change in ICU 72.1 (https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V19.md#19.1.0)
+      Number(process.versions.icu) >= 72.1 ? expectedFnNew : expectedFnOld,
     );
   },
 );
