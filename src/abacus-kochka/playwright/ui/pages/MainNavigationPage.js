@@ -5,7 +5,6 @@ const { expect } = require('@playwright/test');
 
 const { AdoptPage } = require('./AdoptPage');
 const { DonatePage } = require('./DonatePage');
-const { RulesPage } = require('./RulesPage');
 const { ShopPage } = require('./ShopPage');
 
 /*::
@@ -31,16 +30,6 @@ exports.MainNavigationPage = class MainNavigationPage {
     await expect(adoptPage.page.locator('h1', { hasText: 'Adopt a cat' })).toBeVisible();
 
     return adoptPage;
-  }
-
-  async visitRulesPage() /*: Promise<RulesPage> */ {
-    await this.page.locator('a', { hasText: 'Rules' }).click();
-    const rulesPage = new RulesPage(this.page, this.baseURL);
-
-    await expect(rulesPage.page).toHaveTitle(/^Café rules · KOCHKA Café$/);
-    await expect(rulesPage.page.locator('h1', { hasText: 'Café rules' })).toBeVisible();
-
-    return rulesPage;
   }
 
   async visitShopPage() /*: Promise<ShopPage> */ {

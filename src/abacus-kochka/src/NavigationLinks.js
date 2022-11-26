@@ -39,11 +39,6 @@ export default function NavigationLinks(props: Props): React.Node {
         <MobileArrow useMobileVersion={useMobileVersion} />
       </Link>
 
-      <Link href="/rules" xstyle={styles.link}>
-        <fbt desc="link to the café rules from our main navigation">Rules</fbt>
-        <MobileArrow useMobileVersion={useMobileVersion} />
-      </Link>
-
       <Link href="/shop" xstyle={styles.link}>
         <fbt desc="link to the eshop from our main navigation">Shop</fbt>
         <MobileArrow useMobileVersion={useMobileVersion} />
