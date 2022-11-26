@@ -1,5 +1,10 @@
 # Unreleased
 
+- The deprecated `QueryRenderer` has been removed. You should use appropriate Relay hooks alternatives.
+- Dependency on `@adeira/fetch` has been removed which means:
+  - errors `FetchResponseError` and `FetchTimeoutError` are no longer being exported from the package
+  - function `createNetworkFetcher` no longer accepts `fetchTimeout` and `retryDelays` config options
+
 # 6.2.0
 
 - Relay 14.1.0, see: https://github.com/facebook/relay/releases/tag/v14.1.0

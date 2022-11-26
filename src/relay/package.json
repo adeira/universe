@@ -17,7 +17,6 @@
   "description": "Opinionated wrapper around Relay - a JavaScript framework for building data-driven React applications",
   "license": "MIT",
   "dependencies": {
-    "@adeira/fetch": "^2.1.0",
     "@adeira/js": "^2.1.1",
     "@babel/runtime": "^7.20.1",
     "babel-plugin-relay": "^14.1.0",
