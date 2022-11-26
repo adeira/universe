@@ -16,7 +16,7 @@
   "dependencies": {
     "@adeira/js": "^2.1.1",
     "@adeira/sx": "^0.29.1",
-    "@adeira/sx-design": "^0.31.0",
+    "@adeira/sx-design": "^0.30.0",
     "@babel/runtime": "^7.20.1",
     "fbt": "^1.0.0"
   },

@@ -17,7 +17,7 @@ __metadata:
     "@adeira/react-auth": ^0.1.0
     "@adeira/relay": ^6.2.0
     "@adeira/sx": ^0.29.1
-    "@adeira/sx-design": ^0.31.0
+    "@adeira/sx-design": ^0.30.0
     "@fbtjs/default-collection-transform": ^1.0.0
     "@next/bundle-analyzer": ^13.0.5
     "@playwright/test": ^1.28.1
@@ -71,7 +71,7 @@ __metadata:
     "@adeira/js": ^2.1.1
     "@adeira/relay": ^6.2.0
     "@adeira/sx": ^0.29.1
-    "@adeira/sx-design": ^0.31.0
+    "@adeira/sx-design": ^0.30.0
     "@fbtjs/default-collection-transform": ^1.0.0
     "@playwright/test": ^1.28.1
     "@testing-library/react": ^13.4.0
@@ -213,7 +213,7 @@ __metadata:
   dependencies:
     "@adeira/js": ^2.1.1
     "@adeira/sx": ^0.29.1
-    "@adeira/sx-design": ^0.31.0
+    "@adeira/sx-design": ^0.30.0
     "@babel/runtime": ^7.20.1
     "@fbtjs/default-collection-transform": ^1.0.0
     "@testing-library/jest-dom": ^5.16.5
@@ -236,7 +236,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/icons@^2.1.1, @adeira/icons@workspace:src/icons":
+"@adeira/icons@^2.0.0, @adeira/icons@^2.1.1, @adeira/icons@workspace:src/icons":
   version: 0.0.0-use.local
   resolution: "@adeira/icons@workspace:src/icons"
   dependencies:
@@ -384,7 +384,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/sx-design-headless@^0.2.1, @adeira/sx-design-headless@workspace:src/sx-design-headless":
+"@adeira/sx-design-headless@^0.2.0, @adeira/sx-design-headless@^0.2.1, @adeira/sx-design-headless@workspace:src/sx-design-headless":
   version: 0.0.0-use.local
   resolution: "@adeira/sx-design-headless@workspace:src/sx-design-headless"
   dependencies:
@@ -421,7 +421,33 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/sx-design@^0.31.0, @adeira/sx-design@workspace:src/sx-design":
+"@adeira/sx-design@npm:^0.30.0":
+  version: 0.30.0
+  resolution: "@adeira/sx-design@npm:0.30.0"
+  dependencies:
+    "@adeira/hooks": ^0.3.0
+    "@adeira/icons": ^2.0.0
+    "@adeira/js": ^2.1.1
+    "@adeira/sx-design-headless": ^0.2.0
+    "@babel/runtime": ^7.18.9
+    blurhash: ^1.1.5
+    fbt: ^1.0.0
+    flow-enums-runtime: ^0.0.6
+    focus-trap-react: ^9.0.2
+    prop-types: ^15.8.1
+    react-blurhash: ^0.1.3
+    react-device-detect: ^2.2.2
+    react-table: ^7.8.0
+  peerDependencies:
+    "@adeira/sx": ^0.29.1
+    next: ^12.2.3
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: a145775c71a5bd2dcff78bd127822b6f33e04da4f7e6b68016aac4ce83a9535032985045122cdf3e4bad3783c31da2dd97945fa2e80eac6340fb739a9762df72
+  languageName: node
+  linkType: hard
+
+"@adeira/sx-design@workspace:src/sx-design":
   version: 0.0.0-use.local
   resolution: "@adeira/sx-design@workspace:src/sx-design"
   dependencies:
@@ -6651,6 +6677,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"blurhash@npm:^1.1.5":
+  version: 1.1.5
+  resolution: "blurhash@npm:1.1.5"
+  checksum: 8a647024948552e7250d4f123a0dc2a56941be476811c1c999b182cde01e6e15cc6938a8c523f1a2fea8c0dc12c1fffc1cf2001b86683e196bed03e88e176af2
+  languageName: node
+  linkType: hard
+
 "bn.js@npm:^4.0.0, bn.js@npm:^4.1.0, bn.js@npm:^4.11.9":
   version: 4.12.0
   resolution: "bn.js@npm:4.12.0"
@@ -10498,6 +10531,29 @@ __metadata:
     react: ">=16.3.0"
     react-dom: ">=16.3.0"
   checksum: 297124d956f17b2b0cc80b225b50a6b501b0c810b0c5a363e06ad5ec08b01a4392d033f8e9f59a2a4d9f241817df5d060f77d05d386495827a67598a4c154b25
+  languageName: node
+  linkType: hard
+
+"focus-trap-react@npm:^9.0.2":
+  version: 9.0.2
+  resolution: "focus-trap-react@npm:9.0.2"
+  dependencies:
+    focus-trap: ^6.9.4
+    tabbable: ^5.3.3
+  peerDependencies:
+    prop-types: ^15.8.1
+    react: ">=16.3.0"
+    react-dom: ">=16.3.0"
+  checksum: 984a7f1ea831a73018d4dc3af3c2e05611935846ca1c9afad2de08286df566000468786c87bd03e023ff5fff1cf36c2094bd2d0c03c6318bfa54ee3004d42c63
+  languageName: node
+  linkType: hard
+
+"focus-trap@npm:^6.9.4":
+  version: 6.9.4
+  resolution: "focus-trap@npm:6.9.4"
+  dependencies:
+    tabbable: ^5.3.3
+  checksum: 0b4cebcc11010bd9397731092bd59a981e838c710c6497374ba70571875a14ab27c0db7d60f36005ec01bdabc3b9cfeda11d30ddf5b8874596dcc95e18913b3b
   languageName: node
   linkType: hard
 
@@ -18678,6 +18734,13 @@ __metadata:
   version: 2.0.15
   resolution: "synchronous-promise@npm:2.0.15"
   checksum: 6079a6acd37d02eb76f250dc7ce09009151744901b320a8cfbba056b015c3d7cbf4e7467458f2d27c6393634f68521b241ea9e35fd9640f8fb59342740550472
+  languageName: node
+  linkType: hard
+
+"tabbable@npm:^5.3.3":
+  version: 5.3.3
+  resolution: "tabbable@npm:5.3.3"
+  checksum: 1aa56e1bb617cc10616c407f4e756f0607f3e2d30f9803664d70b85db037ca27e75918ed1c71443f3dc902e21dc9f991ce4b52d63a538c9b69b3218d3babcd70
   languageName: node
   linkType: hard
 
