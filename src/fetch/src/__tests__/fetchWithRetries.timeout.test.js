@@ -6,8 +6,8 @@ import { server, rest } from '../test-utils';
 it('defaults fetch timeout to 15s', async () => {
   const url = 'https://localhost';
   server.use(
-    rest.get(`${url}/14990`, (req, res, ctx) => {
-      return res(ctx.delay(14990), ctx.status(200));
+    rest.get(`${url}/14001`, (req, res, ctx) => {
+      return res(ctx.delay(14001), ctx.status(200));
     }),
   );
   server.use(
@@ -17,7 +17,7 @@ it('defaults fetch timeout to 15s', async () => {
   );
 
   const [resolves, rejects] = await Promise.allSettled([
-    fetchWithRetries(`${url}/14990`, { retryDelays: [] }),
+    fetchWithRetries(`${url}/14001`, { retryDelays: [] }),
     fetchWithRetries(`${url}/15001`, { retryDelays: [] }),
   ]);
 
