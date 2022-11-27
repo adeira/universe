@@ -12,6 +12,7 @@ use clap_complete::shells::{Bash, Zsh};
 use graphql_schema::create_graphql_schema;
 use std::net::{Ipv4Addr, SocketAddrV4};
 use tracing::level_filters::LevelFilter;
+use tracing_subscriber::prelude::*;
 use tracing_subscriber::EnvFilter;
 use warp::Filter;
 
@@ -41,20 +42,30 @@ mod tests;
 
 // https://www.lpalmieri.com/posts/2020-09-27-zero-to-production-4-are-we-observable-yet/
 fn init_tracing() {
-    let filter = EnvFilter::from_default_env()
+    let fmt_layer = tracing_subscriber::fmt::layer().with_target(false);
+
+    let filter_layer = EnvFilter::from_default_env()
         .add_directive(LevelFilter::WARN.into()) // default when not specified
         .add_directive("server=info".parse().unwrap())
         .add_directive("warp=warn".parse().unwrap());
 
-    // TODO: parallel JSON logging for system processing (YOLO, store into ArangoDB?)
-    tracing_subscriber::fmt()
-        .with_env_filter(filter)
-        .with_target(true)
+    tracing_subscriber::registry()
+        .with(fmt_layer)
+        .with(filter_layer)
+        .with(sentry_tracing::layer())
         .init();
 }
 
 #[tokio::main]
 async fn main() {
+    let _guard = sentry::init((
+        "https://cd99d8e7c57b47a6adde9a354b9173de@o74963.ingest.sentry.io/4504227234906112",
+        sentry::ClientOptions {
+            release: sentry::release_name!(),
+            ..Default::default()
+        },
+    ));
+
     dotenv::dotenv().ok();
     init_tracing();
 
