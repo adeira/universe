@@ -1,5 +1,7 @@
 # Unreleased
 
+# 7.0.0
+
 - The deprecated `QueryRenderer` has been removed. You should use appropriate Relay hooks alternatives.
 - Dependency on `@adeira/fetch` has been removed which means:
   - errors `FetchResponseError` and `FetchTimeoutError` are no longer being exported from the package
