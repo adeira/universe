@@ -30,6 +30,10 @@ export default function MyRootApp() {
     <SxDesignProvider
       locale="en-US" // affects translations as well as dates, monetary values and similar
       theme="light" // or "dark" or "system"
+      onErrorBoundaryCatch={(error, errorInfo) => {
+        // call your error reporting service, for example:
+        Sentry.captureException(error, { extra: { errorInfo } });
+      }}
     >
       {/* … */}
     </SxDesignProvider>
