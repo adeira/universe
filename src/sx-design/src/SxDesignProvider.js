@@ -15,9 +15,9 @@ import { SX_DESIGN_REACT_PORTAL_ID } from './SxDesignPortal';
 
 type Props = {
   +children: Node,
+  +onErrorBoundaryCatch: (error: Error, errorInfo: { +componentStack: string, ... }) => void,
   +locale?: SupportedLocales,
   +theme?: 'light' | 'dark' | 'system',
-  +disableErrorBoundary?: boolean,
 };
 
 export default function SxDesignProvider(props: Props): Node {
@@ -116,11 +116,9 @@ export default function SxDesignProvider(props: Props): Node {
       id={SX_DESIGN_REACT_PORTAL_ID}
     >
       <SxDesignContext.Provider value={contextValue}>
-        {props.disableErrorBoundary === true ? (
-          props.children
-        ) : (
-          <ErrorBoundary>{props.children}</ErrorBoundary>
-        )}
+        <ErrorBoundary onComponentDidCatch={props.onErrorBoundaryCatch}>
+          {props.children}
+        </ErrorBoundary>
         <FlashMessagesRenderer />
       </SxDesignContext.Provider>
     </div>

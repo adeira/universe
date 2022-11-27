@@ -19,7 +19,8 @@ export function getAllAttributes(element: HTMLElement): { [string]: string } {
 export function customRender(ui: $FlowFixMe, options: $FlowFixMe): $FlowFixMe {
   return render(ui, {
     wrapper: ({ children }) => {
-      return <SxDesignProvider>{children}</SxDesignProvider>;
+      // eslint-disable-next-line no-console
+      return <SxDesignProvider onErrorBoundaryCatch={console.error}>{children}</SxDesignProvider>;
     },
     ...options,
   });

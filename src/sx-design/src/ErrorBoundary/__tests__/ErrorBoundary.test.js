@@ -26,7 +26,8 @@ it('renders all the important parts as expected', () => {
   const spy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   const { getByText, getByTestId } = render(
-    <ErrorBoundary>
+    // eslint-disable-next-line no-console
+    <ErrorBoundary onComponentDidCatch={console.error}>
       <Throws />
     </ErrorBoundary>,
   );
@@ -40,10 +41,8 @@ it('renders all the important parts as expected', () => {
 });
 
 it('supports localization', () => {
-  jest.spyOn(console, 'error').mockImplementation(() => {});
-
   const { getByText } = render(
-    <ErrorBoundary>
+    <ErrorBoundary onComponentDidCatch={jest.fn()}>
       <Throws />
     </ErrorBoundary>,
     { locale: 'es-MX' },
@@ -59,7 +58,8 @@ it('does not render the error message in production', () => {
   const spy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   const { getByText, queryByTestId } = render(
-    <ErrorBoundary>
+    // eslint-disable-next-line no-console
+    <ErrorBoundary onComponentDidCatch={console.error}>
       <Throws />
     </ErrorBoundary>,
   );
@@ -80,10 +80,8 @@ it('does not render the error message in production', () => {
 });
 
 it('calls default onRetry callback as expected (window.location.reload)', async () => {
-  jest.spyOn(console, 'error').mockImplementation(() => {});
-
   const { getByText } = render(
-    <ErrorBoundary>
+    <ErrorBoundary onComponentDidCatch={jest.fn()}>
       <Throws />
     </ErrorBoundary>,
   );
@@ -94,11 +92,10 @@ it('calls default onRetry callback as expected (window.location.reload)', async 
 });
 
 it('calls custom onRetry callback as expected', async () => {
-  jest.spyOn(console, 'error').mockImplementation(() => {});
   const onRetryFn = jest.fn();
 
   const { getByText } = render(
-    <ErrorBoundary onRetry={onRetryFn}>
+    <ErrorBoundary onRetry={onRetryFn} onComponentDidCatch={jest.fn()}>
       <Throws />
     </ErrorBoundary>,
   );

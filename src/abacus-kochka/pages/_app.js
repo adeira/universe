@@ -1,14 +1,15 @@
 // @flow
 
-import { DefaultSeo } from 'next-seo';
-import { useEffect } from 'react';
 import * as React from 'react';
+import * as Sentry from '@sentry/nextjs';
 import fbt from 'fbt';
 import Head from 'next/head';
 import sx from '@adeira/sx';
+import { DefaultSeo } from 'next-seo';
 import { RecoilRoot } from 'recoil';
-import { SkipLink, SxDesignProvider } from '@adeira/sx-design';
 import { RelayEnvironmentProvider, RelayRehydratePreloadedQueries } from '@adeira/relay';
+import { SkipLink, SxDesignProvider } from '@adeira/sx-design';
+import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 import './_app.css';
@@ -49,7 +50,13 @@ export default function MyApp({ Component, pageProps }: Props): React.Node {
         }
         titleTemplate="%s · KOCHKA Café"
       />
-      <SxDesignProvider locale={languageTag.bcp47} theme="light">
+      <SxDesignProvider
+        locale={languageTag.bcp47}
+        theme="light"
+        onErrorBoundaryCatch={(error, errorInfo) => {
+          Sentry.captureException(error, { extra: { errorInfo } });
+        }}
+      >
         <RelayEnvironmentProvider environment={RelayEnvironment}>
           <ViewerContextProvider languageTag={languageTag}>
             <RecoilRoot>
