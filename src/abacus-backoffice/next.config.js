@@ -4,6 +4,7 @@
 
 const path = require('path');
 const withPlugins = require('next-compose-plugins');
+const { withSentryConfig } = require('@sentry/nextjs');
 
 const withCustomBabelConfigFile = require('next-plugin-custom-babel-config')({
   babelConfigFile: path.join(__dirname, '.babelrc.js'),
@@ -28,9 +29,16 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 
+// https://docs.sentry.io/platforms/javascript/guides/nextjs/
+const withSentryConfigPlugin = withSentryConfig(
+  { sentry: { hideSourceMaps: true } },
+  { silent: true },
+);
+
 module.exports = (withPlugins(
   [
     [withCustomBabelConfigFile],
+    [withSentryConfigPlugin],
     [withTranspileModules],
     [withBundleAnalyzer],
     // other plugins here
