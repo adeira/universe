@@ -21,7 +21,7 @@
     "@adeira/react-auth": "^0.1.0",
     "@adeira/relay": "^6.2.0",
     "@adeira/sx": "^0.29.1",
-    "@adeira/sx-design": "^0.31.0",
+    "@adeira/sx-design": "^0.32.0",
     "@next/bundle-analyzer": "^13.0.5",
     "@recoiljs/refine": "^0.1.1",
     "@sentry/nextjs": "^7.21.1",
