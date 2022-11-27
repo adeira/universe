@@ -6,7 +6,6 @@
 import React from 'react';
 
 import DateTime from '../DateTime';
-import SxDesignProvider from '../../SxDesignProvider';
 import { render } from '../../test-utils';
 
 // TODO: How to deal with this? (Internally using Icon which uses Suspense)
@@ -28,28 +27,24 @@ const dateTimeFormatOptions = {
 };
 
 it('works correctly without format options', () => {
-  const { getByText } = render(
-    <SxDesignProvider locale="en-US">
-      <DateTime value="2022-04-16T01:00:00.000Z" />
-    </SxDesignProvider>,
-  );
+  const { getByText } = render(<DateTime value="2022-04-16T01:00:00.000Z" />, {
+    locale: 'en-US',
+  });
   expect(getByText('Apr 16, 2022')).toBeInTheDocument();
 });
 
 it('works correctly for `en-US` locale', () => {
   const { getByText } = render(
-    <SxDesignProvider locale="en-US">
-      <DateTime value="2022-04-16T01:00:00.000Z" formatOptions={dateTimeFormatOptions} />
-    </SxDesignProvider>,
+    <DateTime value="2022-04-16T01:00:00.000Z" formatOptions={dateTimeFormatOptions} />,
+    { locale: 'en-US' },
   );
   expect(getByText('Apr 16, 2022, 1:00:00 AM')).toBeInTheDocument();
 });
 
 it('works correctly for `es-MX` locale', () => {
   const { getByText } = render(
-    <SxDesignProvider locale="es-MX">
-      <DateTime value="2022-04-16T01:00:00.000Z" formatOptions={dateTimeFormatOptions} />
-    </SxDesignProvider>,
+    <DateTime value="2022-04-16T01:00:00.000Z" formatOptions={dateTimeFormatOptions} />,
+    { locale: 'es-MX' },
   );
 
   // Change in ICU 72.1 (https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V19.md#19.1.0)
@@ -62,30 +57,28 @@ it('works correctly for `es-MX` locale', () => {
 
 it('works correctly for `cs-CZ` locale', () => {
   const { getByText } = render(
-    <SxDesignProvider locale="cs-CZ">
-      <DateTime value="2022-04-16T01:00:00.000Z" formatOptions={dateTimeFormatOptions} />
-    </SxDesignProvider>,
+    <DateTime value="2022-04-16T01:00:00.000Z" formatOptions={dateTimeFormatOptions} />,
+    { locale: 'cs-CZ' },
   );
   expect(getByText('16. 4. 2022 1:00:00')).toBeInTheDocument();
 });
 
 it('works correctly with additional format options', () => {
   const { getByText } = render(
-    <SxDesignProvider locale="cs-CZ">
-      <DateTime
-        value="2022-04-16T01:00:00.000Z"
-        formatOptions={{
-          weekday: 'long',
-          era: 'long',
-          year: 'numeric',
-          month: 'long',
-          timeZoneName: 'long',
-          hour: 'numeric',
-          minute: 'numeric',
-          second: 'numeric',
-        }}
-      />
-    </SxDesignProvider>,
+    <DateTime
+      value="2022-04-16T01:00:00.000Z"
+      formatOptions={{
+        weekday: 'long',
+        era: 'long',
+        year: 'numeric',
+        month: 'long',
+        timeZoneName: 'long',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+      }}
+    />,
+    { locale: 'cs-CZ' },
   );
 
   // Change in ICU 72.1 (https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V19.md#19.1.0)
@@ -101,10 +94,8 @@ it('works correctly with additional format options', () => {
 });
 
 it('handles invalid date value gracefully', () => {
-  const { getByText } = render(
-    <SxDesignProvider locale="en-US">
-      <DateTime value="invalid date value" />
-    </SxDesignProvider>,
-  );
+  const { getByText } = render(<DateTime value="invalid date value" />, {
+    locale: 'en-US',
+  });
   expect(getByText('Invalid date/time value')).toBeInTheDocument();
 });

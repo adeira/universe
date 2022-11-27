@@ -42,7 +42,10 @@ const renderWithProviders = (
       return (
         <SxDesignProvider
           locale={locale}
-          disableErrorBoundary={true} // we want all errors in our tests to bubble up (so we can test for them)
+          onErrorBoundaryCatch={(error) => {
+            // we want all errors in our tests to bubble up (so we can test for them)
+            throw error;
+          }}
         >
           {children}
         </SxDesignProvider>

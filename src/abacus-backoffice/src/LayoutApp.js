@@ -1,5 +1,6 @@
 // @flow
 
+import * as Sentry from '@sentry/nextjs';
 import React, { type Node } from 'react';
 import sx from '@adeira/sx';
 import { ErrorBoundary, Loader } from '@adeira/sx-design';
@@ -32,7 +33,11 @@ export default function LayoutApp(props: Props): Node {
         </div>
 
         <main className={styles('main')}>
-          <ErrorBoundary>
+          <ErrorBoundary
+            onComponentDidCatch={(error, errorInfo) => {
+              Sentry.captureException(error, { extra: { errorInfo } });
+            }}
+          >
             <React.Suspense fallback={<Loader />}>{props.children}</React.Suspense>
           </ErrorBoundary>
         </main>

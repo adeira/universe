@@ -106,6 +106,8 @@ export const decorators = [
       <SxDesignProvider
         locale={globals.locale}
         theme={globals.backgrounds?.value === DARK_MODE_BACKGROUND ? 'dark' : 'light'}
+        // eslint-disable-next-line no-console
+        onErrorBoundaryCatch={console.error}
       >
         <Story />
       </SxDesignProvider>
