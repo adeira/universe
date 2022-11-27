@@ -1,5 +1,6 @@
 // @flow
 
+import * as Sentry from '@sentry/nextjs';
 import * as React from 'react';
 import { createEnvironment, createNetworkFetcher, RelayEnvironmentProvider } from '@adeira/relay';
 import { RecoilRoot } from 'recoil';
@@ -46,7 +47,13 @@ export default function MyApp({ Component, pageProps }: $FlowFixMe): React.Node 
   return (
     <>
       <DefaultSeo defaultTitle="Abacus" titleTemplate="%s · Abacus" />
-      <SxDesignProvider locale={applicationLocale.bcp47} theme="system">
+      <SxDesignProvider
+        locale={applicationLocale.bcp47}
+        theme="system"
+        onErrorBoundaryCatch={(error, errorInfo) => {
+          Sentry.captureException(error, { extra: { errorInfo } });
+        }}
+      >
         <RelayEnvironmentProvider environment={relayEnvironment}>
           <RecoilRoot>
             <RecoilURLSyncJSON storeKey="json-url" location={{ part: 'queryParams' }}>

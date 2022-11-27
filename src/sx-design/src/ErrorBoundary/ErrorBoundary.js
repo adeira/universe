@@ -11,9 +11,9 @@ import windowLocationReload from './windowLocationReload';
 
 type Props = {
   +children: Node,
+  +onComponentDidCatch: (error: Error, errorInfo: { +componentStack: string, ... }) => void,
   +title?: FbtWithoutString,
   +code?: string,
-  +onComponentDidCatch?: (Error, { componentStack: string, ... }) => void,
   +onRetry?: () => void,
   +showErrorMessage?: boolean, // by default only in `__DEV__`
 };
@@ -46,14 +46,8 @@ export default class ErrorBoundary extends React.Component<Props, State> {
   }
 
   componentDidCatch(error: Error, errorInfo: { componentStack: string, ... }): void {
-    if (this.props.onComponentDidCatch != null) {
-      // allows to log the error to an error reporting service
-      this.props.onComponentDidCatch(error, errorInfo);
-    } else {
-      // or simply print the error to console
-      // eslint-disable-next-line no-console
-      console.error(error);
-    }
+    // allows to log the error to an error reporting service
+    this.props.onComponentDidCatch(error, errorInfo);
   }
 
   render(): Node {
