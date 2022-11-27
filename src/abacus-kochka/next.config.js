@@ -4,6 +4,7 @@
 
 const path = require('path');
 const withPlugins = require('next-compose-plugins');
+const { withSentryConfig } = require('@sentry/nextjs');
 
 const withCustomBabelConfigFile = require('next-plugin-custom-babel-config')({
   babelConfigFile: path.join(__dirname, '.babelrc.js'),
@@ -22,9 +23,16 @@ const withTranspileModules = require('next-transpile-modules')([
   '@adeira/sx-design-headless',
 ]);
 
+// https://docs.sentry.io/platforms/javascript/guides/nextjs/
+const withSentryConfigPlugin = withSentryConfig(
+  { sentry: { hideSourceMaps: true } },
+  { silent: true },
+);
+
 module.exports = (withPlugins(
   [
     [withCustomBabelConfigFile],
+    [withSentryConfigPlugin],
     [withTranspileModules],
     // other plugins here
   ],
