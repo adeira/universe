@@ -11,7 +11,9 @@ FROM node:19.1.0-alpine AS builder
 WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
-RUN yarn build && yarn install # --immutable
+RUN --mount=type=secret,id=SENTRY_AUTH_TOKEN \
+  SENTRY_AUTH_TOKEN=$(cat /run/secrets/SENTRY_AUTH_TOKEN) \
+  yarn build && yarn install # --immutable
 
 # Production image, copy all the files and run next
 FROM node:19.1.0-alpine AS runner
