@@ -1,5 +1,6 @@
 // @flow
 
+import * as Sentry from '@sentry/nextjs';
 import React, { type Node } from 'react';
 
 type Props = {
@@ -11,8 +12,7 @@ type State = {
 };
 
 /**
- * This Error Boundary essentially swallows the error and should be used only in very rare
- * situations when you really want to ignore such errors.
+ * This Error Boundary captures the error but renders empty UI (instead of displaying the whole "retry" UI).
  */
 export default class ErrorBoundaryEmpty extends React.Component<Props, State> {
   constructor(props: Props) {
@@ -31,9 +31,10 @@ export default class ErrorBoundaryEmpty extends React.Component<Props, State> {
   }
 
   // eslint-disable-next-line no-unused-vars
-  componentDidCatch(error: Error, errorInfo: { componentStack: string, ... }): void {
+  componentDidCatch(error: Error, errorInfo: { +componentStack: string, ... }): void {
     // eslint-disable-next-line no-console
     console.error(error);
+    Sentry.captureException(error, { extra: { errorInfo } });
   }
 
   render(): Node {
