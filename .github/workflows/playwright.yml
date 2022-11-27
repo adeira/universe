@@ -7,6 +7,9 @@ on:
       # and we require every PR to be up-to-date before merging it to master.
       - master
 
+env:
+  SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+
 jobs:
   playwright-test:
     name: Playwright test
