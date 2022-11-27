@@ -1,9 +1,15 @@
 name: Dockerfile Builder
 
 on:
-  push:
+  # We need to run this workflow after NPM publisher otherwise Docker is going to try to create
+  # images with NPM packages (versions) that do not exist in the registry yet.
+  # See: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_run
+  workflow_run:
+    workflows: ['NPM Publisher']
     branches:
       - master
+    types:
+      - completed
 
 env:
   SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
@@ -11,6 +17,8 @@ env:
 jobs:
   # https://docs.docker.com/ci-cd/github-actions/
   build-and-publish:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     strategy:
       fail-fast: false
       matrix:
@@ -40,8 +48,6 @@ jobs:
             projectGlob: './src/abacus-kochka/**'
             projectDockerfile: './src/abacus-kochka/Dockerfile'
             projectImageName: 'adeira/abacus-kochka'
-
-    runs-on: ubuntu-latest
 
     steps:
       # https://github.com/actions/checkout
