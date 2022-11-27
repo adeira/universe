@@ -15,7 +15,7 @@ __metadata:
     "@adeira/icons": ^2.1.1
     "@adeira/js": ^2.1.1
     "@adeira/react-auth": ^0.1.0
-    "@adeira/relay": ^7.0.0
+    "@adeira/relay": ^6.2.0
     "@adeira/sx": ^0.29.1
     "@adeira/sx-design": ^0.32.0
     "@fbtjs/default-collection-transform": ^1.0.0
@@ -70,7 +70,7 @@ __metadata:
     "@adeira/hooks": ^0.3.0
     "@adeira/icons": ^2.1.1
     "@adeira/js": ^2.1.1
-    "@adeira/relay": ^7.0.0
+    "@adeira/relay": ^6.2.0
     "@adeira/sx": ^0.29.1
     "@adeira/sx-design": ^0.32.0
     "@fbtjs/default-collection-transform": ^1.0.0
@@ -171,7 +171,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/fetch@workspace:src/fetch":
+"@adeira/fetch@^2.1.0, @adeira/fetch@workspace:src/fetch":
   version: 0.0.0-use.local
   resolution: "@adeira/fetch@workspace:src/fetch"
   dependencies:
@@ -223,7 +223,7 @@ __metadata:
     babel-plugin-fbt-runtime: ^1.0.0
     fbt: ^1.0.0
   peerDependencies:
-    "@adeira/relay": ^7.0.0
+    "@adeira/relay": ^6.2.0
     react: ^18.2.0
   languageName: unknown
   linkType: soft
@@ -358,7 +358,27 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/relay@^7.0.0, @adeira/relay@workspace:src/relay":
+"@adeira/relay@npm:^6.2.0":
+  version: 6.2.0
+  resolution: "@adeira/relay@npm:6.2.0"
+  dependencies:
+    "@adeira/fetch": ^2.1.0
+    "@adeira/js": ^2.1.1
+    "@babel/runtime": ^7.18.9
+    babel-plugin-relay: ^14.1.0
+    react-relay: ^14.1.0
+    relay-compiler: ^14.1.0
+    relay-runtime: ^14.1.0
+  peerDependencies:
+    graphql: ^16.5.0
+    react: ^18.2.0
+  bin:
+    adeira-relay-compiler: ./bin/compiler.js
+  checksum: c5f04e6dc2b5992e1837dd1a42bb4cd01e8570c5dbc071057558d338f7f2e8fd406443310f351dd76f241b2c2c6e2b2bcdbdeb2e9de97b839cf235628c5a7469
+  languageName: node
+  linkType: hard
+
+"@adeira/relay@workspace:src/relay":
   version: 0.0.0-use.local
   resolution: "@adeira/relay@workspace:src/relay"
   dependencies:
@@ -14703,18 +14723,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mkdirp@npm:^0.5.1, mkdirp@npm:^0.5.3":
-  version: 0.5.5
-  resolution: "mkdirp@npm:0.5.5"
-  dependencies:
-    minimist: ^1.2.5
-  bin:
-    mkdirp: bin/cmd.js
-  checksum: 3bce20ea525f9477befe458ab85284b0b66c8dc3812f94155af07c827175948cdd8114852ac6c6d82009b13c1048c37f6d98743eb019651ee25c39acc8aabe7d
-  languageName: node
-  linkType: hard
-
-"mkdirp@npm:^0.5.5":
+"mkdirp@npm:^0.5.1, mkdirp@npm:^0.5.3, mkdirp@npm:^0.5.5":
   version: 0.5.6
   resolution: "mkdirp@npm:0.5.6"
   dependencies:
@@ -16179,14 +16188,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"picomatch@npm:^2.0.4, picomatch@npm:^2.2.1, picomatch@npm:^2.2.3, picomatch@npm:^2.3.0":
-  version: 2.3.0
-  resolution: "picomatch@npm:2.3.0"
-  checksum: 16818720ea7c5872b6af110760dee856c8e4cd79aed1c7a006d076b1cc09eff3ae41ca5019966694c33fbd2e1cc6ea617ab10e4adac6df06556168f13be3fca2
-  languageName: node
-  linkType: hard
-
-"picomatch@npm:^2.2.2":
+"picomatch@npm:^2.0.4, picomatch@npm:^2.2.1, picomatch@npm:^2.2.2, picomatch@npm:^2.2.3, picomatch@npm:^2.3.0":
   version: 2.3.1
   resolution: "picomatch@npm:2.3.1"
   checksum: 050c865ce81119c4822c45d3c84f1ced46f93a0126febae20737bd05ca20589c564d6e9226977df859ed5e03dc73f02584a2b0faad36e896936238238b0446cf
