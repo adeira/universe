@@ -180,7 +180,7 @@ __metadata:
     "@sinonjs/fake-timers": ^10.0.0
     cross-fetch: ^3.1.5
     form-data: ^4.0.0
-    msw: ^0.49.0
+    msw: ^0.49.1
   languageName: unknown
   linkType: soft
 
@@ -14703,18 +14703,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mkdirp@npm:^0.5.1, mkdirp@npm:^0.5.3":
-  version: 0.5.5
-  resolution: "mkdirp@npm:0.5.5"
-  dependencies:
-    minimist: ^1.2.5
-  bin:
-    mkdirp: bin/cmd.js
-  checksum: 3bce20ea525f9477befe458ab85284b0b66c8dc3812f94155af07c827175948cdd8114852ac6c6d82009b13c1048c37f6d98743eb019651ee25c39acc8aabe7d
-  languageName: node
-  linkType: hard
-
-"mkdirp@npm:^0.5.5":
+"mkdirp@npm:^0.5.1, mkdirp@npm:^0.5.3, mkdirp@npm:^0.5.5":
   version: 0.5.6
   resolution: "mkdirp@npm:0.5.6"
   dependencies:
@@ -14776,9 +14765,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"msw@npm:^0.49.0":
-  version: 0.49.0
-  resolution: "msw@npm:0.49.0"
+"msw@npm:^0.49.1":
+  version: 0.49.1
+  resolution: "msw@npm:0.49.1"
   dependencies:
     "@mswjs/cookies": ^0.2.2
     "@mswjs/interceptors": ^0.17.5
@@ -14806,7 +14795,7 @@ __metadata:
       optional: true
   bin:
     msw: cli/index.js
-  checksum: 514d3d1ec8d2e7663409fae3904d1f6f0134ad6a9e7b43083ca5230b41afaee68c09dd3c3aadc555b5cbeac3f1a81b55cb6168bef1eb2c8d92b00445dbfbdd2f
+  checksum: 4d8ebcc21cbe20d73070857653a1e90b1be7c78ac2ea68ae497baa2a5d9bc1fb764ccfb292fc8eda0b6cfabd4542a80bbacb0302e9ba939a0bc94b024848850d
   languageName: node
   linkType: hard
 
@@ -16179,14 +16168,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"picomatch@npm:^2.0.4, picomatch@npm:^2.2.1, picomatch@npm:^2.2.3, picomatch@npm:^2.3.0":
-  version: 2.3.0
-  resolution: "picomatch@npm:2.3.0"
-  checksum: 16818720ea7c5872b6af110760dee856c8e4cd79aed1c7a006d076b1cc09eff3ae41ca5019966694c33fbd2e1cc6ea617ab10e4adac6df06556168f13be3fca2
-  languageName: node
-  linkType: hard
-
-"picomatch@npm:^2.2.2":
+"picomatch@npm:^2.0.4, picomatch@npm:^2.2.1, picomatch@npm:^2.2.2, picomatch@npm:^2.2.3, picomatch@npm:^2.3.0":
   version: 2.3.1
   resolution: "picomatch@npm:2.3.1"
   checksum: 050c865ce81119c4822c45d3c84f1ced46f93a0126febae20737bd05ca20589c564d6e9226977df859ed5e03dc73f02584a2b0faad36e896936238238b0446cf
