@@ -37,9 +37,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = test;
-
 /* eslint-disable no-return-await */
-
 async function test() {
   return await 'this';
 }
@@ -56,10 +54,7 @@ export default async function test(): Promise<string> {
 }
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-
-
 /* eslint-disable no-return-await */
-
 export default async function test() {
   return await 'this';
 }
@@ -103,7 +98,6 @@ const bbb: string = aaa;
 
 // SEE: https://github.com/babel/babel/issues/8684
 /* eslint-disable */
-
 const aaa = 1;
 
 // $FlowExpectedError[incompatible-type]: this line should stay here because \`aaa\` is incompatible with \`bbb\`
@@ -122,10 +116,8 @@ const aaa = 1;
 const bbb: string = aaa;
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-
 // SEE: https://github.com/babel/babel/issues/8684
 /* eslint-disable */
-
 const aaa = 1;
 
 // $FlowExpectedError[incompatible-type]: this line should stay here because \`aaa\` is incompatible with \`bbb\`
@@ -293,7 +285,6 @@ module.exports = { executeNodeScript, supportsESM };
 "use strict";
 
 // See: https://github.com/babel/babel/issues/9810
-
 const executeNodeScript = (aaa, bbb, ccc) => {
   return [aaa, bbb, ccc];
 };
@@ -329,10 +320,7 @@ const supportsESM = (target: string) /*: boolean %checks */ => {
 module.exports = { executeNodeScript, supportsESM };
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-
-
 // See: https://github.com/babel/babel/issues/9810
-
 const executeNodeScript = (aaa, bbb, ccc) => {
   return [aaa, bbb, ccc];
 };
@@ -383,9 +371,7 @@ new Set<() => void>([]);
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 #!/usr/bin/env node
-
 // See: https://github.com/babel/babel/issues/9921
-
 /* eslint-disable */
 "use strict";
 
@@ -406,9 +392,7 @@ new Set<() => void>([]);
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 #!/usr/bin/env node
-
 // See: https://github.com/babel/babel/issues/9921
-
 /* eslint-disable */
 new Set([]);
 `;
@@ -489,7 +473,6 @@ const re = /(?<x>.*)/u; // eslint-disable-line no-unused-vars
 
 // https://github.com/babel/babel/issues/10367
 // https://github.com/babel/babel/pull/10447
-
 const re = /(?<x>.*)/u; // eslint-disable-line no-unused-vars
 `;
 
@@ -503,11 +486,8 @@ exports[`matches expected output: babel-issue-10367.js: js-esm (with ES6 import/
 const re = /(?<x>.*)/u; // eslint-disable-line no-unused-vars
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-
-
 // https://github.com/babel/babel/issues/10367
 // https://github.com/babel/babel/pull/10447
-
 const re = /(?<x>.*)/u; // eslint-disable-line no-unused-vars
 `;
 
@@ -617,9 +597,7 @@ console.log(re.exec('1999-02-29')?.groups?.year);
 "use strict";
 
 var _re$exec, _re$exec$groups;
-
 /*  eslint-disable no-console */
-
 const re = /(?<year>\\d{4})-(?<month>\\d{2})-(?<day>\\d{2})/;
 console.log((_re$exec = re.exec('1999-02-29')) === null || _re$exec === void 0 ? void 0 : (_re$exec$groups = _re$exec.groups) === null || _re$exec$groups === void 0 ? void 0 : _re$exec$groups.year);
 `;
@@ -636,9 +614,7 @@ console.log(re.exec('1999-02-29')?.groups?.year);
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 var _re$exec, _re$exec$groups;
-
 /*  eslint-disable no-console */
-
 const re = /(?<year>\\d{4})-(?<month>\\d{2})-(?<day>\\d{2})/;
 console.log((_re$exec = re.exec('1999-02-29')) === null || _re$exec === void 0 ? void 0 : (_re$exec$groups = _re$exec.groups) === null || _re$exec$groups === void 0 ? void 0 : _re$exec$groups.year);
 `;
@@ -682,7 +658,6 @@ var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/de
 function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
 function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
 var _privateField = /*#__PURE__*/new WeakMap();
-
 class ClassFields {
   constructor() {
     (0, _defineProperty2.default)(this, "publicField", 1);
@@ -709,7 +684,6 @@ import _defineProperty from "@babel/runtime/helpers/esm/defineProperty";
 function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
 function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
 var _privateField = /*#__PURE__*/new WeakMap();
-
 export default class ClassFields {
   constructor() {
     _defineProperty(this, "publicField", 1);
@@ -782,7 +756,6 @@ if (__DEV__) {
 "use strict";
 
 /* eslint-disable no-console */
-
 if (process.env.NODE_ENV !== "production") {
   const dev = process.env.NODE_ENV !== "production" ? 'foo' : 'bar';
   console.log(dev);
@@ -815,10 +788,7 @@ if (__DEV__) {
 }
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-
-
 /* eslint-disable no-console */
-
 if (process.env.NODE_ENV !== "production") {
   const dev = process.env.NODE_ENV !== "production" ? 'foo' : 'bar';
   console.log(dev);
@@ -996,9 +966,7 @@ module.exports = function MyComponent(): React.Element<typeof React.Suspense> {
 var _jsxRuntime = require("react/jsx-runtime");
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
 /* eslint-disable */
-
 const React = require('react');
 const BoldTodoRenderer = React.lazy(() => Promise.resolve().then(() => _interopRequireWildcard(require(
 // $FlowExpectedError[cannot-resolve-module]
@@ -1038,9 +1006,7 @@ module.exports = function MyComponent(): React.Element<typeof React.Suspense> {
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 import { jsx as _jsx } from "react/jsx-runtime";
-
 /* eslint-disable */
-
 const React = require('react');
 const BoldTodoRenderer = React.lazy(() => import(
 // $FlowExpectedError[cannot-resolve-module]
@@ -1089,7 +1055,6 @@ console.warn(x);
 "use strict";
 
 /* eslint-disable */
-
 const x = (1 ** 2) ** 3 ** 4;
 console.warn(x);
 `;
@@ -1105,10 +1070,7 @@ const x: number = (1 ** 2) ** (3 ** 4);
 console.warn(x);
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-
-
 /* eslint-disable */
-
 const x = (1 ** 2) ** 3 ** 4;
 console.warn(x);
 `;
@@ -1547,7 +1509,6 @@ console.log(gen.next().value); // 20
 "use strict";
 
 /* eslint-disable */
-
 function* generator(i) {
   yield i;
   yield i + 10;
@@ -1574,10 +1535,7 @@ console.log(gen.next().value); // 10
 console.log(gen.next().value); // 20
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-
-
 /* eslint-disable */
-
 function* generator(i) {
   yield i;
   yield i + 10;
@@ -1802,7 +1760,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = Component;
 var _jsxRuntime = require("react/jsx-runtime");
-
 const React = () => {};
 function Component() {
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
@@ -1836,7 +1793,6 @@ export default function Component(): Node {
 import { jsx as _jsx } from "react/jsx-runtime";
 import { Fragment as _Fragment } from "react/jsx-runtime";
 import { jsxs as _jsxs } from "react/jsx-runtime";
-
 const React = () => {};
 export default function Component() {
   return /*#__PURE__*/_jsxs(_Fragment, {
@@ -1883,7 +1839,6 @@ const message = 0xa0_b0_c0;
 "use strict";
 
 /* eslint-disable */
-
 const budget = 1000000000000;
 const nibbles = 0b1010000110000101;
 const message = 0xa0b0c0;
@@ -1900,10 +1855,7 @@ const nibbles = 0b1010_0001_1000_0101;
 const message = 0xa0_b0_c0;
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-
-
 /* eslint-disable */
-
 const budget = 1000000000000;
 const nibbles = 0b1010000110000101;
 const message = 0xa0b0c0;
@@ -1961,8 +1913,6 @@ try {
 }
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-
-
 try {
   // ...
 } catch {
@@ -2012,8 +1962,6 @@ module.exports = function (a: ?{ +[string]: any, ... }): string {
 };
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-
-
 module.exports = function (a) {
   var _a$b;
   return (_a$b = a === null || a === void 0 ? void 0 : a.b) !== null && _a$b !== void 0 ? _a$b : 'default';
@@ -2075,7 +2023,6 @@ module.exports = function (a: AnyObject, ...rest: Array<any>): AnyObject {
 "use strict";
 
 /* eslint-disable no-console */
-
 module.exports = function (a, ...rest) {
   console.warn([1, ...rest]);
   const {
@@ -2107,10 +2054,7 @@ module.exports = function (a: AnyObject, ...rest: Array<any>): AnyObject {
 };
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-
-
 /* eslint-disable no-console */
-
 module.exports = function (a, ...rest) {
   console.warn([1, ...rest]);
   const {
