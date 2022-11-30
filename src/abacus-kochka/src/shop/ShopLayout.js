@@ -15,7 +15,7 @@ export default function ShopLayout(): Node {
   const setFilters = useSetRecoilState(filtersAtom);
 
   // TODO: hide closer to the atom (with tests)
-  const handleChangeFilters = (newState: $Shape<AtomState>) => {
+  const handleChangeFilters = (newState: $Partial<AtomState>) => {
     setFilters((prevState) => {
       return {
         ...prevState,
