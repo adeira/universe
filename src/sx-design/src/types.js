@@ -21,8 +21,8 @@ export type StoryTemplate<Component> = {
   storyName: string,
   // Arguments `args` are defined as a `$Shape<…>` here because Storybook substitutes some arguments
   // automatically by default making them optional.
-  args: $Shape<ElementConfig<Component>>,
-  argTypes: $Shape<$ObjMap<ElementConfig<Component>, () => { table: { disable: boolean } }>>,
+  args: $Partial<ElementConfig<Component>>,
+  argTypes: $Partial<$ObjMap<ElementConfig<Component>, () => { table: { disable: boolean } }>>,
   parameters: $FlowFixMe,
   ...
 };
