@@ -42,6 +42,8 @@
 # ```
 
 if ! command -v rustup &> /dev/null ; then
+  # https://www.shellcheck.net/wiki/SC2312
+  # shellcheck disable=SC2312
   curl --proto '=https' --tlsv1.2 --retry 10 --retry-connrefused -fsSL "https://sh.rustup.rs" | sh -s -- -y
 fi
 
