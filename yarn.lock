@@ -271,7 +271,7 @@ __metadata:
     "@npmcli/arborist": ^6.1.4
     chalk: ^4.1.2
     is-ci: ^3.0.1
-    npm-packlist: ^7.0.2
+    npm-packlist: ^7.0.3
     npm-registry-client: ^8.6.0
     rimraf: ^3.0.2
     semver: ^7.3.8
@@ -15221,12 +15221,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm-packlist@npm:^7.0.0, npm-packlist@npm:^7.0.2":
-  version: 7.0.2
-  resolution: "npm-packlist@npm:7.0.2"
+"npm-packlist@npm:^7.0.0, npm-packlist@npm:^7.0.3":
+  version: 7.0.4
+  resolution: "npm-packlist@npm:7.0.4"
   dependencies:
     ignore-walk: ^6.0.0
-  checksum: 01bdc19d46b397575de73c3bbc9171e1a15f2b5ce1a2a6944a3514628452fe1494b77180fc6fb4d750b39d3f42d1720b7496fbe0bb50cc99bf10f812cd3e85fa
+  checksum: 5ffa1f8f0b32141a60a66713fa3ed03b8ee4800b1ed6b59194d03c3c85da88f3fc21e1de29b665f322678bae85198732b16aa76c0a7cb0e283f9e0db50752233
   languageName: node
   linkType: hard
 
