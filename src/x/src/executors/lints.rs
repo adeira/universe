@@ -22,7 +22,7 @@ pub fn run_prettier_check() -> anyhow::Result<()> {
             .arg("--cache-location")
             .arg("node_modules/.cache/.cache_prettier")
             .arg("--check")
-            .arg("src/**/*.{md,css}")
+            .arg("src/**/*.{md,css,yml,yaml}")
             .arg("--check")
             .arg(".github/**/*.{yml,yaml}"),
     )
