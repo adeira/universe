@@ -413,7 +413,7 @@ __metadata:
     "@storybook/react": ^6.5.14
     "@storybook/theming": ^6.5.14
     next: ^13.0.6
-    storybook-addon-next-router: ^4.0.1
+    storybook-addon-next-router: ^4.0.2
   peerDependencies:
     "@adeira/sx": ^0.29.1
     next: ^13.0.6
@@ -464,7 +464,7 @@ __metadata:
     react-device-detect: ^2.2.2
     react-dom: ^18.2.0
     react-table: ^7.8.0
-    storybook-addon-next-router: ^4.0.1
+    storybook-addon-next-router: ^4.0.2
   peerDependencies:
     "@adeira/sx": ^0.29.1
     next: ^13.0.6
@@ -18505,19 +18505,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"storybook-addon-next-router@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "storybook-addon-next-router@npm:4.0.1"
+"storybook-addon-next-router@npm:^4.0.2":
+  version: 4.0.2
+  resolution: "storybook-addon-next-router@npm:4.0.2"
   dependencies:
     tslib: 2.4.0
   peerDependencies:
     "@storybook/addon-actions": ^6.0.0
     "@storybook/addons": ^6.0.0
     "@storybook/client-api": ^6.0.0
-    next: ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0
+    next: ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: f83c5282046e7a2173329e136d6e38faac3e7e4b05a09e22def6f3b6c590a78d7c4fbb5847a225fca4baeea55ad9d2005f44fbd3be907c1d6eba1d859ecc7aac
+  checksum: 5e3d1b2510700c21d175e10d56bcad970a8b390715bbd8e9767528e60165c4bc651ef94a7a854f042185454c51c57d884b03c625c0ee28000d3916e11a6d865f
   languageName: node
   linkType: hard
 
