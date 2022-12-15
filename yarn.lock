@@ -498,7 +498,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
     change-case: ^4.1.2
-    css-tree: ^2.3.0
+    css-tree: ^2.3.1
     fast-levenshtein: ^3.0.0
     json-stable-stringify: ^1.0.2
     mdn-data: ^2.0.30
@@ -8287,13 +8287,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css-tree@npm:^2.3.0":
-  version: 2.3.0
-  resolution: "css-tree@npm:2.3.0"
+"css-tree@npm:^2.3.1":
+  version: 2.3.1
+  resolution: "css-tree@npm:2.3.1"
   dependencies:
     mdn-data: 2.0.30
     source-map-js: ^1.0.1
-  checksum: 94f225ca2ee00bf12c2a32043e93dbdd1395c7d2172694bf556bf70429059fa4e7bcacd8771f6cbccf797d81476c374d3449ce7ff72beca0c257d5646b2b7feb
+  checksum: 493cc24b5c22b05ee5314b8a0d72d8a5869491c1458017ae5ed75aeb6c3596637dbe1b11dac2548974624adec9f7a1f3a6cf40593dc1f9185eb0e8279543fbc0
   languageName: node
   linkType: hard
 
