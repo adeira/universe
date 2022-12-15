@@ -18,6 +18,7 @@
   ],
   packageRules: [
     {
+      matchDepTypes: ['devDependencies'],
       matchUpdateTypes: ['patch'],
       addLabels: ['automerge'],
     },
