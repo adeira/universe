@@ -22,7 +22,7 @@ __metadata:
     "@next/bundle-analyzer": ^13.0.6
     "@playwright/test": ^1.28.1
     "@recoiljs/refine": ^0.1.1
-    "@sentry/nextjs": ^7.25.0
+    "@sentry/nextjs": ^7.26.0
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
     "@testing-library/react-hooks": ^8.0.1
@@ -75,7 +75,7 @@ __metadata:
     "@adeira/sx-design": ^0.32.0
     "@fbtjs/default-collection-transform": ^1.0.0
     "@playwright/test": ^1.28.1
-    "@sentry/nextjs": ^7.25.0
+    "@sentry/nextjs": ^7.26.0
     "@testing-library/react": ^13.4.0
     babel-plugin-fbt: ^1.0.0
     babel-plugin-fbt-runtime: ^1.0.0
@@ -3237,7 +3237,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/nextjs@npm:^7.25.0":
+"@sentry/nextjs@npm:^7.26.0":
   version: 7.26.0
   resolution: "@sentry/nextjs@npm:7.26.0"
   dependencies:
