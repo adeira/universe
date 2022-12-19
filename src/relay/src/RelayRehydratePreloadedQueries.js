@@ -63,7 +63,6 @@ export default function RelayRehydratePreloadedQueries({ Component, pageProps }:
     }
 
     const relayPreloadedQueryRefs = {};
-    // $FlowFixMe[incompatible-use]
     for (const [queryName, { params, variables, response }] of Object.entries(
       relayPreloadedQueries,
     )) {
