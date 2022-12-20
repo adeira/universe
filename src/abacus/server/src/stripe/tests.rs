@@ -41,9 +41,10 @@ fn test_checkout_session_completed_mode_subscription() {
 
 #[test]
 fn test_credit_note_created() {
-    let webhook_payload =
-        serde_json::from_str::<StripeWebhookPayload>(include_str!("fixtures/credit_note.created.json"))
-            .unwrap();
+    let webhook_payload = serde_json::from_str::<StripeWebhookPayload>(include_str!(
+        "fixtures/credit_note.created.json"
+    ))
+    .unwrap();
 
     assert!(matches!(
         webhook_payload.r#type,
