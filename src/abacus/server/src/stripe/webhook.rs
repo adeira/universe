@@ -6,7 +6,6 @@ use serde::{Deserialize, Serialize};
 ///  - `capability.*`
 ///  - `charge.dispute.*`
 ///  - `cupon.dispute.*`
-///  - `credit_note.dispute.*`
 ///  - ...
 ///
 /// See: https://stripe.com/docs/api/events/types
@@ -70,6 +69,18 @@ pub enum StripeWebhookType {
     /// Occurs when a Checkout Session is expired.
     #[serde(rename = "checkout.session.expired")]
     CheckoutSessionExpired,
+
+    /// Occurs whenever a credit note is created.
+    #[serde(rename = "credit_note.created")]
+    CreditNoteCreated,
+
+    /// Occurs whenever a credit note is updated.
+    #[serde(rename = "credit_note.updated")]
+    CreditNoteUpdated,
+
+    /// Occurs whenever a credit note is voided.
+    #[serde(rename = "credit_note.voided")]
+    CreditNoteVoided,
 
     #[serde(rename = "customer.created")]
     CustomerCreated,

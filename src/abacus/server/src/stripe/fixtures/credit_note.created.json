@@ -1,0 +1,68 @@
+{
+  "id": "evt_REDACTED",
+  "object": "event",
+  "api_version": "2022-08-01",
+  "created": 1670423827,
+  "data": {
+    "object": {
+      "id": "cn_REDACTED",
+      "object": "credit_note",
+      "amount": 10000,
+      "created": 1670423826,
+      "currency": "mxn",
+      "customer": "cus_REDACTED",
+      "customer_balance_transaction": null,
+      "discount_amount": 0,
+      "discount_amounts": [],
+      "invoice": "in_REDACTED",
+      "lines": {
+        "object": "list",
+        "data": [
+          {
+            "id": "cnli_REDACTED",
+            "object": "credit_note_line_item",
+            "amount": 10000,
+            "amount_excluding_tax": 10000,
+            "description": "1 × 100 pesos contribution (at $100.00 / month)",
+            "discount_amount": 0,
+            "discount_amounts": [],
+            "invoice_line_item": "il_REDACTED",
+            "livemode": true,
+            "quantity": 1,
+            "tax_amounts": [],
+            "tax_rates": [],
+            "type": "invoice_line_item",
+            "unit_amount": 10000,
+            "unit_amount_decimal": "10000",
+            "unit_amount_excluding_tax": "10000"
+          }
+        ],
+        "has_more": false,
+        "url": "/v1/credit_notes/cn_REDACTED/lines"
+      },
+      "livemode": true,
+      "memo": null,
+      "metadata": {},
+      "number": "D3D0FBB0-0004-CN-01",
+      "out_of_band_amount": null,
+      "pdf": "https://pay.stripe.com/credit_notes/acct_REDACTED/live_REDACTED/pdf?s=ap",
+      "reason": null,
+      "refund": "re_REDACTED",
+      "status": "issued",
+      "subtotal": 10000,
+      "subtotal_excluding_tax": 10000,
+      "tax_amounts": [],
+      "total": 10000,
+      "total_excluding_tax": 10000,
+      "type": "post_payment",
+      "voided_at": null
+    }
+  },
+  "livemode": true,
+  "pending_webhooks": 1,
+  "request": {
+    "id": "req_REDACTED",
+    "idempotency_key": "ebfb55f4-92b5-4fed-b7d4-aa4948b66cd4"
+  },
+  "type": "credit_note.created"
+}
