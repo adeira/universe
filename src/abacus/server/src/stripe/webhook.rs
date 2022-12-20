@@ -6,7 +6,6 @@ use serde::{Deserialize, Serialize};
 ///  - `capability.*`
 ///  - `charge.dispute.*`
 ///  - `cupon.dispute.*`
-///  - `credit_note.dispute.*`
 ///  - ...
 ///
 /// See: https://stripe.com/docs/api/events/types
@@ -71,22 +70,73 @@ pub enum StripeWebhookType {
     #[serde(rename = "checkout.session.expired")]
     CheckoutSessionExpired,
 
+    /// Occurs whenever a credit note is created.
+    #[serde(rename = "credit_note.created")]
+    CreditNoteCreated,
+
+    /// Occurs whenever a credit note is updated.
+    #[serde(rename = "credit_note.updated")]
+    CreditNoteUpdated,
+
+    /// Occurs whenever a credit note is voided.
+    #[serde(rename = "credit_note.voided")]
+    CreditNoteVoided,
+
+    /// Occurs whenever a new customer is created.
     #[serde(rename = "customer.created")]
     CustomerCreated,
+
+    /// Occurs whenever a customer is deleted.
     #[serde(rename = "customer.deleted")]
     CustomerDeleted,
-    #[serde(rename = "customer.source.created")]
-    CustomerSourceCreated,
-    #[serde(rename = "customer.source.updated")]
-    CustomerSourceUpdated,
-    #[serde(rename = "customer.subscription.created")]
-    CustomerSubscriptionCreated,
-    #[serde(rename = "customer.subscription.deleted")]
-    CustomerSubscriptionDeleted,
-    #[serde(rename = "customer.subscription.updated")]
-    CustomerSubscriptionUpdated,
+
+    /// Occurs whenever any property of a customer changes.
     #[serde(rename = "customer.updated")]
     CustomerUpdated,
+
+    /// Occurs whenever a new source is created for a customer.
+    #[serde(rename = "customer.source.created")]
+    CustomerSourceCreated,
+
+    /// Occurs whenever a source is removed from a customer.
+    #[serde(rename = "customer.source.deleted")]
+    CustomerSourceDeleted,
+
+    /// Occurs whenever a card or source will expire at the end of the month.
+    #[serde(rename = "customer.source.expiring")]
+    CustomerSourceExpiring,
+
+    /// Occurs whenever a source’s details are changed.
+    #[serde(rename = "customer.source.updated")]
+    CustomerSourceUpdated,
+
+    /// Occurs whenever a customer is signed up for a new plan.
+    #[serde(rename = "customer.subscription.created")]
+    CustomerSubscriptionCreated,
+
+    /// Occurs whenever a customer’s subscription ends.
+    #[serde(rename = "customer.subscription.deleted")]
+    CustomerSubscriptionDeleted,
+
+    /// Occurs whenever a customer’s subscription’s pending update is applied, and the subscription
+    /// is updated.
+    #[serde(rename = "customer.subscription.pending_update_applied")]
+    CustomerSubscriptionPendingUpdateApplied,
+
+    /// Occurs whenever a customer’s subscription’s pending update expires before the related
+    /// invoice is paid.
+    #[serde(rename = "customer.subscription.pending_update_expired")]
+    CustomerSubscriptionPendingUpdateExpired,
+
+    /// Occurs three days before a subscription’s trial period is scheduled to end, or when a trial
+    /// is ended immediately (using trial_end=now).
+    #[serde(rename = "customer.subscription.trial_will_end")]
+    CustomerSubscriptionTrialWillEnd,
+
+    /// Occurs whenever a subscription changes (e.g., switching from one plan to another, or
+    /// changing the status from trial to active).
+    #[serde(rename = "customer.subscription.updated")]
+    CustomerSubscriptionUpdated,
 
     /// Occurs whenever a new invoice is created.
     #[serde(rename = "invoice.created")]
