@@ -1,7 +1,7 @@
 // @flow
 
 import { invariant } from '@adeira/js';
-import React, { type Node, type Element } from 'react';
+import React, { type Element, type Node } from 'react';
 import sx from '@adeira/sx';
 
 type RestrictedReactNode = number | Fbt | Element<any> | null;

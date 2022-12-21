@@ -2,7 +2,7 @@
 
 /* eslint-disable react/no-multi-comp,import/no-extraneous-dependencies */
 
-import { Component, type Element, type ChildrenArray, type Node } from 'react';
+import { Component, type ChildrenArray, type Element, type Node } from 'react';
 
 class Button extends Component<{ +disabled?: boolean }> {
   render(): Node {

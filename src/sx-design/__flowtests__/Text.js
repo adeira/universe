@@ -1,7 +1,7 @@
 // @flow
 
 import NextLink from 'next/link';
-import { type Node, type Element } from 'react';
+import { type Element, type Node } from 'react';
 import fbt from 'fbt';
 
 import { Link, Text } from '../index';

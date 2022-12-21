@@ -1,6 +1,6 @@
 // @flow
 
-import { type Node, type ChildrenArray } from 'react';
+import { type ChildrenArray, type Node } from 'react';
 
 import FormSelectOption from './FormSelectOption';
 import BaseSelect from './private/BaseSelect';

@@ -1,7 +1,7 @@
 // @flow strict
 
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { createContext, Component, type Node, type Context, type Element } from 'react';
+import { createContext, Component, type Context, type Element, type Node } from 'react';
 
 type Props = {
   +accessToken?: string,
