@@ -10,8 +10,8 @@ import {
   createEnvironment,
   type Disposable,
   type RelayPaginationProp,
-  type RelayRefetchProp,
   type RelayProp,
+  type RelayRefetchProp,
 } from '../index';
 
 type PropsA = { +relay: RelayProp };

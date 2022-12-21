@@ -2,7 +2,7 @@
 
 import ReactDOM from 'react-dom';
 import { invariant } from '@adeira/js';
-import { useEffect, useState, useRef, type Portal, type Node } from 'react';
+import { useEffect, useState, useRef, type Node, type Portal } from 'react';
 
 type Props = {
   +children: Node,

@@ -1,6 +1,6 @@
 // @flow
 
-import React, { type Node, type Element } from 'react';
+import React, { type Element, type Node } from 'react';
 /* $FlowFixMe[missing-export] This comment suppresses an error when migrating
  * to adeira/universe. To see the error delete this comment and run Flow. */
 import Document, { Html, Head, Main, NextScript, type DocumentContext } from 'next/document';

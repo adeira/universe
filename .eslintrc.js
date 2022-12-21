@@ -15,4 +15,8 @@ module.exports = {
     sourceType: 'module',
     fbt: true,
   },
+  rules: {
+    // TODO: move to `src/eslint-config-adeira/src/presets/base.js` once stable:
+    'adeira/sort-imports': 'error',
+  },
 };

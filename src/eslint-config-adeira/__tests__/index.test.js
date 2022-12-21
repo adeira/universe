@@ -49,7 +49,13 @@ test('our rules should contain every Eslint rule to be explicit', () => {
     }
   });
 
-  expect(missing).toEqual(new Set());
+  expect(missing).toEqual(
+    new Set([
+      // We ignore this one rule for now. This should be removed once we make it public
+      // and remove it from `.eslintrc.js`
+      'adeira/sort-imports',
+    ]),
+  );
 });
 
 const prettierRules = prettierConfig.rules;

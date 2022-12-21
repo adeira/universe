@@ -1,7 +1,7 @@
 // @flow
 
 import Icon from '@adeira/icons';
-import { type Node, type Element } from 'react';
+import { type Element, type Node } from 'react';
 
 import { Entity, EntityField } from '../index';
 

@@ -1,6 +1,6 @@
 // @flow
 
-import React, { type Node, type Element } from 'react';
+import React, { type Element, type Node } from 'react';
 import sx from '@adeira/sx';
 import fbt from 'fbt';
 

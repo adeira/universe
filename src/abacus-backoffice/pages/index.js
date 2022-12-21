@@ -2,7 +2,7 @@
 
 import sx from '@adeira/sx';
 import { Note } from '@adeira/sx-design';
-import React, { type Node, type Element } from 'react';
+import React, { type Element, type Node } from 'react';
 import { fbt } from 'fbt';
 
 import LayoutApp from '../src/LayoutApp';
