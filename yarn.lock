@@ -10442,12 +10442,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"flow-bin@npm:^0.196.1":
-  version: 0.196.1
-  resolution: "flow-bin@npm:0.196.1"
+"flow-bin@npm:^0.196.2":
+  version: 0.196.2
+  resolution: "flow-bin@npm:0.196.2"
   bin:
     flow: cli.js
-  checksum: cd79b3f5c10cf8215eac82fff0317efe8fc9d14cc2f0673c9c988808df1ba57dfda2c95987695434afdd344bcb90f4b9530e4de392f7d85b9e845c5e70bd819e
+  checksum: bfe22a7b7fdece3984eca2049183b77c0b4d9e26e644526e86a3dcf741c01c8f7624490db46ec4fa52f0f2299f59d1c6b9b0d29f9765e47266321719beb5de52
   languageName: node
   linkType: hard
 
@@ -17277,7 +17277,7 @@ __metadata:
     babel-loader: ^9.1.0
     eslint: ^8.30.0
     eslint-formatter-codeframe: ^7.32.1
-    flow-bin: ^0.196.1
+    flow-bin: ^0.196.2
     glob: ^8.0.3
     hermes-eslint: ^0.9.0
     jest: ^29.3.1
