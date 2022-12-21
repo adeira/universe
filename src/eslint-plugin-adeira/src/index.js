@@ -7,5 +7,6 @@ module.exports = {
     'no-invalid-flow-annotations': require('./rules/no-invalid-flow-annotations'),
     'only-nullable-fields': require('./rules/only-nullable-fields'),
     'valid-test-folder': require('./rules/valid-test-folder'),
+    'sort-imports': require('./rules/sort-imports'),
   },
 };
