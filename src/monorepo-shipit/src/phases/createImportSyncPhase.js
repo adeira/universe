@@ -2,7 +2,7 @@
 
 import { ShellCommand } from '@adeira/shell-command';
 
-import RepoGit, { type SourceRepo, type DestinationRepo } from '../RepoGit';
+import RepoGit, { type DestinationRepo, type SourceRepo } from '../RepoGit';
 import Changeset from '../Changeset';
 import ShipitConfig from '../ShipitConfig';
 

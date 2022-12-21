@@ -1,6 +1,6 @@
 // @flow
 
-import { useRef, type Node, type ChildrenArray } from 'react';
+import { useRef, type ChildrenArray, type Node } from 'react';
 import sx from '@adeira/sx';
 
 import FormSelectOption from '../FormSelectOption';

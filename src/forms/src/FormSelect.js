@@ -1,7 +1,7 @@
 // @flow
 
 import { fbt } from 'fbt';
-import React, { type Node, type ChildrenArray } from 'react';
+import React, { type ChildrenArray, type Node } from 'react';
 
 import FormSelectOption from './FormSelectOption';
 import BaseSelect from './private/BaseSelect';
