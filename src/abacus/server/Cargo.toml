@@ -49,7 +49,7 @@ uuid = { version = "1.2.2", default-features = false, features = ["std", "v4"] }
 warp = { version = "0.3.3", default-features = false, features = ["multipart", "compression"] }
 
 [dev-dependencies]
-insta = { version = "1.23.0", default-features = false, features = ["colors", "ron", "redactions", "json"] }
+insta = { version = "1.24.0", default-features = false, features = ["colors", "ron", "redactions", "json"] }
 proptest = "1.0.0"
 tokio = { version = "1.23.0", default-features = false, features = ["full"] }
 valico = "3.6.1"
