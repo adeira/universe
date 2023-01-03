@@ -38,6 +38,7 @@ module.exports = ({
     'jest/no-test-callback': OFF,
     'jest/no-test-prefixes': OFF,
     'jest/no-test-return-statement': ERROR,
+    'jest/no-untyped-mock-factory': OFF,
     'jest/prefer-called-with': ERROR,
     'jest/prefer-comparison-matcher': ERROR,
     'jest/prefer-each': NEXT_VERSION_ERROR,
