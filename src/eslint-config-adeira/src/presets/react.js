@@ -74,11 +74,11 @@ module.exports = ({
     'react/jsx-no-useless-fragment': ERROR,
     'react/jsx-pascal-case': ERROR,
     'react/jsx-props-no-spreading': OFF,
-    'react/jsx-sort-default-props': OFF,
     'react/jsx-sort-props': OFF,
     'react/jsx-uses-react': OFF, // not needed with `hermes-eslint` parser
     'react/jsx-uses-vars': OFF, // not needed with `hermes-eslint` parser
     'react/no-access-state-in-setstate': ERROR,
+    'react/no-adjacent-inline-elements': OFF,
     'react/no-array-index-key': OFF,
     'react/no-arrow-function-lifecycle': ERROR,
     'react/no-children-prop': OFF,
@@ -93,6 +93,7 @@ module.exports = ({
     'react/no-is-mounted': ERROR,
     'react/no-multi-comp': [ERROR, { ignoreStateless: true }],
     'react/no-namespace': OFF, // complains about `<fbt:param/>` and similar
+    'react/no-object-type-as-default-prop': NEXT_VERSION_ERROR,
     'react/no-redundant-should-component-update': ERROR,
     'react/no-render-return-value': ERROR,
     'react/no-set-state': OFF,
@@ -173,6 +174,7 @@ module.exports = ({
         },
       },
     ],
+    'react/sort-default-props': OFF,
     'react/sort-prop-types': OFF,
     'react/state-in-constructor': OFF,
     'react/static-property-placement': OFF,
@@ -180,7 +182,6 @@ module.exports = ({
     'react/void-dom-elements-no-children': ERROR,
     'react/function-component-definition': OFF,
     'react/jsx-no-script-url': ERROR,
-    'react/no-adjacent-inline-elements': OFF,
 
     // React Hooks (https://www.npmjs.com/package/eslint-plugin-react-hooks)
     'react-hooks/rules-of-hooks': ERROR,

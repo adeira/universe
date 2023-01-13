@@ -1,6 +1,9 @@
 # Unreleased
 
-- New rules [`jsx-a11y/no-aria-hidden-on-focusable`](https://github.com/ljharb/eslint-plugin-jsx-a11y/blob/20b082a890f8e27320c6b2b3587edc6d0b735c97/docs/rules/no-aria-hidden-on-focusable.md) and [`jsx-a11y/prefer-tag-over-role`](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/20b082a890f8e27320c6b2b3587edc6d0b735c97/docs/rules/prefer-tag-over-role.md) enabled (warnings or errors in strict mode).
+- New rules enabled (warnings or errors in strict mode):
+  - [`jsx-a11y/no-aria-hidden-on-focusable`](https://github.com/ljharb/eslint-plugin-jsx-a11y/blob/20b082a890f8e27320c6b2b3587edc6d0b735c97/docs/rules/no-aria-hidden-on-focusable.md)
+  - [`jsx-a11y/prefer-tag-over-role`](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/20b082a890f8e27320c6b2b3587edc6d0b735c97/docs/rules/prefer-tag-over-role.md)
+  - [`react/no-object-type-as-default-prop`](https://github.com/jsx-eslint/eslint-plugin-react/blob/c8f2813758dea1759ba5ab8caf1920cae9417a43/docs/rules/no-object-type-as-default-prop.md)
 
 # 8.1.0
 
