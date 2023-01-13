@@ -1,6 +1,6 @@
 // @flow
 
-const { ERROR, OFF } = require('../constants');
+const { ERROR, OFF, NEXT_VERSION_ERROR } = require('../constants');
 const detectReactVersion = require('../detectReactVersion');
 
 /*::
@@ -203,6 +203,7 @@ module.exports = ({
 
     // React Accessibility (https://github.com/evcohen/eslint-plugin-jsx-a11y)
     'jsx-a11y/alt-text': ERROR,
+    'jsx-a11y/anchor-ambiguous-text': OFF,
     'jsx-a11y/anchor-has-content': ERROR,
     'jsx-a11y/anchor-is-valid': ERROR,
     'jsx-a11y/aria-activedescendant-has-tabindex': OFF,
@@ -223,6 +224,7 @@ module.exports = ({
     'jsx-a11y/media-has-caption': OFF,
     'jsx-a11y/mouse-events-have-key-events': OFF,
     'jsx-a11y/no-access-key': ERROR,
+    'jsx-a11y/no-aria-hidden-on-focusable': NEXT_VERSION_ERROR,
     'jsx-a11y/no-autofocus': [ERROR, { ignoreNonDOM: true }],
     'jsx-a11y/no-distracting-elements': [ERROR, { elements: ['marquee', 'blink'] }],
     'jsx-a11y/no-interactive-element-to-noninteractive-role': OFF,
@@ -231,6 +233,7 @@ module.exports = ({
     'jsx-a11y/no-noninteractive-tabindex': ERROR,
     'jsx-a11y/no-redundant-roles': ERROR,
     'jsx-a11y/no-static-element-interactions': OFF,
+    'jsx-a11y/prefer-tag-over-role': NEXT_VERSION_ERROR,
     'jsx-a11y/role-has-required-aria-props': ERROR,
     'jsx-a11y/role-supports-aria-props': ERROR,
     'jsx-a11y/scope': ERROR,
