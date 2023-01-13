@@ -443,6 +443,7 @@ exports[`rules snapshot: all stable rules 1`] = `
     "jest/valid-expect-in-promise": 2,
     "jest/valid-title": 2,
     "jsx-a11y/alt-text": 2,
+    "jsx-a11y/anchor-ambiguous-text": 0,
     "jsx-a11y/anchor-has-content": 2,
     "jsx-a11y/anchor-is-valid": 2,
     "jsx-a11y/aria-activedescendant-has-tabindex": 0,
@@ -463,6 +464,7 @@ exports[`rules snapshot: all stable rules 1`] = `
     "jsx-a11y/media-has-caption": 0,
     "jsx-a11y/mouse-events-have-key-events": 0,
     "jsx-a11y/no-access-key": 2,
+    "jsx-a11y/no-aria-hidden-on-focusable": 1,
     "jsx-a11y/no-autofocus": [
       2,
       {
@@ -484,6 +486,7 @@ exports[`rules snapshot: all stable rules 1`] = `
     "jsx-a11y/no-noninteractive-tabindex": 2,
     "jsx-a11y/no-redundant-roles": 2,
     "jsx-a11y/no-static-element-interactions": 0,
+    "jsx-a11y/prefer-tag-over-role": 1,
     "jsx-a11y/role-has-required-aria-props": 2,
     "jsx-a11y/role-supports-aria-props": 2,
     "jsx-a11y/scope": 2,
@@ -1183,6 +1186,16 @@ Snapshot Diff:
 -     "jest/prefer-each": 1,
 +     "jest/prefer-each": 2,
       "jest/prefer-equality-matcher": 2,
+@@ --- --- @@
+      "jsx-a11y/no-access-key": 2,
+-     "jsx-a11y/no-aria-hidden-on-focusable": 1,
++     "jsx-a11y/no-aria-hidden-on-focusable": 2,
+      "jsx-a11y/no-autofocus": Array [
+@@ --- --- @@
+      "jsx-a11y/no-static-element-interactions": 0,
+-     "jsx-a11y/prefer-tag-over-role": 1,
++     "jsx-a11y/prefer-tag-over-role": 2,
+      "jsx-a11y/role-has-required-aria-props": 2,
 @@ --- --- @@
       "no-empty-pattern": 2,
 -     "no-empty-static-block": 1,
