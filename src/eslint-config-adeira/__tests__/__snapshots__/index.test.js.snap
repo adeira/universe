@@ -285,6 +285,7 @@ exports[`rules snapshot: all stable rules 1`] = `
     "id-length": 0,
     "id-match": 0,
     "implicit-arrow-linebreak": "off",
+    "import/consistent-type-specifier-style": 0,
     "import/default": 0,
     "import/dynamic-import-chunkname": 0,
     "import/export": 2,
@@ -323,6 +324,7 @@ exports[`rules snapshot: all stable rules 1`] = `
     "import/no-deprecated": 0,
     "import/no-duplicates": 2,
     "import/no-dynamic-require": 0,
+    "import/no-empty-named-blocks": 1,
     "import/no-extraneous-dependencies": [
       2,
       {
@@ -1182,6 +1184,11 @@ Snapshot Diff:
 - Value for stable rules
 + Value for STRICT rules
 
+@@ --- --- @@
+      "import/no-dynamic-require": 0,
+-     "import/no-empty-named-blocks": 1,
++     "import/no-empty-named-blocks": 2,
+      "import/no-extraneous-dependencies": Array [
 @@ --- --- @@
       "jest/prefer-comparison-matcher": 2,
 -     "jest/prefer-each": 1,
