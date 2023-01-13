@@ -281,6 +281,7 @@ module.exports = ({
     'symbol-description': ERROR,
 
     // import (https://github.com/benmosher/eslint-plugin-import)
+    'import/consistent-type-specifier-style': OFF,
     'import/default': OFF,
     'import/dynamic-import-chunkname': OFF,
     'import/export': ERROR,
@@ -312,6 +313,7 @@ module.exports = ({
     'import/no-deprecated': OFF,
     'import/no-duplicates': ERROR,
     'import/no-dynamic-require': OFF,
+    'import/no-empty-named-blocks': NEXT_VERSION_ERROR,
     'import/no-extraneous-dependencies': [
       ERROR,
       {

@@ -95,6 +95,7 @@ exports[`Base preset: Base preset 1`] = `
     "id-denylist": 0,
     "id-length": 0,
     "id-match": 0,
+    "import/consistent-type-specifier-style": 0,
     "import/default": 0,
     "import/dynamic-import-chunkname": 0,
     "import/export": 2,
@@ -133,6 +134,7 @@ exports[`Base preset: Base preset 1`] = `
     "import/no-deprecated": 0,
     "import/no-duplicates": 2,
     "import/no-dynamic-require": 0,
+    "import/no-empty-named-blocks": 1,
     "import/no-extraneous-dependencies": [
       2,
       {
