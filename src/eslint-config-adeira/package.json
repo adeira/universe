@@ -9,7 +9,7 @@
     "directory": "src/eslint-config-adeira"
   },
   "license": "MIT",
-  "version": "8.1.0",
+  "version": "8.2.0",
   "main": "./index.js",
   "type": "commonjs",
   "sideEffects": false,
