@@ -73,6 +73,7 @@ export default function Modal(props: Props): Node {
     <SxDesignPortal>
       {props.isOpen === true ? (
         <FocusTrap focusTrapOptions={focusTrapOptions}>
+          {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role -- discovered when enabling this rule (TODO: fix) */}
           <div
             // leave this wrapping div here (needed by FocusTrap component)
             role="dialog"

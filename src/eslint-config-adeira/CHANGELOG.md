@@ -1,5 +1,7 @@
 # Unreleased
 
+- New rules [`jsx-a11y/no-aria-hidden-on-focusable`](https://github.com/ljharb/eslint-plugin-jsx-a11y/blob/20b082a890f8e27320c6b2b3587edc6d0b735c97/docs/rules/no-aria-hidden-on-focusable.md) and [`jsx-a11y/prefer-tag-over-role`](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/20b082a890f8e27320c6b2b3587edc6d0b735c97/docs/rules/prefer-tag-over-role.md) enabled (warnings or errors in strict mode).
+
 # 8.1.0
 
 - Enable new rule [`promise/no-multiple-resolved`](https://github.com/eslint-community/eslint-plugin-promise/blob/72cfdc8b512a835a6d4cbc3ea2079bc4d234a6f2/docs/rules/no-multiple-resolved.md) (warnings or errors in the strict mode).
