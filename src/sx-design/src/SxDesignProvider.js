@@ -80,7 +80,7 @@ export default function SxDesignProvider(props: Props): Node {
       theme: theme === 'system' ? actualSystemColor : theme,
       activeFlashMessages,
       displayFlashMessage: ({ message, tint } /*: any */) => {
-        const timeoutID = setTimeout(
+        const timeoutID /*: TimeoutID */ = setTimeout(
           () => {
             setActiveFlashMessages((previousFlashMessages) => {
               previousFlashMessages.delete(timeoutID);
