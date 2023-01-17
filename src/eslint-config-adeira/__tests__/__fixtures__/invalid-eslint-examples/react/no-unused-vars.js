@@ -4,7 +4,7 @@
 const someUnusedVar = 42;
 
 // eslint-disable-next-line no-unused-vars
-function fact(n: number) {
+function fact(n: number): number {
   if (n < 2) {
     return 1;
   }

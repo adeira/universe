@@ -4,7 +4,7 @@
  */
 
 import { rangeMap } from '@adeira/js';
-import React, { useState, type ElementConfig } from 'react';
+import React, { useState, type ElementConfig, type Node } from 'react';
 import fbt from 'fbt';
 
 import Button from '../Button/Button';
@@ -66,7 +66,7 @@ const TemplateWithProductCards = (args: ElementConfig<typeof Modal>) => {
   );
 };
 
-const TemplateWithModalInsideModal = (args: ElementConfig<typeof Modal>) => {
+const TemplateWithModalInsideModal = (args: ElementConfig<typeof Modal>): Node => {
   const [open, setOpen] = useState(false);
   return (
     <>

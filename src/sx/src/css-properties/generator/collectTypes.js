@@ -14,7 +14,7 @@ export default function collectTypes(syntax: string): null | Set<string | symbol
 
   try {
     const ast = definitionSyntax.parse(syntax);
-    definitionSyntax.walk(ast, function enter(node) {
+    definitionSyntax.walk(ast, function enter(node): void {
       if (node.type === 'Keyword') {
         flowTypes.add(node.name);
       } else if (node.type === 'Type') {
