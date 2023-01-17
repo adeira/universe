@@ -21,7 +21,7 @@ export default function BarChart(props: Props): Node {
     }
   }, [props.data, props.sort, svg, width]);
 
-  const divRef = useCallback((node) => {
+  const divRef = useCallback((node: any) => {
     if (node !== null) {
       setWidth(node.getBoundingClientRect().width);
     }
