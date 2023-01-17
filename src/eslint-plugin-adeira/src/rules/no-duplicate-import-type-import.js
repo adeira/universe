@@ -69,7 +69,7 @@ module.exports = ({
           context.report({
             node,
             message: `Found duplicate import/type import ${node.source.value}`,
-            fix: (fixer) => {
+            fix: (fixer /*: any */) => {
               // We don't know if user did `import React from 'react'; import type { Node } from 'react'`;
               // or `import type { Node } from 'react'; import React from 'react';`
               // Here we identify which import is typeImport and which one is value import

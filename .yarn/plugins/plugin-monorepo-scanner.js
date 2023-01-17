@@ -14,10 +14,16 @@ module.exports = {
   factory: (require /*: $FlowFixMe */) /*: { +hooks: { ... }, ... } */ => {
     return {
       hooks: {
-        validateProject(project, { reportWarning, reportError }) {
+        validateProject(
+          project /*: $FlowFixMe */,
+          { reportWarning, reportError } /*: $FlowFixMe */,
+        ) {
           // https://yarnpkg.com/advanced/plugin-tutorial#hook-validateProject
         },
-        validateWorkspace(workspace, { reportWarning, reportError }) {
+        validateWorkspace(
+          workspace /*: $FlowFixMe */,
+          { reportWarning, reportError } /*: $FlowFixMe */,
+        ) {
           // https://yarnpkg.com/advanced/plugin-tutorial#hook-validateWorkspace
           const manifest = workspace.manifest;
           const manifestRaw = manifest.raw;
