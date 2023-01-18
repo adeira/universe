@@ -19,7 +19,7 @@ type Props = {
  * @see: https://material.io/components/chips#filter-chips
  */
 export default function FilterChips(props: Props): Node {
-  const [, setSelectedFilters] = useState(new Set());
+  const [, setSelectedFilters] = useState<Set<string>>(new Set());
 
   const handleChipClick = (value: string) => {
     const onFiltersChangeFn = props.onFiltersChange;
@@ -28,7 +28,7 @@ export default function FilterChips(props: Props): Node {
     }
 
     setSelectedFilters((prevState) => {
-      const selectedFiltersCopy = new Set(prevState);
+      const selectedFiltersCopy = new Set<string>(prevState);
       if (selectedFiltersCopy.has(value)) {
         selectedFiltersCopy.delete(value);
       } else {
@@ -42,6 +42,9 @@ export default function FilterChips(props: Props): Node {
   return (
     <LayoutInline spacing="small">
       {React.Children.map(props.children, (child) => {
+        /* $FlowFixMe[incompatible-type] This comment suppresses an error when
+         * upgrading Flow to version 0.197.0 and enabling LTI. To see the error
+         * delete this comment and run Flow. */
         return React.cloneElement(child, {
           onChipClick: handleChipClick,
         });

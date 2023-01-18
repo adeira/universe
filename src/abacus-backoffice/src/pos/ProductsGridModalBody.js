@@ -18,7 +18,9 @@ type Props = {
 };
 
 export default function ProductsGridModalBody(props: Props): Node {
-  const [selectedProductAddons, setSelectedProductAddons] = useState(new Map());
+  const [selectedProductAddons, setSelectedProductAddons] = useState<Map<string, $FlowFixMe>>(
+    new Map(),
+  );
   const { select } = useSelectedItemsApi();
   const { bcp47 } = useApplicationLocale();
 
@@ -49,7 +51,7 @@ export default function ProductsGridModalBody(props: Props): Node {
   );
 
   const handleFiltersChange = (selectedAddonIds: $ReadOnlyArray<string>) => {
-    const newSelectedProductAddons = new Map();
+    const newSelectedProductAddons = new Map<string, $FlowFixMe>();
     for (const selectedAddonId of selectedAddonIds) {
       const addon = product.selectedAddons.find(
         (addon) => addon != null && addon.id === selectedAddonId,
@@ -68,7 +70,7 @@ export default function ProductsGridModalBody(props: Props): Node {
   return (
     <LayoutBlock spacing="large">
       <FilterChips onFiltersChange={handleFiltersChange}>
-        {product.selectedAddons.reduce((acc, addon) => {
+        {product.selectedAddons.reduce((acc: Array<$FlowFixMe>, addon) => {
           if (addon != null) {
             acc.push(
               <FilterChip

@@ -10,7 +10,7 @@ type Props = {
 };
 
 export default function BarChart(props: Props): Node {
-  const svg = React.useRef(null);
+  const svg = React.useRef<$FlowFixMe>(null);
   const [width, setWidth] = useState<null | number>(null);
 
   React.useEffect(() => {

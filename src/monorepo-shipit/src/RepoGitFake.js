@@ -41,8 +41,6 @@ export default class RepoGitFake extends RepoGit {
 
   clean: () => void = () => {};
 
-  /* $FlowFixMe[incompatible-type] This comment suppresses an error when
-   * upgrading Flow. To see the error delete this comment and run Flow. */
   /* $FlowFixMe[signature-verification-failure] This comment suppresses an
    * error when upgrading Flow. To see the error delete this comment and run
    * Flow. */

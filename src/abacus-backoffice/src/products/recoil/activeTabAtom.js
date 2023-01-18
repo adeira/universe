@@ -4,7 +4,7 @@ import { atom, type RecoilState } from 'recoil';
 import { string } from '@recoiljs/refine';
 import { urlSyncEffect } from 'recoil-sync';
 
-export default (atom({
+export default (atom<string | null>({
   key: 'activeTab',
   default: null,
   effects: [

@@ -55,7 +55,7 @@ export default function ProductEditForm(props: Props): Node {
     <ProductForm
       // $FlowFixMe[incompatible-type]: https://github.com/facebook/relay/issues/2545
       availableCategories={data.availableCategories}
-      selectedCategories={data.selectedCategories.reduce((acc, category) => {
+      selectedCategories={data.selectedCategories.reduce((acc: Array<string>, category) => {
         if (category != null) {
           acc.push(category.id);
         }

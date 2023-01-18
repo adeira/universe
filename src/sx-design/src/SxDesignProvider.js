@@ -21,8 +21,8 @@ type Props = {
 };
 
 export default function SxDesignProvider(props: Props): Node {
-  const [activeFlashMessages, setActiveFlashMessages] = useState(new Map());
-  const [actualSystemColor, setActualSystemColor] = useState(() => {
+  const [activeFlashMessages, setActiveFlashMessages] = useState<$FlowFixMe, $FlowFixMe>(new Map());
+  const [actualSystemColor, setActualSystemColor] = useState<'light' | 'dark'>(() => {
     return typeof window === 'object' &&
       window.matchMedia &&
       window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -79,8 +79,8 @@ export default function SxDesignProvider(props: Props): Node {
       // know only whether we are rendering "light" or "dark".
       theme: theme === 'system' ? actualSystemColor : theme,
       activeFlashMessages,
-      displayFlashMessage: ({ message, tint } /*: any */) => {
-        const timeoutID /*: TimeoutID */ = setTimeout(
+      displayFlashMessage: ({ message, tint }: any) => {
+        const timeoutID: TimeoutID = setTimeout(
           () => {
             setActiveFlashMessages((previousFlashMessages) => {
               previousFlashMessages.delete(timeoutID);

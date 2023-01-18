@@ -2,6 +2,7 @@
 
 /* eslint-disable accessor-pairs */
 
+// $FlowExpectedError[unsafe-getters-setters]
 export const ooo: { get a(): number, set b(number): void, c: number } = {
   // $FlowExpectedError[unsafe-getters-setters]
   get a(): number {

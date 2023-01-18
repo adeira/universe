@@ -13,7 +13,7 @@ expect.addSnapshotSerializer(snapshotDiff.getSnapshotDiffSerializer());
 
 test('our rules should contain every Eslint rule to be explicit', () => {
   const ourRules = new Map(Object.entries(require('../next').rules));
-  const missing = new Set();
+  const missing = new Set<string>();
 
   eslintRules.forEach((rule) => {
     if (!ourRules.has(rule)) {
