@@ -16,7 +16,7 @@ type Props = {
  * JavaScript reference: https://developers.google.com/identity/gsi/web/reference/js-reference
  */
 export default function GoogleLoginButton(props: Props): Node {
-  const googleSignInButton = useRef(null);
+  const googleSignInButton = useRef<HTMLDivElement | null>(null);
 
   const onGoogleSignIn = ({ credential }: { +credential: string }) => {
     // https://developers.google.com/identity/gsi/web/reference/js-reference#CredentialResponse

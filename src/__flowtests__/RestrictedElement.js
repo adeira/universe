@@ -24,11 +24,11 @@ module.exports.test1 = ((
 
 // NotAMenuComponent is not an allowed child.
 module.exports.test2 = ((
+  /* $FlowExpectedError[incompatible-type]: NotAMenuComponent is not allowed in the restricted
+   * children elements in Menu component. Only MenuItem and MenuSeparator are allowed. ✅ */
   <Menu>
     <MenuItem />
     <MenuSeparator />
-    {/* $FlowExpectedError[incompatible-type] : NotAMenuComponent is not allowed in the restricted
-     * children elements in Menu component. Only MenuItem and MenuSeparator are allowed. ✅ */}
     <NotAMenuComponent />
   </Menu>
 ): React.Node);
@@ -57,11 +57,11 @@ class RendersSomethingThatRendersAMenuItem extends React.Component<{}> {
 
 // More than 1 level deep
 module.exports.test4 = ((
+  // $FlowExpectedError[incompatible-type]
   <Menu>
     <MenuItem />
     <MenuSeparator />
     <RendersSomethingThatRendersAMenuItem />
-    {/* $FlowExpectedError[incompatible-type] */}
     <button type="button" />
   </Menu>
 ): React.Node);

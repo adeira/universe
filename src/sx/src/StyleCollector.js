@@ -52,7 +52,7 @@ class StyleCollector {
       styleSheetObject: $FlowFixMe,
       styleBuffer: StyleBufferType,
       hashSeed: string = '',
-    ) => {
+    ): StyleBufferType => {
       // we need to iterate it - there might be pseudo classes, at rules or leaf types
       for (const maybeName of Object.keys(styleSheetObject)) {
         const maybeValue = styleSheetObject[maybeName];
@@ -74,20 +74,20 @@ class StyleCollector {
           for (const key of Object.keys(maybeValue)) {
             invariant(key.startsWith(':') === false, 'Nested pseudo classes are not allowed.');
           }
-          const nodes = traverse(styleSheetName, maybeValue, new Map(), maybeName);
+          const nodes: StyleBufferType = traverse(styleSheetName, maybeValue, new Map(), maybeName);
           if (styleBuffer.has(maybeName)) {
             styleBuffer.get(maybeName)?.addNodes(nodes);
           } else {
-            const node = new StyleCollectorPseudoNode(maybeName, nodes);
+            const node: StyleCollectorPseudoNode = new StyleCollectorPseudoNode(maybeName, nodes);
             styleBuffer.set(node.getPseudo(), node);
           }
         } else if (maybeName.startsWith('@media') || maybeName.startsWith('@supports')) {
           // at rule type (@media, @supports, ...)
-          const nodes = traverse(styleSheetName, maybeValue, new Map(), maybeName);
+          const nodes: StyleBufferType = traverse(styleSheetName, maybeValue, new Map(), maybeName);
           if (styleBuffer.has(maybeName)) {
             styleBuffer.get(maybeName)?.addNodes(nodes);
           } else {
-            const node = new StyleCollectorAtNode(maybeName, nodes);
+            const node: StyleCollectorAtNode = new StyleCollectorAtNode(maybeName, nodes);
             styleBuffer.set(node.getAtRuleName(), node);
           }
         } else {

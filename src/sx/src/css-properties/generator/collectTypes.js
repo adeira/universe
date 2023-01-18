@@ -10,11 +10,11 @@ let panicCounter = 1;
 
 // https://developer.mozilla.org/en-US/docs/Web/CSS/Value_definition_syntax#Summary
 export default function collectTypes(syntax: string): null | Set<string | symbol> {
-  const flowTypes = new Set();
+  const flowTypes = new Set<string | symbol>();
 
   try {
     const ast = definitionSyntax.parse(syntax);
-    definitionSyntax.walk(ast, function enter(node) {
+    definitionSyntax.walk(ast, function enter(node): void {
       if (node.type === 'Keyword') {
         flowTypes.add(node.name);
       } else if (node.type === 'Type') {

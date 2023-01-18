@@ -6,7 +6,7 @@ const os = require('os');
 const path = require('path');
 const ChildProcess = require('child_process');
 
-const flags = {
+const flags: { argv: Array<string>, execArgv: Array<string> } = {
   argv: [],
   execArgv: [],
 };

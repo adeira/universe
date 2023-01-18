@@ -1,6 +1,6 @@
 // @flow strict
 
-import Changeset from '../Changeset';
+import Changeset, { type Diff } from '../Changeset';
 import createMockDiff from './createMockDiff';
 
 /**
@@ -10,7 +10,7 @@ export default function createMockChangeset(
   numberOfDiffs: number = 2,
   basePath: string = '',
 ): Changeset {
-  const diffs = new Set();
+  const diffs = new Set<Diff>();
 
   for (let i = 1; i <= numberOfDiffs; i++) {
     const filename = `${basePath}fakeFile_${i}.txt`;

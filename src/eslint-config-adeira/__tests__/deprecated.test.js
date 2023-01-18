@@ -8,7 +8,7 @@ import type { EslintConfigRules } from '../src/EslintConfig.flow';
 
 test('our rules should not contain deprecated Eslint rules', () => {
   const allRules = ourRules.rules;
-  const deprecated = new Set();
+  const deprecated = new Set<string>();
 
   expect(allRules['no-debugger']).toBe(2); // just to make sure this test works
 
@@ -57,5 +57,5 @@ test('compareRulesets behavior', () => {
 });
 
 test('our base rules should not contain specific Prettier rules', () => {
-  expect(compareRulesets(ourBaseRules.rules, extraPrettierRules)).toEqual(new Set<void>());
+  expect(compareRulesets(ourBaseRules.rules, extraPrettierRules)).toEqual(new Set());
 });

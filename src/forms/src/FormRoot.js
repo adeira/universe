@@ -72,9 +72,6 @@ export default function FormRoot(props: Props): React.Element<'form'> {
               formFields: {
                 ...prevState.formFields,
                 [inputName]: {
-                  /* $FlowFixMe[incompatible-type] This comment suppresses an
-                   * error when upgrading Flow to version 0.191.0. To see the
-                   * error delete this comment and run Flow. */
                   ...prevState.formFields[inputName],
                   inputValue,
                   validationError,

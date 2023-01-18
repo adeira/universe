@@ -45,7 +45,7 @@ export default class ShipitConfig {
   }
 
   getSourceRoots(): Set<string> {
-    const roots = new Set();
+    const roots = new Set<string>();
     for (const root of this.directoryMapping.keys()) {
       warning(fs.existsSync(root) === true, `Directory mapping uses non-existent root: ${root}`);
       roots.add(root);

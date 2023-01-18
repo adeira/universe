@@ -17,7 +17,10 @@ type Props = {
 };
 
 export default function ProductsGrid(props: Props): Node {
-  const [addonsModal, setAddonsModal] = useState({
+  const [addonsModal, setAddonsModal] = useState<{
+    +isOpen: boolean,
+    +productKey: string | null,
+  }>({
     isOpen: false,
     productKey: null,
   });
@@ -67,7 +70,7 @@ export default function ProductsGrid(props: Props): Node {
     },
   );
 
-  const [modalPreloadedQueryRef, preloadModalQuery] = useQueryLoader(
+  const [modalPreloadedQueryRef, preloadModalQuery] = useQueryLoader<$FlowFixMe>(
     ProductsGridModalBodyQuery,
     undefined,
   );
@@ -108,6 +111,9 @@ export default function ProductsGrid(props: Props): Node {
       {modalPreloadedQueryRef != null && addonsModal.productKey != null ? (
         <ProductsGridModal
           isOpen={addonsModal.isOpen}
+          /* $FlowFixMe[incompatible-call] This comment suppresses an error
+           * when upgrading Flow to version 0.197.0 and enabling LTI. To see
+           * the error delete this comment and run Flow. */
           onClose={() => setAddonsModal({ isOpen: false })}
           preloadedQueryRef={modalPreloadedQueryRef}
           productKey={addonsModal.productKey}

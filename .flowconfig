@@ -50,7 +50,7 @@ untyped-import
 emoji=true
 exact_by_default=true
 include_warnings=true
-inference_mode=constrain_writes
+inference_mode=lti
 
 facebook.fbt=FbtWithoutString
 

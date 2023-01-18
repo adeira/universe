@@ -10,7 +10,7 @@ module.exports = function changeNextVersionErrorLevel(
   config /*: EslintConfigRules */,
   level /*: 0|1|2 */,
 ) /*: EslintConfigRules */ {
-  return Object.entries(config).reduce((acc, [ruleName, value]) => {
+  return Object.entries(config).reduce((acc /*: $FlowFixMe */, [ruleName, value]) => {
     if (Array.isArray(value) && value[0] === 3) {
       const [, ...config] = value;
       acc[ruleName] = [level, ...config];

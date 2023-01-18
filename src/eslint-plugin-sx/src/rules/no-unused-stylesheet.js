@@ -23,13 +23,13 @@ module.exports = ({
 
     // stylesheet names which were defined via `sx.create`
     // const xxx = sx.create({yyy, zzz})   =>   Map([["xxx", ["yyy", "zzz"]]])
-    const definedStylesheetNames = new Map();
-    const definedStylesheetNodes = new Map();
-    const definedStylesheetNameNodes = new Map();
+    const definedStylesheetNames /*: Map<string, $FlowFixMe> */ = new Map();
+    const definedStylesheetNodes /*: Map<string, $FlowFixMe> */ = new Map();
+    const definedStylesheetNameNodes /*: Map<string|null, $FlowFixMe> */ = new Map();
 
     // xxx('aaa', 'bbb')   =>   Map([["xxx", [aaaNode, bbbNode]]])
-    const usedStylesheetNames = new Map();
-    const usedStylesheetNodes = new Map();
+    const usedStylesheetNames /*: Map<string, $FlowFixMe> */ = new Map();
+    const usedStylesheetNodes /*: Map<string|null, $FlowFixMe> */ = new Map();
 
     let unableToAnalyzeUsedStylesheets = false;
 
@@ -56,7 +56,7 @@ module.exports = ({
             for (const property of firstArgumentProperties) {
               if (property.type === 'Property') {
                 const alreadyCaptured = definedStylesheetNames.get(node.id.name) ?? [];
-                let propertyName;
+                let propertyName = null;
                 if (property.key.type === 'Literal') {
                   propertyName = property.key.value;
                 } else if (property.key.type === 'Identifier') {
@@ -102,10 +102,10 @@ module.exports = ({
           }
         }
 
-        const usedNames = new Set();
+        const usedNames /*: Set<string|null> */ = new Set();
         for (const argument of expressionArguments) {
           // TODO: more cases (deeper analysis)
-          let value;
+          let value = null;
           if (argument.type === 'ObjectExpression') {
             for (const property of argument.properties) {
               if (property.type === 'Property') {

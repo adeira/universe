@@ -12,7 +12,7 @@ module.exports = {
   validUsage: (): (() => void) => {
     return function TestComponent() {
       // eslint-disable-next-line relay/generated-flow-types -- discovered when upgrading Relay Eslint plugin, FIXME
-      const [executeMutation, isMutationPending] = useMutation(mutation);
+      const [executeMutation, isMutationPending] = useMutation<$FlowFixMe>(mutation);
       (executeMutation: ({
         onCompleted: () => void,
       }) => Disposable);
@@ -34,7 +34,7 @@ module.exports = {
   invalidUsage: (): (() => void) => {
     return function TestComponent() {
       // eslint-disable-next-line relay/generated-flow-types -- discovered when upgrading Relay Eslint plugin, FIXME
-      const [executeMutation] = useMutation(mutation);
+      const [executeMutation] = useMutation<$FlowFixMe>(mutation);
 
       // $FlowExpectedError[prop-missing]: property onCompleted is missing
       executeMutation({
