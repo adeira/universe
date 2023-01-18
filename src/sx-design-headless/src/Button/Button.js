@@ -6,8 +6,10 @@ import React, { type Element } from 'react';
 
 type RestrictedReactNode = number | Fbt | Iterable<RestrictedReactNode>;
 
+type Children = RestrictedReactNode | RestrictedElement<typeof Icon>;
+
 type Props = {
-  +'children': RestrictedReactNode | RestrictedElement<typeof Icon>,
+  +'children': Children,
   +'onClick': (event: SyntheticEvent<HTMLButtonElement>) => void,
   +'type'?:
     | 'submit' // The button submits the form data to the server.
@@ -33,7 +35,7 @@ type Props = {
 export default function Button(props: Props): Element<'button'> {
   const childrenCount = React.Children.count(props.children);
   if (childrenCount === 1) {
-    React.Children.forEach(props.children, (child) => {
+    React.Children.forEach<Children, $FlowFixMe>(props.children, (child) => {
       if (child.type === Icon) {
         // This is a case where the only Button children is an Icon. Normally, the ARIA label
         // would be derived from the Button text, but this special case breaks accessibility

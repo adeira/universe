@@ -25,14 +25,14 @@ let ourRules, missing;
 beforeEach(() => {
   const config = require('../index');
   // Include basic rules:
-  ourRules = new Map(Object.entries(config.rules));
+  ourRules = new Map<string, $FlowFixMe>(Object.entries(config.rules));
   // Include rules defined only in overrides as well:
   config.overrides?.forEach((override) => {
     if (override.rules != null) {
-      ourRules = new Map([...ourRules, ...Object.entries(override.rules)]);
+      ourRules = new Map<string, $FlowFixMe>([...ourRules, ...Object.entries(override.rules)]);
     }
   });
-  missing = new Set();
+  missing = new Set<string>();
 });
 
 expect.addSnapshotSerializer(snapshotDiff.getSnapshotDiffSerializer());

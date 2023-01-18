@@ -45,7 +45,7 @@ type HookMutationConfig<T: MutationParameters> = {
 export default function useMutation<T: MutationParameters>(
   mutation: GraphQLTaggedNode,
 ): [(HookMutationConfig<T>) => Disposable, boolean] {
-  const [commit, isMutationInFlight] = _useMutation(mutation);
+  const [commit, isMutationInFlight] = _useMutation<$FlowFixMe>(mutation);
 
   // this makes the commit more friendly in terms of DX
   const modifiedCommit = (config: HookMutationConfig<T>) => {

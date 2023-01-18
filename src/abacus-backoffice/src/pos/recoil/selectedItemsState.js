@@ -44,11 +44,11 @@ const localStorageEffect =
     });
   };
 
+/* $FlowFixMe[incompatible-call] This comment suppresses an error when
+ * upgrading Flow to version 0.197.0 and enabling LTI. To see the error delete
+ * this comment and run Flow. */
 const selectedItemsAtom = atom<AtomValue>({
   key: 'selectedItems',
-  /* $FlowFixMe[incompatible-call] This comment suppresses an error when
-   * upgrading Flow to version 0.193.0. To see the error delete this comment
-   * and run Flow. */
   default: Immutable.List(),
   effects: [localStorageEffect('abacus-backoffice:pos:selectedItems')],
 });
@@ -58,6 +58,9 @@ type SelectorItem = {
   +totalPrice: number,
 };
 
+/* $FlowFixMe[incompatible-call] This comment suppresses an error when
+ * upgrading Flow to version 0.197.0 and enabling LTI. To see the error delete
+ * this comment and run Flow. */
 const selectedItemsStatsSelector = selector<SelectorItem>({
   key: 'selectedItemsStats',
   get: ({ get }) => {

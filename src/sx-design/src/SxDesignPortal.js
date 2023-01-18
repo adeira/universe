@@ -11,7 +11,7 @@ type Props = {
 export const SX_DESIGN_REACT_PORTAL_ID = 'sx-design-react-portal-root';
 
 export default function SxDesignPortal(props: Props): Portal | null {
-  const ref = useRef();
+  const ref = useRef<$FlowFixMe>();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {

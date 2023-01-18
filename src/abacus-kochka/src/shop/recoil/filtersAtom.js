@@ -50,7 +50,7 @@ export default (atom<State>({
         if (newState instanceof DefaultValue) {
           // TODO
         } else {
-          const filters = new Map();
+          const filters = new Map<string, number | string>();
 
           if (newState.categories.all === true) {
             filters.set('ca', 1);
