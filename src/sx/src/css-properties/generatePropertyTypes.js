@@ -8,7 +8,7 @@ import prettify from './prettify';
 import { FLOW_TYPE_NUMBER, FLOW_TYPE_STRING } from './generator/flowTypes';
 
 export default function generatePropertyTypes(cb: (string) => void): void {
-  const allProperties = new Map();
+  const allProperties = new Map<$FlowFixMe, $FlowFixMe>();
   for (const rawPropertyName of Object.keys(mdnData.css.properties)) {
     const rawProperty = mdnData.css.properties[rawPropertyName];
     if (['standard', 'experimental'].includes(rawProperty.status)) {
@@ -20,7 +20,7 @@ export default function generatePropertyTypes(cb: (string) => void): void {
   let flowPrint = '';
   allProperties.forEach((propertyData, property) => {
     // default Flow type
-    let flowTypes = new Set([FLOW_TYPE_NUMBER, FLOW_TYPE_STRING]);
+    let flowTypes = new Set<string | symbol>([FLOW_TYPE_NUMBER, FLOW_TYPE_STRING]);
 
     const propertySyntax = propertyData?.syntax;
     if (propertySyntax) {

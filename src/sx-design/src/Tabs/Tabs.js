@@ -42,7 +42,7 @@ type Props<TabValueType> = {
  *  - https://www.w3.org/TR/wai-aria-practices/examples/tabs/tabs-2/tabs.html
  */
 export default function Tabs<T: string | number | null>(props: Props<T>): Node {
-  const tabRefs = useRef([]);
+  const tabRefs = useRef<$FlowFixMe>([]);
 
   // The following function takes care of switching the tabs based on the pressed arrows (left/right).
   // We could emulate this behavior by simply using radiogroup which does this by default. However,

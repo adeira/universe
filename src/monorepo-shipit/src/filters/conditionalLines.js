@@ -1,10 +1,10 @@
 // @flow strict
 
-import Changeset from '../Changeset';
+import Changeset, { type Diff } from '../Changeset';
 import _esc from './_esc';
 
 function process(changeset: Changeset, pattern: RegExp, replacement: string) {
-  const diffs = new Set();
+  const diffs = new Set<Diff>();
   for (const diff of changeset.getDiffs()) {
     const newDiff = {
       ...diff,

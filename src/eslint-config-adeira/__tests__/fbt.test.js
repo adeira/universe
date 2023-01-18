@@ -12,8 +12,8 @@ beforeAll(() => {
 expect.addSnapshotSerializer(snapshotDiff.getSnapshotDiffSerializer());
 
 test('our rules should contain every Eslint rule to be explicit', () => {
-  const ourRules = new Map(Object.entries(require('../fbt').rules));
-  const missing = new Set();
+  const ourRules = new Map<string, $FlowFixMe>(Object.entries(require('../fbt').rules));
+  const missing = new Set<string>();
 
   eslintRules.forEach((rule) => {
     if (!ourRules.has(rule)) {

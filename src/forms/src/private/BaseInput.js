@@ -59,7 +59,7 @@ type Props = PropsText | PropsEmail | PropsPassword | PropsNumber | PropsFile;
  * It's not recommended to use this component directly. Instead, use `FormText`, `FormNumber`, …
  */
 export default function BaseInput(props: $ReadOnly<Props>): Node {
-  const inputRef = useRef(null);
+  const inputRef = useRef<$FlowFixMe>(null);
   const formRootContext = useContext(FormRootContext);
   const [inputValue, updateInputValue, inputErrors] = useFormFieldState(
     inputRef,

@@ -27,7 +27,7 @@ export default function ProductCategoriesList(): Node {
 
   return (
     <LayoutBlock>
-      {data.commerce.categories.reduce((acc, category) => {
+      {data.commerce.categories.reduce<Array<Node>>((acc, category) => {
         if (category) {
           acc.push(
             <Entity key={category.id}>

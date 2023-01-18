@@ -4,7 +4,7 @@ import { Workspaces, findMonorepoRoot } from '@adeira/monorepo-utils';
 import path from 'path';
 
 const workspaceLocations = Workspaces.getWorkspacesSync();
-const workspaceMap = new Map();
+const workspaceMap = new Map<string, $FlowFixMe>();
 const root = findMonorepoRoot();
 
 for (const workspaceLocation of workspaceLocations) {

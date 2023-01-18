@@ -26,7 +26,7 @@ type Props = {
  * It's not recommended to use this component directly. Instead, use `FormSelect`, `FormMultiSelect`, …
  */
 export default function BaseSelect(props: Props): Node {
-  const selectRef = useRef(null);
+  const selectRef = useRef<$FlowFixMe>(null);
   const [inputValue, updateInputValue, inputErrors] = useFormFieldState(
     selectRef,
     props.name,

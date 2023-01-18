@@ -9,7 +9,7 @@ export default function moveDirectoriesReverse(
   changeset: Changeset,
   mapping: Map<string, string>,
 ): Changeset {
-  const reversedMapping = new Map();
+  const reversedMapping = new Map<string, string>();
   for (const [src, dest] of mapping.entries()) {
     invariant(
       !reversedMapping.has(dest),

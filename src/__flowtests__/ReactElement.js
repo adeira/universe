@@ -11,7 +11,6 @@ class Button extends Component<{ +disabled?: boolean }> {
 }
 
 class DisabledButton extends Component<{}> {
-  // The return type is not necessary - it's here only to demonstrate what is going on.
   render(): Element<typeof Button> {
     return <Button disabled={true} />;
   }
@@ -30,21 +29,21 @@ class WrapperSmart extends Component<{
 }> {}
 
 module.exports.testWrapperLimited = ((
+  // $FlowExpectedError[incompatible-type]
   <WrapperLimited>
     <Button />
     <Button />
     <DisabledButton />
-    {/* $FlowExpectedError[incompatible-type] */}
     <button type="button" />
   </WrapperLimited>
 ): Node);
 
 module.exports.testWrapperSmart = ((
+  // $FlowExpectedError[incompatible-type]
   <WrapperSmart>
     <Button />
     <Button />
     <DisabledButton />
-    {/* $FlowExpectedError[incompatible-type] */}
     <button type="button" />
   </WrapperSmart>
 ): Node);

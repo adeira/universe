@@ -1,7 +1,7 @@
 // @flow strict
 
 import _esc from './_esc';
-import Changeset from '../Changeset';
+import Changeset, { type Diff } from '../Changeset';
 
 /**
  * Apply patches to a different directory in the destination repository.
@@ -25,7 +25,7 @@ export default function moveDirectories(
     return newPath;
   };
 
-  const diffs = new Set();
+  const diffs = new Set<Diff>();
   for (const diff of changeset.getDiffs()) {
     const oldPath = diff.path;
     const newPath = rewriteCallback(oldPath);

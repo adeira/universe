@@ -31,11 +31,11 @@ export default function BreadcrumbItem(props: Props): Node {
   const isLast = props.isLast;
   return (
     <div
+      /* $FlowFixMe[incompatible-call] This comment suppresses an error when
+       * upgrading Flow to version 0.174.0. To see the error delete this
+       * comment and run Flow. */
       className={styles({
         breadcrumbItem: true,
-        /* $FlowFixMe[incompatible-call] This comment suppresses an error when
-         * upgrading Flow to version 0.174.0. To see the error delete this
-         * comment and run Flow. */
         breadcrumbItemLast: isLast,
       })}
       /* $FlowFixMe[incompatible-type] This comment suppresses an error when
