@@ -11,7 +11,7 @@ export default function parse(input: string): ParsedConfig {
     .map((line) => line.trim())
     .filter((line) => line.length > 0);
 
-  const parsedConfig = {
+  const parsedConfig: ParsedConfig = {
     // default values (TODO: remove and do not return defaults?)
     declarations: [],
     ignore: [],
@@ -45,8 +45,6 @@ export default function parse(input: string): ParsedConfig {
       // process it as a list
       parsedConfig[currentSection].push(line);
     } else if (currentSection === 'version') {
-      /* $FlowFixMe[incompatible-type] This comment suppresses an error when
-       * upgrading Flow. To see the error delete this comment and run Flow. */
       parsedConfig[currentSection] = line;
     } else {
       // process it as a key/value (while ignoring rollout annotations since we do not merge them properly, yet)
@@ -57,8 +55,8 @@ export default function parse(input: string): ParsedConfig {
         const key = rawKey?.trim();
         if (parsedConfig[currentSection] === null) {
           /* $FlowFixMe[prop-missing] This comment suppresses an error when
-           * upgrading Flow to version 0.191.0. To see the error delete this
-           * comment and run Flow. */
+           * upgrading Flow to version 0.197.0 and enabling LTI. To see the
+           * error delete this comment and run Flow. */
           parsedConfig[currentSection] = {};
         }
         if (KNOWN_LIST_OPTIONS.includes(key)) {

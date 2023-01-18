@@ -20,7 +20,7 @@ type Props = {
  * See: https://reactjs.org/docs/forms.html#the-textarea-tag
  */
 export default function BaseTextArea(props: Props): Node {
-  const textAreaRef = useRef(null);
+  const textAreaRef = useRef<$FlowFixMe>(null);
   const [inputValue, updateInputValue, inputErrors] = useFormFieldState(
     textAreaRef,
     props.name,

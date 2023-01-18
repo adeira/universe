@@ -30,7 +30,7 @@ it('calls "text" method by default', () => {
 });
 
 it('calls "json" method when header "content-type" with value "application/json" has been returned', () => {
-  const headersGetMock = jest.fn().mockImplementation(() => 'application/json');
+  const headersGetMock = jest.fn<empty, string>().mockImplementation(() => 'application/json');
   const response = createResponse(headersGetMock);
 
   // $FlowExpectedError[incompatible-call]: incomplete Response object for testing purposes only

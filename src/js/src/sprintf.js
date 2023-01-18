@@ -48,7 +48,7 @@ export default function sprintf(format: string, ...args: $ReadOnlyArray<mixed>):
 }
 
 function getCircularReplacer() {
-  const seen = new WeakSet();
+  const seen = new WeakSet<$FlowFixMe>();
   return (key: string, value: $FlowFixMe) => {
     if (typeof value === 'object' && value !== null) {
       if (seen.has(value)) {

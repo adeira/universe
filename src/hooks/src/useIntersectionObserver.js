@@ -23,7 +23,7 @@ import { useState, useEffect, useRef } from 'react';
  * See: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
  */
 export function useIntersectionObserver(domRef: ReactRefObject<?HTMLElement>): boolean {
-  const observerRef: ReactRefObject<IntersectionObserver | void> = useRef();
+  const observerRef = useRef<IntersectionObserver | void>();
   const [isIntersecting, setIntersecting] = useState(false);
 
   useEffect(() => {

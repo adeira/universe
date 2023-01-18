@@ -1,6 +1,6 @@
 // @flow strict
 
-import Changeset from '../Changeset';
+import Changeset, { type Diff } from '../Changeset';
 
 function matchesAnyPattern(path: string, stripPatterns: Set<RegExp>): RegExp | null {
   for (const stripPattern of stripPatterns) {
@@ -20,7 +20,7 @@ export default function stripPaths(changeset: Changeset, stripPatterns: Set<RegE
   }
 
   let newChangeset = changeset;
-  const diffs = new Set();
+  const diffs = new Set<Diff>();
   for (const diff of changeset.getDiffs()) {
     const path = diff.path;
     const match = matchesAnyPattern(path, stripPatterns);

@@ -4,7 +4,7 @@ import type { GraphQLResponse } from 'relay-runtime';
 
 import createRequestHandler from '../createRequestHandler';
 
-let list;
+let list: Array<string | Error>;
 beforeEach(() => {
   list = [];
   jest.resetModules();

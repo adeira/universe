@@ -8,7 +8,7 @@ import { ShellCommand, ShellCommandResult } from '@adeira/shell-command';
 import parsePatch from './parsePatch';
 import parsePatchHeader from './parsePatchHeader';
 import splitHead from './splitHead';
-import Changeset from './Changeset';
+import Changeset, { type Diff } from './Changeset';
 import accounts from './accounts';
 
 /**
@@ -181,7 +181,7 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
 
   getChangesetFromExportedPatch: (header: string, patch: string) => Changeset = (header, patch) => {
     const changeset = parsePatchHeader(header);
-    const diffs = new Set();
+    const diffs = new Set<Diff>();
     for (const hunk of parsePatch(patch)) {
       const diff = this.parseDiffHunk(hunk);
       if (diff !== null) {

@@ -18,7 +18,7 @@ type Props = {
  * calculate the height and width of this children.
  */
 export default function Skeleton(props: Props): Node {
-  const childrenRef = useRef(null);
+  const childrenRef = useRef<HTMLDivElement | null>(null);
   const [childrenRect, setChildrenRect] = useState<null | { height: number, width: number }>(null);
 
   if (props.show != null) {

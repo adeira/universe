@@ -125,7 +125,7 @@ module.exports = ({
                           oldProperty: propertyName,
                           newProperty: propertyNameSuggestions.get(propertyName),
                         },
-                        fix: function (fixer) {
+                        fix: function (fixer /*: any */) {
                           return fixer.replaceText(
                             styleNameProperty.key,
                             propertyNameSuggestions.get(propertyName),
@@ -147,7 +147,7 @@ module.exports = ({
                               oldValue,
                               newValue: valueSuggestionMap.get(oldValue),
                             },
-                            fix: function (fixer) {
+                            fix: function (fixer /*: any */) {
                               return fixer.replaceText(
                                 valueNode,
                                 `'${valueSuggestionMap.get(oldValue) ?? '…'}'`,

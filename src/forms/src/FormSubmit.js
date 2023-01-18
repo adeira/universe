@@ -26,7 +26,7 @@ export default function FormSubmit(props: Props): Node {
   const [displayFleshMessage] = useFlashMessages();
 
   // eslint-disable-next-line relay/generated-flow-types -- discovered when upgrading Relay Eslint plugin, FIXME
-  const [runMutation, isMutationInProgress] = useMutation(props.mutation);
+  const [runMutation, isMutationInProgress] = useMutation<$FlowFixMe>(props.mutation);
 
   const handleButtonClick = (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -69,6 +69,9 @@ export default function FormSubmit(props: Props): Node {
 
     const uploadables = formRootContext.uploadables;
     if (uploadables != null) {
+      /* $FlowFixMe[incompatible-type] This comment suppresses an error when
+       * upgrading Flow to version 0.197.0 and enabling LTI. To see the error
+       * delete this comment and run Flow. */
       mutationConfig.uploadables = uploadables;
     }
 

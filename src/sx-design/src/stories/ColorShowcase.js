@@ -10,7 +10,7 @@ type Props = {
 };
 
 export default function ColorShowcase(props: Props): Node {
-  const backgroundRef = useRef(null);
+  const backgroundRef = useRef<$FlowFixMe>(null);
   const accessibleColor = useAccessibleColor(backgroundRef);
 
   return (

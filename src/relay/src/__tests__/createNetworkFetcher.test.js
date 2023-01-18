@@ -4,7 +4,7 @@ import createNetworkFetcher from '../createNetworkFetcher';
 
 const originalFetch = globalThis.fetch;
 beforeEach(() => {
-  globalThis.fetch = jest.fn().mockImplementation(() => ({
+  globalThis.fetch = jest.fn<empty, $FlowFixMe>().mockImplementation(() => ({
     headers: {
       get: () => 'application/json',
     },
@@ -41,7 +41,7 @@ it('works with additional headers', async () => {
 });
 
 it('works with promised headers', async () => {
-  const headers = new Promise((resolve) => {
+  const headers = new Promise<{ +[key: string]: string }>((resolve) => {
     // simulates somehow difficult and async way how to get headers (real-world example)
     resolve({
       'X-Client': 'https://github.com/adeira/relay-example',

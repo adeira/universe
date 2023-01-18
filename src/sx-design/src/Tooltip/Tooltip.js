@@ -34,9 +34,9 @@ type Props = {
  */
 export default function Tooltip(props: Props): Node {
   const hoverAreaRef = useRef<HTMLDivElement | null>(null);
-  const tooltipAreaRef = useRef(null);
-  const [isTooltipVisible, setIsTooltipVisible] = useState(false);
-  const [tooltipPosition, setTooltipPosition] = useState(nullClientRect);
+  const tooltipAreaRef = useRef<HTMLDivElement | null>(null);
+  const [isTooltipVisible, setIsTooltipVisible] = useState<boolean>(false);
+  const [tooltipPosition, setTooltipPosition] = useState<$FlowFixMe>(nullClientRect);
 
   const showTooltip = () => {
     const tooltipArea = tooltipAreaRef.current?.getBoundingClientRect() ?? nullClientRect;

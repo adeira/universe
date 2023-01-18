@@ -15,7 +15,7 @@ import type { AuthButtonsDeauthorizeWebappMutation } from './__generated__/AuthB
 
 export function LoginButton(): Node {
   const { login } = useSessionTokenAPI();
-  const [errorMessage, setErrorMessage] = useState(null);
+  const [errorMessage, setErrorMessage] = useState<?string | Fbt>(null);
 
   const [authorizeMutation, isAuthorizeMutationPending] =
     useMutation<AuthButtonsAuthorizeWebappMutation>(graphql`
