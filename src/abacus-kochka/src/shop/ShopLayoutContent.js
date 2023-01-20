@@ -4,15 +4,12 @@ import * as React from 'react';
 import { graphql, useLazyLoadQuery } from '@adeira/relay';
 import { ProductCard, Note, LayoutGrid, SupportedCurrencies } from '@adeira/sx-design';
 import { fbt } from 'fbt';
-import { useRecoilValue } from 'recoil';
 
 import useViewerContext from '../hooks/useViewerContext';
 import Link from '../primitives/Link';
-import filtersAtom from './recoil/filtersAtom';
 
 export default function ShopLayoutContent(): React.Node {
   const viewerContext = useViewerContext();
-  const filters = useRecoilValue(filtersAtom);
 
   const {
     commerce: { products },
@@ -45,7 +42,7 @@ export default function ShopLayoutContent(): React.Node {
     `,
     {
       clientLocale: viewerContext.languageTag.graphql,
-      priceSortDirection: filters.relevance.price,
+      priceSortDirection: 'HIGH_TO_LOW',
     },
     { fetchPolicy: 'store-and-network' },
   );

@@ -491,9 +491,9 @@
   },
   {
    "hashToLeaf": {
-    "bU6rVH2V6ifH2RNffzFZ8g==": {
-     "text": "All our products are currently available only in person in our café. We are working on making them available online as well.",
-     "desc": "not about all our products being available only in person"
+    "GEaKzxDglWkMA+1J15IbkQ==": {
+     "text": "All our products with their exclusive prices are available only to our sponsors. Please contact us directly via our social media channels.",
+     "desc": "note about all our products being available only for sponsors"
     }
    },
    "filepath": "src/shop/ProductPageLayoutContent.js",
@@ -504,8 +504,8 @@
    "project": "",
    "jsfbt": {
     "t": {
-     "desc": "not about all our products being available only in person",
-     "text": "All our products are currently available only in person in our café. We are working on making them available online as well."
+     "desc": "note about all our products being available only for sponsors",
+     "text": "All our products with their exclusive prices are available only to our sponsors. Please contact us directly via our social media channels."
     },
     "m": []
    }
@@ -518,9 +518,9 @@
     }
    },
    "filepath": "src/shop/ShopLayout.js",
-   "line_beg": 38,
+   "line_beg": 16,
    "col_beg": 13,
-   "line_end": 38,
+   "line_end": 16,
    "col_end": 58,
    "project": "",
    "jsfbt": {
@@ -539,9 +539,9 @@
     }
    },
    "filepath": "src/shop/ShopLayout.js",
-   "line_beg": 40,
+   "line_beg": 18,
    "col_beg": 8,
-   "line_end": 40,
+   "line_end": 18,
    "col_end": 92,
    "project": "",
    "jsfbt": {
@@ -554,120 +554,15 @@
   },
   {
    "hashToLeaf": {
-    "NcqbHXZZBCZpEDNCbNjypg==": {
-     "text": "All Categories",
-     "desc": "shop categories selection title"
-    }
-   },
-   "filepath": "src/shop/ShopLayout.js",
-   "line_beg": 46,
-   "col_beg": 12,
-   "line_end": 46,
-   "col_end": 76,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "shop categories selection title",
-     "text": "All Categories"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "euiFFLyeZE5Cqt3Et0scHQ==": {
-     "text": "Shop All",
-     "desc": "shop all categories link"
-    }
-   },
-   "filepath": "src/shop/ShopLayout.js",
-   "line_beg": 59,
-   "col_beg": 14,
-   "line_end": 59,
-   "col_end": 65,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "shop all categories link",
-     "text": "Shop All"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "O5z+CsBhzyOWUxxF2Dbzuw==": {
-     "text": "Relevance",
-     "desc": "shop relevance selection title"
-    }
-   },
-   "filepath": "src/shop/ShopLayout.js",
-   "line_beg": 80,
-   "col_beg": 12,
-   "line_end": 80,
-   "col_end": 70,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "shop relevance selection title",
-     "text": "Relevance"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "ZlHAAgjgMITuSp22mOOiiQ==": {
-     "text": "Price: Low to high",
-     "desc": "price relevance low to high"
-    }
-   },
-   "filepath": "src/shop/ShopLayout.js",
-   "line_beg": 92,
-   "col_beg": 14,
-   "line_end": 92,
-   "col_end": 78,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "price relevance low to high",
-     "text": "Price: Low to high"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
-    "lsJRnjpgbJ4j+bIWfXVNAg==": {
-     "text": "Price: High to low",
-     "desc": "price relevance hight to low"
-    }
-   },
-   "filepath": "src/shop/ShopLayout.js",
-   "line_beg": 105,
-   "col_beg": 14,
-   "line_end": 105,
-   "col_end": 79,
-   "project": "",
-   "jsfbt": {
-    "t": {
-     "desc": "price relevance hight to low",
-     "text": "Price: High to low"
-    },
-    "m": []
-   }
-  },
-  {
-   "hashToLeaf": {
     "Vzx+hI2Z0PqPWhGFV/NbRA==": {
      "text": "There are no products yet.",
      "desc": "empty shop message"
     }
    },
    "filepath": "src/shop/ShopLayoutContent.js",
-   "line_beg": 56,
+   "line_beg": 53,
    "col_beg": 8,
-   "line_end": 56,
+   "line_end": 53,
    "col_end": 71,
    "project": "",
    "jsfbt": {
@@ -770,10 +665,10 @@
     }
    },
    "filepath": "pages/_app.js",
-   "line_beg": 62,
-   "col_beg": 20,
-   "line_end": 64,
-   "col_end": 26,
+   "line_beg": 67,
+   "col_beg": 18,
+   "line_end": 69,
+   "col_end": 24,
    "project": "",
    "jsfbt": {
     "t": {

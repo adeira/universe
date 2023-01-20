@@ -6,7 +6,6 @@ import fbt from 'fbt';
 import Head from 'next/head';
 import sx from '@adeira/sx';
 import { DefaultSeo } from 'next-seo';
-import { RecoilRoot } from 'recoil';
 import { RelayEnvironmentProvider, RelayRehydratePreloadedQueries } from '@adeira/relay';
 import { SkipLink, SxDesignProvider } from '@adeira/sx-design';
 import { useEffect } from 'react';
@@ -59,21 +58,19 @@ export default function MyApp({ Component, pageProps }: Props): React.Node {
       >
         <RelayEnvironmentProvider environment={RelayEnvironment}>
           <ViewerContextProvider languageTag={languageTag}>
-            <RecoilRoot>
-              <div className={styles('root')}>
-                <Head>
-                  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                </Head>
-                <SkipLink
-                  text={
-                    <fbt desc="hidden 'skip link' title which helps blind people to skip directly the main section and avoid the repetitive menu altogether">
-                      Skip to content
-                    </fbt>
-                  }
-                />
-                <RelayRehydratePreloadedQueries Component={Component} pageProps={pageProps} />
-              </div>
-            </RecoilRoot>
+            <div className={styles('root')}>
+              <Head>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+              </Head>
+              <SkipLink
+                text={
+                  <fbt desc="hidden 'skip link' title which helps blind people to skip directly the main section and avoid the repetitive menu altogether">
+                    Skip to content
+                  </fbt>
+                }
+              />
+              <RelayRehydratePreloadedQueries Component={Component} pageProps={pageProps} />
+            </div>
           </ViewerContextProvider>
         </RelayEnvironmentProvider>
       </SxDesignProvider>
