@@ -14,7 +14,7 @@
   "type": "commonjs",
   "sideEffects": false,
   "dependencies": {
-    "@babel/runtime": "^7.20.7"
+    "@babel/runtime": "^7.20.13"
   },
   "devDependencies": {
     "@adeira/js": "^2.1.1",
