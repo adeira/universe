@@ -6,7 +6,7 @@
 # kubectl get nodes -o wide
 # ```
 #
-# And Node Port:
+# And Node Port (8080:xxx):
 #
 # ```
 # kubectl get svc
@@ -15,8 +15,15 @@
 # Use this information to notify the Unifi service about new APs, for example:
 #
 # ```
-# ssh ubnt@$AP-IP
-# set-inform http://146.190.14.199:30166/inform
+# ssh ubnt@$AP-IP (ubnt)
+# set-inform http://143.244.185.28:31177/inform
+# ```
+#
+# Some useful commands when logged into the AP:
+#
+# ```
+# info
+# cat /var/log/messages
 # ```
 #
 # Note: I wasn't able to notify the service via FQDN (TODO).
@@ -71,3 +78,23 @@ spec:
             - containerPort: 8443
             - containerPort: 8080
             - containerPort: 3478
+          volumeMounts:
+            - name: unifi-controller-data
+              mountPath: /config
+      volumes:
+        - name: unifi-controller-data
+          persistentVolumeClaim:
+            claimName: unifi-controller-data
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: unifi-controller-data
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: do-block-storage
