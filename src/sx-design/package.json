@@ -41,7 +41,7 @@
     "@adeira/sx-jest-snapshot-serializer": "^0.1.0",
     "@babel/core": "^7.20.12",
     "@fbtjs/default-collection-transform": "^1.0.0",
-    "@playwright/test": "^1.29.2",
+    "@playwright/test": "^1.30.0",
     "@storybook/addon-a11y": "^6.5.15",
     "@storybook/addon-actions": "^6.5.15",
     "@storybook/addon-essentials": "^6.5.15",
@@ -57,7 +57,7 @@
     "babel-plugin-fbt": "^1.0.0",
     "babel-plugin-fbt-runtime": "^1.0.0",
     "next": "^13.1.5",
-    "playwright": "^1.29.2",
+    "playwright": "^1.30.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook-addon-next-router": "^4.0.2"
