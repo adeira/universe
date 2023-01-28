@@ -19,7 +19,7 @@ __metadata:
     "@adeira/sx": ^0.29.1
     "@adeira/sx-design": ^0.32.0
     "@fbtjs/default-collection-transform": ^1.0.0
-    "@next/bundle-analyzer": ^13.1.5
+    "@next/bundle-analyzer": ^13.1.6
     "@playwright/test": ^1.30.0
     "@recoiljs/refine": ^0.1.1
     "@sentry/nextjs": ^7.33.0
@@ -32,7 +32,7 @@ __metadata:
     fbt: ^1.0.0
     graphql: ^16.6.0
     immutable: ^4.2.2
-    next: ^13.1.5
+    next: ^13.1.6
     next-compose-plugins: ^2.2.1
     next-plugin-custom-babel-config: ^1.0.5
     next-seo: ^5.15.0
@@ -55,7 +55,7 @@ __metadata:
     "@markdoc/next.js": ^0.2.1
     "@playwright/test": ^1.30.0
     js-yaml: ^4.1.0
-    next: ^13.1.5
+    next: ^13.1.6
     playwright: ^1.30.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -82,7 +82,7 @@ __metadata:
     fbt: ^1.0.0
     globby: ^13.1.3
     graphql: ^16.6.0
-    next: ^13.1.5
+    next: ^13.1.6
     next-compose-plugins: ^2.2.1
     next-plugin-custom-babel-config: ^1.0.5
     next-seo: ^5.15.0
@@ -126,7 +126,7 @@ __metadata:
   resolution: "@adeira/eslint-config@workspace:src/eslint-config-adeira"
   dependencies:
     "@babel/runtime": ^7.20.13
-    "@next/eslint-plugin-next": ^13.1.5
+    "@next/eslint-plugin-next": ^13.1.6
     deep-diff: ^1.0.2
     eslint-config-prettier: ^8.6.0
     eslint-plugin-adeira: ^0.15.0
@@ -398,11 +398,11 @@ __metadata:
     "@storybook/addons": ^6.5.16
     "@storybook/react": ^6.5.16
     "@storybook/theming": ^6.5.16
-    next: ^13.1.5
+    next: ^13.1.6
     storybook-addon-next-router: ^4.0.2
   peerDependencies:
     "@adeira/sx": ^0.29.1
-    next: ^13.1.5
+    next: ^13.1.6
     react: ^18.2.0
     react-dom: ^18.2.0
   languageName: unknown
@@ -442,7 +442,7 @@ __metadata:
     fbt: ^1.0.0
     flow-enums-runtime: ^0.0.6
     focus-trap-react: ^10.0.2
-    next: ^13.1.5
+    next: ^13.1.6
     playwright: ^1.30.0
     prop-types: ^15.8.1
     react: ^18.2.0
@@ -453,7 +453,7 @@ __metadata:
     storybook-addon-next-router: ^4.0.2
   peerDependencies:
     "@adeira/sx": ^0.29.1
-    next: ^13.1.5
+    next: ^13.1.6
     react: ^18.2.0
     react-dom: ^18.2.0
   languageName: unknown
@@ -2666,118 +2666,118 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/bundle-analyzer@npm:^13.1.5":
-  version: 13.1.5
-  resolution: "@next/bundle-analyzer@npm:13.1.5"
+"@next/bundle-analyzer@npm:^13.1.6":
+  version: 13.1.6
+  resolution: "@next/bundle-analyzer@npm:13.1.6"
   dependencies:
     webpack-bundle-analyzer: 4.7.0
-  checksum: cfe3ccc9b6ad00cfd9c687073e6af826c0a7637a1b0ad69dd805a588ae833bea677c646c69bbe204b6263ea1c3477d35dd2faacc3034212185f8dc4a2957aad0
+  checksum: 4f6b42d5c0068b0d71186462843f20e1352541c1da46be857166194531d16745fe54342cf7f2e059f8b1f88ec607b8dac6699169ef05baad4458698ef535fe72
   languageName: node
   linkType: hard
 
-"@next/env@npm:13.1.5":
-  version: 13.1.5
-  resolution: "@next/env@npm:13.1.5"
-  checksum: 17c1d26a54d98542f5c1d901842e89fef398f67d6814a321d9fe16725308d99d6126608696587b88dbf00e059614fca171b5ea7666efc789becab091288736ae
+"@next/env@npm:13.1.6":
+  version: 13.1.6
+  resolution: "@next/env@npm:13.1.6"
+  checksum: 0f911a18f0b3372007632fffa87f5d7f802c00d07b3bf757d2d09574735ae43f60000ecdf64b6f06e195971c508c2bcee82dd1e3aab27a08a4300eb0317652bb
   languageName: node
   linkType: hard
 
-"@next/eslint-plugin-next@npm:^13.1.5":
-  version: 13.1.5
-  resolution: "@next/eslint-plugin-next@npm:13.1.5"
+"@next/eslint-plugin-next@npm:^13.1.6":
+  version: 13.1.6
+  resolution: "@next/eslint-plugin-next@npm:13.1.6"
   dependencies:
     glob: 7.1.7
-  checksum: 5f0756c6addc262ebefc1860858d2c9a1539d3a5db24f89cf8d5d3175bf58f08ab54896251ac0401e4f229309aba09011b5adf3008d577911395a49c5b314cee
+  checksum: 15d3b5913a56d40c7ad33c77f5285a2388a3a4b4da2eb80a3899ac4b871c7bfca74fd45f98fcac3d6a91c8dce738da2661cf71e7e3116a14d5da0d5b68939e8d
   languageName: node
   linkType: hard
 
-"@next/swc-android-arm-eabi@npm:13.1.5":
-  version: 13.1.5
-  resolution: "@next/swc-android-arm-eabi@npm:13.1.5"
+"@next/swc-android-arm-eabi@npm:13.1.6":
+  version: 13.1.6
+  resolution: "@next/swc-android-arm-eabi@npm:13.1.6"
   conditions: os=android & cpu=arm
   languageName: node
   linkType: hard
 
-"@next/swc-android-arm64@npm:13.1.5":
-  version: 13.1.5
-  resolution: "@next/swc-android-arm64@npm:13.1.5"
+"@next/swc-android-arm64@npm:13.1.6":
+  version: 13.1.6
+  resolution: "@next/swc-android-arm64@npm:13.1.6"
   conditions: os=android & cpu=arm64
   languageName: node
   linkType: hard
 
-"@next/swc-darwin-arm64@npm:13.1.5":
-  version: 13.1.5
-  resolution: "@next/swc-darwin-arm64@npm:13.1.5"
+"@next/swc-darwin-arm64@npm:13.1.6":
+  version: 13.1.6
+  resolution: "@next/swc-darwin-arm64@npm:13.1.6"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@next/swc-darwin-x64@npm:13.1.5":
-  version: 13.1.5
-  resolution: "@next/swc-darwin-x64@npm:13.1.5"
+"@next/swc-darwin-x64@npm:13.1.6":
+  version: 13.1.6
+  resolution: "@next/swc-darwin-x64@npm:13.1.6"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@next/swc-freebsd-x64@npm:13.1.5":
-  version: 13.1.5
-  resolution: "@next/swc-freebsd-x64@npm:13.1.5"
+"@next/swc-freebsd-x64@npm:13.1.6":
+  version: 13.1.6
+  resolution: "@next/swc-freebsd-x64@npm:13.1.6"
   conditions: os=freebsd & cpu=x64
   languageName: node
   linkType: hard
 
-"@next/swc-linux-arm-gnueabihf@npm:13.1.5":
-  version: 13.1.5
-  resolution: "@next/swc-linux-arm-gnueabihf@npm:13.1.5"
+"@next/swc-linux-arm-gnueabihf@npm:13.1.6":
+  version: 13.1.6
+  resolution: "@next/swc-linux-arm-gnueabihf@npm:13.1.6"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"@next/swc-linux-arm64-gnu@npm:13.1.5":
-  version: 13.1.5
-  resolution: "@next/swc-linux-arm64-gnu@npm:13.1.5"
+"@next/swc-linux-arm64-gnu@npm:13.1.6":
+  version: 13.1.6
+  resolution: "@next/swc-linux-arm64-gnu@npm:13.1.6"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@next/swc-linux-arm64-musl@npm:13.1.5":
-  version: 13.1.5
-  resolution: "@next/swc-linux-arm64-musl@npm:13.1.5"
+"@next/swc-linux-arm64-musl@npm:13.1.6":
+  version: 13.1.6
+  resolution: "@next/swc-linux-arm64-musl@npm:13.1.6"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@next/swc-linux-x64-gnu@npm:13.1.5":
-  version: 13.1.5
-  resolution: "@next/swc-linux-x64-gnu@npm:13.1.5"
+"@next/swc-linux-x64-gnu@npm:13.1.6":
+  version: 13.1.6
+  resolution: "@next/swc-linux-x64-gnu@npm:13.1.6"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@next/swc-linux-x64-musl@npm:13.1.5":
-  version: 13.1.5
-  resolution: "@next/swc-linux-x64-musl@npm:13.1.5"
+"@next/swc-linux-x64-musl@npm:13.1.6":
+  version: 13.1.6
+  resolution: "@next/swc-linux-x64-musl@npm:13.1.6"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@next/swc-win32-arm64-msvc@npm:13.1.5":
-  version: 13.1.5
-  resolution: "@next/swc-win32-arm64-msvc@npm:13.1.5"
+"@next/swc-win32-arm64-msvc@npm:13.1.6":
+  version: 13.1.6
+  resolution: "@next/swc-win32-arm64-msvc@npm:13.1.6"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@next/swc-win32-ia32-msvc@npm:13.1.5":
-  version: 13.1.5
-  resolution: "@next/swc-win32-ia32-msvc@npm:13.1.5"
+"@next/swc-win32-ia32-msvc@npm:13.1.6":
+  version: 13.1.6
+  resolution: "@next/swc-win32-ia32-msvc@npm:13.1.6"
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"@next/swc-win32-x64-msvc@npm:13.1.5":
-  version: 13.1.5
-  resolution: "@next/swc-win32-x64-msvc@npm:13.1.5"
+"@next/swc-win32-x64-msvc@npm:13.1.6":
+  version: 13.1.6
+  resolution: "@next/swc-win32-x64-msvc@npm:13.1.6"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -14617,24 +14617,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next@npm:^13.1.5":
-  version: 13.1.5
-  resolution: "next@npm:13.1.5"
+"next@npm:^13.1.6":
+  version: 13.1.6
+  resolution: "next@npm:13.1.6"
   dependencies:
-    "@next/env": 13.1.5
-    "@next/swc-android-arm-eabi": 13.1.5
-    "@next/swc-android-arm64": 13.1.5
-    "@next/swc-darwin-arm64": 13.1.5
-    "@next/swc-darwin-x64": 13.1.5
-    "@next/swc-freebsd-x64": 13.1.5
-    "@next/swc-linux-arm-gnueabihf": 13.1.5
-    "@next/swc-linux-arm64-gnu": 13.1.5
-    "@next/swc-linux-arm64-musl": 13.1.5
-    "@next/swc-linux-x64-gnu": 13.1.5
-    "@next/swc-linux-x64-musl": 13.1.5
-    "@next/swc-win32-arm64-msvc": 13.1.5
-    "@next/swc-win32-ia32-msvc": 13.1.5
-    "@next/swc-win32-x64-msvc": 13.1.5
+    "@next/env": 13.1.6
+    "@next/swc-android-arm-eabi": 13.1.6
+    "@next/swc-android-arm64": 13.1.6
+    "@next/swc-darwin-arm64": 13.1.6
+    "@next/swc-darwin-x64": 13.1.6
+    "@next/swc-freebsd-x64": 13.1.6
+    "@next/swc-linux-arm-gnueabihf": 13.1.6
+    "@next/swc-linux-arm64-gnu": 13.1.6
+    "@next/swc-linux-arm64-musl": 13.1.6
+    "@next/swc-linux-x64-gnu": 13.1.6
+    "@next/swc-linux-x64-musl": 13.1.6
+    "@next/swc-win32-arm64-msvc": 13.1.6
+    "@next/swc-win32-ia32-msvc": 13.1.6
+    "@next/swc-win32-x64-msvc": 13.1.6
     "@swc/helpers": 0.4.14
     caniuse-lite: ^1.0.30001406
     postcss: 8.4.14
@@ -14681,7 +14681,7 @@ __metadata:
       optional: true
   bin:
     next: dist/bin/next
-  checksum: 7c5eb1bc9a68cd4d77a02a560883f735b82b6be7c6aadf185d4bd683725f95d132146da899a5fd4455b3a062cc9c30927259b8d997324867bd8964c9e4c753c1
+  checksum: 584977e382bd826c21e7fc5f67bca50e4d95741a854b1686394d45331404479c7266569671227421975fc18e5cf70769a4ad7edede7450d4497213205bba77c8
   languageName: node
   linkType: hard
 
