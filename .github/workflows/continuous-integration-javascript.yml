@@ -49,7 +49,7 @@ jobs:
             yarn-cache-folder-
 
       # https://github.com/dtolnay/rust-toolchain
-      - uses: dtolnay/rust-toolchain@stable
+      - uses: dtolnay/rust-toolchain@1.66.1
 
       - name: Install Yarn dependencies
         run: ./x install -- --immutable
