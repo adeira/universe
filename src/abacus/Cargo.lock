@@ -1203,9 +1203,9 @@ dependencies = [
 
 [[package]]
 name = "juniper"
-version = "0.15.10"
+version = "0.15.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4f478f229a8ab52ff242f3250c8b3b8fe0a59b5b934f9706b7bdbc980991a7b6"
+checksum = "52adf17d43d0b526eed31fac15d9312941c5c2558ffbfb105811690b96d6e2f1"
 dependencies = [
  "async-trait",
  "fnv",
@@ -1215,7 +1215,7 @@ dependencies = [
  "indexmap",
  "juniper_codegen",
  "serde",
- "smartstring 0.2.10",
+ "smartstring",
  "static_assertions",
 ]
 
@@ -2055,7 +2055,7 @@ dependencies = [
  "rhai_codegen",
  "serde",
  "smallvec",
- "smartstring 1.0.1",
+ "smartstring",
 ]
 
 [[package]]
@@ -2600,15 +2600,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a507befe795404456341dfab10cef66ead4c041f62b8b11bbb92bffe5d0953e0"
 dependencies = [
  "serde",
-]
-
-[[package]]
-name = "smartstring"
-version = "0.2.10"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e714dff2b33f2321fdcd475b71cec79781a692d846f37f415fb395a1d2bcd48e"
-dependencies = [
- "static_assertions",
 ]
 
 [[package]]
