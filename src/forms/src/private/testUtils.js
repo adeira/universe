@@ -6,7 +6,6 @@ import { render } from '@testing-library/react'; // eslint-disable-line import/n
 import { SxDesignProvider } from '@adeira/sx-design';
 
 export function getAllAttributes(element: HTMLElement): { [string]: string } {
-  // $FlowIssue[prop-missing]: `getAttributeNames` is missing
   return element.getAttributeNames().reduce(
     (obj, attrName) => ({
       ...obj,
