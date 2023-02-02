@@ -9,7 +9,7 @@
     "start": "next start --port=5003"
   },
   "dependencies": {
-    "@markdoc/markdoc": "^0.2.1",
+    "@markdoc/markdoc": "^0.2.2",
     "@markdoc/next.js": "^0.2.1",
     "js-yaml": "^4.1.0",
     "next": "^13.1.6",
