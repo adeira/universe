@@ -1,6 +1,6 @@
 // @flow strict
 
-const graphql = (_: Array<string>) => {};
+const graphql = (_: TaggedTemplateLiteralArray) => {};
 
 graphql`
   fragment MyFragment on SomeType {
