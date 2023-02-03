@@ -8,6 +8,9 @@ test.each([
   [1, false],
   [true, false],
   ['unknown', false],
+  /* $FlowFixMe[incompatible-call] This comment suppresses an error when
+   * upgrading Flow to version 0.199.1. To see the error delete this comment
+   * and run Flow. */
   ...validColors.keywords.map(([color]) => [color, true]),
 ])('detects keyword colors "%s" correctly (%s)', (color, result) => {
   expect(isColor(color)).toBe(result);
@@ -16,6 +19,9 @@ test.each([
 test.each([
   ['#aa', false],
   ['#xxxxxx', false],
+  /* $FlowFixMe[incompatible-call] This comment suppresses an error when
+   * upgrading Flow to version 0.199.1. To see the error delete this comment
+   * and run Flow. */
   ...validColors.hexadecimal.map(([color]) => [color, true]),
 ])('detects hexadecimal colors "%s" correctly (%s)', (color, result) => {
   expect(isColor(color)).toBe(result);
@@ -43,6 +49,9 @@ test.each([
   ['hsla(a, b, c)', false],
 
   // All other valid cases:
+  /* $FlowFixMe[incompatible-call] This comment suppresses an error when
+   * upgrading Flow to version 0.199.1. To see the error delete this comment
+   * and run Flow. */
   ...validColors.functional.map(([color]) => [color, true]),
 ])('detects functional (RGBA, HSLA) colors "%s" correctly (%s)', (color, result) => {
   expect(isColor(color)).toBe(result);

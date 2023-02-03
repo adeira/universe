@@ -28,6 +28,9 @@ const ManuallyCreatedEnvironment = createEnvironment({
 });
 
 const mutationConfig = {
+  /* $FlowFixMe[incompatible-call] This comment suppresses an error when
+   * upgrading Flow to version 0.199.1. To see the error delete this comment
+   * and run Flow. */
   mutation: graphql`
     mutation EnvironmentMutation {
       __typename
@@ -37,6 +40,9 @@ const mutationConfig = {
 };
 
 const subscriptionConfig = {
+  /* $FlowFixMe[incompatible-call] This comment suppresses an error when
+   * upgrading Flow to version 0.199.1. To see the error delete this comment
+   * and run Flow. */
   subscription: graphql`
     subscription EnvironmentSubscription {
       __typename
