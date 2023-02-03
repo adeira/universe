@@ -353,6 +353,7 @@ export type AllCSSPropertyTypes = {
   +hangingPunctuation?: number | string, // https://developer.mozilla.org/docs/Web/CSS/hanging-punctuation
   +height?: number | string, // https://developer.mozilla.org/docs/Web/CSS/height
   +hyphenateCharacter?: string, // https://developer.mozilla.org/docs/Web/CSS/hyphenate-character
+  +hyphenateLimitChars?: number | string, // https://developer.mozilla.org/docs/Web/CSS/hyphenate-limit-chars
   +hyphens?: 'none' | 'manual' | 'auto' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/hyphens
   +imageOrientation?: number | string, // https://developer.mozilla.org/docs/Web/CSS/image-orientation
   +imageRendering?: 'auto' | 'crisp-edges' | 'pixelated' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/image-rendering
@@ -632,14 +633,7 @@ export type AllCSSPropertyTypes = {
   +scrollSnapStop?: 'normal' | 'always' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/scroll-snap-stop
   +scrollSnapType?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-snap-type
   +scrollTimeline?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-timeline
-  +scrollTimelineAxis?:  // https://developer.mozilla.org/docs/Web/CSS/scroll-timeline-axis
-    | 'block'
-    | 'inline'
-    | 'vertical'
-    | 'horizontal'
-    | 'inherit'
-    | 'initial'
-    | 'unset',
+  +scrollTimelineAxis?: string, // https://developer.mozilla.org/docs/Web/CSS/scroll-timeline-axis
   +scrollTimelineName?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-timeline-name
   +shapeImageThreshold?: number | string, // https://developer.mozilla.org/docs/Web/CSS/shape-image-threshold
   +shapeMargin?: number | string, // https://developer.mozilla.org/docs/Web/CSS/shape-margin

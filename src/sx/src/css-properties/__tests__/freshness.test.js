@@ -13,7 +13,7 @@ test('whether our generated files are up to date', (done) => {
   const versionedFile = fs.readFileSync(paths.propertyTypes, 'utf8');
   generatePropertyTypes((types) => {
     // DO NOT UPDATE THIS SNAPSHOT - it's here just to show you what are the differences. To fix
-    // this problem you should regenerated the generated types.
+    // this problem you should regenerate the generated types.
     expect(snapshotDiff(versionedFile, types)).toBe(
       'Snapshot Diff:\nCompared values have no visual difference.',
     );
