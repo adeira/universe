@@ -17,11 +17,6 @@
     'strip-ansi',
   ],
   packageRules: [
-    {
-      matchDepTypes: ['devDependencies'],
-      matchUpdateTypes: ['patch'],
-      addLabels: ['automerge'],
-    },
     // Group dependencies by pattern:
     {
       groupName: 'SVGR packages (JavaScript)',
