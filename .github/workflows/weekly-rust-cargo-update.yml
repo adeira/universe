@@ -1,10 +1,10 @@
-name: Daily Rust Cargo update
+name: Weekly Rust Cargo update
 
 on:
   workflow_dispatch:
   schedule:
-    # daily (https://crontab.guru/#0_5_*_*_*)
-    - cron: '0 5 * * *'
+    # weekly "at 05:00 on Monday" (https://crontab.guru/#0_5_*_*_1)
+    - cron: '0 5 * * 1'
 
 jobs:
   daily-cargo:
