@@ -151,7 +151,7 @@ __metadata:
     prettier: ^2.8.4
     snapshot-diff: ^0.10.0
   peerDependencies:
-    eslint: ">=8.33.0"
+    eslint: ">=8.34.0"
   languageName: unknown
   linkType: soft
 
@@ -162,11 +162,11 @@ __metadata:
     "@adeira/flow-types-eslint": 0.0.0
     "@adeira/js": ^2.1.1
     "@babel/runtime": ^7.20.13
-    eslint: ^8.33.0
+    eslint: ^8.34.0
     hermes-eslint: ^0.9.0
     jest-docblock: ^29.2.0
   peerDependencies:
-    eslint: ^8.33.0
+    eslint: ^8.34.0
   languageName: unknown
   linkType: soft
 
@@ -9460,7 +9460,7 @@ __metadata:
     "@adeira/eslint-fixtures-tester": 0.1.0
     "@adeira/flow-types-eslint": 0.0.0
     "@babel/runtime": ^7.20.13
-    eslint: ^8.33.0
+    eslint: ^8.34.0
     fast-levenshtein: ^3.0.0
     hermes-eslint: ^0.9.0
   peerDependencies:
@@ -9732,11 +9732,11 @@ __metadata:
     "@adeira/sx": ^0.29.1
     "@babel/code-frame": ^7.18.6
     "@babel/runtime": ^7.20.13
-    eslint: ^8.33.0
+    eslint: ^8.34.0
     hermes-eslint: ^0.9.0
     react: ^18.2.0
   peerDependencies:
-    eslint: ^8.33.0
+    eslint: ^8.34.0
   languageName: unknown
   linkType: soft
 
@@ -9822,9 +9822,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.33.0":
-  version: 8.33.0
-  resolution: "eslint@npm:8.33.0"
+"eslint@npm:^8.34.0":
+  version: 8.34.0
+  resolution: "eslint@npm:8.34.0"
   dependencies:
     "@eslint/eslintrc": ^1.4.1
     "@humanwhocodes/config-array": ^0.11.8
@@ -9867,7 +9867,7 @@ __metadata:
     text-table: ^0.2.0
   bin:
     eslint: bin/eslint.js
-  checksum: 727e63ab8b7acf281442323c5971f6afdd5b656fbcebc4476cf54e35af51b2f180617433fc5e1952f0449ca3f43a905527f9407ea4b8a7ea7562fc9c3f278d4c
+  checksum: 4e13e9eb05ac2248efbb6acae0b2325091235d5c47ba91a4775c7d6760778cbcd358a773ebd42f4629d2ad89e27c02f5d66eb1f737d75d9f5fc411454f83b2e5
   languageName: node
   linkType: hard
 
@@ -17359,7 +17359,7 @@ __metadata:
     "@babel/core": ^7.20.12
     babel-jest: ^29.3.1
     babel-loader: ^9.1.2
-    eslint: ^8.33.0
+    eslint: ^8.34.0
     eslint-formatter-codeframe: ^7.32.1
     flow-bin: ^0.199.1
     glob: ^8.1.0
