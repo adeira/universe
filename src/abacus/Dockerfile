@@ -1,5 +1,5 @@
 # IMPORTANT: this Rust version should be alligned with the `dtolnay/rust-toolchain@XYZ` version on CI!
-FROM rust:1.67.0 AS builder
+FROM rust:1.67.1 AS builder
 # Let's switch our working directory to `app` (equivalent to `cd app`)
 # The `app` folder will be created for us by Docker in case it does not
 # exist already.
@@ -11,7 +11,7 @@ RUN cargo build --release --bin=server
 
 
 # IMPORTANT: this Rust version should be alligned with the `dtolnay/rust-toolchain@XYZ` version on CI!
-FROM rust:1.67.0 AS runtime
+FROM rust:1.67.1 AS runtime
 WORKDIR app
 # Copy the compiled binary from the builder environment
 # to our runtime environment
