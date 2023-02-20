@@ -16,7 +16,7 @@
   "dependencies": {
     "@adeira/icons": "^2.1.1",
     "@adeira/js": "^2.1.1",
-    "@babel/runtime": "^7.20.13"
+    "@babel/runtime": "^7.21.0"
   },
   "peerDependencies": {
     "react": "^18.2.0"

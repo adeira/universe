@@ -15,7 +15,7 @@
   "sideEffects": false,
   "dependencies": {
     "@adeira/js": "^2.1.1",
-    "@babel/runtime": "^7.20.13",
+    "@babel/runtime": "^7.21.0",
     "fbt": "^1.0.0"
   },
   "devDependencies": {
