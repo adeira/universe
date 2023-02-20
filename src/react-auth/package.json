@@ -15,7 +15,7 @@
   "main": "./index.js",
   "dependencies": {
     "@adeira/hooks": "^0.3.0",
-    "@babel/runtime": "^7.20.13"
+    "@babel/runtime": "^7.21.0"
   },
   "peerDependencies": {
     "react": "*"
