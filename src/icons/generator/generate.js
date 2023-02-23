@@ -12,6 +12,9 @@ const SOURCE_PATH = path.join(__dirname, '..', 'original');
 const DESTINATION_PATH = path.join(__dirname, '..', '__generated__');
 const TEMPLATES_PATH = path.join(__dirname, 'templates');
 
+/* $FlowFixMe[unused-promise-in-sync-scope] This comment suppresses an error
+ * when upgrading Flow to version 0.200.0. To see the error delete this comment
+ * and run Flow. */
 (async () => {
   const collectedComponents = [];
 

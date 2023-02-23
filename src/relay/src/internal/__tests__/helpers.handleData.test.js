@@ -22,6 +22,9 @@ it('calls "text" method by default', () => {
   const response = createResponse(headersGetMock);
 
   // $FlowExpectedError[incompatible-call]: incomplete Response object for testing purposes only
+  /* $FlowFixMe[unused-promise-in-sync-scope] This comment suppresses an error
+   * when upgrading Flow to version 0.200.0. To see the error delete this
+   * comment and run Flow. */
   handleData(response);
 
   expect(headersGetMock).toHaveBeenCalledWith('content-type');
@@ -34,6 +37,9 @@ it('calls "json" method when header "content-type" with value "application/json"
   const response = createResponse(headersGetMock);
 
   // $FlowExpectedError[incompatible-call]: incomplete Response object for testing purposes only
+  /* $FlowFixMe[unused-promise-in-sync-scope] This comment suppresses an error
+   * when upgrading Flow to version 0.200.0. To see the error delete this
+   * comment and run Flow. */
   handleData(response);
 
   expect(headersGetMock).toHaveBeenCalledWith('content-type');
