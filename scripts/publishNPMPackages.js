@@ -8,6 +8,9 @@ import { invariant } from '@adeira/js';
 import publishedPackages from './publishedPackages.json';
 // yarn monorepo-babel-node scripts/publishNPMPackages.js
 
+/* $FlowFixMe[unused-promise-in-sync-scope] This comment suppresses an error
+ * when upgrading Flow to version 0.200.0. To see the error delete this comment
+ * and run Flow. */
 (async () => {
   const npmAuthToken = process.env.NPM_AUTH_TOKEN;
 

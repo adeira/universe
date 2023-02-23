@@ -79,6 +79,9 @@ export default function ProductEditHeading(props: Props): React.Node {
             fbt('Product successfully archived. ✅', 'success message when archiving a product'),
             { tint: FlashMessageTint.Success },
           );
+          /* $FlowFixMe[unused-promise-in-sync-scope] This comment suppresses
+           * an error when upgrading Flow to version 0.200.0. To see the error
+           * delete this comment and run Flow. */
           router.push('/products');
         } else if (productOrError.__typename === 'ProductError') {
           displayFleshMessage(productOrError.message, { tint: FlashMessageTint.Error });

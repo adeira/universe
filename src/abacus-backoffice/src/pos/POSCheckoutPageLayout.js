@@ -63,12 +63,21 @@ export default function POSCheckoutPageLayout(): Node {
       onCompleted: ({ pos: { checkout } }) => {
         if (checkout.__typename === 'PosCheckoutPayload') {
           reset();
+          /* $FlowFixMe[unused-promise-in-sync-scope] This comment suppresses
+           * an error when upgrading Flow to version 0.200.0. To see the error
+           * delete this comment and run Flow. */
           router.push('/pos/checkout/success');
         } else if (checkout.__typename === 'PosCheckoutError') {
+          /* $FlowFixMe[unused-promise-in-sync-scope] This comment suppresses
+           * an error when upgrading Flow to version 0.200.0. To see the error
+           * delete this comment and run Flow. */
           router.push('/pos/checkout/failure');
         }
       },
       onError: () => {
+        /* $FlowFixMe[unused-promise-in-sync-scope] This comment suppresses an
+         * error when upgrading Flow to version 0.200.0. To see the error
+         * delete this comment and run Flow. */
         router.push('/pos/checkout/failure');
       },
     });
