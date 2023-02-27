@@ -47,5 +47,9 @@
       groupName: 'Rusoto packages (Rust)',
       matchSourceUrlPrefixes: ['https://github.com/rusoto/rusoto'],
     },
+    {
+      groupName: 'Sentry packages (Rust)',
+      matchSourceUrlPrefixes: ['https://github.com/getsentry/sentry-rust'],
+    }
   ],
 }
