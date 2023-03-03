@@ -70,7 +70,7 @@ module.exports = ({
       return commitMutation(props.relay.environment, mutationConfig);
     },
     incorrectUsageA(props: PropsInvalid): Disposable {
-      // $FlowExpectedError[incompatible-call]: this environment is invalid and should not be accepted
+      // $FlowExpectedError[incompatible-type]: this environment is invalid and should not be accepted
       return commitMutation(props.relay.environment, mutationConfig);
     },
     incorrectUsageB(): Disposable {
@@ -89,7 +89,7 @@ module.exports = ({
       return requestSubscription(props.relay.environment, subscriptionConfig);
     },
     incorrectUsageA(props: PropsInvalid) {
-      // $FlowExpectedError[incompatible-call]: this environment is invalid and should not be accepted
+      // $FlowExpectedError[incompatible-type]: this environment is invalid and should not be accepted
       return requestSubscription(props.relay.environment, subscriptionConfig);
     },
     incorrectUsageB() {
@@ -111,7 +111,7 @@ module.exports = ({
       return commitLocalUpdate(props.relay.environment, localUpdater);
     },
     incorrectUsageA(props: PropsInvalid): void {
-      // $FlowExpectedError[incompatible-call]: this environment is invalid and should not be accepted
+      // $FlowExpectedError[incompatible-type]: this environment is invalid and should not be accepted
       return commitLocalUpdate(props.relay.environment, localUpdater);
     },
     incorrectUsageB(): void {

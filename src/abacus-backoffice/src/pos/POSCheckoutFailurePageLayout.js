@@ -14,9 +14,9 @@ export default function POSCheckoutFailurePageLayout(): Node {
 
   const handleStartNewPOSSessionClick = () => {
     reset();
-    /* $FlowFixMe[unused-promise-in-sync-scope] This comment suppresses an
-     * error when upgrading Flow to version 0.200.0. To see the error delete
-     * this comment and run Flow. */
+    /* $FlowFixMe[unused-promise] This comment suppresses an error when
+     * upgrading Flow to version 0.201.0. To see the error delete this comment
+     * and run Flow. */
     router.push('/pos/session');
   };
 

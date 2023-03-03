@@ -37,9 +37,9 @@ module.exports = {
       globSync(`${workspace}/package.json`, {
         absolute: true,
       }).forEach((packageJSONLocation) => {
-        /* $FlowFixMe[unused-promise-in-sync-scope] This comment suppresses an
-         * error when upgrading Flow to version 0.200.0. To see the error
-         * delete this comment and run Flow. */
+        /* $FlowFixMe[unused-promise] This comment suppresses an error when
+         * upgrading Flow to version 0.201.0. To see the error delete this
+         * comment and run Flow. */
         cb(packageJSONLocation);
       });
     });
