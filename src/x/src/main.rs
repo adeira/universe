@@ -61,7 +61,6 @@ fn main() -> anyhow::Result<()> {
         }
         _ => {
             // TODO: how about exit codes?
-            executors::install::run(&vec![])?;
             executors::flow::run(&vec!["--max-warnings=0"])?;
             // TODO: DRY (?)
             executors::lints::run_eslint_config_prettier_check()?;
