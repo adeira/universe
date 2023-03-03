@@ -1,7 +1,6 @@
 // @flow
 
-import util from 'util';
-import _glob from 'glob';
+import { glob as _glob, globSync as _globSync } from 'glob';
 import { invariant, isObject } from '@adeira/js';
 
 type GlobPattern = string;
@@ -38,8 +37,6 @@ type GlobOptions = $ReadOnly<{
   absolute?: boolean,
 }>;
 
-type GlobCallback = (error: null | Error, filenames: $ReadOnlyArray<string>) => void;
-
 function isWindowsPath(globPattern: GlobPattern): boolean %checks {
   return /^[a-z]:\\/i.test(globPattern);
 }
@@ -62,50 +59,23 @@ function validateInputs(globPattern: GlobPattern, options?: GlobOptions): void {
   );
 }
 
-type GlobWithCallback = {
-  (GlobPattern, GlobCallback): void,
-  (GlobPattern, GlobOptions, GlobCallback): void,
-  ...
-};
-
-/**
- * This `glob` wrapper adds additional checks and Flow types. It tries to solve
- * common problem with using `path.join` for glob patterns which is wrong
- * because there glob patterns are not paths (see windows incompatibility).
- *
- * See: https://github.com/isaacs/node-glob
- *
- * Don't use this function directly Use `globSync` or `globAsync` instead.
- */
-export const glob: GlobWithCallback = (globPattern, options, callback) => {
+export function glob(
+  globPattern: GlobPattern,
+  options?: GlobOptions,
+): Promise<$ReadOnlyArray<string>> {
   validateInputs(globPattern, isObject(options) ? options : undefined);
 
-  if (typeof options === 'function') {
-    invariant(callback === undefined, 'Glob function accepts only one callback.');
-    return _glob(globPattern, options);
-  }
-
-  return _glob(
-    globPattern,
-    {
-      ignore: ['**/node_modules/**'],
-      ...options,
-    },
-    callback,
-  );
-};
-
-export function globSync(globPattern: GlobPattern, options?: GlobOptions): $ReadOnlyArray<string> {
-  validateInputs(globPattern, options);
-  return _glob.sync(globPattern, {
+  return _glob(globPattern, {
     ignore: ['**/node_modules/**'],
     ...options,
   });
 }
 
-export function globAsync(
-  globPattern: GlobPattern,
-  options?: GlobOptions,
-): Promise<$ReadOnlyArray<string>> {
-  return util.promisify(glob)(globPattern, options);
+export function globSync(globPattern: GlobPattern, options?: GlobOptions): $ReadOnlyArray<string> {
+  validateInputs(globPattern, options);
+
+  return _globSync(globPattern, {
+    ignore: ['**/node_modules/**'],
+    ...options,
+  });
 }
