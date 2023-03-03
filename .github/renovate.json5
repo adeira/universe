@@ -50,11 +50,6 @@
     {
       groupName: 'Sentry packages (Rust)',
       matchSourceUrlPrefixes: ['https://github.com/getsentry/sentry-rust'],
-    },
-    // Custom changelog URLs:
-    {
-      matchPackageNames: ['amazon/aws-cli'],
-      customChangelogUrl: 'https://github.com/aws/aws-cli/tree/v2',
-    },
+    }
   ],
 }
