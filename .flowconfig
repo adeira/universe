@@ -51,6 +51,8 @@ emoji=true
 exact_by_default=true
 include_warnings=true
 inference_mode=lti
+; TODO: enable (when other tools support the syntax)
+use_mixed_in_catch_variables=false
 
 facebook.fbt=FbtWithoutString
 
