@@ -6,6 +6,7 @@ import publish from '@adeira/monorepo-npm-publisher';
 import { invariant } from '@adeira/js';
 
 import publishedPackages from './publishedPackages.json';
+
 // yarn monorepo-babel-node scripts/publishNPMPackages.js
 
 /* $FlowFixMe[unused-promise] This comment suppresses an error when upgrading
