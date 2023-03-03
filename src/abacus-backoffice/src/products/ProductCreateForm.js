@@ -101,9 +101,9 @@ export default function ProductCreateForm(props: Props): Node {
             if (result.__typename === 'ProductError') {
               displayFleshMessage(result.message, { tint: FlashMessageTint.Error });
             } else if (result.__typename === 'Product') {
-              /* $FlowFixMe[unused-promise-in-sync-scope] This comment
-               * suppresses an error when upgrading Flow to version 0.200.0. To
-               * see the error delete this comment and run Flow. */
+              /* $FlowFixMe[unused-promise] This comment suppresses an error
+               * when upgrading Flow to version 0.201.0. To see the error
+               * delete this comment and run Flow. */
               router.push('/products');
               displayFleshMessage(
                 <fbt desc="product created success message">

@@ -41,9 +41,9 @@ export default function QrCodeReader(props: Props): Node {
       return;
     }
 
-    /* $FlowFixMe[unused-promise-in-sync-scope] This comment suppresses an
-     * error when upgrading Flow to version 0.200.0. To see the error delete
-     * this comment and run Flow. */
+    /* $FlowFixMe[unused-promise] This comment suppresses an error when
+     * upgrading Flow to version 0.201.0. To see the error delete this comment
+     * and run Flow. */
     navigator.mediaDevices
       ?.getUserMedia(constraints)
       .then((mediaStream) => {
@@ -53,9 +53,9 @@ export default function QrCodeReader(props: Props): Node {
 
         videoElement.srcObject = mediaStream;
         videoElement.onloadedmetadata = () => {
-          /* $FlowFixMe[unused-promise-in-sync-scope] This comment suppresses
-           * an error when upgrading Flow to version 0.200.0. To see the error
-           * delete this comment and run Flow. */
+          /* $FlowFixMe[unused-promise] This comment suppresses an error when
+           * upgrading Flow to version 0.201.0. To see the error delete this
+           * comment and run Flow. */
           videoElement.play();
         };
 
