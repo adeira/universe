@@ -3,17 +3,16 @@
 import fs from 'fs';
 import tar from 'tar';
 import path from 'path';
-import util from 'util';
 import semver from 'semver';
-import rimraf from 'rimraf';
 import { Workspaces } from '@adeira/monorepo-utils';
 import isCI from 'is-ci';
 import chalk from 'chalk';
 
-import log from './log';
+import log from './utils/log';
 import NPM from './NPM';
-import transformFileVariants from './transformFileVariants';
-import { collectFilenames } from './collectFilenames';
+import transformFileVariants from './utils/transformFileVariants';
+import { collectFilenames } from './utils/collectFilenames';
+import { resetBuildCache } from './utils/resetBuildCache';
 
 type Options = {
   +dryRun: boolean,
@@ -33,7 +32,7 @@ export default async function publish(options: Options) {
     process.exit(1);
   }
 
-  await util.promisify(rimraf)(options.buildCache);
+  await resetBuildCache(options.buildCache);
 
   Workspaces.iterateWorkspaces(async (packageJSONLocation) => {
     const packageJSONFile = require(packageJSONLocation);
