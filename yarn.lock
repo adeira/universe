@@ -259,7 +259,7 @@ __metadata:
     is-ci: ^3.0.1
     npm-packlist: ^7.0.4
     npm-registry-client: ^8.6.0
-    rimraf: ^4.2.0
+    rimraf: ^4.3.0
     semver: ^7.3.8
     snapshot-diff: ^0.10.0
     tar: ^6.1.13
@@ -17374,14 +17374,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rimraf@npm:^4.2.0":
-  version: 4.2.0
-  resolution: "rimraf@npm:4.2.0"
+"rimraf@npm:^4.3.0":
+  version: 4.3.0
+  resolution: "rimraf@npm:4.3.0"
   dependencies:
     glob: ^9.2.0
   bin:
     rimraf: dist/cjs/src/bin.js
-  checksum: 885baaec6d8e3a771bb3060f110c29070073a47fdcb26775ae165703173e79e845974dc8ed07e8eb4c3c85f126777968febdb385d0c274ad3b167db326e7f82e
+  checksum: 48498f1eeb9b6b848605d93fa79e7bf3c57bb47807500ee636848dc0fd3b69b6b532f1ce9d4e46c4feeb4c3ff0e8ab85cd177cbbbd65f635f8bc8cb88aee151c
   languageName: node
   linkType: hard
 
