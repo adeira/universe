@@ -2,9 +2,6 @@
 
 import { useMutation, graphql, type Disposable } from '../index';
 
-/* $FlowFixMe[incompatible-call] This comment suppresses an error when
- * upgrading Flow to version 0.199.1. To see the error delete this comment
- * and run Flow. */
 const mutation = graphql`
   mutation useMutation {
     __typename
