@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<04634c5f81f70abe36cfdc7c751f6afd>>
+ * @generated SignedSource<<7aeef2f30da5fe523674f433d09270a9>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -12,7 +12,7 @@
 
 /*::
 import type { ConcreteRequest, Query } from 'relay-runtime';
-type ProductsCardsData$fragmentType = any;
+import type { ProductsCardsData$fragmentType } from "./ProductsCardsData.graphql";
 export type PriceSortDirection = "HIGH_TO_LOW" | "LOW_TO_HIGH" | "%future added value";
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 export type ProductsCardsInCategoryQuery$variables = {|

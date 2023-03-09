@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<4f6e5669eaa090520a70a9d0f576638d>>
+ * @generated SignedSource<<3455db4f48b8189d6157e66f08efc0ee>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -12,7 +12,7 @@
 
 /*::
 import type { ConcreteRequest, Mutation } from 'relay-runtime';
-type ProductEditFormData$fragmentType = any;
+import type { ProductEditFormData$fragmentType } from "./ProductEditFormData.graphql";
 export type ProductMultilingualInputVisibility = "ESHOP" | "POS" | "%future added value";
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 export type ProductMultilingualInputTranslations = {|

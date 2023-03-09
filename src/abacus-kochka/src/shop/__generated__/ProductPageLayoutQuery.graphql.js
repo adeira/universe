@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<8b6615d87f5a4e1bfaeac1dff02c4ba2>>
+ * @generated SignedSource<<869ecbd7bbd6fd8a3386a6a50f99da95>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -12,7 +12,7 @@
 
 /*::
 import type { ConcreteRequest, Query } from 'relay-runtime';
-type ProductPageLayoutFragment$fragmentType = any;
+import type { ProductPageLayoutFragment$fragmentType } from "./ProductPageLayoutFragment.graphql";
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 export type ProductPageLayoutQuery$variables = {|
   clientLocale: SupportedLocale,

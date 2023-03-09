@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<b761573d578c03bcc7f879d3347da30b>>
+ * @generated SignedSource<<47c332dca094c7222e8a0d860f1fe0ce>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -12,7 +12,7 @@
 
 /*::
 import type { Fragment, ReaderFragment } from 'relay-runtime';
-type TableCellTripleCuadrupleFelinaFragment$fragmentType = any;
+import type { TableCellTripleCuadrupleFelinaFragment$fragmentType } from "./TableCellTripleCuadrupleFelinaFragment.graphql";
 import type { FragmentType } from "relay-runtime";
 declare export opaque type CatsTableCurrentFragment$fragmentType: FragmentType;
 export type CatsTableCurrentFragment$data = {|

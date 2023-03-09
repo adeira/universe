@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<628cb02d4316f60fb66df278061a8447>>
+ * @generated SignedSource<<16359a986669c2e536f05398984ebd5a>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -12,8 +12,8 @@
 
 /*::
 import type { ConcreteRequest, Query } from 'relay-runtime';
-type CatsTableAdoptedFragment$fragmentType = any;
-type CatsTableCurrentFragment$fragmentType = any;
+import type { CatsTableAdoptedFragment$fragmentType } from "./CatsTableAdoptedFragment.graphql";
+import type { CatsTableCurrentFragment$fragmentType } from "./CatsTableCurrentFragment.graphql";
 export type CatsPageQuery$variables = {||};
 export type CatsPageQuery$data = {|
   +cats: {|
