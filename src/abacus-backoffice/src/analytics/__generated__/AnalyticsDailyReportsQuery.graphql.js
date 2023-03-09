@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<81d2961ba0e31e266f9c1989a99556fc>>
+ * @generated SignedSource<<82ebf639c37551730a8ee2cf7168ce20>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -12,7 +12,7 @@
 
 /*::
 import type { ConcreteRequest, Query } from 'relay-runtime';
-type DailyIncomeMeterFragment$fragmentType = any;
+import type { DailyIncomeMeterFragment$fragmentType } from "./DailyIncomeMeterFragment.graphql";
 export type AnalyticsDailyReportsQuery$variables = {||};
 export type AnalyticsDailyReportsQuery$data = {|
   +analytics: {|

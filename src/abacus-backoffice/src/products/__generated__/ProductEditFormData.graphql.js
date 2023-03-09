@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<371fe4b91721b7da69f2b209e255d11d>>
+ * @generated SignedSource<<84b55008552eddac1ddedb70997f0553>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -12,7 +12,7 @@
 
 /*::
 import type { Fragment, ReaderFragment } from 'relay-runtime';
-type ProductFormCategoriesData$fragmentType = any;
+import type { ProductFormCategoriesData$fragmentType } from "./ProductFormCategoriesData.graphql";
 export type ProductMultilingualInputVisibility = "ESHOP" | "POS" | "%future added value";
 import type { FragmentType } from "relay-runtime";
 declare export opaque type ProductEditFormData$fragmentType: FragmentType;
