@@ -66,11 +66,11 @@ export default function ProductsGrid(props: Props): Node {
           : undefined,
     },
     {
-      fetchPolicy: 'store-and-network', // always lazily fetch newest products
+      fetchPolicy: 'store-and-network', // always lazily fetch the newest products
     },
   );
 
-  const [modalPreloadedQueryRef, preloadModalQuery] = useQueryLoader<$FlowFixMe>(
+  const [modalPreloadedQueryRef, preloadModalQuery] = useQueryLoader(
     ProductsGridModalBodyQuery,
     undefined,
   );
