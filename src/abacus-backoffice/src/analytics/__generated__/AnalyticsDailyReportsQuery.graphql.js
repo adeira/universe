@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<82ebf639c37551730a8ee2cf7168ce20>>
+ * @generated SignedSource<<f7070afeb798d304613748e85e7bbee1>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -163,12 +163,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "b1125e547b911af69ba5f9242d84347c",
+    "cacheID": "0b1b972a9363f6bbcbb92f7d979f1005",
     "id": null,
     "metadata": {},
     "name": "AnalyticsDailyReportsQuery",
     "operationKind": "query",
-    "text": "query AnalyticsDailyReportsQuery {\n  analytics {\n    dailyReports {\n      dateDay\n      ...DailyIncomeMeterFragment\n      productsSummary {\n        productName\n        totalUnits\n      }\n    }\n  }\n}\n\nfragment DailyIncomeMeterFragment on AnalyticsDailyReportInfo {\n  total {\n    unitAmount\n    unitAmountCurrency\n  }\n}\n"
+    "text": "query AnalyticsDailyReportsQuery{analytics{dailyReports{dateDay,...DailyIncomeMeterFragment,productsSummary{productName,totalUnits}}}}fragment DailyIncomeMeterFragment on AnalyticsDailyReportInfo{total{unitAmount,unitAmountCurrency}}"
   }
 };
 })();

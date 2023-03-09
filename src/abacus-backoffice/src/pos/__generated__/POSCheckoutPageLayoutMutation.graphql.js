@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<3addc7d25a4e250f33487db095b34f9a>>
+ * @generated SignedSource<<985c6166bab308409f7dd497c26c48dc>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -158,12 +158,12 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "41a13f602a0a4a2000c5219e421cc69a",
+    "cacheID": "aeb7de77d6248a314d4ec6fe9a139718",
     "id": null,
     "metadata": {},
     "name": "POSCheckoutPageLayoutMutation",
     "operationKind": "mutation",
-    "text": "mutation POSCheckoutPageLayoutMutation(\n  $checkoutInput: [PosCheckoutProductInput!]!\n  $clientLocale: SupportedLocale!\n) {\n  pos {\n    checkout(input: {selectedProducts: $checkoutInput}, clientLocale: $clientLocale) {\n      __typename\n      ... on PosCheckoutPayload {\n        id\n      }\n      ... on PosCheckoutError {\n        message\n      }\n    }\n  }\n}\n"
+    "text": "mutation POSCheckoutPageLayoutMutation($checkoutInput:[PosCheckoutProductInput!]!,$clientLocale:SupportedLocale!){pos{checkout(input:{selectedProducts:$checkoutInput},clientLocale:$clientLocale){__typename,...on PosCheckoutPayload{id},...on PosCheckoutError{message}}}}"
   }
 };
 })();

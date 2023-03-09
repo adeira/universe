@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<9826cfb33a4d2455ad9aee8b76adead5>>
+ * @generated SignedSource<<6bdcf740a84dddbf25696ef2e6336f38>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -173,12 +173,12 @@ return {
     "selections": (v4/*: any*/)
   },
   "params": {
-    "cacheID": "45de5afdb907074aa586c21cd1f7aac8",
+    "cacheID": "36b97c772a33f133bbfa9d803ce60cdf",
     "id": null,
     "metadata": {},
     "name": "AnalyticsMostLeastSoldProductsPageLayoutQuery",
     "operationKind": "query",
-    "text": "query AnalyticsMostLeastSoldProductsPageLayoutQuery(\n  $timeFrame: TimeFrame!\n  $showMostToLeast: Boolean!\n) {\n  analytics {\n    mostSoldProducts(timeFrame: $timeFrame) @include(if: $showMostToLeast) {\n      timeFrame\n      dateYear\n      stats {\n        productName\n        productUnits\n      }\n    }\n    leastSoldProducts(timeFrame: $timeFrame) @skip(if: $showMostToLeast) {\n      timeFrame\n      dateYear\n      stats {\n        productName\n        productUnits\n      }\n    }\n  }\n}\n"
+    "text": "query AnalyticsMostLeastSoldProductsPageLayoutQuery($timeFrame:TimeFrame!,$showMostToLeast:Boolean!){analytics{mostSoldProducts(timeFrame:$timeFrame)@include(if:$showMostToLeast){timeFrame,dateYear,stats{productName,productUnits}},leastSoldProducts(timeFrame:$timeFrame)@skip(if:$showMostToLeast){timeFrame,dateYear,stats{productName,productUnits}}}}"
   }
 };
 })();

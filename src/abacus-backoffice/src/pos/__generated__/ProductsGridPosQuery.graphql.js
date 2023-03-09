@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<7fa58d7e9493e31d3c424e10fbaf8f0a>>
+ * @generated SignedSource<<efc82d62c9361ebda3fa58c797c7a22a>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -209,12 +209,12 @@ return {
     "selections": (v3/*: any*/)
   },
   "params": {
-    "cacheID": "f1a5e8a3c49a9f3523a068af2ed489c3",
+    "cacheID": "dbd5ec9a0c29e37abdd0ea3aca50faaa",
     "id": null,
     "metadata": {},
     "name": "ProductsGridPosQuery",
     "operationKind": "query",
-    "text": "query ProductsGridPosQuery(\n  $clientLocale: SupportedLocale!\n  $priceSortDirection: PriceSortDirection!\n  $categories: [ID!]\n) {\n  commerce {\n    products: searchAllPublishedProducts(clientLocale: $clientLocale, priceSortDirection: $priceSortDirection, categories: $categories, visibility: POS) {\n      id\n      key\n      name\n      imageCover {\n        blurhash\n        url\n      }\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n      hasSelectedAddons\n    }\n  }\n}\n"
+    "text": "query ProductsGridPosQuery($clientLocale:SupportedLocale!,$priceSortDirection:PriceSortDirection!,$categories:[ID!]){commerce{products:searchAllPublishedProducts(clientLocale:$clientLocale,priceSortDirection:$priceSortDirection,categories:$categories,visibility:POS){id,key,name,imageCover{blurhash,url},price{unitAmount,unitAmountCurrency},hasSelectedAddons}}}"
   }
 };
 })();

@@ -39,6 +39,7 @@ module.exports = {
       // regex (so it cannot be used in production code by accident).
       testPathRegex: '__tests__',
       featureFlags: {
+        compact_query_text: { kind: 'enabled' },
         no_inline: { kind: 'enabled' },
       },
       flowTypegen: {

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<7fe0dd2c2aea13d2ba62089ed40bfde4>>
+ * @generated SignedSource<<9d748631a0a0e752e426e14b061a7492>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -184,12 +184,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "73594116adb0c0b9e787d633b42a43ba",
+    "cacheID": "a9a570524f0696df2aa0471d95192d38",
     "id": null,
     "metadata": {},
     "name": "ProductEditHeadingArchiveMutation",
     "operationKind": "mutation",
-    "text": "mutation ProductEditHeadingArchiveMutation(\n  $productKey: ID!\n  $clientLocale: SupportedLocale!\n) {\n  commerce {\n    productOrError: productArchive(productKey: $productKey, clientLocale: $clientLocale) {\n      __typename\n      ... on Product {\n        __typename\n        id\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
+    "text": "mutation ProductEditHeadingArchiveMutation($productKey:ID!,$clientLocale:SupportedLocale!){commerce{productOrError:productArchive(productKey:$productKey,clientLocale:$clientLocale){__typename,...on Product{__typename,id},...on ProductError{__typename,message}}}}"
   }
 };
 })();

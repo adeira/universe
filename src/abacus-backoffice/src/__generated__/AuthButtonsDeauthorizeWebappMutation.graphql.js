@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<2b2e0de449cee914864036a0ae030a37>>
+ * @generated SignedSource<<d07337f731563dcb2577f967407edfa8>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -91,12 +91,12 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "a1d61ef9afb3b5bb22a7c3956175547b",
+    "cacheID": "e5011b10cf733c04455b256e48ceac30",
     "id": null,
     "metadata": {},
     "name": "AuthButtonsDeauthorizeWebappMutation",
     "operationKind": "mutation",
-    "text": "mutation AuthButtonsDeauthorizeWebappMutation(\n  $sessionToken: String!\n) {\n  auth {\n    deauthorize(sessionToken: $sessionToken) {\n      __typename\n    }\n  }\n}\n"
+    "text": "mutation AuthButtonsDeauthorizeWebappMutation($sessionToken:String!){auth{deauthorize(sessionToken:$sessionToken){__typename}}}"
   }
 };
 })();

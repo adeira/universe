@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<e43a496b0b85643a5e72e47764f43f3d>>
+ * @generated SignedSource<<5bf8f9ac5b1afafbbd032aeb01f774ee>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -107,12 +107,12 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "5cd671d409cd028d672c71f2f79478f9",
+    "cacheID": "30b6b2c7bbb79132b323cd657fd951e0",
     "id": null,
     "metadata": {},
     "name": "AuthButtonsAuthorizeWebappMutation",
     "operationKind": "mutation",
-    "text": "mutation AuthButtonsAuthorizeWebappMutation(\n  $googleIdToken: String!\n) {\n  auth {\n    authorizeWebapp(googleIdToken: $googleIdToken) {\n      success\n      sessionToken\n      failureMessage\n    }\n  }\n}\n"
+    "text": "mutation AuthButtonsAuthorizeWebappMutation($googleIdToken:String!){auth{authorizeWebapp(googleIdToken:$googleIdToken){success,sessionToken,failureMessage}}}"
   }
 };
 })();

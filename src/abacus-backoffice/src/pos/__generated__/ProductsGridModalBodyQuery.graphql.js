@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<d00db27dce9c76d05aa33471f3620dc7>>
+ * @generated SignedSource<<d5efe729f0c9ed9cfc9ebe7ba27cd34a>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -206,12 +206,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "1ce7f10f202450681ffc48611c0b272f",
+    "cacheID": "63b801dc0dca303d78eec2e7ddbca86e",
     "id": null,
     "metadata": {},
     "name": "ProductsGridModalBodyQuery",
     "operationKind": "query",
-    "text": "query ProductsGridModalBodyQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getPublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      name\n      price {\n        unitAmount\n      }\n      selectedAddons(clientLocale: $clientLocale) {\n        id\n        name\n        priceExtra {\n          unitAmount\n          unitAmountCurrency\n        }\n      }\n      id\n    }\n  }\n}\n"
+    "text": "query ProductsGridModalBodyQuery($clientLocale:SupportedLocale!,$productKey:ID!){commerce{product:getPublishedProductByKey(clientLocale:$clientLocale,productKey:$productKey){name,price{unitAmount},selectedAddons(clientLocale:$clientLocale){id,name,priceExtra{unitAmount,unitAmountCurrency}},id}}}"
   }
 };
 })();
