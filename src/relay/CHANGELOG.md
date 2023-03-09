@@ -1,5 +1,9 @@
 # Unreleased
 
+# 8.0.0
+
+- Relay 15.0.0, see: https://github.com/facebook/relay/releases/tag/v15.0.0
+
 # 7.0.0
 
 - The deprecated `QueryRenderer` has been removed. You should use appropriate Relay hooks alternatives.
