@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<6a91ce9b38a068e7b6fe1b687fd9d5ea>>
+ * @generated SignedSource<<46f7f919c98dd3f9f2fb980b53b2cca7>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -184,12 +184,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "565a613b6c2c0ea3b7db874add5c8a3a",
+    "cacheID": "3d2de029b25c75b9a137f42cb3c57477",
     "id": null,
     "metadata": {},
     "name": "ProductEditHeadingPublishUnpublishPublishMutation",
     "operationKind": "mutation",
-    "text": "mutation ProductEditHeadingPublishUnpublishPublishMutation(\n  $productKey: ID!\n  $clientLocale: SupportedLocale!\n) {\n  commerce {\n    productOrError: productPublish(productKey: $productKey, clientLocale: $clientLocale) {\n      __typename\n      ... on Product {\n        __typename\n        id\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
+    "text": "mutation ProductEditHeadingPublishUnpublishPublishMutation($productKey:ID!,$clientLocale:SupportedLocale!){commerce{productOrError:productPublish(productKey:$productKey,clientLocale:$clientLocale){__typename,...on Product{__typename,id},...on ProductError{__typename,message}}}}"
   }
 };
 })();

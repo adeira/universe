@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<3455db4f48b8189d6157e66f08efc0ee>>
+ * @generated SignedSource<<30e2941e3e98b936310b74e7deed8121>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -435,12 +435,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "efdee0b398a30b9cbe28cff4c8e2dda6",
+    "cacheID": "5eb7c250f03e2bbdc645c188079642f4",
     "id": null,
     "metadata": {},
     "name": "ProductEditFormMutation",
     "operationKind": "mutation",
-    "text": "mutation ProductEditFormMutation(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n  $productRevision: ID!\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n  $visibility: [ProductMultilingualInputVisibility!]!\n  $categories: [ID!]!\n) {\n  commerce {\n    result: productUpdate(clientLocale: $clientLocale, productKey: $productKey, productRevision: $productRevision, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility, categories: $categories, addons: []}) {\n      __typename\n      ... on Product {\n        __typename\n        id\n        name\n        revision\n        ...ProductEditFormData\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n\nfragment ProductEditFormData on Product {\n  key\n  revision\n  availableCategories(clientLocale: $clientLocale) {\n    ...ProductFormCategoriesData\n    id\n  }\n  price {\n    unitAmount\n  }\n  selectedCategories(clientLocale: $clientLocale) {\n    id\n  }\n  visibility\n  enTranslation: translation(locale: en_US) {\n    name\n    description\n  }\n  esTranslation: translation(locale: es_MX) {\n    name\n    description\n  }\n  images {\n    name\n  }\n}\n\nfragment ProductFormCategoriesData on ProductCategory {\n  id\n  name\n}\n"
+    "text": "mutation ProductEditFormMutation($clientLocale:SupportedLocale!,$productKey:ID!,$productRevision:ID!,$productImagesNames:[ProductImageUploadable!]!,$productPriceUnitAmount:Int!,$translations:[ProductMultilingualInputTranslations!]!,$visibility:[ProductMultilingualInputVisibility!]!,$categories:[ID!]!){commerce{result:productUpdate(clientLocale:$clientLocale,productKey:$productKey,productRevision:$productRevision,productMultilingualInput:{images:$productImagesNames,price:{unitAmount:$productPriceUnitAmount,unitAmountCurrency:MXN},translations:$translations,visibility:$visibility,categories:$categories,addons:[]}){__typename,...on Product{__typename,id,name,revision,...ProductEditFormData},...on ProductError{__typename,message}}}}fragment ProductEditFormData on Product{key,revision,availableCategories(clientLocale:$clientLocale){...ProductFormCategoriesData,id},price{unitAmount},selectedCategories(clientLocale:$clientLocale){id},visibility,enTranslation:translation(locale:en_US){name,description},esTranslation:translation(locale:es_MX){name,description},images{name}}fragment ProductFormCategoriesData on ProductCategory{id,name}"
   }
 };
 })();

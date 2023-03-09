@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<fdc815bb2569edfe9f61b0ce6a74861c>>
+ * @generated SignedSource<<0753c77cc059608f22ccbc690f2e4485>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -130,12 +130,12 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "41b11e8aafe6429cd12f908d53e9e3b7",
+    "cacheID": "43218007fd29f4e7fa8dc58a05e777b1",
     "id": null,
     "metadata": {},
     "name": "ProductAddonsQuery",
     "operationKind": "query",
-    "text": "query ProductAddonsQuery(\n  $clientLocale: SupportedLocale!\n) {\n  commerce {\n    productAddons: searchAllProductAddons(clientLocale: $clientLocale) {\n      id\n      name\n      priceExtra {\n        unitAmount\n        unitAmountCurrency\n      }\n    }\n  }\n}\n"
+    "text": "query ProductAddonsQuery($clientLocale:SupportedLocale!){commerce{productAddons:searchAllProductAddons(clientLocale:$clientLocale){id,name,priceExtra{unitAmount,unitAmountCurrency}}}}"
   }
 };
 })();

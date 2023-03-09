@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<bdc1e5e5c6d8df1d17cd60cf107d7b4d>>
+ * @generated SignedSource<<d2b0f3ce4879e372ad8a7893400de40a>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -100,12 +100,12 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "8617f3583c098a57d657e584471c3079",
+    "cacheID": "0e068203fb7143c9c3e8f345a7e56ed1",
     "id": null,
     "metadata": {},
     "name": "ProductsGridCategoriesQuery",
     "operationKind": "query",
-    "text": "query ProductsGridCategoriesQuery(\n  $clientLocale: SupportedLocale!\n) {\n  commerce {\n    productCategories: searchAllProductCategories(clientLocale: $clientLocale) {\n      id\n      name\n    }\n  }\n}\n"
+    "text": "query ProductsGridCategoriesQuery($clientLocale:SupportedLocale!){commerce{productCategories:searchAllProductCategories(clientLocale:$clientLocale){id,name}}}"
   }
 };
 })();

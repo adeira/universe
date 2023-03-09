@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<7aeef2f30da5fe523674f433d09270a9>>
+ * @generated SignedSource<<c13b379bdd79113322a354cc9e45644e>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -221,12 +221,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "8e52fb89730c10f7751c8a4d5b05bb0a",
+    "cacheID": "ea81d25d3fe28cf65806a538e46a983d",
     "id": null,
     "metadata": {},
     "name": "ProductsCardsInCategoryQuery",
     "operationKind": "query",
-    "text": "query ProductsCardsInCategoryQuery(\n  $clientLocale: SupportedLocale!\n  $priceSortDirection: PriceSortDirection!\n  $categories: [ID!]\n) {\n  commerce {\n    products: searchAllProducts(clientLocale: $clientLocale, priceSortDirection: $priceSortDirection, categories: $categories) {\n      ...ProductsCardsData\n      id\n    }\n  }\n}\n\nfragment ProductsCardsData on Product {\n  id\n  key\n  name\n  imageCover {\n    blurhash\n    url\n  }\n  price {\n    unitAmount\n    unitAmountCurrency\n  }\n  isPublished\n}\n"
+    "text": "query ProductsCardsInCategoryQuery($clientLocale:SupportedLocale!,$priceSortDirection:PriceSortDirection!,$categories:[ID!]){commerce{products:searchAllProducts(clientLocale:$clientLocale,priceSortDirection:$priceSortDirection,categories:$categories){...ProductsCardsData,id}}}fragment ProductsCardsData on Product{id,key,name,imageCover{blurhash,url},price{unitAmount,unitAmountCurrency},isPublished}"
   }
 };
 })();

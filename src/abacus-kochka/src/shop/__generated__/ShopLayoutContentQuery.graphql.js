@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<169d9fce23041bc2e3e0bbb174df5eb2>>
+ * @generated SignedSource<<e00e41c6f470ce563b6bd494a2f74440>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -214,12 +214,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "73696cef0cdcccaddb38685a438d102a",
+    "cacheID": "81104ab528429205e70ba5f1ba290ba3",
     "id": null,
     "metadata": {},
     "name": "ShopLayoutContentQuery",
     "operationKind": "query",
-    "text": "query ShopLayoutContentQuery(\n  $clientLocale: SupportedLocale!\n  $priceSortDirection: PriceSortDirection!\n) {\n  commerce {\n    products: searchAllPublishedProducts(clientLocale: $clientLocale, priceSortDirection: $priceSortDirection, visibility: ESHOP) {\n      key\n      name\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n      imageCover {\n        blurhash\n        url\n      }\n      id\n    }\n  }\n}\n"
+    "text": "query ShopLayoutContentQuery($clientLocale:SupportedLocale!,$priceSortDirection:PriceSortDirection!){commerce{products:searchAllPublishedProducts(clientLocale:$clientLocale,priceSortDirection:$priceSortDirection,visibility:ESHOP){key,name,price{unitAmount,unitAmountCurrency},imageCover{blurhash,url},id}}}"
   }
 };
 })();

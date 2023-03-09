@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<f7f16a3d6b958d8a248a6c310d4dddd5>>
+ * @generated SignedSource<<2194413864043bef8844f65076d9f292>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -274,12 +274,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "5fe353977788a058b2f03ceae02984d6",
+    "cacheID": "da179f821c696d9f5a9bf7d3253d8cd3",
     "id": null,
     "metadata": {},
     "name": "ProductCreateFormMutation",
     "operationKind": "mutation",
-    "text": "mutation ProductCreateFormMutation(\n  $clientLocale: SupportedLocale!\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n  $visibility: [ProductMultilingualInputVisibility!]!\n  $categories: [ID!]!\n) {\n  commerce {\n    result: productCreate(clientLocale: $clientLocale, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility, categories: $categories, addons: []}) {\n      __typename\n      ... on Product {\n        __typename\n        name\n        id\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
+    "text": "mutation ProductCreateFormMutation($clientLocale:SupportedLocale!,$productImagesNames:[ProductImageUploadable!]!,$productPriceUnitAmount:Int!,$translations:[ProductMultilingualInputTranslations!]!,$visibility:[ProductMultilingualInputVisibility!]!,$categories:[ID!]!){commerce{result:productCreate(clientLocale:$clientLocale,productMultilingualInput:{images:$productImagesNames,price:{unitAmount:$productPriceUnitAmount,unitAmountCurrency:MXN},translations:$translations,visibility:$visibility,categories:$categories,addons:[]}){__typename,...on Product{__typename,name,id},...on ProductError{__typename,message}}}}"
   }
 };
 })();

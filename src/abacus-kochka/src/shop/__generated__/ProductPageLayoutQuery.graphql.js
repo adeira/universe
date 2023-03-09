@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<869ecbd7bbd6fd8a3386a6a50f99da95>>
+ * @generated SignedSource<<f677806f8e1ee06c86f5ce0e152b3927>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -169,12 +169,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "8f4c1426923188ddcdb604d5c62874e5",
+    "cacheID": "0375928528b02deb8d2760c5aa62377f",
     "id": null,
     "metadata": {},
     "name": "ProductPageLayoutQuery",
     "operationKind": "query",
-    "text": "query ProductPageLayoutQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  ...ProductPageLayoutFragment\n}\n\nfragment ProductPageLayoutContentFragment on CommerceQuery {\n  product: getPublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n    name\n    description\n    price {\n      unitAmount\n      unitAmountCurrency\n    }\n    images {\n      blurhash\n      url\n    }\n    id\n  }\n}\n\nfragment ProductPageLayoutFragment on Query {\n  commerce {\n    ...ProductPageLayoutContentFragment\n  }\n}\n"
+    "text": "query ProductPageLayoutQuery($clientLocale:SupportedLocale!,$productKey:ID!){...ProductPageLayoutFragment}fragment ProductPageLayoutContentFragment on CommerceQuery{product:getPublishedProductByKey(clientLocale:$clientLocale,productKey:$productKey){name,description,price{unitAmount,unitAmountCurrency},images{blurhash,url},id}}fragment ProductPageLayoutFragment on Query{commerce{...ProductPageLayoutContentFragment}}"
   }
 };
 })();

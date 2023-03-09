@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<30b298750d1f4b1540f6e65293b72151>>
+ * @generated SignedSource<<3510ed615ae0185fdffbefe0452435dd>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -107,12 +107,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "e01b03a5ac8cb9be812e005ae59dc3db",
+    "cacheID": "7c9935c537a1fa18d5fab5f7db896cef",
     "id": null,
     "metadata": {},
     "name": "NavigationHeaderBadgeQuery",
     "operationKind": "query",
-    "text": "query NavigationHeaderBadgeQuery {\n  auth {\n    whoami {\n      isDebugAssertionsEnabled\n      id\n    }\n  }\n}\n"
+    "text": "query NavigationHeaderBadgeQuery{auth{whoami{isDebugAssertionsEnabled,id}}}"
   }
 };
 })();

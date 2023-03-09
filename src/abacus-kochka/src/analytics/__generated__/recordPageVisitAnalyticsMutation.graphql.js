@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<111e35e24b95fb65392f684e2297abb2>>
+ * @generated SignedSource<<495a1fdfc185c5627449d12b05290f97>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -139,12 +139,12 @@ return {
     "selections": (v3/*: any*/)
   },
   "params": {
-    "cacheID": "ead35dd59a5243bacdef5e5b27ee9a5e",
+    "cacheID": "4cff73a5c004127d81a85c82b26d1d32",
     "id": null,
     "metadata": {},
     "name": "recordPageVisitAnalyticsMutation",
     "operationKind": "mutation",
-    "text": "mutation recordPageVisitAnalyticsMutation(\n  $userAgent: String\n  $location: PageVisitInputLocation!\n  $screen: PageVisitInputScreen!\n) {\n  analytics {\n    recordPageVisit(input: {userAgent: $userAgent, location: $location, screen: $screen}) {\n      success\n    }\n  }\n}\n"
+    "text": "mutation recordPageVisitAnalyticsMutation($userAgent:String,$location:PageVisitInputLocation!,$screen:PageVisitInputScreen!){analytics{recordPageVisit(input:{userAgent:$userAgent,location:$location,screen:$screen}){success}}}"
   }
 };
 })();

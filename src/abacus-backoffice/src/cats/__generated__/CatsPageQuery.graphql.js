@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<16359a986669c2e536f05398984ebd5a>>
+ * @generated SignedSource<<cbcf8cea7f32ee1040ad8ced1da32def>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -212,12 +212,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "b78c2ab3bff4970dcc3c7c9b3d9854df",
+    "cacheID": "697ff76e21389113aa9b3c043fc92340",
     "id": null,
     "metadata": {},
     "name": "CatsPageQuery",
     "operationKind": "query",
-    "text": "query CatsPageQuery {\n  cats {\n    ...CatsTableCurrentFragment\n    ...CatsTableAdoptedFragment\n  }\n}\n\nfragment CatsTableAdoptedFragment on CatsQuery {\n  adoptedCats: listAllCats(allCatsFilter: {adopted: true}) {\n    order\n    name\n    dateOfCastration\n    dateOfDeworming\n    dateOfAdoption\n    dateOfVaccinationRabies\n    ...TableCellTripleCuadrupleFelinaFragment\n    dateOfVaccinationLeucemiaFelina\n    id\n  }\n}\n\nfragment CatsTableCurrentFragment on CatsQuery {\n  currentCats: listAllCats(allCatsFilter: {adopted: false}) {\n    order\n    name\n    canBeAdopted\n    dateOfCastration\n    dateOfDeworming\n    dateOfVaccinationRabies\n    ...TableCellTripleCuadrupleFelinaFragment\n    dateOfVaccinationLeucemiaFelina\n    id\n  }\n}\n\nfragment TableCellTripleCuadrupleFelinaFragment on CatInfo {\n  dateOfVaccinationTripleFelina\n  dateOfVaccinationCuadrupleFelina\n}\n"
+    "text": "query CatsPageQuery{cats{...CatsTableCurrentFragment,...CatsTableAdoptedFragment}}fragment CatsTableAdoptedFragment on CatsQuery{adoptedCats:listAllCats(allCatsFilter:{adopted:true}){order,name,dateOfCastration,dateOfDeworming,dateOfAdoption,dateOfVaccinationRabies,...TableCellTripleCuadrupleFelinaFragment,dateOfVaccinationLeucemiaFelina,id}}fragment CatsTableCurrentFragment on CatsQuery{currentCats:listAllCats(allCatsFilter:{adopted:false}){order,name,canBeAdopted,dateOfCastration,dateOfDeworming,dateOfVaccinationRabies,...TableCellTripleCuadrupleFelinaFragment,dateOfVaccinationLeucemiaFelina,id}}fragment TableCellTripleCuadrupleFelinaFragment on CatInfo{dateOfVaccinationTripleFelina,dateOfVaccinationCuadrupleFelina}"
   }
 };
 })();

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<72590097f994fe8c512b0c83cae0c8cd>>
+ * @generated SignedSource<<88ab65847f1460ce6804c9a687d41616>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -297,12 +297,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "1ea25621cbaaac8d38b7387e00e51208",
+    "cacheID": "86e4d09cbee3f709c62a944f7a17fff7",
     "id": null,
     "metadata": {},
     "name": "ProductsEditLayoutQuery",
     "operationKind": "query",
-    "text": "query ProductsEditLayoutQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getUnpublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      ...ProductEditHeading\n      images {\n        name\n        blurhash\n        url\n      }\n      ...ProductEditFormData\n      id\n    }\n  }\n}\n\nfragment ProductEditFormData on Product {\n  key\n  revision\n  availableCategories(clientLocale: $clientLocale) {\n    ...ProductFormCategoriesData\n    id\n  }\n  price {\n    unitAmount\n  }\n  selectedCategories(clientLocale: $clientLocale) {\n    id\n  }\n  visibility\n  enTranslation: translation(locale: en_US) {\n    name\n    description\n  }\n  esTranslation: translation(locale: es_MX) {\n    name\n    description\n  }\n  images {\n    name\n  }\n}\n\nfragment ProductEditHeading on Product {\n  key\n  name\n  isPublished\n}\n\nfragment ProductFormCategoriesData on ProductCategory {\n  id\n  name\n}\n"
+    "text": "query ProductsEditLayoutQuery($clientLocale:SupportedLocale!,$productKey:ID!){commerce{product:getUnpublishedProductByKey(clientLocale:$clientLocale,productKey:$productKey){...ProductEditHeading,images{name,blurhash,url},...ProductEditFormData,id}}}fragment ProductEditFormData on Product{key,revision,availableCategories(clientLocale:$clientLocale){...ProductFormCategoriesData,id},price{unitAmount},selectedCategories(clientLocale:$clientLocale){id},visibility,enTranslation:translation(locale:en_US){name,description},esTranslation:translation(locale:es_MX){name,description},images{name}}fragment ProductEditHeading on Product{key,name,isPublished}fragment ProductFormCategoriesData on ProductCategory{id,name}"
   }
 };
 })();

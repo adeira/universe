@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<7544de7ca6a66fa103a0bb0a2f66d8d3>>
+ * @generated SignedSource<<d1b05f69eae97b92242bfd6367dddde7>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -114,12 +114,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "263ea7e228a4663d11b81938fa1d49f6",
+    "cacheID": "618d03c0f24b7ad1ed034b274e5dcfe1",
     "id": null,
     "metadata": {},
     "name": "ProductsCreateLayoutQuery",
     "operationKind": "query",
-    "text": "query ProductsCreateLayoutQuery(\n  $clientLocale: SupportedLocale!\n) {\n  commerce {\n    ...ProductCreateFormData\n  }\n}\n\nfragment ProductCreateFormData on CommerceQuery {\n  productCategories: searchAllProductCategories(clientLocale: $clientLocale) {\n    ...ProductFormCategoriesData\n    id\n  }\n}\n\nfragment ProductFormCategoriesData on ProductCategory {\n  id\n  name\n}\n"
+    "text": "query ProductsCreateLayoutQuery($clientLocale:SupportedLocale!){commerce{...ProductCreateFormData}}fragment ProductCreateFormData on CommerceQuery{productCategories:searchAllProductCategories(clientLocale:$clientLocale){...ProductFormCategoriesData,id}}fragment ProductFormCategoriesData on ProductCategory{id,name}"
   }
 };
 })();

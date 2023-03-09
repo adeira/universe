@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<67b70d9bba307b9e5947c22876671a41>>
+ * @generated SignedSource<<278a22af6d35f52f777bc372a5a383bc>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -137,12 +137,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "136a67b8ea638bb0bc421b4e6ef68090",
+    "cacheID": "f7cbda4da6edd2d2635eeb32f8888624",
     "id": null,
     "metadata": {},
     "name": "AnalyticsRedirectsPageQuery",
     "operationKind": "query",
-    "text": "query AnalyticsRedirectsPageQuery {\n  analytics {\n    redirectHits {\n      uuid\n      redirectsTo\n      description\n      hits\n      id\n    }\n  }\n}\n"
+    "text": "query AnalyticsRedirectsPageQuery{analytics{redirectHits{uuid,redirectsTo,description,hits,id}}}"
   }
 };
 })();
