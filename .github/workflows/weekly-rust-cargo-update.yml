@@ -20,7 +20,7 @@ jobs:
       - uses: actions/checkout@v3.3.0
 
       # https://github.com/dtolnay/rust-toolchain
-      - uses: dtolnay/rust-toolchain@1.67.0
+      - uses: dtolnay/rust-toolchain@1.68.0
 
       # Cargo update
       - run: cargo update --manifest-path ${{ matrix.manifest }} --color always
