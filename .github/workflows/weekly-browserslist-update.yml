@@ -7,7 +7,7 @@ on:
     - cron: '0 5 * * 1'
 
 jobs:
-  weekly-cargo:
+  weekly-browserslist:
     runs-on: ubuntu-latest
 
     steps:
