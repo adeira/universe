@@ -1,0 +1,30 @@
+name: Weekly Browserslist update
+
+on:
+  workflow_dispatch:
+  schedule:
+    # weekly "at 05:00 on Monday" (https://crontab.guru/#0_5_*_*_1)
+    - cron: '0 5 * * 1'
+
+jobs:
+  weekly-cargo:
+    runs-on: ubuntu-latest
+
+    steps:
+      # https://github.com/actions/checkout
+      - uses: actions/checkout@v3.3.0
+
+      - run: yarn up browserslist --recursive
+      - run: yarn dedupe
+
+      # https://github.com/peter-evans/create-pull-request
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4.2.3
+        with:
+          token: ${{ secrets.PAT }}
+          commit-message: 'Weekly Browserslist update'
+          title: 'Weekly Browserslist update'
+          delete-branch: true
+          branch-suffix: random
+          labels: |
+            dependencies
