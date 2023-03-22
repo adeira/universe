@@ -98,6 +98,7 @@ exports[`rules snapshot: all stable rules 1`] = `
     "@typescript-eslint/indent": "off",
     "@typescript-eslint/key-spacing": "off",
     "@typescript-eslint/keyword-spacing": "off",
+    "@typescript-eslint/lines-around-comment": 0,
     "@typescript-eslint/member-delimiter-style": "off",
     "@typescript-eslint/no-extra-parens": "off",
     "@typescript-eslint/no-extra-semi": "off",
