@@ -13,15 +13,15 @@ type Props = {
 
 export default function WarningTriangle(props: Props): Element<'svg'> {
   return (
-    <svg height="1em" viewBox="0 0 21 21" width="1em" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 21 21" {...props}>
       <g fill="none" fillRule="evenodd" transform="translate(1 1)">
         <path
-          d="m9.5.5 9 16H.5zm0 10v-5"
           stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
+          d="m9.5.5 9 16H.5zm0 10v-5"
         />
-        <circle cx={9.5} cy={13.5} fill="currentColor" r={1} />
+        <circle cx={9.5} cy={13.5} r={1} fill="currentColor" />
       </g>
     </svg>
   );

@@ -13,11 +13,11 @@ type Props = {
 
 export default function Lineweight(props: Props): Element<'svg'> {
   return (
-    <svg height="1em" viewBox="0 0 21 21" width="1em" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 21 21" {...props}>
       <g fill="none" fillRule="evenodd" stroke="currentColor">
-        <rect fill="currentColor" height={2} rx={1} width={14} x={3.5} y={6.5} />
-        <path d="M3.5 11.5h14v1h-14z" fill="currentColor" />
-        <path d="M3.5 15.5h13.981" strokeLinecap="round" strokeLinejoin="round" />
+        <rect width={14} height={2} x={3.5} y={6.5} fill="currentColor" rx={1} />
+        <path fill="currentColor" d="M3.5 11.5h14v1h-14z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3.5 15.5h13.981" />
       </g>
     </svg>
   );

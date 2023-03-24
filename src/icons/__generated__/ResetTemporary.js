@@ -13,7 +13,7 @@ type Props = {
 
 export default function ResetTemporary(props: Props): Element<'svg'> {
   return (
-    <svg height="1em" viewBox="0 0 21 21" width="1em" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 21 21" {...props}>
       <g
         fill="none"
         fillRule="evenodd"
@@ -23,7 +23,7 @@ export default function ResetTemporary(props: Props): Element<'svg'> {
         transform="matrix(0 1 1 0 2.5 2.5)"
       >
         <path d="M3.987 1.078A8 8 0 1 0 8 0" />
-        <circle cx={8} cy={8} fill="currentColor" r={2} />
+        <circle cx={8} cy={8} r={2} fill="currentColor" />
         <path d="M4 5V1H0" />
       </g>
     </svg>

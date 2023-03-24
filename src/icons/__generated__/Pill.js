@@ -13,13 +13,13 @@ type Props = {
 
 export default function Pill(props: Props): Element<'svg'> {
   return (
-    <svg width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" {...props}>
       <path
-        d="M10.5 7.5v5.817m-7-2.817a3 3 0 0 0 3 3h8a3 3 0 0 0 0-6h-8a3 3 0 0 0-3 3z"
+        fill="none"
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-        fill="none"
+        d="M10.5 7.5v5.817m-7-2.817a3 3 0 0 0 3 3h8a3 3 0 0 0 0-6h-8a3 3 0 0 0-3 3z"
       />
     </svg>
   );

@@ -13,21 +13,21 @@ type Props = {
 
 export default function Door(props: Props): Element<'svg'> {
   return (
-    <svg height="1em" viewBox="0 0 21 21" width="1em" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 21 21" {...props}>
       <g fill="none" fillRule="evenodd" transform="translate(4 3)">
         <path
-          d="M2.5.5h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2v-10a2 2 0 0 1 2-2z"
           stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
+          d="M2.5.5h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2v-10a2 2 0 0 1 2-2z"
         />
         <path
-          d="m10.202 14.5-3.645-1.948A2 2 0 0 1 5.5 10.788V4.212a2 2 0 0 1 1.057-1.764L10.202.5"
           stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
+          d="m10.202 14.5-3.645-1.948A2 2 0 0 1 5.5 10.788V4.212a2 2 0 0 1 1.057-1.764L10.202.5"
         />
-        <circle cx={7.5} cy={7.5} fill="currentColor" r={1} />
+        <circle cx={7.5} cy={7.5} r={1} fill="currentColor" />
       </g>
     </svg>
   );

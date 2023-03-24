@@ -13,20 +13,20 @@ type Props = {
 
 export default function UndoHistory(props: Props): Element<'svg'> {
   return (
-    <svg height="1em" viewBox="0 0 21 21" width="1em" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 21 21" {...props}>
       <g fill="none" fillRule="evenodd">
         <path
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           d="M2.5 10.55a8 8 0 1 1 1.073 3.952"
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
         />
-        <path d="m2.5 13.5 2.5-3H0z" fill="currentColor" fillRule="nonzero" />
+        <path fill="currentColor" fillRule="nonzero" d="m2.5 13.5 2.5-3H0z" />
         <path
-          d="M10.5 6.5v5h3"
           stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
+          d="M10.5 6.5v5h3"
         />
       </g>
     </svg>
