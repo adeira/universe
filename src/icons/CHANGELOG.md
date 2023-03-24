@@ -1,5 +1,9 @@
 # Unreleased
 
+# 2.2.0
+
+Use SVGO v3, see: https://github.com/svg/svgo/releases/tag/v3.0.0
+
 # 2.1.1
 
 Reverted extra `role="img"` property for all icons. For more details see: https://github.com/gregberge/svgr/pull/789

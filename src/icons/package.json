@@ -9,7 +9,7 @@
     "directory": "src/icons"
   },
   "license": "Unlicense",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "main": "./index.js",
   "type": "commonjs",
   "sideEffects": false,
