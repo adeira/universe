@@ -35,7 +35,7 @@ jobs:
               - 'src/x/**'
 
       # https://github.com/dtolnay/rust-toolchain
-      - uses: dtolnay/rust-toolchain@1.68.0
+      - uses: dtolnay/rust-toolchain@stable
         if: steps.paths-filter.outputs.src == 'true'
         with:
           components: clippy, rustfmt
