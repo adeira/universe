@@ -13,13 +13,13 @@ type Props = {
 
 export default function CalendarMonth(props: Props): Element<'svg'> {
   return (
-    <svg height="1em" viewBox="0 0 21 21" width="1em" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 21 21" {...props}>
       <g fill="none" fillRule="evenodd">
         <path
-          d="M4.5 2.5h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2v-12a2 2 0 0 1 2-2zm-2 4h16"
           stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
+          d="M4.5 2.5h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2v-12a2 2 0 0 1 2-2zm-2 4h16"
         />
         <g fill="currentColor" transform="translate(2 2)">
           <circle cx={8.5} cy={8.5} r={1} />

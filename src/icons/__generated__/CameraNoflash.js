@@ -13,20 +13,20 @@ type Props = {
 
 export default function CameraNoflash(props: Props): Element<'svg'> {
   return (
-    <svg height="1em" viewBox="0 0 21 21" width="1em" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 21 21" {...props}>
       <g fill="none" fillRule="evenodd">
         <path
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           d="M8.5 6.5h8a2 2 0 0 1 2 2v6c0 .559-.229 1.064-.598 1.427M15.5 16.5h-11a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2h1m-2-2 14 14"
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
         />
-        <path d="M17 9a1 1 0 1 0-2 0 1 1 0 0 0 2 0z" fill="currentColor" />
+        <path fill="currentColor" d="M17 9a1 1 0 1 0-2 0 1 1 0 0 0 2 0z" />
         <path
-          d="M8.215 9.557a3 3 0 0 0 4.27 4.193M13.5 11.5a3 3 0 0 0-3-3m-1-4h2a1 1 0 0 1 1 1v1h-4v-1a1 1 0 0 1 1-1z"
           stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
+          d="M8.215 9.557a3 3 0 0 0 4.27 4.193M13.5 11.5a3 3 0 0 0-3-3m-1-4h2a1 1 0 0 1 1 1v1h-4v-1a1 1 0 0 1 1-1z"
         />
       </g>
     </svg>

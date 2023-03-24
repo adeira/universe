@@ -13,7 +13,7 @@ type Props = {
 
 export default function RadioOn(props: Props): Element<'svg'> {
   return (
-    <svg height="1em" viewBox="0 0 21 21" width="1em" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 21 21" {...props}>
       <g
         fill="none"
         fillRule="evenodd"
@@ -22,7 +22,7 @@ export default function RadioOn(props: Props): Element<'svg'> {
         strokeLinejoin="round"
       >
         <circle cx={10.5} cy={10.5} r={8} />
-        <circle cx={10.5} cy={10.5} fill="currentColor" r={5} />
+        <circle cx={10.5} cy={10.5} r={5} fill="currentColor" />
       </g>
     </svg>
   );

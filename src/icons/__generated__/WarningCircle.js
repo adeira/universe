@@ -13,7 +13,7 @@ type Props = {
 
 export default function WarningCircle(props: Props): Element<'svg'> {
   return (
-    <svg height="1em" viewBox="0 0 21 21" width="1em" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 21 21" {...props}>
       <g fill="none" fillRule="evenodd">
         <circle
           cx={10.5}
@@ -24,12 +24,12 @@ export default function WarningCircle(props: Props): Element<'svg'> {
           strokeLinejoin="round"
         />
         <path
-          d="M10.5 11.5v-5"
           stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
+          d="M10.5 11.5v-5"
         />
-        <circle cx={10.5} cy={14.5} fill="currentColor" r={1} />
+        <circle cx={10.5} cy={14.5} r={1} fill="currentColor" />
       </g>
     </svg>
   );
