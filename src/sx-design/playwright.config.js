@@ -1,7 +1,7 @@
 // eslint-disable-next-line ft-flow/require-valid-file-annotation,import/no-extraneous-dependencies
-const { devices } = require('@playwright/test');
+const { devices, defineConfig } = require('@playwright/test');
 
-const config = {
+export default defineConfig({
   timeout: 60000,
   testDir: 'playwright',
   outputDir: 'playwright/test-results',
@@ -25,6 +25,4 @@ const config = {
       use: devices['Desktop Chrome'],
     },
   ],
-};
-
-module.exports = config;
+});

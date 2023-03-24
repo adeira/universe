@@ -1,7 +1,7 @@
 // eslint-disable-next-line ft-flow/require-valid-file-annotation,import/no-extraneous-dependencies
-const { devices } = require('@playwright/test');
+const { devices, defineConfig } = require('@playwright/test');
 
-const config = {
+export default defineConfig({
   testDir: 'playwright',
   outputDir: 'playwright/test-results',
   testMatch: '**.play.js',
@@ -28,6 +28,4 @@ const config = {
       use: devices['Pixel 5'],
     },
   ],
-};
-
-module.exports = config;
+});
