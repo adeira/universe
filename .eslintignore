@@ -10,3 +10,6 @@ src/babel-preset-adeira/src/__tests__/__fixtures__
 
 # https://github.com/eslint/eslint/issues/8429
 !**/.storybook
+
+# Rust generated docs
+**/target/doc/**
