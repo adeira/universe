@@ -76,6 +76,7 @@ jobs:
         run: yarn workspace ${{ matrix.repository }} playwright test
         env:
           # See: https://github.com/storybookjs/storybook/issues/16555
+          # TODO: remove when no longer needed
           NODE_OPTIONS: --openssl-legacy-provider
 
       # https://github.com/actions/upload-artifact

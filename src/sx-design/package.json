@@ -64,7 +64,7 @@
   },
   "scripts": {
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "build-storybook": "NODE_OPTIONS=--openssl-legacy-provider build-storybook",
     "fbt:manifest": "fbt-manifest --src=src --enum-manifest=translations/enum_manifest.json --src-manifest=translations/src_manifest.json",
     "fbt:collect": "fbt-collect --options=__self --pretty --manifest < translations/src_manifest.json > translations/source_strings.json",
     "fbt:translate": "fbt-translate --source-strings=translations/source_strings.json --pretty --translations translations/in/*.json --output-dir=translations/out --jenkins",
