@@ -19,7 +19,7 @@
   "devDependencies": {
     "@adeira/eslint-config": "^8.2.0",
     "eslint": "^8.36.0",
-    "hermes-eslint": "^0.10.0"
+    "hermes-eslint": "^0.10.1"
   },
   "browserslist": {
     "production": [
