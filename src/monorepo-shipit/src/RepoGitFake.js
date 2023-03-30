@@ -8,6 +8,9 @@ import { ShellCommand } from '@adeira/shell-command';
 import accounts from './accounts';
 import RepoGit from './RepoGit';
 
+/* $FlowFixMe[incompatible-extend] This comment suppresses an error when
+ * upgrading Flow to version 0.203.0. To see the error delete this comment
+ * and run Flow. */
 export default class RepoGitFake extends RepoGit {
   #testRepoPath: string;
 

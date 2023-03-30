@@ -58,9 +58,6 @@ type SelectorItem = {
   +totalPrice: number,
 };
 
-/* $FlowFixMe[incompatible-call] This comment suppresses an error when
- * upgrading Flow to version 0.197.0 and enabling LTI. To see the error delete
- * this comment and run Flow. */
 const selectedItemsStatsSelector = selector<SelectorItem>({
   key: 'selectedItemsStats',
   get: ({ get }) => {
