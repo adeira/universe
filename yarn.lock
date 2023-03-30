@@ -255,7 +255,7 @@ __metadata:
     "@adeira/babel-preset-adeira": ^4.0.0
     "@adeira/monorepo-utils": ^0.11.0
     "@babel/runtime": ^7.21.0
-    "@npmcli/arborist": ^6.2.5
+    "@npmcli/arborist": ^6.2.6
     chalk: ^4.1.2
     is-ci: ^3.0.1
     npm-packlist: ^7.0.4
@@ -2861,9 +2861,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@npmcli/arborist@npm:^6.2.5":
-  version: 6.2.5
-  resolution: "@npmcli/arborist@npm:6.2.5"
+"@npmcli/arborist@npm:^6.2.6":
+  version: 6.2.6
+  resolution: "@npmcli/arborist@npm:6.2.6"
   dependencies:
     "@isaacs/string-locale-compare": ^1.1.0
     "@npmcli/fs": ^3.1.0
@@ -2881,7 +2881,7 @@ __metadata:
     hosted-git-info: ^6.1.1
     json-parse-even-better-errors: ^3.0.0
     json-stringify-nice: ^1.1.4
-    minimatch: ^6.1.6
+    minimatch: ^7.4.2
     nopt: ^7.0.0
     npm-install-checks: ^6.0.0
     npm-package-arg: ^10.1.0
@@ -2900,7 +2900,7 @@ __metadata:
     walk-up-path: ^1.0.0
   bin:
     arborist: bin/index.js
-  checksum: 64e4055672aa84b451fbf7052b179dc2ba9bfbd11e1afc913cd19c7a77e510b2a1cd0eda6824b80057388285eb2609a1e0aa499c7d28ad06cdd4fc5dc2b977af
+  checksum: 7413793638a3e54a4b9283ff80ea8b0d63a3a303e1c92d893868a8ea94c2a2853d3103f39fd0d8a1702e0c8275f2ee5ca8c10a1d3b8fe81889d502277ad6cfec
   languageName: node
   linkType: hard
 
@@ -14393,12 +14393,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimatch@npm:^7.4.1":
-  version: 7.4.2
-  resolution: "minimatch@npm:7.4.2"
+"minimatch@npm:^7.4.1, minimatch@npm:^7.4.2":
+  version: 7.4.3
+  resolution: "minimatch@npm:7.4.3"
   dependencies:
     brace-expansion: ^2.0.1
-  checksum: 9e341b04e69d5ab03e4206dcb61c8a158e3b8709628bf5e1a4eaa9f3b72c0ba925e24ad959b1f6ce6835caa5a927131d5087fae6836b69e7d99d7d5e63ef0bd8
+  checksum: daa954231b6859e3ba0e5fbd2486986d3cae283bb69acb7ed3833c84a293f8d7edb8514360ea62c01426ba791446b2a1e1cc0d718bed15c0212cef35c59a6b95
   languageName: node
   linkType: hard
 
