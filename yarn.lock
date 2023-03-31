@@ -10,6 +10,7 @@ __metadata:
   resolution: "@adeira/abacus-backoffice@workspace:src/abacus-backoffice"
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
+    "@adeira/csp": ^0.1.0
     "@adeira/forms": ^0.4.1
     "@adeira/hooks": ^0.3.0
     "@adeira/icons": ^2.2.0
@@ -67,6 +68,7 @@ __metadata:
   resolution: "@adeira/abacus-kochka@workspace:src/abacus-kochka"
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
+    "@adeira/csp": ^0.1.0
     "@adeira/hooks": ^0.3.0
     "@adeira/icons": ^2.2.0
     "@adeira/js": ^2.1.1
@@ -109,6 +111,14 @@ __metadata:
     strip-ansi: ^6.0.1
   peerDependencies:
     "@babel/core": ^7.21.4
+  languageName: unknown
+  linkType: soft
+
+"@adeira/csp@^0.1.0, @adeira/csp@workspace:src/csp":
+  version: 0.0.0-use.local
+  resolution: "@adeira/csp@workspace:src/csp"
+  dependencies:
+    "@babel/runtime": ^7.21.0
   languageName: unknown
   linkType: soft
 

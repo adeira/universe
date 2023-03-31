@@ -1,0 +1,19 @@
+{
+  "name": "@adeira/csp",
+  "version": "0.1.0",
+  "description": "Utility to help you construct CSP headers",
+  "homepage": "https://github.com/adeira/csp",
+  "bugs": "https://github.com/adeira/universe/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adeira/universe.git",
+    "directory": "src/csp"
+  },
+  "sideEffects": false,
+  "main": "./index.js",
+  "type": "commonjs",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/runtime": "^7.21.0"
+  }
+}
