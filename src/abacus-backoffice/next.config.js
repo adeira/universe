@@ -5,6 +5,7 @@
 const path = require('path');
 const withPlugins = require('next-compose-plugins');
 const { withSentryConfig } = require('@sentry/nextjs');
+const createContentSecurityPolicy = require('@adeira/csp');
 
 const withCustomBabelConfigFile = require('next-plugin-custom-babel-config')({
   babelConfigFile: path.join(__dirname, '.babelrc.js'),
@@ -33,6 +34,18 @@ const withSentryConfigPlugin = withSentryConfig(
   { sentry: { hideSourceMaps: true } },
   { silent: true },
 );
+
+const { key: cspKey, value: cspValue } = createContentSecurityPolicy({
+  policy: {
+    'default-src': 'self',
+    'connect-src': 'https://abacus.kochka.com.mx/graphql',
+    'font-src': 'https://rsms.me/inter/font-files/',
+    'style-src-elem': 'https://rsms.me/inter/inter.css',
+    'report-uri':
+      'https://o74963.ingest.sentry.io/api/4504227233071104/security/?sentry_key=fce56c4ba748422b93247bbf949af9f1',
+  },
+  reportOnly: true,
+});
 
 module.exports = (withPlugins(
   [
@@ -113,9 +126,8 @@ module.exports = (withPlugins(
               value: 'nosniff',
             },
             {
-              key: 'Content-Security-Policy-Report-Only',
-              value:
-                "default-src 'self'; report-uri https://o74963.ingest.sentry.io/api/4504227233071104/security/?sentry_key=fce56c4ba748422b93247bbf949af9f1",
+              key: cspKey,
+              value: cspValue,
             },
           ],
         },

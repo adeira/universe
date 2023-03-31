@@ -15,6 +15,7 @@
     "fbt": "yarn run fbt:manifest && yarn run fbt:collect && yarn run fbt:translate"
   },
   "dependencies": {
+    "@adeira/csp": "^0.1.0",
     "@adeira/hooks": "^0.3.0",
     "@adeira/icons": "^2.2.0",
     "@adeira/js": "^2.1.1",
