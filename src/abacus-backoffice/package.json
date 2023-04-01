@@ -26,7 +26,7 @@
     "@next/bundle-analyzer": "^13.2.4",
     "@recoiljs/refine": "^0.1.1",
     "@sentry/nextjs": "^7.46.0",
-    "d3": "^7.8.3",
+    "d3": "^7.8.4",
     "fbt": "^1.0.0",
     "graphql": "^16.6.0",
     "immutable": "^4.3.0",
