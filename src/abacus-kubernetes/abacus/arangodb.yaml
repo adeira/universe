@@ -68,7 +68,7 @@ spec:
                   mountPath: /tmp/dump
           containers:
             - name: dump-upload
-              image: amazon/aws-cli:2.11.10
+              image: amazon/aws-cli:2.11.11
               imagePullPolicy: Always
               command: ['/bin/sh', '-c']
               args:
