@@ -23,7 +23,7 @@
     "npm-packlist": "^7.0.4",
     "npm-registry-client": "^8.6.0",
     "rimraf": "^4.4.1",
-    "semver": "^7.3.8",
+    "semver": "^7.4.0",
     "snapshot-diff": "^0.10.0",
     "tar": "^6.1.13"
   },
