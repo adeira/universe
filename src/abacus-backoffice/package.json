@@ -25,7 +25,7 @@
     "@adeira/sx-design": "^0.32.0",
     "@next/bundle-analyzer": "^13.3.0",
     "@recoiljs/refine": "^0.1.1",
-    "@sentry/nextjs": "^7.47.0",
+    "@sentry/nextjs": "^7.48.0",
     "d3": "^7.8.4",
     "fbt": "^1.0.0",
     "graphql": "^16.6.0",
