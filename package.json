@@ -22,7 +22,7 @@
     "hermes-eslint": "^0.10.1",
     "jest": "^29.5.0",
     "jest-environment-jsdom": "^29.5.0",
-    "prettier": "^2.8.7"
+    "prettier": "^2.8.8"
   },
   "packageManager": "yarn@3.5.0"
 }

@@ -36,7 +36,7 @@
     "eslint-plugin-relay": "^1.8.3",
     "eslint-plugin-sx": "^0.14.0",
     "eslint-plugin-testing-library": "^5.10.3",
-    "prettier": "^2.8.7"
+    "prettier": "^2.8.8"
   },
   "devDependencies": {
     "deep-diff": "^1.0.2",
