@@ -92,6 +92,9 @@ it('calls default onRetry callback as expected (window.location.reload)', async 
 });
 
 it('calls custom onRetry callback as expected', async () => {
+  /* $FlowFixMe[underconstrained-implicit-instantiation] This comment
+   * suppresses an error when upgrading Flow to version 0.204.1. To see the
+   * error delete this comment and run Flow. */
   const onRetryFn = jest.fn();
 
   const { getByText } = render(
