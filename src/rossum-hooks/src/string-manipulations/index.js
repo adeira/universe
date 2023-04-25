@@ -94,10 +94,12 @@ const transformationFunctions = {
   REMOVE_SPECIAL_CHARACTERS: (value: string) => value.replace(/[^a-zA-Z0-9\s]/g, ''),
   REMOVE_WHITESPACE: (value: string) => value.replace(/\s+/g, ''),
   TRIM: (value: string) => value.trim(),
-  // TODO: split
+  SPLIT: (value: string, separator: string) => value.split(separator),
   CONCATENATE: (values: $ReadOnlyArray<string>, separator: string) => values.join(separator),
   REGEX_REPLACE: (value: string, regex: string, replacement: string) =>
     value.replace(new RegExp(regex, 'g'), replacement),
+
+  // TODO: move to a new "math" extension instead (doesn't belong to strings)
   MATH_OPERATION: (values: $ReadOnlyArray<string>, operation: string) => {
     const numericValues = values.map((value) => parseFloat(value));
     return numericValues.reduce((accumulator, currentValue) => {
@@ -144,6 +146,13 @@ function processTransformation(transformation: string, values: $ReadOnlyArray<st
   if (mathOperationMatch) {
     const operation = mathOperationMatch[1];
     return [transformationFunctions.MATH_OPERATION(values, operation)];
+  }
+
+  // Handling SPLIT transformation
+  const splitMatch = transformation.match(/^SPLIT\((.+)\)$/);
+  if (splitMatch) {
+    const separator = splitMatch[1];
+    return values.flatMap((value) => transformationFunctions.SPLIT(value, separator));
   }
 
   // Handling other transformations
