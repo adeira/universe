@@ -42,6 +42,9 @@ it('renders the menu without any issues', async () => {
 });
 
 it('calls callback correctly when the item is clicked', async () => {
+  /* $FlowFixMe[underconstrained-implicit-instantiation] This comment
+   * suppresses an error when upgrading Flow to version 0.204.1. To see the
+   * error delete this comment and run Flow. */
   const onClickFn = jest.fn();
 
   const { getByRole, getByText, queryByText } = render(

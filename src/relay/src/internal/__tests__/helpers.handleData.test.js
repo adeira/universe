@@ -2,7 +2,13 @@
 
 import { handleData } from '../helpers';
 
+/* $FlowFixMe[underconstrained-implicit-instantiation] This comment suppresses
+ * an error when upgrading Flow to version 0.204.1. To see the error delete
+ * this comment and run Flow. */
 const jsonMock = jest.fn();
+/* $FlowFixMe[underconstrained-implicit-instantiation] This comment suppresses
+ * an error when upgrading Flow to version 0.204.1. To see the error delete
+ * this comment and run Flow. */
 const textMock = jest.fn();
 
 const createResponse = (getMockFunction: JestMockFn<$FlowFixMe, $FlowFixMe>) => ({
@@ -18,6 +24,9 @@ beforeEach(() => {
 });
 
 it('calls "text" method by default', () => {
+  /* $FlowFixMe[underconstrained-implicit-instantiation] This comment
+   * suppresses an error when upgrading Flow to version 0.204.1. To see the
+   * error delete this comment and run Flow. */
   const headersGetMock = jest.fn();
   const response = createResponse(headersGetMock);
 

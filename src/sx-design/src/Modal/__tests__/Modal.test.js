@@ -53,6 +53,9 @@ it('renders Modal component without any problems', async () => {
 
 describe('closing mechanism', () => {
   it('closes Modal component by clicking on "X"', async () => {
+    /* $FlowFixMe[underconstrained-implicit-instantiation] This comment
+     * suppresses an error when upgrading Flow to version 0.204.1. To see the
+     * error delete this comment and run Flow. */
     const onClose = jest.fn();
     const { getByText, getByTestId, queryByTestId } = render(
       <TestingComponent onClose={onClose} />,
@@ -70,6 +73,9 @@ describe('closing mechanism', () => {
   });
 
   it('closes Modal component by clicking on the backdrop', async () => {
+    /* $FlowFixMe[underconstrained-implicit-instantiation] This comment
+     * suppresses an error when upgrading Flow to version 0.204.1. To see the
+     * error delete this comment and run Flow. */
     const onClose = jest.fn();
     const { getByText, getByTestId, queryByTestId } = render(
       <TestingComponent onClose={onClose} />,
@@ -87,6 +93,9 @@ describe('closing mechanism', () => {
   });
 
   it('closes Modal component by pressing "ESC"', async () => {
+    /* $FlowFixMe[underconstrained-implicit-instantiation] This comment
+     * suppresses an error when upgrading Flow to version 0.204.1. To see the
+     * error delete this comment and run Flow. */
     const onClose = jest.fn();
     const { getByText, queryByText } = render(<TestingComponent onClose={onClose} />);
 

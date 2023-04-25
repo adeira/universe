@@ -41,9 +41,6 @@ export default function QrCodeReader(props: Props): Node {
       return;
     }
 
-    /* $FlowFixMe[unused-promise] This comment suppresses an error when
-     * upgrading Flow to version 0.201.0. To see the error delete this comment
-     * and run Flow. */
     navigator.mediaDevices
       ?.getUserMedia(constraints)
       .then((mediaStream) => {
