@@ -1,0 +1,8 @@
+{
+  "rules": {
+    // Jest rules incompatible with Playwright:
+    "jest/no-disabled-tests": "off",
+    "jest/no-standalone-expect": "off",
+    "jest/valid-title": "off"
+  }
+}

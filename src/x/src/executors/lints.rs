@@ -22,7 +22,7 @@ pub fn run_prettier_check() -> anyhow::Result<()> {
             .arg("--cache-location")
             .arg("node_modules/.cache/.cache_prettier")
             .arg("--check")
-            .arg("src/**/*.{md,css,yml,yaml}")
+            .arg("src/**/*.{md,css,yml,yaml,mdx}")
             .arg("--check")
             .arg(".github/**/*.{yml,yaml}"),
     )
@@ -41,6 +41,8 @@ pub fn run_eslint_check(trailing_args: &Vec<&str>) -> anyhow::Result<()> {
             .arg("*.js") // root JS files
             .arg("scripts/**/*.js")
             .arg("src/**/*.js")
+            .arg("src/**/*.ts")
+            .arg("src/**/*.tsx")
             .args(trailing_args),
     )
 }

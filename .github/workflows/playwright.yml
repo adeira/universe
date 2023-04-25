@@ -24,6 +24,7 @@ jobs:
           - '@adeira/abacus-docs'
           - '@adeira/abacus-kochka'
           - '@adeira/sx-design'
+          - '@adeira/typescript-test'
         include:
           - repository: '@adeira/abacus-backoffice'
             source: 'src/abacus-backoffice/**'
@@ -41,6 +42,10 @@ jobs:
             source: 'src/sx-design/**'
             playwrightReportName: 'playwright-report-sx-design'
             playwrightReportPath: 'src/sx-design/playwright/test-results/'
+          - repository: '@adeira/typescript-test'
+            source: 'src/typescript-test/**'
+            playwrightReportName: 'playwright-report-typescript-test'
+            playwrightReportPath: 'src/typescript-test/playwright/test-results/'
 
     runs-on: ubuntu-latest
 

@@ -332,9 +332,10 @@ exports[`rules snapshot: all stable rules 1`] = `
       2,
       {
         "devDependencies": [
+          "**/*.play.[jt]s",
           "**/*.spec.js",
           "**/*.stories.js",
-          "**/*.test.js",
+          "**/*.test.[jt]s",
           "**/.storybook/**",
           "**/__flowtests__/**",
           "**/__tests__/**",

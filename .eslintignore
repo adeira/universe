@@ -13,3 +13,6 @@ src/babel-preset-adeira/src/__tests__/__fixtures__
 
 # Rust generated docs
 **/target/doc/**
+
+# https://nextjs.org/docs/basic-features/typescript
+next-env.d.ts
