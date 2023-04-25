@@ -318,9 +318,10 @@ module.exports = ({
       ERROR,
       {
         devDependencies: [
+          '**/*.play.[jt]s',
           '**/*.spec.js',
           '**/*.stories.js',
-          '**/*.test.js',
+          '**/*.test.[jt]s',
           '**/.storybook/**',
           '**/__flowtests__/**',
           '**/__tests__/**',

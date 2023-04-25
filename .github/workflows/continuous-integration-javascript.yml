@@ -23,6 +23,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        # See: https://nodejs.dev/en/about/releases/
         node-version: [18.x, 19.x, 20.x]
 
     steps:
@@ -61,6 +62,11 @@ jobs:
       # working as expected (Flow returns warnings for unused suppression comments).
       - name: Run Flow check
         run: ./x flow -- --max-warnings=0
+
+      # TypeScript can be used in one of two ways - as a linter, or as a build tool.
+      # We are using it as a linter on a monorepo level and as a build tool on individual packages.
+      - name: Run TypeScript check
+        run: yarn tsc --project . # TODO: `./x ts`
 
       - name: Run Eslint check
         run: ./x lints

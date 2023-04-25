@@ -7,7 +7,6 @@
 .idea/
 .next/
 .serverless/
-.vscode/
 node_modules/
 
 .DS_Store
