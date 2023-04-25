@@ -1,0 +1,151 @@
+[
+  {
+    "category": "section",
+    "id": "inputs_section",
+    "label": "Inputs",
+    "children": [
+      {
+        "rir_field_names": ["order_id"],
+        "constraints": {
+          "required": true
+        },
+        "score_threshold": 0.9,
+        "default_value": null,
+        "category": "datapoint",
+        "id": "order_id",
+        "label": "Source 1 (Order Number)",
+        "type": "string"
+      },
+      {
+        "rir_field_names": ["date_due"],
+        "constraints": {
+          "required": true
+        },
+        "score_threshold": 0.9,
+        "default_value": null,
+        "category": "datapoint",
+        "id": "date_due",
+        "label": "Source 2 (Due Date)",
+        "type": "date",
+        "format": null
+      },
+      {
+        "rir_field_names": [],
+        "constraints": {
+          "required": true
+        },
+        "score_threshold": 0.9,
+        "default_value": null,
+        "category": "datapoint",
+        "id": "custom_1",
+        "label": "Source 3 (custom_1)",
+        "type": "string"
+      },
+      {
+        "rir_field_names": [],
+        "constraints": {
+          "required": true
+        },
+        "score_threshold": 0.9,
+        "default_value": null,
+        "category": "datapoint",
+        "id": "custom_2",
+        "label": "Source 4 (custom_2)",
+        "type": "string"
+      },
+      {
+        "rir_field_names": [],
+        "constraints": {
+          "required": true
+        },
+        "score_threshold": 0.9,
+        "default_value": null,
+        "category": "datapoint",
+        "id": "custom_3",
+        "label": "Source 5 (custom_3)",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "category": "section",
+    "id": "value_operations_section",
+    "label": "Value Operations",
+    "children": [
+      {
+        "rir_field_names": [],
+        "constraints": {
+          "required": true
+        },
+        "score_threshold": 0.9,
+        "default_value": null,
+        "category": "datapoint",
+        "id": "order_id_ext_test_1",
+        "label": "Chained transformations",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "category": "section",
+    "id": "custom_functions_section",
+    "label": "Custom Functions",
+    "children": [
+      {
+        "rir_field_names": [],
+        "constraints": {
+          "required": true
+        },
+        "score_threshold": 0.9,
+        "default_value": null,
+        "category": "datapoint",
+        "id": "order_id_ext_test_2",
+        "label": "Transformations",
+        "type": "string"
+      },
+      {
+        "rir_field_names": [],
+        "constraints": {
+          "required": true
+        },
+        "score_threshold": 0.9,
+        "default_value": null,
+        "category": "datapoint",
+        "id": "order_id_ext_test_3",
+        "label": "REGEX_REPLACE",
+        "type": "string"
+      },
+      {
+        "rir_field_names": [],
+        "constraints": {
+          "required": true
+        },
+        "score_threshold": 0.9,
+        "default_value": null,
+        "category": "datapoint",
+        "id": "order_id_ext_test_4",
+        "label": "MATH_OPERATION",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "category": "section",
+    "id": "calculations_section",
+    "label": "Calculations",
+    "children": [
+      {
+        "rir_field_names": [],
+        "constraints": {
+          "required": true
+        },
+        "score_threshold": 0.9,
+        "default_value": null,
+        "category": "datapoint",
+        "id": "calculations_1",
+        "label": "Test",
+        "type": "string"
+      }
+    ]
+  }
+]

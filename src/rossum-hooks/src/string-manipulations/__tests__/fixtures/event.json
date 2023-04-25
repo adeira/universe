@@ -1,0 +1,46 @@
+{
+  "action": "user_update",
+  "event": "annotation_content",
+  "base_url": "https://elis.rossum.ai",
+  "settings": {},
+  "secrets": {},
+  "document": {
+    "id": 1,
+    "mime_type": "application/pdf"
+  },
+  "annotation": {
+    "content": [
+      {
+        "id": 11,
+        "children": [
+          {
+            "id": 111,
+            "content": { "value": "2" },
+            "category": "datapoint",
+            "schema_id": "custom_1"
+          },
+          {
+            "id": 112,
+            "content": { "value": "4" },
+            "category": "datapoint",
+            "schema_id": "custom_2"
+          },
+          {
+            "id": 113,
+            "content": { "value": "test $$$ string" },
+            "category": "datapoint",
+            "schema_id": "custom_3"
+          },
+          {
+            "id": 999,
+            "content": { "value": null },
+            "category": "datapoint",
+            "schema_id": "result"
+          }
+        ],
+        "category": "section",
+        "schema_id": "test_section"
+      }
+    ]
+  }
+}

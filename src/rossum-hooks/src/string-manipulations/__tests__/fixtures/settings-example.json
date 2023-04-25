@@ -1,0 +1,31 @@
+{
+  "mappings": [
+    {
+      "sources": "order_id",
+      "target": "order_id_ext_test_2",
+      "transformations": [
+        "TRANSFORM(lowercase)",
+        "REVERSE",
+        "SQUISH",
+        "REMOVE_SPECIAL_CHARACTERS",
+        "SORT",
+        "TRANSFORM(uppercase)"
+      ]
+    },
+    {
+      "sources": ["order_id", "date_due"],
+      "target": "order_id_ext_test_3",
+      "transformations": [
+        "REMOVE_SPECIAL_CHARACTERS",
+        "TRANSFORM(lowercase)",
+        "CONCATENATE(___)",
+        "REGEX_REPLACE(_{3,},~~~)"
+      ]
+    },
+    {
+      "sources": ["custom_1", "custom_2", "custom_3"],
+      "target": "order_id_ext_test_4",
+      "transformations": ["MATH_OPERATION(add)"]
+    }
+  ]
+}
