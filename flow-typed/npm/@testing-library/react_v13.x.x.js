@@ -1,180 +1,15 @@
-// flow-typed signature: 6f8a40accb2445e1ba35aa962ded3dfe
-// flow-typed version: 12efeb009c/@testing-library/react_v11.x.x/flow_>=v0.104.x
-
-/**
- * A local copy from:
- * https://github.com/A11yance/aria-query/blob/2e6a3011a0d8987655f3a14853934fe3df38a8d8/flow/aria.js
- */
-declare module '@@aria-query' {
-  declare export type ARIAAbstractRole =
-    | 'command'
-    | 'composite'
-    | 'input'
-    | 'landmark'
-    | 'range'
-    | 'roletype'
-    | 'section'
-    | 'sectionhead'
-    | 'select'
-    | 'structure'
-    | 'widget'
-    | 'window';
-
-  declare export type ARIAWidgetRole =
-    | 'button'
-    | 'checkbox'
-    | 'gridcell'
-    | 'link'
-    | 'menuitem'
-    | 'menuitemcheckbox'
-    | 'menuitemradio'
-    | 'option'
-    | 'progressbar'
-    | 'radio'
-    | 'scrollbar'
-    | 'searchbox'
-    | 'slider'
-    | 'spinbutton'
-    | 'switch'
-    | 'tab'
-    | 'tabpanel'
-    | 'textbox'
-    | 'treeitem';
-
-  declare export type ARIACompositeWidgetRole =
-    | 'combobox'
-    | 'grid'
-    | 'listbox'
-    | 'menu'
-    | 'menubar'
-    | 'radiogroup'
-    | 'tablist'
-    | 'tree'
-    | 'treegrid';
-
-  declare export type ARIADocumentStructureRole =
-    | 'application'
-    | 'article'
-    | 'blockquote'
-    | 'caption'
-    | 'cell'
-    | 'columnheader'
-    | 'definition'
-    | 'deletion'
-    | 'directory'
-    | 'document'
-    | 'emphasis'
-    | 'feed'
-    | 'figure'
-    | 'generic'
-    | 'group'
-    | 'heading'
-    | 'img'
-    | 'insertion'
-    | 'list'
-    | 'listitem'
-    | 'math'
-    | 'meter'
-    | 'none'
-    | 'note'
-    | 'paragraph'
-    | 'presentation'
-    | 'row'
-    | 'rowgroup'
-    | 'rowheader'
-    | 'separator'
-    | 'strong'
-    | 'subscript'
-    | 'superscript'
-    | 'table'
-    | 'term'
-    | 'time'
-    | 'toolbar'
-    | 'tooltip';
-
-  declare export type ARIALandmarkRole =
-    | 'banner'
-    | 'complementary'
-    | 'contentinfo'
-    | 'form'
-    | 'main'
-    | 'navigation'
-    | 'region'
-    | 'search';
-
-  declare export type ARIALiveRegionRole =
-    | 'alert'
-    | 'log'
-    | 'marquee'
-    | 'status'
-    | 'timer';
-
-  declare export type ARIAWindowRole = 'alertdialog' | 'dialog';
-
-  declare export type ARIAUncategorizedRole = 'code';
-
-  declare export type ARIADPubRole =
-    | 'doc-abstract'
-    | 'doc-acknowledgments'
-    | 'doc-afterword'
-    | 'doc-appendix'
-    | 'doc-backlink'
-    | 'doc-biblioentry'
-    | 'doc-bibliography'
-    | 'doc-biblioref'
-    | 'doc-chapter'
-    | 'doc-colophon'
-    | 'doc-conclusion'
-    | 'doc-cover'
-    | 'doc-credit'
-    | 'doc-credits'
-    | 'doc-dedication'
-    | 'doc-endnote'
-    | 'doc-endnotes'
-    | 'doc-epigraph'
-    | 'doc-epilogue'
-    | 'doc-errata'
-    | 'doc-example'
-    | 'doc-footnote'
-    | 'doc-foreword'
-    | 'doc-glossary'
-    | 'doc-glossref'
-    | 'doc-index'
-    | 'doc-introduction'
-    | 'doc-noteref'
-    | 'doc-notice'
-    | 'doc-pagebreak'
-    | 'doc-pagelist'
-    | 'doc-part'
-    | 'doc-preface'
-    | 'doc-prologue'
-    | 'doc-pullquote'
-    | 'doc-qna'
-    | 'doc-subtitle'
-    | 'doc-tip'
-    | 'doc-toc';
-
-  declare export type ARIARole =
-    | ARIAWidgetRole
-    | ARIACompositeWidgetRole
-    | ARIADocumentStructureRole
-    | ARIALandmarkRole
-    | ARIALiveRegionRole
-    | ARIAWindowRole
-    | ARIAUncategorizedRole;
-}
+// flow-typed signature: 1a22f29d2d785c5ef0db1743897cd9b4
+// flow-typed version: 6912183195/@testing-library/react_v13.x.x/flow_>=v0.201.x
 
 declare module '@testing-library/react' {
-  import type { ARIARole } from '@@aria-query';
+  import type { ARIARole } from 'aria-query';
 
-  // This type comes from
-  // https://github.com/facebook/flow/blob/v0.104.0/lib/react-dom.js#L64
-  declare type ReactDOMTestUtilsThenable = {
-    then(resolve: () => mixed, reject?: () => mixed): mixed,
-    ...
-  };
-  // This type comes from
-  // https://github.com/facebook/flow/blob/v0.104.0/lib/react-dom.js#L116
+  // This type comes from react-dom_v17.x.x.js
+  declare interface ReactDOMTestUtilsThenable {
+    then(resolve: () => mixed, reject?: () => mixed): mixed;
+  }
+
+  // This type comes from react-dom_v17.x.x.js
   declare type ReactDOMTestUtilsAct = (
     callback: () => void | ReactDOMTestUtilsThenable
   ) => ReactDOMTestUtilsThenable;
@@ -260,88 +95,107 @@ declare module '@testing-library/react' {
   declare type SelectorMatcherOptions = {|
     ...MatcherOptions,
     selector?: string,
+    ignore?: string | boolean
   |};
+
+  // These two types must be updated kept in sync
+  declare export type UnionHTMLElement =
+    | HTMLElement
+    | HTMLInputElement
+    | HTMLAnchorElement
+    | HTMLButtonElement
+    | HTMLLabelElement
+    | HTMLSelectElement;
+
+  declare export type IntersectionHTMLElement =
+    & HTMLElement
+    & HTMLInputElement
+    & HTMLAnchorElement
+    & HTMLButtonElement
+    & HTMLLabelElement
+    & HTMLSelectElement;
+  // End mixed html types
 
   declare type QueryByBoundAttribute = (
     text: Matcher,
     options?: MatcherOptions
-  ) => ?HTMLElement;
+  ) => ?IntersectionHTMLElement;
 
   declare type AllByBoundAttribute = (
     text: Matcher,
     options?: MatcherOptions
-  ) => Array<HTMLElement>;
+  ) => Array<IntersectionHTMLElement>;
 
   declare type FindAllByBoundAttribute = (
     text: Matcher,
     options?: MatcherOptions,
     waitForElementOptions?: WaitForOptions
-  ) => Promise<HTMLElement[]>;
+  ) => Promise<IntersectionHTMLElement[]>;
 
   declare type GetByBoundAttribute = (
     text: Matcher,
     options?: MatcherOptions
-  ) => HTMLElement;
+  ) => IntersectionHTMLElement;
 
   declare type FindByBoundAttribute = (
     text: Matcher,
     options?: MatcherOptions,
     waitForElementOptions?: WaitForOptions
-  ) => Promise<HTMLElement>;
+  ) => Promise<IntersectionHTMLElement>;
 
   declare type QueryByText = (
     text: Matcher,
     options?: SelectorMatcherOptions
-  ) => ?HTMLElement;
+  ) => ?IntersectionHTMLElement;
 
   declare type AllByText = (
     text: Matcher,
     options?: SelectorMatcherOptions
-  ) => Array<HTMLElement>;
+  ) => Array<IntersectionHTMLElement>;
 
   declare type FindAllByText = (
     text: Matcher,
     options?: SelectorMatcherOptions,
     waitForElementOptions?: WaitForOptions
-  ) => Promise<HTMLElement[]>;
+  ) => Promise<IntersectionHTMLElement[]>;
 
   declare type GetByText = (
     text: Matcher,
     options?: SelectorMatcherOptions
-  ) => HTMLElement;
+  ) => IntersectionHTMLElement;
 
   declare type FindByText = (
     text: Matcher,
     options?: SelectorMatcherOptions,
     waitForElementOptions?: WaitForOptions
-  ) => Promise<HTMLElement>;
+  ) => Promise<IntersectionHTMLElement>;
 
   declare type AllByRole = (
     role: ByRoleMatcher,
     options?: ByRoleOptions
-  ) => HTMLElement[];
+  ) => IntersectionHTMLElement[];
 
   declare type GetByRole = (
     role: ByRoleMatcher,
     options?: ByRoleOptions
-  ) => HTMLElement;
+  ) => IntersectionHTMLElement;
 
   declare type QueryByRole = (
     role: ByRoleMatcher,
     options?: ByRoleOptions
-  ) => HTMLElement | null;
+  ) => IntersectionHTMLElement | null;
 
   declare type FindByRole = (
     role: ByRoleMatcher,
     options?: ByRoleOptions,
     waitForElementOptions?: WaitForOptions
-  ) => Promise<HTMLElement>;
+  ) => Promise<IntersectionHTMLElement>;
 
   declare type FindAllByRole = (
     role: ByRoleMatcher,
     options?: ByRoleOptions,
     waitForElementOptions?: WaitForOptions
-  ) => Promise<HTMLElement[]>;
+  ) => Promise<IntersectionHTMLElement[]>;
 
   declare type GetsAndQueries = {|
     getByLabelText: GetByText,
@@ -402,7 +256,7 @@ declare module '@testing-library/react' {
   |};
 
   declare type FireEvent<TInit> = (
-    element: HTMLElement,
+    element: UnionHTMLElement,
     eventProperties?: TInit
   ) => boolean;
 
@@ -441,7 +295,7 @@ declare module '@testing-library/react' {
         | Array<HTMLElement | DocumentFragment>,
       maxLength?: number
     ) => void,
-    rerender: (ui: React$Element<*>) => void,
+    rerender: (ui: React$Element<any>) => void,
     ...
   };
 
@@ -479,7 +333,7 @@ declare module '@testing-library/react' {
   declare export function waitFor<T>(
     callback: () => T | Promise<T>,
     options?: {|
-      container?: HTMLElement,
+      container?: UnionHTMLElement,
       timeout?: number,
       interval?: number,
       mutationObserverOptions?: MutationObserverInit,
@@ -489,60 +343,20 @@ declare module '@testing-library/react' {
   declare export function waitForElementToBeRemoved<T>(
     callback: (() => T) | T,
     options?: {|
-      container?: HTMLElement,
+      container?: UnionHTMLElement,
       timeout?: number,
       interval?: number,
       mutationObserverOptions?: MutationObserverInit,
     |}
   ): Promise<T>;
 
-  /**
-   * @deprecated `wait` has been deprecated and replaced by `waitFor` instead.
-   * In most cases you should be able to find/replace `wait` with `waitFor`.
-   * Learn more: https://testing-library.com/docs/dom-testing-library/api-async#waitfor.
-   */
-  declare export function wait(
-    callback?: () => void,
-    options?: {
-      timeout?: number,
-      interval?: number,
-      ...
-    }
-  ): Promise<void>;
-
-  /**
-   * @deprecated `waitForDomChange` has been deprecated.
-   * Use `waitFor` instead: https://testing-library.com/docs/dom-testing-library/api-async#waitfor.
-   */
-  declare export function waitForDomChange<T>(options?: {
-    container?: HTMLElement,
-    timeout?: number,
-    mutationObserverOptions?: MutationObserverInit,
-    ...
-  }): Promise<T>;
-
-  /**
-   * @deprecated `waitForElement` has been deprecated.
-   * Use a `find*` query (preferred: https://testing-library.com/docs/dom-testing-library/api-queries#findby)
-   * or use `waitFor` instead: https://testing-library.com/docs/dom-testing-library/api-async#waitfor
-   */
-  declare export function waitForElement<T>(
-    callback?: () => T,
-    options?: {
-      container?: HTMLElement,
-      timeout?: number,
-      mutationObserverOptions?: MutationObserverInit,
-      ...
-    }
-  ): Promise<T>;
-
   declare export function within(
-    element: HTMLElement,
+    element: UnionHTMLElement,
     queriesToBind?: GetsAndQueries | Array<GetsAndQueries>
   ): GetsAndQueries;
 
   declare export var fireEvent: {|
-    (element: HTMLElement, event: Event): void,
+    (element: UnionHTMLElement, event: Event): void,
 
     copy: FireEvent<Event$Init>,
     cut: FireEvent<Event$Init>,
@@ -616,55 +430,55 @@ declare module '@testing-library/react' {
   |};
   // dom-testing-library re-declares
   declare export function queryByTestId(
-    container: HTMLElement,
+    container: UnionHTMLElement,
     id: Matcher,
     options?: MatcherOptions
-  ): ?HTMLElement;
+  ): ?IntersectionHTMLElement;
   declare export function getByTestId(
-    container: HTMLElement,
+    container: UnionHTMLElement,
     id: Matcher,
     options?: MatcherOptions
-  ): HTMLElement;
+  ): IntersectionHTMLElement;
   declare export function queryByText(
-    container: HTMLElement,
+    container: UnionHTMLElement,
     text: Matcher,
     options?: MatcherOptions
-  ): ?HTMLElement;
+  ): ?IntersectionHTMLElement;
   declare export function getByText(
-    container: HTMLElement,
+    container: UnionHTMLElement,
     text: Matcher,
     options?: { selector?: string, ... } & MatcherOptions
-  ): HTMLElement;
+  ): IntersectionHTMLElement;
   declare export function queryByPlaceholderText(
-    container: HTMLElement,
+    container: UnionHTMLElement,
     text: Matcher,
     options?: MatcherOptions
-  ): ?HTMLElement;
+  ): ?IntersectionHTMLElement;
   declare export function getByPlaceholderText(
-    container: HTMLElement,
+    container: UnionHTMLElement,
     text: Matcher,
     options?: MatcherOptions
-  ): HTMLElement;
+  ): IntersectionHTMLElement;
   declare export function queryByLabelText(
-    container: HTMLElement,
+    container: UnionHTMLElement,
     text: Matcher,
     options?: MatcherOptions
-  ): ?HTMLElement;
+  ): ?IntersectionHTMLElement;
   declare export function getByLabelText(
-    container: HTMLElement,
+    container: UnionHTMLElement,
     text: Matcher,
     options?: { selector?: string, ... } & MatcherOptions
-  ): HTMLElement;
+  ): IntersectionHTMLElement;
   declare export function queryByAltText(
-    container: HTMLElement,
+    container: UnionHTMLElement,
     text: Matcher,
     options?: MatcherOptions
-  ): ?HTMLElement;
+  ): ?IntersectionHTMLElement;
   declare export function getByAltText(
-    container: HTMLElement,
+    container: UnionHTMLElement,
     text: Matcher,
     options?: MatcherOptions
-  ): HTMLElement;
-  declare export function getNodeText(node: HTMLElement): string;
+  ): IntersectionHTMLElement;
+  declare export function getNodeText(node: UnionHTMLElement): string;
   declare export var screen: Screen<>;
 }
