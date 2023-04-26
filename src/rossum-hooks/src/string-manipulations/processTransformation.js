@@ -6,6 +6,10 @@ const transformationFunctions = {
   REGEX_REPLACE: (value: string, regex: string, replacement: string) => {
     return value.replace(new RegExp(regex, 'g'), replacement);
   },
+  REGEX_SEARCH: (value: string, regex: string) => {
+    const match = value.match(new RegExp(regex));
+    return match ? match[0] : '';
+  },
   REMOVE_SPECIAL_CHARACTERS: (value: string) => value.replace(/[^a-zA-Z0-9\s]/g, ''),
   REMOVE_WHITESPACE: (value: string) => value.replace(/\s+/g, ''),
   REVERSE: (value: string) => value.split('').reverse().join(''),
@@ -42,6 +46,13 @@ export default function processTransformation(
     const regex = regexReplaceMatch[1];
     const replacement = regexReplaceMatch[2];
     return values.map((value) => transformationFunctions.REGEX_REPLACE(value, regex, replacement));
+  }
+
+  // Handling REGEX_SEARCH transformation
+  const regexSearchMatch = transformation.match(/^REGEX_SEARCH\((.+)\)$/);
+  if (regexSearchMatch) {
+    const regex = regexSearchMatch[1];
+    return values.map((value) => transformationFunctions.REGEX_SEARCH(value, regex));
   }
 
   // Handling SPLIT transformation

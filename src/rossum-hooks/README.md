@@ -3,6 +3,7 @@ Allows to perform various string operations on any fields. Supported functions:
 - `CONCATENATE` - joins array of sources (inputs) together
 - `CONCATENATE(,)` - joins array of sources (inputs) together using the separator
 - `REGEX_REPLACE([0-9],🧮)` - replaces matches found by the regex (first parameter) with the second parameter (🧮)
+- `REGEX_SEARCH([0-9])` - searches input by regex and return the first match
 - `REMOVE_SPECIAL_CHARACTERS` - removes anything that is not alphanumeric character (or space)
 - `REMOVE_WHITESPACE` - removes any whitespaces
 - `REVERSE` - reverses the input
