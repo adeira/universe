@@ -100,6 +100,70 @@ describe('REGEX_REPLACE', () => {
   });
 });
 
+describe('REGEX_SEARCH', () => {
+  it('correctly applies REGEX_SEARCH transformation', () => {
+    const settings = {
+      mappings: [
+        {
+          sources: ['custom_3'],
+          target: 'result',
+          transformations: [`REGEX_SEARCH(\\\${3})`],
+        },
+      ],
+    };
+
+    expect(
+      rossum_hook_request_handler({ settings, annotation: { content: event.annotation.content } }),
+    ).toMatchInlineSnapshot(`
+      {
+        "messages": [],
+        "operations": [
+          {
+            "id": 999,
+            "op": "replace",
+            "value": {
+              "content": {
+                "value": "$$$",
+              },
+            },
+          },
+        ],
+      }
+    `);
+  });
+
+  it('correctly handles search with no results', () => {
+    const settings = {
+      mappings: [
+        {
+          sources: ['custom_3'],
+          target: 'result',
+          transformations: [`REGEX_SEARCH(no_matching_results)`], // this should not find anything
+        },
+      ],
+    };
+
+    expect(
+      rossum_hook_request_handler({ settings, annotation: { content: event.annotation.content } }),
+    ).toMatchInlineSnapshot(`
+      {
+        "messages": [],
+        "operations": [
+          {
+            "id": 999,
+            "op": "replace",
+            "value": {
+              "content": {
+                "value": "",
+              },
+            },
+          },
+        ],
+      }
+    `);
+  });
+});
+
 describe('REMOVE_SPECIAL_CHARACTERS', () => {
   it('correctly applies REMOVE_SPECIAL_CHARACTERS transformation', () => {
     const settings = {
