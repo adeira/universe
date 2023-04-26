@@ -3,6 +3,7 @@
 import createMessage from '../utils/createMessage';
 import createReplaceOperation from '../utils/createReplaceOperation';
 import findBySchemaId from '../utils/findBySchemaId';
+import processTransformation from './processTransformation';
 import type { WebhookResponse } from '../types';
 
 /**
@@ -73,92 +74,4 @@ export function rossum_hook_request_handler({
       messages,
     };
   }
-}
-
-const transformationFunctions = {
-  TRANSFORM: (value: string, operation: string) => {
-    switch (operation) {
-      case 'uppercase':
-        return value.toUpperCase();
-      case 'lowercase':
-        return value.toLowerCase();
-      case 'capitalize':
-        return value.replace(/\b\w/g, (ch) => ch.toUpperCase());
-      default:
-        throw new Error(`Invalid transform operation: ${operation}`);
-    }
-  },
-  REVERSE: (value: string) => value.split('').reverse().join(''),
-  SQUISH: (value: string) => value.replace(/\s+/g, ' ').trim(),
-  SORT: (value: string) => value.split('').sort().join(''),
-  REMOVE_SPECIAL_CHARACTERS: (value: string) => value.replace(/[^a-zA-Z0-9\s]/g, ''),
-  REMOVE_WHITESPACE: (value: string) => value.replace(/\s+/g, ''),
-  TRIM: (value: string) => value.trim(),
-  SPLIT: (value: string, separator: string) => value.split(separator),
-  CONCATENATE: (values: $ReadOnlyArray<string>, separator: string) => values.join(separator),
-  REGEX_REPLACE: (value: string, regex: string, replacement: string) =>
-    value.replace(new RegExp(regex, 'g'), replacement),
-
-  // TODO: move to a new "math" extension instead (doesn't belong to strings)
-  MATH_OPERATION: (values: $ReadOnlyArray<string>, operation: string) => {
-    const numericValues = values.map((value) => parseFloat(value));
-    return numericValues.reduce((accumulator, currentValue) => {
-      switch (operation) {
-        case 'add':
-          return accumulator + currentValue;
-        case 'subtract':
-          return accumulator - currentValue;
-        case 'multiply':
-          return accumulator * currentValue;
-        case 'divide':
-          return accumulator / currentValue;
-        default:
-          throw new Error(`Invalid math operation: ${operation}`);
-      }
-    });
-  },
-};
-
-function processTransformation(transformation: string, values: $ReadOnlyArray<string>) {
-  // Handling TRANSFORM operation
-  const transformMatch = transformation.match(/^TRANSFORM\((.+)\)$/);
-  if (transformMatch) {
-    const operation = transformMatch[1];
-    return values.map((value) => transformationFunctions.TRANSFORM(value, operation));
-  }
-
-  // Handling CONCATENATE transformation
-  const separatorMatch = transformation.match(/^CONCATENATE\((.+)\)$/);
-  if (separatorMatch) {
-    return [transformationFunctions.CONCATENATE(values, separatorMatch[1])];
-  }
-
-  // Handling REGEX_REPLACE transformation
-  const regexReplaceMatch = transformation.match(/^REGEX_REPLACE\((.+),(.+)\)$/);
-  if (regexReplaceMatch) {
-    const regex = regexReplaceMatch[1];
-    const replacement = regexReplaceMatch[2];
-    return values.map((value) => transformationFunctions.REGEX_REPLACE(value, regex, replacement));
-  }
-
-  // Handling MATH_OPERATION transformation
-  const mathOperationMatch = transformation.match(/^MATH_OPERATION\((.+)\)$/);
-  if (mathOperationMatch) {
-    const operation = mathOperationMatch[1];
-    return [transformationFunctions.MATH_OPERATION(values, operation)];
-  }
-
-  // Handling SPLIT transformation
-  const splitMatch = transformation.match(/^SPLIT\((.+)\)$/);
-  if (splitMatch) {
-    const separator = splitMatch[1];
-    return values.flatMap((value) => transformationFunctions.SPLIT(value, separator));
-  }
-
-  // Handling other transformations
-  if (transformationFunctions[transformation]) {
-    return values.map((value) => transformationFunctions[transformation](value));
-  }
-
-  throw new Error(`Invalid transformation: ${transformation}`);
 }

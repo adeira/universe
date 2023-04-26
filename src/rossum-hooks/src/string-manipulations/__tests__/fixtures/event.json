@@ -27,7 +27,7 @@
           },
           {
             "id": 113,
-            "content": { "value": "test $$$ string" },
+            "content": { "value": " test $$$ STRING " },
             "category": "datapoint",
             "schema_id": "custom_3"
           },
