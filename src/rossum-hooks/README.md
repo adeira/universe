@@ -1,4 +1,17 @@
-Allows to perform various string operations on any fields. Example configuration (not all features are showcased):
+Allows to perform various string operations on any fields. Supported functions:
+
+- `CONCATENATE` - joins array of sources (inputs) together
+- `CONCATENATE(,)` - joins array of sources (inputs) together using the separator
+- `REGEX_REPLACE([0-9],🧮)` - replaces matches found by the regex (first parameter) with the second parameter (🧮)
+- `REMOVE_SPECIAL_CHARACTERS` - removes anything that is not alphanumeric character (or space)
+- `REMOVE_WHITESPACE` - removes any whitespaces
+- `REVERSE` - reverses the input
+- `SPLIT(,)` - splits the input using the separator; note: it automatically concatenates the split chunks if left alone
+- `SQUISH` - squishes and trims the input to only have one repeating space
+- `TRANSFORM(uppercase|lowercase|capitalize)` - applies selected transformation
+- `TRIM` - removes whitespaces from start and end of the string
+
+Example configuration:
 
 ```json5
 {
