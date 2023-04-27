@@ -13,24 +13,22 @@
 ## Quick start
 
 ```bash
-git clone --depth=100 git@github.com:adeira/universe.git
+git clone git@github.com:adeira/universe.git
 cd universe
-corepack enable
+corepack enable   # `command not found: corepack` see: https://stackoverflow.com/a/70094249
 
 chmod +x ./x
 ./x install
 ./x --help
 ```
 
-_Please note: you have to use Yarn. It won't work with NPM!_
-
-What now? There are many projects under [`src/`](/src) and all of them are tested and linted together (with many monorepo optimizations). You can try to run all the checks using our executor:
+What now? There are many projects under [`src/`](/src) and all of them are tested and linted together. You can try to run all the checks using our executor:
 
 ```bash
 ./x
 ```
 
-It runs only the necessary checks based on what changed last. This monorepo is divided into many workspaces. You can access commands of each workspace like so:
+This monorepo is divided into many workspaces. You can access commands of each workspace like so:
 
 ```bash
 yarn workspace @adeira/sx-design storybook
