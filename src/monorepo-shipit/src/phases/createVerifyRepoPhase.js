@@ -7,6 +7,7 @@ import { ShellCommand } from '@adeira/shell-command';
 
 import RepoGit from '../RepoGit';
 import ShipitConfig from '../ShipitConfig';
+import type { Phase } from '../../types.flow';
 
 /**
  * This phase verifies integrity of the exported repository. This does so by
@@ -16,11 +17,11 @@ import ShipitConfig from '../ShipitConfig';
  *    fresh state of the project.
  * 2) It adds exported remote and compares these two repositories.
  *
- * There should not be any differences if everything goes well. Otherwise it
+ * There should not be any differences if everything goes well. Otherwise, it
  * means that either source and destination are out of sync or there is a bug
  * in Shipit project.
  */
-export default function createVerifyRepoPhase(config: ShipitConfig): () => void {
+export default function createVerifyRepoPhase(config: ShipitConfig): Phase {
   function createNewEmptyRepo(path: string) {
     new ShellCommand(path, 'git', 'init').runSynchronously();
     const repo = new RepoGit(path);

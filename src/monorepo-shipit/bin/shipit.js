@@ -12,14 +12,10 @@ import createCleanPhase from '../src/phases/createCleanPhase';
 import createSyncPhase from '../src/phases/createSyncPhase';
 import createVerifyRepoPhase from '../src/phases/createVerifyRepoPhase';
 import createPushPhase from '../src/phases/createPushPhase';
+import type { Phase } from '../types.flow';
 
 // yarn monorepo-babel-node src/monorepo-shipit/bin/shipit.js
 // yarn monorepo-babel-node src/monorepo-shipit/bin/shipit.js --glob-pattern="/abacus.js"
-
-type Phase = {
-  (): void,
-  +readableName: string,
-};
 
 const options = commandLineArgs([
   {

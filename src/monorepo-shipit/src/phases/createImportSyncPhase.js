@@ -5,12 +5,13 @@ import { ShellCommand } from '@adeira/shell-command';
 import RepoGit, { type DestinationRepo, type SourceRepo } from '../RepoGit';
 import Changeset from '../Changeset';
 import ShipitConfig from '../ShipitConfig';
+import type { Phase } from '../../types.flow';
 
 export default function createImportSyncPhase(
   config: ShipitConfig,
   packageName: string,
   pullRequestNumber: string,
-): () => void {
+): Phase {
   // TODO: make it Git independent
 
   function getFilteredChangesets(): Set<Changeset> {
@@ -47,6 +48,9 @@ export default function createImportSyncPhase(
     return changesets;
   }
 
+  /* $FlowFixMe[prop-missing] This comment suppresses an error when upgrading
+   * Flow to version 0.205.0. To see the error delete this comment and run
+   * Flow. */
   return function () {
     const monorepo: DestinationRepo = new RepoGit(config.sourcePath);
     const changesets = getFilteredChangesets();
