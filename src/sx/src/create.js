@@ -117,5 +117,8 @@ export default function create<T: SheetDefinitions>(sheetDefinitions: T): Create
   }
 
   // $FlowFixMe[incompatible-return] not sure how to explain that conditional object can return `void`
+  /* $FlowFixMe[incompatible-function-indexer] This comment suppresses an error
+   * when upgrading Flow to version 0.205.0. To see the error delete this
+   * comment and run Flow. */
   return sxFunction;
 }

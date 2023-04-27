@@ -9,6 +9,7 @@ import createClonePhase from '../src/phases/createClonePhase';
 import createCheckCorruptedRepoPhase from '../src/phases/createCheckCorruptedRepoPhase';
 import createCleanPhase from '../src/phases/createCleanPhase';
 import createImportSyncPhase from '../src/phases/createImportSyncPhase';
+import type { Phase } from '../types.flow';
 
 // TODO: check we can actually import this package (whether we have config for it)
 // yarn monorepo-babel-node src/monorepo-shipit/bin/importit.js git@github.com:adeira/fetch.git 1
@@ -31,7 +32,7 @@ invariant(packageName != null, 'Cannot figure out package name from: %s', export
 
 iterateConfigs('/*.js', (config) => {
   if (config.exportedRepoURL === exportedRepoURL) {
-    new Set<() => void>([
+    new Set<Phase>([
       createClonePhase(config.exportedRepoURL, config.destinationPath),
       createCheckCorruptedRepoPhase(config.destinationPath),
       createCleanPhase(config.destinationPath),

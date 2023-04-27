@@ -3,8 +3,9 @@
 import { invariant } from '@adeira/js';
 
 import RepoGit from '../RepoGit';
+import type { Phase } from '../../types.flow';
 
-export default function createCheckCorruptedRepoPhase(repoPath: string): () => void {
+export default function createCheckCorruptedRepoPhase(repoPath: string): Phase {
   const phase = function () {
     const repo = new RepoGit(repoPath);
 
