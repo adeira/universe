@@ -1,5 +1,11 @@
 {
-  extends: [':ignoreModulesAndTests', 'group:monorepos', 'group:recommended', 'replacements:all', 'workarounds:all'],
+  extends: [
+    ':ignoreModulesAndTests',
+    'group:monorepos',
+    'group:recommended',
+    'replacements:all',
+    'workarounds:all',
+  ],
   prHourlyLimit: 0,
   prConcurrentLimit: 0,
   dependencyDashboard: true,
@@ -40,6 +46,10 @@
       matchSourceUrlPrefixes: ['https://github.com/facebook/fbt'],
     },
     {
+      groupName: 'Flow packages (JavaScript)',
+      matchSourceUrlPrefixes: ['https://github.com/facebook/flow'],
+    },
+    {
       groupName: 'Relay packages (JavaScript)',
       matchSourceUrlPrefixes: ['https://github.com/facebook/relay'],
     },
@@ -50,6 +60,6 @@
     {
       groupName: 'Sentry packages (Rust)',
       matchSourceUrlPrefixes: ['https://github.com/getsentry/sentry-rust'],
-    }
+    },
   ],
 }
