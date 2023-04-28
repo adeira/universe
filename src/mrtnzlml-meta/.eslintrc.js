@@ -1,3 +1,5 @@
+// @flow strict
+
 module.exports = {
   root: true,
   parser: 'hermes-eslint',

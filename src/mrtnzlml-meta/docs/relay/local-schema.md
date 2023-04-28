@@ -64,7 +64,7 @@ extend type PNRInfo {
 All local schemas are being auto-discovered thanks to `*.graphql` file extension. You can now fetch and render this success message somewhere in the application. Propagation of this message is trivial (you have to fetch the `PNRInfo` ID):
 
 ```js
-Relay.commitLocalUpdate(environment, store => {
+Relay.commitLocalUpdate(environment, (store) => {
   store
     .get(response.id) // unique opaque ID identifying PNRInfo record
     .setValue(

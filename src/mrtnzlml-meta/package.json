@@ -2,6 +2,7 @@
   "name": "meta",
   "version": "0.0.0",
   "private": true,
+  "license": "UNLICENSED",
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",

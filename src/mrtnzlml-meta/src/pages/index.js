@@ -8,9 +8,12 @@
  */
 
 import React from 'react';
-// eslint-disable-next-line import/no-unresolved
-import { Redirect } from '@docusaurus/router';
+/* $FlowFixMe[cannot-resolve-module] This comment suppresses an error when
+ * merging two repositories. To see the error delete this comment and run Flow. */
+import { Redirect } from '@docusaurus/router'; // eslint-disable-line import/no-unresolved
 
+/* $FlowFixMe[signature-verification-failure] This comment suppresses an error when
+ * merging two repositories. To see the error delete this comment and run Flow. */
 export default function Home() {
   return <Redirect to="/til" />;
 }

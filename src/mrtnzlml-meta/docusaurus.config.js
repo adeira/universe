@@ -65,6 +65,8 @@ module.exports = {
       {
         // TODO: docs=false (after moving everything to TIL)
         docs: {
+          /* $FlowFixMe[signature-verification-failure] This comment suppresses an error when
+           * merging two repositories. To see the error delete this comment and run Flow. */
           sidebarPath: require.resolve('./sidebars.js'),
           sidebarCollapsible: false,
           editUrl: 'https://github.com/mrtnzlml/meta/tree/master/',
@@ -77,6 +79,8 @@ module.exports = {
           },
         },
         theme: {
+          /* $FlowFixMe[signature-verification-failure] This comment suppresses an error when
+           * merging two repositories. To see the error delete this comment and run Flow. */
           customCss: require.resolve('./src/css/custom.css'),
         },
         googleAnalytics: {

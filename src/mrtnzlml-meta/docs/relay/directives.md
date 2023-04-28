@@ -13,11 +13,15 @@ The `@alias` directive allows you to expose a spread fragment — either a named
 Let's look at an example. Imagine you have a component that renders information about a `Viewer`:
 
 ```js
-function MyViewer({viewerKey}) {
-  const {name} = useFragment(graphql`
-    fragment MyViewer on Viewer {
-      name @required(action: THROW)
-    }`, viewerKey);
+function MyViewer({ viewerKey }) {
+  const { name } = useFragment(
+    graphql`
+      fragment MyViewer on Viewer {
+        name @required(action: THROW)
+      }
+    `,
+    viewerKey,
+  );
 
   return `My name is ${name}. That's ${name.length} letters long!`;
 }
@@ -26,13 +30,17 @@ function MyViewer({viewerKey}) {
 To use that component in a component that has a fragment on `Node` (which `Viewer` implements), you could write something like this:
 
 ```js
-function MyNode({nodeKey}) {
-  const node = useFragment(graphql`
-    fragment MyFragment on Node {
-      ...MyViewer
-    }`, nodeKey);
-  
-  return <MyViewer viewerKey={node} />
+function MyNode({ nodeKey }) {
+  const node = useFragment(
+    graphql`
+      fragment MyFragment on Node {
+        ...MyViewer
+      }
+    `,
+    nodeKey,
+  );
+
+  return <MyViewer viewerKey={node} />;
 }
 ```
 
@@ -49,22 +57,26 @@ Not only do we not get a type letting us know that about this potential issue, b
 Aliased fragments can solve this problem. Here's what `<MyNode />` would look like using them:
 
 ```js
-function MyNode({nodeKey}) {
-  const node = useFragment(graphql`
-    fragment MyFragment on Node {
-      ...MyViewer @alias(as: "my_viewer")
-    }`, nodeKey);
-  
+function MyNode({ nodeKey }) {
+  const node = useFragment(
+    graphql`
+      fragment MyFragment on Node {
+        ...MyViewer @alias(as: "my_viewer")
+      }
+    `,
+    nodeKey,
+  );
+
   // Relay returns the fragment key as its own nullable property
-  if(node.my_viewer == null) {
+  if (node.my_viewer == null) {
     return null;
   }
-  
+
   // Because `my_viewer` is typed as nullable, Flow/TypeScript will
   // show an error if you try to use the `my_viewer` without first
   // performing a null check.
-  //                          VVVVVVVVVVVVVV 
-  return <MyViewer viewerKey={node.my_viewer} />
+  //                          VVVVVVVVVVVVVV
+  return <MyViewer viewerKey={node.my_viewer} />;
 }
 ```
 
@@ -111,7 +123,7 @@ The following error is being thrown otherwise:
 [ERROR] ✖︎ Assignable fragments should contain only a single, unaliased __typename field with no directives.
 
   src/example-relay/src/Homepage/locations/Location.js:19:16
-   18 │ 
+   18 │
    19 │       fragment Location on Location @assignable {
       │                ^^^^^^^^
    20 │         __typename
@@ -122,18 +134,20 @@ The following error is being thrown otherwise:
 In return the following code is being generated:
 
 ```js
-module.exports.validate = function validate(value/*: {
+module.exports.validate = function validate(
+  value /*: {
   +__id: string,
   +$fragmentSpreads: Location$fragmentType,
   +__typename: string,
   ...
-}*/)/*: {
+}*/,
+) /*: {
   +__id: string,
   +$fragmentSpreads: Location$fragmentType,
   +__typename: "Location",
   ...
 } | false*/ {
-  return value.__typename === 'Location' ? (value/*: any*/) : false;
+  return value.__typename === 'Location' ? (value /*: any*/) : false;
 };
 ```
 
