@@ -18070,6 +18070,8 @@ __metadata:
   dependencies:
     "@docusaurus/core": ^2.4.0
     "@docusaurus/preset-classic": ^2.4.0
+    "@playwright/test": ^1.33.0
+    playwright: ^1.33.0
     react: ^17.0.2
     react-dom: ^17.0.2
   languageName: unknown
