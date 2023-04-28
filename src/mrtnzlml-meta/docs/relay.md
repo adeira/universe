@@ -289,14 +289,14 @@ TKTK
 ```ts
 export type CustomFieldsList_customFields = ReadonlyArray<
   | {
-      readonly __typename: 'CustomFieldAutocomplete';
+      readonly '__typename': 'CustomFieldAutocomplete';
       readonly ' $fragmentRefs': FragmentRefs<'CustomFieldAutocomplete_data'>;
       readonly ' $refType': 'CustomFieldsList_customFields';
     }
   | {
-      readonly __typename: 'CustomFieldDate';
-      readonly date: string;
-      readonly name: string | null;
+      readonly '__typename': 'CustomFieldDate';
+      readonly 'date': string;
+      readonly 'name': string | null;
       readonly ' $fragmentRefs': FragmentRefs<'CustomFieldDate_data'>;
       readonly ' $refType': 'CustomFieldsList_customFields';
     }
