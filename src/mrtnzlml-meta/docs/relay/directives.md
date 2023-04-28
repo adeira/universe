@@ -501,7 +501,7 @@ export type NoteEditorChangeLeadNoteMutationResponse = {
   readonly updateLead:
     | (
         | {
-            readonly __typename: 'Lead';
+            readonly '__typename': 'Lead';
             readonly ' $fragmentRefs': FragmentRefs<'NoteEditor_lead'>;
           }
         | {
@@ -533,7 +533,7 @@ export type NoteEditorChangeLeadNoteMutationResponse = {
   readonly updateLead:
     | (
         | {
-            readonly __typename: 'Lead';
+            readonly '__typename': 'Lead';
             readonly ' $fragmentRefs': FragmentRefs<'NoteEditor_lead'>;
           }
         | {

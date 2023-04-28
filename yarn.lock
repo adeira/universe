@@ -17654,20 +17654,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"meta@workspace:src/mrtnzlml-meta":
-  version: 0.0.0-use.local
-  resolution: "meta@workspace:src/mrtnzlml-meta"
-  dependencies:
-    "@adeira/eslint-config": ^8.2.0
-    "@docusaurus/core": ^2.4.0
-    "@docusaurus/preset-classic": ^2.4.0
-    eslint: ^8.39.0
-    hermes-eslint: ^0.10.1
-    react: ^17.0.2
-    react-dom: ^17.0.2
-  languageName: unknown
-  linkType: soft
-
 "methods@npm:~1.1.2":
   version: 1.1.2
   resolution: "methods@npm:1.1.2"
@@ -18077,6 +18063,17 @@ __metadata:
   checksum: 4ea3296c150b09e798177847f673eb5783f8ca417ba806668d2c631739f653e1a735f19fb9b6e2f5e25ee2e4c0a6224732237a8e4f84c764e99d7462d258209e
   languageName: node
   linkType: hard
+
+"mrtnzlml-meta@workspace:src/mrtnzlml-meta":
+  version: 0.0.0-use.local
+  resolution: "mrtnzlml-meta@workspace:src/mrtnzlml-meta"
+  dependencies:
+    "@docusaurus/core": ^2.4.0
+    "@docusaurus/preset-classic": ^2.4.0
+    react: ^17.0.2
+    react-dom: ^17.0.2
+  languageName: unknown
+  linkType: soft
 
 "ms@npm:2.0.0":
   version: 2.0.0
