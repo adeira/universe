@@ -467,7 +467,7 @@ __metadata:
     playwright: ^1.33.0
     prop-types: ^15.8.1
     react: ^18.2.0
-    react-blurhash: ^0.1.3
+    react-blurhash: ^0.3.0
     react-device-detect: ^2.2.3
     react-dom: ^18.2.0
     react-table: ^7.8.0
@@ -16832,13 +16832,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-blurhash@npm:^0.1.3":
-  version: 0.1.3
-  resolution: "react-blurhash@npm:0.1.3"
+"react-blurhash@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "react-blurhash@npm:0.3.0"
   peerDependencies:
-    blurhash: ^1.1.1
+    blurhash: ^2.0.3
     react: ">=15"
-  checksum: 0a073d8a75ca2d4210eeb871f4d0c1ab2975139fd255aa75b34c4a25143b34c30c70ba9e1f652d6284239dad7c5f81b7905c821dc63ee2cd1d3daef72cd94739
+  checksum: 684d506594004ce1906f4fce7e3773785aaadc6a88b4be800d1ee3580069195fed90585937bf4a328979d3131c8213a55dc12a65353eaaa0472a4b155a7e2f15
   languageName: node
   linkType: hard
 
