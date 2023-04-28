@@ -8,7 +8,7 @@ metadata:
   namespace: default
   labels:
     app.kubernetes.io/name: kube-arangodb
-    helm.sh/chart: kube-arangodb-1.2.26
+    helm.sh/chart: kube-arangodb-1.2.27
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/instance: storage
     release: storage
@@ -20,7 +20,7 @@ metadata:
   name: arangolocalstorages.storage.arangodb.com
   labels:
     app.kubernetes.io/name: kube-arangodb
-    helm.sh/chart: kube-arangodb-1.2.26
+    helm.sh/chart: kube-arangodb-1.2.27
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/instance: storage
     release: storage
@@ -50,7 +50,7 @@ metadata:
   name: arango-storage-operator-rbac-crd
   labels:
     app.kubernetes.io/name: kube-arangodb
-    helm.sh/chart: kube-arangodb-1.2.26
+    helm.sh/chart: kube-arangodb-1.2.27
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/instance: storage
     release: storage
@@ -76,7 +76,7 @@ metadata:
   name: arango-storage-operator-rbac-storage
   labels:
     app.kubernetes.io/name: kube-arangodb
-    helm.sh/chart: kube-arangodb-1.2.26
+    helm.sh/chart: kube-arangodb-1.2.27
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/instance: storage
     release: storage
@@ -104,7 +104,7 @@ metadata:
   name: arango-storage-operator-rbac-crd
   labels:
     app.kubernetes.io/name: kube-arangodb
-    helm.sh/chart: kube-arangodb-1.2.26
+    helm.sh/chart: kube-arangodb-1.2.27
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/instance: storage
     release: storage
@@ -124,7 +124,7 @@ metadata:
   name: arango-storage-operator-rbac-storage
   labels:
     app.kubernetes.io/name: kube-arangodb
-    helm.sh/chart: kube-arangodb-1.2.26
+    helm.sh/chart: kube-arangodb-1.2.27
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/instance: storage
     release: storage
@@ -145,7 +145,7 @@ metadata:
   namespace: default
   labels:
     app.kubernetes.io/name: kube-arangodb
-    helm.sh/chart: kube-arangodb-1.2.26
+    helm.sh/chart: kube-arangodb-1.2.27
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/instance: storage
     release: storage
@@ -171,7 +171,7 @@ metadata:
   namespace: default
   labels:
     app.kubernetes.io/name: kube-arangodb
-    helm.sh/chart: kube-arangodb-1.2.26
+    helm.sh/chart: kube-arangodb-1.2.27
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/instance: storage
     release: storage
@@ -192,7 +192,7 @@ metadata:
   namespace: default
   labels:
     app.kubernetes.io/name: kube-arangodb
-    helm.sh/chart: kube-arangodb-1.2.26
+    helm.sh/chart: kube-arangodb-1.2.27
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/instance: storage
     release: storage
@@ -227,7 +227,7 @@ metadata:
   namespace: default
   labels:
     app.kubernetes.io/name: kube-arangodb
-    helm.sh/chart: kube-arangodb-1.2.26
+    helm.sh/chart: kube-arangodb-1.2.27
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/instance: storage
     release: storage
@@ -245,7 +245,7 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/name: kube-arangodb
-        helm.sh/chart: kube-arangodb-1.2.26
+        helm.sh/chart: kube-arangodb-1.2.27
         app.kubernetes.io/managed-by: Tiller
         app.kubernetes.io/instance: storage
         release: storage
