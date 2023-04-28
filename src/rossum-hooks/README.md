@@ -1,3 +1,7 @@
+This repository contains a collection of hooks (also known as custom functions or extensions) for [Rossum.ai](https://rossum.ai/)
+
+# String Manipulations extension
+
 Allows to perform various string operations on any fields. Supported functions:
 
 - `CONCATENATE` - joins array of sources (inputs) together
@@ -50,7 +54,13 @@ Example configuration:
 
 The transformations are applied sequentially from top to bottom. Alternatively, extensions can be chained via Rossum UI.
 
-## Building for Rossum extension deployment
+# Sync Queues extension
+
+Uses one queue as a source and keeps other queues configuration in sync.
+
+TODO: add more details
+
+# Building for Rossum extension deployment
 
 ```
 yarn workspace @adeira/rossum-hooks build
