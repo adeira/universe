@@ -46,10 +46,6 @@
       matchSourceUrlPrefixes: ['https://github.com/facebook/fbt'],
     },
     {
-      groupName: 'Flow packages (JavaScript)',
-      matchSourceUrlPrefixes: ['https://github.com/facebook/flow'],
-    },
-    {
       groupName: 'Relay packages (JavaScript)',
       matchSourceUrlPrefixes: ['https://github.com/facebook/relay'],
     },
