@@ -15,7 +15,7 @@
   "dependencies": {
     "@adeira/flow-types-eslint": "0.0.0",
     "@adeira/js": "^2.1.1",
-    "@babel/runtime": "^7.21.0",
+    "@babel/runtime": "^7.21.5",
     "eslint": "^8.39.0",
     "hermes-eslint": "^0.10.1",
     "jest-docblock": "^29.4.3"

@@ -18,7 +18,7 @@
   "license": "MIT",
   "dependencies": {
     "@adeira/js": "^2.1.1",
-    "@babel/runtime": "^7.21.0",
+    "@babel/runtime": "^7.21.5",
     "babel-plugin-relay": "^15.0.0",
     "react-relay": "^15.0.0",
     "relay-compiler": "^15.0.0",
