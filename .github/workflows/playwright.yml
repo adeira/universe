@@ -25,6 +25,7 @@ jobs:
           - '@adeira/abacus-kochka'
           - '@adeira/sx-design'
           - '@adeira/typescript-test'
+          - 'mrtnzlml-meta'
         include:
           - repository: '@adeira/abacus-backoffice'
             source: 'src/abacus-backoffice/**'
@@ -46,6 +47,10 @@ jobs:
             source: 'src/typescript-test/**'
             playwrightReportName: 'playwright-report-typescript-test'
             playwrightReportPath: 'src/typescript-test/playwright/test-results/'
+          - repository: 'mrtnzlml-meta'
+            source: 'src/mrtnzlml-meta/**'
+            playwrightReportName: 'playwright-report-mrtnzlml-meta'
+            playwrightReportPath: 'src/mrtnzlml-meta/playwright/test-results/'
 
     runs-on: ubuntu-latest
 
