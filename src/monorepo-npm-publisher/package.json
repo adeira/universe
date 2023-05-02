@@ -28,6 +28,6 @@
     "tar": "^6.1.13"
   },
   "peerDependencies": {
-    "@babel/core": "^7.21.5"
+    "@babel/core": "^7.21.8"
   }
 }
