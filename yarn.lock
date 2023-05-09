@@ -241,8 +241,8 @@ __metadata:
     "@adeira/js": ^2.1.1
     "@babel/runtime": ^7.21.5
     "@svgr/core": ^8.0.0
-    "@svgr/plugin-jsx": ^8.0.0
-    "@svgr/plugin-svgo": ^8.0.0
+    "@svgr/plugin-jsx": ^8.0.1
+    "@svgr/plugin-svgo": ^8.0.1
     change-case: ^4.1.2
     prettier: ^2.8.8
   peerDependencies:
@@ -5598,17 +5598,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@svgr/plugin-jsx@npm:^8.0.0":
-  version: 8.0.0
-  resolution: "@svgr/plugin-jsx@npm:8.0.0"
+"@svgr/plugin-jsx@npm:^8.0.1":
+  version: 8.0.1
+  resolution: "@svgr/plugin-jsx@npm:8.0.1"
   dependencies:
     "@babel/core": ^7.21.3
     "@svgr/babel-preset": 8.0.0
     "@svgr/hast-util-to-babel-ast": 8.0.0
     svg-parser: ^2.0.4
   peerDependencies:
-    "@svgr/core": "workspace:*"
-  checksum: 1446c4919d43029344e23d2c97ea5b49424f39db012053db518464f90253d89ce1fc0418821923fe24eafd6d9a0277f87442772a98b3b0d6197dac525b5251eb
+    "@svgr/core": "*"
+  checksum: c6a0fc3e757e79837cd88f41f18b35594f8c4efe1b87e673514fa7add0912388b7dc79fa2738d629c2f945395ea568fa901c9c5ca5fce827a004c03867c1c482
   languageName: node
   linkType: hard
 
@@ -5625,16 +5625,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@svgr/plugin-svgo@npm:^8.0.0":
-  version: 8.0.0
-  resolution: "@svgr/plugin-svgo@npm:8.0.0"
+"@svgr/plugin-svgo@npm:^8.0.1":
+  version: 8.0.1
+  resolution: "@svgr/plugin-svgo@npm:8.0.1"
   dependencies:
     cosmiconfig: ^8.1.3
     deepmerge: ^4.3.1
     svgo: ^3.0.2
   peerDependencies:
-    "@svgr/core": "workspace:*"
-  checksum: 7a4b63b7e4a307a01b51c97d59bf73652f0be1394c3afa795f728b14b3a1daeaa20dcfce9c5e9e717f1cd08a8c4690b58e9c30a504a046a5f2d9480728af11dc
+    "@svgr/core": "*"
+  checksum: c5008c5dd8467f8f8b3a173462773fc37f2a8fa53989934ea802fc7a9db2147f6fee68736610a117751f2ab94773373e807d21e74db5f93b98040f1479845ec6
   languageName: node
   linkType: hard
 
