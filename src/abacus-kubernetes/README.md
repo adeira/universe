@@ -20,6 +20,13 @@ First, make sure you are in the correct DigitalOcean/local context (`kubectl con
 (cd src/abacus-kubernetes && kubectl apply -f abacus/ --record)
 ```
 
+Note: you might get something like _"error when patching ingress-nginx.yaml: Job.batch "ingress-nginx-admission-patch" is invalid"_ and _"field is immutable"_. Solution is simple, delete the job first ([source](https://github.com/kubernetes/ingress-nginx/issues/5884)) and run the apply again:
+
+```
+kubectl delete job ingress-nginx-admission-create -n ingress-nginx
+kubectl delete job ingress-nginx-admission-patch -n ingress-nginx
+```
+
 # Upgrading ArangoDB
 
 Current server URL: http://arangodb-single-server.default.svc.cluster.local:8529/
