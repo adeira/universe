@@ -48,6 +48,11 @@ jobs:
             projectGlob: './src/abacus-kochka/**'
             projectDockerfile: './src/abacus-kochka/Dockerfile'
             projectImageName: 'adeira/abacus-kochka'
+          - project: mrtnzlml-meta
+            projectPath: './src/mrtnzlml-meta'
+            projectGlob: './src/mrtnzlml-meta/**'
+            projectDockerfile: './src/mrtnzlml-meta/Dockerfile'
+            projectImageName: 'adeira/mrtnzlml-meta'
 
     steps:
       # https://github.com/actions/checkout
