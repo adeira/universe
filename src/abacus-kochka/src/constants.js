@@ -1,5 +1,5 @@
 // @flow strict
 
 export default {
-  graphqlServerURL: 'https://abacus.kochka.com.mx/graphql',
+  graphqlServerURL: 'https://abacus.adeira.io/graphql',
 };

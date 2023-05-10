@@ -48,10 +48,10 @@ export default function AnalyticsRedirectsPage(): Node {
           col2: (
             <Link
               nextLinkComponent={NextLink}
-              href={`https://abacus.kochka.com.mx/redirect/${redirect.uuid}`}
+              href={`https://abacus.adeira.io/redirect/${redirect.uuid}`}
               target="_blank"
             >
-              https://abacus.kochka.com.mx/redirect/{redirect.uuid}
+              https://abacus.adeira.io/redirect/{redirect.uuid}
             </Link>
           ),
           col3: (
