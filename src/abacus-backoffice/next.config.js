@@ -38,7 +38,7 @@ const withSentryConfigPlugin = withSentryConfig(
 const { key: cspKey, value: cspValue } = createContentSecurityPolicy({
   policy: {
     'default-src': 'self',
-    'connect-src': 'https://abacus.kochka.com.mx/graphql',
+    'connect-src': 'https://abacus.adeira.io/graphql',
     'font-src': 'https://rsms.me/inter/font-files/',
     'style-src-elem': 'https://rsms.me/inter/inter.css',
     'report-uri':
