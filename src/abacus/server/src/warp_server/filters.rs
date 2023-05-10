@@ -104,6 +104,7 @@ fn graphql(
             // TODO: apply CORS everywhere
             warp::cors()
                 .allow_origin("http://localhost:5001") // abacus-backoffice (DEV without Telepresence)
+                .allow_origin("https://adeira.io/") // abacus-backoffice (PROD NEW)
                 .allow_origin("https://business.kochka.com.mx/") // abacus-backoffice (PROD)
                 .allow_origin("http://localhost:5002") // abacus-kochka (DEV without Telepresence)
                 .allow_origin("https://kochka.com.mx/") // abacus-kochka (PROD)
