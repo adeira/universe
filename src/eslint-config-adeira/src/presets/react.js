@@ -281,6 +281,10 @@ module.exports = ({
         'testing-library/prefer-find-by': ERROR,
         'testing-library/prefer-presence-queries': ERROR,
         'testing-library/prefer-query-by-disappearance': ERROR,
+        'testing-library/prefer-query-matchers': [
+          ERROR,
+          { validEntries: [{ matcher: 'toBeVisible', query: 'get' }] },
+        ],
         'testing-library/prefer-screen-queries': OFF, // TODO: NEXT_VERSION_ERROR (?)
         'testing-library/prefer-user-event': ERROR,
         'testing-library/prefer-wait-for': ERROR,
