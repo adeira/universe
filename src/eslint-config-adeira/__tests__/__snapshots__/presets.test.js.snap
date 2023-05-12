@@ -903,6 +903,17 @@ exports[`React preset: React preset 1`] = `
         "testing-library/prefer-find-by": 2,
         "testing-library/prefer-presence-queries": 2,
         "testing-library/prefer-query-by-disappearance": 2,
+        "testing-library/prefer-query-matchers": [
+          2,
+          {
+            "validEntries": [
+              {
+                "matcher": "toBeVisible",
+                "query": "get",
+              },
+            ],
+          },
+        ],
         "testing-library/prefer-screen-queries": 0,
         "testing-library/prefer-user-event": 2,
         "testing-library/prefer-wait-for": 2,

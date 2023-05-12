@@ -1,5 +1,7 @@
 # Unreleased
 
+- New rule enabled: [`testing-library/prefer-query-matchers`](https://github.com/testing-library/eslint-plugin-testing-library/blob/f8279d24d813b871c62005f84ba2832be9d455e5/docs/rules/prefer-query-matchers.md)
+
 # 8.2.0
 
 - New rules enabled (warnings or errors in strict mode):
