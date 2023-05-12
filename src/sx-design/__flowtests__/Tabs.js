@@ -63,6 +63,7 @@ export const testInferredTypes = (): Element<typeof Tabs> => {
 
 export const testIncorrectValueType = (): Element<typeof Tabs> => {
   return (
+    // $FlowExpectedError[incompatible-return]: result of all the errors below
     <Tabs
       // $FlowExpectedError[incompatible-type-arg]: void type is not allowed
       selected={undefined}
