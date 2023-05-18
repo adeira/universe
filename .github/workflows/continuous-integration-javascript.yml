@@ -20,7 +20,7 @@ env:
 jobs:
   javascript-test:
     name: JavaScript test
-    runs-on: ubuntu-latest
+    runs-on: macos-13
 
     strategy:
       fail-fast: false
