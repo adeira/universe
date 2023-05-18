@@ -7,11 +7,14 @@ import requireAndValidateConfig from './requireAndValidateConfig';
 import ShipitConfig from './ShipitConfig';
 
 function iterateConfigsInPath(
-  globPattern: string,
+  options: {
+    configFilter: string,
+    configDir: string,
+  },
   rootPath: string,
   callback: (ShipitConfig) => void,
 ): void {
-  const configFiles = globSync(globPattern, {
+  const configFiles = globSync(options.configFilter, {
     root: rootPath,
     ignore: [
       '**/node_modules/**',
@@ -64,8 +67,11 @@ function iterateConfigsInPath(
 }
 
 export default function iterateConfigs(
-  globPattern: string,
+  options: {
+    configFilter: string,
+    configDir: string,
+  },
   callback: (ShipitConfig) => void,
 ): void {
-  iterateConfigsInPath(globPattern, path.join(__dirname, '..', 'config'), callback);
+  iterateConfigsInPath(options, path.join(process.cwd(), options.configDir), callback);
 }
