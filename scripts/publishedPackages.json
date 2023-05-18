@@ -16,6 +16,7 @@
   "@adeira/qr-code-reader",
   "@adeira/react-auth",
   "@adeira/relay",
+  "@adeira/shell-command",
   "@adeira/sx",
   "@adeira/sx-design",
   "@adeira/sx-design-headless",

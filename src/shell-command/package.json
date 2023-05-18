@@ -1,8 +1,18 @@
 {
   "name": "@adeira/shell-command",
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "description": "Friendly child process wrapper for Node.js",
+  "homepage": "https://github.com/adeira/shell-command",
+  "bugs": "https://github.com/adeira/universe/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adeira/universe.git",
+    "directory": "src/shell-command"
+  },
   "main": "./index.js",
-  "license": "UNLICENSED",
-  "private": true,
-  "type": "commonjs"
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "@babel/runtime": "^7.12.5"
+  }
 }
