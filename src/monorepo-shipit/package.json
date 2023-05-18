@@ -4,7 +4,6 @@
   "version": "0.1.0",
   "bin": {
     "monorepo-importit": "bin/importit.js",
-    "monorepo-importit-reversed": "bin/importit-reversed.js",
     "monorepo-shipit": "bin/shipit.js"
   },
   "sideEffects": false,
