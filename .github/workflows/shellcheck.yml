@@ -4,11 +4,13 @@ on:
   merge_group:
     types:
       - checks_requested
-  push:
-    branches-ignore:
-      # We do not run tests on master as the changes were already tested when opening a PR,
-      # and we require every PR to be up-to-date before merging it to master.
-      - master
+  pull_request:
+    # We do not run tests on master as the changes were already tested when opening a PR,
+    # and we require every PR to be up-to-date before merging it to master.
+    types:
+      - opened
+      - synchronize
+      - reopened
 
 jobs:
   shellcheck:
