@@ -17,10 +17,9 @@ export default class RepoGitFake extends RepoGit {
     testRepoPath: string = fs.mkdtempSync(path.join(os.tmpdir(), 'adeira-shipit-tests-')),
   ) {
     new ShellCommand(testRepoPath, 'git', 'init').runSynchronously();
-    const username = 'adeira-shipit-tests';
     for (const [key, value] of Object.entries({
       'user.email': 'shipit-tests@adeira.dev',
-      'user.name': username,
+      'user.name': 'adeira-shipit-tests',
     })) {
       new ShellCommand(
         testRepoPath,
