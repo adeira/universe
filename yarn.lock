@@ -316,7 +316,7 @@ __metadata:
     "@adeira/shell-command": ^0.0.0
     "@babel/register": ^7.21.0
     "@babel/runtime": ^7.21.5
-    glob: ^10.2.4
+    glob: ^10.2.5
     is-ci: ^3.0.1
     semver: ^7.5.1
   bin:
@@ -13199,7 +13199,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:^10.2.4, glob@npm:^10.2.5":
+"glob@npm:^10.2.5":
   version: 10.2.5
   resolution: "glob@npm:10.2.5"
   dependencies:
