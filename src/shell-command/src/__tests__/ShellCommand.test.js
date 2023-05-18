@@ -84,6 +84,7 @@ it('executes the underlying child process correctly -- output to screen', () => 
     signal: null,
     status: 0, // success
   }));
+
   new ShellCommand(
     null,
     'some_command',
@@ -95,6 +96,7 @@ it('executes the underlying child process correctly -- output to screen', () => 
   )
     .setOutputToScreen()
     .runSynchronously();
+
   expect(spy).toHaveBeenCalledWith('some_command', ['-x', '-x', '--abc', 'string'], {
     cwd: expect.any(String),
     input: undefined,
@@ -110,7 +112,9 @@ it('executes the underlying child process correctly -- returns output with stdin
     signal: null,
     status: 0, // success
   }));
+
   new ShellCommand(null, 'some_command').setStdin('custom playload').runSynchronously();
+
   expect(spy).toHaveBeenCalledWith('some_command', [], {
     cwd: expect.any(String),
     input: 'custom playload',
@@ -126,12 +130,14 @@ it('executes the underlying child process correctly -- with environment variable
     signal: null,
     status: 0, // success
   }));
+
   new ShellCommand(null, 'some_command')
-    .setEnvironmentVariables(new Map([['GIT_CONFIG_NOSYSTEM', '1']]))
+    .setEnvironmentVariables({ GIT_CONFIG_NOSYSTEM: '1' })
     .runSynchronously();
+
   expect(spy).toHaveBeenCalledWith('some_command', [], {
     cwd: expect.any(String),
-    env: new Map([['GIT_CONFIG_NOSYSTEM', '1']]),
+    env: { GIT_CONFIG_NOSYSTEM: '1' },
     stdio: ['inherit', 'pipe', 'pipe'],
     maxBuffer: Infinity,
   });

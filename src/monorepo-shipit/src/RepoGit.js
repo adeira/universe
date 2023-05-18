@@ -3,7 +3,7 @@
 import fs from 'fs';
 import path from 'path';
 import { invariant } from '@adeira/js';
-import { ShellCommand, ShellCommandResult } from '@adeira/shell-command';
+import { ShellCommand, ShellCommandResult, type EnvironmentVariables } from '@adeira/shell-command';
 
 import parsePatch from './parsePatch';
 import parsePatchHeader from './parsePatchHeader';
@@ -52,12 +52,20 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
   }
 
   _gitCommand: (...args: $ReadOnlyArray<string>) => ShellCommand = (...args) => {
+    const environmentVariables: EnvironmentVariables = {
+      // https://git-scm.com/docs/git#_environment_variables
+      GIT_CONFIG_NOSYSTEM: '1',
+      GIT_TERMINAL_PROMPT: '0',
+    };
+
+    if (process.env.PATH != null) {
+      // Since we are overwriting the envs we need to set PATH explicitly in order to access Git
+      // from Homebrew in case on macOS (for example).
+      environmentVariables.PATH = process.env.PATH;
+    }
+
     return new ShellCommand(this.#localPath, 'git', '--no-pager', ...args).setEnvironmentVariables(
-      new Map([
-        // https://git-scm.com/docs/git#_environment_variables
-        ['GIT_CONFIG_NOSYSTEM', '1'],
-        ['GIT_TERMINAL_PROMPT', '0'],
-      ]),
+      environmentVariables,
     );
   };
 

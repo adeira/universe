@@ -3,20 +3,30 @@
 import os from 'os';
 import { ShellCommand } from '@adeira/shell-command';
 
+/*::
+
+import type { EnvironmentVariables } from '@adeira/shell-command';
+
+*/
+
 function __parseRows(changes /*: string */) /*: $ReadOnlyArray<string> */ {
   return changes.split(os.EOL).filter((row) => row !== '');
 }
 
 function git(...args /*: $ReadOnlyArray<string> */): string {
   // TODO: unify with Git implementation from Shipit (?)
+  const environmentVariables /*: EnvironmentVariables */ = {
+    // https://git-scm.com/docs/git#_environment_variables
+    GIT_CONFIG_NOSYSTEM: '1',
+    GIT_TERMINAL_PROMPT: '0',
+  };
+
+  if (process.env.PATH != null) {
+    environmentVariables.PATH = process.env.PATH;
+  }
+
   return new ShellCommand(null, 'git', '--no-pager', ...args)
-    .setEnvironmentVariables(
-      new Map([
-        // https://git-scm.com/docs/git#_environment_variables
-        ['GIT_CONFIG_NOSYSTEM', '1'],
-        ['GIT_TERMINAL_PROMPT', '0'],
-      ]),
-    )
+    .setEnvironmentVariables(environmentVariables)
     .runSynchronously()
     .getStdout();
 }

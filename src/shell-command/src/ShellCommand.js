@@ -4,6 +4,8 @@ import nodeChildProcess from 'child_process';
 
 import ShellCommandResult from './ShellCommandResult';
 
+export type EnvironmentVariables = { [string]: string };
+
 /**
  * This is our opinionated wrapper around `child_process` module. It exposes
  * limited API to call underlying system commands securely with proper Flow
@@ -16,7 +18,7 @@ export default class ShellCommand {
   outputToScreen: boolean = false;
   stdin: string;
   throwForNonZeroExit: boolean = true;
-  environmentVariables: Map<string, string>;
+  environmentVariables: EnvironmentVariables;
 
   constructor(cwd: null | string, ...command: $ReadOnlyArray<string>) {
     this.cwd = cwd ?? process.cwd();
@@ -46,7 +48,19 @@ export default class ShellCommand {
     return this;
   }
 
-  setEnvironmentVariables(envs: Map<string, string>): this {
+  // Gotcha: this method will override PATH behavior. Here is how Node.js documentation explains it:
+  //
+  // "The command lookup is performed using the options.env.PATH environment variable if env is in
+  // the options object. Otherwise, process.env.PATH is used. If options.env is set without PATH,
+  // lookup on Unix is performed on a default search path search of /usr/bin:/bin (see your
+  // operating system's manual for execvpe/execvp), on Windows the current processes environment
+  // variable PATH is used."
+  //
+  // In other words, if you use this method and do not set the PATH explicitly, then the PATH
+  // behavior will be very simplified (/usr/bin).
+  //
+  // See: https://nodejs.org/api/child_process.html
+  setEnvironmentVariables(envs: EnvironmentVariables): this {
     this.environmentVariables = envs;
     return this;
   }
