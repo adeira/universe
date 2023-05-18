@@ -11,6 +11,7 @@
   "@adeira/icons",
   "@adeira/js",
   "@adeira/monorepo-npm-publisher",
+  "@adeira/monorepo-shipit",
   "@adeira/monorepo-utils",
   "@adeira/murmur-hash",
   "@adeira/qr-code-reader",
