@@ -13,7 +13,7 @@
     "@adeira/fixtures-tester": "^1.1.1",
     "@adeira/js": "^2.1.1",
     "@adeira/monorepo-utils": "^0.11.0",
-    "@adeira/shell-command": "^0.0.0",
+    "@adeira/shell-command": "^0.1.0",
     "chalk": "^4.1.2",
     "command-line-args": "^5.2.1",
     "fast-levenshtein": "^3.0.0"
