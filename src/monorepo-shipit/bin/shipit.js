@@ -4,6 +4,7 @@
 
 import chalk from 'chalk';
 import commandLineArgs from 'command-line-args';
+import { invariant } from '@adeira/js';
 
 import iterateConfigs from '../src/iterateConfigs';
 import createClonePhase from '../src/phases/createClonePhase';
@@ -15,19 +16,41 @@ import createPushPhase from '../src/phases/createPushPhase';
 import type { Phase } from '../types.flow';
 
 // yarn monorepo-babel-node src/monorepo-shipit/bin/shipit.js
-// yarn monorepo-babel-node src/monorepo-shipit/bin/shipit.js --glob-pattern="/abacus.js"
+// yarn monorepo-babel-node src/monorepo-shipit/bin/shipit.js --config-filter="/abacus.js"
 
-const options = commandLineArgs([
-  {
-    // This option allows us to grep subset of config files. Especially useful when running the
-    // Shipit binary locally for testing purposes.
-    name: 'glob-pattern',
-    type: String,
-    defaultValue: '/*.js',
-  },
-]);
+const options = commandLineArgs(
+  [
+    {
+      // This option allows us to grep subset of config files. Especially useful when running the
+      // Shipit binary locally for testing purposes.
+      name: 'config-filter',
+      type: String,
+      defaultValue: '/*.js',
+    },
+    {
+      name: 'config-dir',
+      type: String,
+      defaultValue: './.shipit',
+    },
+    {
+      name: 'committer-name',
+      type: String,
+    },
+    {
+      name: 'committer-email',
+      type: String,
+    },
+  ],
+  { camelCase: true },
+);
 
-iterateConfigs(options['glob-pattern'], (config) => {
+invariant(options.committerName, 'committer-name is required');
+invariant(options.committerEmail, 'committer-email is required');
+
+process.env.SHIPIT_COMMITTER_EMAIL = options.committerName;
+process.env.SHIPIT_COMMITTER_NAME = options.committerEmail;
+
+iterateConfigs(options, (config) => {
   new Set<Phase>([
     createClonePhase(config.exportedRepoURL, config.destinationPath),
     createCheckCorruptedRepoPhase(config.destinationPath),
