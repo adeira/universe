@@ -5,7 +5,6 @@ import os from 'os';
 import path from 'path';
 import { ShellCommand } from '@adeira/shell-command';
 
-import accounts from './accounts';
 import RepoGit from './RepoGit';
 
 /* $FlowFixMe[incompatible-extend] This comment suppresses an error when
@@ -20,7 +19,7 @@ export default class RepoGitFake extends RepoGit {
     new ShellCommand(testRepoPath, 'git', 'init').runSynchronously();
     const username = 'adeira-shipit-tests';
     for (const [key, value] of Object.entries({
-      'user.email': accounts.get(username),
+      'user.email': 'shipit-tests@adeira.dev',
       'user.name': username,
     })) {
       new ShellCommand(

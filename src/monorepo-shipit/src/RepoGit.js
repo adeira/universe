@@ -9,7 +9,6 @@ import parsePatch from './parsePatch';
 import parsePatchHeader from './parsePatchHeader';
 import splitHead from './splitHead';
 import Changeset, { type Diff } from './Changeset';
-import accounts from './accounts';
 
 /**
  * This is our monorepo part - source of exports.
@@ -74,10 +73,9 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
   };
 
   configure: () => void = () => {
-    const username = 'adeira-github-bot';
     for (const [key, value] of Object.entries({
-      'user.email': accounts.get(username),
-      'user.name': username,
+      'user.email': process.env.SHIPIT_COMMITTER_EMAIL,
+      'user.name': process.env.SHIPIT_COMMITTER_NAME,
     })) {
       // $FlowIssue[incompatible-call]: https://github.com/facebook/flow/issues/2174
       this._gitCommand('config', key, value).runSynchronously();
