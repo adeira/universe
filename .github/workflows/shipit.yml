@@ -35,4 +35,4 @@ jobs:
           ssh-keyscan -H 'github.com' >> ~/.ssh/known_hosts
 
       - name: Run Shipit
-        run: yarn monorepo-babel-node src/monorepo-shipit/bin/shipit.js
+        run: yarn monorepo-babel-node src/monorepo-shipit/bin/shipit.js --config-dir src/monorepo-shipit/config --committer-name adeira-github-bot --committer-email mrtnzlml+adeira-github-bot@gmail.com
