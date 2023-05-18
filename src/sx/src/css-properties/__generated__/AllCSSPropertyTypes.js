@@ -252,7 +252,6 @@ export type AllCSSPropertyTypes = {
   +clip?: number | string, // https://developer.mozilla.org/docs/Web/CSS/clip
   +clipPath?: number | string, // https://developer.mozilla.org/docs/Web/CSS/clip-path
   +color?: string, // https://developer.mozilla.org/docs/Web/CSS/color
-  +printColorAdjust?: 'economy' | 'exact' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/print-color-adjust
   +colorScheme?: number | string, // https://developer.mozilla.org/docs/Web/CSS/color-scheme
   +columnCount?: number | 'auto' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/column-count
   +columnFill?: 'auto' | 'balance' | 'balance-all' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/column-fill
@@ -270,6 +269,9 @@ export type AllCSSPropertyTypes = {
   +containIntrinsicHeight?: number | string, // https://developer.mozilla.org/docs/Web/CSS/contain-intrinsic-height
   +containIntrinsicInlineSize?: number | string, // https://developer.mozilla.org/docs/Web/CSS/contain-intrinsic-inline-size
   +containIntrinsicWidth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/contain-intrinsic-width
+  +container?: number | string, // https://developer.mozilla.org/docs/Web/CSS/container
+  +containerName?: number | string, // https://developer.mozilla.org/docs/Web/CSS/container-name
+  +containerType?: 'normal' | 'size' | 'inline-size' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/container-type
   +content?: number | string, // https://developer.mozilla.org/docs/Web/CSS/content
   +contentVisibility?: 'visible' | 'auto' | 'hidden' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/content-visibility
   +counterIncrement?: number | string, // https://developer.mozilla.org/docs/Web/CSS/counter-increment
@@ -309,6 +311,7 @@ export type AllCSSPropertyTypes = {
   +fontKerning?: 'auto' | 'normal' | 'none' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/font-kerning
   +fontLanguageOverride?: string, // https://developer.mozilla.org/docs/Web/CSS/font-language-override
   +fontOpticalSizing?: 'auto' | 'none' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/font-optical-sizing
+  +fontPalette?: number | string,
   +fontVariationSettings?: string | number, // https://developer.mozilla.org/docs/Web/CSS/font-variation-settings
   +fontSize?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-size
   +fontSizeAdjust?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-size-adjust
@@ -329,6 +332,7 @@ export type AllCSSPropertyTypes = {
     | 'initial'
     | 'unset',
   +fontVariantEastAsian?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-variant-east-asian
+  +fontVariantEmoji?: 'normal' | 'text' | 'emoji' | 'unicode' | 'inherit' | 'initial' | 'unset',
   +fontVariantLigatures?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-variant-ligatures
   +fontVariantNumeric?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-variant-numeric
   +fontVariantPosition?: 'normal' | 'sub' | 'super' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/font-variant-position
@@ -526,6 +530,7 @@ export type AllCSSPropertyTypes = {
   +paddingLeft?: number | string, // https://developer.mozilla.org/docs/Web/CSS/padding-left
   +paddingRight?: number | string, // https://developer.mozilla.org/docs/Web/CSS/padding-right
   +paddingTop?: number | string, // https://developer.mozilla.org/docs/Web/CSS/padding-top
+  +page?: number | string, // https://developer.mozilla.org/docs/Web/CSS/page
   +pageBreakAfter?:  // https://developer.mozilla.org/docs/Web/CSS/page-break-after
     | 'auto'
     | 'always'
@@ -578,6 +583,7 @@ export type AllCSSPropertyTypes = {
     | 'inherit'
     | 'initial'
     | 'unset',
+  +printColorAdjust?: 'economy' | 'exact' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/print-color-adjust
   +quotes?: number | string, // https://developer.mozilla.org/docs/Web/CSS/quotes
   +resize?:  // https://developer.mozilla.org/docs/Web/CSS/resize
     | 'none'
@@ -747,6 +753,7 @@ export type AllCSSPropertyTypes = {
     | 'unset',
   +userSelect?: 'auto' | 'text' | 'none' | 'contain' | 'all' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/user-select
   +verticalAlign?: string | number, // https://developer.mozilla.org/docs/Web/CSS/vertical-align
+  +viewTransitionName?: number | string, // https://developer.mozilla.org/docs/Web/CSS/view-transition-name
   +visibility?: 'visible' | 'hidden' | 'collapse' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/visibility
   +whiteSpace?:  // https://developer.mozilla.org/docs/Web/CSS/white-space
     | 'normal'

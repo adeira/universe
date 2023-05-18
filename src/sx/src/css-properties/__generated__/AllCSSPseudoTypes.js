@@ -83,4 +83,9 @@ export type AllCSSPseudoTypes = {
   +'::selection'?: AllCSSPropertyTypes, // https://developer.mozilla.org/docs/Web/CSS/::selection
   +'::slotted'?: AllCSSPropertyTypes, // https://developer.mozilla.org/docs/Web/CSS/::slotted
   +'::spelling-error'?: AllCSSPropertyTypes, // https://developer.mozilla.org/docs/Web/CSS/::spelling-error
+  +'::view-transition'?: AllCSSPropertyTypes, // https://developer.mozilla.org/docs/Web/CSS/::view-transition
+  +'::view-transition-group'?: AllCSSPropertyTypes, // https://developer.mozilla.org/docs/Web/CSS/::view-transition-group
+  +'::view-transition-image-pair'?: AllCSSPropertyTypes, // https://developer.mozilla.org/docs/Web/CSS/::view-transition-image-pair
+  +'::view-transition-new'?: AllCSSPropertyTypes, // https://developer.mozilla.org/docs/Web/CSS/::view-transition-new
+  +'::view-transition-old'?: AllCSSPropertyTypes, // https://developer.mozilla.org/docs/Web/CSS/::view-transition-old
 };
