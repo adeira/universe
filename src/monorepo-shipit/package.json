@@ -1,8 +1,7 @@
 {
   "name": "@adeira/monorepo-shipit",
-  "private": true,
   "license": "MIT",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "bin": {
     "monorepo-importit": "bin/importit.js",
     "monorepo-importit-reversed": "bin/importit-reversed.js",
@@ -14,6 +13,7 @@
     "@adeira/js": "^2.1.1",
     "@adeira/monorepo-utils": "^0.11.0",
     "@adeira/shell-command": "^0.1.0",
+    "@babel/runtime": "^7.21.5",
     "chalk": "^4.1.2",
     "command-line-args": "^5.2.1",
     "fast-levenshtein": "^3.0.0"
