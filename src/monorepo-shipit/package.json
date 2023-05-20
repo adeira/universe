@@ -1,7 +1,16 @@
 {
   "name": "@adeira/monorepo-shipit",
+  "description": "Monorepo → many repos (Git) exporter.",
+  "homepage": "https://github.com/adeira/monorepo-shipit",
+  "bugs": "https://github.com/adeira/universe/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adeira/universe.git",
+    "directory": "src/monorepo-shipit"
+  },
   "license": "MIT",
   "version": "0.1.0",
+  "type": "commonjs",
   "bin": {
     "monorepo-importit": "bin/importit.js",
     "monorepo-shipit": "bin/shipit.js"
