@@ -1,7 +1,5 @@
 Monorepo Shipit takes care of exporting and importing our projects from GitHub monorepo into any other Git repository. It can export even from our monorepo to another monorepo. In theory, it can export even to different VCS, not just Git. We use it open-source some of our code to our [Adeira](https://github.com/adeira) GitHub organization.
 
-_Are you interested in using Shipit for your own monorepo? Get in touch and we can discuss necessary changes._
-
 - [Shipit part](#shipit-part)
   - [Configuration](#configuration)
   - [Filters](#filters)
@@ -16,7 +14,18 @@ _Are you interested in using Shipit for your own monorepo? Get in touch and we c
 
 # Shipit part
 
-Shipit part is responsible for exporting code from our monorepo somewhere else.
+Shipit part is responsible for exporting code from a monorepo to somewhere else.
+
+```
+npx @adeira/monorepo-shipit
+```
+
+| Option                    | Description                                                            | Default value |
+| ------------------------- | ---------------------------------------------------------------------- | ------------- |
+| --committer-name <name>   | Name to use for the commit, usually a bot account.                     |               |
+| --committer-email <email> | Email to use for the commit, usually a bot account.                    |               |
+| --config-filter           | Filters the configs to only run a subset, useful for testing purposes. | `"./*.js`     |
+| --config-dir              | Directory to look for the shipit configs.                              | `"./.shipit"` |
 
 Here is how it works. First, we try to extract relevant commits of each project we want to export. Each commit is converted into so called _changeset_ which is an immutable structure representing one commit and doesn't depend on Git or any other VCS. Each changeset can contain many diffs describing changes in each individual file.
 
