@@ -100,7 +100,7 @@ __metadata:
   resolution: "@adeira/babel-preset-adeira@workspace:src/babel-preset-adeira"
   dependencies:
     "@adeira/fixtures-tester": ^1.1.1
-    "@adeira/monorepo-utils": ^0.12.0
+    "@adeira/monorepo-utils": ^0.11.0
     "@babel/plugin-proposal-throw-expressions": ^7.18.6
     "@babel/plugin-transform-flow-strip-types": ^7.21.0
     "@babel/plugin-transform-runtime": ^7.21.4
@@ -258,12 +258,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@adeira/js@npm:^1.3.0":
+  version: 1.3.0
+  resolution: "@adeira/js@npm:1.3.0"
+  dependencies:
+    "@babel/runtime": ^7.12.1
+  checksum: 5690a41606ef7e8013e4bc7390d48cf3ada771addcbae45a2b1fb7cbf4c1c40cfe3cec5f92f3e5c9b4a1be325e6f6c399c2ef7101c28ef291c49c0727ec53ffa
+  languageName: node
+  linkType: hard
+
 "@adeira/monorepo-npm-publisher@^2.0.0, @adeira/monorepo-npm-publisher@workspace:src/monorepo-npm-publisher":
   version: 0.0.0-use.local
   resolution: "@adeira/monorepo-npm-publisher@workspace:src/monorepo-npm-publisher"
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
-    "@adeira/monorepo-utils": ^0.12.0
+    "@adeira/monorepo-utils": ^0.11.0
     "@babel/runtime": ^7.21.5
     "@npmcli/arborist": ^6.2.9
     chalk: ^4.1.2
@@ -285,7 +294,7 @@ __metadata:
   dependencies:
     "@adeira/fixtures-tester": ^1.1.1
     "@adeira/js": ^2.1.1
-    "@adeira/monorepo-utils": ^0.12.0
+    "@adeira/monorepo-utils": ^0.11.0
     semver: ^7.5.1
   languageName: unknown
   linkType: soft
@@ -296,7 +305,7 @@ __metadata:
   dependencies:
     "@adeira/fixtures-tester": ^1.1.1
     "@adeira/js": ^2.1.1
-    "@adeira/monorepo-utils": ^0.12.0
+    "@adeira/monorepo-utils": ^0.11.0
     "@adeira/shell-command": ^0.1.0
     "@babel/runtime": ^7.21.5
     chalk: ^4.1.2
@@ -308,7 +317,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/monorepo-utils@^0.12.0, @adeira/monorepo-utils@workspace:src/monorepo-utils":
+"@adeira/monorepo-utils@npm:^0.11.0":
+  version: 0.11.0
+  resolution: "@adeira/monorepo-utils@npm:0.11.0"
+  dependencies:
+    "@adeira/js": ^1.3.0
+    "@babel/register": ^7.12.10
+    "@babel/runtime": ^7.12.5
+    glob: ^7.1.6
+    is-ci: ^2.0.0
+  bin:
+    monorepo-babel-node: bin/monorepo-babel-node.js
+    monorepo-run-tests: bin/monorepo-run-tests.js
+  checksum: 0149da6f30c829e17c77f2a867f4a036698a4dd42ef635b012b782014894f34ab7a36181f499033538e191dcfc108dc614f28e013e59d8e7a7702ee3ec200fc3
+  languageName: node
+  linkType: hard
+
+"@adeira/monorepo-utils@workspace:src/monorepo-utils":
   version: 0.0.0-use.local
   resolution: "@adeira/monorepo-utils@workspace:src/monorepo-utils"
   dependencies:
@@ -544,7 +569,7 @@ __metadata:
   dependencies:
     "@adeira/js": ^2.1.1
     "@adeira/monorepo-npm-publisher": ^2.0.0
-    "@adeira/monorepo-utils": ^0.12.0
+    "@adeira/monorepo-utils": ^0.11.0
     chalk: ^4.1.2
   languageName: unknown
   linkType: soft
@@ -2306,7 +2331,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/register@npm:^7.0.0, @babel/register@npm:^7.12.1, @babel/register@npm:^7.21.0":
+"@babel/register@npm:^7.0.0, @babel/register@npm:^7.12.1, @babel/register@npm:^7.12.10, @babel/register@npm:^7.21.0":
   version: 7.21.0
   resolution: "@babel/register@npm:7.21.0"
   dependencies:
@@ -2338,7 +2363,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.10.3, @babel/runtime@npm:^7.12.13, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.18.6, @babel/runtime@npm:^7.20.13, @babel/runtime@npm:^7.20.7, @babel/runtime@npm:^7.21.5, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.10.3, @babel/runtime@npm:^7.12.1, @babel/runtime@npm:^7.12.13, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.18.6, @babel/runtime@npm:^7.20.13, @babel/runtime@npm:^7.20.7, @babel/runtime@npm:^7.21.5, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.21.5
   resolution: "@babel/runtime@npm:7.21.5"
   dependencies:
@@ -21087,7 +21112,7 @@ __metadata:
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
     "@adeira/eslint-config": ^8.2.0
-    "@adeira/monorepo-utils": ^0.12.0
+    "@adeira/monorepo-utils": ^0.11.0
     "@babel/cli": ^7.21.5
     "@babel/core": ^7.21.8
     babel-jest: ^29.5.0
