@@ -100,7 +100,7 @@ __metadata:
   resolution: "@adeira/babel-preset-adeira@workspace:src/babel-preset-adeira"
   dependencies:
     "@adeira/fixtures-tester": ^1.1.1
-    "@adeira/monorepo-utils": ^0.11.0
+    "@adeira/monorepo-utils": ^0.12.0
     "@babel/plugin-proposal-throw-expressions": ^7.18.6
     "@babel/plugin-transform-flow-strip-types": ^7.21.0
     "@babel/plugin-transform-runtime": ^7.21.4
@@ -263,7 +263,7 @@ __metadata:
   resolution: "@adeira/monorepo-npm-publisher@workspace:src/monorepo-npm-publisher"
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
-    "@adeira/monorepo-utils": ^0.11.0
+    "@adeira/monorepo-utils": ^0.12.0
     "@babel/runtime": ^7.21.5
     "@npmcli/arborist": ^6.2.9
     chalk: ^4.1.2
@@ -285,7 +285,7 @@ __metadata:
   dependencies:
     "@adeira/fixtures-tester": ^1.1.1
     "@adeira/js": ^2.1.1
-    "@adeira/monorepo-utils": ^0.11.0
+    "@adeira/monorepo-utils": ^0.12.0
     semver: ^7.5.1
   languageName: unknown
   linkType: soft
@@ -296,7 +296,7 @@ __metadata:
   dependencies:
     "@adeira/fixtures-tester": ^1.1.1
     "@adeira/js": ^2.1.1
-    "@adeira/monorepo-utils": ^0.11.0
+    "@adeira/monorepo-utils": ^0.12.0
     "@adeira/shell-command": ^0.1.0
     "@babel/runtime": ^7.21.5
     chalk: ^4.1.2
@@ -308,7 +308,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/monorepo-utils@^0.11.0, @adeira/monorepo-utils@workspace:src/monorepo-utils":
+"@adeira/monorepo-utils@^0.12.0, @adeira/monorepo-utils@workspace:src/monorepo-utils":
   version: 0.0.0-use.local
   resolution: "@adeira/monorepo-utils@workspace:src/monorepo-utils"
   dependencies:
@@ -544,7 +544,7 @@ __metadata:
   dependencies:
     "@adeira/js": ^2.1.1
     "@adeira/monorepo-npm-publisher": ^2.0.0
-    "@adeira/monorepo-utils": ^0.11.0
+    "@adeira/monorepo-utils": ^0.12.0
     chalk: ^4.1.2
   languageName: unknown
   linkType: soft
@@ -21087,7 +21087,7 @@ __metadata:
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
     "@adeira/eslint-config": ^8.2.0
-    "@adeira/monorepo-utils": ^0.11.0
+    "@adeira/monorepo-utils": ^0.12.0
     "@babel/cli": ^7.21.5
     "@babel/core": ^7.21.8
     babel-jest: ^29.5.0
