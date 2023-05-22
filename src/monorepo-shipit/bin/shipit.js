@@ -47,8 +47,8 @@ const options = commandLineArgs(
 invariant(options.committerName, 'committer-name is required');
 invariant(options.committerEmail, 'committer-email is required');
 
-process.env.SHIPIT_COMMITTER_EMAIL = options.committerName;
-process.env.SHIPIT_COMMITTER_NAME = options.committerEmail;
+process.env.SHIPIT_COMMITTER_EMAIL = options.committerEmail;
+process.env.SHIPIT_COMMITTER_NAME = options.committerName;
 
 iterateConfigs(options, (config) => {
   new Set<Phase>([
