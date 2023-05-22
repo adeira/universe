@@ -6,11 +6,14 @@ import { findMonorepoRoot, globSync } from '@adeira/monorepo-utils';
 import requireAndValidateConfig from './requireAndValidateConfig';
 import ShipitConfig from './ShipitConfig';
 
+type IterateConfig = {
+  +configFilter: string,
+  +configDir: string,
+  ...
+};
+
 function iterateConfigsInPath(
-  options: {
-    configFilter: string,
-    configDir: string,
-  },
+  options: IterateConfig,
   rootPath: string,
   callback: (ShipitConfig) => void,
 ): void {
@@ -67,10 +70,7 @@ function iterateConfigsInPath(
 }
 
 export default function iterateConfigs(
-  options: {
-    configFilter: string,
-    configDir: string,
-  },
+  options: IterateConfig,
   callback: (ShipitConfig) => void,
 ): void {
   iterateConfigsInPath(options, path.join(process.cwd(), options.configDir), callback);
