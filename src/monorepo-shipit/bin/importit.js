@@ -17,7 +17,16 @@ import type { Phase } from '../types.flow';
 
 const gitRegex = /^git@github.com:(?<packageName>.+)\.git$/;
 
-const options = commandLineArgs(
+type ImportitCLIType = {
+  +configFilter: string,
+  +configDir: string,
+  +committerName?: string,
+  +committerEmail?: string,
+  +pullRequestId?: string,
+  +repoUrl?: string,
+};
+
+const options: ImportitCLIType = commandLineArgs(
   [
     {
       name: 'config-filter',
@@ -39,43 +48,44 @@ const options = commandLineArgs(
     },
     {
       name: 'pull-request-id',
-      type: Number,
+      type: String,
     },
     {
       name: 'repo-url',
-      type: Number,
+      type: String,
     },
   ],
   { camelCase: true },
 );
 
-invariant(options.committerName, 'committer-name is required');
-invariant(options.committerEmail, 'committer-email is required');
-invariant(options.repoUrl, 'repo-url is required');
-invariant(options.pullRequestId, 'pull-request-id is required');
+const argPullRequestId = options.pullRequestId;
+const argRepoUrl = options.repoUrl;
+
+invariant(options.committerName != null, 'committer-name is required');
+invariant(options.committerEmail != null, 'committer-email is required');
+invariant(argRepoUrl != null, 'repo-url is required');
+invariant(argPullRequestId != null, 'pull-request-id is required');
 
 process.env.SHIPIT_COMMITTER_EMAIL = options.committerEmail;
 process.env.SHIPIT_COMMITTER_NAME = options.committerName;
 
 invariant(
-  gitRegex.test(options.repoUrl),
+  gitRegex.test(argRepoUrl),
   'We currently support imports only from GitHub.com - please open an issue to add additional services.',
 );
 
-const match = options.repoUrl.match(gitRegex);
+const match = argRepoUrl.match(gitRegex);
 const packageName = match?.groups?.packageName;
 
-invariant(packageName != null, 'Cannot figure out package name from: %s', options.repoUrl);
+invariant(packageName != null, 'Cannot figure out package name from: %s', argRepoUrl);
 
 iterateConfigs(options, (config) => {
-  if (config.exportedRepoURL === options.repoUrl) {
+  if (config.exportedRepoURL === argRepoUrl) {
     new Set<Phase>([
       createClonePhase(config.exportedRepoURL, config.destinationPath),
       createCheckCorruptedRepoPhase(config.destinationPath),
       createCleanPhase(config.destinationPath),
-      createImportSyncPhase(config, packageName, options.pullRequestId),
+      createImportSyncPhase(config, packageName, argPullRequestId),
     ]).forEach((phase) => phase());
   }
 });
-
-// TODO: make it better

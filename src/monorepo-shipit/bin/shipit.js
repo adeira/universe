@@ -18,7 +18,14 @@ import type { Phase } from '../types.flow';
 // yarn monorepo-babel-node src/monorepo-shipit/bin/shipit.js
 // yarn monorepo-babel-node src/monorepo-shipit/bin/shipit.js --config-filter="/abacus.js"
 
-const options = commandLineArgs(
+type ShipitCLIType = {
+  +configFilter: string,
+  +configDir: string,
+  +committerName?: string,
+  +committerEmail?: string,
+};
+
+const options: ShipitCLIType = commandLineArgs(
   [
     {
       // This option allows us to grep subset of config files. Especially useful when running the
@@ -44,8 +51,8 @@ const options = commandLineArgs(
   { camelCase: true },
 );
 
-invariant(options.committerName, 'committer-name is required');
-invariant(options.committerEmail, 'committer-email is required');
+invariant(options.committerName != null, 'committer-name is required');
+invariant(options.committerEmail != null, 'committer-email is required');
 
 process.env.SHIPIT_COMMITTER_EMAIL = options.committerEmail;
 process.env.SHIPIT_COMMITTER_NAME = options.committerName;
