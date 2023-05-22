@@ -54,8 +54,8 @@ invariant(options.committerEmail, 'committer-email is required');
 invariant(options.repoUrl, 'repo-url is required');
 invariant(options.pullRequestId, 'pull-request-id is required');
 
-process.env.SHIPIT_COMMITTER_EMAIL = options.committerName;
-process.env.SHIPIT_COMMITTER_NAME = options.committerEmail;
+process.env.SHIPIT_COMMITTER_EMAIL = options.committerEmail;
+process.env.SHIPIT_COMMITTER_NAME = options.committerName;
 
 invariant(
   gitRegex.test(options.repoUrl),
