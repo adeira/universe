@@ -82,7 +82,7 @@ export default function createVerifyRepoPhase(config: ShipitConfig): Phase {
       'diff',
       '--stat',
       'HEAD',
-      'shipit_destination/master',
+      `shipit_destination/${config.getDestinationBranch()}`,
     )
       .runSynchronously()
       .getStdout()
@@ -96,7 +96,7 @@ export default function createVerifyRepoPhase(config: ShipitConfig): Phase {
         '--full-index',
         '--binary',
         '--no-color',
-        'shipit_destination/master',
+        `shipit_destination/${config.getDestinationBranch()}`,
         'HEAD',
       )
         .runSynchronously()
