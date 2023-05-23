@@ -10,6 +10,7 @@ jobs:
   weekly-cargo:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         manifest:
           - 'src/abacus/Cargo.toml'
