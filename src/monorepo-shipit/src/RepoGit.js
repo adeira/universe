@@ -19,6 +19,7 @@ export interface SourceRepo {
     baseRevision: string,
     headRevision: string,
     roots: Set<string>,
+    includeBaseRevision?: boolean,
   ): null | $ReadOnlyArray<string>;
   getChangesetFromID(revision: string): Changeset;
   getNativePatchFromID(revision: string): string;
@@ -213,7 +214,8 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
     baseRevision: string,
     headRevision: string,
     roots: Set<string>,
-  ) => null | $ReadOnlyArray<string> = (baseRevision, headRevision, roots) => {
+    includeBaseRevision?: boolean,
+  ) => null | $ReadOnlyArray<string> = (baseRevision, headRevision, roots, includeBaseRevision) => {
     const log = this._gitCommand(
       'log',
       '--reverse',
@@ -227,7 +229,17 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
       .runSynchronously()
       .getStdout();
     const trimmedLog = log.trim();
-    return trimmedLog === '' ? null : trimmedLog.split('\n');
+    if (trimmedLog === '') {
+      return null;
+    }
+
+    const descendants = trimmedLog.split('\n');
+
+    if (includeBaseRevision === true) {
+      descendants.unshift(baseRevision);
+    }
+
+    return descendants;
   };
 
   commitPatch: (changeset: Changeset) => string = (changeset) => {

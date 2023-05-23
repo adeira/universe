@@ -18,16 +18,20 @@ export default function createSyncPhase(config: ShipitConfig): Phase {
     const destinationRepo = _getDestinationRepo();
     const sourceRepo = _getSourceRepo();
     let initialRevision = destinationRepo.findLastSourceCommit(config.getDestinationRoots());
+    let isNewRepo = false;
     if (initialRevision === null) {
       // Seems like it's a new repo so there is no signed commit.
       // Let's take the first one from our source repo instead.
       initialRevision = sourceRepo.findFirstAvailableCommit();
+      isNewRepo = true;
     }
+
     const sourceChangesets = new Set<Changeset>();
     const descendantsPath = sourceRepo.findDescendantsPath(
       initialRevision,
       config.getSourceBranch(),
       config.getSourceRoots(),
+      isNewRepo,
     );
     if (descendantsPath !== null) {
       descendantsPath.forEach((revision) => {
