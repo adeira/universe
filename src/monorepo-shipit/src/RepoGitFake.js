@@ -54,6 +54,13 @@ export default class RepoGitFake extends RepoGit {
     return this.#testRepoPath;
   }
 
+  printTimestamps(): string {
+    return this._gitCommand('log', '--stat', '--pretty=format:AUTHOR:%aD%nCOMMIT:%cD%n')
+      .runSynchronously()
+      .getStdout()
+      .trim();
+  }
+
   printFakeRepoHistory(): string {
     return this._gitCommand('log', '--stat', '--pretty=format:SUBJ: %s%nDESC: %b')
       .runSynchronously()
