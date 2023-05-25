@@ -16,6 +16,7 @@ it('adds tracking data', () => {
       "coAuthorLines": [],
       "debugMessages": [],
       "description": "Commit description",
+      "descriptionTransformer": [Function],
       "id": "MOCK_COMMIT_ID",
       "subject": "Commit subject",
     }
@@ -31,6 +32,7 @@ it('adds tracking data', () => {
       "description": "Commit description
 
     adeira-source-id: MOCK_COMMIT_ID",
+      "descriptionTransformer": [Function],
       "id": "MOCK_COMMIT_ID",
       "subject": "Commit subject",
     }
@@ -57,6 +59,7 @@ it('adds tracking data with Co-authored-by line', () => {
       ],
       "debugMessages": [],
       "description": "Commit description",
+      "descriptionTransformer": [Function],
       "id": "MOCK_COMMIT_ID",
       "subject": "Commit subject",
     }
@@ -78,6 +81,7 @@ it('adds tracking data with Co-authored-by line', () => {
 
     Co-authored-by: Trond Bergquist <trond_bergquist@hotmail.com>
     Co-authored-by: Patricia Bergquist <patricia_bergquist@hotmail.com>",
+      "descriptionTransformer": [Function],
       "id": "MOCK_COMMIT_ID",
       "subject": "Commit subject",
     }

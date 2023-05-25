@@ -15,6 +15,7 @@ it('strips commit descriptions correctly', () => {
       "coAuthorLines": [],
       "debugMessages": [],
       "description": "This description should be stripped.",
+      "descriptionTransformer": [Function],
       "subject": "Commit subject",
     }
   `);
@@ -25,6 +26,7 @@ it('strips commit descriptions correctly', () => {
       "coAuthorLines": [],
       "debugMessages": [],
       "description": "",
+      "descriptionTransformer": [Function],
       "subject": "Commit subject",
     }
   `);

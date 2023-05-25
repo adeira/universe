@@ -10,6 +10,7 @@ Changeset {
   "description": "Test description
 
 adeira-source-id: 1234567890",
+  "descriptionTransformer": [Function],
   "diffs": Set {
     {
       "body": "new file mode 100644
@@ -52,6 +53,7 @@ adeira-source-id: 1234567890
 
 Co-authored-by: Trond Bergquist <trond_bergquist@hotmail.com>
 Co-authored-by: Patricia Bergquist <patricia_bergquist@hotmail.com>",
+  "descriptionTransformer": [Function],
   "diffs": Set {
     {
       "body": "new file mode 100644

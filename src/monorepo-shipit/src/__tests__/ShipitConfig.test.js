@@ -54,3 +54,29 @@ it('creates and runs the default filters with Co-authored-by', () => {
   ]);
   expect(defaultFilter(changeset)).toMatchSnapshot();
 });
+
+it('updates the commit message', () => {
+  const defaultFilter = new Config(
+    'fake monorepo path',
+    'fake exported repo URL',
+    new Map([['/known_path', '/destination_path']]),
+    new Set([/mocked/]),
+    'origin/master',
+    'master',
+    (msg) => msg.replace('Test', 'Hello world'),
+  ).getDefaultShipitFilter();
+
+  const changeset = createMockChangeset(2, '/known_path/').withCoAuthorLines([
+    'Co-authored-by: Trond Bergquist <trond_bergquist@hotmail.com>',
+    'Co-authored-by: Patricia Bergquist <patricia_bergquist@hotmail.com>',
+  ]);
+
+  expect(defaultFilter(changeset).description).toMatchInlineSnapshot(`
+    "Hello world description
+
+    adeira-source-id: 1234567890
+
+    Co-authored-by: Trond Bergquist <trond_bergquist@hotmail.com>
+    Co-authored-by: Patricia Bergquist <patricia_bergquist@hotmail.com>"
+  `);
+});

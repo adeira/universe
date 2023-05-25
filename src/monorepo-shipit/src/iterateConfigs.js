@@ -45,6 +45,7 @@ function iterateConfigsInPath(
       config.getStrippedFiles ? config.getStrippedFiles() : new Set(),
       branches.source,
       branches.destination,
+      config.transformCommitMessage,
     );
 
     // We collect all the errors but we do not stop the iteration. These errors
