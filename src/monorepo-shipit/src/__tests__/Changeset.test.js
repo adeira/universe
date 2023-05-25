@@ -23,6 +23,7 @@ test('immutability of the changesets', () => {
     Changeset {
       "coAuthorLines": [],
       "debugMessages": [],
+      "descriptionTransformer": [Function],
     }
   `);
 
@@ -35,6 +36,7 @@ test('immutability of the changesets', () => {
         "DEBUG yadada",
       ],
       "description": "new description",
+      "descriptionTransformer": [Function],
       "diffs": Set {
         {
           "body": "AAA",
@@ -66,6 +68,7 @@ test('immutability of the changesets', () => {
         "DEBUG should be appended",
       ],
       "description": "even newer description",
+      "descriptionTransformer": [Function],
       "diffs": Set {
         {
           "body": "CCC",

@@ -5,6 +5,7 @@ Changeset {
   "coAuthorLines": [],
   "debugMessages": [],
   "description": "MOCKED_HEADER",
+  "descriptionTransformer": [Function],
   "diffs": Set {
     {
       "body": "new file mode 100644
