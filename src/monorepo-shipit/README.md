@@ -98,6 +98,21 @@ module.exports = {
 };
 ```
 
+```js
+export type ConfigType = {
+  +getStaticConfig: () => {
+    +repository: string,
+  },
+  +getPathMappings: () => Map<string, string>,
+  +getStrippedFiles?: () => Set<RegExp>,
+  +getBranchConfig?: () => {
+    +source: string,
+    +destination: string,
+  },
+  +transformCommitMessage?: (message: string) => string,
+};
+```
+
 Read more about available filters and how to use them below.
 
 ## Filters
