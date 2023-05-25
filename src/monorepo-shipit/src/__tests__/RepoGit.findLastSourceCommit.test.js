@@ -62,3 +62,33 @@ it('can find last source commit without whitespaces', () => {
   const repo = createGITRepoWithCommit(`${description}  `);
   expect(repo.findLastSourceCommit(new Set())).toBe(fakeCommitID);
 });
+
+it('should return first commit in list', () => {
+  const repo = new RepoGitFake();
+  const firstCommit = repo.commitPatch(
+    new Changeset()
+      .withSubject('test subject')
+      .withDescription('initial-commit')
+      .withAuthor('John Doe <john@doe.com>')
+      .withTimestamp('Mon, 4 Feb 2019 13:29:04 -0600'),
+  );
+
+  const secondCommit = repo.commitPatch(
+    new Changeset()
+      .withSubject('test subject')
+      .withDescription('second-commit')
+      .withAuthor('John Doe <john@doe.com>')
+      .withTimestamp('Mon, 5 Feb 2019 13:29:04 -0600'),
+  );
+
+  const descendants = repo.findDescendantsPath(firstCommit, 'master', new Set([]));
+
+  // It never brings back the first commit (base revision)!
+  // This means any repository that has a first commit _with content_ has its shipit fail.
+  expect(descendants).toEqual([secondCommit]);
+
+  const descendantsFromFirst = repo.findDescendantsPath(firstCommit, 'master', new Set([]), true);
+
+  // By forcing it we can have it picked up.
+  expect(descendantsFromFirst).toEqual([firstCommit, secondCommit]);
+});
