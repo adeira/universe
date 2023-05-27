@@ -3,7 +3,7 @@
 // @flow
 
 import { invariant } from '@adeira/js';
-import commandLineArgs from 'command-line-args';
+import { program as commander } from 'commander';
 
 import iterateConfigs from '../src/iterateConfigs';
 import createClonePhase from '../src/phases/createClonePhase';
@@ -13,79 +13,63 @@ import createImportSyncPhase from '../src/phases/createImportSyncPhase';
 import type { Phase } from '../types.flow';
 
 // TODO: check we can actually import this package (whether we have config for it)
-// yarn monorepo-babel-node src/monorepo-shipit/bin/importit.js git@github.com:adeira/fetch.git 1
-
-const gitRegex = /^git@github.com:(?<packageName>.+)\.git$/;
+// yarn monorepo-babel-node src/monorepo-shipit/bin/importit.js --help
+// yarn monorepo-babel-node src/monorepo-shipit/bin/importit.js --committer-name=A --committer-email=B --pull-request=https://github.com/adeira/universe/pull/1
 
 type ImportitCLIType = {
   +configFilter: string,
   +configDir: string,
-  +committerName?: string,
-  +committerEmail?: string,
-  +pullRequestId?: string,
-  +repoUrl?: string,
+  +committerName: string,
+  +committerEmail: string,
+  +pullRequest: string,
 };
 
-const options: ImportitCLIType = commandLineArgs(
-  [
-    {
-      name: 'config-filter',
-      type: String,
-      defaultValue: '/*.js',
-    },
-    {
-      name: 'config-dir',
-      type: String,
-      defaultValue: './.shipit',
-    },
-    {
-      name: 'committer-name',
-      type: String,
-    },
-    {
-      name: 'committer-email',
-      type: String,
-    },
-    {
-      name: 'pull-request-id',
-      type: String,
-    },
-    {
-      name: 'repo-url',
-      type: String,
-    },
-  ],
-  { camelCase: true },
-);
+commander
+  .version(require('./../package.json').version)
+  .description('Import pull request into your monorepo.')
+  .requiredOption('--config-filter <glob>', 'Glob pattern to filter config files', '/*.js')
+  .requiredOption('--config-dir <path>', 'Path to the directory with config files', './.shipit')
+  .requiredOption('--committer-name <name>', 'Name of the committer')
+  .requiredOption('--committer-email <email>', 'Email of the committer')
+  .requiredOption('--pull-request <url>', 'URL of the pull request to import');
 
-const argPullRequestId = options.pullRequestId;
-const argRepoUrl = options.repoUrl;
+commander.parse();
+const options: ImportitCLIType = commander.opts();
 
-invariant(options.committerName != null, 'committer-name is required');
-invariant(options.committerEmail != null, 'committer-email is required');
-invariant(argRepoUrl != null, 'repo-url is required');
-invariant(argPullRequestId != null, 'pull-request-id is required');
+function parseGitHubPRUrl(url: string): { +packageName: string, +prNumber: string } {
+  const urlPattern =
+    /^https:\/\/github\.com\/(?<org>[A-Za-z0-9_.-]+)\/(?<repo>[A-Za-z0-9_.-]+)\/pull\/(?<prNumber>\d+)$/;
+
+  const match = url.match(urlPattern);
+
+  if (match) {
+    invariant(match.groups?.org != null, 'Invalid GitHub PR URL (cannot determine org)');
+    invariant(match.groups.repo != null, 'Invalid GitHub PR URL (cannot determine repo)');
+    invariant(match.groups.prNumber != null, 'Invalid GitHub PR URL (cannot determine PR number)');
+
+    return {
+      packageName: `${match.groups.org}/${match.groups.repo}`,
+      prNumber: match.groups.prNumber,
+    };
+  }
+  throw new Error(
+    'Invalid GitHub PR URL. We currently support imports only from GitHub.com - please open an issue to add a support for additional providers.',
+  );
+}
 
 process.env.SHIPIT_COMMITTER_EMAIL = options.committerEmail;
 process.env.SHIPIT_COMMITTER_NAME = options.committerName;
 
-invariant(
-  gitRegex.test(argRepoUrl),
-  'We currently support imports only from GitHub.com - please open an issue to add additional services.',
-);
-
-const match = argRepoUrl.match(gitRegex);
-const packageName = match?.groups?.packageName;
-
-invariant(packageName != null, 'Cannot figure out package name from: %s', argRepoUrl);
+const parsedURL = parseGitHubPRUrl(options.pullRequest);
+const repoURL = `git@github.com:${parsedURL.packageName}.git`;
 
 iterateConfigs(options, (config) => {
-  if (config.exportedRepoURL === argRepoUrl) {
+  if (config.exportedRepoURL === repoURL) {
     new Set<Phase>([
       createClonePhase(config.exportedRepoURL, config.destinationPath),
       createCheckCorruptedRepoPhase(config.destinationPath),
       createCleanPhase(config.destinationPath),
-      createImportSyncPhase(config, packageName, argPullRequestId),
+      createImportSyncPhase(config, parsedURL.packageName, parsedURL.prNumber),
     ]).forEach((phase) => phase());
   }
 });

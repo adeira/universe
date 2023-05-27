@@ -3,8 +3,7 @@
 // @flow
 
 import chalk from 'chalk';
-import commandLineArgs from 'command-line-args';
-import { invariant } from '@adeira/js';
+import { program as commander } from 'commander';
 
 import iterateConfigs from '../src/iterateConfigs';
 import createClonePhase from '../src/phases/createClonePhase';
@@ -15,44 +14,26 @@ import createVerifyRepoPhase from '../src/phases/createVerifyRepoPhase';
 import createPushPhase from '../src/phases/createPushPhase';
 import type { Phase } from '../types.flow';
 
-// yarn monorepo-babel-node src/monorepo-shipit/bin/shipit.js
-// yarn monorepo-babel-node src/monorepo-shipit/bin/shipit.js --config-filter="/abacus.js"
+// yarn monorepo-babel-node src/monorepo-shipit/bin/shipit.js --help
+// yarn monorepo-babel-node src/monorepo-shipit/bin/shipit.js --committer-name=A --committer-email=B
 
 type ShipitCLIType = {
   +configFilter: string,
   +configDir: string,
-  +committerName?: string,
-  +committerEmail?: string,
+  +committerName: string,
+  +committerEmail: string,
 };
 
-const options: ShipitCLIType = commandLineArgs(
-  [
-    {
-      // This option allows us to grep subset of config files. Especially useful when running the
-      // Shipit binary locally for testing purposes.
-      name: 'config-filter',
-      type: String,
-      defaultValue: '/*.js',
-    },
-    {
-      name: 'config-dir',
-      type: String,
-      defaultValue: './.shipit',
-    },
-    {
-      name: 'committer-name',
-      type: String,
-    },
-    {
-      name: 'committer-email',
-      type: String,
-    },
-  ],
-  { camelCase: true },
-);
+commander
+  .version(require('./../package.json').version)
+  .description('Export a monorepo to multiple git repositories')
+  .requiredOption('--config-filter <glob>', 'Glob pattern to filter config files', '/*.js')
+  .requiredOption('--config-dir <path>', 'Path to the directory with config files', './.shipit')
+  .requiredOption('--committer-name <name>', 'Name of the committer')
+  .requiredOption('--committer-email <email>', 'Email of the committer');
 
-invariant(options.committerName != null, 'committer-name is required');
-invariant(options.committerEmail != null, 'committer-email is required');
+commander.parse();
+const options: ShipitCLIType = commander.opts();
 
 process.env.SHIPIT_COMMITTER_EMAIL = options.committerEmail;
 process.env.SHIPIT_COMMITTER_NAME = options.committerName;
