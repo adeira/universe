@@ -22,7 +22,7 @@
     "@adeira/shell-command": "^0.1.0",
     "@babel/runtime": "^7.22.3",
     "chalk": "^4.1.2",
-    "command-line-args": "^5.2.1",
+    "commander": "^10.0.1",
     "fast-levenshtein": "^3.0.0"
   },
   "devDependencies": {
