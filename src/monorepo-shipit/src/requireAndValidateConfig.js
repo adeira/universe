@@ -45,6 +45,7 @@ export default function requireAndValidateConfig(configFile: string): ConfigType
     ['getStaticConfig', true],
     ['getPathMappings', true],
     ['getStrippedFiles', false],
+    ['transformCommitMessage', false],
   ]);
 
   // TODO: consider Ajv but with good error messages!
