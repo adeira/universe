@@ -22,7 +22,7 @@ initFbt();
 
 // 👇 We create a "template" of how args map to rendering
 const Template = (args: ElementConfig<typeof Tabs>) => {
-  const [selected, setSelected] = useState('apple');
+  const [selected, setSelected] = useState<string | number | null>('apple');
   return (
     <LayoutBlock>
       <Tabs {...args} selected={selected} setSelected={setSelected} />

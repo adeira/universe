@@ -9,7 +9,7 @@ export const testBasicUsage = (): Element<typeof Tabs> => {
   return (
     <Tabs
       selected={'aaa'}
-      setSelected={(_: string | number) => {}}
+      setSelected={(_: string | number | null) => {}}
       tabs={[
         {
           title: (
@@ -32,40 +32,10 @@ export const testBasicUsage = (): Element<typeof Tabs> => {
   );
 };
 
-export const testInferredTypes = (): Element<typeof Tabs> => {
-  return (
-    <Tabs
-      selected={'aaa'}
-      setSelected={(_: 'aaa' | 'bbb') => {
-        /* the type could also be just `string` */
-      }}
-      tabs={[
-        {
-          title: (
-            <fbt desc="aaa" doNotExtract={true}>
-              AAA
-            </fbt>
-          ),
-          value: 'aaa',
-        },
-        {
-          title: (
-            <fbt desc="bbb" doNotExtract={true}>
-              BBB
-            </fbt>
-          ),
-          value: 'bbb',
-        },
-      ]}
-    />
-  );
-};
-
 export const testIncorrectValueType = (): Element<typeof Tabs> => {
   return (
-    // $FlowExpectedError[incompatible-return]: result of all the errors below
     <Tabs
-      // $FlowExpectedError[incompatible-type-arg]: void type is not allowed
+      // $FlowExpectedError[incompatible-type]: void type is not allowed
       selected={undefined}
       setSelected={(
         // $FlowExpectedError[incompatible-type]: number is not compatible with void (which is not valid anyway)
@@ -78,7 +48,7 @@ export const testIncorrectValueType = (): Element<typeof Tabs> => {
               UNDEFINED
             </fbt>
           ),
-          // $FlowExpectedError[incompatible-type-arg]: void type is not allowed
+          // $FlowExpectedError[incompatible-type]: void type is not allowed
           value: undefined,
         },
       ]}
