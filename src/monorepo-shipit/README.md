@@ -1,33 +1,25 @@
-Monorepo Shipit takes care of exporting and importing our projects from GitHub monorepo into any other Git repository. It can export even from our monorepo to another monorepo. In theory, it can export even to different VCS, not just Git. We use it open-source some of our code to our [Adeira](https://github.com/adeira) GitHub organization.
+Adeira/Shipit takes care of exporting projects from large Git monorepos into smaller independent Git repositories. Typical use-case is exporting parts of a private monorepo into open-sourced repositories on GitHub. It also supports importing of pull requests back into the monorepo.
 
-- [Shipit part](#shipit-part)
-  - [Configuration](#configuration)
-  - [Filters](#filters)
-    - [Filter `moveDirectories`](#filter--movedirectories-)
-    - [Filter of conditional comments (`commentLines`)](#filter-of-conditional-comments---commentlines--)
-  - [Renaming project roots](#renaming-project-roots)
-  - [Linear history](#linear-history)
-- [Importit part _(unstable)_](#importit-part---unstable--)
-  - [Filters](#filters-1)
-- [Main differences from facebook/fbshipit](#main-differences-from-facebook-fbshipit)
-- [Prior art](#prior-art)
+Adeira/Shipit consists of two main parts: _Shipit_ for exporting and _Importit_ for PRs importing.
+
+Real-world users:
+
+- https://github.com/adeira
+- https://github.com/try-triplex/triplex
 
 # Shipit part
 
 Shipit part is responsible for exporting code from a monorepo to somewhere else.
 
+## Usage
+
 ```
-npx @adeira/monorepo-shipit
+npx --package @adeira/monorepo-shipit monorepo-shipit --help
 ```
 
-| Option                    | Description                                                            | Default value |
-| ------------------------- | ---------------------------------------------------------------------- | ------------- |
-| --committer-name <name>   | Name to use for the commit, usually a bot account.                     |               |
-| --committer-email <email> | Email to use for the commit, usually a bot account.                    |               |
-| --config-filter           | Filters the configs to only run a subset, useful for testing purposes. | `"./*.js`     |
-| --config-dir              | Directory to look for the shipit configs.                              | `"./.shipit"` |
+## How it works
 
-Here is how it works. First, we try to extract relevant commits of each project we want to export. Each commit is converted into so called _changeset_ which is an immutable structure representing one commit and doesn't depend on Git or any other VCS. Each changeset can contain many diffs describing changes in each individual file.
+First, Shipit tries to extract relevant commits of each project we want to export. Each commit is converted into so called _changeset_ which is an immutable structure representing one commit and doesn't depend on Git or any other VCS. Each changeset can contain many diffs describing changes in each individual file.
 
 ```text
                                         ↗  diff
@@ -37,7 +29,7 @@ Git history  →  commit_2  →  changeset       ⠇
                    ⠇             ⠇
 ```
 
-Paths in our monorepo are very different from the exported version. Therefore, we apply some filters to hide non-relevant or secret files and to adjust paths in the exported repo version. These modified changesets are then pushed to individual GitHub repositories.
+Paths in the original monorepo might be very different from the exported version. Therefore, we apply some filters to hide non-relevant or secret files and to adjust paths in the exported repo version. These modified changesets are then pushed to individual GitHub repositories.
 
 ```text
    .-----------------------------------.
@@ -58,24 +50,24 @@ Paths in our monorepo are very different from the exported version. Therefore, w
 | Changeset |  | Changeset |  | Changeset |
 `-----------`  `-----------`  `-----------`
       |              |              v
-      |              |         .---------.
-      |              |         | GH repo | <------.
-      |              v         `---------`        |      .--------------------.
-      |         .---------.                       |      |                    |
-      |         | GH repo | <---------------------+----> |       GitHub       |
-      v         `---------`                       |      |                    |
- .---------.                                      |      `--------------------`
- | GH repo | <------------------------------------`
- `---------`
+      |              |         .----------.
+      |              |         | Git repo | <------.
+      |              v         `----------`        |      .--------------------.
+      |         .----------.                       |      |                    |
+      |         | Git repo | <---------------------+----> |       GitHub       |
+      v         `----------`                       |      |                    |
+ .----------.                                      |      `--------------------`
+ | Git repo | <------------------------------------`
+ `----------`
 ```
 
-One of the filters modifies commit descriptions and adds `adeira-source-id` signature which helps us to identify which changes we pushed last time so we can just amend latest changes next time. These filters work with the parsed changesets which gives you an incredible flexibility: you can for example completely remove some lines from the exported code. However, please note that this whole process works with diffs and therefore new filter won't update existing files in GitHub unless you touch them. So, for instance, if you want to remove some files from the exported repository then just add a new filter and manually change the code in the exported repository.
+One of the filters modifies commit descriptions and adds `adeira-source-id` signature which helps us to identify which changes we pushed last time, so Shipit can just amend latest changes next time. These filters work with the parsed changesets which gives you an incredible flexibility: you can for example completely remove some lines from the exported code. However, please note that this whole process works with diffs and therefore **new filter won't update existing files in GitHub unless you touch them**. So, for instance, if you want to remove some files from the exported repository then just add a new filter and manually change the code in the exported repository.
 
 ## Configuration
 
 Real-world examples: https://github.com/adeira/universe/tree/master/src/monorepo-shipit/config
 
-Each project has its own configuration directly in Shipit workspace. If you want it to work with another project then you have to create a new configuration (with configuration tests), for example:
+Each project has its own configuration stored in `.shipit` directory (configurable via `--config-dir` option). If you want it to work with another project then you have to create a new configuration (with configuration tests), for example:
 
 ```js
 module.exports = {
@@ -97,6 +89,8 @@ module.exports = {
   },
 };
 ```
+
+Here are all supported config options and their interface:
 
 ```js
 export type ConfigType = {
@@ -145,7 +139,7 @@ module.exports = {
 };
 ```
 
-It's because the Babel config file is first moved from `__github__` to the repository root and later it's stripped (see filters 3 and 4). It would not work even if we'd change order of the filters (`__github__` would be first stripped and later there is no Babel config to move).
+It's because the Babel config file is first moved from `__github__` to the repository root, and later it's stripped (see filters 3 and 4). It would not work even if we'd change order of the filters (`__github__` would be first stripped and later there is no Babel config to move).
 
 _Are you interested in having this improved? Let us know._
 
@@ -241,10 +235,18 @@ For this reason Shipit requires linear Git history only (it works with reversed 
 
 **Only imports from GitHub are currently supported. Help us to improve this part.**
 
-This is how you'd import a pull request #1 from GitHub into your local branch:
+## Usage
+
+```
+npx --package @adeira/monorepo-shipit monorepo-importit --help
+```
+
+## How it works
+
+This is how you'd import a pull request #1 from `adeira/js` GitHub repository into your local branch (to be later merged into your monorepo):
 
 ```text
-yarn monorepo-babel-node src/monorepo-shipit/bin/importit.js git@github.com:adeira/fetch.git 1
+npx --package @adeira/monorepo-shipit monorepo-importit --committer-name=A --committer-email=B --pull-request=https://github.com/adeira/js/pull/1
 ```
 
 Technically, _Importit_ part works just like _Shipit_ except in the opposite direction and from pull requests:
