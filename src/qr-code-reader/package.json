@@ -14,7 +14,7 @@
   "type": "commonjs",
   "sideEffects": false,
   "dependencies": {
-    "@babel/runtime": "^7.22.0",
+    "@babel/runtime": "^7.22.3",
     "jsqr": "^1.4.0"
   },
   "peerDependencies": {
