@@ -41,6 +41,8 @@ export default function requireAndValidateConfig(configFile: string): ConfigType
   const config = require(configFile);
   const allowedFields = new Map([
     // filed name => is required
+    ['customShipitFilter', false],
+    ['customImportitFilter', false],
     ['getBranchConfig', false],
     ['getStaticConfig', true],
     ['getPathMappings', true],

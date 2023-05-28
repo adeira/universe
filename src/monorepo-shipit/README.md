@@ -103,6 +103,8 @@ export type ConfigType = {
     +source: string,
     +destination: string,
   },
+  +getCustomShipitFilter?: (Changeset) => Changeset,
+  +getCustomImportitFilter?: (Changeset) => Changeset,
 };
 ```
 
