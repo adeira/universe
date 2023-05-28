@@ -21,7 +21,6 @@ export default class ShipitConfig {
   exportedRepoURL: string; // TODO: what to do with this?
   directoryMapping: Map<string, string>;
   strippedFiles: Set<RegExp>;
-  transformCommitMessage: (msg: string) => string;
 
   #sourceBranch: string;
   #destinationBranch: string;
@@ -33,7 +32,6 @@ export default class ShipitConfig {
     strippedFiles: Set<RegExp>,
     sourceBranch: string = 'origin/master', // our GitLab CI doesn't have master branch
     destinationBranch: string = 'master',
-    transformCommitMessage: (msg: string) => string = (msg) => msg,
   ) {
     this.sourcePath = sourcePath;
     // This is currently not configurable. We could (should) eventually keep
@@ -42,7 +40,6 @@ export default class ShipitConfig {
     this.exportedRepoURL = exportedRepoURL;
     this.directoryMapping = directoryMapping;
     this.strippedFiles = strippedFiles;
-    this.transformCommitMessage = transformCommitMessage;
     this.#sourceBranch = sourceBranch;
     this.#destinationBranch = destinationBranch;
   }
@@ -69,8 +66,6 @@ export default class ShipitConfig {
    */
   getDefaultShipitFilter(): ChangesetFilter {
     return (changeset: Changeset) => {
-      changeset.withDescriptionTransformer(this.transformCommitMessage);
-
       const ch1 = addTrackingData(changeset);
       const ch2 = stripExceptDirectories(ch1, this.getSourceRoots());
       const ch3 = moveDirectories(ch2, this.directoryMapping);
