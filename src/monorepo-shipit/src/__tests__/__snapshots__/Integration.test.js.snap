@@ -18,7 +18,6 @@ updated-dependencies:
 ...
 
 Signed-off-by: dependabot[bot] <support@github.com>",
-  "descriptionTransformer": [Function],
   "diffs": Set {
     {
       "body": "index 33c6b476374a38f54e7aa3a92d4f9aed68c34624..dd10ce35969c86ef2c5bd8c59e58bb1fea865a58 100644
@@ -119,7 +118,6 @@ updated-dependencies:
 Signed-off-by: dependabot[bot] <support@github.com>
 
 adeira-source-id: cc7b3818e06f95c2732f75f165a2b98c6eeab135",
-  "descriptionTransformer": [Function],
   "diffs": Set {
     {
       "body": "index 33c6b476374a38f54e7aa3a92d4f9aed68c34624..dd10ce35969c86ef2c5bd8c59e58bb1fea865a58 100644
@@ -191,7 +189,6 @@ Changeset {
   "coAuthorLines": [],
   "debugMessages": [],
   "description": "",
-  "descriptionTransformer": [Function],
   "diffs": Set {
     {
       "body": "index 23e30baaaa8e3453263fc15c174d4b11ab3a0a6b..5ddd96afcdf20ad5dc36f140d0caa7baaacfb63c 100644
@@ -224,7 +221,6 @@ Changeset {
     "ADD TRACKING DATA: "adeira-source-id: f1cc780d89183b4304ae5c22536baec6ef9736ba"",
   ],
   "description": "adeira-source-id: f1cc780d89183b4304ae5c22536baec6ef9736ba",
-  "descriptionTransformer": [Function],
   "diffs": Set {
     {
       "body": "index 23e30baaaa8e3453263fc15c174d4b11ab3a0a6b..5ddd96afcdf20ad5dc36f140d0caa7baaacfb63c 100644
