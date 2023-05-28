@@ -55,7 +55,7 @@ it('creates and runs the default filters with Co-authored-by', () => {
   expect(defaultFilter(changeset)).toMatchSnapshot();
 });
 
-it('updates the commit message', () => {
+it('should use custom shipit filter', () => {
   const defaultFilter = new Config(
     'fake monorepo path',
     'fake exported repo URL',
@@ -63,6 +63,9 @@ it('updates the commit message', () => {
     new Set([/mocked/]),
     'origin/master',
     'master',
+    (changeset) => {
+      return changeset.withDescription('Overridden description');
+    },
   ).getDefaultShipitFilter();
 
   const changeset = createMockChangeset(2, '/known_path/').withCoAuthorLines([
@@ -71,7 +74,7 @@ it('updates the commit message', () => {
   ]);
 
   expect(defaultFilter(changeset).description).toMatchInlineSnapshot(`
-    "Test description
+    "Overridden description
 
     adeira-source-id: 1234567890
 
