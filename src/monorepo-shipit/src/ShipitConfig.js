@@ -21,6 +21,8 @@ export default class ShipitConfig {
   exportedRepoURL: string; // TODO: what to do with this?
   directoryMapping: Map<string, string>;
   strippedFiles: Set<RegExp>;
+  customShipitFilter: ChangesetFilter;
+  customImportitFilter: ChangesetFilter;
 
   #sourceBranch: string;
   #destinationBranch: string;
@@ -32,6 +34,8 @@ export default class ShipitConfig {
     strippedFiles: Set<RegExp>,
     sourceBranch: string = 'origin/master', // our GitLab CI doesn't have master branch
     destinationBranch: string = 'master',
+    customShipitFilter: ChangesetFilter = (changeset) => changeset,
+    customImportitFilter: ChangesetFilter = (changeset) => changeset,
   ) {
     this.sourcePath = sourcePath;
     // This is currently not configurable. We could (should) eventually keep
@@ -40,6 +44,8 @@ export default class ShipitConfig {
     this.exportedRepoURL = exportedRepoURL;
     this.directoryMapping = directoryMapping;
     this.strippedFiles = strippedFiles;
+    this.customShipitFilter = customShipitFilter;
+    this.customImportitFilter = customImportitFilter;
     this.#sourceBranch = sourceBranch;
     this.#destinationBranch = destinationBranch;
   }
@@ -66,7 +72,8 @@ export default class ShipitConfig {
    */
   getDefaultShipitFilter(): ChangesetFilter {
     return (changeset: Changeset) => {
-      const ch1 = addTrackingData(changeset);
+      const ch0 = this.customShipitFilter(changeset);
+      const ch1 = addTrackingData(ch0);
       const ch2 = stripExceptDirectories(ch1, this.getSourceRoots());
       const ch3 = moveDirectories(ch2, this.directoryMapping);
       const ch4 = stripPaths(ch3, this.strippedFiles);
@@ -85,8 +92,9 @@ export default class ShipitConfig {
    */
   getDefaultImportitFilter(): ChangesetFilter {
     return (changeset: Changeset) => {
+      const ch0 = this.customImportitFilter(changeset);
       // Comment out lines which are only for OSS.
-      const ch1 = commentLines(changeset, '@x-shipit-enable', '//', null);
+      const ch1 = commentLines(ch0, '@x-shipit-enable', '//', null);
       // Uncomment private code which is disabled in OSS.
       const ch2 = uncommentLines(ch1, '@x-shipit-disable', '//', null);
 
