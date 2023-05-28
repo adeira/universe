@@ -27,6 +27,12 @@ it('returns minimal valid config correctly', () => {
   `);
 });
 
+it('should return valid exhaustive config', () => {
+  expect(() => {
+    requireAndValidate(path.join(__dirname, 'fixtures', 'configs', 'valid-exhaustive.js'));
+  }).not.toThrow();
+});
+
 it('returns valid config with branches correctly', () => {
   const config = requireAndValidate(
     path.join(__dirname, 'fixtures', 'configs', 'valid-branches.js'),
