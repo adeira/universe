@@ -63,7 +63,6 @@ it('updates the commit message', () => {
     new Set([/mocked/]),
     'origin/master',
     'master',
-    (msg) => msg.replace('Test', 'Hello world'),
   ).getDefaultShipitFilter();
 
   const changeset = createMockChangeset(2, '/known_path/').withCoAuthorLines([
@@ -72,7 +71,7 @@ it('updates the commit message', () => {
   ]);
 
   expect(defaultFilter(changeset).description).toMatchInlineSnapshot(`
-    "Hello world description
+    "Test description
 
     adeira-source-id: 1234567890
 
