@@ -103,7 +103,6 @@ export type ConfigType = {
     +source: string,
     +destination: string,
   },
-  +transformCommitMessage?: (message: string) => string,
 };
 ```
 

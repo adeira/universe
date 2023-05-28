@@ -26,8 +26,6 @@ export default class Changeset {
   declare description: string;
   declare diffs: Set<Diff>;
 
-  descriptionTransformer: (msg: string) => string = (msg) => msg;
-
   coAuthorLines: $ReadOnlyArray<string> = [];
   debugMessages: $ReadOnlyArray<string> = [];
 
@@ -76,16 +74,11 @@ export default class Changeset {
   }
 
   getDescription(): string {
-    return this.descriptionTransformer(this.description);
+    return this.description;
   }
 
   withDescription(description: string): Changeset {
     return this.__clone({ description });
-  }
-
-  withDescriptionTransformer(descriptionTransformer: (msg: string) => string): Changeset {
-    this.descriptionTransformer = descriptionTransformer;
-    return this;
   }
 
   getCommitMessage(): string {
