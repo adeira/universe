@@ -94,6 +94,8 @@ Here are all supported config options and their interface:
 
 ```js
 export type ConfigType = {
+  +customShipitFilter?: (Changeset) => Changeset,
+  +customImportitFilter?: (Changeset) => Changeset,
   +getStaticConfig: () => {
     +repository: string,
   },
@@ -103,8 +105,6 @@ export type ConfigType = {
     +source: string,
     +destination: string,
   },
-  +getCustomShipitFilter?: (Changeset) => Changeset,
-  +getCustomImportitFilter?: (Changeset) => Changeset,
 };
 ```
 
