@@ -8,8 +8,11 @@
     "build": "rollup --config"
   },
   "dependencies": {
+    "@rollup/plugin-node-resolve": "^15.1.0",
     "@rollup/pluginutils": "^5.0.4",
     "flow-remove-types": "^2.216.1",
-    "rollup": "^3.29.1"
+    "immer": "^10.0.2",
+    "rollup": "^3.29.1",
+    "rollup-plugin-prettier": "^3.0.0"
   }
 }

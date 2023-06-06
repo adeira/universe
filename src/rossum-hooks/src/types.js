@@ -39,3 +39,21 @@ export type RossumDatapoint = {
   +type: 'string' | 'number' | 'date' | 'enum' | 'button',
   +rir_field_names?: $ReadOnlyArray<string>,
 };
+
+export type RossumPayload = {
+  ...
+    | {
+        +event: 'annotation_content',
+        +action: 'initialize' | 'started' | 'user_update' | 'updated' | 'confirm' | 'export',
+        +updated_datapoints: $ReadOnlyArray<number>,
+      }
+    | { +event: 'annotation_status', +action: 'changed' }
+    | { +event: 'email', +action: 'received' }
+    | { +event: 'invocation', +action: 'scheduled' | 'manual' },
+  +annotation: {
+    +content: Array<{ ... }>,
+  },
+  +rossum_authorization_token: string,
+  +base_url: string,
+  settings: { ... },
+};

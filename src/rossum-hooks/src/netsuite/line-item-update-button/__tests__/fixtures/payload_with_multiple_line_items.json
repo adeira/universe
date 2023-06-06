@@ -1,0 +1,2271 @@
+{
+  "request_id": "6b93d9a5-f15a-48f8-b7ee-4bd090a478c9",
+  "timestamp": "2023-05-23T19:33:11.360007Z",
+  "hook": "https://api.elis.rossum.ai/v1/hooks/266845",
+  "action": "user_update",
+  "event": "annotation_content",
+  "base_url": "https://elis.rossum.ai",
+  "settings": {},
+  "secrets": {},
+  "document": {
+    "id": 35060959,
+    "url": "https://api.elis.rossum.ai/v1/documents/35060959",
+    "s3_name": "85e9ed044fbe7b3ebbe77182e96b9113_876d2707d2b5456588370853ee16c78c",
+    "parent": null,
+    "email": null,
+    "mime_type": "application/pdf",
+    "creator": "https://api.elis.rossum.ai/v1/users/359651",
+    "created_at": "2023-05-23T19:31:40.937515Z",
+    "arrived_at": "2023-05-23T19:31:40.937515Z",
+    "original_file_name": "Slovak sample invoice.pdf",
+    "content": "https://api.elis.rossum.ai/v1/documents/35060959/content",
+    "attachment_status": null,
+    "metadata": {}
+  },
+  "updated_datapoints": [3877884978],
+  "annotation": {
+    "document": "https://api.elis.rossum.ai/v1/documents/35060959",
+    "id": 32762322,
+    "queue": "https://api.elis.rossum.ai/v1/queues/916751",
+    "schema": "https://api.elis.rossum.ai/v1/schemas/5281711",
+    "relations": [],
+    "pages": [
+      "https://api.elis.rossum.ai/v1/pages/77697047"
+    ],
+    "creator": "https://api.elis.rossum.ai/v1/users/359651",
+    "modifier": "https://api.elis.rossum.ai/v1/users/359651",
+    "assigned_at": "2023-05-23T19:32:06.343109Z",
+    "confirmed_at": null,
+    "created_at": "2023-05-23T19:31:41.326647Z",
+    "exported_at": null,
+    "deleted_at": null,
+    "modified_at": "2023-05-23T19:32:34.233327Z",
+    "purged_at": null,
+    "rejected_at": null,
+    "confirmed_by": null,
+    "deleted_by": null,
+    "exported_by": null,
+    "purged_by": null,
+    "rejected_by": null,
+    "status": "reviewing",
+    "rir_poll_id": "69a24c345a984abd80d1ec71",
+    "messages": [],
+    "url": "https://api.elis.rossum.ai/v1/annotations/32762322",
+    "content": [
+      {
+        "id": 3877884923,
+        "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884923",
+        "children": [
+          {
+            "id": 3877884924,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884924",
+            "content": {
+              "value": "20110166",
+              "normalized_value": null,
+              "page": 1,
+              "position": [
+                1024.0,
+                90.0,
+                1166.0,
+                132.0
+              ],
+              "rir_text": "20110166",
+              "rir_raw_text": "20110166",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": 1,
+              "rir_position": [
+                1024.0,
+                90.0,
+                1166.0,
+                132.0
+              ],
+              "ocr_position": null,
+              "rir_confidence": 0.9508076435100687,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "document_id",
+            "validation_sources": [],
+            "time_spent": 1.66,
+            "time_spent_overall": 1.66
+          },
+          {
+            "id": 3877884925,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884925",
+            "content": {
+              "value": "",
+              "normalized_value": null,
+              "page": null,
+              "position": null,
+              "rir_text": "",
+              "rir_raw_text": "",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": null,
+              "rir_position": null,
+              "ocr_position": null,
+              "rir_confidence": 0.9663755939343275,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "order_id",
+            "validation_sources": [
+              "not_found"
+            ],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          },
+          {
+            "id": 3877884926,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884926",
+            "content": {
+              "value": "4/5/2011",
+              "normalized_value": "2011-04-05",
+              "page": 1,
+              "position": [
+                718.0,
+                474.0,
+                834.0,
+                504.0
+              ],
+              "rir_text": "4/5/2011",
+              "rir_raw_text": "05.04.2011",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": 1,
+              "rir_position": [
+                718.0,
+                474.0,
+                834.0,
+                504.0
+              ],
+              "ocr_position": null,
+              "rir_confidence": 0.9608217406355648,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "date_issue",
+            "validation_sources": [],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          },
+          {
+            "id": 3877884927,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884927",
+            "content": {
+              "value": "4/19/2011",
+              "normalized_value": "2011-04-19",
+              "page": 1,
+              "position": [
+                1034.0,
+                474.0,
+                1154.0,
+                510.0
+              ],
+              "rir_text": "4/19/2011",
+              "rir_raw_text": "19.04.2011",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": 1,
+              "rir_position": [
+                1034.0,
+                474.0,
+                1154.0,
+                510.0
+              ],
+              "ocr_position": null,
+              "rir_confidence": 0.9798154628195435,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "date_due",
+            "validation_sources": [
+              "score"
+            ],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          },
+          {
+            "id": 3877884928,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884928",
+            "content": {
+              "value": "tax_invoice",
+              "normalized_value": null,
+              "page": null,
+              "position": null,
+              "rir_text": "tax_invoice",
+              "rir_raw_text": "tax_invoice",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": null,
+              "rir_position": null,
+              "ocr_position": null,
+              "rir_confidence": 0.9599071279904432,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "document_type",
+            "validation_sources": [],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          },
+          {
+            "id": 3877884929,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884929",
+            "content": {
+              "value": "slk",
+              "normalized_value": null,
+              "page": null,
+              "position": null,
+              "rir_text": "slk",
+              "rir_raw_text": "slk",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": null,
+              "rir_position": null,
+              "ocr_position": null,
+              "rir_confidence": 0.9686020801894684,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "language",
+            "validation_sources": [],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          },
+          {
+            "id": 3877884930,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884930",
+            "content": {
+              "value": "",
+              "normalized_value": null,
+              "page": null,
+              "position": null,
+              "rir_text": "",
+              "rir_raw_text": "",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": null,
+              "rir_position": null,
+              "ocr_position": null,
+              "rir_confidence": 0.9713391093643888,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "customer_id",
+            "validation_sources": [
+              "not_found"
+            ],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          },
+          {
+            "id": 3877884931,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884931",
+            "content": {
+              "value": "4/5/2011",
+              "normalized_value": "2011-04-05",
+              "page": 1,
+              "position": [
+                878.0,
+                474.0,
+                996.0,
+                504.0
+              ],
+              "rir_text": "4/5/2011",
+              "rir_raw_text": "05.04.2011",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": 1,
+              "rir_position": [
+                878.0,
+                474.0,
+                996.0,
+                504.0
+              ],
+              "ocr_position": null,
+              "rir_confidence": 0.9861826901622215,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "date_uzp",
+            "validation_sources": [
+              "score"
+            ],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          },
+          {
+            "id": 3877884932,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884932",
+            "content": {
+              "value": "",
+              "normalized_value": null,
+              "page": null,
+              "position": null,
+              "rir_text": "",
+              "rir_raw_text": "",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": null,
+              "rir_position": null,
+              "ocr_position": null,
+              "rir_confidence": 0.9911924297907186,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "sender_order_id",
+            "validation_sources": [
+              "not_found"
+            ],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          },
+          {
+            "id": 3877884933,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884933",
+            "content": {
+              "value": "",
+              "normalized_value": null,
+              "page": null,
+              "position": null,
+              "rir_text": "",
+              "rir_raw_text": "",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": null,
+              "rir_position": null,
+              "ocr_position": null,
+              "rir_confidence": 0.97595440359283,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "delivery_note_id",
+            "validation_sources": [
+              "not_found"
+            ],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          },
+          {
+            "id": 3877884934,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884934",
+            "content": {
+              "value": "",
+              "normalized_value": null,
+              "page": null,
+              "position": null,
+              "rir_text": "",
+              "rir_raw_text": "",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": null,
+              "rir_position": null,
+              "ocr_position": null,
+              "rir_confidence": 0.9980457090403682,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "supply_place",
+            "validation_sources": [
+              "not_found"
+            ],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          }
+        ],
+        "category": "section",
+        "schema_id": "basic_info_section"
+      },
+      {
+        "id": 3877884935,
+        "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884935",
+        "children": [
+          {
+            "id": 3877884936,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884936",
+            "content": {
+              "value": "4000496200",
+              "normalized_value": null,
+              "page": 1,
+              "position": [
+                860.0,
+                618.0,
+                962.0,
+                648.0
+              ],
+              "rir_text": "4000496200",
+              "rir_raw_text": "4000496200",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": 1,
+              "rir_position": [
+                860.0,
+                618.0,
+                962.0,
+                648.0
+              ],
+              "ocr_position": null,
+              "rir_confidence": 0.949784016627538,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "account_num",
+            "validation_sources": [],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          },
+          {
+            "id": 3877884937,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884937",
+            "content": {
+              "value": "3100",
+              "normalized_value": null,
+              "page": 1,
+              "position": [
+                961.0,
+                618.0,
+                1009.0,
+                648.0
+              ],
+              "rir_text": "3100",
+              "rir_raw_text": "/3100",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": 1,
+              "rir_position": [
+                961.0,
+                618.0,
+                1009.0,
+                648.0
+              ],
+              "ocr_position": null,
+              "rir_confidence": 0.764122440619966,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "bank_num",
+            "validation_sources": [],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          },
+          {
+            "id": 3877884938,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884938",
+            "content": {
+              "value": "SK43 3100 0000 0040 0049 6200",
+              "normalized_value": null,
+              "page": 1,
+              "position": [
+                859.0,
+                666.0,
+                1127.0,
+                696.0
+              ],
+              "rir_text": "SK43 3100 0000 0040 0049 6200",
+              "rir_raw_text": "SK43 3100 0000 0040 0049 6200",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": 1,
+              "rir_position": [
+                859.0,
+                666.0,
+                1127.0,
+                696.0
+              ],
+              "ocr_position": null,
+              "rir_confidence": 0.9813244767913153,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "iban",
+            "validation_sources": [
+              "score"
+            ],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          },
+          {
+            "id": 3877884939,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884939",
+            "content": {
+              "value": "LUBASKBX",
+              "normalized_value": null,
+              "page": 1,
+              "position": [
+                860.0,
+                642.0,
+                966.0,
+                672.0
+              ],
+              "rir_text": "LUBASKBX",
+              "rir_raw_text": "LUBASKBX",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": 1,
+              "rir_position": [
+                860.0,
+                642.0,
+                966.0,
+                672.0
+              ],
+              "ocr_position": null,
+              "rir_confidence": 0.9694349890799894,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "bic",
+            "validation_sources": [],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          },
+          {
+            "id": 3877884940,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884940",
+            "content": {
+              "value": "",
+              "normalized_value": null,
+              "page": null,
+              "position": null,
+              "rir_text": "",
+              "rir_raw_text": "",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": null,
+              "rir_position": null,
+              "ocr_position": null,
+              "rir_confidence": 0.9629066710126312,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "terms",
+            "validation_sources": [
+              "not_found"
+            ],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          },
+          {
+            "id": 3877884941,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884941",
+            "content": {
+              "value": "0308",
+              "normalized_value": null,
+              "page": 1,
+              "position": [
+                862.0,
+                546.0,
+                914.0,
+                576.0
+              ],
+              "rir_text": "0308",
+              "rir_raw_text": "0308",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": 1,
+              "rir_position": [
+                862.0,
+                546.0,
+                914.0,
+                576.0
+              ],
+              "ocr_position": null,
+              "rir_confidence": 0.9968912926819454,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "const_sym",
+            "validation_sources": [
+              "score"
+            ],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          },
+          {
+            "id": 3877884942,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884942",
+            "content": {
+              "value": "",
+              "normalized_value": null,
+              "page": null,
+              "position": null,
+              "rir_text": "",
+              "rir_raw_text": "",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": null,
+              "rir_position": null,
+              "ocr_position": null,
+              "rir_confidence": 0.9891846150342352,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "var_sym",
+            "validation_sources": [
+              "not_found"
+            ],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          },
+          {
+            "id": 3877884943,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884943",
+            "content": {
+              "value": "",
+              "normalized_value": null,
+              "page": null,
+              "position": null,
+              "rir_text": "",
+              "rir_raw_text": "",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": null,
+              "rir_position": null,
+              "ocr_position": null,
+              "rir_confidence": 0.9989065471440312,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "spec_sym",
+            "validation_sources": [
+              "not_found"
+            ],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          },
+          {
+            "id": 3877884944,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884944",
+            "content": {
+              "value": "Prevodným príkazom",
+              "normalized_value": null,
+              "page": 1,
+              "position": [
+                862.0,
+                504.0,
+                1040.0,
+                528.0
+              ],
+              "rir_text": "Prevodným príkazom",
+              "rir_raw_text": "Prevodným príkazom",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": 1,
+              "rir_position": [
+                862.0,
+                504.0,
+                1040.0,
+                528.0
+              ],
+              "ocr_position": null,
+              "rir_confidence": 0.9650738362802129,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "payment_method",
+            "validation_sources": [],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          }
+        ],
+        "category": "section",
+        "schema_id": "payment_info_section"
+      },
+      {
+        "id": 3877884945,
+        "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884945",
+        "children": [
+          {
+            "id": 3877884946,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884946",
+            "content": {
+              "value": "1,132.87",
+              "normalized_value": "1132.87",
+              "page": 1,
+              "position": [
+                1073.0,
+                978.0,
+                1159.0,
+                1008.0
+              ],
+              "rir_text": "1,132.87",
+              "rir_raw_text": "1 132,87",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": 1,
+              "rir_position": [
+                1073.0,
+                978.0,
+                1159.0,
+                1008.0
+              ],
+              "ocr_position": null,
+              "rir_confidence": 0.942803453818233,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "amount_total_base",
+            "validation_sources": [
+              "checks"
+            ],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          },
+          {
+            "id": 3877884947,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884947",
+            "content": {
+              "value": "",
+              "normalized_value": null,
+              "page": null,
+              "position": null,
+              "rir_text": "",
+              "rir_raw_text": "",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": null,
+              "rir_position": null,
+              "ocr_position": null,
+              "rir_confidence": 0.9681369932345559,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "amount_total_tax",
+            "validation_sources": [
+              "not_found"
+            ],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          },
+          {
+            "id": 3877884948,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884948",
+            "content": {
+              "value": "1,132.87",
+              "normalized_value": "1132.87",
+              "page": 1,
+              "position": [
+                1066.0,
+                1080.0,
+                1160.0,
+                1110.0
+              ],
+              "rir_text": "1,132.87",
+              "rir_raw_text": "1 132,87",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": 1,
+              "rir_position": [
+                1066.0,
+                1080.0,
+                1160.0,
+                1110.0
+              ],
+              "ocr_position": null,
+              "rir_confidence": 0.9576046348152487,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "amount_due",
+            "validation_sources": [],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          },
+          {
+            "id": 3877884949,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884949",
+            "content": {
+              "value": "eur",
+              "normalized_value": null,
+              "page": null,
+              "position": null,
+              "rir_text": "eur",
+              "rir_raw_text": "eur",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": null,
+              "rir_position": null,
+              "ocr_position": null,
+              "rir_confidence": 0.9416914151108489,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "currency",
+            "validation_sources": [],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          },
+          {
+            "id": 3877884950,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884950",
+            "children": [
+              {
+                "id": 3877884951,
+                "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884951",
+                "children": [
+                  {
+                    "id": 3877884952,
+                    "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884952",
+                    "content": {
+                      "value": "20",
+                      "normalized_value": "20",
+                      "page": 1,
+                      "position": [
+                        917.0,
+                        894.0,
+                        951.0,
+                        918.0
+                      ],
+                      "rir_text": "20",
+                      "rir_raw_text": "20",
+                      "ocr_text": null,
+                      "ocr_raw_text": null,
+                      "rir_page": 1,
+                      "rir_position": [
+                        917.0,
+                        894.0,
+                        951.0,
+                        918.0
+                      ],
+                      "ocr_position": null,
+                      "rir_confidence": 0.354913208451024,
+                      "connector_position": null,
+                      "connector_text": null
+                    },
+                    "category": "datapoint",
+                    "schema_id": "tax_detail_rate",
+                    "validation_sources": [],
+                    "time_spent": 0.0,
+                    "time_spent_overall": 0.0
+                  },
+                  {
+                    "id": 3877884953,
+                    "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884953",
+                    "content": {
+                      "value": "",
+                      "normalized_value": null,
+                      "page": null,
+                      "position": null,
+                      "rir_text": "",
+                      "rir_raw_text": "",
+                      "ocr_text": null,
+                      "ocr_raw_text": null,
+                      "rir_page": null,
+                      "rir_position": null,
+                      "ocr_position": null,
+                      "rir_confidence": null,
+                      "connector_position": null,
+                      "connector_text": null
+                    },
+                    "category": "datapoint",
+                    "schema_id": "tax_detail_base",
+                    "validation_sources": [
+                      "not_found"
+                    ],
+                    "time_spent": 0.0,
+                    "time_spent_overall": 0.0
+                  },
+                  {
+                    "id": 3877884954,
+                    "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884954",
+                    "content": {
+                      "value": "",
+                      "normalized_value": null,
+                      "page": null,
+                      "position": null,
+                      "rir_text": "",
+                      "rir_raw_text": "",
+                      "ocr_text": null,
+                      "ocr_raw_text": null,
+                      "rir_page": null,
+                      "rir_position": null,
+                      "ocr_position": null,
+                      "rir_confidence": null,
+                      "connector_position": null,
+                      "connector_text": null
+                    },
+                    "category": "datapoint",
+                    "schema_id": "tax_detail_tax",
+                    "validation_sources": [
+                      "not_found"
+                    ],
+                    "time_spent": 0.0,
+                    "time_spent_overall": 0.0
+                  },
+                  {
+                    "id": 3877884955,
+                    "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884955",
+                    "content": {
+                      "value": "",
+                      "normalized_value": null,
+                      "page": null,
+                      "position": null,
+                      "rir_text": "",
+                      "rir_raw_text": "",
+                      "ocr_text": null,
+                      "ocr_raw_text": null,
+                      "rir_page": null,
+                      "rir_position": null,
+                      "ocr_position": null,
+                      "rir_confidence": null,
+                      "connector_position": null,
+                      "connector_text": null
+                    },
+                    "category": "datapoint",
+                    "schema_id": "tax_detail_total",
+                    "validation_sources": [
+                      "not_found"
+                    ],
+                    "time_spent": 0.0,
+                    "time_spent_overall": 0.0
+                  }
+                ],
+                "category": "tuple",
+                "schema_id": "tax_detail"
+              }
+            ],
+            "category": "multivalue",
+            "schema_id": "tax_details",
+            "grid": {
+              "parts": []
+            },
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0,
+            "time_spent_grid": 0.0,
+            "time_spent_grid_overall": 0.0
+          },
+          {
+            "id": 3877884956,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884956",
+            "content": {
+              "value": "0.00",
+              "normalized_value": "0.00",
+              "page": 1,
+              "position": [
+                1109.0,
+                1056.0,
+                1159.0,
+                1080.0
+              ],
+              "rir_text": "0.00",
+              "rir_raw_text": "0,00",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": 1,
+              "rir_position": [
+                1109.0,
+                1056.0,
+                1159.0,
+                1080.0
+              ],
+              "ocr_position": null,
+              "rir_confidence": 0.9311213545986899,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "amount_rounding",
+            "validation_sources": [
+              "checks"
+            ],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          },
+          {
+            "id": 3877884957,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884957",
+            "content": {
+              "value": "",
+              "normalized_value": null,
+              "page": null,
+              "position": null,
+              "rir_text": "",
+              "rir_raw_text": "",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": null,
+              "rir_position": null,
+              "ocr_position": null,
+              "rir_confidence": 0.9863196889691246,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "amount_paid",
+            "validation_sources": [
+              "not_found"
+            ],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          }
+        ],
+        "category": "section",
+        "schema_id": "totals_section"
+      },
+      {
+        "id": 3877884958,
+        "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884958",
+        "children": [
+          {
+            "id": 3877884959,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884959",
+            "content": {
+              "value": "SAYA spol. s r.o.",
+              "normalized_value": null,
+              "page": 1,
+              "position": [
+                114.0,
+                108.0,
+                300.0,
+                144.0
+              ],
+              "rir_text": "SAYA spol. s r.o.",
+              "rir_raw_text": "SAYA spol. s r.o.",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": 1,
+              "rir_position": [
+                114.0,
+                108.0,
+                300.0,
+                144.0
+              ],
+              "ocr_position": null,
+              "rir_confidence": 0.8435577720408175,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "sender_name",
+            "validation_sources": [],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          },
+          {
+            "id": 3877884960,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884960",
+            "content": {
+              "value": "831 06 Bratislava\nSLOVENSKÁ REPUBLIKA",
+              "normalized_value": null,
+              "page": 1,
+              "position": [
+                112.0,
+                192.0,
+                380.0,
+                246.0
+              ],
+              "rir_text": "831 06 Bratislava\nSLOVENSKÁ REPUBLIKA",
+              "rir_raw_text": "831 06 Bratislava\nSLOVENSKÁ REPUBLIKA",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": 1,
+              "rir_position": [
+                112.0,
+                192.0,
+                380.0,
+                246.0
+              ],
+              "ocr_position": null,
+              "rir_confidence": 0.8123800462275231,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "sender_address",
+            "validation_sources": [],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          },
+          {
+            "id": 3877884961,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884961",
+            "content": {
+              "value": "31367437",
+              "normalized_value": null,
+              "page": 1,
+              "position": [
+                186.0,
+                258.0,
+                278.0,
+                288.0
+              ],
+              "rir_text": "31367437",
+              "rir_raw_text": "31367437",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": 1,
+              "rir_position": [
+                186.0,
+                258.0,
+                278.0,
+                288.0
+              ],
+              "ocr_position": null,
+              "rir_confidence": 0.969218333227498,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "sender_ic",
+            "validation_sources": [],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          },
+          {
+            "id": 3877884962,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884962",
+            "content": {
+              "value": "SK2020333645",
+              "normalized_value": null,
+              "page": 1,
+              "position": [
+                189.0,
+                282.0,
+                317.0,
+                312.0
+              ],
+              "rir_text": "SK2020333645",
+              "rir_raw_text": "SK2020333645",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": 1,
+              "rir_position": [
+                189.0,
+                282.0,
+                317.0,
+                312.0
+              ],
+              "ocr_position": null,
+              "rir_confidence": 0.9730803155914535,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "sender_vat_id",
+            "validation_sources": [],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          },
+          {
+            "id": 3877884963,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884963",
+            "content": {
+              "value": "saya@saya.sk",
+              "normalized_value": null,
+              "page": 1,
+              "position": [
+                113.0,
+                462.0,
+                231.0,
+                486.0
+              ],
+              "rir_text": "saya@saya.sk",
+              "rir_raw_text": "saya@saya.sk",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": 1,
+              "rir_position": [
+                113.0,
+                462.0,
+                231.0,
+                486.0
+              ],
+              "ocr_position": null,
+              "rir_confidence": 0.9419223080095104,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "sender_email",
+            "validation_sources": [],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          },
+          {
+            "id": 3877884964,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884964",
+            "content": {
+              "value": "Národná banka Slovenska",
+              "normalized_value": null,
+              "page": 1,
+              "position": [
+                112.0,
+                516.0,
+                388.0,
+                552.0
+              ],
+              "rir_text": "Národná banka Slovenska",
+              "rir_raw_text": "Národná banka Slovenska",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": 1,
+              "rir_position": [
+                112.0,
+                516.0,
+                388.0,
+                552.0
+              ],
+              "ocr_position": null,
+              "rir_confidence": 0.8566451933811656,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "recipient_name",
+            "validation_sources": [],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          },
+          {
+            "id": 3877884965,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884965",
+            "content": {
+              "value": "Imricha Karvaša 1\n813 25 Bratislava",
+              "normalized_value": null,
+              "page": 1,
+              "position": [
+                110.0,
+                546.0,
+                308.0,
+                600.0
+              ],
+              "rir_text": "Imricha Karvaša 1\n813 25 Bratislava",
+              "rir_raw_text": "Imricha Karvaša 1\n813 25 Bratislava",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": 1,
+              "rir_position": [
+                110.0,
+                546.0,
+                308.0,
+                600.0
+              ],
+              "ocr_position": null,
+              "rir_confidence": 0.5868286094718428,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "recipient_address",
+            "validation_sources": [],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          },
+          {
+            "id": 3877884966,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884966",
+            "content": {
+              "value": "30844789",
+              "normalized_value": null,
+              "page": 1,
+              "position": [
+                183.0,
+                672.0,
+                275.0,
+                702.0
+              ],
+              "rir_text": "30844789",
+              "rir_raw_text": "30844789",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": 1,
+              "rir_position": [
+                183.0,
+                672.0,
+                275.0,
+                702.0
+              ],
+              "ocr_position": null,
+              "rir_confidence": 0.9895358054509619,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "recipient_ic",
+            "validation_sources": [
+              "score"
+            ],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          },
+          {
+            "id": 3877884967,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884967",
+            "content": {
+              "value": "SK2020815654",
+              "normalized_value": null,
+              "page": 1,
+              "position": [
+                188.0,
+                696.0,
+                316.0,
+                720.0
+              ],
+              "rir_text": "SK2020815654",
+              "rir_raw_text": "SK2020815654",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": 1,
+              "rir_position": [
+                188.0,
+                696.0,
+                316.0,
+                720.0
+              ],
+              "ocr_position": null,
+              "rir_confidence": 0.9757391015215531,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "recipient_vat_id",
+            "validation_sources": [
+              "score"
+            ],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          },
+          {
+            "id": 3877884968,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884968",
+            "content": {
+              "value": "",
+              "normalized_value": null,
+              "page": null,
+              "position": null,
+              "rir_text": "",
+              "rir_raw_text": "",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": null,
+              "rir_position": null,
+              "ocr_position": null,
+              "rir_confidence": 0.9390997900721263,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "recipient_delivery_name",
+            "validation_sources": [
+              "not_found"
+            ],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          },
+          {
+            "id": 3877884969,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884969",
+            "content": {
+              "value": "",
+              "normalized_value": null,
+              "page": null,
+              "position": null,
+              "rir_text": "",
+              "rir_raw_text": "",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": null,
+              "rir_position": null,
+              "ocr_position": null,
+              "rir_confidence": 0.9270084829974929,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "recipient_delivery_address",
+            "validation_sources": [
+              "not_found"
+            ],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          }
+        ],
+        "category": "section",
+        "schema_id": "vendor_section"
+      },
+      {
+        "id": 3877884970,
+        "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884970",
+        "children": [
+          {
+            "id": 3877884971,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884971",
+            "children": [
+              {
+                "id": 3877884972,
+                "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884972",
+                "children": [
+                  {
+                    "id": 3877884973,
+                    "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884973",
+                    "content": {
+                      "value": "",
+                      "normalized_value": null,
+                      "page": null,
+                      "position": null,
+                      "rir_text": "",
+                      "rir_raw_text": "",
+                      "ocr_text": null,
+                      "ocr_raw_text": null,
+                      "rir_page": null,
+                      "rir_position": null,
+                      "ocr_position": null,
+                      "rir_confidence": null,
+                      "connector_position": null,
+                      "connector_text": null
+                    },
+                    "category": "datapoint",
+                    "schema_id": "item_amount_total",
+                    "validation_sources": [
+                      "not_found"
+                    ],
+                    "time_spent": 0.0,
+                    "time_spent_overall": 0.0
+                  },
+                  {
+                    "id": 3877884974,
+                    "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884974",
+                    "content": {
+                      "value": "",
+                      "normalized_value": null,
+                      "page": null,
+                      "position": null,
+                      "rir_text": "",
+                      "rir_raw_text": "",
+                      "ocr_text": null,
+                      "ocr_raw_text": null,
+                      "rir_page": null,
+                      "rir_position": null,
+                      "ocr_position": null,
+                      "rir_confidence": null,
+                      "connector_position": null,
+                      "connector_text": null
+                    },
+                    "category": "datapoint",
+                    "schema_id": "item_code",
+                    "validation_sources": [
+                      "not_found"
+                    ],
+                    "time_spent": 0.0,
+                    "time_spent_overall": 0.0
+                  },
+                  {
+                    "id": 3877884975,
+                    "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884975",
+                    "content": {
+                      "value": "1.00",
+                      "normalized_value": "1.00",
+                      "page": 1,
+                      "position": [
+                        738.0,
+                        830.0,
+                        829.0,
+                        853.0
+                      ],
+                      "rir_text": "1.00",
+                      "rir_raw_text": "1,00",
+                      "ocr_text": null,
+                      "ocr_raw_text": null,
+                      "rir_page": 1,
+                      "rir_position": [
+                        738.0,
+                        830.0,
+                        829.0,
+                        853.0
+                      ],
+                      "ocr_position": null,
+                      "rir_confidence": 0.9844836759436919,
+                      "connector_position": null,
+                      "connector_text": null
+                    },
+                    "category": "datapoint",
+                    "schema_id": "item_quantity",
+                    "validation_sources": [
+                      "checks",
+                      "score"
+                    ],
+                    "time_spent": 0.0,
+                    "time_spent_overall": 0.0
+                  },
+                  {
+                    "id": 3877884976,
+                    "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884976",
+                    "content": {
+                      "value": "servisné poplatky",
+                      "normalized_value": null,
+                      "page": 1,
+                      "position": [
+                        114.0,
+                        830.0,
+                        251.0,
+                        855.0
+                      ],
+                      "rir_text": "servisné poplatky",
+                      "rir_raw_text": "servisné poplatky",
+                      "ocr_text": null,
+                      "ocr_raw_text": null,
+                      "rir_page": 1,
+                      "rir_position": [
+                        114.0,
+                        830.0,
+                        251.0,
+                        855.0
+                      ],
+                      "ocr_position": null,
+                      "rir_confidence": 0.8465405741872857,
+                      "connector_position": null,
+                      "connector_text": null
+                    },
+                    "category": "datapoint",
+                    "schema_id": "item_description",
+                    "validation_sources": [],
+                    "time_spent": 0.0,
+                    "time_spent_overall": 0.0
+                  },
+                  {
+                    "id": 3877884977,
+                    "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884977",
+                    "content": {
+                      "value": "",
+                      "normalized_value": null,
+                      "page": null,
+                      "position": null,
+                      "rir_text": "",
+                      "rir_raw_text": "",
+                      "ocr_text": null,
+                      "ocr_raw_text": null,
+                      "rir_page": null,
+                      "rir_position": null,
+                      "ocr_position": null,
+                      "rir_confidence": null,
+                      "connector_position": null,
+                      "connector_text": null
+                    },
+                    "category": "datapoint",
+                    "schema_id": "item_amount",
+                    "validation_sources": [
+                      "not_found"
+                    ],
+                    "time_spent": 0.0,
+                    "time_spent_overall": 0.0
+                  },
+                  {
+                    "id": 3877884978,
+                    "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884978",
+                    "content": null,
+                    "category": "datapoint",
+                    "schema_id": "button_update",
+                    "validation_sources": [
+                      "NA"
+                    ],
+                    "time_spent": 0.0,
+                    "time_spent_overall": 0.0
+                  },
+                  {
+                    "id": 3877884979,
+                    "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884979",
+                    "content": {
+                      "value": "",
+                      "normalized_value": null,
+                      "page": null,
+                      "position": null,
+                      "rir_text": "",
+                      "rir_raw_text": "",
+                      "ocr_text": null,
+                      "ocr_raw_text": null,
+                      "rir_page": null,
+                      "rir_position": null,
+                      "ocr_position": null,
+                      "rir_confidence": null,
+                      "connector_position": null,
+                      "connector_text": null
+                    },
+                    "category": "datapoint",
+                    "schema_id": "item_uom",
+                    "validation_sources": [
+                      "not_found"
+                    ],
+                    "time_spent": 0.0,
+                    "time_spent_overall": 0.0
+                  },
+                  {
+                    "id": 3877884980,
+                    "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884980",
+                    "content": {
+                      "value": "1,888.12",
+                      "normalized_value": "1888.12",
+                      "page": 1,
+                      "position": [
+                        924.0,
+                        830.0,
+                        1019.0,
+                        853.0
+                      ],
+                      "rir_text": "1,888.12",
+                      "rir_raw_text": "1 888,12",
+                      "ocr_text": null,
+                      "ocr_raw_text": null,
+                      "rir_page": 1,
+                      "rir_position": [
+                        924.0,
+                        830.0,
+                        1019.0,
+                        853.0
+                      ],
+                      "ocr_position": null,
+                      "rir_confidence": 0.9845094596171701,
+                      "connector_position": null,
+                      "connector_text": null
+                    },
+                    "category": "datapoint",
+                    "schema_id": "item_amount_base",
+                    "validation_sources": [
+                      "checks",
+                      "score"
+                    ],
+                    "time_spent": 0.0,
+                    "time_spent_overall": 0.0
+                  },
+                  {
+                    "id": 3877884981,
+                    "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884981",
+                    "content": {
+                      "value": "",
+                      "normalized_value": null,
+                      "page": null,
+                      "position": null,
+                      "rir_text": "",
+                      "rir_raw_text": "",
+                      "ocr_text": null,
+                      "ocr_raw_text": null,
+                      "rir_page": null,
+                      "rir_position": null,
+                      "ocr_position": null,
+                      "rir_confidence": null,
+                      "connector_position": null,
+                      "connector_text": null
+                    },
+                    "category": "datapoint",
+                    "schema_id": "item_rate",
+                    "validation_sources": [
+                      "not_found"
+                    ],
+                    "time_spent": 0.0,
+                    "time_spent_overall": 0.0
+                  },
+                  {
+                    "id": 3877884982,
+                    "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884982",
+                    "content": {
+                      "value": "",
+                      "normalized_value": null,
+                      "page": null,
+                      "position": null,
+                      "rir_text": "",
+                      "rir_raw_text": "",
+                      "ocr_text": null,
+                      "ocr_raw_text": null,
+                      "rir_page": null,
+                      "rir_position": null,
+                      "ocr_position": null,
+                      "rir_confidence": null,
+                      "connector_position": null,
+                      "connector_text": null
+                    },
+                    "category": "datapoint",
+                    "schema_id": "item_tax",
+                    "validation_sources": [
+                      "not_found"
+                    ],
+                    "time_spent": 0.0,
+                    "time_spent_overall": 0.0
+                  },
+                  {
+                    "id": 3877884983,
+                    "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884983",
+                    "content": {
+                      "value": "1,888.12",
+                      "normalized_value": "1888.12",
+                      "page": 1,
+                      "position": [
+                        1056.0,
+                        830.0,
+                        1163.0,
+                        853.0
+                      ],
+                      "rir_text": "1,888.12",
+                      "rir_raw_text": "1 888,12",
+                      "ocr_text": null,
+                      "ocr_raw_text": null,
+                      "rir_page": 1,
+                      "rir_position": [
+                        1056.0,
+                        830.0,
+                        1163.0,
+                        853.0
+                      ],
+                      "ocr_position": null,
+                      "rir_confidence": 0.8959575893452792,
+                      "connector_position": null,
+                      "connector_text": null
+                    },
+                    "category": "datapoint",
+                    "schema_id": "item_total_base",
+                    "validation_sources": [
+                      "checks"
+                    ],
+                    "time_spent": 0.0,
+                    "time_spent_overall": 0.0
+                  },
+                  {
+                    "id": 3877884984,
+                    "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884984",
+                    "content": {
+                      "value": "",
+                      "normalized_value": null,
+                      "page": null,
+                      "position": null,
+                      "rir_text": "",
+                      "rir_raw_text": "",
+                      "ocr_text": null,
+                      "ocr_raw_text": null,
+                      "rir_page": null,
+                      "rir_position": null,
+                      "ocr_position": null,
+                      "rir_confidence": null,
+                      "connector_position": null,
+                      "connector_text": null
+                    },
+                    "category": "datapoint",
+                    "schema_id": "item_other",
+                    "validation_sources": [
+                      "not_found"
+                    ],
+                    "time_spent": 0.0,
+                    "time_spent_overall": 0.0
+                  }
+                ],
+                "category": "tuple",
+                "schema_id": "line_item"
+              },
+              {
+                "id": 3877884985,
+                "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884985",
+                "children": [
+                  {
+                    "id": 3877884986,
+                    "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884986",
+                    "content": {
+                      "value": "",
+                      "normalized_value": null,
+                      "page": null,
+                      "position": null,
+                      "rir_text": "",
+                      "rir_raw_text": "",
+                      "ocr_text": null,
+                      "ocr_raw_text": null,
+                      "rir_page": null,
+                      "rir_position": null,
+                      "ocr_position": null,
+                      "rir_confidence": null,
+                      "connector_position": null,
+                      "connector_text": null
+                    },
+                    "category": "datapoint",
+                    "schema_id": "item_amount_total",
+                    "validation_sources": [
+                      "not_found"
+                    ],
+                    "time_spent": 0.0,
+                    "time_spent_overall": 0.0
+                  },
+                  {
+                    "id": 3877884987,
+                    "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884987",
+                    "content": {
+                      "value": "",
+                      "normalized_value": null,
+                      "page": null,
+                      "position": null,
+                      "rir_text": "",
+                      "rir_raw_text": "",
+                      "ocr_text": null,
+                      "ocr_raw_text": null,
+                      "rir_page": null,
+                      "rir_position": null,
+                      "ocr_position": null,
+                      "rir_confidence": null,
+                      "connector_position": null,
+                      "connector_text": null
+                    },
+                    "category": "datapoint",
+                    "schema_id": "item_code",
+                    "validation_sources": [
+                      "not_found"
+                    ],
+                    "time_spent": 0.0,
+                    "time_spent_overall": 0.0
+                  },
+                  {
+                    "id": 3877884988,
+                    "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884988",
+                    "content": {
+                      "value": "1.00",
+                      "normalized_value": "1.00",
+                      "page": 1,
+                      "position": [
+                        738.0,
+                        858.0,
+                        829.0,
+                        881.0
+                      ],
+                      "rir_text": "1.00",
+                      "rir_raw_text": "1,00",
+                      "ocr_text": null,
+                      "ocr_raw_text": null,
+                      "rir_page": 1,
+                      "rir_position": [
+                        738.0,
+                        858.0,
+                        829.0,
+                        881.0
+                      ],
+                      "ocr_position": null,
+                      "rir_confidence": 0.9868831929419957,
+                      "connector_position": null,
+                      "connector_text": null
+                    },
+                    "category": "datapoint",
+                    "schema_id": "item_quantity",
+                    "validation_sources": [
+                      "checks",
+                      "score"
+                    ],
+                    "time_spent": 0.0,
+                    "time_spent_overall": 0.0
+                  },
+                  {
+                    "id": 3877884989,
+                    "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884989",
+                    "content": {
+                      "value": "zľava CA",
+                      "normalized_value": null,
+                      "page": 1,
+                      "position": [
+                        114.0,
+                        858.0,
+                        251.0,
+                        881.0
+                      ],
+                      "rir_text": "zľava CA",
+                      "rir_raw_text": "zľava CA",
+                      "ocr_text": null,
+                      "ocr_raw_text": null,
+                      "rir_page": 1,
+                      "rir_position": [
+                        114.0,
+                        858.0,
+                        251.0,
+                        881.0
+                      ],
+                      "ocr_position": null,
+                      "rir_confidence": 0.8351247847296038,
+                      "connector_position": null,
+                      "connector_text": null
+                    },
+                    "category": "datapoint",
+                    "schema_id": "item_description",
+                    "validation_sources": [],
+                    "time_spent": 0.0,
+                    "time_spent_overall": 0.0
+                  },
+                  {
+                    "id": 3877884990,
+                    "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884990",
+                    "content": {
+                      "value": "",
+                      "normalized_value": null,
+                      "page": null,
+                      "position": null,
+                      "rir_text": "",
+                      "rir_raw_text": "",
+                      "ocr_text": null,
+                      "ocr_raw_text": null,
+                      "rir_page": null,
+                      "rir_position": null,
+                      "ocr_position": null,
+                      "rir_confidence": null,
+                      "connector_position": null,
+                      "connector_text": null
+                    },
+                    "category": "datapoint",
+                    "schema_id": "item_amount",
+                    "validation_sources": [
+                      "not_found"
+                    ],
+                    "time_spent": 0.0,
+                    "time_spent_overall": 0.0
+                  },
+                  {
+                    "id": 3877884991,
+                    "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884991",
+                    "content": null,
+                    "category": "datapoint",
+                    "schema_id": "button_update",
+                    "validation_sources": [
+                      "NA"
+                    ],
+                    "time_spent": 0.0,
+                    "time_spent_overall": 0.0
+                  },
+                  {
+                    "id": 3877884992,
+                    "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884992",
+                    "content": {
+                      "value": "",
+                      "normalized_value": null,
+                      "page": null,
+                      "position": null,
+                      "rir_text": "",
+                      "rir_raw_text": "",
+                      "ocr_text": null,
+                      "ocr_raw_text": null,
+                      "rir_page": null,
+                      "rir_position": null,
+                      "ocr_position": null,
+                      "rir_confidence": null,
+                      "connector_position": null,
+                      "connector_text": null
+                    },
+                    "category": "datapoint",
+                    "schema_id": "item_uom",
+                    "validation_sources": [
+                      "not_found"
+                    ],
+                    "time_spent": 0.0,
+                    "time_spent_overall": 0.0
+                  },
+                  {
+                    "id": 3877884993,
+                    "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884993",
+                    "content": {
+                      "value": "-755.25",
+                      "normalized_value": "-755.25",
+                      "page": 1,
+                      "position": [
+                        924.0,
+                        858.0,
+                        1019.0,
+                        881.0
+                      ],
+                      "rir_text": "-755.25",
+                      "rir_raw_text": "-755,25",
+                      "ocr_text": null,
+                      "ocr_raw_text": null,
+                      "rir_page": 1,
+                      "rir_position": [
+                        924.0,
+                        858.0,
+                        1019.0,
+                        881.0
+                      ],
+                      "ocr_position": null,
+                      "rir_confidence": 0.9970674410988678,
+                      "connector_position": null,
+                      "connector_text": null
+                    },
+                    "category": "datapoint",
+                    "schema_id": "item_amount_base",
+                    "validation_sources": [
+                      "checks",
+                      "score"
+                    ],
+                    "time_spent": 0.0,
+                    "time_spent_overall": 0.0
+                  },
+                  {
+                    "id": 3877884994,
+                    "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884994",
+                    "content": {
+                      "value": "",
+                      "normalized_value": null,
+                      "page": null,
+                      "position": null,
+                      "rir_text": "",
+                      "rir_raw_text": "",
+                      "ocr_text": null,
+                      "ocr_raw_text": null,
+                      "rir_page": null,
+                      "rir_position": null,
+                      "ocr_position": null,
+                      "rir_confidence": null,
+                      "connector_position": null,
+                      "connector_text": null
+                    },
+                    "category": "datapoint",
+                    "schema_id": "item_rate",
+                    "validation_sources": [
+                      "not_found"
+                    ],
+                    "time_spent": 0.0,
+                    "time_spent_overall": 0.0
+                  },
+                  {
+                    "id": 3877884995,
+                    "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884995",
+                    "content": {
+                      "value": "",
+                      "normalized_value": null,
+                      "page": null,
+                      "position": null,
+                      "rir_text": "",
+                      "rir_raw_text": "",
+                      "ocr_text": null,
+                      "ocr_raw_text": null,
+                      "rir_page": null,
+                      "rir_position": null,
+                      "ocr_position": null,
+                      "rir_confidence": null,
+                      "connector_position": null,
+                      "connector_text": null
+                    },
+                    "category": "datapoint",
+                    "schema_id": "item_tax",
+                    "validation_sources": [
+                      "not_found"
+                    ],
+                    "time_spent": 0.0,
+                    "time_spent_overall": 0.0
+                  },
+                  {
+                    "id": 3877884996,
+                    "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884996",
+                    "content": {
+                      "value": "-755.25",
+                      "normalized_value": "-755.25",
+                      "page": 1,
+                      "position": [
+                        1056.0,
+                        858.0,
+                        1163.0,
+                        881.0
+                      ],
+                      "rir_text": "-755.25",
+                      "rir_raw_text": "-755,25",
+                      "ocr_text": null,
+                      "ocr_raw_text": null,
+                      "rir_page": 1,
+                      "rir_position": [
+                        1056.0,
+                        858.0,
+                        1163.0,
+                        881.0
+                      ],
+                      "ocr_position": null,
+                      "rir_confidence": 0.8959575898416995,
+                      "connector_position": null,
+                      "connector_text": null
+                    },
+                    "category": "datapoint",
+                    "schema_id": "item_total_base",
+                    "validation_sources": [
+                      "checks"
+                    ],
+                    "time_spent": 0.0,
+                    "time_spent_overall": 0.0
+                  },
+                  {
+                    "id": 3877884997,
+                    "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884997",
+                    "content": {
+                      "value": "",
+                      "normalized_value": null,
+                      "page": null,
+                      "position": null,
+                      "rir_text": "",
+                      "rir_raw_text": "",
+                      "ocr_text": null,
+                      "ocr_raw_text": null,
+                      "rir_page": null,
+                      "rir_position": null,
+                      "ocr_position": null,
+                      "rir_confidence": null,
+                      "connector_position": null,
+                      "connector_text": null
+                    },
+                    "category": "datapoint",
+                    "schema_id": "item_other",
+                    "validation_sources": [
+                      "not_found"
+                    ],
+                    "time_spent": 0.0,
+                    "time_spent_overall": 0.0
+                  }
+                ],
+                "category": "tuple",
+                "schema_id": "line_item"
+              }
+            ],
+            "category": "multivalue",
+            "schema_id": "line_items",
+            "grid": {
+              "parts": [
+                {
+                  "page": 1,
+                  "columns": [
+                    {
+                      "left_position": 114.0,
+                      "schema_id": "item_description",
+                      "header_texts": [
+                        "Popis"
+                      ]
+                    },
+                    {
+                      "left_position": 251.0,
+                      "schema_id": null,
+                      "header_texts": []
+                    },
+                    {
+                      "left_position": 684.0,
+                      "schema_id": "item_rate",
+                      "header_texts": [
+                        "DPH\n%"
+                      ]
+                    },
+                    {
+                      "left_position": 732.0,
+                      "schema_id": "item_quantity",
+                      "header_texts": [
+                        "Množstvo\n]"
+                      ]
+                    },
+                    {
+                      "left_position": 834.0,
+                      "schema_id": "item_uom",
+                      "header_texts": [
+                        "Jedn."
+                      ]
+                    },
+                    {
+                      "left_position": 908.0,
+                      "schema_id": "item_amount_base",
+                      "header_texts": [
+                        "Cena za j.\nbez DPH"
+                      ]
+                    },
+                    {
+                      "left_position": 1037.0,
+                      "schema_id": "item_total_base",
+                      "header_texts": [
+                        "Spolu\nbez DPH"
+                      ]
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "top_position": 829.0,
+                      "tuple_id": 3877884972,
+                      "type": "data"
+                    },
+                    {
+                      "top_position": 855.0,
+                      "tuple_id": 3877884985,
+                      "type": "data"
+                    }
+                  ],
+                  "width": 1049.0,
+                  "height": 52.0
+                }
+              ]
+            },
+            "time_spent": 5.95,
+            "time_spent_overall": 22.45,
+            "time_spent_grid": 0.0,
+            "time_spent_grid_overall": 0.0
+          }
+        ],
+        "category": "section",
+        "schema_id": "line_items_section"
+      },
+      {
+        "id": 3877884998,
+        "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884998",
+        "children": [
+          {
+            "id": 3877884999,
+            "url": "https://api.elis.rossum.ai/v1/annotations/32762322/content/3877884999",
+            "content": {
+              "value": "",
+              "normalized_value": null,
+              "page": null,
+              "position": null,
+              "rir_text": "",
+              "rir_raw_text": "",
+              "ocr_text": null,
+              "ocr_raw_text": null,
+              "rir_page": null,
+              "rir_position": null,
+              "ocr_position": null,
+              "rir_confidence": null,
+              "connector_position": null,
+              "connector_text": null
+            },
+            "category": "datapoint",
+            "schema_id": "notes",
+            "validation_sources": [
+              "non_required"
+            ],
+            "time_spent": 0.0,
+            "time_spent_overall": 0.0
+          }
+        ],
+        "category": "section",
+        "schema_id": "other_section"
+      }
+    ],
+    "time_spent": 1.67,
+    "metadata": {},
+    "automated": false,
+    "suggested_edit": null,
+    "related_emails": [],
+    "email": null,
+    "automation_blocker": "https://api.elis.rossum.ai/v1/automation_blockers/19555592",
+    "email_thread": null,
+    "has_email_thread_with_replies": false,
+    "has_email_thread_with_new_replies": false,
+    "organization": "https://api.elis.rossum.ai/v1/organizations/214757",
+    "automatically_rejected": false,
+    "prediction": {
+      "source": "engine_instant_learning",
+      "version": null
+    },
+    "assignees": [],
+    "previous_status": null
+  },
+  "rossum_authorization_token": "44f3435b54bdfef7116722a8a374a99055792ef2"
+}
