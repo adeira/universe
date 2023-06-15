@@ -1,0 +1,15 @@
+{
+  "name": "@adeira/rossum-sa-extension",
+  "description": "Adds additional functionality to Rossum UI for developers (SA).",
+  "homepage": "https://github.com/adeira/rossum-sa-extension",
+  "bugs": "https://github.com/adeira/universe/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adeira/universe.git",
+    "directory": "src/rossum-sa-extension"
+  },
+  "license": "MIT",
+  "version": "0.1.0",
+  "type": "commonjs",
+  "sideEffects": false
+}
