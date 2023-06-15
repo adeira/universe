@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "permissions": ["storage"],
+  "name": "Rossum SA extension",
+  "version": "0.1",
+  "description": "Adds additional functionality to Rossum UI for developers (SA).",
+  "icons": {
+    "16": "icons/16-crunch.png",
+    "48": "icons/48-crunch.png",
+    "128": "icons/128-crunch.png"
+  },
+  "content_scripts": [
+    {
+      "js": ["scripts/content-script.js"],
+      "matches": ["https://elis.rossum.ai/document/*"]
+    }
+  ]
+}

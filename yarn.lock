@@ -383,6 +383,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@adeira/rossum-sa-extension@workspace:src/rossum-sa-extension":
+  version: 0.0.0-use.local
+  resolution: "@adeira/rossum-sa-extension@workspace:src/rossum-sa-extension"
+  languageName: unknown
+  linkType: soft
+
 "@adeira/shell-command@^0.1.0, @adeira/shell-command@workspace:src/shell-command":
   version: 0.0.0-use.local
   resolution: "@adeira/shell-command@workspace:src/shell-command"
