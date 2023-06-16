@@ -21,7 +21,7 @@ it('renders basic "FormEmail" input as expected', () => {
       data-testid="email-input"
       name="email-input-name"
       label={
-        <fbt doNotExtract={true} desc={'email label'}>
+        <fbt doNotExtract={true} desc="email label">
           email label
         </fbt>
       }
@@ -53,7 +53,7 @@ it('renders complex "FormEmail" input as expected', () => {
       value="email value"
       required={true}
       label={
-        <fbt doNotExtract={true} desc={'email label'}>
+        <fbt doNotExtract={true} desc="email label">
           email label
         </fbt>
       }

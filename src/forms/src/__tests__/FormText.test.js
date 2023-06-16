@@ -21,7 +21,7 @@ it('renders basic "FormText" input as expected', () => {
       data-testid="text-input"
       name="text-input-name"
       label={
-        <fbt doNotExtract={true} desc={'text label'}>
+        <fbt doNotExtract={true} desc="text label">
           text label
         </fbt>
       }
@@ -53,7 +53,7 @@ it('renders complex "FormText" input as expected', () => {
       value="text value"
       required={true}
       label={
-        <fbt doNotExtract={true} desc={'text label'}>
+        <fbt doNotExtract={true} desc="text label">
           text label
         </fbt>
       }

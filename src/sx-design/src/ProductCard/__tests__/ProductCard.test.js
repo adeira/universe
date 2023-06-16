@@ -17,10 +17,10 @@ it.each([
 
   const { getByText } = render(
     <ProductCard
-      title={'title'}
+      title="title"
       priceUnitAmount={12}
       priceUnitAmountCurrency={currency}
-      imgSrc={'src'}
+      imgSrc="src"
     />,
     { locale },
   );

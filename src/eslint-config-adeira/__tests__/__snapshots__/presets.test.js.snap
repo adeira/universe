@@ -904,7 +904,7 @@ exports[`React preset: React preset 1`] = `
         "testing-library/prefer-presence-queries": 2,
         "testing-library/prefer-query-by-disappearance": 2,
         "testing-library/prefer-query-matchers": [
-          2,
+          1,
           {
             "validEntries": [
               {
@@ -1038,7 +1038,14 @@ exports[`React preset: React preset 1`] = `
     "react/hook-use-state": 0,
     "react/iframe-missing-sandbox": 2,
     "react/jsx-boolean-value": 0,
-    "react/jsx-curly-brace-presence": 0,
+    "react/jsx-curly-brace-presence": [
+      1,
+      {
+        "children": "never",
+        "propElementValues": "always",
+        "props": "never",
+      },
+    ],
     "react/jsx-filename-extension": 0,
     "react/jsx-fragments": 0,
     "react/jsx-handler-names": 0,

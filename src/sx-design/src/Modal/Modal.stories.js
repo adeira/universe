@@ -54,10 +54,10 @@ const TemplateWithProductCards = (args: ElementConfig<typeof Modal>) => {
           {rangeMap(10, (i) => (
             <ProductCard
               key={i}
-              title={'My Product'}
+              title="My Product"
               priceUnitAmount={42}
               priceUnitAmountCurrency={SupportedCurrencies.AED}
-              imgSrc={'https://placekitten.com/500/500?image=12'}
+              imgSrc="https://placekitten.com/500/500?image=12"
             />
           ))}
         </LayoutGrid>

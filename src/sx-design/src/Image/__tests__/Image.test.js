@@ -9,9 +9,7 @@ import Image from '../Image';
 import { render } from '../../test-utils';
 
 it('renders without any issues', () => {
-  const { getByAltText, getByTestId } = render(
-    <Image alt={'yadada'} data-testid={'image-test-id'} />,
-  );
+  const { getByAltText, getByTestId } = render(<Image alt="yadada" data-testid="image-test-id" />);
 
   expect(getByAltText('yadada')).toBeInTheDocument();
   expect(getByTestId('image-test-id')).toBeInTheDocument();
@@ -20,7 +18,7 @@ it('renders without any issues', () => {
 it('warns with missing img alt', () => {
   const warnSpy = jest.spyOn(console, 'warn').mockImplementationOnce(() => {});
 
-  const { getByTestId } = render(<Image src={'mock'} data-testid={'image-test-id'} />);
+  const { getByTestId } = render(<Image src="mock" data-testid="image-test-id" />);
 
   expect(getByTestId('image-test-id')).toBeInTheDocument();
 
@@ -35,9 +33,9 @@ it('handles invalid blurhash without any issues', () => {
 
   const { getByAltText, getByTestId } = render(
     <Image
-      alt={'yadada'}
-      blurhash={'invalid-blurhash-format'} // <<<
-      data-testid={'image-test-id'}
+      alt="yadada"
+      blurhash="invalid-blurhash-format" // <<<
+      data-testid="image-test-id"
     />,
   );
 

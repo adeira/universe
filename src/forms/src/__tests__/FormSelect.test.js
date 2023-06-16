@@ -21,7 +21,7 @@ it('renders basic "FormSelect" input as expected', () => {
       name="normal-select-name"
       value="POS"
       label={
-        <fbt doNotExtract={true} desc={'normal upload label'}>
+        <fbt doNotExtract={true} desc="normal upload label">
           normal upload label
         </fbt>
       }

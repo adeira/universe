@@ -20,9 +20,9 @@ export default {
 // 👇 We create a "template" of how args map to rendering
 const BasicTemplate = (args: ElementConfig<typeof Placeholder>) => (
   <LayoutBlock>
-    <Placeholder width={'100%'} height={50} {...args} />
-    <Placeholder width={'50%'} height={100} {...args} />
-    <Placeholder width={'30%'} height={250} {...args} />
+    <Placeholder width="100%" height={50} {...args} />
+    <Placeholder width="50%" height={100} {...args} />
+    <Placeholder width="30%" height={250} {...args} />
   </LayoutBlock>
 );
 

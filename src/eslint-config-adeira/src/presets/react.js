@@ -41,7 +41,14 @@ module.exports = ({
     'react/hook-use-state': OFF,
     'react/iframe-missing-sandbox': ERROR,
     'react/jsx-boolean-value': OFF,
-    'react/jsx-curly-brace-presence': OFF,
+    'react/jsx-curly-brace-presence': [
+      NEXT_VERSION_ERROR,
+      {
+        props: 'never',
+        children: 'never',
+        propElementValues: 'always',
+      },
+    ],
     'react/jsx-filename-extension': OFF,
     'react/jsx-fragments': OFF,
     'react/jsx-handler-names': OFF,
@@ -282,8 +289,10 @@ module.exports = ({
         'testing-library/prefer-presence-queries': ERROR,
         'testing-library/prefer-query-by-disappearance': ERROR,
         'testing-library/prefer-query-matchers': [
-          ERROR,
-          { validEntries: [{ matcher: 'toBeVisible', query: 'get' }] },
+          NEXT_VERSION_ERROR,
+          {
+            validEntries: [{ matcher: 'toBeVisible', query: 'get' }],
+          },
         ],
         'testing-library/prefer-screen-queries': OFF, // TODO: NEXT_VERSION_ERROR (?)
         'testing-library/prefer-user-event': ERROR,

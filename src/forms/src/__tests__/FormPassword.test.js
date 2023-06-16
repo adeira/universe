@@ -19,7 +19,7 @@ it('renders basic "FormPassword" input as expected', () => {
       data-testid="password-input"
       name="password-input-name"
       label={
-        <fbt doNotExtract={true} desc={'password label'}>
+        <fbt doNotExtract={true} desc="password label">
           password label
         </fbt>
       }
@@ -48,7 +48,7 @@ it('renders complex "FormPassword" input as expected', () => {
       name="password-input-name"
       required={true}
       label={
-        <fbt doNotExtract={true} desc={'password label'}>
+        <fbt doNotExtract={true} desc="password label">
           password label
         </fbt>
       }
