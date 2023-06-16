@@ -37,10 +37,10 @@ export default function ProductCreateForm(props: Props): Node {
       // $FlowFixMe[incompatible-type]: https://github.com/facebook/relay/issues/2545
       availableCategories={data.productCategories}
       selectedCategories={[]}
-      name_en={''}
-      name_es={''}
-      description_en={''}
-      description_es={''}
+      name_en=""
+      name_es=""
+      description_en=""
+      description_es=""
       price={0}
       visibility={['POS']}
       button={

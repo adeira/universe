@@ -22,7 +22,7 @@ it('renders basic "FormMultiSelect" input as expected', () => {
       size={3}
       value={['POS']}
       label={
-        <fbt doNotExtract={true} desc={'multi upload label'}>
+        <fbt doNotExtract={true} desc="multi upload label">
           multi upload label
         </fbt>
       }

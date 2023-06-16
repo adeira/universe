@@ -20,7 +20,7 @@ it('renders basic "FormNumber" input as expected', () => {
       name="number-input-name"
       value={-1}
       label={
-        <fbt doNotExtract={true} desc={'number label'}>
+        <fbt doNotExtract={true} desc="number label">
           number label
         </fbt>
       }
@@ -54,7 +54,7 @@ it('renders complex "FormNumber" input as expected', () => {
       required={true}
       step={5}
       label={
-        <fbt doNotExtract={true} desc={'number label'}>
+        <fbt doNotExtract={true} desc="number label">
           number label
         </fbt>
       }

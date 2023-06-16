@@ -8,7 +8,7 @@ import { Tabs } from '../index';
 export const testBasicUsage = (): Element<typeof Tabs> => {
   return (
     <Tabs
-      selected={'aaa'}
+      selected="aaa"
       setSelected={(_: string | number | null) => {}}
       tabs={[
         {

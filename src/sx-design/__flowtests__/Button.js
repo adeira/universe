@@ -32,6 +32,7 @@ export const testIcon = (): Element<typeof Button> => {
 export const testMultipleRestrictedNodes = (): Node => {
   return (
     <Button onClick={() => {}}>
+      {/* eslint-disable-next-line react/jsx-curly-brace-presence */}
       {'test string A'} {-1} {'test string B'}
     </Button>
   );

@@ -20,7 +20,7 @@ it('renders basic "FormMultiUpload" input as expected', () => {
       name="file-input-name"
       accept="image/jpeg,image/png"
       label={
-        <fbt doNotExtract={true} desc={'file label'}>
+        <fbt doNotExtract={true} desc="file label">
           file label
         </fbt>
       }

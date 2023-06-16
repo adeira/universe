@@ -12,7 +12,7 @@ it('disallows hidden title when the title is specified', () => {
 
   expect(() =>
     render(
-      <Layout withHiddenTitle={true} title={'title'}>
+      <Layout withHiddenTitle={true} title="title">
         test
       </Layout>,
     ),
@@ -28,7 +28,7 @@ it('disallows hidden title when the subtitle is specified', () => {
 
   expect(() =>
     render(
-      <Layout withHiddenTitle={true} subtitle={'subtitle'}>
+      <Layout withHiddenTitle={true} subtitle="subtitle">
         test
       </Layout>,
     ),

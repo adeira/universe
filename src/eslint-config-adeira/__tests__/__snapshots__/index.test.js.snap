@@ -61,7 +61,7 @@ exports[`rules snapshot: all stable rules 1`] = `
         "testing-library/prefer-presence-queries": 2,
         "testing-library/prefer-query-by-disappearance": 2,
         "testing-library/prefer-query-matchers": [
-          2,
+          1,
           {
             "validEntries": [
               {
@@ -894,7 +894,14 @@ exports[`rules snapshot: all stable rules 1`] = `
     "react/jsx-child-element-spacing": "off",
     "react/jsx-closing-bracket-location": "off",
     "react/jsx-closing-tag-location": "off",
-    "react/jsx-curly-brace-presence": 0,
+    "react/jsx-curly-brace-presence": [
+      1,
+      {
+        "children": "never",
+        "propElementValues": "always",
+        "props": "never",
+      },
+    ],
     "react/jsx-curly-newline": "off",
     "react/jsx-curly-spacing": "off",
     "react/jsx-equals-spacing": "off",
@@ -1200,6 +1207,11 @@ Snapshot Diff:
 + Value for STRICT rules
 
 @@ --- --- @@
+          "testing-library/prefer-query-matchers": Array [
+-           1,
++           2,
+            Object {
+@@ --- --- @@
       "import/no-dynamic-require": 0,
 -     "import/no-empty-named-blocks": 1,
 +     "import/no-empty-named-blocks": 2,
@@ -1234,6 +1246,11 @@ Snapshot Diff:
 -     "promise/no-multiple-resolved": 1,
 +     "promise/no-multiple-resolved": 2,
       "promise/no-native": 0,
+@@ --- --- @@
+      "react/jsx-curly-brace-presence": Array [
+-       1,
++       2,
+        Object {
 @@ --- --- @@
       "react/no-namespace": 0,
 -     "react/no-object-type-as-default-prop": 1,

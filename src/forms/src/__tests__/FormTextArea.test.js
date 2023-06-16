@@ -20,7 +20,7 @@ it('renders basic "FormTextArea" input as expected', () => {
       name="text-area-input-name"
       value="text area value"
       label={
-        <fbt doNotExtract={true} desc={'text area label'}>
+        <fbt doNotExtract={true} desc="text area label">
           text area label
         </fbt>
       }
@@ -49,7 +49,7 @@ it('renders complex "FormTextArea" input as expected', () => {
       value="text area value"
       required={true}
       label={
-        <fbt doNotExtract={true} desc={'text area label'}>
+        <fbt doNotExtract={true} desc="text area label">
           text area label
         </fbt>
       }
