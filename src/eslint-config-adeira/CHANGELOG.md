@@ -1,5 +1,7 @@
 # Unreleased
 
+# 8.3.0
+
 - New rules enabled: [`testing-library/prefer-query-matchers`](https://github.com/testing-library/eslint-plugin-testing-library/blob/f8279d24d813b871c62005f84ba2832be9d455e5/docs/rules/prefer-query-matchers.md), and [`react/jsx-curly-brace-presence`](https://github.com/jsx-eslint/eslint-plugin-react/blob/ae64aa8fa059fd2b4088642c1b591b8662e6ccc9/docs/rules/jsx-curly-brace-presence.md) (warnings or errors in strict mode)
 
 # 8.2.0
