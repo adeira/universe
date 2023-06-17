@@ -11,6 +11,7 @@ FROM node:20.3.0-alpine AS builder
 WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
+RUN yarn build && yarn install # --immutable
 
 # Production image, copy all the files and run next
 FROM node:20.3.0-alpine AS runner
