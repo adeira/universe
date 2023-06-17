@@ -3,6 +3,7 @@
   "description": "Adds additional functionality to Rossum UI for developers (SA).",
   "homepage": "https://github.com/adeira/rossum-sa-extension",
   "bugs": "https://github.com/adeira/universe/issues",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git@github.com:adeira/universe.git",
