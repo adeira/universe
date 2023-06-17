@@ -1,0 +1,16 @@
+{
+  "name": "@adeira/abacus-tools-chrome-extension",
+  "description": "Abacus Tools - New Tab Chrome Extension",
+  "homepage": "https://github.com/adeira/abacus-tools-chrome-extension",
+  "bugs": "https://github.com/adeira/universe/issues",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adeira/universe.git",
+    "directory": "src/abacus-tools-chrome-extension"
+  },
+  "license": "MIT",
+  "version": "0.1.0",
+  "type": "commonjs",
+  "sideEffects": false
+}
