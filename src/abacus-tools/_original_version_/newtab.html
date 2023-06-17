@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Current Time Display</title>
+    <style>
+      body {
+        color: #333;
+        background: #f2f2f2;
+        font-family: Arial, sans-serif;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        transition: background 10s linear;
+      }
+      #time-display {
+        font-size: 8em;
+        font-weight: bold;
+        transition: all 0.5s ease-in-out;
+      }
+      .adsense {
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="time-display"></div>
+
+    <script>
+      function updateTime() {
+        const now = new Date();
+        const options = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+        const formattedTime = new Intl.DateTimeFormat('default', options).format(now);
+
+        document.title = formattedTime;
+        document.getElementById('time-display').innerText = formattedTime;
+
+        setTimeout(updateTime, 1000);
+      }
+
+      updateTime();
+    </script>
+
+    <div class="adsense">
+      <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9094640807539709"
+        crossorigin="anonymous"
+      ></script>
+      <!-- Horizontal bottom -->
+      <ins
+        class="adsbygoogle"
+        style="display: inline-block; width: 728px; height: 90px"
+        data-ad-client="ca-pub-9094640807539709"
+        data-ad-slot="8805573933"
+      ></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </body>
+</html>

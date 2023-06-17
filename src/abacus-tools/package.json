@@ -1,0 +1,18 @@
+{
+  "name": "@adeira/abacus-tools",
+  "version": "0.1.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "next dev --port=3000",
+    "build": "next build",
+    "start": "next start --port=3000"
+  },
+  "dependencies": {
+    "next": "^13.4.2",
+    "next-compose-plugins": "^2.2.1",
+    "next-plugin-custom-babel-config": "^1.0.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
