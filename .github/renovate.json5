@@ -6,6 +6,7 @@
     'replacements:all',
     'workarounds:all',
   ],
+  rebaseWhen: 'conflicted',
   prHourlyLimit: 0,
   prConcurrentLimit: 0,
   dependencyDashboard: true,
