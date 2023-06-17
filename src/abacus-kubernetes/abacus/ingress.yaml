@@ -7,13 +7,15 @@ metadata:
     cert-manager.io/cluster-issuer: 'letsencrypt-production'
     nginx.ingress.kubernetes.io/proxy-body-size: '16m'
     nginx.ingress.kubernetes.io/backend-protocol: 'http'
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   tls:
     - hosts:
-        - adeira.io
         - abacus.adeira.io
+        - adeira.io
         - docs.kochka.com.mx
         - kochka.com.mx
+        - tools.adeira.io
       secretName: abacus-tls
   rules:
     - host: adeira.io
@@ -55,5 +57,15 @@ spec:
             backend:
               service:
                 name: abacus-kochka-service
+                port:
+                  number: 80
+    - host: tools.adeira.io
+      http:
+        paths:
+          - pathType: Prefix
+            path: '/newtab'
+            backend:
+              service:
+                name: abacus-tools-service
                 port:
                   number: 80
