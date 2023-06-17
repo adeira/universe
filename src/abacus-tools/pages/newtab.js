@@ -2,6 +2,8 @@
 
 import React, { useEffect, useState, type Node } from 'react';
 
+import Jumbo from '../src/components/Jumbo';
+
 export default function NewTabPage(): Node {
   const [formattedTime, setFormattedTime] = useState('');
 
@@ -28,17 +30,5 @@ export default function NewTabPage(): Node {
     };
   }, []);
 
-  return (
-    <>
-      <style jsx>{`
-        .time-display {
-          font-size: 8em;
-          font-weight: bold;
-          transition: all 0.5s ease-in-out;
-        }
-      `}</style>
-
-      <div className="time-display">{formattedTime}</div>
-    </>
-  );
+  return <Jumbo>{formattedTime}</Jumbo>;
 }
