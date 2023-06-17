@@ -345,7 +345,7 @@ metadata:
     # https://www.digitalocean.com/community/tutorials/how-to-set-up-an-nginx-ingress-with-cert-manager-on-digitalocean-kubernetes
     # https://docs.digitalocean.com/products/kubernetes/how-to/configure-load-balancers/#accessing-by-hostname-annotation
     # https://github.com/jetstack/cert-manager/issues/3238
-    service.beta.kubernetes.io/do-loadbalancer-hostname: 'workaround-k8s.kochka.com.mx'
+    service.beta.kubernetes.io/do-loadbalancer-hostname: 'workaround-k8s.adeira.io'
   labels:
     app.kubernetes.io/component: controller
     app.kubernetes.io/instance: ingress-nginx
