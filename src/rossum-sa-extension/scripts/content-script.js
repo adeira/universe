@@ -1,5 +1,24 @@
 // @flow
 
+/*::
+
+declare const chrome: any; // TODO
+
+*/
+
+chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
+  if (message === 'toggle-dev-features-enabled') {
+    if (window.localStorage.getItem('devFeaturesEnabled') === 'true') {
+      window.localStorage.removeItem('devFeaturesEnabled');
+    } else {
+      window.localStorage.setItem('devFeaturesEnabled', true);
+    }
+    sendResponse(true);
+  }
+});
+
+// ---
+
 const style = document.createElement('style');
 style.textContent = `
 .rossum-sa-extension-schema-id {
