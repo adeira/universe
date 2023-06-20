@@ -1,9 +1,13 @@
-https://chrome.google.com/webstore/devconsole
+Chrome Extension adding small enhancements to Rossum's SA team:
+
+- shows `schema_id` annotations on the annotation screen
+- adds `devFeatureEnabled` toggle
+
+To publish: https://chrome.google.com/webstore/devconsole
 
 ---
 
 Ideas for improvements:
 
 - add on/off toggle
-- add `devFeatureEnabled` toggle
-- add UI warnings when schema best practices are broken
+- add UI warnings when schema best practices are broken (how?)

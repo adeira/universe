@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Rossum SA extension",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Adds additional functionality to Rossum UI for developers (SA).",
   "icons": {
     "16": "icons/16-crunch.png",
@@ -11,7 +11,10 @@
   "content_scripts": [
     {
       "js": ["scripts/content-script.js"],
-      "matches": ["https://elis.rossum.ai/document/*"]
+      "matches": ["https://elis.rossum.ai/*"]
     }
-  ]
+  ],
+  "action": {
+    "default_popup": "popup/popup.html"
+  }
 }
