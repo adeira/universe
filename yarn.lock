@@ -103,6 +103,7 @@ __metadata:
   resolution: "@adeira/abacus-tools@workspace:src/abacus-tools"
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
+    "@babel/core": ^7.22.5
     next: ^13.4.2
     next-compose-plugins: ^2.2.1
     next-plugin-custom-babel-config: ^1.0.5

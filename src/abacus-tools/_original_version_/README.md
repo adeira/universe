@@ -6,7 +6,7 @@ To build:
 
 ```
 DOCKER_DEFAULT_PLATFORM=linux/amd64 docker build -t adeira/abacus-tools .
-docker run -d -p 8080:80 adeira/abacus-tools
+docker run -d -p 3000:80 adeira/abacus-tools
 ```
 
 To publish:
