@@ -8,17 +8,22 @@ style.textContent = `
   left: 0;
   color: red;
   font-size: 8px;
-  transition: font-size 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  opacity: .7;
 }
 
 .rossum-sa-extension-schema-id:hover {
   font-size: 16px;
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 3px;
+  padding-inline: 3px;
 }`;
 document.head?.appendChild(style);
 
 const observer = new MutationObserver((mutations) => {
   const checkAddedNode = (addedNode /*: $FlowFixMe */) => {
-    if (addedNode.hasAttribute('data-schema-id')) {
+    if (addedNode?.hasAttribute('data-schema-id')) {
       const div = document.createElement('span');
       div.className = 'rossum-sa-extension-schema-id';
       div.innerHTML = addedNode.getAttribute('data-schema-id');
