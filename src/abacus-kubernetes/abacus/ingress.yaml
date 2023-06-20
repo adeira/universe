@@ -63,7 +63,7 @@ spec:
       http:
         paths:
           - pathType: Prefix
-            path: '/newtab'
+            path: '/'
             backend:
               service:
                 name: abacus-tools-service

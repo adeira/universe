@@ -35,10 +35,10 @@ spec:
           image: adeira/abacus-tools
           resources:
             requests:
-              cpu: 50m
-              memory: 20Mi
+              cpu: 16m
+              memory: 128Mi
             limits:
-              cpu: 100m
-              memory: 50Mi
+              cpu: 32m
+              memory: 256Mi
           ports:
             - containerPort: 3000
