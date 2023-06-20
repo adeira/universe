@@ -5,7 +5,7 @@
     "src/*"
   ],
   "engines": {
-    "node": ">=v18.16.0",
+    "node": ">=v18.16.1",
     "yarn": ">=3.6.0"
   },
   "devDependencies": {
