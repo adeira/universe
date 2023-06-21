@@ -7,8 +7,7 @@
     "48": "icons/48-crunch.png",
     "128": "icons/128-crunch.png"
   },
-  "permissions": ["tabs"],
-  "background": {
-    "service_worker": "background.js"
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
   }
 }
