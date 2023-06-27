@@ -398,7 +398,7 @@ __metadata:
   resolution: "@adeira/rossum-hooks@workspace:src/rossum-hooks"
   dependencies:
     "@rollup/pluginutils": ^5.0.2
-    flow-remove-types: ^2.210.0
+    flow-remove-types: ^2.210.1
     rollup: ^3.25.3
   languageName: unknown
   linkType: soft
@@ -12697,24 +12697,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"flow-parser@npm:^0.210.0":
-  version: 0.210.0
-  resolution: "flow-parser@npm:0.210.0"
-  checksum: e6883ce262fe6b8ccaa247f584190c83119c77cedd92c7ad12b015bcbd2c30db6f229b296e52008670ae14ec832bbf1a4fad9b31577a94cf010b9b008902991d
+"flow-parser@npm:^0.210.1":
+  version: 0.210.1
+  resolution: "flow-parser@npm:0.210.1"
+  checksum: 220ff19326f722b0d2e6d8c23600ae424027dba1f969114ea60bae93ad81ea69299b728439e7a08e23af4422348b45c8a954857323ad258fc0187649afc29591
   languageName: node
   linkType: hard
 
-"flow-remove-types@npm:^2.210.0":
-  version: 2.210.0
-  resolution: "flow-remove-types@npm:2.210.0"
+"flow-remove-types@npm:^2.210.1":
+  version: 2.210.1
+  resolution: "flow-remove-types@npm:2.210.1"
   dependencies:
-    flow-parser: ^0.210.0
+    flow-parser: ^0.210.1
     pirates: ^3.0.2
     vlq: ^0.2.1
   bin:
     flow-node: flow-node
     flow-remove-types: flow-remove-types
-  checksum: 6b0125025918a1e416cb26bab46b24aa300a64b012ed619176ef8446496c2e2c1a2cbc7fc8029aad8361ac537451cec244397710b8d6fe60fb8aee53db7cb7ae
+  checksum: 4f1cae594403a1b2b3b0053d88e0216d1481ef61bf2e649d3c45a874831d7e77c8045482cbc66dddd8eec11cfae34aa32b1e8d2a2e021eb41703b1059a0cc2da
   languageName: node
   linkType: hard
 
