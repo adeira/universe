@@ -6,7 +6,7 @@
   ],
   "engines": {
     "node": ">=v18.16.1",
-    "yarn": ">=3.6.0"
+    "yarn": ">=3.6.1"
   },
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^4.0.0",
@@ -25,5 +25,5 @@
     "prettier": "^2.8.8",
     "typescript": "^5.1.6"
   },
-  "packageManager": "yarn@3.6.0"
+  "packageManager": "yarn@3.6.1"
 }
