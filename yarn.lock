@@ -87,7 +87,7 @@ __metadata:
     babel-plugin-fbt: ^1.0.0
     babel-plugin-fbt-runtime: ^1.0.0
     fbt: ^1.0.0
-    globby: ^13.2.0
+    globby: ^13.2.1
     graphql: ^16.6.0
     next: ^13.4.2
     next-compose-plugins: ^2.2.1
@@ -13465,16 +13465,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globby@npm:^13.1.1, globby@npm:^13.1.3, globby@npm:^13.2.0":
-  version: 13.2.0
-  resolution: "globby@npm:13.2.0"
+"globby@npm:^13.1.1, globby@npm:^13.1.3, globby@npm:^13.2.1":
+  version: 13.2.1
+  resolution: "globby@npm:13.2.1"
   dependencies:
     dir-glob: ^3.0.1
     fast-glob: ^3.2.11
     ignore: ^5.2.0
     merge2: ^1.4.1
     slash: ^4.0.0
-  checksum: 0a3dd786571788adef1c894f22112834cff5bbe061ae6e0a01c5118c39d44b3f1937ef1dae3f8b9bc24756eba84a0923e565b1ad9a4ec52831d7e2a04c035e75
+  checksum: cb57ee0e00a4561e66c8aab5d15462982374632da9330d7ec95e18fe6b22afd95ed8fd701b8bbe5fb5bab2c255ca0b9d6150f68f07324ec84a825edec3c8b11d
   languageName: node
   linkType: hard
 
