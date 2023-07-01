@@ -38,7 +38,7 @@ __metadata:
     babel-plugin-fbt-runtime: ^1.0.0
     d3: ^7.8.5
     fbt: ^1.0.0
-    graphql: ^16.6.0
+    graphql: ^16.7.1
     immutable: ^4.3.0
     next: ^13.4.2
     next-compose-plugins: ^2.2.1
@@ -88,7 +88,7 @@ __metadata:
     babel-plugin-fbt-runtime: ^1.0.0
     fbt: ^1.0.0
     globby: ^13.2.1
-    graphql: ^16.6.0
+    graphql: ^16.7.1
     next: ^13.4.2
     next-compose-plugins: ^2.2.1
     next-plugin-custom-babel-config: ^1.0.5
@@ -393,7 +393,7 @@ __metadata:
     relay-runtime: ^15.0.0
     relay-test-utils: ^15.0.0
   peerDependencies:
-    graphql: ^16.6.0
+    graphql: ^16.7.1
     react: ^18.2.0
   bin:
     adeira-relay-compiler: ./bin/compiler.js
@@ -13571,10 +13571,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql@npm:^16.6.0":
-  version: 16.6.0
-  resolution: "graphql@npm:16.6.0"
-  checksum: bf1d9e3c1938ce3c1a81e909bd3ead1ae4707c577f91cff1ca2eca474bfbc7873d5d7b942e1e9777ff5a8304421dba57a4b76d7a29eb19de8711cb70e3c2415e
+"graphql@npm:^16.7.1":
+  version: 16.7.1
+  resolution: "graphql@npm:16.7.1"
+  checksum: c924d8428daf0e96a5ea43e9bc3cd1b6802899907d284478ac8f705c8fd233a0a51eef915f7569fb5de8acb2e85b802ccc6c85c2b157ad805c1e9adba5a299bd
   languageName: node
   linkType: hard
 
