@@ -30,7 +30,7 @@
     "relay-test-utils": "^15.0.0"
   },
   "peerDependencies": {
-    "graphql": "^16.6.0",
+    "graphql": "^16.7.1",
     "react": "^18.2.0"
   }
 }
