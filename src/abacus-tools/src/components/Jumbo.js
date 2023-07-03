@@ -10,6 +10,7 @@ export default function Jumbo(props: { +children: string }): Node {
           font-size: 8em;
           font-weight: bold;
           transition: all 0.5s ease-in-out;
+          font-variant-numeric: tabular-nums;
         }
       `}</style>
 
