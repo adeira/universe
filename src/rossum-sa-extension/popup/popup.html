@@ -1,9 +1,22 @@
-<html>
+<?xml version="1.0" encoding="utf-8" ?>
+<html lang="en">
   <head>
     <title>Rossum SA Extension - popup</title>
   </head>
+  <link href="popup.css" rel="stylesheet" />
   <body>
-    <button id="toggle">Toggle <code>devFeaturesEnabled</code></button>
+    <div class="checkboxes">
+      <label>
+        <input type="checkbox" id="devFeaturesEnabled" />
+        <span>Enable DEV features</span>
+        <span class="help">(reloads the page ⚠️)</span>
+      </label>
+
+      <label>
+        <input type="checkbox" id="schemaAnnotationsEnabled" />
+        <span>Enable schema ID annotations</span>
+      </label>
+    </div>
     <script src="popup.js"></script>
   </body>
 </html>

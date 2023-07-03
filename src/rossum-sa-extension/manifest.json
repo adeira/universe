@@ -8,9 +8,10 @@
     "48": "icons/48-crunch.png",
     "128": "icons/128-crunch.png"
   },
+  "permissions": ["storage"],
   "content_scripts": [
     {
-      "js": ["scripts/content-script.js"],
+      "js": ["scripts/annotation-schema-ids.js", "scripts/dev-features-enabled.js"],
       "matches": ["https://*.rossum.ai/*"]
     }
   ],
