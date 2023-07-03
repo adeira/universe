@@ -11,7 +11,7 @@
   "content_scripts": [
     {
       "js": ["scripts/content-script.js"],
-      "matches": ["https://elis.rossum.ai/*"]
+      "matches": ["https://*.rossum.ai/*"]
     }
   ],
   "action": {
