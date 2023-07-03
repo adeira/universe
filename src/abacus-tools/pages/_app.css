@@ -1,12 +1,9 @@
-/* https://github.com/rsms/inter */
-@import url('https://rsms.me/inter/inter.css');
-
 * {
   box-sizing: border-box;
 }
 
 :root {
-  font-family: 'Inter', sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 body {
