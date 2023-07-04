@@ -14,7 +14,7 @@
   "type": "commonjs",
   "sideEffects": false,
   "dependencies": {
-    "@babel/runtime": "^7.22.5",
+    "@babel/runtime": "^7.22.6",
     "fast-levenshtein": "^3.0.0"
   },
   "devDependencies": {

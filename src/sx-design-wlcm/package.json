@@ -15,7 +15,7 @@
   "sideEffects": false,
   "dependencies": {
     "@adeira/sx-design-headless": "^0.2.1",
-    "@babel/runtime": "^7.22.5"
+    "@babel/runtime": "^7.22.6"
   },
   "peerDependencies": {
     "@adeira/sx": "^0.29.1",
