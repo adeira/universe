@@ -3,13 +3,15 @@
 class RossumDmv2Analyze < Formula
   desc ""
   homepage "https://github.com/adeira/universe"
-  url "https://github.com/adeira/universe/releases/download/rossum-dmv2-analyze/0.1.0/aarch64-apple-darwin"
-  version "0.1.0"
-  sha256 "768c6133125bf59dab23e6585b8f03544c66470891c08c0cc8ae53ae14aa385c"
   license ""
 
+  on_macos do
+    url "https://github.com/adeira/universe/releases/download/rossum-dmv2-analyze/0.1.0/aarch64-apple-darwin"
+    sha256 "768c6133125bf59dab23e6585b8f03544c66470891c08c0cc8ae53ae14aa385c"
+  end
+
   def install
-    bin.install "rossum-dmv2-analyze"
+    bin.install "aarch64-apple-darwin" => "rossum-dmv2-analyze"
   end
 
   test do
