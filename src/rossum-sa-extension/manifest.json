@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Rossum SA extension",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Adds additional functionality to Rossum UI for developers (SA).",
   "icons": {
     "16": "icons/16-crunch.png",
