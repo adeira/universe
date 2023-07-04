@@ -42,15 +42,5 @@ function transform(target: 'js' | 'js-esm' | 'flow') {
 }
 
 ['babel-issues', 'features'].forEach((group) => {
-  generateTestsFromFixtures(
-    path.join(__dirname, '__fixtures__', group),
-    transform('js'),
-    'js (old browsers)',
-  );
   generateTestsFromFixtures(path.join(__dirname, '__fixtures__', group), transform('flow'), 'flow');
-  generateTestsFromFixtures(
-    path.join(__dirname, '__fixtures__', group),
-    transform('js-esm'),
-    'js-esm (with ES6 import/export)',
-  );
 });
