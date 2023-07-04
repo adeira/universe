@@ -1,10 +1,11 @@
 # Documentation: https://docs.brew.sh/Formula-Cookbook
 #                https://rubydoc.brew.sh/Formula
-class Adeira/Universe/RossumDmv2Analyze < Formula
+class RossumDmv2analyze < Formula
   desc ""
   homepage ""
-  url "https://github.com/adeira/universe/releases/download/rossum-dmv2-analyze%2F0.1.0/aarch64-apple-darwin"
+  url "https://github.com/adeira/universe/releases/download/rossum-dmv2-analyze/0.1.0/aarch64-apple-darwin"
   sha256 "768c6133125bf59dab23e6585b8f03544c66470891c08c0cc8ae53ae14aa385c"
+  version "0.1.0"
   license ""
 
   # depends_on "cmake" => :build
