@@ -35,6 +35,7 @@ jobs:
           filters: |
             src:
               - 'src/abacus/**'
+              - 'src/rossum-dmv2-analyze/**'
               - 'src/x/**'
 
       # https://github.com/dtolnay/rust-toolchain
