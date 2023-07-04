@@ -12,7 +12,7 @@
   "content_scripts": [
     {
       "js": ["scripts/annotation-schema-ids.js", "scripts/dev-features-enabled.js"],
-      "matches": ["https://*.rossum.ai/*"]
+      "matches": ["https://*.rossum.ai/*", "https://*.rossum.app/*"]
     }
   ],
   "action": {
