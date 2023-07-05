@@ -133,23 +133,23 @@ The following error is being thrown otherwise:
 
 In return the following code is being generated:
 
+<!-- prettier-ignore-start -->
 ```js
-module.exports.validate = function validate(
-  value /*: {
+module.exports.validate = function validate(value/*: {
   +__id: string,
   +$fragmentSpreads: Location$fragmentType,
   +__typename: string,
   ...
-}*/,
-) /*: {
+}*/)/*: {
   +__id: string,
   +$fragmentSpreads: Location$fragmentType,
   +__typename: "Location",
   ...
 } | false*/ {
-  return value.__typename === 'Location' ? (value /*: any*/) : false;
+  return value.__typename === 'Location' ? (value/*: any*/) : false;
 };
 ```
+<!-- prettier-ignore-end -->
 
 I am not sure about the use-cases yet.
 

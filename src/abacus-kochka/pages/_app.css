@@ -27,11 +27,21 @@
   font-family: 'GidoleKochka';
   font-style: normal;
   font-weight: 400;
-  src: local('Gidole'), url('/fonts/Gidole-Regular-subset.ttf') format('truetype');
+  src:
+    local('Gidole'),
+    url('/fonts/Gidole-Regular-subset.ttf') format('truetype');
 
   /* All characters from: "KOCHKA CAFÉ®" */
-  unicode-range: /*K*/ U+4B, /*O*/ U+4F, /*C*/ U+43, /*H*/ U+48, /*A*/ U+41, /* */ U+20, /*F*/ U+46,
-    /*É*/ U+C9, /*®*/ U+AE;
+  unicode-range: /*K*/
+    U+4B,
+    /*O*/ U+4F,
+    /*C*/ U+43,
+    /*H*/ U+48,
+    /*A*/ U+41,
+    /* */ U+20,
+    /*F*/ U+46,
+    /*É*/ U+C9,
+    /*®*/ U+AE;
 }
 
 html,
