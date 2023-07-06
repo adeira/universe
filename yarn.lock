@@ -56,7 +56,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@adeira/abacus-docs@workspace:src/abacus-docs"
   dependencies:
-    "@babel/core": ^7.22.7
+    "@babel/core": ^7.22.8
     "@babel/preset-flow": ^7.22.5
     "@markdoc/markdoc": ^0.3.0
     "@markdoc/next.js": ^0.2.2
@@ -110,7 +110,7 @@ __metadata:
   resolution: "@adeira/abacus-tools@workspace:src/abacus-tools"
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
-    "@babel/core": ^7.22.7
+    "@babel/core": ^7.22.8
     next: ^13.4.2
     next-compose-plugins: ^2.2.1
     next-plugin-custom-babel-config: ^1.0.5
@@ -134,7 +134,7 @@ __metadata:
     babel-plugin-transform-flow-enums: ^0.0.2
     strip-ansi: ^6.0.1
   peerDependencies:
-    "@babel/core": ^7.22.7
+    "@babel/core": ^7.22.8
   languageName: unknown
   linkType: soft
 
@@ -299,7 +299,7 @@ __metadata:
     snapshot-diff: ^0.10.0
     tar: ^6.1.15
   peerDependencies:
-    "@babel/core": ^7.22.7
+    "@babel/core": ^7.22.8
   languageName: unknown
   linkType: soft
 
@@ -473,7 +473,7 @@ __metadata:
     "@adeira/sx": ^0.29.1
     "@adeira/sx-design-headless": ^0.2.1
     "@adeira/sx-jest-snapshot-serializer": ^0.1.0
-    "@babel/core": ^7.22.7
+    "@babel/core": ^7.22.8
     "@babel/runtime": ^7.22.6
     "@fbtjs/default-collection-transform": ^1.0.0
     "@playwright/test": ^1.35.1
@@ -837,7 +837,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7.0.0, @babel/core@npm:^7.1.0, @babel/core@npm:^7.11.6, @babel/core@npm:^7.12.10, @babel/core@npm:^7.12.3, @babel/core@npm:^7.18.6, @babel/core@npm:^7.19.6, @babel/core@npm:^7.21.3, @babel/core@npm:^7.22.7, @babel/core@npm:^7.7.5":
+"@babel/core@npm:^7.0.0, @babel/core@npm:^7.1.0, @babel/core@npm:^7.11.6, @babel/core@npm:^7.12.10, @babel/core@npm:^7.12.3, @babel/core@npm:^7.18.6, @babel/core@npm:^7.19.6, @babel/core@npm:^7.21.3, @babel/core@npm:^7.22.8, @babel/core@npm:^7.7.5":
   version: 7.22.8
   resolution: "@babel/core@npm:7.22.8"
   dependencies:
@@ -21211,7 +21211,7 @@ __metadata:
     "@adeira/eslint-config": ^8.3.0
     "@adeira/monorepo-utils": ^0.12.0
     "@babel/cli": ^7.22.6
-    "@babel/core": ^7.22.7
+    "@babel/core": ^7.22.8
     babel-jest: ^29.5.0
     babel-loader: ^9.1.2
     eslint: ^8.44.0
