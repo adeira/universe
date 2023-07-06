@@ -39,9 +39,6 @@ struct Configurations {
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
-    // TODO: check whether the API token is valid
-    // TODO: default to all queues assigned to the hook (with the ability to overwrite)
-
     let cli_matches = generate_clap_app().get_matches();
 
     let api_token = cli_matches.get_one::<String>("api-token").unwrap().clone();
