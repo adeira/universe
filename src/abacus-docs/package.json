@@ -19,6 +19,6 @@
   "devDependencies": {
     "@babel/core": "^7.22.8",
     "@babel/preset-flow": "^7.22.5",
-    "@playwright/test": "^1.35.1"
+    "@playwright/test": "^1.36.0"
   }
 }
