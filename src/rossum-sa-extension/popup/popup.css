@@ -11,6 +11,7 @@ body {
 
 .checkboxes input {
   vertical-align: middle;
+  margin: 0;
 }
 
 .checkboxes label span {
@@ -19,4 +20,10 @@ body {
 
 .checkboxes label span.help {
   color: #989898;
+}
+
+.info {
+  margin-block-start: 1em;
+  color: #989898;
+  font-size: smaller;
 }
