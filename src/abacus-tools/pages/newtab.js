@@ -1,5 +1,6 @@
 // @flow
 
+import Head from 'next/head';
 import React, { useEffect, useState, type Node } from 'react';
 
 import Jumbo from '../src/components/Jumbo';
@@ -30,5 +31,12 @@ export default function NewTabPage(): Node {
     };
   }, []);
 
-  return <Jumbo>{formattedTime}</Jumbo>;
+  return (
+    <>
+      <Head>
+        <title>Newtab | Abacus Tools</title>
+      </Head>
+      <Jumbo>{formattedTime}</Jumbo>
+    </>
+  );
 }
