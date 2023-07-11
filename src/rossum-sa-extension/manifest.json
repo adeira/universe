@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Rossum SA extension",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Adds additional functionality to Rossum UI for developers (SA).",
   "icons": {
     "16": "icons/16-crunch.png",
@@ -14,7 +14,7 @@
       "js": [
         "scripts/annotation-schema-ids.js",
         "scripts/dev-features-enabled.js",
-        "scripts/style-improvements.js"
+        "scripts/list-selector-improvements.js"
       ],
       "matches": ["https://*.rossum.ai/*", "https://*.rossum.app/*"]
     }
