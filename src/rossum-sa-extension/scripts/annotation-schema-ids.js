@@ -6,8 +6,8 @@ declare const chrome: any; // TODO
 
 */
 
-const style = document.createElement('style');
-style.textContent = `
+const styleSchemaID = document.createElement('style');
+styleSchemaID.textContent = `
 .rossum-sa-extension-schema-id {
   position: absolute;
   top: 0;
@@ -25,7 +25,7 @@ style.textContent = `
   border-radius: 3px;
   padding-inline: 3px;
 }`;
-document.head?.appendChild(style);
+document.head?.appendChild(styleSchemaID);
 
 function displaySchemaID(node /*: $FlowFixMe */) {
   const div = document.createElement('span');
