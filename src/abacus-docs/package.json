@@ -17,7 +17,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.22.8",
+    "@babel/core": "^7.22.9",
     "@babel/preset-flow": "^7.22.5",
     "@playwright/test": "^1.36.0"
   }
