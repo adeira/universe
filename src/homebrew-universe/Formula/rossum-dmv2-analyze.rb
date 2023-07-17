@@ -6,8 +6,9 @@ class RossumDmv2Analyze < Formula
   license ""
 
   on_macos do
-    url "https://github.com/adeira/universe/releases/download/rossum-dmv2-analyze/0.1.0/aarch64-apple-darwin"
-    sha256 "768c6133125bf59dab23e6585b8f03544c66470891c08c0cc8ae53ae14aa385c"
+    # openssl sha256 <file>
+    url "https://github.com/adeira/universe/releases/download/rossum-dmv2-analyze%2F0.1.1/aarch64-apple-darwin"
+    sha256 "3318dfb10f4cc2c5d0596495c63812d6139cc4c0e94eced353ff86863c83175c"
   end
 
   def install
