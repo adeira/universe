@@ -15,6 +15,7 @@ Or `brew tap adeira/universe` and then `brew install <formula>`.
 Available formulae:
 
 - `brew install adeira/universe/rossum-dmv2-analyze`
+- `brew install adeira/universe/test` (it's unlikely you will ever need this)
 
 ## Documentation
 
