@@ -30,12 +30,13 @@ fn replace_settings(
 }
 
 pub(crate) async fn process(
+    config_file: String,
     api_token: String,
     dm_hook_id: String,
     annotation: Annotation,
 ) -> anyhow::Result<(MessageCounts, MessageCounts)> {
     let new_dm_config: serde_json::Value = serde_json::from_reader(
-        File::open("./dmv2_config.json").expect("configuration file should open read only"),
+        File::open(config_file).expect("configuration file should open read only"),
     )
     .expect("configuration file should be proper JSON");
 
