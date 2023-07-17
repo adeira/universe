@@ -41,6 +41,10 @@ struct Configurations {
 async fn main() -> anyhow::Result<()> {
     let cli_matches = generate_clap_app().get_matches();
 
+    let config_file = cli_matches
+        .get_one::<String>("config-file")
+        .unwrap()
+        .clone();
     let api_token = cli_matches.get_one::<String>("api-token").unwrap().clone();
     let dm_hook_id = cli_matches.get_one::<String>("dm-hook-id").unwrap().clone();
     let queue_id = cli_matches.get_one::<String>("queue-id").unwrap();
@@ -75,11 +79,12 @@ async fn main() -> anyhow::Result<()> {
         // 2. iterate all annotations and analyze them via DMv2 match
         let annotations_results_len = annotations.results.len();
         for annotation in annotations.results {
+            let config_file = config_file.clone();
             let api_token = api_token.clone();
             let dm_hook_id = dm_hook_id.clone();
             let tx = tx.clone();
             handles.push(tokio::spawn(async move {
-                let res = processor::process(api_token, dm_hook_id, annotation).await;
+                let res = processor::process(config_file, api_token, dm_hook_id, annotation).await;
                 let _ = tx.send(res).await;
             }));
         }
