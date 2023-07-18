@@ -17,6 +17,12 @@ Available formulae:
 - `brew install adeira/universe/rossum-dmv2-analyze`
 - `brew install adeira/universe/test` (it's unlikely you will ever need this)
 
+To remove simply run:
+
+```
+brew uninstall adeira/universe/<formula>
+```
+
 ## Documentation
 
 `brew help`, `man brew` or check [Homebrew's documentation](https://docs.brew.sh).
