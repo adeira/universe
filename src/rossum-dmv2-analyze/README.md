@@ -24,6 +24,8 @@ Check `/src/homebrew-universe` repo for more info about publishing into Homebrew
 rustup target add aarch64-apple-darwin
 
 (cd src/rossum-dmv2-analyze && cargo build --release --target=aarch64-apple-darwin)
+
+openssl sha256 src/rossum-dmv2-analyze/target/aarch64-apple-darwin/release/rossum-dmv2-analyze
 ```
 
 ### Build for Apple Intel
@@ -32,6 +34,8 @@ rustup target add aarch64-apple-darwin
 rustup target add x86_64-apple-darwin
 
 (cd src/rossum-dmv2-analyze && cargo build --release --target=x86_64-apple-darwin)
+
+openssl sha256 src/rossum-dmv2-analyze/target/x86_64-apple-darwin/release/rossum-dmv2-analyze
 ```
 
 ## TODO
