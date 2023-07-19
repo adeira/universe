@@ -9,7 +9,7 @@ brew install adeira/universe/rossum-dmv2-analyze
 ## Run
 
 ```bash
-rossum-dmv2-analyze --config-file=./dmv2_config.json --dm-hook-id=252259 --queue-id=852015 --api-token=XXXXX
+rossum-dmv2-analyze --dm-config-file=./dmv2_config.json --dm-hook-id=252259 --queue-id=852015 --api-token=XXXXX
 ```
 
 Try running `rossum-dmv2-analyze --help` for more information.
