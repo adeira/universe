@@ -2,10 +2,39 @@ use crate::score::MessageCounts;
 use anyhow::Result;
 use reqwest::{Client, Response};
 use serde::{Deserialize, Serialize};
+use serde_json::json;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub(crate) struct Message {
+    /// Datapoint ID
+    id: u64,
     content: String,
+    r#type: String,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub(crate) struct Operation {
+    /// Datapoint ID
+    pub(crate) id: u64,
+    pub(crate) op: String,
+    pub(crate) value: OperationValue,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub(crate) struct OperationValue {
+    pub(crate) content: OperationValueContent,
+    pub(crate) options: Vec<OperationValueOptionValue>,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub(crate) struct OperationValueContent {
+    pub(crate) value: String,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub(crate) struct OperationValueOptionValue {
+    label: String,
+    pub(crate) value: String,
 }
 
 fn replace_result_actions(
@@ -29,7 +58,9 @@ fn replace_result_actions(
             // If this array item is an object:
             if let Some(config_obj) = config_obj.as_object_mut() {
                 // Replace "result_actions" with `new_result_actions`:
+                // TODO: wrong (remove `result_actions` overwrite)
                 config_obj.insert("result_actions".to_owned(), new_result_actions.clone());
+                config_obj.insert("additional_mappings".to_owned(), json!([]));
             }
         }
     }
@@ -60,6 +91,8 @@ pub(crate) async fn match_request(
     http_client: &Client,
     payload: &serde_json::Value,
 ) -> Result<Response> {
+    // TODO: remove this because overwriting result_actions with for example `"select": "best_match"`
+    //   could skew the results
     let new_result_actions: serde_json::Value =
         serde_json::from_str(include_str!("result_actions_overwrite.json")).unwrap();
 

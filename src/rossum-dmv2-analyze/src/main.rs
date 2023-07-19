@@ -1,31 +1,19 @@
 use crate::clap::generate_clap_app;
+use crate::export::{CsvRecord, CsvWriter};
 use crate::http::get_http_client;
 use crate::score::MessageCounts;
 use colored::*;
 use indicatif::{ProgressBar, ProgressStyle};
-use reqwest::{Client, Url};
 use serde::{Deserialize, Serialize};
 use tokio::sync::mpsc;
 
+mod api;
 mod clap;
 mod dmv2;
+mod export;
 mod http;
 mod processor;
 mod score;
-
-#[derive(Debug, Serialize, Deserialize)]
-struct AnnotationResponse {
-    results: Vec<processor::Annotation>,
-    pagination: AnnotationResponsePagination,
-}
-
-#[derive(Debug, Serialize, Deserialize)]
-struct AnnotationResponsePagination {
-    total: i32,
-    total_pages: i32,
-    next: Option<String>,
-    previous: Option<String>,
-}
 
 #[derive(Debug, Serialize, Deserialize)]
 struct DmConfig {
@@ -39,10 +27,18 @@ struct Configurations {
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
-    let cli_matches = generate_clap_app().get_matches();
+    let mut cli_matches = generate_clap_app().get_matches();
 
+    let annotations_status: Vec<String> = cli_matches
+        .remove_many("annotations-status")
+        .unwrap()
+        .collect();
     let config_file = cli_matches
-        .get_one::<String>("config-file")
+        .get_one::<String>("dm-config-file")
+        .unwrap()
+        .clone();
+    let export_file = cli_matches
+        .try_get_one::<String>("export-results-file")
         .unwrap()
         .clone();
     let api_token = cli_matches.get_one::<String>("api-token").unwrap().clone();
@@ -61,8 +57,14 @@ async fn main() -> anyhow::Result<()> {
     let mut current_page = 1;
 
     // 1. fetch all relevant annotations (with pagination)
-    let mut annotations =
-        get_annotations(&queue_id, &http_client, &mut current_page, &concurrency).await?;
+    let mut annotations = api::annotations_get(
+        &http_client,
+        &queue_id,
+        &mut current_page,
+        &concurrency,
+        &annotations_status,
+    )
+    .await?;
 
     println!(
         "Analyzing {} annotations…",
@@ -73,6 +75,8 @@ async fn main() -> anyhow::Result<()> {
     pb.set_style(ProgressStyle::with_template("{wide_bar} {pos}/{len}\n{wide_msg}").unwrap());
     pb.tick(); // to display empty bar
 
+    let mut csv_wtr = CsvWriter::new(&export_file)?;
+
     loop {
         let mut handles = Vec::new();
 
@@ -82,6 +86,7 @@ async fn main() -> anyhow::Result<()> {
             let config_file = config_file.clone();
             let api_token = api_token.clone();
             let dm_hook_id = dm_hook_id.clone();
+            let annotation = annotation.clone();
             let tx = tx.clone();
             handles.push(tokio::spawn(async move {
                 let res = processor::process(config_file, api_token, dm_hook_id, annotation).await;
@@ -93,16 +98,24 @@ async fn main() -> anyhow::Result<()> {
         let mut received_messages = 0;
         while received_messages < annotations_results_len {
             match rx.recv().await.unwrap() {
-                Ok((before, after)) => {
+                Ok(processor_result) => {
+                    let response_document = api::get::<api::Document>(
+                        &http_client,
+                        &processor_result.annotation.document,
+                    )
+                    .await?;
+
                     received_messages += 1;
 
-                    before_total.one_match_found += before.one_match_found;
-                    before_total.multiple_matches_found += before.multiple_matches_found;
-                    before_total.no_match_found += before.no_match_found;
+                    before_total.one_match_found += processor_result.before.one_match_found;
+                    before_total.multiple_matches_found +=
+                        processor_result.before.multiple_matches_found;
+                    before_total.no_match_found += processor_result.before.no_match_found;
 
-                    after_total.one_match_found += after.one_match_found;
-                    after_total.multiple_matches_found += after.multiple_matches_found;
-                    after_total.no_match_found += after.no_match_found;
+                    after_total.one_match_found += processor_result.after.one_match_found;
+                    after_total.multiple_matches_found +=
+                        processor_result.after.multiple_matches_found;
+                    after_total.no_match_found += processor_result.after.no_match_found;
 
                     pb.inc(1);
                     pb.set_message(format!(
@@ -123,6 +136,25 @@ async fn main() -> anyhow::Result<()> {
                         after_total.no_match_found.to_string().red().bold(),
                         score::compare_solutions(&before_total, &after_total)
                     ));
+
+                    for operation in processor_result.after_result.operations {
+                        csv_wtr.write_record(&CsvRecord {
+                            operation: operation.op,
+                            datapoint_id: operation.id.to_string(),
+                            datapoint_value_content: operation.value.content.value,
+                            datapoint_value_options: operation
+                                .value
+                                .options
+                                .iter()
+                                .map(|option| option.value.clone())
+                                .collect::<Vec<String>>()
+                                .join("|"),
+                            document_original_file_name: response_document
+                                .original_file_name
+                                .to_string(),
+                            document_mime_type: response_document.mime_type.to_string(),
+                        })?;
+                    }
                 }
                 Err(_e) => {
                     break;
@@ -133,38 +165,20 @@ async fn main() -> anyhow::Result<()> {
         // 4. if there is a next page, increment the page number, otherwise, exit the loop
         if annotations.pagination.next.is_some() {
             current_page += 1;
-            annotations =
-                get_annotations(&queue_id, &http_client, &mut current_page, &concurrency).await?;
+            annotations = api::annotations_get(
+                &http_client,
+                &queue_id,
+                &mut current_page,
+                &concurrency,
+                &annotations_status,
+            )
+            .await?;
         } else {
             break;
         }
     }
 
+    csv_wtr.flush()?;
     pb.finish();
     Ok(())
-}
-
-async fn get_annotations(
-    queue_id: &str,
-    http_client: &Client,
-    current_page: &mut i32,
-    concurrency: &usize,
-) -> anyhow::Result<AnnotationResponse> {
-    Ok(http_client
-        .get(Url::parse_with_params(
-            "https://elis.rossum.ai/api/v1/annotations",
-            &[
-                ("queue", queue_id.to_string()),
-                ("page", current_page.to_string()),
-                ("page_size", concurrency.to_string()),
-                (
-                    "status",
-                    "confirmed,exported,exporting,reviewing,to_review".to_string(),
-                ),
-            ],
-        )?)
-        .send()
-        .await?
-        .json::<AnnotationResponse>()
-        .await?)
 }

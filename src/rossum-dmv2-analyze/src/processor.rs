@@ -1,5 +1,6 @@
+use crate::api::Annotation;
 use crate::dmv2;
-use crate::dmv2::Message;
+use crate::dmv2::{Message, Operation};
 use crate::http::get_http_client;
 use crate::score::MessageCounts;
 use serde::{Deserialize, Serialize};
@@ -7,13 +8,17 @@ use serde_json::json;
 use std::fs::File;
 
 #[derive(Debug, Serialize, Deserialize)]
-pub(crate) struct Annotation {
-    id: i32,
+pub(crate) struct MatchResult {
+    messages: Vec<Message>,
+    pub(crate) operations: Vec<Operation>,
 }
 
-#[derive(Debug, Serialize, Deserialize)]
-struct MatchResult {
-    messages: Vec<Message>,
+pub(crate) struct ProcessorResult {
+    pub(crate) before: MessageCounts,
+    pub(crate) after: MessageCounts,
+    pub(crate) before_result: MatchResult,
+    pub(crate) after_result: MatchResult,
+    pub(crate) annotation: Annotation,
 }
 
 fn replace_settings(
@@ -34,7 +39,7 @@ pub(crate) async fn process(
     api_token: String,
     dm_hook_id: String,
     annotation: Annotation,
-) -> anyhow::Result<(MessageCounts, MessageCounts)> {
+) -> anyhow::Result<ProcessorResult> {
     let new_dm_config: serde_json::Value = serde_json::from_reader(
         File::open(config_file).expect("configuration file should open read only"),
     )
@@ -42,23 +47,24 @@ pub(crate) async fn process(
 
     let http_client = get_http_client(&api_token);
 
+    // TODO: preferably, we should remove the following /start and /cancel calls
     // 1.1. start the annotation (otherwise /generate_payload returns null datapoints)
-    let _ = http_client
-        .post(format!(
-            "https://elis.rossum.ai/api/v1/annotations/{}/start",
-            annotation.id
-        ))
-        .send()
-        .await?;
-
-    // 1.2. cancel the annotation so users are not locked out of it
-    let _ = http_client
-        .post(format!(
-            "https://elis.rossum.ai/api/v1/annotations/{}/cancel",
-            annotation.id
-        ))
-        .send()
-        .await?;
+    // let _ = http_client
+    //     .post(format!(
+    //         "https://elis.rossum.ai/api/v1/annotations/{}/start",
+    //         annotation.id
+    //     ))
+    //     .send()
+    //     .await?;
+    //
+    // // 1.2. cancel the annotation so users are not locked out of it
+    // let _ = http_client
+    //     .post(format!(
+    //         "https://elis.rossum.ai/api/v1/annotations/{}/cancel",
+    //         annotation.id
+    //     ))
+    //     .send()
+    //     .await?;
 
     // 2. generate testing payload
     let generate_payload_res = http_client
@@ -90,5 +96,11 @@ pub(crate) async fn process(
     let before = dmv2::process_dmv2_messages(&dm_result1.messages);
     let after = dmv2::process_dmv2_messages(&dm_result2.messages);
 
-    Ok((before, after))
+    Ok(ProcessorResult {
+        before,
+        after,
+        before_result: dm_result1,
+        after_result: dm_result2,
+        annotation,
+    })
 }
