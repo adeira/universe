@@ -7,15 +7,13 @@ class RossumDmv2Analyze < Formula
 
   on_macos do
     on_arm do
-      # openssl sha256 <file>
-      url "https://github.com/adeira/universe/releases/download/rossum-dmv2-analyze%2F0.1.1/aarch64-apple-darwin"
-      sha256 "3318dfb10f4cc2c5d0596495c63812d6139cc4c0e94eced353ff86863c83175c"
+      url "https://github.com/adeira/universe/releases/download/rossum-dmv2-analyze%2F0.2.0/aarch64-apple-darwin"
+      sha256 "631098116c218ee1630609ea02cacbb6dd9040054a4b703fb1a30c92a8ac90cb"
     end
 
     on_intel do
-      # openssl sha256 <file>
-      url "https://github.com/adeira/universe/releases/download/rossum-dmv2-analyze%2F0.1.1/x86_64-apple-darwin"
-      sha256 "f85f3f0e67248bee76c7f095636361b17b72a704e2dc6d6ff9a8f3d9a044f517"
+      url "https://github.com/adeira/universe/releases/download/rossum-dmv2-analyze%2F0.2.0/x86_64-apple-darwin"
+      sha256 "caaba937fe4e8fe962201dd5e7534b29be0ee58856a6092a52b9e299e4e78f79"
     end
   end
 
