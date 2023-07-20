@@ -14,5 +14,5 @@ indicatif = { version = "0.17.5" }
 reqwest = { version = "0.11.18", features = ["json"] }
 serde = { version = "1.0.173", features = ["derive"] }
 serde_json = { version = "1.0.103" }
-tempfile = { version = "3.6.0" }
+tempfile = { version = "3.7.0" }
 tokio = { version = "1.29.1", features = ["full"] }
