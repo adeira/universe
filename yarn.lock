@@ -59,7 +59,7 @@ __metadata:
     "@babel/core": ^7.22.9
     "@babel/preset-flow": ^7.22.5
     "@markdoc/markdoc": ^0.3.0
-    "@markdoc/next.js": ^0.2.2
+    "@markdoc/next.js": ^0.2.3
     "@playwright/test": ^1.36.2
     js-yaml: ^4.1.0
     next: ^13.4.2
@@ -3626,16 +3626,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@markdoc/next.js@npm:^0.2.2":
-  version: 0.2.2
-  resolution: "@markdoc/next.js@npm:0.2.2"
+"@markdoc/next.js@npm:^0.2.3":
+  version: 0.2.3
+  resolution: "@markdoc/next.js@npm:0.2.3"
   dependencies:
     js-yaml: ^4.1.0
   peerDependencies:
     "@markdoc/markdoc": "*"
     next: "*"
     react: "*"
-  checksum: c579c66e5489ac4b4b70dcccc70c07870e9e388dc7ed6b4ffa9fd1ef0cc24b860403f3f6c574009cc71d6af3587e57845485fa55ed2ba4269b3a1b9a3b6a600d
+  checksum: e13634df133af03387eafb41bbfd33d8155c7f4b5a4e5fc9a01feab7de03f08e4df3c04db44260d7879ee8d02b0d4412a6f1c69cb7a34bc44370ba0109c4b2f0
   languageName: node
   linkType: hard
 
