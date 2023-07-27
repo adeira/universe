@@ -12,7 +12,7 @@ colored = { version = "2.0.4" }
 csv = { version = "1.2.2" }
 indicatif = { version = "0.17.5" }
 reqwest = { version = "0.11.18", features = ["json"] }
-serde = { version = "1.0.176", features = ["derive"] }
+serde = { version = "1.0.177", features = ["derive"] }
 serde_json = { version = "1.0.104" }
 tempfile = { version = "3.7.0" }
 tokio = { version = "1.29.1", features = ["full"] }
