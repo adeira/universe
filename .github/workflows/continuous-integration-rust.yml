@@ -67,3 +67,21 @@ jobs:
       #       --manifest-path ${{ matrix.manifest }}
       #       --target ${{ matrix.target }}
       #       -- --ignored
+
+  # The purpose of this job is to wait for the completion of the `rust-test` jobs (matrix)
+  # and evaluate whether the run was successful or not. This is useful when configuring the
+  # required jobs in GitHub UI (we can require just this one job instead of all the jobs in
+  # the test matrix).
+  rust-test-results:
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    name: Rust test - results
+    needs: [rust-test]
+    steps:
+      - run: |
+          result="${{ needs.rust-test.result }}"
+          if [[ $result == "success" || $result == "skipped" ]]; then
+            exit 0
+          else
+            exit 1
+          fi
