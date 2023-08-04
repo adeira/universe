@@ -407,7 +407,7 @@ __metadata:
   dependencies:
     "@rollup/pluginutils": ^5.0.2
     flow-remove-types: ^2.214.0
-    rollup: ^3.27.1
+    rollup: ^3.27.2
   languageName: unknown
   linkType: soft
 
@@ -21335,9 +21335,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^3.27.1":
-  version: 3.27.1
-  resolution: "rollup@npm:3.27.1"
+"rollup@npm:^3.27.2":
+  version: 3.27.2
+  resolution: "rollup@npm:3.27.2"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -21345,7 +21345,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 1f82ef0fd15317ef35f7dea9712c50e83357ae21e3d7688ad22218968e0b2aaeebae4130afed2c3566e5abab8cbebf60b0b40f9544fedced4f1f7dd39b4f25b8
+  checksum: 524477e73885bafd2df395c12db330f3893e1f8eca67e811fb1423a4f6318451987e978607c75f8115bd9ce7fa834460969b0c39b797d45da87fa42fef9bafa8
   languageName: node
   linkType: hard
 
