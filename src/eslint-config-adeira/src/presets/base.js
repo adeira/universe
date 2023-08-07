@@ -209,7 +209,6 @@ module.exports = ({
     'max-nested-callbacks': OFF,
     'max-params': OFF,
     'max-statements': OFF,
-    'max-statements-per-line': OFF,
     'multiline-comment-style': OFF,
     'new-cap': [
       WARN,
