@@ -529,7 +529,7 @@ exports[`rules snapshot: all stable rules 1`] = `
     "max-nested-callbacks": 0,
     "max-params": 0,
     "max-statements": 0,
-    "max-statements-per-line": 0,
+    "max-statements-per-line": "off",
     "monorepo/no-internal-import": 2,
     "monorepo/no-relative-import": 2,
     "multiline-comment-style": 0,
