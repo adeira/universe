@@ -1125,7 +1125,6 @@ exports[`rules snapshot: all stable rules 1`] = `
     "symbol-description": 2,
     "template-curly-spacing": "off",
     "template-tag-spacing": "off",
-    "unicode-bom": "off",
     "unicorn/empty-brace-spaces": "off",
     "unicorn/no-nested-ternary": "off",
     "unicorn/number-literal-case": "off",
