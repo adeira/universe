@@ -98,3 +98,21 @@ jobs:
         with:
           name: ${{ matrix.playwrightReportName }}
           path: ${{ matrix.playwrightReportPath }}
+
+  # The purpose of this job is to wait for the completion of the `playwright-test` jobs (matrix)
+  # and evaluate whether the run was successful or not. This is useful when configuring the
+  # required jobs in GitHub UI (we can require just this one job instead of all the jobs in
+  # the test matrix).
+  playwright-test-results:
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    name: Playwright test - results
+    needs: [playwright-test]
+    steps:
+      - run: |
+          result="${{ needs.playwright-test.result }}"
+          if [[ $result == "success" || $result == "skipped" ]]; then
+            exit 0
+          else
+            exit 1
+          fi
