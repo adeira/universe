@@ -12,7 +12,7 @@
   "dependencies": {
     "@playwright/test": "^1.37.0",
     "@types/node": "^18.17.5",
-    "@types/react": "^18.2.19",
+    "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
     "eslint": "^8.47.0",
     "eslint-config-next": "^13.4.2",
