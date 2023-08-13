@@ -18,6 +18,6 @@
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^4.0.0",
     "@babel/core": "^7.22.10",
-    "@playwright/test": "^1.36.2"
+    "@playwright/test": "^1.37.0"
   }
 }

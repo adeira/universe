@@ -28,7 +28,7 @@ __metadata:
     "@adeira/sx-design": ^0.32.0
     "@fbtjs/default-collection-transform": ^1.0.0
     "@next/bundle-analyzer": ^13.4.2
-    "@playwright/test": ^1.36.2
+    "@playwright/test": ^1.37.0
     "@recoiljs/refine": ^0.1.1
     "@sentry/nextjs": ^7.63.0
     "@testing-library/jest-dom": ^5.17.0
@@ -60,7 +60,7 @@ __metadata:
     "@babel/preset-flow": ^7.22.5
     "@markdoc/markdoc": ^0.3.0
     "@markdoc/next.js": ^0.2.3
-    "@playwright/test": ^1.36.2
+    "@playwright/test": ^1.37.0
     js-yaml: ^4.1.0
     next: ^13.4.2
     react: ^18.2.0
@@ -81,7 +81,7 @@ __metadata:
     "@adeira/sx": ^0.29.1
     "@adeira/sx-design": ^0.32.0
     "@fbtjs/default-collection-transform": ^1.0.0
-    "@playwright/test": ^1.36.2
+    "@playwright/test": ^1.37.0
     "@sentry/nextjs": ^7.63.0
     "@testing-library/react": ^13.4.0
     babel-plugin-fbt: ^1.0.0
@@ -111,7 +111,7 @@ __metadata:
   dependencies:
     "@adeira/babel-preset-adeira": ^4.0.0
     "@babel/core": ^7.22.10
-    "@playwright/test": ^1.36.2
+    "@playwright/test": ^1.37.0
     next: ^13.4.2
     next-compose-plugins: ^2.2.1
     next-plugin-custom-babel-config: ^1.0.5
@@ -477,7 +477,7 @@ __metadata:
     "@babel/core": ^7.22.10
     "@babel/runtime": ^7.22.10
     "@fbtjs/default-collection-transform": ^1.0.0
-    "@playwright/test": ^1.36.2
+    "@playwright/test": ^1.37.0
     "@storybook/addon-a11y": ^6.5.16
     "@storybook/addon-actions": ^6.5.16
     "@storybook/addon-essentials": ^6.5.16
@@ -554,7 +554,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@adeira/typescript-test@workspace:src/typescript-test"
   dependencies:
-    "@playwright/test": ^1.36.2
+    "@playwright/test": ^1.37.0
     "@types/node": ^18.17.5
     "@types/react": ^18.2.19
     "@types/react-dom": ^18.2.7
@@ -4027,19 +4027,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:^1.36.2":
-  version: 1.36.2
-  resolution: "@playwright/test@npm:1.36.2"
+"@playwright/test@npm:^1.37.0":
+  version: 1.37.0
+  resolution: "@playwright/test@npm:1.37.0"
   dependencies:
     "@types/node": "*"
     fsevents: 2.3.2
-    playwright-core: 1.36.2
+    playwright-core: 1.37.0
   dependenciesMeta:
     fsevents:
       optional: true
   bin:
     playwright: cli.js
-  checksum: 659304e0bbbafb2fa36395fbd8bd2c5db2b7791bbb55fa62409946ec7ec726cf8fff89f2b8a1a74fe831bf50a8780a37a5322a1251a6f7db2a9220a57ac408f0
+  checksum: 59ccc519396c5cd66ba27bfc821b6a6483a9a426824eedb85cbd05b1cfb817f62bc1e1d893878582cf88af441a8a45aa83e678ab1d3145b54838c7c2e917b8a2
   languageName: node
   linkType: hard
 
@@ -17474,7 +17474,7 @@ __metadata:
   dependencies:
     "@docusaurus/core": ^2.4.1
     "@docusaurus/preset-classic": ^2.4.1
-    "@playwright/test": ^1.36.2
+    "@playwright/test": ^1.37.0
     react: ^17.0.2
     react-dom: ^17.0.2
   languageName: unknown
@@ -19076,12 +19076,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.36.2":
-  version: 1.36.2
-  resolution: "playwright-core@npm:1.36.2"
+"playwright-core@npm:1.37.0":
+  version: 1.37.0
+  resolution: "playwright-core@npm:1.37.0"
   bin:
     playwright-core: cli.js
-  checksum: 2193ce802ef93c28b9b5e11a0b1d7b60778c686015659978d1cbf0eb9cda2cdc85ec5575b887c1346e9d161cc2805bf27638d76a2f7f857dffeae968e6ceffcd
+  checksum: be91857b1bb56890b3929ed8cd529f5f5abe4b748f709abc8dbe5b0ee4c0e158247c3958fbccec6a52394dafe4619bc0e69c93d1b129a71b31ab3697771e4c5a
   languageName: node
   linkType: hard
 
