@@ -8,7 +8,7 @@
     "build": "rollup --config"
   },
   "dependencies": {
-    "@rollup/pluginutils": "^5.0.2",
+    "@rollup/pluginutils": "^5.0.3",
     "flow-remove-types": "^2.214.0",
     "rollup": "^3.28.0"
   }
