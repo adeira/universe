@@ -1,7 +1,7 @@
 # Use the official nginx Docker image as base
 # This image includes EXPOSE 80 which matches the default nginx port
 # https://hub.docker.com/_/nginx
-FROM nginx:1.25.1
+FROM nginx:1.25.2
 
 # Define the maintainer of the Dockerfile
 LABEL maintainer="mrtnzlml+abacus-tools@gmail.com"
