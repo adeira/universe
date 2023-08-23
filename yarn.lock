@@ -39,7 +39,7 @@ __metadata:
     d3: ^7.8.5
     fbt: ^1.0.0
     graphql: ^16.8.0
-    immutable: ^4.3.2
+    immutable: ^4.3.3
     next: ^13.4.2
     next-compose-plugins: ^2.2.1
     next-plugin-custom-babel-config: ^1.0.5
@@ -14397,10 +14397,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"immutable@npm:^4.3.2":
-  version: 4.3.2
-  resolution: "immutable@npm:4.3.2"
-  checksum: bb1d0f3eb8ebef04aa9e2c698ba1a248976a4dc0257fa2f1bffaaae575f891395fe9ef39eaf49856d6c4edd31704e300ec563ed44ea9d7c7996186deab91d0ff
+"immutable@npm:^4.3.3":
+  version: 4.3.3
+  resolution: "immutable@npm:4.3.3"
+  checksum: 313a354c8fc08bb2e9db3e5ad62d22c2b42edd6a8e1d6ca3fc70e44ae87f561c02e7a2383603c413429c7bca81e5e65d386cc6b26a85925b766f39bb142b5912
   languageName: node
   linkType: hard
 
