@@ -25,6 +25,9 @@ export type AllCSSPropertyTypes = {
   +animationIterationCount?: number | string, // https://developer.mozilla.org/docs/Web/CSS/animation-iteration-count
   +animationName?: number | string, // https://developer.mozilla.org/docs/Web/CSS/animation-name
   +animationPlayState?: number | string, // https://developer.mozilla.org/docs/Web/CSS/animation-play-state
+  +animationRange?: number | string, // https://developer.mozilla.org/docs/Web/CSS/animation-range
+  +animationRangeEnd?: number | string, // https://developer.mozilla.org/docs/Web/CSS/animation-range-end
+  +animationRangeStart?: number | string, // https://developer.mozilla.org/docs/Web/CSS/animation-range-start
   +animationTimingFunction?: number | string, // https://developer.mozilla.org/docs/Web/CSS/animation-timing-function
   +animationTimeline?: number | string, // https://developer.mozilla.org/docs/Web/CSS/animation-timeline
   +appearance?:  // https://developer.mozilla.org/docs/Web/CSS/appearance
@@ -318,6 +321,9 @@ export type AllCSSPropertyTypes = {
   +fontStretch?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-stretch
   +fontStyle?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-style
   +fontSynthesis?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-synthesis
+  +fontSynthesisSmallCaps?: 'auto' | 'none' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/font-synthesis-small-caps
+  +fontSynthesisStyle?: 'auto' | 'none' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/font-synthesis-style
+  +fontSynthesisWeight?: 'auto' | 'none' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/font-synthesis-weight
   +fontVariant?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-variant
   +fontVariantAlternates?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-variant-alternates
   +fontVariantCaps?:  // https://developer.mozilla.org/docs/Web/CSS/font-variant-caps
@@ -721,6 +727,8 @@ export type AllCSSPropertyTypes = {
     | 'unset',
   +textUnderlineOffset?: number | string, // https://developer.mozilla.org/docs/Web/CSS/text-underline-offset
   +textUnderlinePosition?: number | string, // https://developer.mozilla.org/docs/Web/CSS/text-underline-position
+  +textWrap?: 'wrap' | 'nowrap' | 'balance' | 'stable' | 'pretty' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/text-wrap
+  +timelineScope?: number | string, // https://developer.mozilla.org/docs/Web/CSS/timeline-scope
   +top?: number | string, // https://developer.mozilla.org/docs/Web/CSS/top
   +touchAction?: number | string, // https://developer.mozilla.org/docs/Web/CSS/touch-action
   +transform?: number | string, // https://developer.mozilla.org/docs/Web/CSS/transform
@@ -753,18 +761,24 @@ export type AllCSSPropertyTypes = {
     | 'unset',
   +userSelect?: 'auto' | 'text' | 'none' | 'contain' | 'all' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/user-select
   +verticalAlign?: string | number, // https://developer.mozilla.org/docs/Web/CSS/vertical-align
+  +viewTimeline?: number | string, // https://developer.mozilla.org/docs/Web/CSS/view-timeline
+  +viewTimelineAxis?: string, // https://developer.mozilla.org/docs/Web/CSS/view-timeline-axis
+  +viewTimelineInset?: number | string, // https://developer.mozilla.org/docs/Web/CSS/view-timeline-inset
+  +viewTimelineName?: number | string, // https://developer.mozilla.org/docs/Web/CSS/view-timeline-name
   +viewTransitionName?: number | string, // https://developer.mozilla.org/docs/Web/CSS/view-transition-name
   +visibility?: 'visible' | 'hidden' | 'collapse' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/visibility
-  +whiteSpace?:  // https://developer.mozilla.org/docs/Web/CSS/white-space
-    | 'normal'
-    | 'pre'
-    | 'nowrap'
-    | 'pre-wrap'
-    | 'pre-line'
+  +whiteSpace?: number | string, // https://developer.mozilla.org/docs/Web/CSS/white-space
+  +whiteSpaceCollapse?:  // https://developer.mozilla.org/docs/Web/CSS/white-space-collapse
+    | 'collapse'
+    | 'discard'
+    | 'preserve'
+    | 'preserve-breaks'
+    | 'preserve-spaces'
     | 'break-spaces'
     | 'inherit'
     | 'initial'
     | 'unset',
+  +whiteSpaceTrim?: number | string, // https://developer.mozilla.org/docs/Web/CSS/white-space-trim
   +widows?: number | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/widows
   +width?: number | string, // https://developer.mozilla.org/docs/Web/CSS/width
   +willChange?: number | string, // https://developer.mozilla.org/docs/Web/CSS/will-change
