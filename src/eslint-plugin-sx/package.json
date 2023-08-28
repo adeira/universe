@@ -24,7 +24,7 @@
     "@adeira/eslint-fixtures-tester": "0.1.0",
     "@adeira/flow-types-eslint": "0.0.0",
     "@adeira/sx": "^0.29.1",
-    "@babel/code-frame": "^7.22.10",
+    "@babel/code-frame": "^7.22.13",
     "eslint": "^8.48.0",
     "hermes-eslint": "^0.15.1",
     "react": "^18.2.0"
