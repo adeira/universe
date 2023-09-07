@@ -12,7 +12,7 @@ anyhow = { version = "1.0.75", default-features = false, features = ["std"] }
 async-trait = "0.1.73"
 base64 = "0.21.3"
 blurhash-wasm = { git = "https://github.com/fpapado/blurhash-rust-wasm", branch = "master" }
-bytes = "1.4.0"
+bytes = "1.5.0"
 casbin = "2.0.9"
 clap = { version = "4.4.2", default-features = false, features = ["std", "cargo", "color", "deprecated", "env", "error-context", "help", "suggestions", "unicode", "usage"] }
 clap_complete = { version = "4.4.0", default-features = false }
