@@ -17,7 +17,7 @@
     "@adeira/sx": "^0.29.1",
     "@babel/runtime": "^7.22.15",
     "prettier": "^2.8.8",
-    "pretty-format": "^29.6.3"
+    "pretty-format": "^29.7.0"
   },
   "devDependencies": {
     "@testing-library/react": "^13.4.0",
