@@ -3,7 +3,7 @@
 
 node_modules/
 
-src/babel-preset-adeira/src/__tests__/__fixtures__
+src/babel-preset-adeira/src/__tests__/__fixtures__/
 
 # https://github.com/prettier/prettier/issues/6102
 **/__generated__/*.graphql.js
@@ -16,3 +16,6 @@ src/babel-preset-adeira/src/__tests__/__fixtures__
 
 # https://nextjs.org/docs/basic-features/typescript
 next-env.d.ts
+
+# Custom build outputs that should be ignored:
+src/rossum-hooks/build/
