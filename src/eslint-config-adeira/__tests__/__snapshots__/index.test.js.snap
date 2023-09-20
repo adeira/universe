@@ -415,6 +415,7 @@ exports[`rules snapshot: all stable rules 1`] = `
     "jest/no-commented-out-tests": 0,
     "jest/no-conditional-expect": 0,
     "jest/no-conditional-in-test": 0,
+    "jest/no-confusing-set-timeout": 2,
     "jest/no-deprecated-functions": 2,
     "jest/no-disabled-tests": 2,
     "jest/no-done-callback": 0,

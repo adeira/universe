@@ -20,6 +20,7 @@ module.exports = ({
     'jest/no-commented-out-tests': OFF,
     'jest/no-conditional-expect': OFF,
     'jest/no-conditional-in-test': OFF,
+    'jest/no-confusing-set-timeout': ERROR,
     'jest/no-deprecated-functions': ERROR,
     'jest/no-disabled-tests': ERROR,
     'jest/no-done-callback': OFF,

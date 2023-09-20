@@ -1,5 +1,7 @@
 # Unreleased
 
+- New rule enabled: [`jest/no-confusing-set-timeout`](https://github.com/jest-community/eslint-plugin-jest/blob/225c3cff96ebd4f5fce27abf31f15af2f534137f/docs/rules/no-confusing-set-timeout.md) (warnings or errors in strict mode)
+
 # 8.3.0
 
 - New rules enabled: [`testing-library/prefer-query-matchers`](https://github.com/testing-library/eslint-plugin-testing-library/blob/f8279d24d813b871c62005f84ba2832be9d455e5/docs/rules/prefer-query-matchers.md), and [`react/jsx-curly-brace-presence`](https://github.com/jsx-eslint/eslint-plugin-react/blob/ae64aa8fa059fd2b4088642c1b591b8662e6ccc9/docs/rules/jsx-curly-brace-presence.md) (warnings or errors in strict mode)
