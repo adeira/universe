@@ -479,7 +479,7 @@ __metadata:
     blurhash: 2.0.5
     fbt: ^1.0.0
     flow-enums-runtime: ^0.0.6
-    focus-trap-react: ^10.2.1
+    focus-trap-react: ^10.2.2
     next: ^13.4.2
     prop-types: ^15.8.1
     react: ^18.2.0
@@ -12862,26 +12862,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"focus-trap-react@npm:^10.2.1":
-  version: 10.2.1
-  resolution: "focus-trap-react@npm:10.2.1"
+"focus-trap-react@npm:^10.2.2":
+  version: 10.2.2
+  resolution: "focus-trap-react@npm:10.2.2"
   dependencies:
-    focus-trap: ^7.5.2
+    focus-trap: ^7.5.3
     tabbable: ^6.2.0
   peerDependencies:
     prop-types: ^15.8.1
     react: ">=16.3.0"
     react-dom: ">=16.3.0"
-  checksum: 0abd094e4497adc88f5d206f695f4451ad05db03f21f3b61aa49d919fb02476a0fb15f6857c7485c80456a865732b80e456d457e37fda752591fc1aac3e94633
+  checksum: 834551f1adf00a36551993ba4612403115825573033481e0fd960410539557444807ce98c6f968a78ff8bb9b31584ba75c0f845e28097fcd80c81f6dfb52c225
   languageName: node
   linkType: hard
 
-"focus-trap@npm:^7.5.2":
-  version: 7.5.2
-  resolution: "focus-trap@npm:7.5.2"
+"focus-trap@npm:^7.5.3":
+  version: 7.5.3
+  resolution: "focus-trap@npm:7.5.3"
   dependencies:
     tabbable: ^6.2.0
-  checksum: 1eee29d18c152ef08849a5cfd6d462a6741ec15f08938a9d87336d47807f07dbfff2e6405b16b5ce96745eb86b60f3dcdd87b63f0ad240e47252254d2c248d40
+  checksum: aa81c209fe2c7e0460e97bdceaa716504acdfcd0353e5a5a0a1a826760d82c4ef7035b0613e636e73dbe4c3c20711d9d928566bff23c4b0108f4638af71aea76
   languageName: node
   linkType: hard
 
