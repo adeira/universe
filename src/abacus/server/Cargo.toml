@@ -30,7 +30,7 @@ md-5 = "0.10.6"
 num_cpus = "1.16.0"
 rand = "0.8.5"
 regex = "1.9.6"
-reqwest = { version = "0.11.20", default-features = false, features = ["json", "gzip", "default-tls"] }
+reqwest = { version = "0.11.21", default-features = false, features = ["json", "gzip", "default-tls"] }
 ring = "0.17.0"
 rusoto_core = "0.48.0"
 rusoto_s3 = "0.48.0"
