@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@rollup/pluginutils": "^5.0.4",
-    "flow-remove-types": "^2.217.2",
+    "flow-remove-types": "^2.218.0",
     "rollup": "^3.29.4"
   }
 }
