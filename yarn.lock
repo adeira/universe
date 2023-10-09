@@ -540,8 +540,8 @@ __metadata:
   dependencies:
     "@playwright/test": ^1.38.1
     "@types/node": ^18.18.4
-    "@types/react": ^18.2.26
-    "@types/react-dom": ^18.2.11
+    "@types/react": ^18.2.27
+    "@types/react-dom": ^18.2.12
     eslint: ^8.51.0
     eslint-config-next: ^13.4.2
     next: ^13.4.2
@@ -6357,12 +6357,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^18.0.0, @types/react-dom@npm:^18.2.11":
-  version: 18.2.11
-  resolution: "@types/react-dom@npm:18.2.11"
+"@types/react-dom@npm:^18.0.0, @types/react-dom@npm:^18.2.12":
+  version: 18.2.12
+  resolution: "@types/react-dom@npm:18.2.12"
   dependencies:
     "@types/react": "*"
-  checksum: 70dbdd2f8836a797ab8a3771c773f51023aab187d4d88ed3733bb3f2cbc2146057788a0095a03637101aeab9a48fce0ea369f96a35fc07e785ef53b8ab870885
+  checksum: 64eaf808e91c1d58270ea92dda0e0cbb671f7289be4a5a4e0ccbd85857dd69394970eaa403d958dfbca739735c0af9cde4cf8fe135ff34434838360beae8d306
   languageName: node
   linkType: hard
 
@@ -6398,14 +6398,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^18.2.26":
-  version: 18.2.26
-  resolution: "@types/react@npm:18.2.26"
+"@types/react@npm:*, @types/react@npm:^18.2.27":
+  version: 18.2.27
+  resolution: "@types/react@npm:18.2.27"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: 5789256cd6238d34c1fa2c23cff90174f050531aff2bf3f7791adb80ec603d56c68492f86c824e96e69c6a9589bffd3569035f16866bf722e1bbc80080f0a2ce
+  checksum: bb29779d4e83e30886a4a939b02812a7ae2d49a26e19eb4be48a6d4e73e8b09ca1a639c97c0ba12a7fe46711355059db7f958cbc1754fe697690656cdb9eca07
   languageName: node
   linkType: hard
 
