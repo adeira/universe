@@ -2,7 +2,7 @@
 
 import fbt from 'fbt';
 import Icon from '@adeira/icons';
-import React, { type Node } from 'react';
+import React, { type Element, type Node } from 'react';
 import sx from '@adeira/sx';
 
 import BreadcrumbItem from './BreadcrumbItem';
@@ -10,9 +10,7 @@ import LayoutInline from '../Layout/LayoutInline';
 import useSxDesignContext from '../useSxDesignContext';
 import { SupportedDirections } from '../constants';
 
-type Children =
-  | RestrictedElement<typeof BreadcrumbItem>
-  | $ReadOnlyArray<RestrictedElement<typeof BreadcrumbItem>>;
+type Children = Element<typeof BreadcrumbItem> | $ReadOnlyArray<Element<typeof BreadcrumbItem>>;
 
 type Props = {
   +children: Children,
@@ -44,14 +42,9 @@ export default function Breadcrumb(props: Props): Node {
         const newChild = (
           <>
             {separator}
-            {
-              /* $FlowFixMe[incompatible-type] This comment suppresses an error
-               * when upgrading Flow to version 0.197.0 and enabling LTI. To
-               * see the error delete this comment and run Flow. */
-              React.cloneElement(child, {
-                isLast: iterator + 1 === childrenCount,
-              })
-            }
+            {React.cloneElement(child, {
+              __isLast: iterator + 1 === childrenCount,
+            })}
           </>
         );
         separator = (

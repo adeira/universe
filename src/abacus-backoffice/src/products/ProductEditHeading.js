@@ -97,6 +97,7 @@ export default function ProductEditHeading(props: Props): React.Node {
           Edit product: <fbt:param name="productName">{product.name}</fbt:param>
         </fbt>
       }
+      // $FlowFixMe[incompatible-type]: `ProductEditHeadingPublishUnpublish` returns element of `LayoutHeadingButton` but Flow doesn't consider it a valid type in this context
       actionButtons={[
         <LayoutHeadingLink key="back" href="/products">
           <fbt desc="go back to products navigation button">Products inventory</fbt>

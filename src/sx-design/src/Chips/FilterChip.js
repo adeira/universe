@@ -11,6 +11,10 @@ type Props = {
   +title: Fbt,
   +value: ChipValueType,
   +description?: Fbt,
+
+  // We are purposefully hiding this prop from the public interface because we don't want anyone
+  // to use it directly. It's being used by the parent component wrapper `FilterChips`.
+  +__onChipClick?: (value: ChipValueType) => void,
 };
 
 /**
@@ -24,12 +28,7 @@ export default function FilterChip(props: Props): Element<typeof Chip> {
       description={props.description}
       value={props.value}
       prefix={<Icon name="check" />}
-      /*
-      $FlowExpectedError[prop-missing]: we are purposefully hiding this prop from the public
-      interface because we don't want anyone to use it directly. It's being used by the parent
-      component wrapper `FilterChips`.
-      */
-      onChipClick={props.onChipClick}
+      onChipClick={props.__onChipClick}
     />
   );
 }

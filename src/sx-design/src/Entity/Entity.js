@@ -1,13 +1,13 @@
 // @flow
 
 import { invariant } from '@adeira/js';
-import React, { type ChildrenArray, type Node } from 'react';
+import React, { type ChildrenArray, type Element, type Node } from 'react';
 import sx from '@adeira/sx';
 
 import EntityField from './EntityField';
 
 type Props = {
-  +children: ChildrenArray<RestrictedElement<typeof EntityField>>,
+  +children: ChildrenArray<Element<typeof EntityField>>,
 };
 
 export default function Entity(props: Props): Node {

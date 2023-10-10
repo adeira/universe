@@ -1,14 +1,12 @@
 // @flow
 
-import React, { useState, type Node } from 'react';
+import React, { useState, type Element, type Node } from 'react';
 
 import FilterChip from './FilterChip';
 import LayoutInline from '../Layout/LayoutInline';
 
 type Props = {
-  +children:
-    | RestrictedElement<typeof FilterChip>
-    | $ReadOnlyArray<RestrictedElement<typeof FilterChip>>,
+  +children: Element<typeof FilterChip> | $ReadOnlyArray<Element<typeof FilterChip>>,
   +onFiltersChange?: ($ReadOnlyArray<string>) => void,
 };
 
@@ -42,11 +40,8 @@ export default function FilterChips(props: Props): Node {
   return (
     <LayoutInline spacing="small">
       {React.Children.map(props.children, (child) => {
-        /* $FlowFixMe[incompatible-type] This comment suppresses an error when
-         * upgrading Flow to version 0.197.0 and enabling LTI. To see the error
-         * delete this comment and run Flow. */
         return React.cloneElement(child, {
-          onChipClick: handleChipClick,
+          __onChipClick: handleChipClick,
         });
       })}
     </LayoutInline>

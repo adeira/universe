@@ -1,6 +1,6 @@
 // @flow
 
-import { useRef, type ChildrenArray, type Node } from 'react';
+import { useRef, type ChildrenArray, type Element, type Node } from 'react';
 import sx from '@adeira/sx';
 
 import FormSelectOption from '../FormSelectOption';
@@ -14,7 +14,7 @@ type Props = {
     | null // empty (not selected)
     | string // for normal select
     | $ReadOnlyArray<string>, // for multi select
-  +'children': ChildrenArray<RestrictedElement<typeof FormSelectOption>>,
+  +'children': ChildrenArray<Element<typeof FormSelectOption>>,
   +'size'?: number,
   +'multiple'?: boolean,
   +'required'?: boolean,

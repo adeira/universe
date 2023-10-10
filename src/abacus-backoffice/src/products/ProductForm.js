@@ -29,7 +29,7 @@ export default function ProductForm(props: {
   +description_es: ?string,
   +price: number,
   +visibility: $ReadOnlyArray<'POS' | 'ESHOP'>,
-  +button: RestrictedElement<typeof FormSubmit>,
+  +button: React.Element<typeof FormSubmit>,
 }): React.Node {
   const productCategories = useFragment(
     graphql`

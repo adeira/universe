@@ -8,9 +8,9 @@ import Button from '../Button/Button';
 type Props = {
   +children: React.Node,
   +tint?: 'default' | 'success' | 'error' | 'warning',
-  // The `action` can either be a HTML `button` element or our component `Button` from SX Design.
+  // The `action` can either be an HTML `button` element or our component `Button` from SX Design.
   // In such case, the `tint` will be automatically propagated to the `Button`.
-  +action?: ?RestrictedElement<'button'>,
+  +action?: ?(React.Element<'button'> | React.Element<typeof Button>),
 };
 
 export default function Note(props: Props): React.Node {
@@ -27,9 +27,11 @@ export default function Note(props: Props): React.Node {
       {props.action != null ? (
         <div>
           {props.action.type === Button
-            ? React.cloneElement(props.action, {
-                tint: props.tint,
+            ? // $FlowFixMe[incompatible-call]
+              // $FlowFixMe[incompatible-indexer]
+              React.cloneElement(props.action, {
                 ...props.action.props, // preserve props set by the user
+                tint: props.tint, // and overwrite the tint
               })
             : props.action}
         </div>

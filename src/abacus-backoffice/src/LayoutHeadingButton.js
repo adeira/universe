@@ -1,14 +1,14 @@
 // @flow
 
 import Icon from '@adeira/icons';
-import React, { type Node } from 'react';
+import React, { type Element, type Node } from 'react';
 import { Button } from '@adeira/sx-design';
 
 type Props = {
   +onClick: () => void,
   +confirmMessage: FbtWithoutString,
   +children: FbtWithoutString,
-  +prefix?: RestrictedElement<typeof Icon>,
+  +prefix?: Element<typeof Icon>,
 };
 
 // TODO: move this `window.confirm` logic to SX Design (Button)?

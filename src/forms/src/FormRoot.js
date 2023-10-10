@@ -16,17 +16,17 @@ import FormTextArea from './FormTextArea';
 
 type Props = {
   +children: React.ChildrenArray<
-    | RestrictedElement<'div'> // allows additional styles inside `FormRoot`
-    | RestrictedElement<typeof FormEmail>
-    | RestrictedElement<typeof FormErrorMessages>
-    | RestrictedElement<typeof FormMultiSelect>
-    | RestrictedElement<typeof FormMultiUpload>
-    | RestrictedElement<typeof FormNumber>
-    | RestrictedElement<typeof FormPassword>
-    | RestrictedElement<typeof FormSelect>
-    | RestrictedElement<typeof FormSubmit>
-    | RestrictedElement<typeof FormText>
-    | RestrictedElement<typeof FormTextArea>,
+    | React.Element<'div'> // allows additional styles inside `FormRoot`
+    | React.Element<typeof FormEmail>
+    | React.Element<typeof FormErrorMessages>
+    | React.Element<typeof FormMultiSelect>
+    | React.Element<typeof FormMultiUpload>
+    | React.Element<typeof FormNumber>
+    | React.Element<typeof FormPassword>
+    | React.Element<typeof FormSelect>
+    | React.Element<typeof FormSubmit>
+    | React.Element<typeof FormText>
+    | React.Element<typeof FormTextArea>,
   >,
 };
 

@@ -1,6 +1,6 @@
 // @flow
 
-import { type ChildrenArray, type Node } from 'react';
+import { type ChildrenArray, type Element, type Node } from 'react';
 
 import FormSelectOption from './FormSelectOption';
 import BaseSelect from './private/BaseSelect';
@@ -10,7 +10,7 @@ type Props = {
   +'name': string,
   +'size': number,
   +'value': $ReadOnlyArray<string>,
-  +'children': ChildrenArray<RestrictedElement<typeof FormSelectOption>>,
+  +'children': ChildrenArray<Element<typeof FormSelectOption>>,
   +'data-testid'?: string,
   +'required'?: boolean,
 };

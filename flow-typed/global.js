@@ -27,22 +27,6 @@ declare type React$Node =
   | FbtElement
   | FbtString;
 
-declare type FunctionComponentRender<+TRender> = (props: any) => TRender;
-declare type ClassComponentRender<+TRender> = Class<
-  React$Component<any, any> & interface { render(): TRender },
->;
-declare type RestrictedElement<+TElementType: React$ElementType> = {
-  +type:
-    | TElementType
-    | ClassComponentRender<RestrictedElement<TElementType>>
-    | FunctionComponentRender<RestrictedElement<TElementType>>,
-  // The props type is already captured in the type field, and using `ElementProps` recursively
-  // can get very expensive. Instead of paying for that computation, we decided to use `any`.
-  +props: any,
-  +key: React$Key | null,
-  +ref: any,
-};
-
 // Use this type when working with `useRef` hook.
 // See: https://github.com/facebook/flow/blob/8c866379d12dc32c6a0e129739148c8cd9169db8/lib/react.js#L365
 declare type ReactRefObject<T> = { current: T };

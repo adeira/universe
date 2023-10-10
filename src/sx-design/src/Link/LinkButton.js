@@ -2,7 +2,7 @@
 
 import Icon from '@adeira/icons';
 import NextLink from 'next/link';
-import React, { type Node } from 'react';
+import React, { type Element, type Node } from 'react';
 import sx from '@adeira/sx';
 
 import Link from './Link';
@@ -11,7 +11,7 @@ import Money from '../Money/Money';
 
 type Props = {
   +'href': string,
-  +'children': FbtWithoutString | RestrictedElement<typeof Money>,
+  +'children': FbtWithoutString | Element<typeof Money>,
   +'target'?: string,
   +'isActive'?: boolean,
   +'tint'?: 'default' | 'secondary' | 'error' | 'success' | 'warning',
@@ -19,8 +19,8 @@ type Props = {
   +'isDisabled'?: boolean,
   +'data-testid'?: string,
   +'onClick'?: (event: SyntheticEvent<HTMLAnchorElement>) => void,
-  +'prefix'?: RestrictedElement<typeof Icon>,
-  +'suffix'?: RestrictedElement<typeof Icon>,
+  +'prefix'?: Element<typeof Icon>,
+  +'suffix'?: Element<typeof Icon>,
 
   // Why this property exists? Cannot we just use the `NextLink` directly here? Unfortunately, no.
   // There is one major bug in Next.js/Webpack that prevents this, see:
