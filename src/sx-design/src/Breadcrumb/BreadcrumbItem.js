@@ -20,15 +20,14 @@ type Props = {
   // Basically, it seems like webpack cannot transpile `process.env.__NEXT_I18N_SUPPORT` correctly
   // when the link comes from `node_modules` which makes the localized links work incorrectly.
   +nextLinkComponent: typeof NextLink,
+
+  // We are purposefully hiding this prop from the public interface because we don't want anyone
+  // to use it directly. It's being used by the parent component wrapper `Breadcrumb`.
+  +__isLast?: boolean,
 };
 
 export default function BreadcrumbItem(props: Props): Node {
-  /*
-  $FlowExpectedError[prop-missing]: we are purposefully hiding this prop from the public
-  interface because we don't want anyone to use it directly. It's being used by the parent
-  component wrapper `Breadcrumb`.
-  */
-  const isLast = props.isLast;
+  const isLast = props.__isLast;
   return (
     <div
       /* $FlowFixMe[incompatible-call] This comment suppresses an error when
@@ -38,9 +37,6 @@ export default function BreadcrumbItem(props: Props): Node {
         breadcrumbItem: true,
         breadcrumbItemLast: isLast,
       })}
-      /* $FlowFixMe[incompatible-type] This comment suppresses an error when
-       * upgrading Flow to version 0.174.0. To see the error delete this
-       * comment and run Flow. */
       {...(isLast === true && { ['aria-current']: 'page' })}
     >
       <Link nextLinkComponent={props.nextLinkComponent} href={props.href}>

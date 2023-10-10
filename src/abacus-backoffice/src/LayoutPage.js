@@ -15,7 +15,7 @@ type Props = {
   +isBeta?: boolean,
   +description?: Fbt,
   +actionButtons?: ChildrenArray<
-    RestrictedElement<typeof LayoutHeadingLink> | Element<typeof LayoutHeadingButton>,
+    Element<typeof LayoutHeadingLink> | Element<typeof LayoutHeadingButton>,
   >,
 };
 

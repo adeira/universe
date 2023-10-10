@@ -2,7 +2,7 @@
 
 import fbt from 'fbt';
 import Icon from '@adeira/icons';
-import React, { useState, type Node } from 'react';
+import React, { useState, type Element, type Node } from 'react';
 import sx from '@adeira/sx';
 
 import Button from '../Button/Button';
@@ -11,8 +11,8 @@ import MenuItemDivider from './MenuItemDivider';
 import SxDesignPortal from '../SxDesignPortal';
 
 type AllowedChildren =
-  | RestrictedElement<typeof MenuItem>
-  | RestrictedElement<typeof MenuItemDivider>
+  | Element<typeof MenuItem>
+  | Element<typeof MenuItemDivider>
   | $ReadOnlyArray<AllowedChildren>;
 
 type Props = {

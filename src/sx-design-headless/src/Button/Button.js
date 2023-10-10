@@ -6,7 +6,7 @@ import React, { type Element } from 'react';
 
 type RestrictedReactNode = number | Fbt | Iterable<RestrictedReactNode>;
 
-type Children = RestrictedReactNode | RestrictedElement<typeof Icon>;
+type Children = RestrictedReactNode | Element<typeof Icon>;
 
 type Props = {
   +'children': Children,
@@ -17,8 +17,8 @@ type Props = {
     | 'button', // The button has no default behavior, and does nothing when pressed by default (use `onClick` callback).
   +'isDisabled'?: boolean,
   +'data-testid'?: string,
-  +'prefix'?: RestrictedElement<typeof Icon>,
-  +'suffix'?: RestrictedElement<typeof Icon>,
+  +'prefix'?: Element<typeof Icon>,
+  +'suffix'?: Element<typeof Icon>,
   +'aria-label'?: Fbt,
   +'className'?: ?string,
 };

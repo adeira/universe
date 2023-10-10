@@ -1,7 +1,7 @@
 // @flow
 
 import { fbt } from 'fbt';
-import React, { type ChildrenArray, type Node } from 'react';
+import React, { type ChildrenArray, type Element, type Node } from 'react';
 
 import FormSelectOption from './FormSelectOption';
 import BaseSelect from './private/BaseSelect';
@@ -12,7 +12,7 @@ type Props = {
   +'value':
     | null // for empty select (" -- ")
     | string,
-  +'children': ChildrenArray<RestrictedElement<typeof FormSelectOption>>,
+  +'children': ChildrenArray<Element<typeof FormSelectOption>>,
   +'required'?: boolean,
   +'data-testid'?: string,
 };

@@ -1,7 +1,7 @@
 // @flow
 
 import Icon from '@adeira/icons';
-import React, { useState, type Node } from 'react';
+import React, { useState, type Element, type Node } from 'react';
 import sx from '@adeira/sx';
 
 import LayoutBlock from '../Layout/LayoutBlock';
@@ -14,7 +14,7 @@ type Props = {
   +title: Fbt,
   +value: ChipValueType,
   +onChipClick?: (ChipValueType) => void,
-  +prefix?: RestrictedElement<typeof Icon>,
+  +prefix?: Element<typeof Icon>,
   +description?: Fbt,
 };
 

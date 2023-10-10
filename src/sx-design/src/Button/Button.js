@@ -5,8 +5,6 @@ import { Button as ButtonHeadless } from '@adeira/sx-design-headless';
 
 import sharedButtonStyles from './styles';
 
-type RestrictedReactNode = number | Fbt | Iterable<RestrictedReactNode>;
-
 type Props = $ReadOnly<{
   ...ElementConfig<typeof ButtonHeadless>,
   +size?: 'small' | 'medium' | 'large',

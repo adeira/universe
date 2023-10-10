@@ -1,13 +1,13 @@
 // @flow
 
-import React, { useRef, type Node } from 'react';
+import React, { useRef, type Element, type Node } from 'react';
 import sx from '@adeira/sx';
 import { useKeyPress } from '@adeira/hooks';
 
 import Text from '../Text/Text';
 
 export type TabsType<TabValueType> = Array<{
-  +title: Fbt | RestrictedElement<typeof Text>,
+  +title: Fbt | Element<typeof Text>,
   +value: TabValueType,
 }>;
 
