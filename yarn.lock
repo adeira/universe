@@ -152,7 +152,7 @@ __metadata:
     eslint-plugin-eslint-comments: ^3.2.0
     eslint-plugin-fb-flow: ^0.0.4
     eslint-plugin-fbt: ^0.6.0
-    eslint-plugin-ft-flow: ^3.0.0
+    eslint-plugin-ft-flow: ^3.0.1
     eslint-plugin-import: ^2.28.1
     eslint-plugin-jest: ^27.4.2
     eslint-plugin-jest-dom: ^5.1.0
@@ -11806,16 +11806,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-ft-flow@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "eslint-plugin-ft-flow@npm:3.0.0"
+"eslint-plugin-ft-flow@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "eslint-plugin-ft-flow@npm:3.0.1"
   dependencies:
     lodash: ^4.17.21
     string-natural-compare: ^3.0.1
   peerDependencies:
     eslint: ^8.1.0
-    hermes-eslint: ^0.15.0
-  checksum: 9f70b0677ccbf9de6242dcec06f959b873037e1e496deffa5fdfe5d6f4cd4b7997794a9081a530707afd5b76eb675a52c6a4dfb128a8811ec6d246cf79bdeb52
+    hermes-eslint: ^0.15.0 || ^0.16.0
+  checksum: 3885ce7c20081e6f5c216f1938066c0afee9873fc9d044b5bcd0705e703866709ecc28162dcd59cfdd7bf4359587f78c344185e16bca0814e3e38c564997abe6
   languageName: node
   linkType: hard
 
