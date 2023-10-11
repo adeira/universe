@@ -71,6 +71,11 @@ suppress_type=$FlowFixMe
 ; Function parameters are considered const (i.e., treated as if they were declared with const rather than let).
 experimental.const_params=true
 
+; https://flow.org/en/docs/react/multiplatform
+experimental.multi_platform=true
+experimental.multi_platform.extensions=.ios
+experimental.multi_platform.extensions=.android
+
 relay_integration=true
 relay_integration.module_prefix=./__generated__/
 ; TODO: consider removing the following excludes
