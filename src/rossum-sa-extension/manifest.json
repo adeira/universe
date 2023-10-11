@@ -16,7 +16,7 @@
         "scripts/dev-features-enabled.js",
         "scripts/list-selector-improvements.js"
       ],
-      "matches": ["https://*.rossum.ai/*", "https://*.rossum.app/*"]
+      "matches": ["http://localhost:3000/*", "https://*.rossum.ai/*", "https://*.rossum.app/*"]
     }
   ],
   "action": {

@@ -8,14 +8,19 @@ declare const chrome: any; // TODO
 
 const styleSchemaID = document.createElement('style');
 styleSchemaID.textContent = `
+[data-sa-extension-schema-id] {
+  position: relative;
+}
+
 .rossum-sa-extension-schema-id {
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   color: red;
-  font-size: 8px;
-  transition: all 0.3s ease-in-out;
+  font-size: 10px;
+  transition: all 0.25s ease-in-out;
   opacity: .7;
+  margin-inline: 3px;
 }
 
 .rossum-sa-extension-schema-id:hover {
@@ -30,13 +35,13 @@ document.head?.appendChild(styleSchemaID);
 function displaySchemaID(node /*: $FlowFixMe */) {
   const div = document.createElement('span');
   div.className = 'rossum-sa-extension-schema-id';
-  div.innerHTML = node.getAttribute('data-schema-id');
+  div.innerHTML = node.getAttribute('data-sa-extension-schema-id');
   node.appendChild(div);
 }
 
 const observer = new MutationObserver((mutations) => {
   const checkAddedNode = (addedNode /*: $FlowFixMe */) => {
-    if (addedNode?.hasAttribute('data-schema-id')) {
+    if (addedNode?.hasAttribute('data-sa-extension-schema-id')) {
       displaySchemaID(addedNode);
     }
 
@@ -78,7 +83,7 @@ chrome.storage.onChanged.addListener(function (changes, areaName) {
       observer.disconnect();
     } else {
       // show all the schema IDs
-      const elements = document.querySelectorAll('[data-schema-id]');
+      const elements = document.querySelectorAll('[data-sa-extension-schema-id]');
       elements.forEach((element) => displaySchemaID(element));
 
       observer.observe(htmlBodyElement, {
