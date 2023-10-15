@@ -43,7 +43,7 @@ thiserror = { version = "1.0.49", default-features = false }
 tokio = { version = "1.33.0", default-features = false, features = ["full"] }
 tracing = "0.1.39"
 tracing-subscriber = { version = "0.3.17", default-features = false, features = ["smallvec", "fmt", "ansi", "tracing-log", "std", "env-filter"] }
-typed-builder = "0.16.2"
+typed-builder = "0.17.0"
 url = "2.4.1"
 uuid = { version = "1.4.1", default-features = false, features = ["std", "v4"] }
 warp = { version = "0.3.3", default-features = false, features = ["multipart", "compression"] }
