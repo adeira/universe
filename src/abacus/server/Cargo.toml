@@ -29,7 +29,7 @@ lazy_static = "1.4.0"
 md-5 = "0.10.6"
 num_cpus = "1.16.0"
 rand = "0.8.5"
-regex = "1.10.1"
+regex = "1.10.2"
 reqwest = { version = "0.11.22", default-features = false, features = ["json", "gzip", "default-tls"] }
 ring = "0.17.4"
 rusoto_core = "0.48.0"
