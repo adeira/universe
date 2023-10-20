@@ -36,6 +36,7 @@ export default function Button(props: Props): Element<'button'> {
   const childrenCount = React.Children.count(props.children);
   if (childrenCount === 1) {
     React.Children.forEach<Children, $FlowFixMe>(props.children, (child) => {
+      // $FlowFixMe[prop-missing]
       if (child.type === Icon) {
         // This is a case where the only Button children is an Icon. Normally, the ARIA label
         // would be derived from the Button text, but this special case breaks accessibility
