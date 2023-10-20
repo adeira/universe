@@ -1,5 +1,3 @@
-name: Continuous Integration (Rust)
-
 on:
   merge_group:
     types:
@@ -14,7 +12,6 @@ on:
 
 jobs:
   rust-test:
-    name: Rust test
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -75,7 +72,6 @@ jobs:
   rust-test-results:
     if: ${{ always() }}
     runs-on: ubuntu-latest
-    name: Rust test - results
     needs: [rust-test]
     steps:
       - run: |

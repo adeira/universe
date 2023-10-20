@@ -1,5 +1,3 @@
-name: shellcheck
-
 on:
   merge_group:
     types:
