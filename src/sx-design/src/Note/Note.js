@@ -26,10 +26,10 @@ export default function Note(props: Props): React.Node {
       <div>{props.children}</div>
       {props.action != null ? (
         <div>
+          {/* $FlowFixMe[prop-missing] */}
           {props.action.type === Button
-            ? // $FlowFixMe[incompatible-call]
-              // $FlowFixMe[incompatible-indexer]
-              React.cloneElement(props.action, {
+            ? React.cloneElement(props.action, {
+                // $FlowFixMe[prop-missing]
                 ...props.action.props, // preserve props set by the user
                 tint: props.tint, // and overwrite the tint
               })
