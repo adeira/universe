@@ -14,7 +14,7 @@ spec:
       restartPolicy: Never
       initContainers:
         - name: dump-download
-          image: amazon/aws-cli:2.13.27
+          image: amazon/aws-cli:2.13.28
           imagePullPolicy: Always
           command: ['/bin/sh', '-c']
           args:
