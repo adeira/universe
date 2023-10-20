@@ -1,5 +1,3 @@
-name: Playwright
-
 on:
   merge_group:
     types:
@@ -17,7 +15,6 @@ env:
 
 jobs:
   playwright-test:
-    name: Playwright test
     strategy:
       fail-fast: false
       matrix:
@@ -106,7 +103,6 @@ jobs:
   playwright-test-results:
     if: ${{ always() }}
     runs-on: ubuntu-latest
-    name: Playwright test - results
     needs: [playwright-test]
     steps:
       - run: |

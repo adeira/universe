@@ -1,5 +1,3 @@
-name: Continuous Integration (JavaScript)
-
 on:
   merge_group:
     types:
@@ -19,7 +17,6 @@ env:
 
 jobs:
   javascript-test:
-    name: JavaScript test
     runs-on: ubuntu-latest
 
     strategy:
@@ -96,7 +93,6 @@ jobs:
   javascript-test-results:
     if: ${{ always() }}
     runs-on: ubuntu-latest
-    name: JavaScript test - results
     needs: [javascript-test]
     steps:
       - run: |
