@@ -23,7 +23,7 @@ futures = "0.3.28"
 hex = "0.4.3"
 http = "0.2.9"
 image = { version = "0.24.7", default-features = false, features = ["jpeg", "png"] }
-jsonwebtoken = "9.0.0"
+jsonwebtoken = "9.1.0"
 juniper = { version = "0.15.11", default-features = false, features = ["schema-language"] }
 lazy_static = "1.4.0"
 md-5 = "0.10.6"
