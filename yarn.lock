@@ -540,7 +540,7 @@ __metadata:
   dependencies:
     "@playwright/test": ^1.39.0
     "@types/node": ^18.18.6
-    "@types/react": ^18.2.31
+    "@types/react": ^18.2.32
     "@types/react-dom": ^18.2.14
     eslint: ^8.52.0
     eslint-config-next: ^13.4.2
@@ -6473,14 +6473,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^18.2.31":
-  version: 18.2.31
-  resolution: "@types/react@npm:18.2.31"
+"@types/react@npm:*, @types/react@npm:^18.2.32":
+  version: 18.2.32
+  resolution: "@types/react@npm:18.2.32"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: b11be8e39174d3303e308461400889e353e422d22b01d09795b2c35b7b99d5351716503d9ec5c58e4c2c871249603fa52840d45a34fb5901dd7a26e06129c716
+  checksum: dad139dd165c4ce2364d1849af4e022746adc73f1a35bb5e0c95dbfee4732637de709504440c518e0177898aaf151b7a6b34019c8e398ea2e919dcfc4d79198f
   languageName: node
   linkType: hard
 
