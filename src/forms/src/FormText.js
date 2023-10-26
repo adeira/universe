@@ -25,6 +25,9 @@ export default function FormText(props: Props): Node {
       label={props.label}
       name={props.name}
       required={props.required}
+      // TODO:
+      onDisplayValidationError={(error) => console.error(error)}
+      onHideValidationError={() => console.error(null)}
     />
   );
 }
