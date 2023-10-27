@@ -8637,17 +8637,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"browserify-rsa@npm:^4.0.0":
-  version: 4.0.1
-  resolution: "browserify-rsa@npm:4.0.1"
-  dependencies:
-    bn.js: "npm:^4.1.0"
-    randombytes: "npm:^2.0.1"
-  checksum: e5b25e076c7c04bd70a9e1b0bd10705a037bf9de9792f0c00aa30272aab4135a962e408f60f78608391c3bd632810ce1c4024e41fcc8ffbda57b9bf4e30173ac
-  languageName: node
-  linkType: hard
-
-"browserify-rsa@npm:^4.1.0":
+"browserify-rsa@npm:^4.0.0, browserify-rsa@npm:^4.1.0":
   version: 4.1.0
   resolution: "browserify-rsa@npm:4.1.0"
   dependencies:
@@ -12919,12 +12909,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"flow-bin@npm:^0.219.5":
-  version: 0.219.5
-  resolution: "flow-bin@npm:0.219.5"
+"flow-bin@npm:^0.220.0":
+  version: 0.220.0
+  resolution: "flow-bin@npm:0.220.0"
   bin:
     flow: cli.js
-  checksum: 29bf12bca484bba9876f8993cfbc89aa7245266851c95653b8dbccd198d7a20de44b1b6de75f808052abb1d69bb02eae54ad4ecbfdd1838fe9bedb4a24a01bbb
+  checksum: 46d593964aa1b3a0f470ec503c12a6a3373ffb773a37e7049303ab879c77d22acc7a18c1edff6e341bddb1e4edf6b1c7539dd434941d16fa70920433b3b3daa0
   languageName: node
   linkType: hard
 
@@ -21666,7 +21656,7 @@ __metadata:
     babel-loader: "npm:^9.1.3"
     eslint: "npm:^8.52.0"
     eslint-formatter-codeframe: "npm:^7.32.1"
-    flow-bin: "npm:^0.219.5"
+    flow-bin: "npm:^0.220.0"
     hermes-eslint: "npm:^0.17.0"
     jest: "npm:^29.7.0"
     jest-environment-jsdom: "npm:^29.7.0"
