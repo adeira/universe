@@ -10,6 +10,6 @@
   "dependencies": {
     "@rollup/pluginutils": "^5.0.5",
     "flow-remove-types": "^2.220.0",
-    "rollup": "^4.1.6"
+    "rollup": "^4.2.0"
   }
 }
