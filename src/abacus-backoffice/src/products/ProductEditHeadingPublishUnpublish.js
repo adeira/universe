@@ -7,8 +7,6 @@ import { useFlashMessages, FlashMessageTint } from '@adeira/sx-design';
 
 import LayoutHeadingButton from '../LayoutHeadingButton';
 import useApplicationLocale from '../useApplicationLocale';
-import type { ProductEditHeadingPublishUnpublishPublishMutation } from './__generated__/ProductEditHeadingPublishUnpublishPublishMutation.graphql';
-import type { ProductEditHeadingPublishUnpublishUnpublishMutation } from './__generated__/ProductEditHeadingPublishUnpublishUnpublishMutation.graphql';
 
 type Props = {
   +isPublished: boolean,
@@ -21,7 +19,7 @@ export default function ProductEditHeadingPublishUnpublish(
   const applicationLocale = useApplicationLocale();
   const [displayFleshMessage] = useFlashMessages();
 
-  const [publishProductMutation] = useMutation<ProductEditHeadingPublishUnpublishPublishMutation>(
+  const [publishProductMutation] = useMutation(
     graphql`
       mutation ProductEditHeadingPublishUnpublishPublishMutation(
         $productKey: ID!
@@ -42,27 +40,26 @@ export default function ProductEditHeadingPublishUnpublish(
     `,
   );
 
-  const [unpublishProductMutation] =
-    useMutation<ProductEditHeadingPublishUnpublishUnpublishMutation>(
-      graphql`
-        mutation ProductEditHeadingPublishUnpublishUnpublishMutation(
-          $productKey: ID!
-          $clientLocale: SupportedLocale!
-        ) {
-          commerce {
-            productOrError: productUnpublish(productKey: $productKey, clientLocale: $clientLocale) {
-              ... on Product {
-                __typename
-              }
-              ... on ProductError {
-                __typename
-                message
-              }
+  const [unpublishProductMutation] = useMutation(
+    graphql`
+      mutation ProductEditHeadingPublishUnpublishUnpublishMutation(
+        $productKey: ID!
+        $clientLocale: SupportedLocale!
+      ) {
+        commerce {
+          productOrError: productUnpublish(productKey: $productKey, clientLocale: $clientLocale) {
+            ... on Product {
+              __typename
+            }
+            ... on ProductError {
+              __typename
+              message
             }
           }
         }
-      `,
-    );
+      }
+    `,
+  );
 
   return props.isPublished === false ? (
     <LayoutHeadingButton

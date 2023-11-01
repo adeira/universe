@@ -3,7 +3,7 @@
 // Our `@adeira/relay` additions:
 export { default as createEnvironment } from './createEnvironment';
 export { default as createNetworkFetcher } from './createNetworkFetcher';
-export { RelayLogger, RelayRequiredFieldLogger } from './RelayLogger';
+export { RelayLogger, RelayFieldLogger } from './RelayLogger';
 export { default as RelayRehydratePreloadedQueries } from './RelayRehydratePreloadedQueries';
 
 // Relay Modern (wrapped):
@@ -42,7 +42,7 @@ export type {
   Variables,
 } from 'relay-runtime';
 // eslint-disable-next-line import/no-unresolved
-export type { RecordObjectMap as RecordMap } from 'relay-runtime/store/RelayStoreTypes';
+export type { RecordSourceJSON } from 'relay-runtime/store/RelayStoreTypes';
 
 // Relay Hooks (wrapped)
 export { default as useMutation } from './useMutation';

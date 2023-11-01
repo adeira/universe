@@ -3,7 +3,7 @@
  * @jest-environment node
  */
 
-import { RelayLogger, RelayRequiredFieldLogger } from '../RelayLogger';
+import { RelayLogger, RelayFieldLogger } from '../RelayLogger';
 
 let consoleLogSpy;
 let consoleErrorSpy;
@@ -51,7 +51,7 @@ describe('Relay Logger', () => {
 
 describe('Relay Required Field Logger', () => {
   it('does not log in Node.js environment', () => {
-    RelayRequiredFieldLogger({
+    RelayFieldLogger({
       kind: 'missing_field.log',
       owner: 'mock',
       fieldPath: 'mock',

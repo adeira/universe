@@ -13,7 +13,6 @@ import LayoutHeadingLink from '../LayoutHeadingLink';
 import ProductEditHeadingPublishUnpublish from './ProductEditHeadingPublishUnpublish';
 import useApplicationLocale from '../useApplicationLocale';
 import type { ProductEditHeading$key } from './__generated__/ProductEditHeading.graphql';
-import type { ProductEditHeadingArchiveMutation } from './__generated__/ProductEditHeadingArchiveMutation.graphql';
 
 type Props = {
   +product: ProductEditHeading$key,
@@ -25,7 +24,7 @@ export default function ProductEditHeading(props: Props): React.Node {
   const router = useRouter();
   const [displayFleshMessage] = useFlashMessages();
 
-  const [archiveProductMutation] = useMutation<ProductEditHeadingArchiveMutation>(
+  const [archiveProductMutation] = useMutation(
     graphql`
       mutation ProductEditHeadingArchiveMutation(
         $productKey: ID!

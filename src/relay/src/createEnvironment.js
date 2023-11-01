@@ -7,19 +7,19 @@ import {
   type LogFunction,
   type OperationLoader,
 } from 'relay-runtime';
-import type { RecordObjectMap } from 'relay-runtime/store/RelayStoreTypes';
+import type { RecordSourceJSON } from 'relay-runtime/store/RelayStoreTypes';
 
 import createRelayStore from './internal/createRelayStore';
 import createRequestHandler from './internal/createRequestHandler';
 import relayQueryResponseCache from './internal/QueryResponseCache';
-import { RelayLogger, RelayRequiredFieldLogger } from './RelayLogger';
+import { RelayLogger, RelayFieldLogger } from './RelayLogger';
 
 type Options = {
   +fetchFn: (...args: $ReadOnlyArray<any>) => any,
   +subscribeFn?: (...args: $ReadOnlyArray<any>) => any,
   +handlerProvider?: (string) => void,
   +operationLoader?: OperationLoader,
-  +records?: ?RecordObjectMap,
+  +records?: ?RecordSourceJSON,
   +gcReleaseBufferSize?: ?number,
   +log?: LogFunction,
 };
@@ -39,7 +39,7 @@ export default function createEnvironment(options: Options): Environment {
   const environment = new RelayEnvironment({
     network: network,
     log: RelayLogger,
-    requiredFieldLogger: RelayRequiredFieldLogger,
+    relayFieldLogger: RelayFieldLogger,
     store: createRelayStore(records, {
       gcReleaseBufferSize: gcReleaseBufferSize,
     }),

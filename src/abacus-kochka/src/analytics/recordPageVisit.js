@@ -3,8 +3,6 @@
 import { warning } from '@adeira/js';
 import { commitMutation, graphql, type Environment } from '@adeira/relay';
 
-import type { recordPageVisitAnalyticsMutation } from './__generated__/recordPageVisitAnalyticsMutation.graphql';
-
 export default function recordPageVisit(environment: Environment) {
   const location = {
     // See: https://developer.mozilla.org/en-US/docs/Web/API/Location
@@ -28,7 +26,7 @@ export default function recordPageVisit(environment: Environment) {
       windowScreenOrientation?.angle != null ? String(windowScreenOrientation.angle) : null,
   };
 
-  commitMutation<recordPageVisitAnalyticsMutation>(environment, {
+  commitMutation(environment, {
     mutation: graphql`
       mutation recordPageVisitAnalyticsMutation(
         $userAgent: String

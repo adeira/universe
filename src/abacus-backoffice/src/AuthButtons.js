@@ -10,25 +10,22 @@ import { Loader } from '@adeira/sx-design';
 import { useSessionTokenAPI } from '@adeira/hooks';
 
 import constants from './constants';
-import type { AuthButtonsAuthorizeWebappMutation } from './__generated__/AuthButtonsAuthorizeWebappMutation.graphql';
-import type { AuthButtonsDeauthorizeWebappMutation } from './__generated__/AuthButtonsDeauthorizeWebappMutation.graphql';
 
 export function LoginButton(): Node {
   const { login } = useSessionTokenAPI();
   const [errorMessage, setErrorMessage] = useState<?string | Fbt>(null);
 
-  const [authorizeMutation, isAuthorizeMutationPending] =
-    useMutation<AuthButtonsAuthorizeWebappMutation>(graphql`
-      mutation AuthButtonsAuthorizeWebappMutation($googleIdToken: String!) {
-        auth {
-          authorizeWebapp(googleIdToken: $googleIdToken) {
-            success
-            sessionToken
-            failureMessage
-          }
+  const [authorizeMutation, isAuthorizeMutationPending] = useMutation(graphql`
+    mutation AuthButtonsAuthorizeWebappMutation($googleIdToken: String!) {
+      auth {
+        authorizeWebapp(googleIdToken: $googleIdToken) {
+          success
+          sessionToken
+          failureMessage
         }
       }
-    `);
+    }
+  `);
 
   const successResponseGoogle = (googleIdToken: string) => {
     authorizeMutation({
@@ -63,7 +60,7 @@ export function LoginButton(): Node {
 export function LogoutButton(): Node {
   const { logout, sessionToken } = useSessionTokenAPI();
 
-  const [deauthorizeMutation] = useMutation<AuthButtonsDeauthorizeWebappMutation>(graphql`
+  const [deauthorizeMutation] = useMutation(graphql`
     mutation AuthButtonsDeauthorizeWebappMutation($sessionToken: String!) {
       auth {
         deauthorize(sessionToken: $sessionToken) {
