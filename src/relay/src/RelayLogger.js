@@ -3,7 +3,11 @@
 /* eslint-disable no-console */
 
 import { isBrowser } from '@adeira/js';
-import type { LogEvent, OperationAvailability, RequiredFieldLogger } from 'relay-runtime';
+import type {
+  LogEvent,
+  OperationAvailability,
+  RelayFieldLogger as RelayFieldLoggerType,
+} from 'relay-runtime';
 
 const vocabulary: { +[string]: { +title: string, +help: string } } = {
   'missing_field.log': {
@@ -85,7 +89,7 @@ export function RelayLogger(logEvent: LogEvent): void {
  * Called by Relay when it encounters a missing field that has been annotated with
  * `@required(action: LOG)`.
  */
-export const RelayRequiredFieldLogger: RequiredFieldLogger = function (logEvent) {
+export const RelayFieldLogger: RelayFieldLoggerType = function (logEvent) {
   if (!shouldLog()) {
     return;
   }

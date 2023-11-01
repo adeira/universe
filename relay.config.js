@@ -42,10 +42,6 @@ module.exports = {
         compact_query_text: { kind: 'enabled' },
         no_inline: { kind: 'enabled' },
       },
-      flowTypegen: {
-        // Enable to remove "%future added value" from enum types (not recommended):
-        no_future_proof_enums: false,
-      },
       schemaConfig: {
         // Name of the globally unique ID field on the `Node` interface.
         nodeInterfaceIdField: 'id',

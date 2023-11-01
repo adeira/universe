@@ -1,6 +1,6 @@
 // @flow
 
-import { useMutation, type GraphQLTaggedNode, type Variables } from '@adeira/relay';
+import { useMutation, type Variables } from '@adeira/relay';
 import { fbs } from 'fbt';
 import { type Node, useContext } from 'react';
 import { Button, useFlashMessages, FlashMessageTint } from '@adeira/sx-design';
@@ -9,7 +9,7 @@ import FormRootContext from './FormRootContext';
 
 type Props = {
   +children: FbtWithoutString,
-  +mutation: GraphQLTaggedNode,
+  +mutation: $FlowFixMe,
   +variables: ($FlowFixMe) => Variables,
   +onCompleted: (response: $FlowFixMe) => void,
 };
@@ -25,8 +25,7 @@ export default function FormSubmit(props: Props): Node {
   const formRootContext = useContext(FormRootContext);
   const [displayFleshMessage] = useFlashMessages();
 
-  // eslint-disable-next-line relay/generated-flow-types -- discovered when upgrading Relay Eslint plugin, FIXME
-  const [runMutation, isMutationInProgress] = useMutation<$FlowFixMe>(props.mutation);
+  const [runMutation, isMutationInProgress] = useMutation(props.mutation);
 
   const handleButtonClick = (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();

@@ -11,8 +11,7 @@ const mutation = graphql`
 module.exports = {
   validUsage: (): (() => void) => {
     return function TestComponent() {
-      // eslint-disable-next-line relay/generated-flow-types -- discovered when upgrading Relay Eslint plugin, FIXME
-      const [executeMutation, isMutationPending] = useMutation<$FlowFixMe>(mutation);
+      const [executeMutation, isMutationPending] = useMutation(mutation);
       (executeMutation: ({
         onCompleted: () => void,
       }) => Disposable);
@@ -33,8 +32,7 @@ module.exports = {
   // Invalid usages:
   invalidUsage: (): (() => void) => {
     return function TestComponent() {
-      // eslint-disable-next-line relay/generated-flow-types -- discovered when upgrading Relay Eslint plugin, FIXME
-      const [executeMutation] = useMutation<$FlowFixMe>(mutation);
+      const [executeMutation] = useMutation(mutation);
 
       // $FlowExpectedError[prop-missing]: property onCompleted is missing
       executeMutation({

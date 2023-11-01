@@ -14,7 +14,6 @@ import useApplicationLocale from '../useApplicationLocale';
 import MoneyBillSelector from './MoneyBillSelector';
 import MoneyCoinSelector from './MoneyCoinSelector';
 import useSelectedItemsApi, { type AtomItemType } from './recoil/selectedItemsState';
-import type { POSCheckoutPageLayoutMutation } from './__generated__/POSCheckoutPageLayoutMutation.graphql';
 
 export default function POSCheckoutPageLayout(): Node {
   const [receivedMoney, setReceivedMoney] = useState(0);
@@ -23,7 +22,7 @@ export default function POSCheckoutPageLayout(): Node {
   const router = useRouter();
   const { bcp47 } = useApplicationLocale();
 
-  const [checkout, isCheckoutPending] = useMutation<POSCheckoutPageLayoutMutation>(graphql`
+  const [checkout, isCheckoutPending] = useMutation(graphql`
     mutation POSCheckoutPageLayoutMutation(
       $checkoutInput: [PosCheckoutProductInput!]!
       $clientLocale: SupportedLocale!

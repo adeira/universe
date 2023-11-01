@@ -1241,7 +1241,7 @@ exports[`Relay preset: Relay preset 1`] = `
     ],
     "relay/compat-uses-vars": 0,
     "relay/function-required-argument": 2,
-    "relay/generated-flow-types": 2,
+    "relay/generated-flow-types": 0,
     "relay/graphql-naming": 0,
     "relay/graphql-syntax": 2,
     "relay/hook-required-argument": 2,
