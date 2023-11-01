@@ -150,7 +150,7 @@ __metadata:
     eslint-config-prettier: "npm:^9.0.0"
     eslint-plugin-adeira: "npm:^0.15.0"
     eslint-plugin-eslint-comments: "npm:^3.2.0"
-    eslint-plugin-fb-flow: "npm:^0.0.4"
+    eslint-plugin-fb-flow: "npm:^0.0.5"
     eslint-plugin-fbt: "npm:^0.6.0"
     eslint-plugin-ft-flow: "npm:^3.0.1"
     eslint-plugin-import: "npm:^2.29.0"
@@ -11839,12 +11839,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-fb-flow@npm:^0.0.4":
-  version: 0.0.4
-  resolution: "eslint-plugin-fb-flow@npm:0.0.4"
+"eslint-plugin-fb-flow@npm:^0.0.5":
+  version: 0.0.5
+  resolution: "eslint-plugin-fb-flow@npm:0.0.5"
   peerDependencies:
     eslint: ">=6"
-  checksum: 3f542283108d7ff76d1445a34c1338e901e31c2d2b04a7e9a653139eb4d5846f8b1ffe4f92275046ac09c5b0212205ac7a8c79e8c127efaece02587dc59448fc
+  checksum: 5294846ffb4eee135cad974c49f8c1bef539be473d5836cb2c19f2df9214c192c44069005e865f348582d9a55ab8c9c2a2cae8939613ad1565f3fb769af8ab85
   languageName: node
   linkType: hard
 
