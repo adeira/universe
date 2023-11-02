@@ -25,7 +25,7 @@
     "eslint-plugin-import": "^2.29.0",
     "eslint-plugin-jest": "^27.6.0",
     "eslint-plugin-jest-dom": "^5.1.0",
-    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-monorepo": "^0.3.2",
     "eslint-plugin-n": "^16.2.0",
     "eslint-plugin-prettier": "^4.2.1",
