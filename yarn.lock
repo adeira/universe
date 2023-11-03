@@ -401,6 +401,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@adeira/rossum-swat@workspace:src/rossum-swat":
+  version: 0.0.0-use.local
+  resolution: "@adeira/rossum-swat@workspace:src/rossum-swat"
+  dependencies:
+    csv-writer: "npm:^1.6.0"
+  languageName: unknown
+  linkType: soft
+
 "@adeira/shell-command@npm:^0.1.0, @adeira/shell-command@workspace:src/shell-command":
   version: 0.0.0-use.local
   resolution: "@adeira/shell-command@workspace:src/shell-command"
@@ -10277,6 +10285,13 @@ __metadata:
   version: 3.0.4
   resolution: "csstype@npm:3.0.4"
   checksum: ff963ce909f1c1f69d594ad0f10d7b672b5a551879edbc96bd0812ee992183f4460d0da2c2420bd1a75f71f1223d9ad15cc93f718d8838f82dd1d4a02de21691
+  languageName: node
+  linkType: hard
+
+"csv-writer@npm:^1.6.0":
+  version: 1.6.0
+  resolution: "csv-writer@npm:1.6.0"
+  checksum: 9d30518c6cc7489e0cd8a3a83d6b014c27ed537d6e4a866f901065ddf49e06e4815a4204ce02c3c0024fd8e648e4a2efbdb318a1c63ddb3026282682d3a665e3
   languageName: node
   linkType: hard
 
