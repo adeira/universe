@@ -68,7 +68,7 @@ Quotation from the following source: https://github.com/graphql/graphql-js/issue
 >
 > While memcached and redis are much faster than SQL, they still often require going between services or physical machines, so another layer of cache that you might consider is an in-memory cache in your API service's runtime. This can be trickier to implement though, you'll need a good cache policy and need to ensure you don't leak sensitive data between requests.
 >
-> When using caching, subsequent loads to { post(id: 1) { id, ... } will just be a fast cache lookup (though we still run the access control rules every time). When paginating through lists of things, this layer of caching makes loading the post much cheaper.
+> When using caching, subsequent loads to `{ post(id: 1) { id, ... } }` will just be a fast cache lookup (though we still run the access control rules every time). When paginating through lists of things, this layer of caching makes loading the post much cheaper.
 >
 > #### Partial Fetches
 >

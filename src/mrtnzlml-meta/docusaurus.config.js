@@ -19,8 +19,12 @@ module.exports = {
     prism: {
       // https://prismjs.com/#supported-languages
       additionalLanguages: [
-        'rust',
+        'bash',
+        'graphql',
+        'javascript',
+        'json',
         'reason', // ReScript
+        'rust',
       ],
     },
     announcementBar: {

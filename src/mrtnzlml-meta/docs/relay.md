@@ -345,9 +345,9 @@ These are things which are somehow difficult to achieve with current Relay abili
 
 > My general advice for applications is, for now:
 >
-> 1: Establish and enforce a convention in your schema for the values returned in the errors property, and when an error is considered critical enough to return null for data (When nothing can be meaningfully be rendered anyway). For example, for critical errors you might choose to still return data but have errors contain an object with {critical: true, message: '...'}, or you might choose to make data be null. The important part is consistency.
+> 1: Establish and enforce a convention in your schema for the values returned in the errors property, and when an error is considered critical enough to return null for data (When nothing can be meaningfully be rendered anyway). For example, for critical errors you might choose to still return data but have errors contain an object with `{critical: true, message: '...'}`, or you might choose to make data be null. The important part is consistency.
 >
-> 2: Take advantage of this in your network layer. Check the data/errors property for the presence of critical error based on whatever approach you follow from the previous step, and if a critical error is present return {data: null, errors} to Relay. Otherwise pass through the data as-is.
+> 2: Take advantage of this in your network layer. Check the data/errors property for the presence of critical error based on whatever approach you follow from the previous step, and if a critical error is present return `{data: null, errors}` to Relay. Otherwise pass through the data as-is.
 
 (https://github.com/facebook/relay/issues/1816#issuecomment-304492071)
 
