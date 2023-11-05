@@ -321,6 +321,7 @@ export type AllCSSPropertyTypes = {
   +fontStretch?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-stretch
   +fontStyle?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-style
   +fontSynthesis?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-synthesis
+  +fontSynthesisPosition?: 'auto' | 'none' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/font-synthesis-position
   +fontSynthesisSmallCaps?: 'auto' | 'none' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/font-synthesis-small-caps
   +fontSynthesisStyle?: 'auto' | 'none' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/font-synthesis-style
   +fontSynthesisWeight?: 'auto' | 'none' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/font-synthesis-weight
@@ -520,6 +521,7 @@ export type AllCSSPropertyTypes = {
   +overflowWrap?: 'normal' | 'break-word' | 'anywhere' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/overflow-wrap
   +overflowX?: 'visible' | 'hidden' | 'clip' | 'scroll' | 'auto' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/overflow-x
   +overflowY?: 'visible' | 'hidden' | 'clip' | 'scroll' | 'auto' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/overflow-y
+  +overlay?: 'none' | 'auto' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/overlay
   +overscrollBehavior?: number | string, // https://developer.mozilla.org/docs/Web/CSS/overscroll-behavior
   +overscrollBehaviorBlock?: 'contain' | 'none' | 'auto' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/overscroll-behavior-block
   +overscrollBehaviorInline?: 'contain' | 'none' | 'auto' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/overscroll-behavior-inline
@@ -744,6 +746,7 @@ export type AllCSSPropertyTypes = {
   +transformOrigin?: number | string, // https://developer.mozilla.org/docs/Web/CSS/transform-origin
   +transformStyle?: 'flat' | 'preserve-3d' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/transform-style
   +transition?: number | string, // https://developer.mozilla.org/docs/Web/CSS/transition
+  +transitionBehavior?: number | string, // https://developer.mozilla.org/docs/Web/CSS/transition-behavior
   +transitionDelay?: string, // https://developer.mozilla.org/docs/Web/CSS/transition-delay
   +transitionDuration?: string, // https://developer.mozilla.org/docs/Web/CSS/transition-duration
   +transitionProperty?: number | string, // https://developer.mozilla.org/docs/Web/CSS/transition-property
