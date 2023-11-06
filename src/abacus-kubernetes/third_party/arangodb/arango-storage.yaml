@@ -1,4 +1,4 @@
-# https://raw.githubusercontent.com/arangodb/kube-arangodb/1.2.32/manifests/arango-storage.yaml
+# https://raw.githubusercontent.com/arangodb/kube-arangodb/1.2.34/manifests/arango-storage.yaml
 ---
 # Source: kube-arangodb/templates/service-account.yaml
 apiVersion: v1
@@ -8,7 +8,7 @@ metadata:
   namespace: default
   labels:
     app.kubernetes.io/name: kube-arangodb
-    helm.sh/chart: kube-arangodb-1.2.32
+    helm.sh/chart: kube-arangodb-1.2.34
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/instance: storage
     release: storage
@@ -20,7 +20,7 @@ metadata:
   name: arangolocalstorages.storage.arangodb.com
   labels:
     app.kubernetes.io/name: kube-arangodb
-    helm.sh/chart: kube-arangodb-1.2.32
+    helm.sh/chart: kube-arangodb-1.2.34
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/instance: storage
     release: storage
@@ -50,7 +50,7 @@ metadata:
   name: arango-storage-operator-rbac-crd
   labels:
     app.kubernetes.io/name: kube-arangodb
-    helm.sh/chart: kube-arangodb-1.2.32
+    helm.sh/chart: kube-arangodb-1.2.34
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/instance: storage
     release: storage
@@ -76,7 +76,7 @@ metadata:
   name: arango-storage-operator-rbac-storage
   labels:
     app.kubernetes.io/name: kube-arangodb
-    helm.sh/chart: kube-arangodb-1.2.32
+    helm.sh/chart: kube-arangodb-1.2.34
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/instance: storage
     release: storage
@@ -104,7 +104,7 @@ metadata:
   name: arango-storage-operator-rbac-crd
   labels:
     app.kubernetes.io/name: kube-arangodb
-    helm.sh/chart: kube-arangodb-1.2.32
+    helm.sh/chart: kube-arangodb-1.2.34
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/instance: storage
     release: storage
@@ -124,7 +124,7 @@ metadata:
   name: arango-storage-operator-rbac-storage
   labels:
     app.kubernetes.io/name: kube-arangodb
-    helm.sh/chart: kube-arangodb-1.2.32
+    helm.sh/chart: kube-arangodb-1.2.34
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/instance: storage
     release: storage
@@ -145,7 +145,7 @@ metadata:
   namespace: default
   labels:
     app.kubernetes.io/name: kube-arangodb
-    helm.sh/chart: kube-arangodb-1.2.32
+    helm.sh/chart: kube-arangodb-1.2.34
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/instance: storage
     release: storage
@@ -171,7 +171,7 @@ metadata:
   namespace: default
   labels:
     app.kubernetes.io/name: kube-arangodb
-    helm.sh/chart: kube-arangodb-1.2.32
+    helm.sh/chart: kube-arangodb-1.2.34
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/instance: storage
     release: storage
@@ -192,7 +192,7 @@ metadata:
   namespace: default
   labels:
     app.kubernetes.io/name: kube-arangodb
-    helm.sh/chart: kube-arangodb-1.2.32
+    helm.sh/chart: kube-arangodb-1.2.34
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/instance: storage
     release: storage
@@ -227,7 +227,7 @@ metadata:
   namespace: default
   labels:
     app.kubernetes.io/name: kube-arangodb
-    helm.sh/chart: kube-arangodb-1.2.32
+    helm.sh/chart: kube-arangodb-1.2.34
     app.kubernetes.io/managed-by: Tiller
     app.kubernetes.io/instance: storage
     release: storage
@@ -245,7 +245,7 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/name: kube-arangodb
-        helm.sh/chart: kube-arangodb-1.2.32
+        helm.sh/chart: kube-arangodb-1.2.34
         app.kubernetes.io/managed-by: Tiller
         app.kubernetes.io/instance: storage
         release: storage
@@ -303,12 +303,6 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.podIP
-            - name: RELATED_IMAGE_UBI
-              value: 'alpine:3.11'
-            - name: RELATED_IMAGE_METRICSEXPORTER
-              value: 'arangodb/arangodb-exporter:0.1.7'
-            - name: RELATED_IMAGE_DATABASE
-              value: 'arangodb/arangodb:latest'
           ports:
             - name: metrics
               containerPort: 8528
