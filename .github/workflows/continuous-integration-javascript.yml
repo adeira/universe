@@ -59,6 +59,9 @@ jobs:
       - name: Install Yarn dependencies
         run: ./x install -- --immutable
 
+      - name: Check Yarn constraints
+        run: yarn constraints # TODO: move to `./x install` (?)
+
       # We are purposefully expecting zero warnings in the output to make sure flowtests are
       # working as expected (Flow returns warnings for unused suppression comments).
       - name: Run Flow check
@@ -67,7 +70,7 @@ jobs:
       # TypeScript can be used in one of two ways - as a linter, or as a build tool.
       # We are using it as a linter on a monorepo level and as a build tool on individual packages.
       - name: Run TypeScript check
-        run: yarn tsc --project . # TODO: `./x ts`
+        run: yarn tsc --allowJs --project tsconfig.json # TODO: `./x ts`
 
       - name: Run Eslint check
         run: ./x lints
