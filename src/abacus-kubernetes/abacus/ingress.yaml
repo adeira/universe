@@ -13,7 +13,6 @@ spec:
     - hosts:
         - abacus.adeira.io
         - adeira.io
-        - docs.kochka.com.mx
         - kochka.com.mx
         - tools.adeira.io
       secretName: abacus-tls
@@ -36,17 +35,6 @@ spec:
             backend:
               service:
                 name: abacus-service
-                port:
-                  number: 80
-    # TODO: remove (vv)
-    - host: docs.kochka.com.mx
-      http:
-        paths:
-          - pathType: Prefix
-            path: '/'
-            backend:
-              service:
-                name: abacus-docs-service
                 port:
                   number: 80
     - host: kochka.com.mx
