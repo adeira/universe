@@ -1,5 +1,7 @@
 # Unreleased
 
+- New rule enabled: `@next/next/no-async-client-component`
+
 # 8.4.0
 
 - New rule enabled: [`jest/no-confusing-set-timeout`](https://github.com/jest-community/eslint-plugin-jest/blob/225c3cff96ebd4f5fce27abf31f15af2f534137f/docs/rules/no-confusing-set-timeout.md) (warnings or errors in strict mode)

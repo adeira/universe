@@ -816,6 +816,7 @@ exports[`Next preset: Next preset 1`] = `
     "@next/next/inline-script-id": 2,
     "@next/next/next-script-for-ga": 0,
     "@next/next/no-assign-module-variable": 2,
+    "@next/next/no-async-client-component": 2,
     "@next/next/no-before-interactive-script-outside-document": 2,
     "@next/next/no-css-tags": 2,
     "@next/next/no-document-import-in-page": 2,
