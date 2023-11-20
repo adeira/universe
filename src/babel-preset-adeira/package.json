@@ -16,10 +16,10 @@
   "dependencies": {
     "@babel/plugin-proposal-throw-expressions": "^7.23.3",
     "@babel/plugin-transform-flow-strip-types": "^7.23.3",
-    "@babel/plugin-transform-runtime": "^7.23.3",
+    "@babel/plugin-transform-runtime": "^7.23.4",
     "@babel/preset-env": "^7.23.3",
     "@babel/preset-react": "^7.23.3",
-    "@babel/runtime": "^7.23.2",
+    "@babel/runtime": "^7.23.4",
     "babel-plugin-transform-flow-enums": "^0.0.2"
   },
   "devDependencies": {

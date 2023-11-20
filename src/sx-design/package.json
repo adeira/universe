@@ -18,7 +18,7 @@
     "@adeira/icons": "^2.2.0",
     "@adeira/js": "^2.1.1",
     "@adeira/sx-design-headless": "^0.2.1",
-    "@babel/runtime": "^7.23.2",
+    "@babel/runtime": "^7.23.4",
     "blurhash": "2.0.5",
     "fbt": "^1.0.0",
     "flow-enums-runtime": "^0.0.6",
