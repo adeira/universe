@@ -16,7 +16,7 @@ bytes = "1.5.0"
 casbin = "2.0.9"
 clap = { version = "4.4.8", default-features = false, features = ["std", "cargo", "color", "deprecated", "env", "error-context", "help", "suggestions", "unicode", "usage"] }
 clap_complete = { version = "4.4.4", default-features = false }
-data-encoding = "2.4.0"
+data-encoding = "2.5.0"
 deadpool = { version = "0.9.5", default-features = false, features = ["managed"] }
 dotenv = { version = "0.15.0", default-features = false }
 futures = "0.3.29"
