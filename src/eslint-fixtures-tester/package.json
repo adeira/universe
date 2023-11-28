@@ -17,7 +17,7 @@
     "@adeira/js": "^2.1.1",
     "@babel/runtime": "^7.23.4",
     "eslint": "^8.54.0",
-    "hermes-eslint": "^0.17.1",
+    "hermes-eslint": "^0.18.0",
     "jest-docblock": "^29.7.0"
   },
   "peerDependencies": {
