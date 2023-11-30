@@ -39,9 +39,19 @@ function displaySchemaID(node /*: $FlowFixMe */) {
   node.appendChild(div);
 }
 
-const observer = new MutationObserver((mutations) => {
-  const checkAddedNode = (addedNode /*: $FlowFixMe */) => {
-    if (addedNode?.hasAttribute('data-sa-extension-schema-id')) {
+function isElementNode(node /*: any */) /*: node is Element */ {
+  // https://developer.mozilla.org/en-US/docs/Web/API/Node
+  // https://developer.mozilla.org/en-US/docs/Web/API/Element
+  return node.nodeType === Node.ELEMENT_NODE;
+}
+
+const observer = new MutationObserver((mutations /*: Array<MutationRecord> */) => {
+  const checkAddedNode = (addedNode /*: Node */) => {
+    if (!isElementNode(addedNode)) {
+      return;
+    }
+
+    if (addedNode.hasAttribute('data-sa-extension-schema-id')) {
       displaySchemaID(addedNode);
     }
 
