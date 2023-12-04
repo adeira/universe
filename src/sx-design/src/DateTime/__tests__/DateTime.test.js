@@ -47,8 +47,11 @@ it('works correctly for `es-MX` locale', () => {
     { locale: 'es-MX' },
   );
 
-  // Change in ICU 72.1 (https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V19.md#19.1.0)
-  if (Number(process.versions.icu) >= 72.1) {
+  if (Number(process.versions.icu) >= 74.1) {
+    // Change in ICU 74.1 (https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V21.md#21.3.0)
+    expect(getByText('16 abr 2022, 1:00:00 a.m.')).toBeInTheDocument();
+  } else if (Number(process.versions.icu) >= 72.1) {
+    // Change in ICU 72.1 (https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V19.md#19.1.0)
     expect(getByText('16 abr 2022, 01:00:00')).toBeInTheDocument();
   } else {
     expect(getByText('16 abr 2022 01:00:00')).toBeInTheDocument();
@@ -81,8 +84,8 @@ it('works correctly with additional format options', () => {
     { locale: 'cs-CZ' },
   );
 
-  // Change in ICU 72.1 (https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V19.md#19.1.0)
   if (Number(process.versions.icu) >= 72.1) {
+    // Change in ICU 72.1 (https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V19.md#19.1.0)
     expect(
       getByText('sobota 16. dubna 2022 našeho letopočtu v 1:00:00, koordinovaný světový čas'),
     ).toBeInTheDocument();
