@@ -429,31 +429,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/sx-design-wlcm@workspace:src/sx-design-wlcm":
-  version: 0.0.0-use.local
-  resolution: "@adeira/sx-design-wlcm@workspace:src/sx-design-wlcm"
-  dependencies:
-    "@adeira/babel-preset-adeira": "npm:^4.0.0"
-    "@adeira/sx-design-headless": "npm:^0.2.1"
-    "@babel/runtime": "npm:^7.23.5"
-    "@storybook/addon-a11y": "npm:^6.5.16"
-    "@storybook/addon-actions": "npm:^6.5.16"
-    "@storybook/addon-essentials": "npm:^6.5.16"
-    "@storybook/addon-links": "npm:^6.5.16"
-    "@storybook/addon-viewport": "npm:^6.5.16"
-    "@storybook/addons": "npm:^6.5.16"
-    "@storybook/react": "npm:^6.5.16"
-    "@storybook/theming": "npm:^6.5.16"
-    next: "npm:^13.4.2"
-    storybook-addon-next-router: "npm:^4.0.2"
-  peerDependencies:
-    "@adeira/sx": ^0.29.1
-    next: ^13.4.2
-    react: ^18.2.0
-    react-dom: ^18.2.0
-  languageName: unknown
-  linkType: soft
-
 "@adeira/sx-design@npm:^0.32.0, @adeira/sx-design@workspace:src/sx-design":
   version: 0.0.0-use.local
   resolution: "@adeira/sx-design@workspace:src/sx-design"
