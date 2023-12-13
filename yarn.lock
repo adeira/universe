@@ -390,7 +390,7 @@ __metadata:
   resolution: "@adeira/rossum-hooks@workspace:src/rossum-hooks"
   dependencies:
     "@rollup/pluginutils": "npm:^5.1.0"
-    flow-remove-types: "npm:^2.223.3"
+    flow-remove-types: "npm:^2.224.0"
     rollup: "npm:^4.9.0"
   languageName: unknown
   linkType: soft
@@ -13320,17 +13320,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"flow-remove-types@npm:^2.223.3":
-  version: 2.223.3
-  resolution: "flow-remove-types@npm:2.223.3"
+"flow-remove-types@npm:^2.224.0":
+  version: 2.224.0
+  resolution: "flow-remove-types@npm:2.224.0"
   dependencies:
-    hermes-parser: "npm:0.17.1"
+    hermes-parser: "npm:0.18.0"
     pirates: "npm:^3.0.2"
     vlq: "npm:^0.2.1"
   bin:
     flow-node: flow-node
     flow-remove-types: flow-remove-types
-  checksum: bb42da39019105a0b579325d0c0ba369926a913d7ebf12b09d9d9d50846ee804c1d363aec9d15798b0df7e9001678a44efe0b372029ed924fa97d1b22c12bd57
+  checksum: e81a82902f0871369fcadd4ce6d66eda3fa366ef9dae9e771460d19988d7c5cfa458690e5f345fecadbb51fd61990ec6fd704605731816510fd7e48af73e87a7
   languageName: node
   linkType: hard
 
@@ -14661,26 +14661,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hermes-estree@npm:0.17.1":
-  version: 0.17.1
-  resolution: "hermes-estree@npm:0.17.1"
-  checksum: a1eec061b2244fd3c61cef5326318ce6f9fa0baf250e797993f59ff47789b02ea3239ae122ba00a58a7c004cc8858271668037e615ea94d2122c4ab8222f95fc
-  languageName: node
-  linkType: hard
-
 "hermes-estree@npm:0.18.0":
   version: 0.18.0
   resolution: "hermes-estree@npm:0.18.0"
   checksum: eed4f7d67db89e071bbe757eb266ed04bd1810453a5f1cb70c1d75ef43d88bd40b3c8826c8ab590b1089379739cf23127515af8b3fd27959e29c1260b7ef2fd0
-  languageName: node
-  linkType: hard
-
-"hermes-parser@npm:0.17.1":
-  version: 0.17.1
-  resolution: "hermes-parser@npm:0.17.1"
-  dependencies:
-    hermes-estree: "npm:0.17.1"
-  checksum: 5d9119f67e13eb84e06d14735e300763f3e3cafe00ddd0acdf0a58b4365fd78e2aa8efc463658f7b4a26f89541651ef9619bd1c47e93dcbe34e6d840a1a5c9c4
   languageName: node
   linkType: hard
 
