@@ -94,7 +94,7 @@ jobs:
       - name: Collect Docker metadata
         if: steps.changes.outputs.src == 'true'
         id: meta
-        uses: docker/metadata-action@v5.3.0
+        uses: docker/metadata-action@v5.4.0
         with:
           images: ${{ matrix.projectImageName }}
           flavor: |
