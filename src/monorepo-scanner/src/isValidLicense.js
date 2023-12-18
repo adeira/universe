@@ -1,7 +1,7 @@
 // @flow strict
 
 // This function makes sure we use the correct licence formats without any unexpected modifications.
-export default function isValidLicense(license: string): boolean %checks {
+export default function isValidLicense(license: string): boolean {
   return mitLicenseRegexp.test(license) || unlicenseRegexp.test(license);
 }
 
