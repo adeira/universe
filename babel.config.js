@@ -21,7 +21,7 @@ type BabelConfig = {
 
 */
 
-function isWebpack(caller /*: Caller */) /*: boolean %checks */ {
+function isWebpack(caller /*: Caller */) /*: boolean */ {
   // https://github.com/babel/babel-loader
   return !!(caller && caller.name === 'babel-loader');
 }

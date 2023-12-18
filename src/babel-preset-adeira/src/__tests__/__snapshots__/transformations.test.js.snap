@@ -42,47 +42,6 @@ const aaa = 1;
 const bbb: string = aaa;
 `;
 
-exports[`matches expected output: babel-issue-9514.js: flow 1`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow
-
-// See: https://github.com/babel/babel/issues/9514
-
-type $FragmentRef<T> = { +$fragmentRefs: $PropertyType<T, '$refType'>, ... };
-
-// prettier-ignore
-export type $RelayProps<Props, RelayPropT> = $ObjMap<
-  $Diff<Props, { relay: RelayPropT | void, ... }>,
-  (<T: () => void>( T) =>  T) &
-  (<T: { +$refType: any, ... }>( T) =>  $FragmentRef<T>) &
-  (<T: { +$refType: any, ... }>(?T) => ?$FragmentRef<T>) &
-  (<T: { +$refType: any, ... }>( $ReadOnlyArray< T>) =>  $ReadOnlyArray< $FragmentRef<T>>) &
-  (<T: { +$refType: any, ... }>(?$ReadOnlyArray< T>) => ?$ReadOnlyArray< $FragmentRef<T>>) &
-  (<T: { +$refType: any, ... }>( $ReadOnlyArray<?T>) =>  $ReadOnlyArray<?$FragmentRef<T>>) &
-  (<T: { +$refType: any, ... }>(?$ReadOnlyArray<?T>) => ?$ReadOnlyArray<?$FragmentRef<T>>) &
-  (<T>(T) => T)
->
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-// @flow
-
-// See: https://github.com/babel/babel/issues/9514
-
-type $FragmentRef<T> = { +$fragmentRefs: $PropertyType<T, '$refType'>, ...};
-
-// prettier-ignore
-export type $RelayProps<Props, RelayPropT> = $ObjMap<
-  $Diff<Props, { relay: RelayPropT | void, ...}>,
-  (<T: () => void>(T) => T) & (
-  <T: { +$refType: any, ...}>(T) => $FragmentRef<T>) & (
-  <T: { +$refType: any, ...}>(?T) => ?$FragmentRef<T>) & (
-  <T: { +$refType: any, ...}>($ReadOnlyArray<T>) => $ReadOnlyArray<$FragmentRef<T>>) & (
-  <T: { +$refType: any, ...}>(?$ReadOnlyArray<T>) => ?$ReadOnlyArray<$FragmentRef<T>>) & (
-  <T: { +$refType: any, ...}>($ReadOnlyArray<?T>) => $ReadOnlyArray<?$FragmentRef<T>>) & (
-  <T: { +$refType: any, ...}>(?$ReadOnlyArray<?T>) => ?$ReadOnlyArray<?$FragmentRef<T>>) & (
-  <T>(T) => T)>;
-`;
-
 exports[`matches expected output: babel-issue-9810.js: flow 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow
@@ -99,7 +58,7 @@ const executeNodeScript = (
   return [aaa, bbb, ccc];
 };
 
-const supportsESM = (target: string) /*: boolean %checks */ => {
+const supportsESM = (target: string) /*: boolean */ => {
   return target === 'js-esm';
 };
 
@@ -120,7 +79,7 @@ ccc: any)
   return [aaa, bbb, ccc];
 };
 
-const supportsESM = (target: string): boolean %checks => {
+const supportsESM = (target: string): boolean => {
   return target === 'js-esm';
 };
 

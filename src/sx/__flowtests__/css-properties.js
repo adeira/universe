@@ -18,7 +18,6 @@ sx.create({
     },
     '@keyframes slidein': {
       from: { transform: 'translateX(0%)' },
-      // $FlowIssue[unsupported-syntax]: https://github.com/facebook/flow/issues/380
       50: { marginTop: 'translateX(50%)' },
       to: { transform: 'translateX(100%)' },
     },

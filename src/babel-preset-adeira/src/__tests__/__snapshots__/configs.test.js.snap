@@ -167,6 +167,7 @@ exports[`emits correct config for target 'js' and environment '{"browsers":["las
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
+    "babel-plugin-syntax-hermes-parser",
     "babel-plugin-transform-flow-enums",
     [
       "@babel/plugin-transform-flow-strip-types",
@@ -226,6 +227,7 @@ exports[`emits correct config for target 'js' and environment '{"browsers":["las
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
+    "babel-plugin-syntax-hermes-parser",
     "babel-plugin-transform-flow-enums",
     [
       "@babel/plugin-transform-flow-strip-types",
@@ -282,6 +284,7 @@ exports[`emits correct config for target 'js' and environment '{"node":"current"
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
+    "babel-plugin-syntax-hermes-parser",
     "babel-plugin-transform-flow-enums",
     [
       "@babel/plugin-transform-flow-strip-types",
@@ -338,6 +341,7 @@ exports[`emits correct config for target 'js' and environment '{"node":"current"
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
+    "babel-plugin-syntax-hermes-parser",
     "babel-plugin-transform-flow-enums",
     [
       "@babel/plugin-transform-flow-strip-types",
@@ -394,6 +398,7 @@ exports[`emits correct config for target 'js' and environment 'undefined' and re
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
+    "babel-plugin-syntax-hermes-parser",
     "babel-plugin-transform-flow-enums",
     [
       "@babel/plugin-transform-flow-strip-types",
@@ -450,6 +455,7 @@ exports[`emits correct config for target 'js' and environment 'undefined' and re
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
+    "babel-plugin-syntax-hermes-parser",
     "babel-plugin-transform-flow-enums",
     [
       "@babel/plugin-transform-flow-strip-types",
@@ -509,6 +515,7 @@ exports[`emits correct config for target 'js-esm' and environment '{"browsers":[
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
+    "babel-plugin-syntax-hermes-parser",
     "babel-plugin-transform-flow-enums",
     [
       "@babel/plugin-transform-flow-strip-types",
@@ -568,6 +575,7 @@ exports[`emits correct config for target 'js-esm' and environment '{"browsers":[
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
+    "babel-plugin-syntax-hermes-parser",
     "babel-plugin-transform-flow-enums",
     [
       "@babel/plugin-transform-flow-strip-types",
@@ -624,6 +632,7 @@ exports[`emits correct config for target 'js-esm' and environment '{"node":"curr
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
+    "babel-plugin-syntax-hermes-parser",
     "babel-plugin-transform-flow-enums",
     [
       "@babel/plugin-transform-flow-strip-types",
@@ -680,6 +689,7 @@ exports[`emits correct config for target 'js-esm' and environment '{"node":"curr
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
+    "babel-plugin-syntax-hermes-parser",
     "babel-plugin-transform-flow-enums",
     [
       "@babel/plugin-transform-flow-strip-types",
@@ -736,6 +746,7 @@ exports[`emits correct config for target 'js-esm' and environment 'undefined' an
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
+    "babel-plugin-syntax-hermes-parser",
     "babel-plugin-transform-flow-enums",
     [
       "@babel/plugin-transform-flow-strip-types",
@@ -792,6 +803,7 @@ exports[`emits correct config for target 'js-esm' and environment 'undefined' an
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
+    "babel-plugin-syntax-hermes-parser",
     "babel-plugin-transform-flow-enums",
     [
       "@babel/plugin-transform-flow-strip-types",
