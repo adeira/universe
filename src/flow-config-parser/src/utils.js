@@ -1,7 +1,7 @@
 // @flow strict
 
 // https://github.com/facebook/flow/issues/6904
-export function isListSection(sectionName: string | null): boolean %checks {
+export function isListSection(sectionName: string | null): boolean {
   return (
     sectionName === 'declarations' ||
     sectionName === 'ignore' ||

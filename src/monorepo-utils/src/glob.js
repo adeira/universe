@@ -37,11 +37,11 @@ type GlobOptions = $ReadOnly<{
   absolute?: boolean,
 }>;
 
-function isWindowsPath(globPattern: GlobPattern): boolean %checks {
+function isWindowsPath(globPattern: GlobPattern): boolean {
   return /^[a-z]:\\/i.test(globPattern);
 }
 
-function isValidRoot(globPattern: GlobPattern, options?: GlobOptions): boolean %checks {
+function isValidRoot(globPattern: GlobPattern, options?: GlobOptions): boolean {
   return !(globPattern.startsWith('/') && options?.root === undefined);
 }
 

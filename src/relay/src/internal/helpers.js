@@ -2,18 +2,15 @@
 
 import type { UploadableMap, Variables } from 'relay-runtime';
 
-export const isMutation = (request: $FlowFixMe): boolean %checks => {
+export const isMutation = (request: $FlowFixMe): boolean => {
   return request.operationKind === 'mutation';
 };
 
-export const isQuery = (request: $FlowFixMe): boolean %checks => {
+export const isQuery = (request: $FlowFixMe): boolean => {
   return request.operationKind === 'query';
 };
 
-export const forceFetch = (cacheConfig: { +force?: ?boolean }): boolean %checks => {
-  /* $FlowFixMe[sketchy-null-bool] This comment suppresses an error when
-   * upgrading Flow to version 0.174.0. To see the error delete this comment
-   * and run Flow. */
+export const forceFetch = (cacheConfig: { +force?: ?boolean }): boolean => {
   return !!(cacheConfig && cacheConfig.force);
 };
 

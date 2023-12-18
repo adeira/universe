@@ -2,7 +2,7 @@
 
 import isObject from './isObject';
 
-export default function isObjectEmpty(obj: mixed): boolean %checks {
+export default function isObjectEmpty(obj: mixed): boolean {
   // https://stackoverflow.com/a/32108184/3135248
 
   return (
