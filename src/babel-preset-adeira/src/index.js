@@ -84,6 +84,7 @@ module.exports = (
       path.join(__dirname, 'dev-expression.js'),
       path.join(__dirname, 'adeira-js-invariant.js'),
       path.join(__dirname, 'adeira-js-warning.js'),
+      'babel-plugin-syntax-hermes-parser',
       'babel-plugin-transform-flow-enums',
       [
         '@babel/plugin-transform-flow-strip-types',

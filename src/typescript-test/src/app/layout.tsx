@@ -1,3 +1,5 @@
+/* eslint-disable ft-flow/no-types-missing-file-annotation */
+
 import './globals.css';
 
 export const metadata = {

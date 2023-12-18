@@ -1,7 +1,5 @@
 // @flow strict
 
-import type { ElementConfig, Node } from 'react';
-
 /**
  * Usage:
  *
@@ -16,13 +14,20 @@ import type { ElementConfig, Node } from 'react';
  * };
  * ```
  */
+
+/*::
+
+import type { ElementConfig, Node } from 'react';
+
 export type StoryTemplate<Component> = {
   (args: ElementConfig<Component>): Node,
   -storyName?: string,
   // Arguments `args` are defined as a `Partial<…>` here because Storybook substitutes some arguments
   // automatically by default making them optional.
   -args?: Partial<ElementConfig<Component>>,
-  -argTypes?: Partial<$ObjMap<ElementConfig<Component>, () => { table: { disable: boolean } }>>,
+  -argTypes?: { [key in keyof ElementConfig<Component>]?: { table?: { disable?: boolean } } },
   -parameters?: $FlowFixMe,
   ...
 };
+
+*/

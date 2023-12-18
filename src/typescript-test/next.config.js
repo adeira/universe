@@ -1,3 +1,5 @@
+/* eslint-disable ft-flow/no-types-missing-file-annotation */
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {

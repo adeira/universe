@@ -12,7 +12,7 @@ const executeNodeScript = (
   return [aaa, bbb, ccc];
 };
 
-const supportsESM = (target: string) /*: boolean %checks */ => {
+const supportsESM = (target: string) /*: boolean */ => {
   return target === 'js-esm';
 };
 

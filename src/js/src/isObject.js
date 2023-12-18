@@ -1,5 +1,7 @@
 // @flow strict
 
-export default function isObject(value: mixed): boolean %checks {
+/*:: type AnyObject = { +[key: string]: mixed }; */
+
+export default function isObject(value: mixed) /*: value is AnyObject */ {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
