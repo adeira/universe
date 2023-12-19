@@ -152,7 +152,7 @@ __metadata:
     eslint-plugin-eslint-comments: "npm:^3.2.0"
     eslint-plugin-fb-flow: "npm:^0.0.5"
     eslint-plugin-fbt: "npm:^0.6.0"
-    eslint-plugin-ft-flow: "npm:^3.0.1"
+    eslint-plugin-ft-flow: "npm:^3.0.2"
     eslint-plugin-import: "npm:^2.29.1"
     eslint-plugin-jest: "npm:^27.6.0"
     eslint-plugin-jest-dom: "npm:^5.1.0"
@@ -12206,16 +12206,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-ft-flow@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "eslint-plugin-ft-flow@npm:3.0.1"
+"eslint-plugin-ft-flow@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "eslint-plugin-ft-flow@npm:3.0.2"
   dependencies:
     lodash: "npm:^4.17.21"
     string-natural-compare: "npm:^3.0.1"
   peerDependencies:
     eslint: ^8.1.0
-    hermes-eslint: ^0.15.0 || ^0.16.0
-  checksum: ce1cc084e5c842f4553bda3ce9f989c26b7a212c0ac9417ac2f416addc409de79f5affaabb0ae75bd4dd0c6e2e3ba04a4b3f3b19e17e6c0095a83402e42c1041
+    hermes-eslint: ">=0.15.0"
+  checksum: 201ff7e27bcad52497ec4cb81dd218c80fab408465b11a212174707de0fe1d962fba2dadac992b5ad6d4dc3b78aa8fed5b97314ab14ef7d9d08e30bc86c28fdc
   languageName: node
   linkType: hard
 
