@@ -730,18 +730,6 @@ module.exports = function (a: AnyObject, ...rest: Array<any>): AnyObject {
 };
 `;
 
-exports[`matches expected output: throw-expressions.js: flow 1`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-/* eslint-disable */
-
-() => throw new Error('');
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-/* eslint-disable */
-
-() => throw new Error('');
-`;
-
 exports[`matches expected output: warning-global.js: flow 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 /* eslint-disable */

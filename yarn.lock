@@ -110,7 +110,6 @@ __metadata:
   dependencies:
     "@adeira/fixtures-tester": "npm:^1.1.1"
     "@adeira/monorepo-utils": "npm:^0.12.0"
-    "@babel/plugin-proposal-throw-expressions": "npm:^7.23.3"
     "@babel/plugin-transform-flow-strip-types": "npm:^7.23.3"
     "@babel/plugin-transform-runtime": "npm:^7.23.4"
     "@babel/preset-env": "npm:^7.23.5"
@@ -1311,18 +1310,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-proposal-throw-expressions@npm:^7.23.3":
-  version: 7.23.3
-  resolution: "@babel/plugin-proposal-throw-expressions@npm:7.23.3"
-  dependencies:
-    "@babel/helper-plugin-utils": "npm:^7.22.5"
-    "@babel/plugin-syntax-throw-expressions": "npm:^7.23.3"
-  peerDependencies:
-    "@babel/core": ^7.0.0-0
-  checksum: 4d9cfef05c69e1f9e8be54fd437aec1c285c457b5c48fd7ccfb4bf070da522e402b30d647f76cd3b6d37b5feed37cf02cd17bca3c99e2153371f06968b8b567f
-  languageName: node
-  linkType: hard
-
 "@babel/plugin-syntax-async-generators@npm:^7.8.4":
   version: 7.8.4
   resolution: "@babel/plugin-syntax-async-generators@npm:7.8.4"
@@ -1562,17 +1549,6 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.0.0-0
   checksum: 69822772561706c87f0a65bc92d0772cea74d6bc0911537904a676d5ff496a6d3ac4e05a166d8125fce4a16605bace141afc3611074e170a994e66e5397787f3
-  languageName: node
-  linkType: hard
-
-"@babel/plugin-syntax-throw-expressions@npm:^7.23.3":
-  version: 7.23.3
-  resolution: "@babel/plugin-syntax-throw-expressions@npm:7.23.3"
-  dependencies:
-    "@babel/helper-plugin-utils": "npm:^7.22.5"
-  peerDependencies:
-    "@babel/core": ^7.0.0-0
-  checksum: f18e914e422c30dec3f6a6551636b07da2ec8da534e2cde70bb29b6f66c2edcacb6884025b651fbcbcb332de93034220e375213b7dcae54317fd1850ae57c7f1
   languageName: node
   linkType: hard
 
