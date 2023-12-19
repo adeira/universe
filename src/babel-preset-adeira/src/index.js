@@ -54,7 +54,6 @@ module.exports = (
     'jsx',
     ['flow', { enums: true }],
     'flowComments',
-    'throwExpressions', // https://github.com/tc39/proposal-throw-expressions
   ];
   let retainLines = false;
 
@@ -95,7 +94,6 @@ module.exports = (
           allowDeclareFields: true,
         },
       ],
-      '@babel/plugin-proposal-throw-expressions',
       // Transform runtime plugin turns common chunks of code into imports. However, this
       // requires `@babel/runtime` dependency thus we are requiring it as well.
       // See: https://babeljs.io/docs/en/babel-plugin-transform-runtime

@@ -16,8 +16,7 @@ exports[`emits correct config for target 'flow' and environment '{"browsers":["l
           "enums": true
         }
       ],
-      "flowComments",
-      "throwExpressions"
+      "flowComments"
     ]
   },
   "retainLines": true
@@ -40,8 +39,7 @@ exports[`emits correct config for target 'flow' and environment '{"browsers":["l
           "enums": true
         }
       ],
-      "flowComments",
-      "throwExpressions"
+      "flowComments"
     ]
   },
   "retainLines": true
@@ -64,8 +62,7 @@ exports[`emits correct config for target 'flow' and environment '{"node":"curren
           "enums": true
         }
       ],
-      "flowComments",
-      "throwExpressions"
+      "flowComments"
     ]
   },
   "retainLines": true
@@ -88,8 +85,7 @@ exports[`emits correct config for target 'flow' and environment '{"node":"curren
           "enums": true
         }
       ],
-      "flowComments",
-      "throwExpressions"
+      "flowComments"
     ]
   },
   "retainLines": true
@@ -112,8 +108,7 @@ exports[`emits correct config for target 'flow' and environment 'undefined' and 
           "enums": true
         }
       ],
-      "flowComments",
-      "throwExpressions"
+      "flowComments"
     ]
   },
   "retainLines": true
@@ -136,8 +131,7 @@ exports[`emits correct config for target 'flow' and environment 'undefined' and 
           "enums": true
         }
       ],
-      "flowComments",
-      "throwExpressions"
+      "flowComments"
     ]
   },
   "retainLines": true
@@ -180,7 +174,6 @@ exports[`emits correct config for target 'js' and environment '{"browsers":["las
         "allowDeclareFields": true
       }
     ],
-    "@babel/plugin-proposal-throw-expressions",
     [
       "@babel/plugin-transform-runtime",
       {
@@ -197,8 +190,7 @@ exports[`emits correct config for target 'js' and environment '{"browsers":["las
           "enums": true
         }
       ],
-      "flowComments",
-      "throwExpressions"
+      "flowComments"
     ]
   },
   "retainLines": false
@@ -241,7 +233,6 @@ exports[`emits correct config for target 'js' and environment '{"browsers":["las
         "allowDeclareFields": true
       }
     ],
-    "@babel/plugin-proposal-throw-expressions",
     [
       "@babel/plugin-transform-runtime",
       {
@@ -258,8 +249,7 @@ exports[`emits correct config for target 'js' and environment '{"browsers":["las
           "enums": true
         }
       ],
-      "flowComments",
-      "throwExpressions"
+      "flowComments"
     ]
   },
   "retainLines": false
@@ -299,7 +289,6 @@ exports[`emits correct config for target 'js' and environment '{"node":"current"
         "allowDeclareFields": true
       }
     ],
-    "@babel/plugin-proposal-throw-expressions",
     [
       "@babel/plugin-transform-runtime",
       {
@@ -316,8 +305,7 @@ exports[`emits correct config for target 'js' and environment '{"node":"current"
           "enums": true
         }
       ],
-      "flowComments",
-      "throwExpressions"
+      "flowComments"
     ]
   },
   "retainLines": false
@@ -357,7 +345,6 @@ exports[`emits correct config for target 'js' and environment '{"node":"current"
         "allowDeclareFields": true
       }
     ],
-    "@babel/plugin-proposal-throw-expressions",
     [
       "@babel/plugin-transform-runtime",
       {
@@ -374,8 +361,7 @@ exports[`emits correct config for target 'js' and environment '{"node":"current"
           "enums": true
         }
       ],
-      "flowComments",
-      "throwExpressions"
+      "flowComments"
     ]
   },
   "retainLines": false
@@ -415,7 +401,6 @@ exports[`emits correct config for target 'js' and environment 'undefined' and re
         "allowDeclareFields": true
       }
     ],
-    "@babel/plugin-proposal-throw-expressions",
     [
       "@babel/plugin-transform-runtime",
       {
@@ -432,8 +417,7 @@ exports[`emits correct config for target 'js' and environment 'undefined' and re
           "enums": true
         }
       ],
-      "flowComments",
-      "throwExpressions"
+      "flowComments"
     ]
   },
   "retainLines": false
@@ -473,7 +457,6 @@ exports[`emits correct config for target 'js' and environment 'undefined' and re
         "allowDeclareFields": true
       }
     ],
-    "@babel/plugin-proposal-throw-expressions",
     [
       "@babel/plugin-transform-runtime",
       {
@@ -490,8 +473,7 @@ exports[`emits correct config for target 'js' and environment 'undefined' and re
           "enums": true
         }
       ],
-      "flowComments",
-      "throwExpressions"
+      "flowComments"
     ]
   },
   "retainLines": false
@@ -534,7 +516,6 @@ exports[`emits correct config for target 'js-esm' and environment '{"browsers":[
         "allowDeclareFields": true
       }
     ],
-    "@babel/plugin-proposal-throw-expressions",
     [
       "@babel/plugin-transform-runtime",
       {
@@ -551,8 +532,7 @@ exports[`emits correct config for target 'js-esm' and environment '{"browsers":[
           "enums": true
         }
       ],
-      "flowComments",
-      "throwExpressions"
+      "flowComments"
     ]
   },
   "retainLines": false
@@ -595,7 +575,6 @@ exports[`emits correct config for target 'js-esm' and environment '{"browsers":[
         "allowDeclareFields": true
       }
     ],
-    "@babel/plugin-proposal-throw-expressions",
     [
       "@babel/plugin-transform-runtime",
       {
@@ -612,8 +591,7 @@ exports[`emits correct config for target 'js-esm' and environment '{"browsers":[
           "enums": true
         }
       ],
-      "flowComments",
-      "throwExpressions"
+      "flowComments"
     ]
   },
   "retainLines": false
@@ -653,7 +631,6 @@ exports[`emits correct config for target 'js-esm' and environment '{"node":"curr
         "allowDeclareFields": true
       }
     ],
-    "@babel/plugin-proposal-throw-expressions",
     [
       "@babel/plugin-transform-runtime",
       {
@@ -670,8 +647,7 @@ exports[`emits correct config for target 'js-esm' and environment '{"node":"curr
           "enums": true
         }
       ],
-      "flowComments",
-      "throwExpressions"
+      "flowComments"
     ]
   },
   "retainLines": false
@@ -711,7 +687,6 @@ exports[`emits correct config for target 'js-esm' and environment '{"node":"curr
         "allowDeclareFields": true
       }
     ],
-    "@babel/plugin-proposal-throw-expressions",
     [
       "@babel/plugin-transform-runtime",
       {
@@ -728,8 +703,7 @@ exports[`emits correct config for target 'js-esm' and environment '{"node":"curr
           "enums": true
         }
       ],
-      "flowComments",
-      "throwExpressions"
+      "flowComments"
     ]
   },
   "retainLines": false
@@ -769,7 +743,6 @@ exports[`emits correct config for target 'js-esm' and environment 'undefined' an
         "allowDeclareFields": true
       }
     ],
-    "@babel/plugin-proposal-throw-expressions",
     [
       "@babel/plugin-transform-runtime",
       {
@@ -786,8 +759,7 @@ exports[`emits correct config for target 'js-esm' and environment 'undefined' an
           "enums": true
         }
       ],
-      "flowComments",
-      "throwExpressions"
+      "flowComments"
     ]
   },
   "retainLines": false
@@ -827,7 +799,6 @@ exports[`emits correct config for target 'js-esm' and environment 'undefined' an
         "allowDeclareFields": true
       }
     ],
-    "@babel/plugin-proposal-throw-expressions",
     [
       "@babel/plugin-transform-runtime",
       {
@@ -844,8 +815,7 @@ exports[`emits correct config for target 'js-esm' and environment 'undefined' an
           "enums": true
         }
       ],
-      "flowComments",
-      "throwExpressions"
+      "flowComments"
     ]
   },
   "retainLines": false

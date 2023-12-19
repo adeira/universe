@@ -1,5 +1,7 @@
 # Unreleased
 
+- Remove experimental support for throw expressions (https://github.com/tc39/proposal-throw-expressions)
+
 # 4.0.0
 
 Breaking changes ahead!
