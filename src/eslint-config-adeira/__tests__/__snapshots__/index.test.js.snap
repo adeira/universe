@@ -1129,6 +1129,7 @@ exports[`rules snapshot: all stable rules 1`] = `
     "unicorn/empty-brace-spaces": "off",
     "unicorn/no-nested-ternary": "off",
     "unicorn/number-literal-case": "off",
+    "unicorn/template-indent": 0,
     "use-isnan": [
       2,
       {
