@@ -4,9 +4,9 @@
   "version": "0.4.1",
   "description": "Adds additional functionality to Rossum UI for developers (SA).",
   "icons": {
-    "16": "icons/16-crunch.png",
-    "48": "icons/48-crunch.png",
-    "128": "icons/128-crunch.png"
+    "16": "icons/16-blue-crunch.png",
+    "48": "icons/48-blue-crunch.png",
+    "128": "icons/128-blue-crunch.png"
   },
   "permissions": ["storage"],
   "content_scripts": [
