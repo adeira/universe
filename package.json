@@ -20,7 +20,7 @@
     "eslint": "^8.56.0",
     "eslint-formatter-codeframe": "^7.32.1",
     "flow-bin": "^0.223.3",
-    "hermes-eslint": "^0.18.1",
+    "hermes-eslint": "^0.18.2",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "prettier": "^2.8.8",
