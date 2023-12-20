@@ -23,7 +23,7 @@
     "@adeira/relay": "^8.0.0",
     "@adeira/sx": "^0.29.1",
     "@adeira/sx-design": "^0.32.0",
-    "@next/bundle-analyzer": "^13.4.2",
+    "@next/bundle-analyzer": "^13.5.6",
     "@recoiljs/refine": "^0.1.1",
     "@sentry/nextjs": "^7.89.0",
     "d3": "^7.8.5",
