@@ -48,7 +48,7 @@ export default function DonationsRecurring(): React.Node {
                 href={stripeLink}
                 tint="warning"
                 target="_blank"
-                nextLinkComponent={NextLink}
+                as={NextLink}
               >
                 <fbt desc="recurring monetary value per month">
                   <fbt:param name="price">

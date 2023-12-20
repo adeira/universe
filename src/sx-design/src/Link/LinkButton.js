@@ -1,8 +1,7 @@
 // @flow
 
 import Icon from '@adeira/icons';
-import NextLink from 'next/link';
-import React, { type Element, type Node } from 'react';
+import React, { type Element, type ElementType, type Node } from 'react';
 import sx from '@adeira/sx';
 
 import Link from './Link';
@@ -21,17 +20,7 @@ type Props = {
   +'onClick'?: (event: SyntheticEvent<HTMLAnchorElement>) => void,
   +'prefix'?: Element<typeof Icon>,
   +'suffix'?: Element<typeof Icon>,
-
-  // Why this property exists? Cannot we just use the `NextLink` directly here? Unfortunately, no.
-  // There is one major bug in Next.js/Webpack that prevents this, see:
-  //
-  // - https://github.com/vercel/next.js/discussions/33605
-  // - https://github.com/vercel/next.js/issues/22130#issuecomment-833610774
-  // - https://github.com/vercel/next.js/discussions/34446
-  //
-  // Basically, it seems like webpack cannot transpile `process.env.__NEXT_I18N_SUPPORT` correctly
-  // when the link comes from `node_modules` which makes the localized links work incorrectly.
-  +'nextLinkComponent': typeof NextLink,
+  +'as'?: ElementType,
 };
 
 /**
@@ -60,7 +49,7 @@ export default function LinkButton(props: Props): Node {
       data-testid={props['data-testid']}
       xstyle={styles.linkStylesReset}
       onClick={handleOnClick}
-      nextLinkComponent={props.nextLinkComponent}
+      as={props.as}
     >
       <span
         className={sharedButtonStyles({

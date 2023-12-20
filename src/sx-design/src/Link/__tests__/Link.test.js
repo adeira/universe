@@ -6,7 +6,6 @@
 import React from 'react';
 import '@adeira/sx-jest-snapshot-serializer';
 import fbt from 'fbt';
-import NextLink from 'next/link';
 
 import Link from '../Link';
 import { initFbt, renderWithoutProviders } from '../../test-utils';
@@ -17,7 +16,7 @@ beforeEach(() => {
 
 it('renders the link as expected - internal link', () => {
   const { container } = renderWithoutProviders(
-    <Link nextLinkComponent={NextLink} href="/assets/yadada">
+    <Link href="/assets/yadada">
       <fbt desc="internal link title" doNotExtract={true}>
         internal link
       </fbt>
@@ -74,7 +73,7 @@ it('renders the link as expected - internal link', () => {
 
 it('renders the link as expected - internal link with target _blank', () => {
   const { container } = renderWithoutProviders(
-    <Link nextLinkComponent={NextLink} href="/assets/yadada" target="_blank">
+    <Link href="/assets/yadada" target="_blank">
       <fbt desc="internal link with target title" doNotExtract={true}>
         internal link with target _blank
       </fbt>
@@ -94,7 +93,7 @@ NamedNodeMap {
 
 it('renders the link as expected - external link', () => {
   const { container } = renderWithoutProviders(
-    <Link nextLinkComponent={NextLink} href="https://localhost">
+    <Link href="https://localhost">
       <fbt desc="external link title" doNotExtract={true}>
         external link
       </fbt>

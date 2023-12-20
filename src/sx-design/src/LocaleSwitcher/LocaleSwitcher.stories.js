@@ -4,7 +4,6 @@
  */
 
 import React, { type ElementConfig } from 'react';
-import NextLink from 'next/link';
 
 import LocaleSwitcher from './LocaleSwitcher';
 import type { StoryTemplate } from '../types';
@@ -16,22 +15,9 @@ export default {
 };
 
 // 👇 We create a "template" of how args map to rendering
-const Template = (args: ElementConfig<typeof LocaleSwitcher>) => (
-  <LocaleSwitcher nextLinkComponent={NextLink} {...args} />
-);
+const Template = (args: ElementConfig<typeof LocaleSwitcher>) => <LocaleSwitcher {...args} />;
 
 // 👇 Each story then reuses that template
 export const Default: StoryTemplate<typeof LocaleSwitcher> = Template.bind({});
 Default.storyName = 'Default';
 Default.args = {};
-Default.parameters = {
-  nextRouter: {
-    locale: 'en-us', // active locale
-    locales: [
-      // TODO: expand as needed
-      'en-us',
-      'es-mx',
-      'uk-ua',
-    ],
-  },
-};

@@ -1,9 +1,8 @@
 // @flow
 
-import NextLink from 'next/link';
 import { Link as LinkHeadless } from '@adeira/sx-design-headless';
 import sx, { type AllCSSProperties } from '@adeira/sx';
-import type { Node, ElementConfig } from 'react';
+import type { Node, ElementConfig, ElementType } from 'react';
 
 import { MediaQueryMotion } from '../MediaQueries';
 
@@ -17,19 +16,9 @@ type Props = $ReadOnly<{
         +pathname: string,
         +query: $FlowFixMe,
       },
-  +as?: string,
+  +asPath?: string,
   +locale?: string,
-
-  // Why this property exists? Cannot we just use the `NextLink` directly here? Unfortunately, no.
-  // There is one major bug in Next.js/Webpack that prevents this, see:
-  //
-  // - https://github.com/vercel/next.js/discussions/33605
-  // - https://github.com/vercel/next.js/issues/22130#issuecomment-833610774
-  // - https://github.com/vercel/next.js/discussions/34446
-  //
-  // Basically, it seems like webpack cannot transpile `process.env.__NEXT_I18N_SUPPORT` correctly
-  // when the link comes from `node_modules` which makes the localized links work incorrectly.
-  +nextLinkComponent: typeof NextLink,
+  +as?: ElementType,
 }>;
 
 /**
@@ -45,17 +34,37 @@ type Props = $ReadOnly<{
  */
 export default function Link({
   href,
-  as,
+  asPath,
   locale,
-  nextLinkComponent: NextLinkComponent,
+  as: LinkComponent = 'a',
   ...props
 }: Props): Node {
+  if (LinkComponent === 'a') {
+    return (
+      <LinkHeadless
+        // $FlowFixMe[incompatible-type]: TODO: decouple from Next.js
+        href={href}
+        data-testid={props['data-testid']}
+        target={props.target}
+        className={sx(
+          styles.default,
+          props.isActive ? styles.active : styles.inactive,
+          props.xstyle,
+        )}
+        onClick={props.onClick}
+      >
+        {props.children}
+      </LinkHeadless>
+    );
+  }
+
   return (
-    <NextLinkComponent
+    // $FlowFixMe[incompatible-type]: TODO: decouple from Next.js
+    <LinkComponent
       href={href}
       passHref={true}
       legacyBehavior={true} // TODO: migrate to the modern behavior
-      as={as}
+      as={asPath}
       locale={locale}
     >
       {/* $FlowExpectedError[prop-missing]: `href` should be provided automatically thanks to `passHref` */}
@@ -71,7 +80,7 @@ export default function Link({
       >
         {props.children}
       </LinkHeadless>
-    </NextLinkComponent>
+    </LinkComponent>
   );
 }
 

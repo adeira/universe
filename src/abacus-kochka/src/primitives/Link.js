@@ -36,7 +36,7 @@ export default function Link(props: Props): React.Node {
   return (
     <Text size={props.size} weight={props.weight} as="span">
       <SXLink
-        nextLinkComponent={NextLink}
+        as={NextLink}
         href={props.href}
         locale={router.locale}
         isActive={isActive}

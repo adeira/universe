@@ -93,7 +93,7 @@ export default function POSCheckoutPageLayout(): Node {
         <LinkButton
           href="/pos/session"
           tint="secondary"
-          nextLinkComponent={NextLink}
+          as={NextLink}
           prefix={<Icon name="backward" />}
         >
           <fbt desc="go back to POS text">Go back</fbt>

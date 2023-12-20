@@ -27,7 +27,7 @@ export default function POSAllSessionsPageLayout(): Node {
         <EntityField
           title={
             <LinkButton
-              nextLinkComponent={NextLink}
+              as={NextLink}
               href="/pos/session"
               target="_blank"
               suffix={<Icon name="external" />}
