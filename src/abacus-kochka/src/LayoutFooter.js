@@ -42,7 +42,7 @@ export default function LayoutFooter(): React.Node {
         </div>
 
         <div className={styles('columnRight')}>
-          <LocaleSwitcher nextLinkComponent={NextLink} />
+          <LocaleSwitcher as={NextLink} />
         </div>
       </LayoutInline>
 

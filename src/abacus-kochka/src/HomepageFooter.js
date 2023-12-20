@@ -9,7 +9,7 @@ export default function HomepageFooter(): React.Node {
   return (
     <div className={styles('wrapper')}>
       <div className={styles('languageSwitch')}>
-        <LocaleSwitcher nextLinkComponent={NextLink} />
+        <LocaleSwitcher as={NextLink} />
       </div>
     </div>
   );

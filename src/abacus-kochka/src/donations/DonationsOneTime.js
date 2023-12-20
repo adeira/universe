@@ -45,7 +45,7 @@ export default function DonationsOneTime(): React.Node {
                 href={stripeLink}
                 tint="success"
                 target="_blank"
-                nextLinkComponent={NextLink}
+                as={NextLink}
               >
                 <Money
                   priceUnitAmount={donationValue}

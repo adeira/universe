@@ -11,7 +11,7 @@ type Props = {
 
 export default function LayoutHeadingLink(props: Props): Node {
   return (
-    <LinkButton nextLinkComponent={NextLink} href={props.href}>
+    <LinkButton as={NextLink} href={props.href}>
       {props.children}
     </LinkButton>
   );
