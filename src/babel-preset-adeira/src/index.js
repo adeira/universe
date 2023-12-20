@@ -39,9 +39,9 @@ module.exports = (
   const options /*: InternalOptions */ = {
     target: externalOptions.target ?? 'js',
     environments: externalOptions.environments ?? {
-      // npx browserslist 'cover 90%, not dead, maintained node versions'
-      // https://browsersl.ist/#q=cover+90%25%2C+not+dead%2C+maintained+node+versions
-      browsers: 'cover 90%, not dead, maintained node versions',
+      // npx browserslist 'cover 98%, not dead, maintained node versions'
+      // https://browsersl.ist/#q=cover+98%25%2C+not+dead%2C+maintained+node+versions
+      browsers: 'cover 98%, not dead, maintained node versions',
     },
     debug: externalOptions.debug ?? false,
     reactRuntime: externalOptions.reactRuntime ?? 'automatic',

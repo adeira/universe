@@ -377,7 +377,7 @@ exports[`emits correct config for target 'js' and environment 'undefined' and re
         "debug": false,
         "modules": "commonjs",
         "targets": {
-          "browsers": "cover 90%, not dead, maintained node versions"
+          "browsers": "cover 98%, not dead, maintained node versions"
         },
         "bugfixes": true
       }
@@ -433,7 +433,7 @@ exports[`emits correct config for target 'js' and environment 'undefined' and re
         "debug": false,
         "modules": "commonjs",
         "targets": {
-          "browsers": "cover 90%, not dead, maintained node versions"
+          "browsers": "cover 98%, not dead, maintained node versions"
         },
         "bugfixes": true
       }
@@ -719,7 +719,7 @@ exports[`emits correct config for target 'js-esm' and environment 'undefined' an
         "debug": false,
         "modules": false,
         "targets": {
-          "browsers": "cover 90%, not dead, maintained node versions"
+          "browsers": "cover 98%, not dead, maintained node versions"
         },
         "bugfixes": true
       }
@@ -775,7 +775,7 @@ exports[`emits correct config for target 'js-esm' and environment 'undefined' an
         "debug": false,
         "modules": false,
         "targets": {
-          "browsers": "cover 90%, not dead, maintained node versions"
+          "browsers": "cover 98%, not dead, maintained node versions"
         },
         "bugfixes": true
       }
