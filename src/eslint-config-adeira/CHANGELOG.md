@@ -1,6 +1,18 @@
 # Unreleased
 
+Breaking changes ahead!
+
 - New rule enabled: `@next/next/no-async-client-component`
+
+Breaking changes from `eslint-plugin-testing-library` v6 were implemented, specifically:
+
+- `testing-library/no-await-sync-query` is now called `testing-library/no-await-sync-queries`
+- `testing-library/no-debugging-utils` now enables all debug methods in all configs by default
+- `testing-library/no-global-regexp-flag-in-query` is now enabled by default in all configs
+- `testing-library/prefer-wait-for` is now removed
+- `testing-library/no-wait-for-empty-callback` is now removed
+
+For more details see: https://github.com/testing-library/eslint-plugin-testing-library/blob/main/docs/migration-guides/v6.md
 
 # 8.4.0
 
