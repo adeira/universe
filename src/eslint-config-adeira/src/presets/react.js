@@ -265,12 +265,12 @@ module.exports = ({
         'jest-dom/prefer-to-have-value': ERROR,
 
         // Testing Library - React (https://github.com/testing-library/eslint-plugin-testing-library)
-        'testing-library/await-async-query': OFF, // TODO: seems to be broken for some `findAllByProps` in our codebase
+        'testing-library/await-async-events': OFF, // Vue only (https://github.com/testing-library/eslint-plugin-testing-library#supported-rules)
+        'testing-library/await-async-queries': OFF, // TODO: seems to be broken for some `findAllByProps` in our codebase
         'testing-library/await-async-utils': ERROR,
-        'testing-library/await-fire-event': OFF, // Vue only (https://github.com/testing-library/eslint-plugin-testing-library#supported-rules)
         'testing-library/consistent-data-testid': OFF,
         'testing-library/no-await-sync-events': OFF, // no longer true with `user-event` v14+ (APIs always return a Promise)
-        'testing-library/no-await-sync-query': ERROR,
+        'testing-library/no-await-sync-queries': ERROR,
         'testing-library/no-container': OFF,
         'testing-library/no-debugging-utils': ERROR,
         'testing-library/no-dom-import': [ERROR, 'react'],
@@ -278,14 +278,14 @@ module.exports = ({
         'testing-library/no-manual-cleanup': OFF,
         'testing-library/no-node-access': OFF,
         'testing-library/no-promise-in-fire-event': ERROR,
-        'testing-library/no-render-in-setup': OFF,
+        'testing-library/no-render-in-lifecycle': OFF,
         'testing-library/no-unnecessary-act': ERROR,
-        'testing-library/no-wait-for-empty-callback': ERROR,
         'testing-library/no-wait-for-multiple-assertions': ERROR,
         'testing-library/no-wait-for-side-effects': ERROR,
         'testing-library/no-wait-for-snapshot': ERROR,
         'testing-library/prefer-explicit-assert': ERROR,
         'testing-library/prefer-find-by': ERROR,
+        'testing-library/prefer-implicit-assert': OFF, // TODO: consider ERROR
         'testing-library/prefer-presence-queries': ERROR,
         'testing-library/prefer-query-by-disappearance': ERROR,
         'testing-library/prefer-query-matchers': [
@@ -296,7 +296,6 @@ module.exports = ({
         ],
         'testing-library/prefer-screen-queries': OFF, // TODO: NEXT_VERSION_ERROR (?)
         'testing-library/prefer-user-event': ERROR,
-        'testing-library/prefer-wait-for': ERROR,
         'testing-library/render-result-naming-convention': OFF,
       },
     },
