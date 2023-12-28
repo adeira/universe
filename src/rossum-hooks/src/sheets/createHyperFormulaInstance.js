@@ -5,6 +5,7 @@ import enUS from 'hyperformula/commonjs/i18n/languages/enUS';
 import lodashGet from 'lodash.get';
 
 import findBySchemaId from '../utils/findBySchemaId';
+import { RegexPlugin, RegexPluginTranslations } from './plugins/RegexPlugin';
 import validateUserConfig, { type ExtensionUserConfig } from './validateUserConfig';
 import type { WebhookPayload } from '../flowTypes';
 
@@ -44,6 +45,8 @@ export default function createHyperFormulaInstance(
   payload: WebhookPayload<ExtensionUserConfig>,
 ): typeof HyperFormula {
   HyperFormula.registerLanguage('enUS', enUS);
+  HyperFormula.registerFunctionPlugin(RegexPlugin, RegexPluginTranslations);
+
   const hfInstance = HyperFormula.buildEmpty(options);
 
   // define TRUE and FALSE constants
@@ -73,6 +76,7 @@ export default function createHyperFormulaInstance(
         Object.values(userSheets[sheetName].columns)
           .map((datapointID) => {
             if (datapointID.startsWith('annotation.') || datapointID.startsWith('document.')) {
+              // TODO: use `registerFunctionPlugin` instead?
               return lodashGet(payload, datapointID);
             }
 
