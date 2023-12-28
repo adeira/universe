@@ -28,9 +28,15 @@ export type WebhookResponseMessage = {
   id: ?string,
 };
 
+export type WebhookResponseAutomationBlocker = {
+  id: string,
+  content: string,
+};
+
 export type WebhookResponse = {
   +messages: Array<WebhookResponseMessage>,
   +operations?: Array<WebhookResponseOperation>,
+  +automation_blockers?: Array<WebhookResponseAutomationBlocker>,
 };
 
 // https://elis.rossum.ai/api/docs/#datapoint

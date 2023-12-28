@@ -3,7 +3,7 @@
 import createReplaceOperation from '../utils/createReplaceOperation';
 import findBySchemaId from '../utils/findBySchemaId';
 import processTransformation from './processTransformation';
-import type { WebhookResponse } from '../types';
+import type { WebhookResponse } from '../flowTypes';
 
 /**
  * The `rossum_hook_request_handler` is an obligatory main function that accepts input and produces

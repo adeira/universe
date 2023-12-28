@@ -1,6 +1,6 @@
 // @flow
 
-import type { WebhookResponseOperation, RossumDatapoint } from '../types';
+import type { WebhookResponseOperation, RossumDatapoint } from '../flowTypes';
 
 /**
  * Replace the value of the datapoint with a new value.
