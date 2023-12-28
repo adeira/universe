@@ -33,6 +33,28 @@ export type WebhookResponseAutomationBlocker = {
   content: string,
 };
 
+export type WebhookPayload<WebhookSettings = {}> = {
+  // TODO: extend with other fields
+  +annotation: {
+    +content: $ReadOnlyArray<$FlowFixMe>,
+    +document: string,
+    +id: number,
+    +queue: string,
+    +relations: $ReadOnlyArray<string>,
+    +schema: string,
+    +url: string,
+  },
+  +base_url: string,
+  +document: {
+    +id: number,
+    +s3_name: string,
+    +url: string,
+  },
+  +request_id: string,
+  +rossum_authorization_token?: string,
+  +settings: WebhookSettings,
+};
+
 export type WebhookResponse = {
   +messages: Array<WebhookResponseMessage>,
   +operations?: Array<WebhookResponseOperation>,

@@ -2,7 +2,7 @@
 
 import createMessage from '../utils/createMessage';
 import fetchRossumAPI from '../utils/fetchRossumAPI';
-import type { WebhookResponse } from '../flowTypes';
+import type { WebhookPayload, WebhookResponse } from '../flowTypes';
 
 function fetchQueue(
   authToken: string,
@@ -18,10 +18,22 @@ function extractSchemaUrl(queue: $FlowFixMe): string {
   return queue.schema;
 }
 
-export async function rossum_hook_request_handler({
-  rossum_authorization_token: rossumAuthorizationToken,
-  base_url: baseUrl,
-}: $FlowFixMe): Promise<WebhookResponse> {
+export async function rossum_hook_request_handler(
+  payload: WebhookPayload<>,
+): Promise<WebhookResponse> {
+  const { rossum_authorization_token: rossumAuthorizationToken, base_url: baseUrl } = payload;
+
+  if (rossumAuthorizationToken == null) {
+    return {
+      messages: [
+        createMessage(
+          'error',
+          'The "rossum_authorization_token" parameter is missing in the hook payload.',
+        ),
+      ],
+    };
+  }
+
   const fetchQueueId = 693393; // TODO: make configurable
   const updateQueueIds = [
     824803, // TODO: make configurable

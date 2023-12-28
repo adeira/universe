@@ -16,6 +16,7 @@ describe('CONCATENATE', () => {
     };
 
     expect(
+      // $FlowExpectedError[prop-missing]
       rossum_hook_request_handler({ settings, annotation: { content: event.annotation.content } }),
     ).toMatchInlineSnapshot(`
       {
@@ -47,6 +48,7 @@ describe('CONCATENATE', () => {
     };
 
     expect(
+      // $FlowExpectedError[prop-missing]
       rossum_hook_request_handler({ settings, annotation: { content: event.annotation.content } }),
     ).toMatchInlineSnapshot(`
       {
@@ -80,6 +82,7 @@ describe('REGEX_REPLACE', () => {
     };
 
     expect(
+      // $FlowExpectedError[prop-missing]
       rossum_hook_request_handler({ settings, annotation: { content: event.annotation.content } }),
     ).toMatchInlineSnapshot(`
       {
@@ -113,6 +116,7 @@ describe('REGEX_SEARCH', () => {
     };
 
     expect(
+      // $FlowExpectedError[prop-missing]
       rossum_hook_request_handler({ settings, annotation: { content: event.annotation.content } }),
     ).toMatchInlineSnapshot(`
       {
@@ -144,6 +148,7 @@ describe('REGEX_SEARCH', () => {
     };
 
     expect(
+      // $FlowExpectedError[prop-missing]
       rossum_hook_request_handler({ settings, annotation: { content: event.annotation.content } }),
     ).toMatchInlineSnapshot(`
       {
@@ -177,6 +182,7 @@ describe('REMOVE_SPECIAL_CHARACTERS', () => {
     };
 
     expect(
+      // $FlowExpectedError[prop-missing]
       rossum_hook_request_handler({ settings, annotation: { content: event.annotation.content } }),
     ).toMatchInlineSnapshot(`
       {
@@ -210,6 +216,7 @@ describe('REMOVE_WHITESPACE', () => {
     };
 
     expect(
+      // $FlowExpectedError[prop-missing]
       rossum_hook_request_handler({ settings, annotation: { content: event.annotation.content } }),
     ).toMatchInlineSnapshot(`
       {
@@ -243,6 +250,7 @@ describe('REVERSE', () => {
     };
 
     expect(
+      // $FlowExpectedError[prop-missing]
       rossum_hook_request_handler({ settings, annotation: { content: event.annotation.content } }),
     ).toMatchInlineSnapshot(`
       {
@@ -276,6 +284,7 @@ describe('SPLIT', () => {
     };
 
     expect(
+      // $FlowExpectedError[prop-missing]
       rossum_hook_request_handler({ settings, annotation: { content: event.annotation.content } }),
     ).toMatchInlineSnapshot(`
       {
@@ -307,6 +316,7 @@ describe('SPLIT', () => {
     };
 
     expect(
+      // $FlowExpectedError[prop-missing]
       rossum_hook_request_handler({ settings, annotation: { content: event.annotation.content } }),
     ).toMatchInlineSnapshot(`
       {
@@ -343,6 +353,7 @@ describe('SQUISH', () => {
     };
 
     expect(
+      // $FlowExpectedError[prop-missing]
       rossum_hook_request_handler({ settings, annotation: { content: event.annotation.content } }),
     ).toMatchInlineSnapshot(`
       {
@@ -376,6 +387,7 @@ describe('TRANSFORM', () => {
     };
 
     expect(
+      // $FlowExpectedError[prop-missing]
       rossum_hook_request_handler({ settings, annotation: { content: event.annotation.content } }),
     ).toMatchInlineSnapshot(`
       {
@@ -407,6 +419,7 @@ describe('TRANSFORM', () => {
     };
 
     expect(
+      // $FlowExpectedError[prop-missing]
       rossum_hook_request_handler({ settings, annotation: { content: event.annotation.content } }),
     ).toMatchInlineSnapshot(`
       {
@@ -438,6 +451,7 @@ describe('TRANSFORM', () => {
     };
 
     expect(
+      // $FlowExpectedError[prop-missing]
       rossum_hook_request_handler({ settings, annotation: { content: event.annotation.content } }),
     ).toMatchInlineSnapshot(`
       {
@@ -471,6 +485,7 @@ describe('TRIM', () => {
     };
 
     expect(
+      // $FlowExpectedError[prop-missing]
       rossum_hook_request_handler({ settings, annotation: { content: event.annotation.content } }),
     ).toMatchInlineSnapshot(`
       {
