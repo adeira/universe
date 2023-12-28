@@ -106,10 +106,22 @@ function extractSchemaUrl(queue) {
   return queue.schema;
 }
 
-async function rossum_hook_request_handler({
-  rossum_authorization_token: rossumAuthorizationToken,
-  base_url: baseUrl,
-}) {
+async function rossum_hook_request_handler(
+  payload,
+) {
+  const { rossum_authorization_token: rossumAuthorizationToken, base_url: baseUrl } = payload;
+
+  if (rossumAuthorizationToken == null) {
+    return {
+      messages: [
+        createMessage(
+          'error',
+          'The "rossum_authorization_token" parameter is missing in the hook payload.',
+        ),
+      ],
+    };
+  }
+
   const fetchQueueId = 693393; // TODO: make configurable
   const updateQueueIds = [
     824803, // TODO: make configurable
