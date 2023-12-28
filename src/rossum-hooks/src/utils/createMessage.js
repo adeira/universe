@@ -1,6 +1,6 @@
 // @flow
 
-import type { WebhookResponseMessage } from '../types';
+import type { WebhookResponseMessage } from '../flowTypes';
 
 /**
  * Create a message which will be shown to the user.

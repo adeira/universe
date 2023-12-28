@@ -2,7 +2,7 @@
 
 import createMessage from '../utils/createMessage';
 import fetchRossumAPI from '../utils/fetchRossumAPI';
-import type { WebhookResponse } from '../types';
+import type { WebhookResponse } from '../flowTypes';
 
 function fetchQueue(
   authToken: string,

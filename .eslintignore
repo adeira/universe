@@ -3,7 +3,8 @@
 
 node_modules/
 
-src/babel-preset-adeira/src/__tests__/__fixtures__
+src/babel-preset-adeira/src/__tests__/__fixtures__/
+src/rossum-hooks/build/
 
 # https://github.com/prettier/prettier/issues/6102
 **/__generated__/*.graphql.js

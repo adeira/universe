@@ -8,8 +8,11 @@
     "build": "rollup --config"
   },
   "dependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/pluginutils": "^5.1.0",
     "flow-remove-types": "^2.225.1",
+    "hyperformula": "^2.6.1",
     "rollup": "^4.9.1"
   }
 }
