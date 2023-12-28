@@ -1,71 +1,14 @@
 // @flow
 
+import payload from './fixtures/payload.json';
+import settings from './fixtures/settings.json';
 import createHyperFormulaInstance from '../createHyperFormulaInstance';
 
-const userConfig = {
-  debug: false,
-  sheets: {
-    headers: {
-      columns: {
-        A1: 'document_id',
-        B1: 'order_id',
-        C1: 'amount_due',
-      },
-      formulas: [
-        {
-          fx: '=SUM(A1,line_items!A1)', // sum two fields
-          target: 'notes',
-        },
-        {
-          fx: '=A1', // copy a value
-          target: 'notes',
-        },
-        {
-          fx: '=A1>A2', // boolean condition
-          target: 'notes',
-          validation: {
-            type: 'info',
-            message: 'A1 is bigger than A2!',
-          },
-        },
-      ],
-    },
-    line_items: {
-      columns: {
-        $A1: 'item_quantity',
-        $B1: 'item_amount',
-      },
-      formulas: [
-        {
-          fx: '=ROW($A1)', // automatically number all rows
-          target: 'item_description',
-        },
-        {
-          fx: '=SUM(A:B)', // sum the whole table
-          target: 'item_description',
-        },
-        {
-          fx: '=$A1*2', // operation per row (relative rows reference, so it can be copied)
-          target: 'item_description',
-        },
-      ],
-    },
-    tax_details: {
-      columns: {
-        $A1: 'tax_detail_rate',
-      },
-      formulas: [
-        {
-          fx: '=$A1*2',
-          target: 'tax_detail_total',
-        },
-      ],
-    },
-  },
-};
-
-it('works', () => {
-  const hfInstance = createHyperFormulaInstance(require('./payload.json'), userConfig);
+it('works as expected', () => {
+  const hfInstance = createHyperFormulaInstance({
+    ...payload,
+    settings,
+  });
 
   expect(hfInstance.getAllSheetsSerialized()).toMatchInlineSnapshot(`
     {
@@ -100,6 +43,12 @@ it('works', () => {
           "=ROW($A3)",
           "=SUM(A:B)",
           "=$A3*2",
+        ],
+      ],
+      "meta": [
+        [
+          "https://api.elis.rossum.ai/v1/annotations/45455385",
+          "https://api.elis.rossum.ai/v1/documents/49064686",
         ],
       ],
       "tax_details": [
@@ -152,6 +101,12 @@ it('works', () => {
           3,
           660,
           60,
+        ],
+      ],
+      "meta": [
+        [
+          "https://api.elis.rossum.ai/v1/annotations/45455385",
+          "https://api.elis.rossum.ai/v1/documents/49064686",
         ],
       ],
       "tax_details": [

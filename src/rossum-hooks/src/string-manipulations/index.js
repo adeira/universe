@@ -3,7 +3,7 @@
 import createReplaceOperation from '../utils/createReplaceOperation';
 import findBySchemaId from '../utils/findBySchemaId';
 import processTransformation from './processTransformation';
-import type { WebhookResponse } from '../flowTypes';
+import type { WebhookPayload, WebhookResponse } from '../flowTypes';
 
 /**
  * The `rossum_hook_request_handler` is an obligatory main function that accepts input and produces
@@ -16,20 +16,13 @@ import type { WebhookResponse } from '../flowTypes';
 export function rossum_hook_request_handler({
   settings,
   annotation: { content },
-}: {
-  +settings: {
-    +mappings: $ReadOnlyArray<{
-      +sources: $ReadOnlyArray<string>,
-      +target: string,
-      +transformations: $ReadOnlyArray<string>,
-    }>,
-  },
-  +annotation: {
-    +content: $ReadOnlyArray<$FlowFixMe>,
-    ...
-  },
-  ...
-}): WebhookResponse {
+}: WebhookPayload<{
+  +mappings: $ReadOnlyArray<{
+    +sources: $ReadOnlyArray<string>,
+    +target: string,
+    +transformations: $ReadOnlyArray<string>,
+  }>,
+}>): WebhookResponse {
   const { mappings } = settings;
 
   const messages: WebhookResponse['messages'] = [];
