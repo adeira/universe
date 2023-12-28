@@ -3,8 +3,9 @@
 import createMessage from '../utils/createMessage';
 import createReplaceOperation from '../utils/createReplaceOperation';
 import findBySchemaId from '../utils/findBySchemaId';
-import createHyperFormulaInstance, { type ExtensionUserConfig } from './createHyperFormulaInstance';
+import createHyperFormulaInstance from './createHyperFormulaInstance';
 import type { WebhookPayload, WebhookResponse } from '../flowTypes';
+import type { ExtensionUserConfig } from './validateUserConfig';
 
 // https://elis.rossum.ai/api/docs/#webhook-events
 export function rossum_hook_request_handler(

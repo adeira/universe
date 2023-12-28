@@ -5,27 +5,8 @@ import enUS from 'hyperformula/commonjs/i18n/languages/enUS';
 import lodashGet from 'lodash.get';
 
 import findBySchemaId from '../utils/findBySchemaId';
+import validateUserConfig, { type ExtensionUserConfig } from './validateUserConfig';
 import type { WebhookPayload } from '../flowTypes';
-
-export type ExtensionUserConfig = {
-  +debug: boolean,
-  +sheets: {
-    +[sheetName: string]: {
-      +columns: {
-        +[columnName: string]: string,
-      },
-      +formulas?: Array<{
-        +fx: string,
-        +target: string,
-        +validation?: {
-          +message: string,
-          +type?: 'error' | 'warning' | 'info',
-          +automation_blocker?: boolean,
-        },
-      }>,
-    },
-  },
-};
 
 const options = {
   licenseKey: 'gpl-v3',
@@ -69,15 +50,17 @@ export default function createHyperFormulaInstance(
   hfInstance.addNamedExpression('TRUE', '=TRUE()');
   hfInstance.addNamedExpression('FALSE', '=FALSE()');
 
-  for (const sheetName of Object.keys(payload.settings.sheets)) {
+  const userSheets = validateUserConfig(payload.settings).sheets;
+
+  for (const sheetName of Object.keys(userSheets)) {
     // prepare the sheets otherwise early formulas using other sheets will fail
     hfInstance.addSheet(sheetName);
   }
 
-  for (const sheetName of Object.keys(payload.settings.sheets)) {
+  for (const sheetName of Object.keys(userSheets)) {
     const sheetValues = [];
     const sheetFormulas =
-      payload.settings.sheets[sheetName].formulas?.map((calculation) => calculation.fx) ?? [];
+      userSheets[sheetName].formulas?.map((calculation) => calculation.fx) ?? [];
 
     const parentDatapoint = findBySchemaId(payload.annotation.content, sheetName)[0];
 
@@ -87,7 +70,7 @@ export default function createHyperFormulaInstance(
       i++
     ) {
       sheetValues.push(
-        Object.values(payload.settings.sheets[sheetName].columns)
+        Object.values(userSheets[sheetName].columns)
           .map((datapointID) => {
             if (datapointID.startsWith('annotation.') || datapointID.startsWith('document.')) {
               return lodashGet(payload, datapointID);
@@ -102,7 +85,7 @@ export default function createHyperFormulaInstance(
       );
     }
 
-    const sheetFxStartCol = Object.values(payload.settings.sheets[sheetName].columns).length;
+    const sheetFxStartCol = Object.values(userSheets[sheetName].columns).length;
     const sheetFxEndCol = sheetFxStartCol + sheetFormulas.length - 1;
 
     const sheetId = hfInstance.getSheetId(sheetName);

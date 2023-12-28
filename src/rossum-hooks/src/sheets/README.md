@@ -8,9 +8,9 @@ Excel in Rossum (powered by [HyperFormula](https://github.com/handsontable/hyper
   sheets: {
     headers: {
       columns: {
-        A1: 'document_id',
-        B1: 'order_id',
-        C1: 'amount_due',
+        A: 'document_id',
+        B: 'order_id',
+        C: 'amount_due',
       },
       formulas: [
         {
@@ -34,8 +34,8 @@ Excel in Rossum (powered by [HyperFormula](https://github.com/handsontable/hyper
     },
     line_items: {
       columns: {
-        $A1: 'item_quantity',
-        $B1: 'item_amount',
+        A: 'item_quantity',
+        B: 'item_amount',
       },
       formulas: [
         {
@@ -54,7 +54,7 @@ Excel in Rossum (powered by [HyperFormula](https://github.com/handsontable/hyper
     },
     tax_details: {
       columns: {
-        $A1: 'tax_detail_rate',
+        A: 'tax_detail_rate',
       },
       formulas: [
         {
