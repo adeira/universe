@@ -5,10 +5,7 @@ import settings from './fixtures/settings.json';
 import createHyperFormulaInstance from '../createHyperFormulaInstance';
 
 it('works as expected', () => {
-  const hfInstance = createHyperFormulaInstance({
-    ...payload,
-    settings,
-  });
+  const hfInstance = createHyperFormulaInstance({ ...payload, settings });
 
   expect(hfInstance.getAllSheetsSerialized()).toMatchInlineSnapshot(`
     {

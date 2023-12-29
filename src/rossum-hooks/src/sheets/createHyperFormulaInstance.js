@@ -5,6 +5,7 @@ import enUS from 'hyperformula/commonjs/i18n/languages/enUS';
 import lodashGet from 'lodash.get';
 
 import findBySchemaId from '../utils/findBySchemaId';
+import isMetaField from './isMetaField';
 import { RegexPlugin, RegexPluginTranslations } from './plugins/RegexPlugin';
 import validateUserConfig, { type ExtensionUserConfig } from './validateUserConfig';
 import type { WebhookPayload } from '../flowTypes';
@@ -75,7 +76,7 @@ export default function createHyperFormulaInstance(
       sheetValues.push(
         Object.values(userSheets[sheetName].columns)
           .map((datapointID) => {
-            if (datapointID.startsWith('annotation.') || datapointID.startsWith('document.')) {
+            if (isMetaField(datapointID)) {
               // TODO: use `registerFunctionPlugin` instead?
               return lodashGet(payload, datapointID);
             }

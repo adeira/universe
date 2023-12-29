@@ -1,16 +1,18 @@
 // @flow
 
-import { rossum_hook_request_handler } from '../extension';
+// import { rossum_hook_request_handler } from '../rossumHookRequestHandler';
 import settings from './fixtures/settings.json';
 import payload from './fixtures/payload.json';
 
+let rossumHookRequestHandler;
+beforeEach(() => {
+  jest.isolateModules(() => {
+    rossumHookRequestHandler = require('../rossumHookRequestHandler').rossum_hook_request_handler;
+  });
+});
+
 it('works as expected', () => {
-  expect(
-    rossum_hook_request_handler({
-      ...payload,
-      settings,
-    }),
-  ).toMatchInlineSnapshot(`
+  expect(rossumHookRequestHandler({ ...payload, settings })).toMatchInlineSnapshot(`
     {
       "automation_blockers": [],
       "messages": [
@@ -150,4 +152,30 @@ it('works as expected', () => {
       ],
     }
   `);
+});
+
+it('does not allow writing into meta fields', () => {
+  expect(() =>
+    rossumHookRequestHandler({
+      ...payload,
+      settings: {
+        sheets: {
+          meta: {
+            columns: {
+              A: 'annotation.url',
+              B: 'document.url',
+            },
+            formulas: [
+              {
+                fx: '=B1',
+                target: 'annotation.url',
+              },
+            ],
+          },
+        },
+      },
+    }),
+  ).toThrowErrorMatchingInlineSnapshot(
+    `"Meta fields are not supported as a target: annotation.url"`,
+  );
 });

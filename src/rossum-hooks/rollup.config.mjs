@@ -30,7 +30,7 @@ export default [
     external: ['https', 'url'],
   },
   {
-    input: 'src/sheets/extension.js',
+    input: 'src/sheets/rossumHookRequestHandler.js',
     output: {
       file: 'build/rossum-sheets.js',
       format: 'cjs',

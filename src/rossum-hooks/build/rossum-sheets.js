@@ -453,7 +453,7 @@ const simpleSheetNameRegex = new RegExp(`^${UNQUOTED_SHEET_NAME_PATTERN}$`);
  */
 const cellAddressFromString = (sheetMapping, stringAddress, baseAddress) => {
   const result = addressRegex.exec(stringAddress);
-  const col = columnLabelToIndex(result[6]);
+  const col = columnLabelToIndex$1(result[6]);
   let sheet = extractSheetNumber(result, sheetMapping);
   if (sheet === undefined) {
     return undefined;
@@ -481,7 +481,7 @@ const columnAddressFromString = (sheetMapping, stringAddress, baseAddress) => {
   if (sheet === null) {
     sheet = undefined;
   }
-  const col = columnLabelToIndex(result[6]);
+  const col = columnLabelToIndex$1(result[6]);
   if (result[5] === ABSOLUTE_OPERATOR) {
     return ColumnAddress.absolute(col, sheet);
   } else {
@@ -519,7 +519,7 @@ const simpleCellAddressFromString = (sheetMapping, stringAddress, contextSheetId
   if (!regExpExecArray) {
     return undefined;
   }
-  const col = columnLabelToIndex(regExpExecArray[6]);
+  const col = columnLabelToIndex$1(regExpExecArray[6]);
   let sheet = extractSheetNumber(regExpExecArray, sheetMapping);
   if (sheet === undefined) {
     return undefined;
@@ -584,7 +584,7 @@ const simpleCellRangeToString = (sheetIndexMapping, address, sheetIndex) => {
  * @param columnStringRepresentation - column label (e.g., 'AAB')
  * @returns column index
  */
-function columnLabelToIndex(columnStringRepresentation) {
+function columnLabelToIndex$1(columnStringRepresentation) {
   if (columnStringRepresentation.length === 1) {
     return columnStringRepresentation.toUpperCase().charCodeAt(0) - 65;
   } else {
@@ -40128,6 +40128,167 @@ var lodashGet = /*@__PURE__*/getDefaultExportFromCjs(lodash_get);
 
 // 
 
+function isMetaField(datapointID) {
+  return datapointID.startsWith('annotation.') || datapointID.startsWith('document.');
+}
+
+// 
+
+
+const RegexPluginTranslations = {
+  enUS: {
+    REGEXEXTRACT: 'REGEXEXTRACT',
+    REGEXMATCH: 'REGEXMATCH',
+    REGEXREPLACE: 'REGEXREPLACE',
+  },
+};
+
+class RegexPlugin extends FunctionPlugin {
+  regexExtract(ast, state) {
+    return this.runFunction(
+      ast.args,
+      state,
+      this.metadata('REGEXEXTRACT'),
+      (text, regularExpression) => {
+        if (typeof text !== 'string') {
+          return new CellError('VALUE', 'Function REGEXEXTRACT operates only on string.');
+        }
+        if (typeof regularExpression !== 'string') {
+          return new CellError(
+            'VALUE',
+            'Function REGEXEXTRACT accepts string as a second argument.',
+          );
+        }
+
+        const match = text.match(regularExpression);
+        if (match == null) {
+          return '';
+        }
+        return match[1] ?? match[0];
+      },
+    );
+  }
+
+  regexMatch(ast, state) {
+    return this.runFunction(
+      ast.args,
+      state,
+      this.metadata('REGEXMATCH'),
+      (text, regularExpression) => {
+        if (typeof text !== 'string') {
+          return new CellError('VALUE', 'Function REGEXMATCH operates only on string.');
+        }
+        if (typeof regularExpression !== 'string') {
+          return new CellError('VALUE', 'Function REGEXMATCH accepts string as a second argument.');
+        }
+
+        return text.match(regularExpression) != null;
+      },
+    );
+  }
+
+  regexReplace(ast, state) {
+    return this.runFunction(
+      ast.args,
+      state,
+      this.metadata('REGEXREPLACE'),
+      (text, regularExpression, replacement) => {
+        if (typeof text !== 'string') {
+          return new CellError('VALUE', 'Function REGEXREPLACE operates only on string.');
+        }
+        if (typeof regularExpression !== 'string') {
+          return new CellError(
+            'VALUE',
+            'Function REGEXREPLACE accepts string as a second argument.',
+          );
+        }
+        if (typeof replacement !== 'string') {
+          return new CellError('VALUE', 'Function REGEXREPLACE accepts only strings.');
+        }
+
+        return text.replace(new RegExp(regularExpression), replacement);
+      },
+    );
+  }
+}
+
+RegexPlugin.implementedFunctions = {
+  REGEXEXTRACT: {
+    // https://support.google.com/docs/answer/3098244
+    method: 'regexExtract',
+    parameters: [
+      { argumentType: FunctionArgumentType.STRING },
+      { argumentType: FunctionArgumentType.STRING },
+    ],
+  },
+  REGEXMATCH: {
+    // https://support.google.com/docs/answer/3098292
+    method: 'regexMatch',
+    parameters: [
+      { argumentType: FunctionArgumentType.STRING },
+      { argumentType: FunctionArgumentType.STRING },
+    ],
+  },
+  REGEXREPLACE: {
+    // https://support.google.com/docs/answer/3098245
+    method: 'regexReplace',
+    parameters: [
+      { argumentType: FunctionArgumentType.STRING },
+      { argumentType: FunctionArgumentType.STRING },
+      { argumentType: FunctionArgumentType.STRING },
+    ],
+  },
+};
+
+// 
+
+
+function validateUserConfig(userConfig) {
+  // Check that the first column is "A":
+  for (const sheet of Object.values(userConfig.sheets)) {
+    const firstColumn = Object.keys(sheet.columns)[0];
+    if (firstColumn && firstColumn !== 'A') {
+      throw new Error(`First column must be "A". Please check your configuration.`);
+    }
+  }
+
+  // Check that the next column is following the previous one in order:
+  for (const sheet of Object.values(userConfig.sheets)) {
+    const columns = Object.keys(sheet.columns);
+    for (let i = 0; i < columns.length; i++) {
+      const column = columns[i];
+      const nextColumn = columns[i + 1];
+
+      if (nextColumn) {
+        const columnIndex = columnLabelToIndex(column);
+        const nextColumnIndex = columnLabelToIndex(nextColumn);
+
+        if (columnIndex !== nextColumnIndex - 1) {
+          throw new Error(
+            `Column ${nextColumn} is not following the previous column ${column} in order. All columns must be in order starting with "A". Please check your configuration.`,
+          );
+        }
+      }
+    }
+  }
+
+  return userConfig;
+}
+
+// https://github.com/handsontable/hyperformula/blob/9981e1b08c9ea9461ac5a2e6d776099fefec5e6c/src/parser/addressRepresentationConverters.ts#L189
+function columnLabelToIndex(columnStringRepresentation) {
+  if (columnStringRepresentation.length === 1) {
+    return columnStringRepresentation.toUpperCase().charCodeAt(0) - 65;
+  }
+
+  return (
+    columnStringRepresentation.split('').reduce((currentColumn, nextLetter) => {
+      return currentColumn * 26 + (nextLetter.toUpperCase().charCodeAt(0) - 64);
+    }, 0) - 1
+  );
+}
+
+// 
 
 
 const options = {
@@ -40166,21 +40327,25 @@ function createHyperFormulaInstance(
   payload,
 ) {
   HyperFormula.registerLanguage('enUS', default_1);
+  HyperFormula.registerFunctionPlugin(RegexPlugin, RegexPluginTranslations);
+
   const hfInstance = HyperFormula.buildEmpty(options);
 
   // define TRUE and FALSE constants
   hfInstance.addNamedExpression('TRUE', '=TRUE()');
   hfInstance.addNamedExpression('FALSE', '=FALSE()');
 
-  for (const sheetName of Object.keys(payload.settings.sheets)) {
+  const userSheets = validateUserConfig(payload.settings).sheets;
+
+  for (const sheetName of Object.keys(userSheets)) {
     // prepare the sheets otherwise early formulas using other sheets will fail
     hfInstance.addSheet(sheetName);
   }
 
-  for (const sheetName of Object.keys(payload.settings.sheets)) {
+  for (const sheetName of Object.keys(userSheets)) {
     const sheetValues = [];
     const sheetFormulas =
-      payload.settings.sheets[sheetName].formulas?.map((calculation) => calculation.fx) ?? [];
+      userSheets[sheetName].formulas?.map((calculation) => calculation.fx) ?? [];
 
     const parentDatapoint = findBySchemaId(payload.annotation.content, sheetName)[0];
 
@@ -40190,9 +40355,10 @@ function createHyperFormulaInstance(
       i++
     ) {
       sheetValues.push(
-        Object.values(payload.settings.sheets[sheetName].columns)
+        Object.values(userSheets[sheetName].columns)
           .map((datapointID) => {
-            if (datapointID.startsWith('annotation.') || datapointID.startsWith('document.')) {
+            if (isMetaField(datapointID)) {
+              // TODO: use `registerFunctionPlugin` instead?
               return lodashGet(payload, datapointID);
             }
 
@@ -40205,7 +40371,7 @@ function createHyperFormulaInstance(
       );
     }
 
-    const sheetFxStartCol = Object.values(payload.settings.sheets[sheetName].columns).length;
+    const sheetFxStartCol = Object.values(userSheets[sheetName].columns).length;
     const sheetFxEndCol = sheetFxStartCol + sheetFormulas.length - 1;
 
     const sheetId = hfInstance.getSheetId(sheetName);
@@ -40246,6 +40412,9 @@ function rossum_hook_request_handler(
     // And for each defined formula
     for (let i = 0; i < formulas.length; i++) {
       // We iterate over all occurrences of the target datapoint
+      if (isMetaField(formulas[i].target)) {
+        throw new Error(`Meta fields are not supported as a target: ${formulas[i].target}`);
+      }
       const targetDatapoint = findBySchemaId(payload.annotation.content, formulas[i].target);
       for (let j = 0; j < targetDatapoint.length; j++) {
         const cellValue = hfInstance.getCellValue({
