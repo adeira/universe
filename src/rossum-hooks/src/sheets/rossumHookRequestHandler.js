@@ -5,6 +5,7 @@ import createReplaceOperation from '../utils/createReplaceOperation';
 import findBySchemaId from '../utils/findBySchemaId';
 import createHyperFormulaInstance from './createHyperFormulaInstance';
 import type { WebhookPayload, WebhookResponse } from '../flowTypes';
+import isMetaField from './isMetaField';
 import type { ExtensionUserConfig } from './validateUserConfig';
 
 // https://elis.rossum.ai/api/docs/#webhook-events
@@ -24,6 +25,9 @@ export function rossum_hook_request_handler(
     // And for each defined formula
     for (let i = 0; i < formulas.length; i++) {
       // We iterate over all occurrences of the target datapoint
+      if (isMetaField(formulas[i].target)) {
+        throw new Error(`Meta fields are not supported as a target: ${formulas[i].target}`);
+      }
       const targetDatapoint = findBySchemaId(payload.annotation.content, formulas[i].target);
       for (let j = 0; j < targetDatapoint.length; j++) {
         const cellValue = hfInstance.getCellValue({
