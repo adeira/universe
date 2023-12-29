@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches expected output: .flowconfig.declarations 1`] = `
+exports[`matches expected output: .flowconfig.declarations: 515ab48df9e80c22c850f6267da38407 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 ; https://flow.org/en/docs/config/declarations/
 
@@ -30,7 +30,7 @@ exports[`matches expected output: .flowconfig.declarations 1`] = `
 }
 `;
 
-exports[`matches expected output: .flowconfig.empty 1`] = `
+exports[`matches expected output: .flowconfig.empty: 515ab48df9e80c22c850f6267da38407 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
@@ -48,7 +48,7 @@ exports[`matches expected output: .flowconfig.empty 1`] = `
 }
 `;
 
-exports[`matches expected output: .flowconfig.empty-sections 1`] = `
+exports[`matches expected output: .flowconfig.empty-sections: 515ab48df9e80c22c850f6267da38407 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 [declarations]
 
@@ -83,7 +83,7 @@ exports[`matches expected output: .flowconfig.empty-sections 1`] = `
 }
 `;
 
-exports[`matches expected output: .flowconfig.empty-sections-comments 1`] = `
+exports[`matches expected output: .flowconfig.empty-sections-comments: 515ab48df9e80c22c850f6267da38407 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 # This is a comment
   # This is a comment
@@ -179,7 +179,7 @@ exports[`matches expected output: .flowconfig.empty-sections-comments 1`] = `
 }
 `;
 
-exports[`matches expected output: .flowconfig.ignore 1`] = `
+exports[`matches expected output: .flowconfig.ignore: 515ab48df9e80c22c850f6267da38407 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 ; https://flow.org/en/docs/config/ignore/
 
@@ -215,7 +215,7 @@ exports[`matches expected output: .flowconfig.ignore 1`] = `
 }
 `;
 
-exports[`matches expected output: .flowconfig.include 1`] = `
+exports[`matches expected output: .flowconfig.include: 515ab48df9e80c22c850f6267da38407 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 ; https://flow.org/en/docs/config/include/
 
@@ -245,7 +245,7 @@ exports[`matches expected output: .flowconfig.include 1`] = `
 }
 `;
 
-exports[`matches expected output: .flowconfig.invalid 1`] = `
+exports[`matches expected output: .flowconfig.invalid: 515ab48df9e80c22c850f6267da38407 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 💩 Purpose of this fixture is to see how it behaves when the config is
 💩 crazy invalid (and potentially improve the behavior).
@@ -299,7 +299,7 @@ exports[`matches expected output: .flowconfig.invalid 1`] = `
 }
 `;
 
-exports[`matches expected output: .flowconfig.options 1`] = `
+exports[`matches expected output: .flowconfig.options: 515ab48df9e80c22c850f6267da38407 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 ; https://flow.org/en/docs/config/options/
 
@@ -438,7 +438,7 @@ well_formed_exports.includes=<PROJECT_ROOT>/dirB
 }
 `;
 
-exports[`matches expected output: .flowconfig.rollout_duplicate_names 1`] = `
+exports[`matches expected output: .flowconfig.rollout_duplicate_names: 515ab48df9e80c22c850f6267da38407 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 [rollouts]
 foo=20% on, 80% off
@@ -461,7 +461,7 @@ foo=30% on, 70% off
 }
 `;
 
-exports[`matches expected output: .flowconfig.rollouts-ignore 1`] = `
+exports[`matches expected output: .flowconfig.rollouts-ignore: 515ab48df9e80c22c850f6267da38407 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 [ignore]
 (ignore_everything=true).*\\.js
@@ -493,7 +493,7 @@ experimental.well_formed_exports=true
 }
 `;
 
-exports[`matches expected output: .flowconfig.rollouts-options 1`] = `
+exports[`matches expected output: .flowconfig.rollouts-options: 515ab48df9e80c22c850f6267da38407 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 [rollouts]
 formed_exports=80% on, 20% off
@@ -520,7 +520,7 @@ formed_exports=80% on, 20% off
 }
 `;
 
-exports[`matches expected output: .flowconfig.universe 1`] = `
+exports[`matches expected output: .flowconfig.universe: 515ab48df9e80c22c850f6267da38407 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 ; https://flow.org/en/docs/config/ignore/
 [ignore]
@@ -647,7 +647,7 @@ experimental.const_params=true
 }
 `;
 
-exports[`matches expected output: .flowconfig.untyped 1`] = `
+exports[`matches expected output: .flowconfig.untyped: 515ab48df9e80c22c850f6267da38407 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 ; https://flow.org/en/docs/config/untyped/
 
@@ -677,7 +677,7 @@ exports[`matches expected output: .flowconfig.untyped 1`] = `
 }
 `;
 
-exports[`matches expected output: .flowconfig.version 1`] = `
+exports[`matches expected output: .flowconfig.version: 515ab48df9e80c22c850f6267da38407 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 ; https://flow.org/en/docs/config/version/
 

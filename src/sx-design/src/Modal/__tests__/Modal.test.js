@@ -14,6 +14,14 @@ beforeEach(() => {
   initFbt();
 });
 
+afterEach(() => {
+  // Jest does not clean the JSDOM document after each test run! It only clears the DOM after all
+  // tests inside an entire file are completed.
+  //
+  // See: https://stackoverflow.com/a/50800473/3135248
+  document.getElementsByTagName('html')[0].innerHTML = '';
+});
+
 function TestingComponent(props: { +onClose?: () => void }) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -39,7 +47,7 @@ function TestingComponent(props: { +onClose?: () => void }) {
 it('renders Modal component without any problems', async () => {
   const { getByText, queryByText } = render(<TestingComponent />);
 
-  // By default the modal is closed and the modal content is not being rendered:
+  // By default, the modal is closed and the modal content is not being rendered:
   expect(queryByText('Modal title')).not.toBeInTheDocument();
   expect(queryByText('modal body')).not.toBeInTheDocument();
 

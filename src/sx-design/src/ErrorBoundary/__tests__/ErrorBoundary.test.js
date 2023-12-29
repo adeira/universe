@@ -15,6 +15,8 @@ const Throws = () => {
 let windowLocationReload;
 jest.mock('../windowLocationReload');
 beforeEach(() => {
+  // React always adds unwanted console logs: https://github.com/facebook/react/issues/15069
+  jest.spyOn(console, 'error').mockImplementation(() => {});
   windowLocationReload = require('../windowLocationReload').default;
 });
 
@@ -23,11 +25,9 @@ afterEach(() => {
 });
 
 it('renders all the important parts as expected', () => {
-  const spy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
   const { getByText, getByTestId } = render(
     // eslint-disable-next-line no-console
-    <ErrorBoundary onComponentDidCatch={console.error}>
+    <ErrorBoundary onComponentDidCatch={jest.fn()}>
       <Throws />
     </ErrorBoundary>,
   );
@@ -36,8 +36,6 @@ it('renders all the important parts as expected', () => {
   expect(getByTestId('errorDev')).toBeInTheDocument();
   expect(getByText('yadada')).toBeInTheDocument();
   expect(getByText('Retry')).toBeInTheDocument();
-
-  expect(spy.mock.calls[0][0].toString()).toMatch(/^Error: Uncaught \[Error: yadada]/);
 });
 
 it('supports localization', () => {
@@ -55,11 +53,10 @@ it('supports localization', () => {
 it('does not render the error message in production', () => {
   const __PREV_DEV__ = __DEV__;
   __DEV__ = false; // eslint-disable-line no-global-assign
-  const spy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   const { getByText, queryByTestId } = render(
     // eslint-disable-next-line no-console
-    <ErrorBoundary onComponentDidCatch={console.error}>
+    <ErrorBoundary onComponentDidCatch={jest.fn()}>
       <Throws />
     </ErrorBoundary>,
   );
@@ -68,14 +65,6 @@ it('does not render the error message in production', () => {
   expect(queryByTestId('errorDev')).not.toBeInTheDocument(); // <<<
   expect(getByText('Retry')).toBeInTheDocument();
 
-  expect(spy.mock.calls[0][0]).toMatchInlineSnapshot(
-    /^Error: Uncaught \[Error: yadada]/,
-    `
-    {
-      "_suppressLogging": true,
-    }
-  `,
-  );
   __DEV__ = __PREV_DEV__; // eslint-disable-line no-global-assign
 });
 

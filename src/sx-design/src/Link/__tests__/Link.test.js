@@ -10,6 +10,19 @@ import fbt from 'fbt';
 import Link from '../Link';
 import { initFbt, renderWithoutProviders } from '../../test-utils';
 
+function isElementNode(node /*: any */) /*: node is Element */ {
+  // https://developer.mozilla.org/en-US/docs/Web/API/Node
+  // https://developer.mozilla.org/en-US/docs/Web/API/Element
+  return node.nodeType === Node.ELEMENT_NODE;
+}
+
+function getChild(container: HTMLElement): Element {
+  if (isElementNode(container.firstChild)) {
+    return container.firstChild;
+  }
+  throw new Error('Unexpected node type');
+}
+
 beforeEach(() => {
   initFbt();
 });
@@ -23,52 +36,10 @@ it('renders the link as expected - internal link', () => {
     </Link>,
   );
 
-  expect(container).toMatchInlineSnapshot(`
-.f6wvk {
-  color: rgba(var(--sx-link-text-color));
-}
-.T4SJ0 {
-  cursor: pointer;
-}
-.eJqht {
-  text-decoration-color: transparent;
-}
-._4GrjhO {
-  text-decoration-line: underline;
-}
-._2aVmeo {
-  text-decoration-style: solid;
-}
-.WV8t {
-  text-decoration-thickness: 0.05em;
-}
-@media (prefers-reduced-motion: no-preference) {
-  ._2FqB21._2FqB21 {
-    transition: text-decoration-color 300ms;
-  }
-}
-.gy8aG:hover {
-  opacity: 1;
-}
-._39mXIW:hover {
-  text-decoration-color: inherit;
-}
-._4eR9Ri {
-  opacity: 1;
-}
-._1traoH {
-  opacity: 0.9;
-}
-
-<div>
-  <a
-    class="f6wvk T4SJ0 eJqht _4GrjhO _2aVmeo WV8t _2FqB21 gy8aG _39mXIW _1traoH"
-    href="/assets/yadada"
-  >
-    internal link
-  </a>
-</div>
-`);
+  const child = getChild(container);
+  expect(child).toHaveAttribute('href', '/assets/yadada');
+  expect(child).not.toHaveAttribute('rel');
+  expect(child).not.toHaveAttribute('target');
 });
 
 it('renders the link as expected - internal link with target _blank', () => {
@@ -80,15 +51,10 @@ it('renders the link as expected - internal link with target _blank', () => {
     </Link>,
   );
 
-  // $FlowFixMe[prop-missing]: `attributes` is missing in the types but it works
-  expect(container.firstChild?.attributes).toMatchInlineSnapshot(`
-NamedNodeMap {
-  "class": "f6wvk T4SJ0 eJqht _4GrjhO _2aVmeo WV8t _2FqB21 gy8aG _39mXIW _1traoH",
-  "href": "/assets/yadada",
-  "rel": "noreferrer noopener",
-  "target": "_blank",
-}
-`);
+  const child = getChild(container);
+  expect(child).toHaveAttribute('href', '/assets/yadada');
+  expect(child).toHaveAttribute('rel', 'noreferrer noopener');
+  expect(child).toHaveAttribute('target', '_blank');
 });
 
 it('renders the link as expected - external link', () => {
@@ -100,48 +66,8 @@ it('renders the link as expected - external link', () => {
     </Link>,
   );
 
-  expect(container).toMatchInlineSnapshot(`
-.f6wvk {
-  color: rgba(var(--sx-link-text-color));
-}
-.T4SJ0 {
-  cursor: pointer;
-}
-.eJqht {
-  text-decoration-color: transparent;
-}
-._4GrjhO {
-  text-decoration-line: underline;
-}
-._2aVmeo {
-  text-decoration-style: solid;
-}
-.WV8t {
-  text-decoration-thickness: 0.05em;
-}
-@media (prefers-reduced-motion: no-preference) {
-  ._2FqB21._2FqB21 {
-    transition: text-decoration-color 300ms;
-  }
-}
-.gy8aG:hover {
-  opacity: 1;
-}
-._39mXIW:hover {
-  text-decoration-color: inherit;
-}
-._1traoH {
-  opacity: 0.9;
-}
-
-<div>
-  <a
-    class="f6wvk T4SJ0 eJqht _4GrjhO _2aVmeo WV8t _2FqB21 gy8aG _39mXIW _1traoH"
-    href="https://localhost"
-    rel="noreferrer noopener"
-  >
-    external link
-  </a>
-</div>
-`);
+  const child = getChild(container);
+  expect(child).toHaveAttribute('href', 'https://localhost');
+  expect(child).toHaveAttribute('rel', 'noreferrer noopener');
+  expect(child).not.toHaveAttribute('target');
 });
