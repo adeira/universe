@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches expected output: aaa.error.txt 1`] = `
+exports[`matches expected output: aaa.error.txt: 0e36b7aaa66fbd8dd6d8cb74d23b12e7 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 aaa error
 
@@ -10,7 +10,7 @@ THROWN EXCEPTION:
 Error: correctly failed
 `;
 
-exports[`matches expected output: aaa.txt 1`] = `
+exports[`matches expected output: aaa.txt: 0c3085de02c3066d7de61f02619755c9 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 aaa
 
@@ -19,7 +19,7 @@ AAA
 
 `;
 
-exports[`matches expected output: aaa.txt 2`] = `
+exports[`matches expected output: aaa.txt: 192f24c0409592a919d79b6e5f4b1b0f 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 aaa
 
@@ -28,7 +28,16 @@ AAA
 
 `;
 
-exports[`matches expected output: aaa.txt 3`] = `
+exports[`matches expected output: aaa.txt: custom snapshot name (no modifications) 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+aaa
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+aaa
+
+`;
+
+exports[`matches expected output: aaa.txt: d53b86044151463c2175e421c25b2af0 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 aaa
 
@@ -49,16 +58,7 @@ aaa
 }
 `;
 
-exports[`matches expected output: aaa.txt: custom snapshot name (no modifications) 1`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-aaa
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-aaa
-
-`;
-
-exports[`matches expected output: bbb.txt 1`] = `
+exports[`matches expected output: bbb.txt: 0c3085de02c3066d7de61f02619755c9 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 bbb
 
@@ -67,7 +67,7 @@ BBB
 
 `;
 
-exports[`matches expected output: bbb.txt 2`] = `
+exports[`matches expected output: bbb.txt: 192f24c0409592a919d79b6e5f4b1b0f 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 bbb
 
@@ -76,7 +76,16 @@ BBB
 
 `;
 
-exports[`matches expected output: bbb.txt 3`] = `
+exports[`matches expected output: bbb.txt: custom snapshot name (no modifications) 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+bbb
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+bbb
+
+`;
+
+exports[`matches expected output: bbb.txt: d53b86044151463c2175e421c25b2af0 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 bbb
 
@@ -95,13 +104,4 @@ bbb
     }
   }
 }
-`;
-
-exports[`matches expected output: bbb.txt: custom snapshot name (no modifications) 1`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-bbb
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-bbb
-
 `;

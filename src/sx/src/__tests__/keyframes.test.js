@@ -34,7 +34,7 @@ it('returns hashed name of the keyframe', () => {
   );
   expect(hashedName).toMatchInlineSnapshot(`"wOIjT"`);
   expect(hashedName2).toMatchInlineSnapshot(`"_1kFWtB"`);
-  spy.mockReset();
+  spy.mockRestore();
 });
 
 it('works with percentages', () => {
@@ -55,7 +55,7 @@ it('works with percentages', () => {
     hashedName,
     '@keyframes _3B4dOq {0% {transform:translateX(-300px);}100% {transform:translateX(0);}75%,80% {transform:translateX(50px);}}',
   );
-  spy.mockReset();
+  spy.mockRestore();
 });
 
 it('generates same hash for similar object', () => {

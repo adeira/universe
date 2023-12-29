@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`reports correct lines and columns: SX function "styles" was not used anywhere in the code. 1`] = `
+exports[`reports correct lines and columns: SX function "styles" was not used anywhere in the code. cd1c7998551695468f5a28bc16e77ce4 1`] = `
 "  1 |
   2 | import sx from '@adeira/sx';
 > 3 | const styles = sx.create({
@@ -16,7 +16,7 @@ exports[`reports correct lines and columns: SX function "styles" was not used an
   8 |"
 `;
 
-exports[`reports correct lines and columns: Unknown stylesheet used: bbb (not defined anywhere) 1`] = `
+exports[`reports correct lines and columns: Unknown stylesheet used: bbb (not defined anywhere) c1333fff2a93d48fb0265f41ce127150 1`] = `
 "  2 | import sx from '@adeira/sx';
   3 | export default function TestComponent() {
 > 4 |   return <div className={styles('bbb')} />
@@ -26,7 +26,16 @@ exports[`reports correct lines and columns: Unknown stylesheet used: bbb (not de
   7 |   aaa: { color: blue }"
 `;
 
-exports[`reports correct lines and columns: Unused stylesheet: aaa (defined via "styles" variable) 1`] = `
+exports[`reports correct lines and columns: Unused stylesheet: aaa (defined via "styles" variable) c1333fff2a93d48fb0265f41ce127150 1`] = `
+"  5 | }
+  6 | const styles = sx.create({
+> 7 |   aaa: { color: blue }
+    |   ^^^^^^^^^^^^^^^^^^^^
+  8 | });
+  9 |"
+`;
+
+exports[`reports correct lines and columns: Unused stylesheet: aaa (defined via "styles" variable) cd1c7998551695468f5a28bc16e77ce4 1`] = `
 "  2 | import sx from '@adeira/sx';
   3 | const styles = sx.create({
 > 4 |   aaa: {
@@ -37,13 +46,4 @@ exports[`reports correct lines and columns: Unused stylesheet: aaa (defined via 
     | ^^^^
   7 | });
   8 |"
-`;
-
-exports[`reports correct lines and columns: Unused stylesheet: aaa (defined via "styles" variable) 2`] = `
-"  5 | }
-  6 | const styles = sx.create({
-> 7 |   aaa: { color: blue }
-    |   ^^^^^^^^^^^^^^^^^^^^
-  8 | });
-  9 |"
 `;

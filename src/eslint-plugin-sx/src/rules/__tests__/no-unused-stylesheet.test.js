@@ -1,6 +1,7 @@
 // @flow
 
 import path from 'path';
+import crypto from 'crypto';
 import { RuleTester } from 'eslint';
 import { codeFrameColumns } from '@babel/code-frame';
 import testFixtures from '@adeira/eslint-fixtures-tester';
@@ -92,6 +93,8 @@ test.each(invalidTests)('reports correct lines and columns', (test) => {
         start: { line: error.line, column: error.column },
         end: { line: error.endLine, column: error.endColumn },
       }),
-    ).toMatchSnapshot(error.message);
+    ).toMatchSnapshot(
+      `${error.message} ${crypto.createHash('md5').update(test.code).digest('hex')}`,
+    );
   }
 });
