@@ -3,7 +3,8 @@
 import * as React from 'react';
 import NextLink from 'next/link';
 import sx from '@adeira/sx';
-import { LocaleSwitcher } from '@adeira/sx-design';
+
+import LocaleSwitcher from './primitives/LocaleSwitcher';
 
 export default function HomepageFooter(): React.Node {
   return (

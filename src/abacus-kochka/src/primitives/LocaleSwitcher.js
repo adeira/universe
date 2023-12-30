@@ -2,9 +2,8 @@
 
 import React, { type ElementType, type Node } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { useRouter } from 'next/router'; // TODO: remove dependency on Next.js
-
-import Link from '../Link/Link';
+import { useRouter } from 'next/router';
+import { Link } from '@adeira/sx-design';
 
 type Props = {
   +as?: ElementType,

@@ -70,38 +70,37 @@ Legend:
 🧐  needs some more work (or not evaluated yet)
 ```
 
-| Component              | Localized?¹ | Dark mode?² | Has stories?³ | Tested?⁴ | RTL?⁵ |
-| ---------------------- | :---------: | :---------: | :-----------: | :------: | :---: |
-| [`<Badge />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
-| [`<Breadcrumb />`]     |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
-| [`<Button />`]         |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
-| [`<ButtonLink />`]     |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
-| [`<DateTime />`]       |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
-| [`<Entity />`]         |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
-| [`<EntityField />`]    |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
-| [`<ErrorBoundary />`]  |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
-| [`<FlashMessage />`]   |     🧐      |     🧐      |      🧐       |    🧐    |  🧐   |
-| [`<FilterChips />`]    |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
-| [`<Image />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
-| [`<Kbd />`]            |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
-| [`<Link />`]           |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
-| [`<LinkButton />`]     |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
-| [`<Loader />`]         |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
-| [`<LocaleSwitcher />`] |     🧐      |     🧐      |      🧐       |    🧐    |  🧐   |
-| [`<Menu />`]           |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
-| [`<Meter />`]          |     🧐      |     🧐      |      ✅       |    ✅    |  🧐   |
-| [`<MissingData />`]    |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
-| [`<Modal />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
-| [`<Money />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
-| [`<Note />`]           |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
-| [`<Placeholder />`]    |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
-| [`<ProductCard />`]    |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
-| [`<Skeleton />`]       |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
-| [`<SkipLink />`]       |     ✅      |     🧐      |      🧐       |    🧐    |  🧐   |
-| [`<Table />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
-| [`<Tabs />`]           |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
-| [`<Text />`]           |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
-| [`<Tooltip />`]        |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
+| Component             | Localized?¹ | Dark mode?² | Has stories?³ | Tested?⁴ | RTL?⁵ |
+| --------------------- | :---------: | :---------: | :-----------: | :------: | :---: |
+| [`<Badge />`]         |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
+| [`<Breadcrumb />`]    |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
+| [`<Button />`]        |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
+| [`<ButtonLink />`]    |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
+| [`<DateTime />`]      |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
+| [`<Entity />`]        |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
+| [`<EntityField />`]   |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
+| [`<ErrorBoundary />`] |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
+| [`<FlashMessage />`]  |     🧐      |     🧐      |      🧐       |    🧐    |  🧐   |
+| [`<FilterChips />`]   |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
+| [`<Image />`]         |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
+| [`<Kbd />`]           |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
+| [`<Link />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
+| [`<LinkButton />`]    |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
+| [`<Loader />`]        |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
+| [`<Menu />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
+| [`<Meter />`]         |     🧐      |     🧐      |      ✅       |    ✅    |  🧐   |
+| [`<MissingData />`]   |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
+| [`<Modal />`]         |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
+| [`<Money />`]         |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
+| [`<Note />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
+| [`<Placeholder />`]   |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
+| [`<ProductCard />`]   |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
+| [`<Skeleton />`]      |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
+| [`<SkipLink />`]      |     ✅      |     🧐      |      🧐       |    🧐    |  🧐   |
+| [`<Table />`]         |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
+| [`<Tabs />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
+| [`<Text />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
+| [`<Tooltip />`]       |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 
 [`<badge />`]: https://sx-design.vercel.app/?path=/docs/components-badge
 [`<breadcrumb />`]: https://sx-design.vercel.app/?path=/docs/components-breadcrumb
@@ -118,7 +117,6 @@ Legend:
 [`<link />`]: https://sx-design.vercel.app/?path=/docs/components-link
 [`<linkbutton />`]: https://sx-design.vercel.app/?path=/docs/components-linkbutton
 [`<loader />`]: https://sx-design.vercel.app/?path=/docs/components-loader
-[`<localeswitcher />`]: https://sx-design.vercel.app/?path=/docs/components-localeswitcher
 [`<menu />`]: https://sx-design.vercel.app/?path=/docs/components-menu
 [`<meter />`]: https://sx-design.vercel.app/?path=/docs/components-meter
 [`<missingdata />`]: https://sx-design.vercel.app/?path=/docs/components-missingdata
