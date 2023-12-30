@@ -8,6 +8,7 @@ pub fn run(trailing_args: &Vec<&str>) -> anyhow::Result<()> {
         create_command(JEST_BIN)
             .expect("Jest binary doesn't exist")
             // https://jestjs.io/docs/cli
+            .arg("--errorOnDeprecated")
             .arg("--workerThreads")
             .arg("--randomize")
             .arg("--showSeed")
