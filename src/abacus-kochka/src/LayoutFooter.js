@@ -4,10 +4,11 @@ import * as React from 'react';
 import fbt from 'fbt';
 import NextLink from 'next/link';
 import sx from '@adeira/sx';
-import { LayoutInline, LocaleSwitcher } from '@adeira/sx-design';
+import { LayoutInline } from '@adeira/sx-design';
 
 import Logo from './Logo';
 import Link from './primitives/Link';
+import LocaleSwitcher from './primitives/LocaleSwitcher';
 import SocialMediaIcons from './SocialMediaIcons';
 import useFeatureFlag from './hooks/useFeatureFlag';
 
