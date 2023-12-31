@@ -34,9 +34,8 @@ use std::collections::HashMap;
 
 pub use crate::arango::connection::Connection;
 pub use crate::arango::{
-    aql::{AqlOptions, AqlQuery, Cursor},
+    aql::AqlQuery,
     collection::Collection,
-    connection::GenericConnection,
     database::Database,
     document::Document,
     error::{ArangoError, ClientError},

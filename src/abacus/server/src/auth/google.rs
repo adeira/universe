@@ -107,7 +107,7 @@ pub async fn verify_id_token_integrity<T: CachedCerts>(
     // unsafe_* to remind that this header was not verified
     let unsafe_header = decode_header(id_token)?;
     if let Some(kid) = unsafe_header.kid {
-        if let Some(key) = cached_certs.get_key_by_kid(&*kid).await {
+        if let Some(key) = cached_certs.get_key_by_kid(&kid).await {
             validate_id_token(id_token, &key)
         } else {
             anyhow::bail!("cannot obtain Google certificate for key ID: '{}'", kid);
