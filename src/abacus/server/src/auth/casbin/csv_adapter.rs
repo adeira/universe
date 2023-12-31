@@ -16,7 +16,7 @@ impl CSVAdapter {
 
 #[async_trait]
 impl Adapter for CSVAdapter {
-    async fn load_policy(&self, m: &mut dyn Model) -> Result<()> {
+    async fn load_policy(&mut self, m: &mut dyn Model) -> Result<()> {
         let mut lines = self.csv_content.lines();
 
         for line in lines.by_ref() {
