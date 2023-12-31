@@ -1,5 +1,7 @@
 use crate::arango::{ClientError, Connection};
+use deadpool::managed::Metrics as DeadpoolMetrics;
 use deadpool::managed::RecycleError as DeadpoolRecycleError;
+use deadpool::managed::RecycleResult as DeadpoolRecycleResult;
 
 pub struct ConnectionManager {
     pub db_host: String,
@@ -40,7 +42,8 @@ impl deadpool::managed::Manager for ConnectionManager {
     async fn recycle(
         &self,
         conn: &mut Connection,
-    ) -> deadpool::managed::RecycleResult<ClientError> {
+        _: &DeadpoolMetrics,
+    ) -> DeadpoolRecycleResult<ClientError> {
         match conn.db(&self.db_name).await {
             Ok(db) => match db.aql_str::<i8>("RETURN 1").await {
                 Ok(result) => match result {
