@@ -168,8 +168,8 @@ impl Product {
     fn translation(&self, locale: SupportedLocale) -> Option<ProductMultilingualTranslations> {
         self.translations
             .iter()
+            .find(|&translation| translation.locale == locale)
             .cloned()
-            .find(|translation| translation.locale == locale)
     }
 
     /// Exposes all available product translations. What is the difference between `translations`

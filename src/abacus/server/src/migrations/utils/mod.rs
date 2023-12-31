@@ -92,7 +92,7 @@ pub(in crate::migrations) async fn create_graph(
     db: &DatabaseType,
     graph: Graph,
 ) -> anyhow::Result<()> {
-    match db.graph(&*graph.name).await {
+    match db.graph(&graph.name).await {
         Ok(_) => {
             // graph already exists
             Ok(())

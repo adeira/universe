@@ -221,7 +221,7 @@ impl<C: ClientExt> GenericConnection<C, Normal> {
             Auth::Basic(cred) => {
                 username = String::from(cred.username);
 
-                let token = base64::encode(&format!("{}:{}", cred.username, cred.password));
+                let token = base64::encode(format!("{}:{}", cred.username, cred.password));
                 Some(format!("Basic {}", token))
             }
             Auth::Jwt(cred) => {

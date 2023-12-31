@@ -219,7 +219,7 @@ pub(in crate::warp_server) async fn graphql_multipart(
                 let part_value = try_fold_multipart_stream(part).await?;
                 graphql_chunks.insert(
                     part_name,
-                    std::str::from_utf8(&*part_value).unwrap().to_string(),
+                    std::str::from_utf8(&part_value).unwrap().to_string(),
                 );
             }
             _ => {
