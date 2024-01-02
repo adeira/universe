@@ -24,7 +24,7 @@ hex = "0.4.3"
 http = "0.2.11"
 image = { version = "0.24.7", default-features = false, features = ["jpeg", "png"] }
 jsonwebtoken = "9.2.0"
-juniper = { version = "0.15.11", default-features = false, features = ["schema-language"] }
+juniper = { version = "0.15.12", default-features = false, features = ["schema-language"] }
 lazy_static = "1.4.0"
 md-5 = "0.10.6"
 num_cpus = "1.16.0"
