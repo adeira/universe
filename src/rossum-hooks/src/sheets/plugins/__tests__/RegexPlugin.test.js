@@ -95,4 +95,10 @@ describe('REGEXREPLACE', () => {
       ),
     ).toBe('Word between brackets');
   });
+
+  it('replaces all occurrences', () => {
+    expect(
+      hfInstance.calculateFormula('=REGEXREPLACE("<>123:45*6", "[^a-zA-Z\\d]", "")', sheetId),
+    ).toBe('123456');
+  });
 });

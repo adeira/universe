@@ -73,7 +73,7 @@ export class RegexPlugin extends FunctionPlugin {
           return new CellError('VALUE', 'Function REGEXREPLACE accepts only strings.');
         }
 
-        return text.replace(new RegExp(regularExpression), replacement);
+        return text.replaceAll(new RegExp(regularExpression, 'g'), replacement);
       },
     );
   }
