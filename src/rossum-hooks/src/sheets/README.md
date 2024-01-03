@@ -1,6 +1,18 @@
-Excel in Rossum (powered by [HyperFormula](https://github.com/handsontable/hyperformula))
+# Rossum Sheets
 
-## Example config
+Rossum Sheets is a project bringing spreadsheet UX into Rossum.
+
+- Use ~400 standardized Excel functions and formulas to calculate or validate anything you need.
+- No steep learning curve (everyone knows Excel).
+- Stay performant and organize your data as you need them.
+
+Powered by [HyperFormula](https://github.com/handsontable/hyperformula)
+
+## Installation and Usage
+
+TODO
+
+## Example configuration
 
 ```json5
 {
