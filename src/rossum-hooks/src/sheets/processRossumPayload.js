@@ -4,12 +4,11 @@ import createMessage from '../utils/createMessage';
 import createReplaceOperation from '../utils/createReplaceOperation';
 import findBySchemaId from '../utils/findBySchemaId';
 import createHyperFormulaInstance from './createHyperFormulaInstance';
-import type { WebhookPayload, WebhookResponse } from '../flowTypes';
 import isMetaField from './isMetaField';
 import type { ExtensionUserConfig } from './validateUserConfig';
+import type { WebhookPayload, WebhookResponse } from '../flowTypes';
 
-// https://elis.rossum.ai/api/docs/#webhook-events
-export function rossum_hook_request_handler(
+export default function processRossumPayload(
   payload: WebhookPayload<ExtensionUserConfig>,
 ): WebhookResponse {
   const hfInstance = createHyperFormulaInstance(payload);
@@ -79,6 +78,8 @@ export function rossum_hook_request_handler(
       ),
     );
   }
+
+  hfInstance.destroy();
 
   return {
     messages,

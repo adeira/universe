@@ -40326,7 +40326,9 @@ const options = {
 function createHyperFormulaInstance(
   payload,
 ) {
-  HyperFormula.registerLanguage('enUS', default_1);
+  if (!HyperFormula.getRegisteredLanguagesCodes().includes('enUS')) {
+    HyperFormula.registerLanguage('enUS', default_1);
+  }
   HyperFormula.registerFunctionPlugin(RegexPlugin, RegexPluginTranslations);
 
   const hfInstance = HyperFormula.buildEmpty(options);
@@ -40395,8 +40397,7 @@ function createHyperFormulaInstance(
 // 
 
 
-// https://elis.rossum.ai/api/docs/#webhook-events
-function rossum_hook_request_handler(
+function processRossumPayload(
   payload,
 ) {
   const hfInstance = createHyperFormulaInstance(payload);
@@ -40467,6 +40468,8 @@ function rossum_hook_request_handler(
     );
   }
 
+  hfInstance.destroy();
+
   return {
     messages,
     operations,
@@ -40474,4 +40477,19 @@ function rossum_hook_request_handler(
   };
 }
 
-exports.rossum_hook_request_handler = rossum_hook_request_handler;
+// 
+
+
+function main(payload) {
+  const { messages, operations, automation_blockers } = processRossumPayload(payload);
+
+  return {
+    body: JSON.stringify({
+      messages,
+      operations,
+      automation_blockers,
+    }),
+  };
+}
+
+exports.main = main;

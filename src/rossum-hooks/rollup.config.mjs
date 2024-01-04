@@ -30,9 +30,25 @@ export default [
     external: ['https', 'url'],
   },
   {
-    input: 'src/sheets/rossumHookRequestHandler.js',
+    input: 'src/sheets/handlers/awsLambda.js',
     output: {
-      file: 'build/rossum-sheets.js',
+      file: 'build/rossum-sheets-aws.js',
+      format: 'cjs',
+    },
+    plugins: ([flow(), commonjs(), nodeResolve()] /*: $ReadOnlyArray<RollupPlugin> */),
+  },
+  {
+    input: 'src/sheets/handlers/digitalOceanFunction.js',
+    output: {
+      file: 'build/rossum-sheets-digitalocean.js',
+      format: 'cjs',
+    },
+    plugins: ([flow(), commonjs(), nodeResolve()] /*: $ReadOnlyArray<RollupPlugin> */),
+  },
+  {
+    input: 'src/sheets/handlers/rossumServerlessFunction.js',
+    output: {
+      file: 'build/rossum-sheets-rossum.js',
       format: 'cjs',
     },
     plugins: ([flow(), commonjs(), nodeResolve()] /*: $ReadOnlyArray<RollupPlugin> */),
