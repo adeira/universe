@@ -45,7 +45,9 @@ const options = {
 export default function createHyperFormulaInstance(
   payload: WebhookPayload<ExtensionUserConfig>,
 ): typeof HyperFormula {
-  HyperFormula.registerLanguage('enUS', enUS);
+  if (!HyperFormula.getRegisteredLanguagesCodes().includes('enUS')) {
+    HyperFormula.registerLanguage('enUS', enUS);
+  }
   HyperFormula.registerFunctionPlugin(RegexPlugin, RegexPluginTranslations);
 
   const hfInstance = HyperFormula.buildEmpty(options);

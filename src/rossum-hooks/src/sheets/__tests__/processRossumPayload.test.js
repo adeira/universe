@@ -1,18 +1,17 @@
 // @flow
 
-// import { rossum_hook_request_handler } from '../rossumHookRequestHandler';
 import settings from './fixtures/settings.json';
 import payload from './fixtures/payload.json';
 
-let rossumHookRequestHandler;
+let processRossumPayload;
 beforeEach(() => {
   jest.isolateModules(() => {
-    rossumHookRequestHandler = require('../rossumHookRequestHandler').rossum_hook_request_handler;
+    processRossumPayload = require('../processRossumPayload').default;
   });
 });
 
 it('works as expected', () => {
-  expect(rossumHookRequestHandler({ ...payload, settings })).toMatchInlineSnapshot(`
+  expect(processRossumPayload({ ...payload, settings })).toMatchInlineSnapshot(`
     {
       "automation_blockers": [],
       "messages": [
@@ -156,7 +155,7 @@ it('works as expected', () => {
 
 it('does not allow writing into meta fields', () => {
   expect(() =>
-    rossumHookRequestHandler({
+    processRossumPayload({
       ...payload,
       settings: {
         sheets: {
