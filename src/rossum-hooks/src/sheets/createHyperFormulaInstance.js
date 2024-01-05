@@ -83,10 +83,14 @@ export default function createHyperFormulaInstance(
               return lodashGet(payload, datapointID);
             }
 
-            return (
+            const dpValue =
               findBySchemaId(payload.annotation.content, datapointID)[i].content.normalized_value ??
-              findBySchemaId(payload.annotation.content, datapointID)[i].content.value
-            );
+              findBySchemaId(payload.annotation.content, datapointID)[i].content.value;
+
+            // This is to make sure that empty datapoints will behave correctly with functions such as ISBLANK
+            // See: https://support.google.com/docs/answer/3093290
+            // See: https://learn.microsoft.com/en-us/office/troubleshoot/excel/isblank-function-return-false
+            return dpValue === '' ? null : dpValue;
           })
           .concat(i === 0 ? sheetFormulas : []), // we apply formulas only to the first row (enough for headers, later copied for line items)
       );
