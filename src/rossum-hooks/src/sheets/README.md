@@ -1,3 +1,5 @@
+🚧 **WORK IN PROGRESS** 🚧
+
 # Rossum Sheets
 
 Rossum Sheets is a project bringing spreadsheet UX into Rossum.
@@ -11,6 +13,11 @@ Powered by [HyperFormula](https://github.com/handsontable/hyperformula)
 ## Installation and Usage
 
 **TODO**
+
+## Known limitations
+
+- No support for async functions (cannot fetch data in formula for example)
+- **TODO**
 
 ## Migrating from existing extensions
 
@@ -208,7 +215,29 @@ Before:
 
 After:
 
-**TODO**
+```json
+{
+  "sheets": {
+    "headers": {
+      "columns": {
+        "A": "order_id"
+      }
+    },
+    "line_items": {
+      "columns": {
+        "A": "item_order_id",
+        "B": "item_order_id_calculated"
+      },
+      "formulas": [
+        {
+          "fx": "=IF(ISBLANK($A1), headers!$A$1, $B1)",
+          "target": "item_order_id_calculated"
+        }
+      ]
+    }
+  }
+}
+```
 
 ### Date Calculations
 
@@ -227,7 +256,24 @@ Before:
 
 After:
 
-**TODO**
+```json
+{
+  "sheets": {
+    "headers": {
+      "columns": {
+        "A": "date_issue",
+        "B": "terms"
+      },
+      "formulas": [
+        {
+          "fx": "=A1 + B1",
+          "target": "date_due_calculated"
+        }
+      ]
+    }
+  }
+}
+```
 
 ### Find & Replace Values
 
@@ -317,7 +363,44 @@ Before:
 
 After:
 
-**TODO**
+```json
+{
+  "sheets": {
+    "headers": {
+      "columns": {
+        "A": "amount_total"
+      }
+    },
+    "line_items": {
+      "columns": {
+        "A": "item_amount_base",
+        "B": "item_amount_total",
+        "C": "item_quantity",
+        "D": "item_tax",
+        "E": "item_total_base"
+      },
+      "formulas": [
+        {
+          "fx": "=($B1 - IF(ISBLANK($D1), 0, $D1)) / $C1",
+          "target": "item_amount_base_calculated"
+        },
+        {
+          "fx": "=$E1 / $C1",
+          "target": "item_amount_base_calculated"
+        },
+        {
+          "fx": "=$A1",
+          "target": "item_amount_base_calculated"
+        },
+        {
+          "fx": "=headers!A1",
+          "target": "amount_total_calculated"
+        }
+      ]
+    }
+  }
+}
+```
 
 ### Value Mapping
 
@@ -340,4 +423,20 @@ Before:
 
 After:
 
-**TODO**
+```json
+{
+  "sheets": {
+    "headers": {
+      "columns": {
+        "A": "document_type"
+      },
+      "formulas": [
+        {
+          "fx": "=SWITCH(A1, \"credit_note\", 20, \"tax_invoice\", 10)",
+          "target": "document_type_calculated"
+        }
+      ]
+    }
+  }
+}
+```

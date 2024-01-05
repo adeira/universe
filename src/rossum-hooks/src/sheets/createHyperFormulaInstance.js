@@ -24,7 +24,7 @@ const options = {
   currencySymbol: ['$', 'USD'],
   dateFormats: ['MM/DD/YYYY', 'MM/DD/YY', 'YYYY/MM/DD'],
   decimalSeparator: '.', // set by default
-  evaluateNullToZero: true,
+  evaluateNullToZero: false, // TODO: (needed because we use null values behind the scenes, define properly this behavior)
   functionArgSeparator: ',', // set by default
   ignorePunctuation: false, // set by default
   ignoreWhiteSpace: 'any',
