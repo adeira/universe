@@ -29,11 +29,13 @@ export default function processRossumPayload(
       }
       const targetDatapoint = findBySchemaId(payload.annotation.content, formulas[i].target);
       for (let j = 0; j < targetDatapoint.length; j++) {
-        const cellValue = hfInstance.getCellValue({
+        const cellAddress = {
           col: Object.values(sheetConfig.columns).length + i, // length of "columns" + position in "formulas"
           row: j,
           sheet: hfInstance.getSheetId(sheetName),
-        });
+        };
+        const cellType = hfInstance.getCellValueDetailedType(cellAddress);
+        const cellValue = hfInstance.getCellValue(cellAddress);
         if (formulas[i].validation != null) {
           // Validate if user cares about validations (truthy check)
           if (cellValue) {
@@ -52,16 +54,14 @@ export default function processRossumPayload(
               );
             }
           }
+        } else if (cellType === 'NUMBER_DATE') {
+          // Otherwise replace date value (as an ISO string)
+          // TODO: support other cell types as well?
+          const { year, month, day } = hfInstance.numberToDate(cellValue);
+          operations.push(createReplaceOperation(targetDatapoint[j], `${year}-${month}-${day}`));
         } else {
           // Otherwise just replace the value (as a string)
-          operations.push(
-            createReplaceOperation(
-              targetDatapoint[j],
-              // TODO: do not use String() here, but rather use the correct datapoint type (?)
-              // TODO: update "normalized_value" instead (?)
-              String(cellValue),
-            ),
-          );
+          operations.push(createReplaceOperation(targetDatapoint[j], String(cellValue)));
         }
       }
     }
