@@ -57,11 +57,15 @@ export default function processRossumPayload(
         } else if (cellType === 'NUMBER_DATE') {
           // Otherwise replace date value (as an ISO string)
           // TODO: support other cell types as well?
+          // TODO: throw if targetDatapoint[j] doesn't exist
           const { year, month, day } = hfInstance.numberToDate(cellValue);
           operations.push(createReplaceOperation(targetDatapoint[j], `${year}-${month}-${day}`));
         } else {
           // Otherwise just replace the value (as a string)
-          operations.push(createReplaceOperation(targetDatapoint[j], String(cellValue)));
+          // TODO: throw if targetDatapoint[j] doesn't exist
+          operations.push(
+            createReplaceOperation(targetDatapoint[j], cellValue == null ? '' : String(cellValue)),
+          );
         }
       }
     }
