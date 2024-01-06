@@ -10,10 +10,17 @@ export type ExtensionUserConfig = {
       +formulas?: Array<{
         +fx: string,
         +target: string,
-        +validation?: {
-          +message: string,
-          +type?: 'error' | 'warning' | 'info',
-          +automation_blocker?: boolean,
+        +ifTruthy?: {
+          // Blocks automation additionally accompanied by a message if present:
+          +showAutomationBlocker?: string,
+
+          // Show info/warning/error messages:
+          +showInfo?: string,
+          +showWarning?: string,
+          +showError?: string,
+
+          // Hide field (show if the `fx` evaluates to falsy):
+          +hide?: boolean,
         },
       }>,
     },
