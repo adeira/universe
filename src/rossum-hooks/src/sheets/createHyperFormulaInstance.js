@@ -3,12 +3,12 @@
 import { HyperFormula } from 'hyperformula';
 import enUS from 'hyperformula/commonjs/i18n/languages/enUS';
 import lodashGet from 'lodash.get';
+import type { WebhookPayload } from '@adeira/rossum-flow-types';
 
 import findBySchemaId from '../utils/findBySchemaId';
 import isMetaField from './isMetaField';
 import { RegexPlugin, RegexPluginTranslations } from './plugins/RegexPlugin';
 import validateUserConfig, { type ExtensionUserConfig } from './validateUserConfig';
-import type { WebhookPayload } from '../flowTypes';
 
 const options = {
   licenseKey: 'gpl-v3',

@@ -1,12 +1,13 @@
 // @flow
 
+import type { WebhookPayload, WebhookResponse } from '@adeira/rossum-flow-types';
+
 import createMessage from '../utils/createMessage';
 import createReplaceOperation from '../utils/createReplaceOperation';
 import findBySchemaId from '../utils/findBySchemaId';
 import createHyperFormulaInstance from './createHyperFormulaInstance';
 import isMetaField from './isMetaField';
 import type { ExtensionUserConfig } from './validateUserConfig';
-import type { WebhookPayload, WebhookResponse } from '../flowTypes';
 
 export default function processRossumPayload(
   payload: WebhookPayload<ExtensionUserConfig>,

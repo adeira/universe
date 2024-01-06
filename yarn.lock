@@ -385,10 +385,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@adeira/rossum-flow-types@npm:^0.0.0, @adeira/rossum-flow-types@workspace:src/rossum-flow-types":
+  version: 0.0.0-use.local
+  resolution: "@adeira/rossum-flow-types@workspace:src/rossum-flow-types"
+  languageName: unknown
+  linkType: soft
+
 "@adeira/rossum-hooks@workspace:src/rossum-hooks":
   version: 0.0.0-use.local
   resolution: "@adeira/rossum-hooks@workspace:src/rossum-hooks"
   dependencies:
+    "@adeira/rossum-flow-types": "npm:^0.0.0"
     "@rollup/plugin-commonjs": "npm:^25.0.7"
     "@rollup/plugin-node-resolve": "npm:^15.2.3"
     "@rollup/pluginutils": "npm:^5.1.0"

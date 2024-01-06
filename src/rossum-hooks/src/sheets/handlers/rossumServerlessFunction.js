@@ -1,8 +1,9 @@
 // @flow
 
+import type { WebhookPayload, WebhookResponse } from '@adeira/rossum-flow-types';
+
 import processRossumPayload from '../processRossumPayload';
 import type { ExtensionUserConfig } from '../validateUserConfig';
-import type { WebhookPayload, WebhookResponse } from '../../flowTypes';
 
 // https://elis.rossum.ai/api/docs/#webhook-events
 export function rossum_hook_request_handler(
