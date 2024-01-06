@@ -40309,28 +40309,28 @@ const options = {
   //
   // See: https://hyperformula.handsontable.com/guide/compatibility-with-microsoft-excel.html
   accentSensitive: true,
-  arrayColumnSeparator: ',', // set by default
-  arrayRowSeparator: ';', // set by default
-  caseSensitive: false, // set by default
+  arrayColumnSeparator: ',',
+  arrayRowSeparator: ';',
+  caseSensitive: false,
   currencySymbol: ['$', 'USD'],
   dateFormats: ['MM/DD/YYYY', 'MM/DD/YY', 'YYYY/MM/DD'],
-  decimalSeparator: '.', // set by default
-  evaluateNullToZero: false, // TODO: (needed because we use null values behind the scenes, define properly this behavior)
-  functionArgSeparator: ',', // set by default
-  ignorePunctuation: false, // set by default
+  decimalSeparator: '.',
+  evaluateNullToZero: false,
+  functionArgSeparator: ',',
+  ignorePunctuation: false,
   ignoreWhiteSpace: 'any',
   language: 'enUS',
-  leapYear1900: true,
+  leapYear1900: true, // TODO: questionable
   localeLang: 'en-US',
-  matchWholeCell: true, // set by default
+  matchWholeCell: true,
   nullDate: { year: 1899, month: 12, day: 31 },
-  nullYear: 30, // set by default
-  smartRounding: true, // set by default
-  thousandSeparator: '', // set by default
-  timeFormats: ['hh:mm', 'hh:mm:ss.sss'], // set by default
+  nullYear: 30,
+  smartRounding: true,
+  thousandSeparator: '',
+  timeFormats: ['hh:mm', 'hh:mm:ss.sss'],
   useArrayArithmetic: true,
-  useRegularExpressions: false, // set by default
-  useWildcards: true, // set by default
+  useRegularExpressions: false,
+  useWildcards: true,
 };
 
 function createHyperFormulaInstance(
@@ -40428,10 +40428,18 @@ function processRossumPayload(
     for (let i = 0; i < formulas.length; i++) {
       // We iterate over all occurrences of the target datapoint
       if (isMetaField(formulas[i].target)) {
-        throw new Error(`Meta fields are not supported as a target: ${formulas[i].target}`);
+        throw new Error(
+          `Meta fields are not supported as a target: ${formulas[i].target}. Please check your configuration.`,
+        );
       }
-      const targetDatapoint = findBySchemaId(payload.annotation.content, formulas[i].target);
-      for (let j = 0; j < targetDatapoint.length; j++) {
+      const targetDatapoints = findBySchemaId(payload.annotation.content, formulas[i].target);
+      if (targetDatapoints.length === 0) {
+        throw new Error(
+          `Target datapoint does not exist: ${formulas[i].target}. Please check your configuration.`,
+        );
+      }
+      for (let j = 0; j < targetDatapoints.length; j++) {
+        const targetDatapoint = targetDatapoints[j];
         const cellAddress = {
           col: Object.values(sheetConfig.columns).length + i, // length of "columns" + position in "formulas"
           row: j,
@@ -40447,36 +40455,34 @@ function processRossumPayload(
           if (cellValue) {
             if (showAutomationBlocker != null) {
               automationBlockers.push({
-                id: targetDatapoint[j].id,
+                id: targetDatapoint.id,
                 content: showAutomationBlocker,
               });
             }
             if (showInfo != null) {
-              messages.push(createMessage('info', showInfo, targetDatapoint[j].id));
+              messages.push(createMessage('info', showInfo, targetDatapoint.id));
             }
             if (showWarning != null) {
-              messages.push(createMessage('warning', showWarning, targetDatapoint[j].id));
+              messages.push(createMessage('warning', showWarning, targetDatapoint.id));
             }
             if (showError != null) {
-              messages.push(createMessage('error', showError, targetDatapoint[j].id));
+              messages.push(createMessage('error', showError, targetDatapoint.id));
             }
             if (hide != null) {
-              operations.push(createReplaceOperation(targetDatapoint[j], null, true));
+              operations.push(createReplaceOperation(targetDatapoint, null, true));
             }
           } else if (hide != null) {
-            operations.push(createReplaceOperation(targetDatapoint[j], null, false));
+            operations.push(createReplaceOperation(targetDatapoint, null, false));
           }
         } else if (cellType === 'NUMBER_DATE') {
           // Otherwise replace date value (as an ISO string)
           // TODO: support other cell types as well?
-          // TODO: throw if targetDatapoint[j] doesn't exist
           const { year, month, day } = hfInstance.numberToDate(cellValue);
-          operations.push(createReplaceOperation(targetDatapoint[j], `${year}-${month}-${day}`));
+          operations.push(createReplaceOperation(targetDatapoint, `${year}-${month}-${day}`));
         } else {
           // Otherwise just replace the value (as a string)
-          // TODO: throw if targetDatapoint[j] doesn't exist
           operations.push(
-            createReplaceOperation(targetDatapoint[j], cellValue == null ? '' : String(cellValue)),
+            createReplaceOperation(targetDatapoint, cellValue == null ? '' : String(cellValue)),
           );
         }
       }

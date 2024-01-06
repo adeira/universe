@@ -18,28 +18,28 @@ const options = {
   //
   // See: https://hyperformula.handsontable.com/guide/compatibility-with-microsoft-excel.html
   accentSensitive: true,
-  arrayColumnSeparator: ',', // set by default
-  arrayRowSeparator: ';', // set by default
-  caseSensitive: false, // set by default
+  arrayColumnSeparator: ',',
+  arrayRowSeparator: ';',
+  caseSensitive: false,
   currencySymbol: ['$', 'USD'],
   dateFormats: ['MM/DD/YYYY', 'MM/DD/YY', 'YYYY/MM/DD'],
-  decimalSeparator: '.', // set by default
-  evaluateNullToZero: false, // TODO: (needed because we use null values behind the scenes, define properly this behavior)
-  functionArgSeparator: ',', // set by default
-  ignorePunctuation: false, // set by default
+  decimalSeparator: '.',
+  evaluateNullToZero: false,
+  functionArgSeparator: ',',
+  ignorePunctuation: false,
   ignoreWhiteSpace: 'any',
   language: 'enUS',
-  leapYear1900: true,
+  leapYear1900: true, // TODO: questionable
   localeLang: 'en-US',
-  matchWholeCell: true, // set by default
+  matchWholeCell: true,
   nullDate: { year: 1899, month: 12, day: 31 },
-  nullYear: 30, // set by default
-  smartRounding: true, // set by default
-  thousandSeparator: '', // set by default
-  timeFormats: ['hh:mm', 'hh:mm:ss.sss'], // set by default
+  nullYear: 30,
+  smartRounding: true,
+  thousandSeparator: '',
+  timeFormats: ['hh:mm', 'hh:mm:ss.sss'],
   useArrayArithmetic: true,
-  useRegularExpressions: false, // set by default
-  useWildcards: true, // set by default
+  useRegularExpressions: false,
+  useWildcards: true,
 };
 
 export default function createHyperFormulaInstance(

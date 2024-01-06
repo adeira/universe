@@ -25,10 +25,18 @@ export default function processRossumPayload(
     for (let i = 0; i < formulas.length; i++) {
       // We iterate over all occurrences of the target datapoint
       if (isMetaField(formulas[i].target)) {
-        throw new Error(`Meta fields are not supported as a target: ${formulas[i].target}`);
+        throw new Error(
+          `Meta fields are not supported as a target: ${formulas[i].target}. Please check your configuration.`,
+        );
       }
-      const targetDatapoint = findBySchemaId(payload.annotation.content, formulas[i].target);
-      for (let j = 0; j < targetDatapoint.length; j++) {
+      const targetDatapoints = findBySchemaId(payload.annotation.content, formulas[i].target);
+      if (targetDatapoints.length === 0) {
+        throw new Error(
+          `Target datapoint does not exist: ${formulas[i].target}. Please check your configuration.`,
+        );
+      }
+      for (let j = 0; j < targetDatapoints.length; j++) {
+        const targetDatapoint = targetDatapoints[j];
         const cellAddress = {
           col: Object.values(sheetConfig.columns).length + i, // length of "columns" + position in "formulas"
           row: j,
@@ -44,36 +52,34 @@ export default function processRossumPayload(
           if (cellValue) {
             if (showAutomationBlocker != null) {
               automationBlockers.push({
-                id: targetDatapoint[j].id,
+                id: targetDatapoint.id,
                 content: showAutomationBlocker,
               });
             }
             if (showInfo != null) {
-              messages.push(createMessage('info', showInfo, targetDatapoint[j].id));
+              messages.push(createMessage('info', showInfo, targetDatapoint.id));
             }
             if (showWarning != null) {
-              messages.push(createMessage('warning', showWarning, targetDatapoint[j].id));
+              messages.push(createMessage('warning', showWarning, targetDatapoint.id));
             }
             if (showError != null) {
-              messages.push(createMessage('error', showError, targetDatapoint[j].id));
+              messages.push(createMessage('error', showError, targetDatapoint.id));
             }
             if (hide != null) {
-              operations.push(createReplaceOperation(targetDatapoint[j], null, true));
+              operations.push(createReplaceOperation(targetDatapoint, null, true));
             }
           } else if (hide != null) {
-            operations.push(createReplaceOperation(targetDatapoint[j], null, false));
+            operations.push(createReplaceOperation(targetDatapoint, null, false));
           }
         } else if (cellType === 'NUMBER_DATE') {
           // Otherwise replace date value (as an ISO string)
           // TODO: support other cell types as well?
-          // TODO: throw if targetDatapoint[j] doesn't exist
           const { year, month, day } = hfInstance.numberToDate(cellValue);
-          operations.push(createReplaceOperation(targetDatapoint[j], `${year}-${month}-${day}`));
+          operations.push(createReplaceOperation(targetDatapoint, `${year}-${month}-${day}`));
         } else {
           // Otherwise just replace the value (as a string)
-          // TODO: throw if targetDatapoint[j] doesn't exist
           operations.push(
-            createReplaceOperation(targetDatapoint[j], cellValue == null ? '' : String(cellValue)),
+            createReplaceOperation(targetDatapoint, cellValue == null ? '' : String(cellValue)),
           );
         }
       }
