@@ -18,7 +18,7 @@ Powered by [HyperFormula](https://github.com/handsontable/hyperformula)
 ## Build from source
 
 ```
-yarn workspace @adeira/rossum-hooks build
+yarn workspace @adeira/rossum-sheets build
 ```
 
 ## Known limitations
