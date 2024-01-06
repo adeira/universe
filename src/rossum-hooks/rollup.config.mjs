@@ -21,15 +21,6 @@ export default [
     plugins: ([flow()] /*: $ReadOnlyArray<RollupPlugin> */),
   },
   {
-    input: 'src/sync-queues/index.js',
-    output: {
-      file: 'build/rossum-sync-queues.js',
-      format: 'cjs',
-    },
-    plugins: ([flow()] /*: $ReadOnlyArray<RollupPlugin> */),
-    external: ['https', 'url'],
-  },
-  {
     input: 'src/sheets/handlers/awsLambda.js',
     output: {
       file: 'build/rossum-sheets-aws.js',
