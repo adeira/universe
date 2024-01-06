@@ -36,23 +36,32 @@ export default function processRossumPayload(
         };
         const cellType = hfInstance.getCellValueDetailedType(cellAddress);
         const cellValue = hfInstance.getCellValue(cellAddress);
-        if (formulas[i].validation != null) {
-          // Validate if user cares about validations (truthy check)
+        if (formulas[i].ifTruthy != null) {
+          const { showAutomationBlocker, showInfo, showWarning, showError, hide } =
+            formulas[i].ifTruthy;
+
+          // Validate if user cares about validations (truthy check of the cell value)
           if (cellValue) {
-            if (formulas[i].validation.automation_blocker === true) {
+            if (showAutomationBlocker != null) {
               automationBlockers.push({
                 id: targetDatapoint[j].id,
-                content: formulas[i].validation.message,
+                content: showAutomationBlocker,
               });
-            } else {
-              messages.push(
-                createMessage(
-                  formulas[i].validation.type ?? 'info',
-                  formulas[i].validation.message,
-                  targetDatapoint[j].id,
-                ),
-              );
             }
+            if (showInfo != null) {
+              messages.push(createMessage('info', showInfo, targetDatapoint[j].id));
+            }
+            if (showWarning != null) {
+              messages.push(createMessage('warning', showWarning, targetDatapoint[j].id));
+            }
+            if (showError != null) {
+              messages.push(createMessage('error', showError, targetDatapoint[j].id));
+            }
+            if (hide != null) {
+              operations.push(createReplaceOperation(targetDatapoint[j], null, true));
+            }
+          } else if (hide != null) {
+            operations.push(createReplaceOperation(targetDatapoint[j], null, false));
           }
         } else if (cellType === 'NUMBER_DATE') {
           // Otherwise replace date value (as an ISO string)
@@ -71,6 +80,12 @@ export default function processRossumPayload(
     }
   }
 
+  const rossumResponse = {
+    messages,
+    operations,
+    automation_blockers: automationBlockers,
+  };
+
   if (payload.settings.debug === true) {
     messages.push(
       createMessage(
@@ -78,6 +93,7 @@ export default function processRossumPayload(
         JSON.stringify({
           allSheetsSerialized: hfInstance.getAllSheetsSerialized(),
           allSheetsValues: hfInstance.getAllSheetsValues(),
+          rossumResponse,
         }),
       ),
     );
@@ -85,9 +101,5 @@ export default function processRossumPayload(
 
   hfInstance.destroy();
 
-  return {
-    messages,
-    operations,
-    automation_blockers: automationBlockers,
-  };
+  return rossumResponse;
 }

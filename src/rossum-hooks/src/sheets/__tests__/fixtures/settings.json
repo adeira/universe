@@ -19,9 +19,8 @@
         {
           "fx": "=A1>A2",
           "target": "notes",
-          "validation": {
-            "type": "info",
-            "message": "A1 is bigger than A2!"
+          "ifTruthy": {
+            "showInfo": "A1 is bigger than A2!"
           }
         }
       ]

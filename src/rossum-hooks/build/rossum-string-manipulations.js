@@ -8,21 +8,31 @@
  *
  * @param datapoint - the content of the datapoint
  * @param newValue - the new value of the datapoint
+ * @param hidden - whether the datapoint should be hidden or not
  *
  * Returns the JSON replace operation definition (see https://elis.rossum.ai/api/docs/#annotation-content-event-response-format)
  */
 function createReplaceOperation(
   datapoint,
   newValue,
+  hidden,
 ) {
+  const value = {};
+
+  if (newValue != null) {
+    value.content = {
+      value: newValue,
+    };
+  }
+
+  if (hidden != null) {
+    value.hidden = hidden;
+  }
+
   return {
     op: 'replace',
     id: datapoint.id,
-    value: {
-      content: {
-        value: newValue,
-      },
-    },
+    value,
   };
 }
 

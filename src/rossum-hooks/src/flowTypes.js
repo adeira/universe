@@ -1,15 +1,22 @@
 // @flow
 
+export type WebhookResponseOperationValue = {
+  hidden?: boolean,
+  content?: {
+    value: string,
+  },
+};
+
 type WebhookResponseOperationReplace = {
   op: 'replace',
   id: string,
-  value: { ... }, // TODO
+  value: WebhookResponseOperationValue,
 };
 
 type WebhookResponseOperationAdd = {
   op: 'add',
   id: string,
-  value: $ReadOnlyArray<{ ... }>, // TODO
+  value: $ReadOnlyArray<WebhookResponseOperationValue>,
 };
 
 type WebhookResponseOperationRemove = {

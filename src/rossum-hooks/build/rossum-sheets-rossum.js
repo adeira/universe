@@ -32,21 +32,31 @@ function createMessage(
  *
  * @param datapoint - the content of the datapoint
  * @param newValue - the new value of the datapoint
+ * @param hidden - whether the datapoint should be hidden or not
  *
  * Returns the JSON replace operation definition (see https://elis.rossum.ai/api/docs/#annotation-content-event-response-format)
  */
 function createReplaceOperation(
   datapoint,
   newValue,
+  hidden,
 ) {
+  const value = {};
+
+  if (newValue != null) {
+    value.content = {
+      value: newValue,
+    };
+  }
+
+  if (hidden != null) {
+    value.hidden = hidden;
+  }
+
   return {
     op: 'replace',
     id: datapoint.id,
-    value: {
-      content: {
-        value: newValue,
-      },
-    },
+    value,
   };
 }
 
@@ -40305,7 +40315,7 @@ const options = {
   currencySymbol: ['$', 'USD'],
   dateFormats: ['MM/DD/YYYY', 'MM/DD/YY', 'YYYY/MM/DD'],
   decimalSeparator: '.', // set by default
-  evaluateNullToZero: true,
+  evaluateNullToZero: false, // TODO: (needed because we use null values behind the scenes, define properly this behavior)
   functionArgSeparator: ',', // set by default
   ignorePunctuation: false, // set by default
   ignoreWhiteSpace: 'any',
@@ -40429,36 +40439,55 @@ function processRossumPayload(
         };
         const cellType = hfInstance.getCellValueDetailedType(cellAddress);
         const cellValue = hfInstance.getCellValue(cellAddress);
-        if (formulas[i].validation != null) {
-          // Validate if user cares about validations (truthy check)
+        if (formulas[i].ifTruthy != null) {
+          const { showAutomationBlocker, showInfo, showWarning, showError, hide } =
+            formulas[i].ifTruthy;
+
+          // Validate if user cares about validations (truthy check of the cell value)
           if (cellValue) {
-            if (formulas[i].validation.automation_blocker === true) {
+            if (showAutomationBlocker != null) {
               automationBlockers.push({
                 id: targetDatapoint[j].id,
-                content: formulas[i].validation.message,
+                content: showAutomationBlocker,
               });
-            } else {
-              messages.push(
-                createMessage(
-                  formulas[i].validation.type ?? 'info',
-                  formulas[i].validation.message,
-                  targetDatapoint[j].id,
-                ),
-              );
             }
+            if (showInfo != null) {
+              messages.push(createMessage('info', showInfo, targetDatapoint[j].id));
+            }
+            if (showWarning != null) {
+              messages.push(createMessage('warning', showWarning, targetDatapoint[j].id));
+            }
+            if (showError != null) {
+              messages.push(createMessage('error', showError, targetDatapoint[j].id));
+            }
+            if (hide != null) {
+              operations.push(createReplaceOperation(targetDatapoint[j], null, true));
+            }
+          } else if (hide != null) {
+            operations.push(createReplaceOperation(targetDatapoint[j], null, false));
           }
         } else if (cellType === 'NUMBER_DATE') {
           // Otherwise replace date value (as an ISO string)
           // TODO: support other cell types as well?
+          // TODO: throw if targetDatapoint[j] doesn't exist
           const { year, month, day } = hfInstance.numberToDate(cellValue);
           operations.push(createReplaceOperation(targetDatapoint[j], `${year}-${month}-${day}`));
         } else {
           // Otherwise just replace the value (as a string)
-          operations.push(createReplaceOperation(targetDatapoint[j], String(cellValue)));
+          // TODO: throw if targetDatapoint[j] doesn't exist
+          operations.push(
+            createReplaceOperation(targetDatapoint[j], cellValue == null ? '' : String(cellValue)),
+          );
         }
       }
     }
   }
+
+  const rossumResponse = {
+    messages,
+    operations,
+    automation_blockers: automationBlockers,
+  };
 
   if (payload.settings.debug === true) {
     messages.push(
@@ -40467,6 +40496,7 @@ function processRossumPayload(
         JSON.stringify({
           allSheetsSerialized: hfInstance.getAllSheetsSerialized(),
           allSheetsValues: hfInstance.getAllSheetsValues(),
+          rossumResponse,
         }),
       ),
     );
@@ -40474,11 +40504,7 @@ function processRossumPayload(
 
   hfInstance.destroy();
 
-  return {
-    messages,
-    operations,
-    automation_blockers: automationBlockers,
-  };
+  return rossumResponse;
 }
 
 // 

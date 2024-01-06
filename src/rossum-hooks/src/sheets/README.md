@@ -181,9 +181,8 @@ After:
         {
           "fx": "=ISBLANK(A1)",
           "target": "document_id",
-          "validation": {
-            "type": "error",
-            "message": "Invoice number is mandatory."
+          "ifTruthy": {
+            "showError": "Invoice number is mandatory."
           }
         }
       ]
