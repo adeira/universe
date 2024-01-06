@@ -2,6 +2,7 @@
   "private": true,
   "workspaces": [
     "scripts",
+    "src/rossum-hooks/src/*",
     "src/*"
   ],
   "engines": {

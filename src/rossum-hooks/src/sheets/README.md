@@ -7,12 +7,19 @@ Rossum Sheets is a project bringing spreadsheet UX into Rossum.
 - Use ~400 standardized Excel functions and formulas to calculate or validate anything you need.
 - No steep learning curve (everyone knows Excel).
 - Stay performant and organize your data as you need them.
+- Support for calculating, validating or conditionally hiding fields.
 
 Powered by [HyperFormula](https://github.com/handsontable/hyperformula)
 
 ## Installation and Usage
 
 **TODO**
+
+## Build from source
+
+```
+yarn workspace @adeira/rossum-hooks build
+```
 
 ## Known limitations
 

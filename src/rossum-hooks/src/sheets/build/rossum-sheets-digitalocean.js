@@ -1,5 +1,7 @@
 'use strict';
 
+require('https');
+
 // 
 
 
@@ -8,19 +10,19 @@
  *
  * @param type - the type of the message; errors prevent confirmation in the UI
  * @param content - the message shown to the user
- * @param datapointId - the id of the datapoint where the message will appear (null for "global" messages).
+ * @param datapoint - the datapoint where the message will appear (null for "global" messages)
  *
  * Returns the JSON message definition (see https://elis.rossum.ai/api/docs/#annotation-content-event-response-format)
  */
 function createMessage(
   type,
   content,
-  datapointId = null,
+  datapoint = null,
 ) {
   return {
     content,
     type,
-    id: datapointId,
+    id: datapoint?.id ?? null,
   };
 }
 
@@ -40460,13 +40462,13 @@ function processRossumPayload(
               });
             }
             if (showInfo != null) {
-              messages.push(createMessage('info', showInfo, targetDatapoint.id));
+              messages.push(createMessage('info', showInfo, targetDatapoint));
             }
             if (showWarning != null) {
-              messages.push(createMessage('warning', showWarning, targetDatapoint.id));
+              messages.push(createMessage('warning', showWarning, targetDatapoint));
             }
             if (showError != null) {
-              messages.push(createMessage('error', showError, targetDatapoint.id));
+              messages.push(createMessage('error', showError, targetDatapoint));
             }
             if (hide != null) {
               operations.push(createReplaceOperation(targetDatapoint, null, true));
@@ -40516,19 +40518,29 @@ function processRossumPayload(
 // 
 
 
-function handler(event, context, callback) {
-  const payload = JSON.parse(event.body);
-
-  const { messages, operations, automation_blockers } = processRossumPayload(payload);
-
-  callback(
-    null,
-    JSON.stringify({
+function main(payload) {
+  try {
+    const {
       messages,
       operations,
-      automation_blockers,
-    }),
-  );
+      automation_blockers, // eslint-disable-line camelcase
+    } = processRossumPayload(payload);
+
+    return {
+      body: JSON.stringify({
+        messages,
+        operations,
+        automation_blockers, // eslint-disable-line camelcase
+      }),
+    };
+  } catch (error) {
+    return {
+      body: JSON.stringify({
+        messages: [createMessage('error', error.message)],
+        operations: [],
+      }),
+    };
+  }
 }
 
-exports.handler = handler;
+exports.main = main;

@@ -13,7 +13,7 @@ import type { RollupPlugin } from './rollup-plugin-flow.mjs';
 
 export default [
   {
-    input: 'src/sheets/handlers/awsLambda.js',
+    input: 'src/handlers/awsLambda.js',
     output: {
       file: 'build/rossum-sheets-aws.js',
       format: 'cjs',
@@ -21,7 +21,7 @@ export default [
     plugins: ([flow(), commonjs(), nodeResolve()] /*: $ReadOnlyArray<RollupPlugin> */),
   },
   {
-    input: 'src/sheets/handlers/digitalOceanFunction.js',
+    input: 'src/handlers/digitalOceanFunction.js',
     output: {
       file: 'build/rossum-sheets-digitalocean.js',
       format: 'cjs',
@@ -29,7 +29,7 @@ export default [
     plugins: ([flow(), commonjs(), nodeResolve()] /*: $ReadOnlyArray<RollupPlugin> */),
   },
   {
-    input: 'src/sheets/handlers/rossumServerlessFunction.js',
+    input: 'src/handlers/rossumServerlessFunction.js',
     output: {
       file: 'build/rossum-sheets-rossum.js',
       format: 'cjs',
