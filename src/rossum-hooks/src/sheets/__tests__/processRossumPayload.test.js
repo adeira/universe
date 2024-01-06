@@ -175,6 +175,32 @@ it('does not allow writing into meta fields', () => {
       },
     }),
   ).toThrowErrorMatchingInlineSnapshot(
-    `"Meta fields are not supported as a target: annotation.url"`,
+    `"Meta fields are not supported as a target: annotation.url. Please check your configuration."`,
+  );
+});
+
+it('does not allow writing into unkown fields', () => {
+  expect(() =>
+    processRossumPayload({
+      ...payload,
+      settings: {
+        sheets: {
+          meta: {
+            columns: {
+              A: 'annotation.url',
+              B: 'document.url',
+            },
+            formulas: [
+              {
+                fx: '=B1',
+                target: 'this_field_definitely_does_not_exist',
+              },
+            ],
+          },
+        },
+      },
+    }),
+  ).toThrowErrorMatchingInlineSnapshot(
+    `"Target datapoint does not exist: this_field_definitely_does_not_exist. Please check your configuration."`,
   );
 });
