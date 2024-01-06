@@ -1,9 +1,10 @@
 // @flow
 
+import type { WebhookPayload } from '@adeira/rossum-flow-types';
+
 import createMessage from '../../utils/createMessage';
 import processRossumPayload from '../processRossumPayload';
 import type { ExtensionUserConfig } from '../validateUserConfig';
-import type { WebhookPayload } from '../../flowTypes';
 
 export function main(payload: WebhookPayload<ExtensionUserConfig>): { body: string } {
   try {

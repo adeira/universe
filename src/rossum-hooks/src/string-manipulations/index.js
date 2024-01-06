@@ -1,9 +1,10 @@
 // @flow
 
+import type { WebhookPayload, WebhookResponse } from '@adeira/rossum-flow-types';
+
 import createReplaceOperation from '../utils/createReplaceOperation';
 import findBySchemaId from '../utils/findBySchemaId';
 import processTransformation from './processTransformation';
-import type { WebhookPayload, WebhookResponse } from '../flowTypes';
 
 /**
  * The `rossum_hook_request_handler` is an obligatory main function that accepts input and produces

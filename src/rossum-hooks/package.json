@@ -8,6 +8,7 @@
     "build": "rollup --config"
   },
   "dependencies": {
+    "@adeira/rossum-flow-types": "^0.0.0",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/pluginutils": "^5.1.0",

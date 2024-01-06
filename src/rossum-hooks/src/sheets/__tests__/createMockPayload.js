@@ -1,6 +1,7 @@
 // @flow
 
-import type { WebhookPayload } from '../../flowTypes';
+import type { WebhookPayload } from '@adeira/rossum-flow-types';
+
 import type { ExtensionUserConfig } from '../validateUserConfig';
 
 export default function createMockPayload(
