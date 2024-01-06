@@ -13,14 +13,6 @@ import type { RollupPlugin } from './rollup-plugin-flow.mjs';
 
 export default [
   {
-    input: 'src/string-manipulations/index.js',
-    output: {
-      file: 'build/rossum-string-manipulations.js',
-      format: 'cjs',
-    },
-    plugins: ([flow()] /*: $ReadOnlyArray<RollupPlugin> */),
-  },
-  {
     input: 'src/sheets/handlers/awsLambda.js',
     output: {
       file: 'build/rossum-sheets-aws.js',
