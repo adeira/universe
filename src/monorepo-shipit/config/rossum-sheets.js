@@ -9,9 +9,6 @@ module.exports = ({
     };
   },
   getPathMappings() {
-    return new Map([
-      ['src/rossum-hooks/src/sheets/', ''],
-      ['src/rossum-sheets/', ''],
-    ]);
+    return new Map([['src/rossum-sheets/', '']]);
   },
 }: ConfigType);
