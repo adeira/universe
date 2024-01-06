@@ -1,0 +1,10 @@
+{
+  "name": "@adeira/rossum-utils",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "index.js",
+  "dependencies": {
+    "@adeira/rossum-flow-types": "^0.0.0"
+  }
+}

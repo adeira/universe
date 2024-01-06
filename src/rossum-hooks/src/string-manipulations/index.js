@@ -1,9 +1,8 @@
 // @flow
 
+import { createReplaceOperation, findBySchemaId } from '@adeira/rossum-utils';
 import type { WebhookPayload, WebhookResponse } from '@adeira/rossum-flow-types';
 
-import createReplaceOperation from '../utils/createReplaceOperation';
-import findBySchemaId from '../utils/findBySchemaId';
 import processTransformation from './processTransformation';
 
 /**

@@ -1,8 +1,8 @@
 // @flow
 
+import { createMessage } from '@adeira/rossum-utils';
 import type { WebhookPayload } from '@adeira/rossum-flow-types';
 
-import createMessage from '../../utils/createMessage';
 import processRossumPayload from '../processRossumPayload';
 import type { ExtensionUserConfig } from '../validateUserConfig';
 

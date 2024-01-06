@@ -1,10 +1,8 @@
 // @flow
 
+import { createMessage, createReplaceOperation, findBySchemaId } from '@adeira/rossum-utils';
 import type { WebhookPayload, WebhookResponse } from '@adeira/rossum-flow-types';
 
-import createMessage from '../utils/createMessage';
-import createReplaceOperation from '../utils/createReplaceOperation';
-import findBySchemaId from '../utils/findBySchemaId';
 import createHyperFormulaInstance from './createHyperFormulaInstance';
 import isMetaField from './isMetaField';
 import type { ExtensionUserConfig } from './validateUserConfig';
@@ -58,13 +56,13 @@ export default function processRossumPayload(
               });
             }
             if (showInfo != null) {
-              messages.push(createMessage('info', showInfo, targetDatapoint.id));
+              messages.push(createMessage('info', showInfo, targetDatapoint));
             }
             if (showWarning != null) {
-              messages.push(createMessage('warning', showWarning, targetDatapoint.id));
+              messages.push(createMessage('warning', showWarning, targetDatapoint));
             }
             if (showError != null) {
-              messages.push(createMessage('error', showError, targetDatapoint.id));
+              messages.push(createMessage('error', showError, targetDatapoint));
             }
             if (hide != null) {
               operations.push(createReplaceOperation(targetDatapoint, null, true));

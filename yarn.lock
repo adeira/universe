@@ -396,6 +396,7 @@ __metadata:
   resolution: "@adeira/rossum-hooks@workspace:src/rossum-hooks"
   dependencies:
     "@adeira/rossum-flow-types": "npm:^0.0.0"
+    "@adeira/rossum-utils": "npm:^0.0.0"
     "@rollup/plugin-commonjs": "npm:^25.0.7"
     "@rollup/plugin-node-resolve": "npm:^15.2.3"
     "@rollup/pluginutils": "npm:^5.1.0"
@@ -417,6 +418,14 @@ __metadata:
   resolution: "@adeira/rossum-swat@workspace:src/rossum-swat"
   dependencies:
     csv-writer: "npm:^1.6.0"
+  languageName: unknown
+  linkType: soft
+
+"@adeira/rossum-utils@npm:^0.0.0, @adeira/rossum-utils@workspace:src/rossum-utils":
+  version: 0.0.0-use.local
+  resolution: "@adeira/rossum-utils@workspace:src/rossum-utils"
+  dependencies:
+    "@adeira/rossum-flow-types": "npm:^0.0.0"
   languageName: unknown
   linkType: soft
 
