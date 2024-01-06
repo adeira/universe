@@ -391,9 +391,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/rossum-hooks@workspace:src/rossum-sheets":
+"@adeira/rossum-sa-extension@workspace:src/rossum-sa-extension":
   version: 0.0.0-use.local
-  resolution: "@adeira/rossum-hooks@workspace:src/rossum-sheets"
+  resolution: "@adeira/rossum-sa-extension@workspace:src/rossum-sa-extension"
+  languageName: unknown
+  linkType: soft
+
+"@adeira/rossum-sheets@workspace:src/rossum-sheets":
+  version: 0.0.0-use.local
+  resolution: "@adeira/rossum-sheets@workspace:src/rossum-sheets"
   dependencies:
     "@adeira/rossum-flow-types": "npm:^0.0.0"
     "@adeira/rossum-utils": "npm:^0.0.0"
@@ -404,12 +410,6 @@ __metadata:
     hyperformula: "npm:^2.6.1"
     lodash.get: "npm:^4.4.2"
     rollup: "npm:^4.9.4"
-  languageName: unknown
-  linkType: soft
-
-"@adeira/rossum-sa-extension@workspace:src/rossum-sa-extension":
-  version: 0.0.0-use.local
-  resolution: "@adeira/rossum-sa-extension@workspace:src/rossum-sa-extension"
   languageName: unknown
   linkType: soft
 
