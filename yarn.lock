@@ -391,9 +391,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/rossum-hooks@workspace:src/rossum-hooks":
+"@adeira/rossum-hooks@workspace:src/rossum-hooks/src/sheets":
   version: 0.0.0-use.local
-  resolution: "@adeira/rossum-hooks@workspace:src/rossum-hooks"
+  resolution: "@adeira/rossum-hooks@workspace:src/rossum-hooks/src/sheets"
   dependencies:
     "@adeira/rossum-flow-types": "npm:^0.0.0"
     "@adeira/rossum-utils": "npm:^0.0.0"
