@@ -1,9 +1,7 @@
 // @flow
 
+import { createMessage, fetchRossumAPI } from '@adeira/rossum-utils';
 import type { WebhookPayload, WebhookResponse } from '@adeira/rossum-flow-types';
-
-import createMessage from '../utils/createMessage';
-import fetchRossumAPI from '../utils/fetchRossumAPI';
 
 function fetchQueue(
   authToken: string,
