@@ -1,4 +1,4 @@
-Chrome extension adding small enhancements to Rossum's UI for the SA team:
+Chrome extension adding small enhancements to Rossum's UI (originally created by the SA team):
 
 - shows datapoint `schema_id` on the annotation screen (headers and line items)
 - adds `devFeatureEnabled` toggle
