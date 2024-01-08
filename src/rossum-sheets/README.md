@@ -1,4 +1,5 @@
-🚧 **WORK IN PROGRESS** 🚧
+> [!IMPORTANT]
+> This is a community project supported by enthusiasts and volunteers. For official support, please get in touch with [Rossum Sales](https://rossum.ai/form/contact/).
 
 # Rossum Sheets
 
