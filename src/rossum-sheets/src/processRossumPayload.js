@@ -74,9 +74,8 @@ export default function processRossumPayload(
           } else if (hide != null) {
             operations.push(createReplaceOperation(targetDatapoint, null, false));
           }
-        } else if (cellType === 'NUMBER_DATE') {
-          // Otherwise replace date value (as an ISO string)
-          // TODO: support other cell types as well?
+        } else if (cellType === 'NUMBER_DATE' || cellType === 'NUMBER_DATETIME') {
+          // Otherwise replace date value (as short ISO string)
           const { year, month, day } = hfInstance.numberToDate(cellValue);
           operations.push(createReplaceOperation(targetDatapoint, `${year}-${month}-${day}`));
         } else {
