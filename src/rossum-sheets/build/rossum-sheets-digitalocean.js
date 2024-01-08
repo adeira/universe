@@ -6,6 +6,23 @@ require('https');
 
 
 /**
+ * @param datapoint - the content of the datapoint
+ * @param content - the message shown to the user
+ */
+function createAutomationBlocker(
+  datapoint,
+  content,
+) {
+  return {
+    id: datapoint.id,
+    content,
+  };
+}
+
+// 
+
+
+/**
  * Create a message which will be shown to the user.
  *
  * @param type - the type of the message; errors prevent confirmation in the UI
@@ -40459,10 +40476,9 @@ function processRossumPayload(
           // Validate if user cares about validations (truthy check of the cell value)
           if (cellValue) {
             if (showAutomationBlocker != null) {
-              automationBlockers.push({
-                id: targetDatapoint.id,
-                content: showAutomationBlocker,
-              });
+              automationBlockers.push(
+                createAutomationBlocker(targetDatapoint, showAutomationBlocker),
+              );
             }
             if (showInfo != null) {
               messages.push(createMessage('info', showInfo, targetDatapoint));

@@ -1,6 +1,11 @@
 // @flow
 
-import { createMessage, createReplaceOperation, findBySchemaId } from '@adeira/rossum-utils';
+import {
+  createAutomationBlocker,
+  createMessage,
+  createReplaceOperation,
+  findBySchemaId,
+} from '@adeira/rossum-utils';
 import type { WebhookPayload, WebhookResponse } from '@adeira/rossum-flow-types';
 
 import createHyperFormulaInstance from './createHyperFormulaInstance';
@@ -50,10 +55,9 @@ export default function processRossumPayload(
           // Validate if user cares about validations (truthy check of the cell value)
           if (cellValue) {
             if (showAutomationBlocker != null) {
-              automationBlockers.push({
-                id: targetDatapoint.id,
-                content: showAutomationBlocker,
-              });
+              automationBlockers.push(
+                createAutomationBlocker(targetDatapoint, showAutomationBlocker),
+              );
             }
             if (showInfo != null) {
               messages.push(createMessage('info', showInfo, targetDatapoint));
