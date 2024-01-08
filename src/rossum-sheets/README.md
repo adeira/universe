@@ -16,6 +16,8 @@ Powered by [HyperFormula](https://github.com/handsontable/hyperformula)
 
 **TODO**
 
+Check `/build/` folder for pre-build functions for AWS, DigitalOcean and Rossum serverless functions.
+
 ## Build from source
 
 ```
@@ -32,9 +34,7 @@ Writes result of the `fx` into the specified datapoint (`target`):
 {
   "sheets": {
     "headers": {
-      "columns": {
-        "A": "document_id"
-      },
+      "columns": { "A": "document_id" },
       "formulas": [
         {
           "fx": "=ISBLANK(A1)",
@@ -48,12 +48,12 @@ Writes result of the `fx` into the specified datapoint (`target`):
 
 Note that you can calculate intermediate values as well:
 
-```json
+```json5
 {
-  "columns": {
-    "A": "document_id",
-    "B": "=SUM(A1, 24)" // This allows to pre-calculate any value to be shared in multiple formulas
-  }
+  columns: {
+    A: 'document_id',
+    B: '=SUM(A1, 24)', // This allows to pre-calculate any value to be shared in multiple formulas later
+  },
 }
 ```
 
@@ -129,8 +129,6 @@ Using `ifTruthy` prevents writing into `target` and it performs some action inst
 ```
 
 Note that when the condition (`fx`) is false then the field is automatically shown again.
-
-_TODO: what if this is not a desired behavior?_
 
 ## Migrating from existing extensions
 
