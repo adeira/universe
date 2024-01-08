@@ -3,8 +3,13 @@
 export type ExtensionUserConfig = {
   +debug?: boolean,
   +sheets: {
+    // Sheet name can either be multivalue datapoint ID such as "line_items" (in which case the
+    // children and relevant formulas will be expanded/copy-pasted) or anything else that doesn't
+    // have multivalue representation in the schema (such as "headers").
     +[sheetName: string]: {
       +columns: {
+        // Column names must be sorted alphabetically like in Excel without numbers (A, B, C).
+        // The value should either datapoint ID, meta path or formula.
         +[columnName: string]: string,
       },
       +formulas?: Array<{
