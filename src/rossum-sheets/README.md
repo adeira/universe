@@ -22,10 +22,115 @@ Powered by [HyperFormula](https://github.com/handsontable/hyperformula)
 yarn workspace @adeira/rossum-sheets build
 ```
 
-## Known limitations
+## Features
 
-- No support for async functions (cannot fetch data in formula for example)
-- **TODO**
+### Calculate values
+
+Writes result of the `fx` into the specified datapoint (`target`):
+
+```json
+{
+  "sheets": {
+    "headers": {
+      "columns": {
+        "A": "document_id"
+      },
+      "formulas": [
+        {
+          "fx": "=ISBLANK(A1)",
+          "target": "notes"
+        }
+      ]
+    }
+  }
+}
+```
+
+Note that you can calculate intermediate values as well:
+
+```json
+{
+  "columns": {
+    "A": "document_id",
+    "B": "=SUM(A1, 24)" // This allows to pre-calculate any value to be shared in multiple formulas
+  }
+}
+```
+
+### Set automation blocker
+
+Using `ifTruthy` prevents writing into `target` and it performs some action instead. In this case it sets automation blocker:
+
+```json
+{
+  "sheets": {
+    "headers": {
+      "columns": { "A": "document_id" },
+      "formulas": [
+        {
+          "fx": "=ISBLANK(A1)",
+          "target": "notes",
+          "ifTruthy": {
+            "showAutomationBlocker": "My custom automation blocker message."
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+### Show info/warning/error messages
+
+Using `ifTruthy` prevents writing into `target` and it performs some action instead. In this case it shows various messages:
+
+```json
+{
+  "sheets": {
+    "headers": {
+      "columns": { "A": "document_id" },
+      "formulas": [
+        {
+          "fx": "=ISBLANK(A1)",
+          "target": "notes",
+          "ifTruthy": {
+            "showInfo": "Document ID is empty.",
+            "showWarning": "Should Document ID be empty?",
+            "showError": "Document ID cannot be empty!"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+### Hide and show fields conditionally
+
+Using `ifTruthy` prevents writing into `target` and it performs some action instead. In this case it hides `target` conditionally:
+
+```json
+{
+  "sheets": {
+    "headers": {
+      "columns": { "A": "document_id" },
+      "formulas": [
+        {
+          "fx": "=ISBLANK(A1)",
+          "target": "notes",
+          "ifTruthy": {
+            "hide": true
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+Note that when the condition (`fx`) is false then the field is automatically shown again.
+
+_TODO: what if this is not a desired behavior?_
 
 ## Migrating from existing extensions
 
@@ -447,3 +552,8 @@ After:
   }
 }
 ```
+
+## Known limitations
+
+- No support for async functions (cannot fetch data in formula for example).
+- **TODO**
