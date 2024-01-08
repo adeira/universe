@@ -79,10 +79,13 @@ export default function createHyperFormulaInstance(
         Object.values(userSheets[sheetName].columns)
           .map((datapointID) => {
             if (isMetaField(datapointID)) {
-              // TODO: use `registerFunctionPlugin` instead?
+              // Meta fields such as `annotation.*` OR `document.*`:
               return lodashGet(payload, datapointID);
+            } else if (hfInstance.validateFormula(datapointID)) {
+              // Intermediate formula (no special treatment):
+              return datapointID;
             }
-
+            // Fallback to regular Rossum datapoint:
             const dpValue =
               findBySchemaId(payload.annotation.content, datapointID)[i].content.normalized_value ??
               findBySchemaId(payload.annotation.content, datapointID)[i].content.value;
