@@ -21,8 +21,8 @@ const options = {
   arrayColumnSeparator: ',',
   arrayRowSeparator: ';',
   caseSensitive: false,
-  currencySymbol: ['$', 'USD'],
-  dateFormats: ['MM/DD/YYYY', 'MM/DD/YY', 'YYYY/MM/DD'],
+  currencySymbol: ['$', 'USD'], // TODO: disable to prevent unexpected automatic detection (?)
+  dateFormats: ['MM/DD/YYYY', 'MM/DD/YY', 'YYYY/MM/DD'], // TODO: disable to prevent unexpected automatic detection (?)
   decimalSeparator: '.',
   evaluateNullToZero: false,
   functionArgSeparator: ',',
@@ -36,7 +36,7 @@ const options = {
   nullYear: 30,
   smartRounding: true,
   thousandSeparator: '',
-  timeFormats: ['hh:mm', 'hh:mm:ss.sss'],
+  timeFormats: ['hh:mm', 'hh:mm:ss.sss'], // TODO: disable to prevent unexpected automatic detection (?)
   useArrayArithmetic: true,
   useRegularExpressions: false,
   useWildcards: true,
