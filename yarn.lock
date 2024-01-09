@@ -277,7 +277,7 @@ __metadata:
     "@npmcli/arborist": "npm:^7.2.2"
     chalk: "npm:^4.1.2"
     is-ci: "npm:^3.0.1"
-    npm-packlist: "npm:^8.0.1"
+    npm-packlist: "npm:^8.0.2"
     npm-registry-client: "npm:^8.6.0"
     rimraf: "npm:^5.0.5"
     semver: "npm:^7.5.4"
@@ -19684,12 +19684,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm-packlist@npm:^8.0.0, npm-packlist@npm:^8.0.1":
-  version: 8.0.1
-  resolution: "npm-packlist@npm:8.0.1"
+"npm-packlist@npm:^8.0.0, npm-packlist@npm:^8.0.2":
+  version: 8.0.2
+  resolution: "npm-packlist@npm:8.0.2"
   dependencies:
     ignore-walk: "npm:^6.0.4"
-  checksum: 40a61e7c4ee3d7ae29314b554cba00d8ce7f934c2949043fe137b48a69f8c6dbec222b45bc3176667ea78aae275764e0e2d659017833f47673324ddc2abfd50e
+  checksum: ac3140980b1475c2e9acd3d0ca1acd0f8660c357aed357f1a4ebff2270975e0280a3b1c4938e2f16bd68217853ceb5725cf8779ec3752dfcc546582751ceedff
   languageName: node
   linkType: hard
 
