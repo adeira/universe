@@ -43,9 +43,7 @@ export type AllCSSPseudoTypes = {
   +':local-link'?: AllCSSPropertyTypes, // https://developer.mozilla.org/docs/Web/CSS/:local-link
   +':not'?: AllCSSPropertyTypes, // https://developer.mozilla.org/docs/Web/CSS/:not
   +':nth-child'?: AllCSSPropertyTypes, // https://developer.mozilla.org/docs/Web/CSS/:nth-child
-  +':nth-col'?: AllCSSPropertyTypes, // https://developer.mozilla.org/docs/Web/CSS/:nth-col
   +':nth-last-child'?: AllCSSPropertyTypes, // https://developer.mozilla.org/docs/Web/CSS/:nth-last-child
-  +':nth-last-col'?: AllCSSPropertyTypes, // https://developer.mozilla.org/docs/Web/CSS/:nth-last-col
   +':nth-last-of-type'?: AllCSSPropertyTypes, // https://developer.mozilla.org/docs/Web/CSS/:nth-last-of-type
   +':nth-of-type'?: AllCSSPropertyTypes, // https://developer.mozilla.org/docs/Web/CSS/:nth-of-type
   +':only-child'?: AllCSSPropertyTypes, // https://developer.mozilla.org/docs/Web/CSS/:only-child
