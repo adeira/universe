@@ -65,7 +65,6 @@ export type AllCSSPropertyTypes = {
   +backgroundPositionY?: number | string, // https://developer.mozilla.org/docs/Web/CSS/background-position-y
   +backgroundRepeat?: number | string, // https://developer.mozilla.org/docs/Web/CSS/background-repeat
   +backgroundSize?: number | string, // https://developer.mozilla.org/docs/Web/CSS/background-size
-  +blockOverflow?: string,
   +blockSize?: number | string, // https://developer.mozilla.org/docs/Web/CSS/block-size
   +border?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border
   +borderBlock?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-block
@@ -781,7 +780,6 @@ export type AllCSSPropertyTypes = {
     | 'inherit'
     | 'initial'
     | 'unset',
-  +whiteSpaceTrim?: number | string, // https://developer.mozilla.org/docs/Web/CSS/white-space-trim
   +widows?: number | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/widows
   +width?: number | string, // https://developer.mozilla.org/docs/Web/CSS/width
   +willChange?: number | string, // https://developer.mozilla.org/docs/Web/CSS/will-change
