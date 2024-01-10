@@ -104,6 +104,11 @@ export default function createHyperFormulaInstance(
 
     const sheetId = hfInstance.getSheetId(sheetName);
     hfInstance.setSheetContent(sheetId, sheetValues);
+    // hfInstance.setSheetContent(sheetId, [
+    //   ['=TRANSPOSE({1,2; 3,4; 5,6})'],
+    //   // [null, null, null],
+    //   // [null, null, null],
+    // ]);
 
     if (sheetFormulas.length > 0) {
       // copy formulas to all rows so that the references are correct ($A1 -> $A2, $A3, etc.)

@@ -56,6 +56,75 @@ export default function createMockPayload(
           },
         },
         {
+          id: 7000,
+          schema_id: 'line_items',
+          category: 'multivalue',
+          children: [
+            {
+              id: 7100,
+              schema_id: 'line_item',
+              category: 'tuple',
+              children: [
+                {
+                  id: 7110,
+                  category: 'datapoint',
+                  schema_id: 'item_aaa',
+                  content: {
+                    value: 'AAA',
+                  },
+                },
+                {
+                  id: 7120,
+                  category: 'datapoint',
+                  schema_id: 'item_bbb',
+                  content: {
+                    value: 'BBB',
+                  },
+                },
+                {
+                  id: 7130,
+                  category: 'datapoint',
+                  schema_id: 'item_ccc',
+                  content: {
+                    value: 'CCC',
+                  },
+                },
+              ],
+            },
+            {
+              id: 7200,
+              schema_id: 'line_item',
+              category: 'tuple',
+              children: [
+                {
+                  id: 7210,
+                  category: 'datapoint',
+                  schema_id: 'item_aaa',
+                  content: {
+                    value: 'AAA',
+                  },
+                },
+                {
+                  id: 7220,
+                  category: 'datapoint',
+                  schema_id: 'item_bbb',
+                  content: {
+                    value: 'BBB',
+                  },
+                },
+                {
+                  id: 7230,
+                  category: 'datapoint',
+                  schema_id: 'item_ccc',
+                  content: {
+                    value: 'CCC',
+                  },
+                },
+              ],
+            },
+          ],
+        },
+        {
           id: 9999,
           schema_id: 'notes',
           content: {
