@@ -161,8 +161,8 @@ it('does not allow writing into meta fields', () => {
         sheets: {
           meta: {
             columns: {
-              A: 'annotation.url',
-              B: 'document.url',
+              A: '=ROSSUM.PAYLOAD("annotation.url")',
+              B: '=ROSSUM.PAYLOAD("document.url")',
             },
             formulas: [
               {
@@ -187,8 +187,8 @@ it('does not allow writing into unkown fields', () => {
         sheets: {
           meta: {
             columns: {
-              A: 'annotation.url',
-              B: 'document.url',
+              A: '=ROSSUM.PAYLOAD("annotation.url")',
+              B: '=ROSSUM.PAYLOAD("document.url")',
             },
             formulas: [
               {

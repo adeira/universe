@@ -5,6 +5,7 @@ import settings from './fixtures/settings.json';
 import createHyperFormulaInstance from '../createHyperFormulaInstance';
 
 it('works as expected', () => {
+  globalThis.__rossum_payload__ = payload; // TODO: should this be done in `createHyperFormulaInstance`?
   const hfInstance = createHyperFormulaInstance({ ...payload, settings });
 
   expect(hfInstance.getAllSheetsSerialized()).toMatchInlineSnapshot(`

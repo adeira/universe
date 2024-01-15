@@ -7,7 +7,9 @@ it('correctly deals with currencies', () => {
   const config = {
     sheets: {
       headers: {
-        columns: { A: 'number_currency' },
+        columns: {
+          A: '=ROSSUM.DP("number_currency")',
+        },
         formulas: [
           {
             fx: '=A1',
@@ -28,7 +30,7 @@ it('correctly deals with currencies', () => {
           "op": "replace",
           "value": {
             "content": {
-              "value": "42",
+              "value": "42USD",
             },
           },
         },

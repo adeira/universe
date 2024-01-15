@@ -5,12 +5,15 @@ import createMockPayload from '../createMockPayload';
 
 it('returns stringified boolean value', () => {
   const config = {
+    debug: false,
     sheets: {
       headers: {
-        columns: { A: 'notes' },
+        columns: {
+          A: '=ROSSUM.DP("notes")',
+        },
         formulas: [
           {
-            fx: '=ISBLANK(A1)',
+            fx: '=LEN(A1)=0',
             target: 'notes',
           },
         ],
@@ -41,10 +44,12 @@ it('shows info message', () => {
   const config = {
     sheets: {
       headers: {
-        columns: { A: 'notes' },
+        columns: {
+          A: '=ROSSUM.DP("notes")',
+        },
         formulas: [
           {
-            fx: '=ISBLANK(A1)',
+            fx: '=LEN(A1)=0',
             target: 'notes',
             ifTruthy: {
               showInfo: 'info message',
@@ -74,10 +79,12 @@ it('blocks automation', () => {
   const config = {
     sheets: {
       headers: {
-        columns: { A: 'notes' },
+        columns: {
+          A: '=ROSSUM.DP("notes")',
+        },
         formulas: [
           {
-            fx: '=ISBLANK(A1)',
+            fx: '=LEN(A1)=0',
             target: 'notes',
             ifTruthy: {
               showAutomationBlocker: 'automation blocker',

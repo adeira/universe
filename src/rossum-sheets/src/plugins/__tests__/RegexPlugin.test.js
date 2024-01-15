@@ -7,6 +7,7 @@ import createHyperFormulaInstance from '../../createHyperFormulaInstance';
 let hfInstance;
 let sheetId;
 beforeAll(() => {
+  globalThis.__rossum_payload__ = payload; // TODO: should this be done in `createHyperFormulaInstance`?
   hfInstance = createHyperFormulaInstance({ ...payload, settings });
   sheetId = hfInstance.getSheetId(hfInstance.addSheet('__tests__'));
 });

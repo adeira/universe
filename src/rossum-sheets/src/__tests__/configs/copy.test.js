@@ -7,7 +7,9 @@ it('correctly copies empty values', () => {
   const config = {
     sheets: {
       headers: {
-        columns: { A: 'notes' },
+        columns: {
+          A: '=ROSSUM.DP("notes")',
+        },
         formulas: [
           {
             fx: '=A1',

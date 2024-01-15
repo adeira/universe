@@ -8,6 +8,7 @@ import type { WebhookPayload } from '@adeira/rossum-flow-types';
 
 import isMetaField from './isMetaField';
 import { RegexPlugin, RegexPluginTranslations } from './plugins/RegexPlugin';
+import { RossumPlugin, RossumPluginTranslations } from './plugins/RossumPlugin';
 import validateUserConfig, { type ExtensionUserConfig } from './validateUserConfig';
 
 const options = {
@@ -21,8 +22,8 @@ const options = {
   arrayColumnSeparator: ',',
   arrayRowSeparator: ';',
   caseSensitive: false,
-  currencySymbol: ['$', 'USD'], // TODO: disable to prevent unexpected automatic detection (?)
-  dateFormats: ['MM/DD/YYYY', 'MM/DD/YY', 'YYYY/MM/DD'], // TODO: disable to prevent unexpected automatic detection (?)
+  currencySymbol: [], // disabled to prevent unwanted automatic detection
+  dateFormats: [], // disabled to prevent unwanted automatic detection
   decimalSeparator: '.',
   evaluateNullToZero: false,
   functionArgSeparator: ',',
@@ -36,7 +37,7 @@ const options = {
   nullYear: 30,
   smartRounding: true,
   thousandSeparator: '',
-  timeFormats: ['hh:mm', 'hh:mm:ss.sss'], // TODO: disable to prevent unexpected automatic detection (?)
+  timeFormats: [], // disabled to prevent unwanted automatic detection
   useArrayArithmetic: true,
   useRegularExpressions: false,
   useWildcards: true,
@@ -48,7 +49,9 @@ export default function createHyperFormulaInstance(
   if (!HyperFormula.getRegisteredLanguagesCodes().includes('enUS')) {
     HyperFormula.registerLanguage('enUS', enUS);
   }
+
   HyperFormula.registerFunctionPlugin(RegexPlugin, RegexPluginTranslations);
+  HyperFormula.registerFunctionPlugin(RossumPlugin, RossumPluginTranslations);
 
   const hfInstance = HyperFormula.buildEmpty(options);
 
@@ -77,25 +80,8 @@ export default function createHyperFormulaInstance(
     ) {
       sheetValues.push(
         Object.values(userSheets[sheetName].columns)
-          .map((datapointID) => {
-            if (isMetaField(datapointID)) {
-              // Meta fields such as `annotation.*` OR `document.*`:
-              return lodashGet(payload, datapointID);
-            } else if (hfInstance.validateFormula(datapointID)) {
-              // Intermediate formula (no special treatment):
-              return datapointID;
-            }
-            // Fallback to regular Rossum datapoint:
-            const dpValue =
-              findBySchemaId(payload.annotation.content, datapointID)[i].content.normalized_value ??
-              findBySchemaId(payload.annotation.content, datapointID)[i].content.value;
-
-            // This is to make sure that empty datapoints will behave correctly with functions such as ISBLANK
-            // See: https://support.google.com/docs/answer/3093290
-            // See: https://learn.microsoft.com/en-us/office/troubleshoot/excel/isblank-function-return-false
-            return dpValue === '' ? null : dpValue;
-          })
-          .concat(i === 0 ? sheetFormulas : []), // we apply formulas only to the first row (enough for headers, later copied for line items)
+          // we apply formulas only to the first row (enough for headers, later copied for line items)
+          .concat(i === 0 ? sheetFormulas : []),
       );
     }
 
