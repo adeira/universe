@@ -556,4 +556,5 @@ After:
 - No support for async functions (cannot fetch data in formula for example).
 - Some common functions such as `XLOOKUP` or `CONVERT` and not available (yet).
 - Matrix functions such as `TRANSPOSE` do not work well because this function doesn't _create_ new datapoints.
+- It is not possible to work with `validation_source` or `confidence` scores (and other meta fields) of Rossum datapoints
 - **TODO**
