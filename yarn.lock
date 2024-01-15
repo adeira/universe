@@ -409,6 +409,7 @@ __metadata:
     flow-remove-types: "npm:^2.226.0"
     hyperformula: "npm:^2.6.1"
     lodash.get: "npm:^4.4.2"
+    pako: "npm:^2.1.0"
     rollup: "npm:^4.9.5"
   languageName: unknown
   linkType: soft
@@ -20311,6 +20312,13 @@ __metadata:
   bin:
     pacote: lib/bin.js
   checksum: 7dab80013eed5e652b4b260a032bea617bfe14a59fb0e7cc9e4f1404f940f67493c52c6b32fbd73a373aa8e8668a8930d6f41c5d8ce6615edd4d1b08df237d6b
+  languageName: node
+  linkType: hard
+
+"pako@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "pako@npm:2.1.0"
+  checksum: 8e8646581410654b50eb22a5dfd71159cae98145bd5086c9a7a816ec0370b5f72b4648d08674624b3870a521e6a3daffd6c2f7bc00fdefc7063c9d8232ff5116
   languageName: node
   linkType: hard
 
