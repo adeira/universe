@@ -540,7 +540,7 @@ __metadata:
   resolution: "@adeira/typescript-test@workspace:src/typescript-test"
   dependencies:
     "@playwright/test": "npm:^1.41.0"
-    "@types/node": "npm:^20.11.4"
+    "@types/node": "npm:^20.11.5"
     "@types/react": "npm:^18.2.48"
     "@types/react-dom": "npm:^18.2.18"
     eslint: "npm:^8.56.0"
@@ -6576,12 +6576,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^20.11.4":
-  version: 20.11.4
-  resolution: "@types/node@npm:20.11.4"
+"@types/node@npm:*, @types/node@npm:^20.11.5":
+  version: 20.11.5
+  resolution: "@types/node@npm:20.11.5"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: af6e1ad4d8f210d06d6db6c85b9aba25b022b493a4f2289e5ac693b418de746db812ab1537096e10e7cb7b78f1d835a06e61f31d93ebe36ef116bfbbf8f04c97
+  checksum: 6d18cec852f5cfbed3ec42b5c01c026e7a3f9da540d6e3d6738d4cee9979fb308cf27b6df7ba40a6553e7bc82e678f0ef53ba6e6ad52e5b86bd97b7783c2a42c
   languageName: node
   linkType: hard
 
