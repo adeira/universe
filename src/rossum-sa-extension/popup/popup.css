@@ -26,4 +26,6 @@ body {
   margin-block-start: 1em;
   color: #989898;
   font-size: smaller;
+  display: flex;
+  justify-content: space-between;
 }
