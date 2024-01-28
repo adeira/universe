@@ -1,6 +1,6 @@
 {
   "name": "@adeira/rossum-sa-extension",
-  "description": "Adds additional functionality to Rossum UI for developers (SA).",
+  "description": "Adds additional functionality to Rossum UI for easier onboarding.",
   "homepage": "https://github.com/adeira/rossum-sa-extension",
   "bugs": "https://github.com/adeira/universe/issues",
   "private": true,

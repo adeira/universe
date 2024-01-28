@@ -8,6 +8,10 @@ Chrome extension adding small enhancements to Rossum's UI (originally created by
 - add small UI improvements:
   - makes some select options a bit wider and alphabetically sorted
 
+![header fields](./assets/header_fields.png)
+
+![line items](./assets/line_items.png)
+
 To publish:
 
 - bump version in `manifest.json`, `package.json` and `popup/popup.html`
