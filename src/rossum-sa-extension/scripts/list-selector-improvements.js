@@ -5,7 +5,6 @@ const listSelectorImprovements = document.createElement('style');
 listSelectorImprovements.textContent = `
   div:has(> ul.rossum-sa-extension-list) {
     min-width: 440px !important;
-    max-height: initial !important;
   }`;
 
 document.head?.appendChild(listSelectorImprovements);
