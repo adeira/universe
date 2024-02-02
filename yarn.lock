@@ -115,7 +115,7 @@ __metadata:
     "@babel/preset-env": "npm:^7.23.9"
     "@babel/preset-react": "npm:^7.23.3"
     "@babel/runtime": "npm:^7.23.9"
-    babel-plugin-syntax-hermes-parser: "npm:^0.18.2"
+    babel-plugin-syntax-hermes-parser: "npm:^0.19.0"
     babel-plugin-transform-flow-enums: "npm:^0.0.2"
     strip-ansi: "npm:^6.0.1"
   peerDependencies:
@@ -8520,12 +8520,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-syntax-hermes-parser@npm:^0.18.2":
-  version: 0.18.2
-  resolution: "babel-plugin-syntax-hermes-parser@npm:0.18.2"
+"babel-plugin-syntax-hermes-parser@npm:^0.19.0":
+  version: 0.19.0
+  resolution: "babel-plugin-syntax-hermes-parser@npm:0.19.0"
   dependencies:
-    hermes-parser: "npm:0.18.2"
-  checksum: 10c0/17e604a75cb3735a4977a8d4a1d675fb04ab967dcf28671706861298fcc862cfb5bd32294635ae68c5c245488fe83941091cb28a2c909e3570804e88fdea9404
+    hermes-parser: "npm:0.19.0"
+  checksum: 10c0/a634e0d3a0002e54e8a6d04ba1628a94ce1e61a0019eb8b5c3cc566fc70fd986f8c15f3cd00fc978045a9c157b26a209e7a13623eea34bed60e63ec7d82159b3
   languageName: node
   linkType: hard
 
