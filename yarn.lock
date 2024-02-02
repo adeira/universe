@@ -406,7 +406,7 @@ __metadata:
     "@rollup/plugin-commonjs": "npm:^25.0.7"
     "@rollup/plugin-node-resolve": "npm:^15.2.3"
     "@rollup/pluginutils": "npm:^5.1.0"
-    flow-remove-types: "npm:^2.227.0"
+    flow-remove-types: "npm:^2.228.0"
     hyperformula: "npm:^2.6.1"
     lodash.get: "npm:^4.4.2"
     pako: "npm:^2.1.0"
@@ -13417,9 +13417,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"flow-remove-types@npm:^2.227.0":
-  version: 2.227.0
-  resolution: "flow-remove-types@npm:2.227.0"
+"flow-remove-types@npm:^2.228.0":
+  version: 2.228.0
+  resolution: "flow-remove-types@npm:2.228.0"
   dependencies:
     hermes-parser: "npm:0.18.2"
     pirates: "npm:^3.0.2"
@@ -13427,7 +13427,7 @@ __metadata:
   bin:
     flow-node: flow-node
     flow-remove-types: flow-remove-types
-  checksum: 10c0/b4162e39636cf9dd88e5197d528dc6fd09ae48871cc18491dfaab03fd593df0dd17687d03aa93d7822023f6c947a0f4b9db23551ced9d409bade56eba0631fa3
+  checksum: 10c0/688afcdd28bfc8cebd26645dcaece73f061ce959378a45cd2514361eacd9026df22093f4fe3006789735c34b402b7db63e001da65f000370027cc0937081e8e7
   languageName: node
   linkType: hard
 
