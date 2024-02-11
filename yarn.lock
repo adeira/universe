@@ -71,7 +71,7 @@ __metadata:
     babel-plugin-fbt: "npm:^1.0.0"
     babel-plugin-fbt-runtime: "npm:^1.0.0"
     fbt: "npm:^1.0.0"
-    globby: "npm:^14.0.0"
+    globby: "npm:^14.0.1"
     graphql: "npm:^16.8.1"
     next: "npm:^14.1.0"
     next-compose-plugins: "npm:^2.2.1"
@@ -4586,10 +4586,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sindresorhus/merge-streams@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "@sindresorhus/merge-streams@npm:1.0.0"
-  checksum: 10c0/43d077170845dc621002e9730aea567e6e126e84b3bbff01b8575266efdb2c81d223939d3bec24020e53960c154b4640bef7746aeb245abd94c5d32972dd6854
+"@sindresorhus/merge-streams@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "@sindresorhus/merge-streams@npm:2.1.0"
+  checksum: 10c0/009e2fcd0d554aec33d30525c23bb31419319c164cf23dc74eb6255107d2f4f7c2b82936b7cbf0a3e62bbc219bed6f86900f778a5a717e72daef8dedfe80eef8
   languageName: node
   linkType: hard
 
@@ -14166,17 +14166,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globby@npm:^14.0.0":
-  version: 14.0.0
-  resolution: "globby@npm:14.0.0"
+"globby@npm:^14.0.1":
+  version: 14.0.1
+  resolution: "globby@npm:14.0.1"
   dependencies:
-    "@sindresorhus/merge-streams": "npm:^1.0.0"
+    "@sindresorhus/merge-streams": "npm:^2.1.0"
     fast-glob: "npm:^3.3.2"
     ignore: "npm:^5.2.4"
     path-type: "npm:^5.0.0"
     slash: "npm:^5.1.0"
     unicorn-magic: "npm:^0.1.0"
-  checksum: 10c0/6d98738a419f948ef23da019275b15ca5c65bb7e354ecea52a3015f4dae6b28a713fcf73bf3aab1c04039f4f62da71cff191a7ececc37c0e4c9b4320a047505f
+  checksum: 10c0/749a6be91cf455c161ebb5c9130df3991cb9fd7568425db850a8279a6cf45acd031c5069395beb7aeb4dd606b64f0d6ff8116c93726178d8e6182fee58c2736d
   languageName: node
   linkType: hard
 
