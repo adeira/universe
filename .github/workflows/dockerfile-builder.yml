@@ -69,7 +69,7 @@ jobs:
           fetch-depth: 0
 
       # https://github.com/dorny/paths-filter
-      - uses: dorny/paths-filter@v3.0.0
+      - uses: dorny/paths-filter@v3.0.1
         id: changes
         with:
           filters: |
