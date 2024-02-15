@@ -17,6 +17,6 @@
     "hyperformula": "^2.6.2",
     "lodash.get": "^4.4.2",
     "pako": "^2.1.0",
-    "rollup": "^4.10.0"
+    "rollup": "^4.11.0"
   }
 }
