@@ -407,7 +407,7 @@ __metadata:
     "@rollup/plugin-node-resolve": "npm:^15.2.3"
     "@rollup/pluginutils": "npm:^5.1.0"
     flow-remove-types: "npm:^2.228.0"
-    hyperformula: "npm:^2.6.1"
+    hyperformula: "npm:^2.6.2"
     lodash.get: "npm:^4.4.2"
     pako: "npm:^2.1.0"
     rollup: "npm:^4.10.0"
@@ -15183,14 +15183,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hyperformula@npm:^2.6.1":
-  version: 2.6.1
-  resolution: "hyperformula@npm:2.6.1"
+"hyperformula@npm:^2.6.2":
+  version: 2.6.2
+  resolution: "hyperformula@npm:2.6.2"
   dependencies:
     chevrotain: "npm:^6.5.0"
     tiny-emitter: "npm:^2.1.0"
-    unorm: "npm:^1.6.0"
-  checksum: 10c0/421f44d51c9cd7feb1063380293beaba64bbe7fc53a42b3f723c7a08ce73bd47efc82a036ffa26d853ed9e4515773ac8b803ed2a7b07125d6d0f2ba575ae1827
+  checksum: 10c0/acf7d4a89ed1b549e933d1f446c3bf41427397a95eaa0e267b79aac1a9bf83ac6dfd3c22b2017f3c66c7502277275efaa9c8ea8bf271a729447b862c5e0cae67
   languageName: node
   linkType: hard
 
@@ -25784,13 +25783,6 @@ __metadata:
   version: 2.0.0
   resolution: "universalify@npm:2.0.0"
   checksum: 10c0/07092b9f46df61b823d8ab5e57f0ee5120c178b39609a95e4a15a98c42f6b0b8e834e66fbb47ff92831786193be42f1fd36347169b88ce8639d0f9670af24a71
-  languageName: node
-  linkType: hard
-
-"unorm@npm:^1.6.0":
-  version: 1.6.0
-  resolution: "unorm@npm:1.6.0"
-  checksum: 10c0/ff0caa3292f318e2e832d02ad019a401118fe42f5e554dca3b9c7e4a2a3100eda051945711234a6ffbd74088cf51930755782456d30864240936cb3485f80a01
   languageName: node
   linkType: hard
 
