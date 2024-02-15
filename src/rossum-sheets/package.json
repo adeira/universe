@@ -13,7 +13,7 @@
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/pluginutils": "^5.1.0",
-    "flow-remove-types": "^2.228.0",
+    "flow-remove-types": "^2.229.0",
     "hyperformula": "^2.6.2",
     "lodash.get": "^4.4.2",
     "pako": "^2.1.0",
