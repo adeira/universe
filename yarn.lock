@@ -406,7 +406,7 @@ __metadata:
     "@rollup/plugin-commonjs": "npm:^25.0.7"
     "@rollup/plugin-node-resolve": "npm:^15.2.3"
     "@rollup/pluginutils": "npm:^5.1.0"
-    flow-remove-types: "npm:^2.228.0"
+    flow-remove-types: "npm:^2.229.0"
     hyperformula: "npm:^2.6.2"
     lodash.get: "npm:^4.4.2"
     pako: "npm:^2.1.0"
@@ -13417,17 +13417,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"flow-remove-types@npm:^2.228.0":
-  version: 2.228.0
-  resolution: "flow-remove-types@npm:2.228.0"
+"flow-remove-types@npm:^2.229.0":
+  version: 2.229.0
+  resolution: "flow-remove-types@npm:2.229.0"
   dependencies:
-    hermes-parser: "npm:0.18.2"
+    hermes-parser: "npm:0.19.1"
     pirates: "npm:^3.0.2"
     vlq: "npm:^0.2.1"
   bin:
     flow-node: flow-node
     flow-remove-types: flow-remove-types
-  checksum: 10c0/688afcdd28bfc8cebd26645dcaece73f061ce959378a45cd2514361eacd9026df22093f4fe3006789735c34b402b7db63e001da65f000370027cc0937081e8e7
+  checksum: 10c0/1a79350096b2f48b97f51f4a5cd7049f4af3f1757b7de58d9f278a9da84f818f6063154e7da2b26f7230525ac00ecbc3eecdc433631312b2a427c09e536a71cf
   languageName: node
   linkType: hard
 
@@ -14751,26 +14751,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hermes-estree@npm:0.18.2":
-  version: 0.18.2
-  resolution: "hermes-estree@npm:0.18.2"
-  checksum: 10c0/6f3f53b8c9b48d75e682644eff1a35934d755df5532092c0248e1e59c305e55fceffc2396ac65377585ddeacc17cd7a3f0d2264565350661e13aa00a7c70b7d6
-  languageName: node
-  linkType: hard
-
 "hermes-estree@npm:0.19.1":
   version: 0.19.1
   resolution: "hermes-estree@npm:0.19.1"
   checksum: 10c0/98c79807c15146c745aca7a9c74b9f1ba20a463c8b9f058caed9b3f2741fc4a8609e7e4c06d163f67d819db35cb6871fc7b25085bb9a084bc53d777f67d9d620
-  languageName: node
-  linkType: hard
-
-"hermes-parser@npm:0.18.2":
-  version: 0.18.2
-  resolution: "hermes-parser@npm:0.18.2"
-  dependencies:
-    hermes-estree: "npm:0.18.2"
-  checksum: 10c0/d06f79064448cc9240d00115083a9f0a795078b493f275b2bfe39ead0039dc7e6f13c1f8bc0027c1293779269212e008402365df59a9f2fdaa5e45fa4a515818
   languageName: node
   linkType: hard
 
