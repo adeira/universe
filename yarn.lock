@@ -43,7 +43,7 @@ __metadata:
     next: "npm:^14.1.0"
     next-compose-plugins: "npm:^2.2.1"
     next-plugin-custom-babel-config: "npm:^1.0.5"
-    next-seo: "npm:^6.4.0"
+    next-seo: "npm:^6.5.0"
     next-transpile-modules: "npm:^10.0.1"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
@@ -76,7 +76,7 @@ __metadata:
     next: "npm:^14.1.0"
     next-compose-plugins: "npm:^2.2.1"
     next-plugin-custom-babel-config: "npm:^1.0.5"
-    next-seo: "npm:^6.4.0"
+    next-seo: "npm:^6.5.0"
     next-transpile-modules: "npm:^10.0.1"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
@@ -19296,14 +19296,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-seo@npm:^6.4.0":
-  version: 6.4.0
-  resolution: "next-seo@npm:6.4.0"
+"next-seo@npm:^6.5.0":
+  version: 6.5.0
+  resolution: "next-seo@npm:6.5.0"
   peerDependencies:
     next: ^8.1.1-canary.54 || >=9.0.0
     react: ">=16.0.0"
     react-dom: ">=16.0.0"
-  checksum: 10c0/8836b84b872bee58d34cad895b0142be193bd95881cfca3f75b3b3aad67bf4542ac0a27e2285791ef6640fe808f95f01820bab167fbd26408466844c435fbdfb
+  checksum: 10c0/f2403356aa7fa91314fb91f9b1f7a3436ff76307e2345faec67132e8c0546312f4c6262bc10db28339612c1777dc07ba566bd407262d662f2e417932563837a6
   languageName: node
   linkType: hard
 
