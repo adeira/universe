@@ -26,7 +26,7 @@
   },
   "peerDependencies": {
     "@adeira/relay": "^8.0.0",
-    "@adeira/sx": "^0.29.1",
+    "@adeira/sx": "^0.30.0",
     "@adeira/sx-design": "^0.32.0",
     "react": "^18.2.0"
   },
