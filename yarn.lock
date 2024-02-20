@@ -24,7 +24,7 @@ __metadata:
     "@adeira/js": "npm:^2.1.1"
     "@adeira/react-auth": "npm:^0.1.0"
     "@adeira/relay": "npm:^8.0.0"
-    "@adeira/sx": "npm:^0.29.1"
+    "@adeira/sx": "npm:^0.30.0"
     "@adeira/sx-design": "npm:^0.32.0"
     "@fbtjs/default-collection-transform": "npm:^1.0.0"
     "@next/bundle-analyzer": "npm:^14.1.0"
@@ -62,7 +62,7 @@ __metadata:
     "@adeira/icons": "npm:^2.2.0"
     "@adeira/js": "npm:^2.1.1"
     "@adeira/relay": "npm:^8.0.0"
-    "@adeira/sx": "npm:^0.29.1"
+    "@adeira/sx": "npm:^0.30.0"
     "@adeira/sx-design": "npm:^0.32.0"
     "@fbtjs/default-collection-transform": "npm:^1.0.0"
     "@playwright/test": "npm:^1.41.2"
@@ -227,7 +227,7 @@ __metadata:
     fbt: "npm:^1.0.0"
   peerDependencies:
     "@adeira/relay": ^8.0.0
-    "@adeira/sx": ^0.29.1
+    "@adeira/sx": ^0.30.0
     "@adeira/sx-design": ^0.32.0
     react: ^18.2.0
   languageName: unknown
@@ -348,7 +348,7 @@ __metadata:
     "@babel/runtime": "npm:^7.23.9"
     jsqr: "npm:^1.4.0"
   peerDependencies:
-    "@adeira/sx": ^0.29.1
+    "@adeira/sx": ^0.30.0
     react: ^18.2.0
   languageName: unknown
   linkType: soft
@@ -459,7 +459,7 @@ __metadata:
     "@adeira/hooks": "npm:^0.3.0"
     "@adeira/icons": "npm:^2.2.0"
     "@adeira/js": "npm:^2.1.1"
-    "@adeira/sx": "npm:^0.29.1"
+    "@adeira/sx": "npm:^0.30.0"
     "@adeira/sx-design-headless": "npm:^0.2.1"
     "@adeira/sx-jest-snapshot-serializer": "npm:^0.1.0"
     "@babel/core": "npm:^7.23.9"
@@ -491,7 +491,7 @@ __metadata:
     react-dom: "npm:^18.2.0"
     react-table: "npm:^7.8.0"
   peerDependencies:
-    "@adeira/sx": ^0.29.1
+    "@adeira/sx": ^0.30.0
     react: ^18.2.0
     react-dom: ^18.2.0
   languageName: unknown
@@ -501,7 +501,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@adeira/sx-jest-snapshot-serializer@workspace:src/sx-jest-snapshot-serializer"
   dependencies:
-    "@adeira/sx": "npm:^0.29.1"
+    "@adeira/sx": "npm:^0.30.0"
     "@babel/runtime": "npm:^7.23.9"
     "@testing-library/react": "npm:^13.4.0"
     prettier: "npm:^2.8.8"
@@ -510,7 +510,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/sx@npm:^0.29.1, @adeira/sx@workspace:src/sx":
+"@adeira/sx@npm:^0.30.0, @adeira/sx@workspace:src/sx":
   version: 0.0.0-use.local
   resolution: "@adeira/sx@workspace:src/sx"
   dependencies:
@@ -12530,7 +12530,7 @@ __metadata:
   dependencies:
     "@adeira/eslint-fixtures-tester": "npm:0.1.0"
     "@adeira/flow-types-eslint": "npm:0.0.0"
-    "@adeira/sx": "npm:^0.29.1"
+    "@adeira/sx": "npm:^0.30.0"
     "@babel/code-frame": "npm:^7.23.5"
     "@babel/runtime": "npm:^7.23.9"
     eslint: "npm:^8.56.0"

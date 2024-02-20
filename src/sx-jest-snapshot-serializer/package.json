@@ -14,7 +14,7 @@
   "type": "commonjs",
   "sideEffects": true,
   "dependencies": {
-    "@adeira/sx": "^0.29.1",
+    "@adeira/sx": "^0.30.0",
     "@babel/runtime": "^7.23.9",
     "prettier": "^2.8.8",
     "pretty-format": "^29.7.0"
