@@ -6,11 +6,33 @@ declare const chrome: any; // TODO
 
 */
 
-// 1. load default values for the settings checkboxes:
+function combineUrlWithCustomPath(
+  originalUrl /*: string */,
+  customPath /*: string */,
+) /*: string */ {
+  const baseUrlMatch = originalUrl.match(/^https?:\/\/[^/?#]+/);
+  if (baseUrlMatch) {
+    const [baseUrl] = baseUrlMatch;
+    const normalizedPath = customPath.startsWith('/') ? customPath : `/${customPath}`;
+    return baseUrl + normalizedPath;
+  }
+  return originalUrl;
+}
+
+// 1. load default values for the settings checkboxes (+ handle button clicks):
 document.addEventListener('DOMContentLoaded', async function () {
   const [tab] = await chrome.tabs.query({
     active: true,
     lastFocusedWindow: true,
+  });
+
+  const masterDataHubButton = document.getElementById('masterDataHub');
+  masterDataHubButton?.addEventListener('click', () => {
+    chrome.tabs.create({
+      // Note that this is currently ignoring whether the tab URL is Rossum related or not (so on some websites this might redirect to 404).
+      url: combineUrlWithCustomPath(tab.url, '/svc/data-matching/web/management'),
+      index: tab.index + 1,
+    });
   });
 
   // 1.1. get the actual value of `devFeaturesEnabled` and set it to the checkbox:

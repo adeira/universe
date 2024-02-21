@@ -2,6 +2,10 @@ body {
   width: 17rem;
 }
 
+.links {
+  margin-block-end: 1em;
+}
+
 .checkboxes label {
   display: block;
   padding-right: 10px;
