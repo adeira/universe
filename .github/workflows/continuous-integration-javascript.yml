@@ -22,10 +22,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # We support only Node.js versions with "LTS" and "Current" status.
+        # We support only Node.js versions with "LTS" and "Current" status (no "Maintenance").
         # See: https://nodejs.dev/en/about/releases/
         # See: https://github.com/nodejs/Release
-        node-version: [18.x, 20.x, 21.x]
+        node-version: [20.x, 21.x]
 
     steps:
       # https://github.com/actions/checkout
