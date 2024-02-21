@@ -8,7 +8,7 @@
     "48": "icons/48-blue-crunch.png",
     "128": "icons/128-blue-crunch.png"
   },
-  "permissions": ["storage"],
+  "permissions": ["storage", "tabs"],
   "content_scripts": [
     {
       "js": [
