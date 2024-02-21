@@ -5,16 +5,6 @@ import { transformFileSync } from '@babel/core';
 
 import log from './log';
 
-function writeFileSync(path: string, data: string): void {
-  fs.writeFileSync(
-    path,
-    data.replace(
-      /\/\/\s+BEGIN-ADEIRA-UNIVERSE-INTERNAL[\w\W]+?END-ADEIRA-UNIVERSE-INTERNAL/g,
-      '// PLACEHOLDER-ADEIRA-UNIVERSE-INTERNAL',
-    ),
-  );
-}
-
 export default function transformFileVariants(
   originalFilename: string,
   destinationFilename: string,
@@ -38,7 +28,7 @@ export default function transformFileVariants(
   // 1) transform JS version (CommonJS)
   try {
     log('%s 👉 %s', originalFilename, destinationFilename);
-    writeFileSync(
+    fs.writeFileSync(
       destinationFilename,
       transformFileSync(originalFilename, getBabelConfig('js')).code,
     );
@@ -51,7 +41,7 @@ export default function transformFileVariants(
   try {
     const modifiedDestinationFilename = `${destinationFilename}.flow`;
     log('%s 👉 %s', originalFilename, modifiedDestinationFilename);
-    writeFileSync(
+    fs.writeFileSync(
       modifiedDestinationFilename,
       transformFileSync(originalFilename, getBabelConfig('flow')).code,
     );
