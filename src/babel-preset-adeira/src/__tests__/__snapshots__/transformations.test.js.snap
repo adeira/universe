@@ -11,9 +11,9 @@ export default async function test(): Promise<string> {
 }
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-// @flow strict
 
-/* eslint-disable no-return-await */
+
+
 
 export default async function test(): Promise<string> {
   return await 'this';
@@ -32,13 +32,13 @@ const aaa = 1;
 const bbb: string = aaa;
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-// @flow strict
-// SEE: https://github.com/babel/babel/issues/8684
-/* eslint-disable */
+
+
+
 
 const aaa = 1;
 
-// $FlowExpectedError[incompatible-type]: this line should stay here because \`aaa\` is incompatible with \`bbb\`
+
 const bbb: string = aaa;
 `;
 
@@ -65,21 +65,21 @@ const supportsESM = (target: string) /*: boolean */ => {
 module.exports = { executeNodeScript, supportsESM };
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-// @flow
 
-// See: https://github.com/babel/babel/issues/9810
 
-type TestType = any;
+
+
+
 
 const executeNodeScript = (
-aaa: string,
-bbb: number,
-ccc: any)
-: TestType => {
+aaa,
+bbb,
+ccc) =>
+{
   return [aaa, bbb, ccc];
 };
 
-const supportsESM = (target: string): boolean => {
+const supportsESM = (target: string) => {
   return target === 'js-esm';
 };
 
@@ -101,11 +101,11 @@ new Set<() => void>([]);
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 #!/usr/bin/env node
 
-// @flow strict-local
 
-// See: https://github.com/babel/babel/issues/9921
 
-/* eslint-disable */
+
+
+
 
 new Set<() => void>([]);
 `;
@@ -120,10 +120,10 @@ exports[`matches expected output: babel-issue-10040.js: flow 1`] = `
 export type ExplicitlyInexact = { foo: number, ... };
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-// @flow strict
 
-// Babel is currently losing \` ... \` while  tranpiling this type.
-// See: https://github.com/babel/babel/issues/10040
+
+
+
 
 export type ExplicitlyInexact = { foo: number, ...};
 `;
@@ -138,12 +138,12 @@ exports[`matches expected output: babel-issue-10367.js: flow 1`] = `
 const re = /(?<x>.*)/u; // eslint-disable-line no-unused-vars
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-// @flow strict
 
-// https://github.com/babel/babel/issues/10367
-// https://github.com/babel/babel/pull/10447
 
-const re = /(?<x>.*)/u; // eslint-disable-line no-unused-vars
+
+
+
+const re = /(?<x>.*)/u;
 `;
 
 exports[`matches expected output: bigint.js: flow 1`] = `
@@ -159,15 +159,14 @@ const hugeButString = BigInt('9007199254740991');
 // ↪ 9007199254740991n
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-/* eslint-disable */
+
 
 const theBiggestInt = 9007199254740991n;
 
 const alsoHuge = BigInt(9007199254740991);
-// ↪ 9007199254740991n
+
 
 const hugeButString = BigInt('9007199254740991');
-// ↪ 9007199254740991n
 `;
 
 exports[`matches expected output: capturing-groups.js: flow 1`] = `
@@ -181,9 +180,9 @@ const re = /(?<year>\\d{4})-(?<month>\\d{2})-(?<day>\\d{2})/;
 console.log(re.exec('1999-02-29')?.groups?.year);
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-// @flow strict
 
-/*  eslint-disable no-console */
+
+
 
 const re = /(?<year>\\d{4})-(?<month>\\d{2})-(?<day>\\d{2})/;
 
@@ -200,7 +199,7 @@ export default class ClassFields {
 }
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-// @flow strict
+
 
 export default class ClassFields {
   publicField: number = 1;
@@ -230,17 +229,17 @@ if (__DEV__) {
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 /*@flow strict*/declare var __DEV__: boolean;
 
-/* eslint-disable no-console */
+
 
 if (__DEV__) {
   const dev = __DEV__ ? 'foo' : 'bar';
   console.log(dev);
 
   console.warn({
-    // this shouldn't change (valid object key):
+
     __DEV__: 'value',
 
-    // this should change (replaceable __DEV__ value):
+
     key: __DEV__
   });
 }
@@ -300,15 +299,15 @@ module.exports = function MyComponent(): React.Element<typeof React.Suspense> {
 };
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-// @flow strict
 
-/* eslint-disable */
+
+
 
 const React = require('react');
 
 const BoldTodoRenderer = React.lazy(() =>
 import(
-  // $FlowExpectedError[cannot-resolve-module]
+
   './BoldTodoRenderer'
 )
 );
@@ -333,9 +332,9 @@ const x: number = (1 ** 2) ** (3 ** 4);
 console.warn(x);
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-// @flow strict
 
-/* eslint-disable */
+
+
 
 const x: number = (1 ** 2) ** 3 ** 4;
 
@@ -413,7 +412,7 @@ export const e: StatusSymbol = StatusSymbol.Active;
 export const f: StatusUnknownMembers = StatusUnknownMembers.Active;
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-// @flow strict
+
 
 enum StatusDefault1 {
   Active,
@@ -499,9 +498,9 @@ console.log(gen.next().value); // 10
 console.log(gen.next().value); // 20
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-// @flow strict
 
-/* eslint-disable */
+
+
 
 function* generator(i: number) {
   yield i;
@@ -510,8 +509,8 @@ function* generator(i: number) {
 
 const gen = generator(10);
 
-console.log(gen.next().value); // 10
-console.log(gen.next().value); // 20
+console.log(gen.next().value);
+console.log(gen.next().value);
 `;
 
 exports[`matches expected output: invariant-global.js: flow 1`] = `
@@ -521,7 +520,7 @@ exports[`matches expected output: invariant-global.js: flow 1`] = `
 invariant(Math.random(), 'This should stay AS IS!');
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-/* eslint-disable */
+
 
 invariant(Math.random(), 'This should stay AS IS!');
 `;
@@ -537,7 +536,7 @@ invariant(Math.random(), 'You shall not pass!');
 invariant(Math.random(), 'You shall not pass %s!', 'Jerry');
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-/* eslint-disable */
+
 
 import { invariant } from '@adeira/js';
 import { something } from 'else';
@@ -556,7 +555,7 @@ invariant(Math.random(), 'You shall not pass!');
 invariant(Math.random(), 'You shall not pass %s!', 'Jerry');
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-/* eslint-disable */
+
 
 const { invariant } = require('@adeira/js');
 
@@ -582,7 +581,7 @@ export default function Component(): Node {
 }
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-// @flow strict
+
 
 import type { Node } from 'react';
 
@@ -609,9 +608,9 @@ const nibbles = 0b1010_0001_1000_0101;
 const message = 0xa0_b0_c0;
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-// @flow strict
 
-/* eslint-disable */
+
+
 
 const budget = 1_000_000_000_000;
 const nibbles = 0b1010_0001_1000_0101;
@@ -629,13 +628,12 @@ try {
 }
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-// @flow strict
+
 
 try {
 
-  // ...
 } catch {
-  // ...
+
 }
 `;
 
@@ -648,7 +646,7 @@ module.exports = function (a: ?{ +[string]: any, ... }): string {
 };
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-// @flow
+
 
 module.exports = function (a: ?{ +[string]: any, ...}): string {
   return a?.b ?? 'default';
@@ -673,9 +671,9 @@ module.exports = function (a: AnyObject, ...rest: Array<any>): AnyObject {
 };
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-// @flow
 
-/* eslint-disable no-console */
+
+
 
 type AnyObject = { +[key: string]: any, ...};
 
@@ -696,7 +694,7 @@ exports[`matches expected output: warning-global.js: flow 1`] = `
 warning(Math.random(), 'This should stay AS IS!');
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-/* eslint-disable */
+
 
 warning(Math.random(), 'This should stay AS IS!');
 `;
@@ -712,7 +710,7 @@ warning(Math.random(), 'I am warning you!');
 warning(Math.random(), 'I am warning you %s!', 'René');
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-/* eslint-disable */
+
 
 import { warning } from '@adeira/js';
 import { something } from 'else';
@@ -731,7 +729,7 @@ warning(Math.random(), 'I am warning you!');
 warning(Math.random(), 'I am warning you %s!', 'René');
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-/* eslint-disable */
+
 
 const { warning } = require('@adeira/js');
 

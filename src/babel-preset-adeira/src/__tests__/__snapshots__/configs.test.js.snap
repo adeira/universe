@@ -5,7 +5,8 @@ exports[`emits correct config for target 'flow' and environment '{"browsers":["l
   "presets": [],
   "plugins": [
     "<BABEL_PRESET_ROOT>/src/dev-expression-check.js",
-    "<BABEL_PRESET_ROOT>/src/dev-declaration.js"
+    "<BABEL_PRESET_ROOT>/src/dev-declaration.js",
+    "babel-plugin-syntax-hermes-parser"
   ],
   "parserOpts": {
     "plugins": [
@@ -28,7 +29,8 @@ exports[`emits correct config for target 'flow' and environment '{"browsers":["l
   "presets": [],
   "plugins": [
     "<BABEL_PRESET_ROOT>/src/dev-expression-check.js",
-    "<BABEL_PRESET_ROOT>/src/dev-declaration.js"
+    "<BABEL_PRESET_ROOT>/src/dev-declaration.js",
+    "babel-plugin-syntax-hermes-parser"
   ],
   "parserOpts": {
     "plugins": [
@@ -51,7 +53,8 @@ exports[`emits correct config for target 'flow' and environment '{"node":"curren
   "presets": [],
   "plugins": [
     "<BABEL_PRESET_ROOT>/src/dev-expression-check.js",
-    "<BABEL_PRESET_ROOT>/src/dev-declaration.js"
+    "<BABEL_PRESET_ROOT>/src/dev-declaration.js",
+    "babel-plugin-syntax-hermes-parser"
   ],
   "parserOpts": {
     "plugins": [
@@ -74,7 +77,8 @@ exports[`emits correct config for target 'flow' and environment '{"node":"curren
   "presets": [],
   "plugins": [
     "<BABEL_PRESET_ROOT>/src/dev-expression-check.js",
-    "<BABEL_PRESET_ROOT>/src/dev-declaration.js"
+    "<BABEL_PRESET_ROOT>/src/dev-declaration.js",
+    "babel-plugin-syntax-hermes-parser"
   ],
   "parserOpts": {
     "plugins": [
@@ -97,7 +101,8 @@ exports[`emits correct config for target 'flow' and environment 'undefined' and 
   "presets": [],
   "plugins": [
     "<BABEL_PRESET_ROOT>/src/dev-expression-check.js",
-    "<BABEL_PRESET_ROOT>/src/dev-declaration.js"
+    "<BABEL_PRESET_ROOT>/src/dev-declaration.js",
+    "babel-plugin-syntax-hermes-parser"
   ],
   "parserOpts": {
     "plugins": [
@@ -120,7 +125,8 @@ exports[`emits correct config for target 'flow' and environment 'undefined' and 
   "presets": [],
   "plugins": [
     "<BABEL_PRESET_ROOT>/src/dev-expression-check.js",
-    "<BABEL_PRESET_ROOT>/src/dev-declaration.js"
+    "<BABEL_PRESET_ROOT>/src/dev-declaration.js",
+    "babel-plugin-syntax-hermes-parser"
   ],
   "parserOpts": {
     "plugins": [

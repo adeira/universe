@@ -59,7 +59,10 @@ module.exports = (
 
   const target = options.target;
   if (target === 'flow') {
-    plugins = plugins.concat([path.join(__dirname, 'dev-declaration.js')]);
+    plugins = plugins.concat([
+      path.join(__dirname, 'dev-declaration.js'),
+      'babel-plugin-syntax-hermes-parser',
+    ]);
     retainLines = true;
   } else if (target === 'js' || target === 'js-esm') {
     const supportsESM = target === 'js-esm';
