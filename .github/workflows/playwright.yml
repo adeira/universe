@@ -65,11 +65,11 @@ jobs:
             src: ${{ matrix.source }}
 
       # https://github.com/actions/setup-node
-      - name: Use Node.js 18.x
+      - name: Use Node.js 20.x
         if: steps.paths-filter.outputs.src == 'true'
         uses: actions/setup-node@v4.0.2
         with:
-          node-version: 18.x
+          node-version: 20.x
           cache: 'yarn'
 
       - name: Install Yarn dependencies
