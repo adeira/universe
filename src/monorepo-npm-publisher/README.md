@@ -47,21 +47,6 @@ import publish from '@adeira/monorepo-npm-publisher';
 
 This NPM publisher automatically takes `.npmignore` (or `.gitignore`) files into account. Read this info for more details: https://docs.npmjs.com/misc/developers#keeping-files-out-of-your-package
 
-# Comments `(BEGIN|END)-ADEIRA-UNIVERSE-INTERNAL`,
-
-In rare scenarios, you might need to skip some part of the source code when publishing to NPM. It can be done like so:
-
-```js
-// BEGIN-ADEIRA-UNIVERSE-INTERNAL
-require('@babel/register')({
-  ignore: [/node_modules\/(?!@adeira)/],
-  rootMode: 'upward',
-});
-// END-ADEIRA-UNIVERSE-INTERNAL
-```
-
-The code block between `BEGIN-*` and `END-*` will be removed. Please try to use it sporadically - typical example would be to wrap a code which is required _only_ for Adeira Universe monorepo functioning. It's worth mentioning that we are actively looking for better and systematic solutions to this problem.
-
 # Behind the scenes explanation
 
 Let's have a look at our [JS project](https://github.com/adeira/universe/tree/master/src/js) and what happens when you run this publisher. Before:
