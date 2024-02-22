@@ -115,7 +115,7 @@ __metadata:
     "@babel/preset-env": "npm:^7.23.9"
     "@babel/preset-react": "npm:^7.23.3"
     "@babel/runtime": "npm:^7.23.9"
-    babel-plugin-syntax-hermes-parser: "npm:^0.19.1"
+    babel-plugin-syntax-hermes-parser: "npm:^0.19.2"
     babel-plugin-transform-flow-enums: "npm:^0.0.2"
     strip-ansi: "npm:^6.0.1"
   peerDependencies:
@@ -8520,12 +8520,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-syntax-hermes-parser@npm:^0.19.1":
-  version: 0.19.1
-  resolution: "babel-plugin-syntax-hermes-parser@npm:0.19.1"
+"babel-plugin-syntax-hermes-parser@npm:^0.19.2":
+  version: 0.19.2
+  resolution: "babel-plugin-syntax-hermes-parser@npm:0.19.2"
   dependencies:
-    hermes-parser: "npm:0.19.1"
-  checksum: 10c0/8f3b2df7449ca946478ff3e7e3f4c1886a8be390f3cfd1c913e833882af7aec881462cab7fcb6a1f182bbf35080efd7d74cd852b5274f5df6798865a31ce383d
+    hermes-parser: "npm:0.19.2"
+  checksum: 10c0/b438e6790d7f659d7b01022f774804a86cf6ee5c334275b67edb5bf18faf0c999f175069037d269b075b5e985a0a9b763072279d844c0f80c61f3b6f4c0a083c
   languageName: node
   linkType: hard
 
@@ -14758,12 +14758,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"hermes-estree@npm:0.19.2":
+  version: 0.19.2
+  resolution: "hermes-estree@npm:0.19.2"
+  checksum: 10c0/9d8c9876d8a7dce455d00115549e196e83545016710a92c0ca503e0dd61fad35567627016039e6dd07c70b774debfe133422897656357ad36d40cdfed37fb877
+  languageName: node
+  linkType: hard
+
 "hermes-parser@npm:0.19.1":
   version: 0.19.1
   resolution: "hermes-parser@npm:0.19.1"
   dependencies:
     hermes-estree: "npm:0.19.1"
   checksum: 10c0/940ccef90673b8e905016332d2660ae00ad747e2d32c694a52dce4ea220835dc1bae299554a7a8eeccb449561065bd97f3690363c087fbf69ad7cbff2deeec35
+  languageName: node
+  linkType: hard
+
+"hermes-parser@npm:0.19.2":
+  version: 0.19.2
+  resolution: "hermes-parser@npm:0.19.2"
+  dependencies:
+    hermes-estree: "npm:0.19.2"
+  checksum: 10c0/857bbb9a26bebc17b7dac2560cf2d44ac64146d9557c253b1d286128be52de26ea67dff198c01ea18a5dbab50464bcfc5301b3e863236a08291c25d79cd374dc
   languageName: node
   linkType: hard
 
