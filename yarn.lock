@@ -182,7 +182,7 @@ __metadata:
     "@adeira/js": "npm:^2.1.1"
     "@babel/runtime": "npm:^7.24.0"
     eslint: "npm:^8.57.0"
-    hermes-eslint: "npm:^0.19.2"
+    hermes-eslint: "npm:^0.20.0"
     jest-docblock: "npm:^29.7.0"
   peerDependencies:
     eslint: ^8.57.0
@@ -12244,7 +12244,7 @@ __metadata:
     "@babel/runtime": "npm:^7.24.0"
     eslint: "npm:^8.57.0"
     fast-levenshtein: "npm:^3.0.0"
-    hermes-eslint: "npm:^0.19.2"
+    hermes-eslint: "npm:^0.20.0"
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
   languageName: unknown
@@ -12534,7 +12534,7 @@ __metadata:
     "@babel/code-frame": "npm:^7.23.5"
     "@babel/runtime": "npm:^7.24.0"
     eslint: "npm:^8.57.0"
-    hermes-eslint: "npm:^0.19.2"
+    hermes-eslint: "npm:^0.20.0"
     react: "npm:^18.2.0"
   peerDependencies:
     eslint: ^8.57.0
@@ -14740,14 +14740,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hermes-eslint@npm:^0.19.2":
-  version: 0.19.2
-  resolution: "hermes-eslint@npm:0.19.2"
+"hermes-eslint@npm:^0.20.0":
+  version: 0.20.0
+  resolution: "hermes-eslint@npm:0.20.0"
   dependencies:
     esrecurse: "npm:^4.3.0"
-    hermes-estree: "npm:0.19.2"
-    hermes-parser: "npm:0.19.2"
-  checksum: 10c0/da161e075dbe49a02e6db37361a5c2858a5219c665d5ce740a350362532850dd61650f5010b01ab0ea105ac59eb70cb297da5e34d8d73b5b14ed1ad62aa353be
+    hermes-estree: "npm:0.20.0"
+    hermes-parser: "npm:0.20.0"
+  checksum: 10c0/728ba8e33c14530e5550f9fa0a5f0a72da1beee73328dad6c0e6336acf93a74362dd916079619e7819b7bb21dcece86be1617433f0da5ac51544f8818a4317ee
   languageName: node
   linkType: hard
 
@@ -14762,6 +14762,13 @@ __metadata:
   version: 0.19.2
   resolution: "hermes-estree@npm:0.19.2"
   checksum: 10c0/9d8c9876d8a7dce455d00115549e196e83545016710a92c0ca503e0dd61fad35567627016039e6dd07c70b774debfe133422897656357ad36d40cdfed37fb877
+  languageName: node
+  linkType: hard
+
+"hermes-estree@npm:0.20.0":
+  version: 0.20.0
+  resolution: "hermes-estree@npm:0.20.0"
+  checksum: 10c0/1b3ff6ccf4ba00906cd47e7193545770c92422582bf3f3fac3fa0f08d998b70d170bae8631de05bf55bb30152edbc26dadfb845d2b997701abfbca079122ffc3
   languageName: node
   linkType: hard
 
@@ -14780,6 +14787,15 @@ __metadata:
   dependencies:
     hermes-estree: "npm:0.19.2"
   checksum: 10c0/857bbb9a26bebc17b7dac2560cf2d44ac64146d9557c253b1d286128be52de26ea67dff198c01ea18a5dbab50464bcfc5301b3e863236a08291c25d79cd374dc
+  languageName: node
+  linkType: hard
+
+"hermes-parser@npm:0.20.0":
+  version: 0.20.0
+  resolution: "hermes-parser@npm:0.20.0"
+  dependencies:
+    hermes-estree: "npm:0.20.0"
+  checksum: 10c0/3be3b6e60fdda8a356c16ad203b4e500b21df251bc40809ec0c068899521d9d215724387be4cc1c61a83362643936fe1f394a3042a2c3c4acfdef1abe98bdd7b
   languageName: node
   linkType: hard
 
@@ -23184,7 +23200,7 @@ __metadata:
     eslint: "npm:^8.57.0"
     eslint-formatter-codeframe: "npm:^7.32.1"
     flow-bin: "npm:^0.229.2"
-    hermes-eslint: "npm:^0.19.2"
+    hermes-eslint: "npm:^0.20.0"
     jest: "npm:^29.7.0"
     jest-environment-jsdom: "npm:^29.7.0"
     prettier: "npm:^2.8.8"
