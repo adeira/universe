@@ -146,7 +146,6 @@ async fn main() {
          - GET  /redirect/:uuid
          - GET  /status/ping
          - POST /webhooks/stripe
-         - POST /webhooks/wlcm
         "#,
         server_addr
     );
