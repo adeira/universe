@@ -48,7 +48,7 @@ fn webhooks(
     pool: &ConnectionPool,
     global_configuration: &GlobalConfiguration,
 ) -> impl Filter<Extract = impl Reply, Error = Rejection> + Clone {
-    webhook_stripe(pool, global_configuration).or(webhook_wlcm())
+    webhook_stripe(pool, global_configuration)
 }
 
 fn webhook_stripe(
@@ -63,14 +63,6 @@ fn webhook_stripe(
         .and(with_global_configuration(global_configuration))
         .and(warp::path::end())
         .and_then(warp_server::handlers::webhooks_stripe)
-}
-
-fn webhook_wlcm() -> impl Filter<Extract = impl Reply, Error = Rejection> + Clone {
-    warp::path!("webhooks" / "wlcm")
-        .and(warp::post())
-        .and(warp::body::bytes())
-        .and(warp::path::end())
-        .and_then(warp_server::handlers::webhooks_wlcm)
 }
 
 /// Allows to persist Relay queries via Relay Compiler.
