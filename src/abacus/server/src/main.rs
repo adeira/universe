@@ -144,7 +144,6 @@ async fn main() {
         Starting Warp server on {}
          - POST /graphql            (application/json)
          - POST /graphql            (multipart/form-data)
-         - POST /graphql/persist    (application/x-www-form-urlencoded)
          - GET  /redirect/:uuid
          - GET  /status/ping
          - POST /webhooks/stripe
