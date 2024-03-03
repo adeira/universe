@@ -6,6 +6,7 @@
 mod global_macros;
 
 use crate::arango::get_database_connection_pool;
+use crate::axum_server::create_axum_server;
 use crate::clap::generate_clap_app;
 use crate::global_configuration::GlobalConfiguration;
 use clap_complete::shells::{Bash, Zsh};
@@ -20,6 +21,7 @@ mod analytics;
 mod arango;
 mod archive;
 mod auth;
+mod axum_server;
 mod cats;
 mod clap;
 mod commerce;
@@ -121,7 +123,7 @@ async fn main() {
             .map(String::from),
     };
 
-    let routes =
+    let warp_routes =
         warp_server::filters::combined_filter(&pool, graphql_schema, &global_configuration)
             .with(warp::trace(|_info| {
                 tracing::info_span!(
@@ -135,11 +137,11 @@ async fn main() {
                 warp::compression::gzip(),
             );
 
-    // TODO: how to display these routes automatically (?)
-    let server_addr = SocketAddrV4::new(Ipv4Addr::new(0, 0, 0, 0), 5000);
+    // TODO: remove once Axum implementation is done and compatible
+    let warp_server_addr = SocketAddrV4::new(Ipv4Addr::new(0, 0, 0, 0), 5000);
     println!(
         r#"
-        Starting server on {}
+        Starting Warp server on {}
          - POST /graphql            (application/json)
          - POST /graphql            (multipart/form-data)
          - POST /graphql/persist    (application/x-www-form-urlencoded)
@@ -148,9 +150,10 @@ async fn main() {
          - POST /webhooks/stripe
          - POST /webhooks/wlcm
         "#,
-        server_addr
+        warp_server_addr
     );
 
-    // TODO: `Server-Timing` header (https://w3c.github.io/server-timing/)
-    warp::serve(routes).run(server_addr).await
+    let listener = tokio::net::TcpListener::bind("0.0.0.0:5050").await.unwrap();
+    warp::serve(warp_routes).run(warp_server_addr).await;
+    // axum::serve(listener, create_axum_server()).await.unwrap()
 }
