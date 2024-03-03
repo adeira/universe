@@ -26,6 +26,7 @@ pub fn create_axum_server() -> Router<()> {
             "/graphql",
             get(graphql_playground), // .post(graphql_handler)
         )
+        .route("/status/ping", get(|| async { "pong" }))
         .layer(Extension(Arc::new(graphql_schema)))
 }
 
