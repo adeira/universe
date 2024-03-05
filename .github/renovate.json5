@@ -51,6 +51,10 @@
       matchSourceUrlPrefixes: ['https://github.com/facebook/relay'],
     },
     {
+      groupName: 'Hermes packages',
+      matchSourceUrlPrefixes: ['https://github.com/facebook/hermes'],
+    },
+    {
       groupName: 'Rusoto packages (Rust)',
       matchSourceUrlPrefixes: ['https://github.com/rusoto/rusoto'],
     },
