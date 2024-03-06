@@ -406,7 +406,7 @@ __metadata:
     "@rollup/plugin-commonjs": "npm:^25.0.7"
     "@rollup/plugin-node-resolve": "npm:^15.2.3"
     "@rollup/pluginutils": "npm:^5.1.0"
-    flow-remove-types: "npm:^2.229.2"
+    flow-remove-types: "npm:^2.230.0"
     hyperformula: "npm:^2.6.2"
     lodash.get: "npm:^4.4.2"
     pako: "npm:^2.1.0"
@@ -13417,17 +13417,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"flow-remove-types@npm:^2.229.2":
-  version: 2.229.2
-  resolution: "flow-remove-types@npm:2.229.2"
+"flow-remove-types@npm:^2.230.0":
+  version: 2.230.0
+  resolution: "flow-remove-types@npm:2.230.0"
   dependencies:
-    hermes-parser: "npm:0.19.1"
+    hermes-parser: "npm:0.19.2"
     pirates: "npm:^3.0.2"
     vlq: "npm:^0.2.1"
   bin:
     flow-node: flow-node
     flow-remove-types: flow-remove-types
-  checksum: 10c0/51e17191d776c9cbf7d2a92781e8052229676fa798bfa52a4b3c3f2dea290a9b89e650afebbc9504f133a60cb09d00fc020e848b41f627b5b27161c0c9c0ae41
+  checksum: 10c0/04a18ffc5b0136053663c3370e1116ed792ee7fccc185e063990525e50508bfd874a64645fecf3f32bb4823e85ca7eb8de5b9bbfebac9491aa0316f4975787e0
   languageName: node
   linkType: hard
 
@@ -14751,10 +14751,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hermes-estree@npm:0.19.1":
-  version: 0.19.1
-  resolution: "hermes-estree@npm:0.19.1"
-  checksum: 10c0/98c79807c15146c745aca7a9c74b9f1ba20a463c8b9f058caed9b3f2741fc4a8609e7e4c06d163f67d819db35cb6871fc7b25085bb9a084bc53d777f67d9d620
+"hermes-estree@npm:0.19.2":
+  version: 0.19.2
+  resolution: "hermes-estree@npm:0.19.2"
+  checksum: 10c0/9d8c9876d8a7dce455d00115549e196e83545016710a92c0ca503e0dd61fad35567627016039e6dd07c70b774debfe133422897656357ad36d40cdfed37fb877
   languageName: node
   linkType: hard
 
@@ -14765,12 +14765,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hermes-parser@npm:0.19.1":
-  version: 0.19.1
-  resolution: "hermes-parser@npm:0.19.1"
+"hermes-parser@npm:0.19.2":
+  version: 0.19.2
+  resolution: "hermes-parser@npm:0.19.2"
   dependencies:
-    hermes-estree: "npm:0.19.1"
-  checksum: 10c0/940ccef90673b8e905016332d2660ae00ad747e2d32c694a52dce4ea220835dc1bae299554a7a8eeccb449561065bd97f3690363c087fbf69ad7cbff2deeec35
+    hermes-estree: "npm:0.19.2"
+  checksum: 10c0/857bbb9a26bebc17b7dac2560cf2d44ac64146d9557c253b1d286128be52de26ea67dff198c01ea18a5dbab50464bcfc5301b3e863236a08291c25d79cd374dc
   languageName: node
   linkType: hard
 
