@@ -67,7 +67,7 @@ jobs:
       # https://github.com/docker/setup-buildx-action
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@v3.1.0
+        uses: docker/setup-buildx-action@v3.2.0
 
       # https://github.com/docker/metadata-action
       - name: Collect Docker metadata
