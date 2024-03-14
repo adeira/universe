@@ -11,11 +11,7 @@
   "permissions": ["storage", "tabs"],
   "content_scripts": [
     {
-      "js": [
-        "scripts/annotation-schema-ids.js",
-        "scripts/dev-features-enabled.js",
-        "scripts/list-selector-improvements.js"
-      ],
+      "js": ["scripts/annotation-schema-ids.js", "scripts/dev-features-enabled.js"],
       "matches": ["http://localhost:3000/*", "https://*.rossum.ai/*", "https://*.rossum.app/*"]
     }
   ],
