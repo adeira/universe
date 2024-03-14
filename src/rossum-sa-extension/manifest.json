@@ -13,6 +13,7 @@
     {
       "js": [
         "scripts/annotation-schema-ids.js",
+        "scripts/annotation-sidebar-resizeable.js",
         "scripts/dev-features-enabled.js",
         "scripts/list-selector-improvements.js"
       ],
