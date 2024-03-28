@@ -15,13 +15,17 @@ ruleTester.run('sort-imports', rule, {
       import b from 'b.js';
       import c from 'c.js';
     `,
+    `import { A, B } from 'x.js';`,
+    `import { A as C, B } from 'x.js';`,
     `import { type A, type B } from 'x.js';`,
     `import type { A, B } from 'x.js';`,
+    `import * as React from 'react';`,
     `import React, { Component } from 'react';`,
+    `import { createEnvironment, createNetworkFetcher, RelayEnvironmentProvider } from '@adeira/relay';`,
 
     // TODO: the following examples are incorrect but currently not implemented
-    `import { B, A } from 'x.js';`,
-    `import type { B, A } from 'x.js';`,
+    `import { type A, B } from 'x.js';`,
+    `import { useContext, type Node, useRef } from 'react';`,
     `
       import c from 'c.js';
       import b from 'b.js';
@@ -29,6 +33,35 @@ ruleTester.run('sort-imports', rule, {
     `,
   ],
   invalid: [
+    // sortImportsAlphabetically
+    {
+      code: `import { B, A } from 'x.js';`,
+      output: `import { A, B } from 'x.js';`,
+      errors: [
+        {
+          messageId: 'sortImportsAlphabetically',
+          data: {
+            firstUnsortedImport: 'A',
+            beforeFirstUnsortedImport: 'B',
+          },
+        },
+      ],
+    },
+    {
+      code: `import type { B, A } from 'x.js';`,
+      output: `import type { A, B } from 'x.js';`,
+      errors: [
+        {
+          messageId: 'sortImportsAlphabetically',
+          data: {
+            firstUnsortedImport: 'A',
+            beforeFirstUnsortedImport: 'B',
+          },
+        },
+      ],
+    },
+
+    // sortTypeImportsAlphabetically
     {
       code: `import { type B, type A } from 'x.js';`,
       output: `import { type A, type B } from 'x.js';`,
@@ -45,8 +78,8 @@ ruleTester.run('sort-imports', rule, {
     {
       code: `
         import {
-          Network,
           Environment as RelayEnvironment,
+          Network,
           type OperationLoader,
           type LogFunction,
           type Environment,
@@ -54,8 +87,8 @@ ruleTester.run('sort-imports', rule, {
       `,
       output: `
         import {
-          Network,
           Environment as RelayEnvironment,
+          Network,
           type Environment,
           type LogFunction,
           type OperationLoader,
