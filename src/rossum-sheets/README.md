@@ -6,6 +6,7 @@
 Rossum Sheets is a project bringing spreadsheet UX into Rossum.
 
 - Use ~400 standardized Excel functions and formulas to calculate or validate anything you need.
+- Use `=ROSSUM` Excel functions to access datapoint values, confidence scores and other Rossum details.
 - No steep learning curve (everyone knows Excel).
 - Stay performant and organize your data as you need them.
 - Support for calculating, validating or conditionally hiding fields.
@@ -34,10 +35,12 @@ Writes result of the `fx` into the specified datapoint (`target`):
 {
   "sheets": {
     "headers": {
-      "columns": { "A": "document_id" },
+      "columns": {
+        "A": "=ROSSUM.DP(\"document_id\")"
+      },
       "formulas": [
         {
-          "fx": "=ISBLANK(A1)",
+          "fx": "=ISBLANK(A1)", // TODO: update
           "target": "notes"
         }
       ]
@@ -51,7 +54,7 @@ Note that you can calculate intermediate values as well:
 ```json5
 {
   columns: {
-    A: 'document_id',
+    A: '=ROSSUM.DP("document_id")',
     B: '=SUM(A1, 24)', // This allows to pre-calculate any value to be shared in multiple formulas later
   },
 }
@@ -65,7 +68,9 @@ Using `ifTruthy` prevents writing into `target` and it performs some action inst
 {
   "sheets": {
     "headers": {
-      "columns": { "A": "document_id" },
+      "columns": {
+        "A": "=ROSSUM.DP(\"document_id\")"
+      },
       "formulas": [
         {
           "fx": "=ISBLANK(A1)",
@@ -88,7 +93,9 @@ Using `ifTruthy` prevents writing into `target` and it performs some action inst
 {
   "sheets": {
     "headers": {
-      "columns": { "A": "document_id" },
+      "columns": {
+        "A": "=ROSSUM.DP(\"document_id\")"
+      },
       "formulas": [
         {
           "fx": "=ISBLANK(A1)",
@@ -113,7 +120,9 @@ Using `ifTruthy` prevents writing into `target` and it performs some action inst
 {
   "sheets": {
     "headers": {
-      "columns": { "A": "document_id" },
+      "columns": {
+        "A": "=ROSSUM.DP(\"document_id\")"
+      },
       "formulas": [
         {
           "fx": "=ISBLANK(A1)",
@@ -286,7 +295,7 @@ After:
   "sheets": {
     "headers": {
       "columns": {
-        "A": "document_id"
+        "A": "=ROSSUM.DP(\"document_id\")"
       },
       "formulas": [
         {
@@ -330,7 +339,7 @@ After:
   "sheets": {
     "headers": {
       "columns": {
-        "A": "order_id"
+        "A": "=ROSSUM.DP(\"order_id\")"
       }
     },
     "line_items": {
@@ -371,8 +380,8 @@ After:
   "sheets": {
     "headers": {
       "columns": {
-        "A": "date_issue",
-        "B": "terms"
+        "A": "=ROSSUM.DP(\"date_issue\")",
+        "B": "=ROSSUM.DP(\"terms\")"
       },
       "formulas": [
         {
@@ -422,8 +431,8 @@ After:
   "sheets": {
     "headers": {
       "columns": {
-        "A": "sender_vat_id",
-        "B": "iban"
+        "A": "=ROSSUM.DP(\"sender_vat_id\")",
+        "B": "=ROSSUM.DP(\"iban\")"
       },
       "formulas": [
         {
@@ -431,7 +440,32 @@ After:
           "target": "sender_vat_id_normalized"
         },
         {
-          "fx": "=REGEXREPLACE(A1, \"[^a-zA-Z0-9]\", \"\")",
+          "fx": "=REGEXREPLACE(A2, \"[^a-zA-Z0-9]\", \"\")",
+          "target": "iban_normalized"
+        }
+      ]
+    }
+  }
+}
+```
+
+Alternatively (because it's such a common task):
+
+```json
+{
+  "sheets": {
+    "headers": {
+      "columns": {
+        "A": "=ROSSUM.DP(\"sender_vat_id\", true)",
+        "B": "=ROSSUM.DP(\"iban\", true)"
+      },
+      "formulas": [
+        {
+          "fx": "=A1",
+          "target": "sender_vat_id_normalized"
+        },
+        {
+          "fx": "=A2",
           "target": "iban_normalized"
         }
       ]
@@ -478,7 +512,7 @@ After:
   "sheets": {
     "headers": {
       "columns": {
-        "A": "amount_total"
+        "A": "=ROSSUM.DP(\"amount_total\")"
       }
     },
     "line_items": {
@@ -538,7 +572,7 @@ After:
   "sheets": {
     "headers": {
       "columns": {
-        "A": "document_type"
+        "A": "=ROSSUM.DP(\"document_type\")"
       },
       "formulas": [
         {

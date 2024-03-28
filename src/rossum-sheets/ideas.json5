@@ -1,0 +1,25 @@
+{
+  sheets: {
+    custom_sheet_name: {
+      cells: {
+        A1: '=ROSSUM.DP("document_id")',
+        A2: '=ROSSUM.DP("order_id")',
+        A3: '=ROSSUM.DP_CONFIDENCE("order_id")',
+        A4: 'just a normal string or number is also fine',
+        B1: '=SUM(A1, A2)',
+        B2: '=SUM(ROSSUM.DP("document_id"), ROSSUM.DP("order_id"))',
+      },
+      datapoints: {
+        // Map back the sheet values and configure the necessary behavior
+        notes: '=B1',
+        line_code: '=B1', // automatically copies to formula to all lines (special behavior for multivalues)
+
+        // TODO: how to write transposed results? Range maybe?
+        // TODO: do we need to define one line items multiple times?
+      },
+      labels: {
+        // TODO
+      },
+    },
+  },
+}

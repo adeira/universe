@@ -1,5 +1,7 @@
 // @flow
 
+import { RossumDatapoint } from '@adeira/rossum-flow-types';
+
 /**
  * Return datapoints matching a schema id.
  *
@@ -9,7 +11,7 @@
 export default function findBySchemaId(
   content: $ReadOnlyArray<$FlowFixMe>, // TODO
   schemaId: string,
-): $ReadOnlyArray<$FlowFixMe> {
+): $ReadOnlyArray<RossumDatapoint> {
   return content.reduce<$ReadOnlyArray<$FlowFixMe>>(
     (results, dp) => mergeResults(results, dp, schemaId),
     [],
@@ -18,9 +20,9 @@ export default function findBySchemaId(
 
 function mergeResults(
   results: $ReadOnlyArray<$FlowFixMe>,
-  dp: $FlowFixMe,
+  dp: RossumDatapoint,
   schemaId: string,
-): $ReadOnlyArray<$FlowFixMe> {
+): $ReadOnlyArray<RossumDatapoint> {
   if (dp.schema_id === schemaId) {
     return [...results, dp];
   }

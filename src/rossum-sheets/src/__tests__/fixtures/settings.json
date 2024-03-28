@@ -3,9 +3,9 @@
   "sheets": {
     "headers": {
       "columns": {
-        "A": "document_id",
-        "B": "order_id",
-        "C": "amount_due"
+        "A": "=ROSSUM.DP(\"document_id\")",
+        "B": "=ROSSUM.DP(\"order_id\")",
+        "C": "=ROSSUM.DP(\"amount_due\")"
       },
       "formulas": [
         {
@@ -27,8 +27,8 @@
     },
     "line_items": {
       "columns": {
-        "A": "item_quantity",
-        "B": "item_amount"
+        "A": "=ROSSUM.DP(\"item_quantity\")",
+        "B": "=ROSSUM.DP(\"item_amount\")"
       },
       "formulas": [
         {
@@ -47,7 +47,7 @@
     },
     "tax_details": {
       "columns": {
-        "A": "tax_detail_rate"
+        "A": "=ROSSUM.DP(\"tax_detail_rate\")"
       },
       "formulas": [
         {
@@ -58,8 +58,8 @@
     },
     "meta": {
       "columns": {
-        "A": "annotation.url",
-        "B": "document.url"
+        "A": "=ROSSUM.PAYLOAD(\"annotation.url\")",
+        "B": "=ROSSUM.PAYLOAD(\"document.url\")"
       }
     }
   }

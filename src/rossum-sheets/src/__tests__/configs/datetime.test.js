@@ -7,7 +7,9 @@ it('correctly replaces date values', () => {
   const config = {
     sheets: {
       headers: {
-        columns: { A: 'number_date' },
+        columns: {
+          A: '=ROSSUM.DP("number_date")',
+        },
         formulas: [
           {
             fx: '=A1',
@@ -28,7 +30,7 @@ it('correctly replaces date values', () => {
           "op": "replace",
           "value": {
             "content": {
-              "value": "2024-1-24",
+              "value": "2024-01-24",
             },
           },
         },
@@ -41,7 +43,9 @@ it('correctly replaces datetime values', () => {
   const config = {
     sheets: {
       headers: {
-        columns: { A: 'number_datetime' },
+        columns: {
+          A: '=ROSSUM.DP("number_datetime")',
+        },
         formulas: [
           {
             fx: '=A1',
@@ -62,7 +66,7 @@ it('correctly replaces datetime values', () => {
           "op": "replace",
           "value": {
             "content": {
-              "value": "2024-1-24",
+              "value": "2024-01-24 12:24",
             },
           },
         },
@@ -75,7 +79,9 @@ it('correctly replaces time values', () => {
   const config = {
     sheets: {
       headers: {
-        columns: { A: 'number_time' },
+        columns: {
+          A: '=ROSSUM.DP("number_time")',
+        },
         formulas: [
           {
             fx: '=A1',
@@ -98,7 +104,7 @@ it('correctly replaces time values', () => {
           "op": "replace",
           "value": {
             "content": {
-              "value": "0.516666666666667",
+              "value": "12:24",
             },
           },
         },

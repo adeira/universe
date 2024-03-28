@@ -15,6 +15,11 @@ import type { ExtensionUserConfig } from './validateUserConfig';
 export default function processRossumPayload(
   payload: WebhookPayload<ExtensionUserConfig>,
 ): WebhookResponse {
+  // TODO: validate that schema sideloading is enabled
+
+  // This is beyond ugly, but it currently seems to be the only way how to pass data to the registered plugins.
+  // See: https://github.com/handsontable/hyperformula/discussions/808
+  globalThis.__rossum_payload__ = payload;
   const hfInstance = createHyperFormulaInstance(payload);
 
   const messages = [];
@@ -107,6 +112,7 @@ export default function processRossumPayload(
     );
   }
 
+  globalThis.__rossum_payload__ = null;
   hfInstance.destroy();
 
   return rossumResponse;

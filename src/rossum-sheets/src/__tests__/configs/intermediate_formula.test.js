@@ -5,10 +5,11 @@ import createMockPayload from '../createMockPayload';
 
 it('correctly calculates intermediate formulas', () => {
   const config = {
+    debug: false,
     sheets: {
       headers: {
         columns: {
-          A: 'document_id',
+          A: '=ROSSUM.DP("document_id")',
           B: '=SUM(A1, 24)', // This allows us to pre-calculate any value to be shared in multiple formulas
         },
         formulas: [
