@@ -10,7 +10,7 @@ publish = false
 [dependencies]
 anyhow = { version = "1.0.81", default-features = false, features = ["std"] }
 async-trait = "0.1.79"
-axum = "0.7.5"
+axum = { version = "0.7.5", default-features = false, features = ["multipart"] }
 base64 = "0.22.0"
 blurhash-wasm = { git = "https://github.com/fpapado/blurhash-rust-wasm", branch = "master" }
 bytes = "1.6.0"
@@ -25,7 +25,8 @@ hex = "0.4.3"
 http = "0.2.12"
 image = { version = "0.24.9", default-features = false, features = ["jpeg", "png"] }
 jsonwebtoken = "9.3.0"
-juniper = { version = "0.15.12", default-features = false, features = ["schema-language"] }
+juniper = { version = "0.16.0", default-features = false, features = ["schema-language"] }
+juniper_axum = { version = "0.1.0" }
 lazy_static = "1.4.0"
 md-5 = "0.10.6"
 num_cpus = "1.16.0"

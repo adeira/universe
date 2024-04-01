@@ -68,23 +68,6 @@ impl AnyUser {
 }
 
 impl AnyUser {
-    pub(crate) fn id(&self) -> String {
-        self._id.to_owned()
-    }
-
-    pub(crate) fn is_active(&self) -> bool {
-        self.is_active.to_owned()
-    }
-
-    /// Name is a full name of the user ("John Doe").
-    #[cfg(test)]
-    pub(crate) fn name(&self) -> Option<String> {
-        match &self.google {
-            Some(google) => google.name().to_owned(),
-            None => None,
-        }
-    }
-
     #[cfg(test)]
     pub(crate) fn mock(mock_id: &Option<String>) -> Self {
         Self {

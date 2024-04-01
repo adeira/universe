@@ -66,7 +66,7 @@ pub(crate) async fn create_checkout_session(
     for selected_product in &input.selected_products {
         let db_product = &db_products
             .iter()
-            .find(|product| product.id() == selected_product.product_id.to_string())
+            .find(|product| product.id() == selected_product.product_id)
             .unwrap_or_else(|| {
                 panic!(
                     "Product with key {} doesn't exist in the database.",
@@ -99,7 +99,7 @@ pub(crate) async fn create_checkout_session(
                 .map(|selected_product| {
                     let db_product = &db_products
                         .iter()
-                        .find(|product| product.id() == selected_product.product_id.to_string())
+                        .find(|product| product.id() == selected_product.product_id)
                         .unwrap_or_else(|| {
                             panic!(
                                 "Product with key {} doesn't exist in the database.",
