@@ -97,7 +97,7 @@ mod tests {
         let new_schema_path = "./../schema.graphql.new";
         let saved_schema_path = "./../schema.graphql";
         test_graphql_schema_snapshot(
-            &super::create_graphql_schema().as_schema_language(),
+            &super::create_graphql_schema().as_sdl(),
             new_schema_path,
             saved_schema_path,
         );

@@ -64,22 +64,6 @@ impl std::fmt::Debug for Product {
 
 // Methods defined by `juniper::graphql_object` cannot be accessed directly from within the Rust code 🤔
 impl Product {
-    pub(crate) fn id(&self) -> String {
-        self._id.to_owned()
-    }
-
-    pub(crate) fn key(&self) -> String {
-        self._key.to_owned()
-    }
-
-    pub(crate) fn name(&self) -> String {
-        self.name.to_owned()
-    }
-
-    pub(crate) fn images(&self) -> Vec<Image> {
-        self.images.to_owned()
-    }
-
     /// Returns `true` if the prices are identical otherwise `false`. It compares unit amount
     /// as well as price currency.
     pub(crate) fn compare_prices(&self, price: Price) -> bool {
@@ -92,13 +76,13 @@ impl Product {
 impl Product {
     /// Product ID is unique in our whole GraphQL universe. Please note however, that it's not URL
     /// friendly.
-    fn id(&self) -> juniper::ID {
+    pub(crate) fn id(&self) -> juniper::ID {
         juniper::ID::from(self._id.to_owned())
     }
 
     /// Product KEY is unique only amongst other products but can potentially conflict with other
     /// keys of other types. Use product ID if you want truly unique value.
-    fn key(&self) -> juniper::ID {
+    pub(crate) fn key(&self) -> juniper::ID {
         juniper::ID::from(self._key.to_owned())
     }
 
@@ -122,7 +106,7 @@ impl Product {
     }
 
     /// The product's name, meant to be displayable to the customer.
-    fn name(&self) -> String {
+    pub(crate) fn name(&self) -> String {
         self.name.to_owned()
     }
 
@@ -135,7 +119,7 @@ impl Product {
 
     /// A list of images for this product, meant to be displayable to the customer. You can get
     /// image cover via `imageCover` field.
-    fn images(&self) -> Vec<Image> {
+    pub(crate) fn images(&self) -> Vec<Image> {
         self.images.to_owned()
     }
 
@@ -260,10 +244,10 @@ impl Product {
     }
 }
 
-/// This type should be used together with GraphQL uploads and it should hold the file names being
+/// This type should be used together with GraphQL uploads, and it should hold the file names being
 /// uploaded. It's used together with the actual uploaded files for validation purposes. Only files
 /// which are defined using this scalar will be processed.
-#[derive(juniper::GraphQLScalarValue, Clone, Serialize, Deserialize, Debug)]
+#[derive(juniper::GraphQLScalar, Clone, Serialize, Deserialize, Debug)]
 #[graphql(
     transparent,
     description = "
@@ -616,7 +600,7 @@ pub(in crate::commerce) async fn update_product(
                 existing_images.push(product_image);
             }
             None => {
-                // `product_image` no longer exists in the input so we should delete it
+                // `product_image` no longer exists in the input, so we should delete it
                 crate::images::delete_image(context, &product_image).await?;
             }
         }

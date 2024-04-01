@@ -90,11 +90,11 @@ impl POSMutation {
                     .as_ref()
                     .unwrap()
                     .iter()
-                    .find(|p| p.key() == selected_product.product_key.to_string())
+                    .find(|p| p.key() == selected_product.product_key)
                     .unwrap();
 
                 PosCheckoutProductDalInput {
-                    product_id: product_from_db.id(),
+                    product_id: product_from_db.id().to_string(),
                     product_name: product_from_db.name(),
                     product_units: selected_product.product_units,
                     product_price_unit_amount: selected_product.product_price_unit_amount,

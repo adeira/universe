@@ -52,7 +52,7 @@ impl Redirect {
         self._key.to_owned()
     }
 
-    fn redirects_to(&self) -> String {
+    pub(crate) fn redirects_to(&self) -> String {
         self.redirects_to.to_owned()
     }
 
@@ -62,12 +62,6 @@ impl Redirect {
 
     fn hits(&self) -> i32 {
         self.hits.to_owned()
-    }
-}
-
-impl Redirect {
-    pub(crate) fn redirects_to(&self) -> String {
-        self.redirects_to.to_owned()
     }
 }
 

@@ -29,7 +29,7 @@ pub(crate) struct Image {
 
 #[juniper::graphql_object]
 impl Image {
-    fn name(&self) -> String {
+    pub(crate) fn name(&self) -> String {
         self.name_original.to_owned()
     }
 
@@ -43,10 +43,6 @@ impl Image {
 }
 
 impl Image {
-    pub(crate) fn name(&self) -> String {
-        self.name_original.to_owned()
-    }
-
     fn s3name(&self) -> String {
         self.name_s3.to_owned()
     }

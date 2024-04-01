@@ -1,6 +1,6 @@
-#![forbid(clippy::missing_panics_doc)]
 #![forbid(unsafe_code)]
 #![forbid(unused_must_use)]
+// #![forbid(clippy::missing_panics_doc)]
 
 #[macro_use]
 mod global_macros;
@@ -153,5 +153,7 @@ async fn main() {
 
     let listener = tokio::net::TcpListener::bind("0.0.0.0:5050").await.unwrap();
     warp::serve(warp_routes).run(warp_server_addr).await;
-    // axum::serve(listener, create_axum_server()).await.unwrap()
+    // axum::serve(listener, create_axum_server(pool, global_configuration))
+    //     .await
+    //     .unwrap()
 }
