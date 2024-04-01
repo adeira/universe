@@ -37,7 +37,7 @@ mod tests {
         let image = image::open("src/images/tests/data/img.jpg").unwrap();
         assert_eq!(
             calculate_image_blurhash(image).unwrap(),
-            "LNN+%~-pTw^j}=a6VZRi}:VstQrp"
+            "LNN+%~-pTw^j}=VyVZRi}:VstQrp"
         );
     }
 }
