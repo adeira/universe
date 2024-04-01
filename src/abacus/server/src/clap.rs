@@ -49,7 +49,7 @@ pub fn generate_clap_app() -> Command {
             Arg::new("stripe-webhook-secret")
                 .long("stripe-webhook-secret")
                 .env("STRIPE_WEBHOOK_SECRET")
-                .help("Secret key for webhooks verification.")
+                .help("Secret key for webhooks verification (prefixed by 'whsec_*').")
                 .long_help(
                     "Stripe generates a unique secret key for each webhooks endpoint. It is being \
                     used for verifying the webhook payload signature to make sure that only \
