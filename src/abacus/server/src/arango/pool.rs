@@ -22,7 +22,6 @@ pub struct ConnectionManager {
 /// - When the application reaches maximum allowed connection number, other requests for a new
 ///   connection are queued and waiting for it to be available. This means that the application
 ///   might be responding slowly when it's choking. We might change this to panic instead (?).
-#[async_trait::async_trait]
 impl deadpool::managed::Manager for ConnectionManager {
     type Type = Connection;
     type Error = ClientError;
@@ -55,14 +54,14 @@ impl deadpool::managed::Manager for ConnectionManager {
                         tracing::error!(
                             "Unable to recycle the connection (DB response invalid) 🙅"
                         );
-                        Err(DeadpoolRecycleError::Message(
-                            "unable to recycle the connection".to_string(),
+                        Err(DeadpoolRecycleError::message(
+                            "unable to recycle the connection",
                         ))
                     }
                 },
                 Err(err) => {
                     tracing::error!("Unable to recycle the connection (DB query unsuccessful) 🙅");
-                    Err(DeadpoolRecycleError::Message(err.to_string()))
+                    Err(DeadpoolRecycleError::message(err.to_string()))
                 }
             },
             Err(err) => {
@@ -70,7 +69,7 @@ impl deadpool::managed::Manager for ConnectionManager {
                     "Unable to recycle the connection (DB '{}' unreachable) 🙅",
                     &self.db_name
                 );
-                Err(DeadpoolRecycleError::Message(err.to_string()))
+                Err(DeadpoolRecycleError::message(err.to_string()))
             }
         }
     }
