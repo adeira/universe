@@ -90,6 +90,7 @@ The application currently runs on DigitalOcean in Docker (k8s). There are additi
 ## Stripe
 
 ```bash
+brew install stripe/stripe-cli/stripe
 stripe login
 ```
 

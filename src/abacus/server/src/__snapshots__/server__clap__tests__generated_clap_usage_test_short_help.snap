@@ -23,9 +23,8 @@ Options:
       --stripe-restricted-api-key <stripe-restricted-api-key>
           Restricted Stripe.com API key (prefixed by 'rk_*') [env: STRIPE_RESTRICTED_API_KEY=]
       --stripe-webhook-secret <stripe-webhook-secret>
-          Secret key for webhooks verification. [env: STRIPE_WEBHOOK_SECRET=]
+          Secret key for webhooks verification (prefixed by 'whsec_*'). [env: STRIPE_WEBHOOK_SECRET=]
   -h, --help
           Print help (see more with '--help')
   -V, --version
           Print version
-
