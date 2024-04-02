@@ -1,11 +1,14 @@
 use crate::arango::ConnectionPool;
+use crate::auth::get_current_user;
+use crate::auth::users::{AnonymousUser, User};
 use crate::global_configuration::GlobalConfiguration;
 use crate::graphql_context::Context;
-use crate::graphql_schema::Schema;
+use crate::graphql_schema::{create_graphql_schema, Schema};
 use crate::stripe::webhook::{verify_stripe_signature, StripeWebhookPayload, StripeWebhookType};
 use crate::stripe::CheckoutSession;
 use axum::body::Bytes;
 use axum::extract::Path;
+use axum::http::header::ToStrError;
 use axum::http::{HeaderMap, HeaderValue, StatusCode};
 use axum::response::{IntoResponse, Redirect};
 use axum::Extension;
@@ -14,14 +17,33 @@ use juniper_axum::response::JuniperResponse;
 use std::sync::Arc;
 
 pub(crate) async fn graphql_axum_handler(
-    Extension(schema): Extension<Arc<Schema>>,
-    Extension(context): Extension<Context>,
+    headers: HeaderMap,
+    Extension(connection_pool): Extension<ConnectionPool>,
+    Extension(global_configuration): Extension<GlobalConfiguration>,
     JuniperRequest(req): JuniperRequest, // should be the last argument as consumes `Request`
-) -> JuniperResponse {
-    JuniperResponse(req.execute(&*schema, &context).await)
+) -> impl IntoResponse {
+    let authorization_header = headers
+        .get("Authorization")
+        .map(|value| value.to_str().unwrap_or_default().to_string());
+
+    match get_current_user(&connection_pool, &authorization_header).await {
+        Ok(user) => {
+            let graphql_schema = create_graphql_schema();
+
+            let context = Context {
+                pool: connection_pool,
+                uploadables: None, // TODO: currently not implemented on the server
+                user,
+                global_configuration,
+            };
+
+            JuniperResponse(req.execute(&graphql_schema, &context).await).into_response()
+        }
+        Err(_) => StatusCode::UNAUTHORIZED.into_response(),
+    }
 }
 
-/// Exposes a Warp filter to handle redirect URLs. It validates the input UUID and reject it if it's
+/// Exposes an Axum handler to redirect URLs. It validates the input UUID and reject it if it's
 /// not a valid UUID format (with 404).
 ///
 /// URL example:

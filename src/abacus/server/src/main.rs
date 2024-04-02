@@ -15,7 +15,6 @@ use std::net::{Ipv4Addr, SocketAddrV4};
 use tracing::level_filters::LevelFilter;
 use tracing_subscriber::prelude::*;
 use tracing_subscriber::EnvFilter;
-use warp::Filter;
 
 mod analytics;
 mod arango;
@@ -37,10 +36,6 @@ mod migrations;
 mod pos;
 mod price;
 mod stripe;
-mod warp_server;
-
-#[cfg(test)]
-mod tests;
 
 // https://www.lpalmieri.com/posts/2020-09-27-zero-to-production-4-are-we-observable-yet/
 fn init_tracing() {
@@ -49,7 +44,7 @@ fn init_tracing() {
     let filter_layer = EnvFilter::from_default_env()
         .add_directive(LevelFilter::WARN.into()) // default when not specified
         .add_directive("server=info".parse().unwrap())
-        .add_directive("warp=warn".parse().unwrap());
+        .add_directive("tower_http=trace".parse().unwrap());
 
     tracing_subscriber::registry()
         .with(fmt_layer)
@@ -113,7 +108,6 @@ async fn main() {
         tracing::info!("Skipping database migrations because of --no-migrations")
     }
 
-    let graphql_schema = create_graphql_schema();
     let global_configuration = GlobalConfiguration {
         stripe_restricted_api_key: cli_matches
             .get_one::<String>("stripe-restricted-api-key")
@@ -123,37 +117,8 @@ async fn main() {
             .map(String::from),
     };
 
-    let warp_routes =
-        warp_server::filters::combined_filter(&pool, graphql_schema, &global_configuration)
-            .with(warp::trace(|_info| {
-                tracing::info_span!(
-                    "request",
-                    id = %uuid::Uuid::new_v4(),
-                )
-            }))
-            .with(
-                // TODO: respect `Accept-Encoding` header (https://github.com/seanmonstar/warp/pull/513)
-                // TODO: this doesn't work with Relay Compiler persisted queries (gzip must be disabled for responses)
-                warp::compression::gzip(),
-            );
-
-    // TODO: remove once Axum implementation is done and compatible
-    let warp_server_addr = SocketAddrV4::new(Ipv4Addr::new(0, 0, 0, 0), 5000);
-    println!(
-        r#"
-        Starting Warp server on {}
-         - POST /graphql            (application/json)
-         - POST /graphql            (multipart/form-data)
-         - GET  /redirect/:uuid
-         - GET  /status/ping
-         - POST /webhooks/stripe
-        "#,
-        warp_server_addr
-    );
-
-    let listener = tokio::net::TcpListener::bind("0.0.0.0:5050").await.unwrap();
-    warp::serve(warp_routes).run(warp_server_addr).await;
-    // axum::serve(listener, create_axum_server(pool, global_configuration))
-    //     .await
-    //     .unwrap()
+    let listener = tokio::net::TcpListener::bind("0.0.0.0:5000").await.unwrap();
+    axum::serve(listener, create_axum_server(pool, global_configuration))
+        .await
+        .unwrap()
 }
