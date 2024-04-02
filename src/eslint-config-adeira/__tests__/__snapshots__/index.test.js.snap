@@ -871,6 +871,7 @@ exports[`rules snapshot: all stable rules 1`] = `
         "submit": true,
       },
     ],
+    "react/checked-requires-onchange-or-readonly": 0,
     "react/default-props-match-prop-types": 0,
     "react/destructuring-assignment": 0,
     "react/display-name": 0,

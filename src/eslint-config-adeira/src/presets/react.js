@@ -22,6 +22,7 @@ module.exports = ({
     // React (https://github.com/yannickcr/eslint-plugin-react)
     'react/boolean-prop-naming': OFF,
     'react/button-has-type': [ERROR, { button: true, submit: true, reset: false }],
+    'react/checked-requires-onchange-or-readonly': OFF,
     'react/default-props-match-prop-types': OFF,
     'react/destructuring-assignment': OFF,
     'react/display-name': OFF,
