@@ -14,7 +14,6 @@ jobs:
       matrix:
         manifest:
           - 'src/abacus/Cargo.toml'
-          - 'src/rossum-dmv2-analyze/Cargo.toml'
           - 'src/x/Cargo.toml'
 
     steps:
