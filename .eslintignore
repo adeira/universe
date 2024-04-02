@@ -17,6 +17,5 @@ next-env.d.ts
 
 # Project specifics:
 src/babel-preset-adeira/src/__tests__/__fixtures__/
-src/rossum-sheets/build/
 src/rossum-swat/src/download-annotation-data/index.mjs
 src/rossum-swat/src/patch-exported-annotations/index.mjs
