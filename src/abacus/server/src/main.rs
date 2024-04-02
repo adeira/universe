@@ -10,8 +10,6 @@ use crate::axum_server::create_axum_server;
 use crate::clap::generate_clap_app;
 use crate::global_configuration::GlobalConfiguration;
 use clap_complete::shells::{Bash, Zsh};
-use graphql_schema::create_graphql_schema;
-use std::net::{Ipv4Addr, SocketAddrV4};
 use tracing::level_filters::LevelFilter;
 use tracing_subscriber::prelude::*;
 use tracing_subscriber::EnvFilter;
