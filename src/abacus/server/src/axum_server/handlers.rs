@@ -1,20 +1,17 @@
 use crate::arango::ConnectionPool;
 use crate::auth::get_current_user;
-use crate::auth::users::{AnonymousUser, User};
 use crate::global_configuration::GlobalConfiguration;
 use crate::graphql_context::Context;
-use crate::graphql_schema::{create_graphql_schema, Schema};
+use crate::graphql_schema::create_graphql_schema;
 use crate::stripe::webhook::{verify_stripe_signature, StripeWebhookPayload, StripeWebhookType};
 use crate::stripe::CheckoutSession;
 use axum::body::Bytes;
 use axum::extract::Path;
-use axum::http::header::ToStrError;
-use axum::http::{HeaderMap, HeaderValue, StatusCode};
+use axum::http::{HeaderMap, StatusCode};
 use axum::response::{IntoResponse, Redirect};
 use axum::Extension;
 use juniper_axum::extract::JuniperRequest;
 use juniper_axum::response::JuniperResponse;
-use std::sync::Arc;
 
 pub(crate) async fn graphql_axum_handler(
     headers: HeaderMap,
@@ -153,7 +150,7 @@ pub(crate) async fn webhooks_axum_handler(
                     Err(_) => {
                         let message = "Invalid signature.";
                         tracing::error!(message);
-                        return (StatusCode::UNAUTHORIZED, message).into_response();
+                        (StatusCode::UNAUTHORIZED, message).into_response()
                     }
                 }
             }
@@ -161,13 +158,13 @@ pub(crate) async fn webhooks_axum_handler(
                 let message =
                     "Unable to verify Stripe signature (cannot parse Stripe-Signature header).";
                 tracing::error!(message);
-                return (StatusCode::BAD_REQUEST, message).into_response();
+                (StatusCode::BAD_REQUEST, message).into_response()
             }
         },
         None => {
             let message = "Unable to verify Stripe signature (Stripe-Signature header is missing).";
             tracing::error!(message);
-            return (StatusCode::BAD_REQUEST, message).into_response();
+            (StatusCode::BAD_REQUEST, message).into_response()
         }
     }
 }
