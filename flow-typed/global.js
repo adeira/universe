@@ -15,8 +15,9 @@ declare var globalThis: any;
  */
 declare var DEBUG__flowPrint: $Flow$DebugPrint;
 
-// FBT: augmented definition from: https://github.com/facebook/flow/blob/36eca27dab527f4f300c1a725e39aad5a04dd41e/lib/react.js#L15-L22
+// FBT: augmented definition from: https://github.com/facebook/flow/blob/f702ab9530d96ad3900b70902d3c9179c0d9202f/lib/react.js#L15-L23
 declare type React$Node =
+  | void
   | null
   | boolean
   | number
