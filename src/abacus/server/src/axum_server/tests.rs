@@ -6,10 +6,9 @@ use axum::{
     extract::connect_info::MockConnectInfo,
     http::{self, Request, StatusCode},
 };
-use http_body_util::BodyExt;
+use http_body_util::BodyExt; // for `collect`
 use serde_json::json;
-use tower::{Service, ServiceExt}; // for `collect`
-use warp::test::request; // for `call`, `oneshot`, and `ready`
+use tower::{Service, ServiceExt}; // for `call`, `oneshot`, and `ready`
 
 #[tokio::test]
 async fn test_axum_server_unknown_route() {

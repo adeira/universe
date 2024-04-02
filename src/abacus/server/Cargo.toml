@@ -43,12 +43,12 @@ serde_json = "1.0.115"
 serde_qs = "0.12.0"
 thiserror = { version = "1.0.58", default-features = false }
 tokio = { version = "1.37.0", default-features = false, features = ["full"] }
+tower-http = { version = "0.5.2", default-features = false, features = ["cors", "trace"] }
 tracing = "0.1.40"
 tracing-subscriber = { version = "0.3.18", default-features = false, features = ["smallvec", "fmt", "ansi", "tracing-log", "std", "env-filter"] }
 typed-builder = "0.18.1"
 url = "2.5.0"
 uuid = { version = "1.8.0", default-features = false, features = ["std", "v4"] }
-warp = { version = "0.3.3", default-features = false, features = ["multipart", "compression"] }
 
 [dev-dependencies]
 http-body-util = "0.1.1"
