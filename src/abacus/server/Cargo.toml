@@ -51,7 +51,10 @@ uuid = { version = "1.8.0", default-features = false, features = ["std", "v4"] }
 warp = { version = "0.3.3", default-features = false, features = ["multipart", "compression"] }
 
 [dev-dependencies]
+http-body-util = "0.1.1"
 insta = { version = "1.38.0", default-features = false, features = ["colors", "ron", "redactions", "json"] }
+mime = "0.3.17"
 proptest = "1.4.0"
 tokio = { version = "1.37.0", default-features = false, features = ["full"] }
+tower = "0.4.13"
 valico = "4.0.0"

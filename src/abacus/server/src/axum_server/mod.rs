@@ -1,5 +1,8 @@
 mod handlers;
 
+#[cfg(test)]
+mod tests;
+
 use crate::arango::ConnectionPool;
 use crate::auth::users::{AnonymousUser, User};
 use crate::axum_server::handlers::{
@@ -29,7 +32,7 @@ pub fn create_axum_server(
 
     Router::new()
         // Alphabetically sorted routes:
-        .route("/graphql", post(graphql_axum_handler))
+        .route("/graphql", get(graphql_axum_handler).post(graphql_axum_handler))
         .route("/redirect/:uuid", get(redirect_axum_handler))
         .route("/status/ping", get(|| async { "pong" }))
         .route("/webhooks/stripe", post(webhooks_axum_handler))
