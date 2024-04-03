@@ -16,7 +16,7 @@
   "dependencies": {
     "@adeira/babel-preset-adeira": "^4.0.0",
     "@adeira/monorepo-utils": "^0.12.0",
-    "@babel/runtime": "^7.24.1",
+    "@babel/runtime": "^7.24.4",
     "@npmcli/arborist": "^7.4.1",
     "chalk": "^4.1.2",
     "is-ci": "^3.0.1",
@@ -28,6 +28,6 @@
     "tar": "^6.2.1"
   },
   "peerDependencies": {
-    "@babel/core": "^7.24.3"
+    "@babel/core": "^7.24.4"
   }
 }

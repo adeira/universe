@@ -13,6 +13,6 @@
   "license": "MIT",
   "type": "commonjs",
   "dependencies": {
-    "@babel/runtime": "^7.24.1"
+    "@babel/runtime": "^7.24.4"
   }
 }
