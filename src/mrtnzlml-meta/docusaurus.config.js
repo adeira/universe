@@ -87,8 +87,8 @@ module.exports = {
            * merging two repositories. To see the error delete this comment and run Flow. */
           customCss: require.resolve('./src/css/custom.css'),
         },
-        googleAnalytics: {
-          trackingID: 'UA-148481588-1',
+        gtag: {
+          trackingID: 'G-6CPSY1EEYJ',
         },
       },
     ],
