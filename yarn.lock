@@ -28,7 +28,7 @@ __metadata:
     "@adeira/sx-design": "npm:^0.33.0"
     "@fbtjs/default-collection-transform": "npm:^1.0.0"
     "@next/bundle-analyzer": "npm:^14.1.4"
-    "@playwright/test": "npm:^1.42.1"
+    "@playwright/test": "npm:^1.43.0"
     "@recoiljs/refine": "npm:^0.1.1"
     "@sentry/nextjs": "npm:^7.109.0"
     "@testing-library/jest-dom": "npm:^5.17.0"
@@ -65,7 +65,7 @@ __metadata:
     "@adeira/sx": "npm:^0.30.0"
     "@adeira/sx-design": "npm:^0.33.0"
     "@fbtjs/default-collection-transform": "npm:^1.0.0"
-    "@playwright/test": "npm:^1.42.1"
+    "@playwright/test": "npm:^1.43.0"
     "@sentry/nextjs": "npm:^7.109.0"
     "@testing-library/react": "npm:^13.4.0"
     babel-plugin-fbt: "npm:^1.0.0"
@@ -95,7 +95,7 @@ __metadata:
   dependencies:
     "@adeira/babel-preset-adeira": "npm:^4.0.0"
     "@babel/core": "npm:^7.24.4"
-    "@playwright/test": "npm:^1.42.1"
+    "@playwright/test": "npm:^1.43.0"
     next: "npm:^14.1.4"
     next-compose-plugins: "npm:^2.2.1"
     next-plugin-custom-babel-config: "npm:^1.0.5"
@@ -448,7 +448,7 @@ __metadata:
     "@babel/core": "npm:^7.24.4"
     "@babel/runtime": "npm:^7.24.4"
     "@fbtjs/default-collection-transform": "npm:^1.0.0"
-    "@playwright/test": "npm:^1.42.1"
+    "@playwright/test": "npm:^1.43.0"
     "@storybook/addon-a11y": "npm:^6.5.16"
     "@storybook/addon-actions": "npm:^6.5.16"
     "@storybook/addon-essentials": "npm:^6.5.16"
@@ -522,7 +522,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@adeira/typescript-test@workspace:src/typescript-test"
   dependencies:
-    "@playwright/test": "npm:^1.42.1"
+    "@playwright/test": "npm:^1.43.0"
     "@types/node": "npm:^20.12.4"
     "@types/react": "npm:^18.2.74"
     "@types/react-dom": "npm:^18.2.24"
@@ -4050,14 +4050,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:^1.42.1":
-  version: 1.42.1
-  resolution: "@playwright/test@npm:1.42.1"
+"@playwright/test@npm:^1.43.0":
+  version: 1.43.0
+  resolution: "@playwright/test@npm:1.43.0"
   dependencies:
-    playwright: "npm:1.42.1"
+    playwright: "npm:1.43.0"
   bin:
     playwright: cli.js
-  checksum: 10c0/e5d7c1ffedabb934643edb010038edcb70d51d224fb6444844a854d94365a6179d4407a83da176cae37ccd42b62c148843e0b6f9b4c6506048e06558c00d4267
+  checksum: 10c0/097dc9db5047d964ba1d1a1776b3298d999c77c64ef3f96613ff76ea885787e3cd120589790daa7fd20adca52abcf30db52be59d64ab4faf9b118840f3b0d031
   languageName: node
   linkType: hard
 
@@ -19037,7 +19037,7 @@ __metadata:
   dependencies:
     "@docusaurus/core": "npm:^3.2.1"
     "@docusaurus/preset-classic": "npm:^3.2.1"
-    "@playwright/test": "npm:^1.42.1"
+    "@playwright/test": "npm:^1.43.0"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
   languageName: unknown
@@ -20635,27 +20635,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.42.1":
-  version: 1.42.1
-  resolution: "playwright-core@npm:1.42.1"
+"playwright-core@npm:1.43.0":
+  version: 1.43.0
+  resolution: "playwright-core@npm:1.43.0"
   bin:
     playwright-core: cli.js
-  checksum: 10c0/9bb0be6defa32eb1b01429615f10c2ad17dcf701656c081a250369c1eb3b0dcc2a0ee21188cd653cdd2303ca73ff94df0d270b178fe3897eba274793dab368ce
+  checksum: 10c0/3afdcc79176e0c872b3bb66994ef6288b10819dfb800234b81134a35daffc8100596d65ccff10faa8941a450a259a78f446db570898e53031abba7f542602c6a
   languageName: node
   linkType: hard
 
-"playwright@npm:1.42.1":
-  version: 1.42.1
-  resolution: "playwright@npm:1.42.1"
+"playwright@npm:1.43.0":
+  version: 1.43.0
+  resolution: "playwright@npm:1.43.0"
   dependencies:
     fsevents: "npm:2.3.2"
-    playwright-core: "npm:1.42.1"
+    playwright-core: "npm:1.43.0"
   dependenciesMeta:
     fsevents:
       optional: true
   bin:
     playwright: cli.js
-  checksum: 10c0/91dcbfe92d75ca9eb4bfff69bb1ec28007b5a96f6187f48e52aa0f6acf8c24f6039ed6467c152964cc92f4ab64b85dc665b13c52b2fb9f7b9182ddb9db404e37
+  checksum: 10c0/82506d3937416439d42ed7940e03b62225651a049792b7c122cd1fb4318674e5789dbcd38e31c8e2f41d99e3b7dc9aa0898bfdd26dff5456eb3f89a166252bd8
   languageName: node
   linkType: hard
 
