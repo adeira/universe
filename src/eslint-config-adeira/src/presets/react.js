@@ -1,5 +1,12 @@
 // @flow
 
+const eslintPluginReact = require('eslint-plugin-react');
+const eslintPluginReactHooks = require('eslint-plugin-react-hooks');
+const eslintPluginReactNative = require('eslint-plugin-react-native');
+const eslintPluginJsxA11y = require('eslint-plugin-jsx-a11y');
+const eslintPluginDom = require('eslint-plugin-jest-dom');
+const eslintPluginTestingLibrary = require('eslint-plugin-testing-library');
+
 const { ERROR, OFF, NEXT_VERSION_ERROR } = require('../constants');
 const detectReactVersion = require('../detectReactVersion');
 
@@ -10,14 +17,14 @@ import type { EslintConfig } from '../EslintConfig.flow';
 */
 
 module.exports = ({
-  plugins: [
-    'eslint-plugin-react',
-    'eslint-plugin-react-hooks',
-    'eslint-plugin-react-native',
-    'eslint-plugin-jsx-a11y',
-    'eslint-plugin-jest-dom',
-    'eslint-plugin-testing-library',
-  ],
+  plugins: {
+    'react': eslintPluginReact,
+    'react-hooks': eslintPluginReactHooks,
+    'react-native': eslintPluginReactNative,
+    'jsx-a11y': eslintPluginJsxA11y,
+    'dom': eslintPluginDom,
+    'testing-library': eslintPluginTestingLibrary,
+  },
   rules: {
     // React (https://github.com/yannickcr/eslint-plugin-react)
     'react/boolean-prop-naming': OFF,

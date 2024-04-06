@@ -1,5 +1,7 @@
 // @flow
 
+const eslintPluginJest = require('eslint-plugin-jest');
+
 const { ERROR, OFF, NEXT_VERSION_ERROR } = require('../constants');
 
 /*::
@@ -9,7 +11,9 @@ import type { EslintConfig } from '../EslintConfig.flow';
 */
 
 module.exports = ({
-  plugins: ['eslint-plugin-jest'],
+  plugins: {
+    jest: eslintPluginJest,
+  },
   rules: {
     // Jest (https://github.com/jest-community/eslint-plugin-jest)
     'jest/consistent-test-it': OFF,

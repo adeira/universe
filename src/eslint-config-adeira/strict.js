@@ -16,6 +16,13 @@ import type { EslintConfig } from './src/EslintConfig.flow';
 */
 
 module.exports = (getCommonConfig(ERROR, {
+  plugins: {
+    ...basePreset.plugins,
+    ...flowtypePreset.plugins,
+    ...jestPreset.plugins,
+    ...reactPreset.plugins,
+    ...relayPreset.plugins,
+  },
   rules: {
     ...basePreset.rules,
     ...flowtypePreset.rules,
@@ -24,13 +31,6 @@ module.exports = (getCommonConfig(ERROR, {
     ...relayPreset.rules,
     ...prettierRules,
   },
-  plugins: [
-    ...basePreset.plugins,
-    ...flowtypePreset.plugins,
-    ...jestPreset.plugins,
-    ...reactPreset.plugins,
-    ...relayPreset.plugins,
-  ],
   overrides: [
     ...(basePreset.overrides ?? []),
     ...(flowtypePreset.overrides ?? []),

@@ -1,5 +1,7 @@
 // @flow
 
+const eslintPluginRelay = require('eslint-plugin-relay');
+
 const { ERROR, OFF } = require('../constants');
 
 /*::
@@ -9,7 +11,9 @@ import type { EslintConfig } from '../EslintConfig.flow';
 */
 
 module.exports = ({
-  plugins: ['eslint-plugin-relay'],
+  plugins: {
+    relay: eslintPluginRelay,
+  },
   rules: {
     // Relay (https://github.com/relayjs/eslint-plugin-relay)
     'relay/compat-uses-vars': OFF, // we do not use Relay Compat
