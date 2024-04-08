@@ -377,6 +377,7 @@ module.exports = ({
     'n/file-extension-in-import': [ERROR, 'always', { '.js': 'never' }],
     'n/global-require': OFF, // see: global-require (https://github.com/mysticatea/eslint-plugin-node/pull/206)
     'n/handle-callback-err': WARN, // see: handle-callback-err (https://github.com/mysticatea/eslint-plugin-node/pull/206)
+    'n/hashbang': ERROR,
     'n/no-callback-literal': ERROR,
     'n/no-deprecated-api': ERROR,
     'n/no-exports-assign': ERROR,
@@ -405,10 +406,10 @@ module.exports = ({
     'n/prefer-global/text-encoder': OFF,
     'n/prefer-global/url': ERROR,
     'n/prefer-global/url-search-params': OFF,
+    'n/prefer-node-protocol': OFF, // TODO: enable once Flow supports it
     'n/prefer-promises/dns': OFF,
     'n/prefer-promises/fs': OFF,
     'n/process-exit-as-throw': ERROR,
-    'n/shebang': ERROR,
 
     // Eslint comments (https://github.com/mysticatea/eslint-plugin-eslint-comments)
     'eslint-comments/disable-enable-pair': OFF,

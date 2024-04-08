@@ -225,6 +225,7 @@ exports[`Base preset: Base preset 1`] = `
     ],
     "n/global-require": 0,
     "n/handle-callback-err": 1,
+    "n/hashbang": 2,
     "n/no-callback-literal": 2,
     "n/no-deprecated-api": 2,
     "n/no-exports-assign": 2,
@@ -253,10 +254,10 @@ exports[`Base preset: Base preset 1`] = `
     "n/prefer-global/text-encoder": 0,
     "n/prefer-global/url": 2,
     "n/prefer-global/url-search-params": 0,
+    "n/prefer-node-protocol": 0,
     "n/prefer-promises/dns": 0,
     "n/prefer-promises/fs": 0,
     "n/process-exit-as-throw": 2,
-    "n/shebang": 2,
     "new-cap": [
       1,
       {

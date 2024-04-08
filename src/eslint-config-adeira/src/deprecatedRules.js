@@ -26,6 +26,7 @@ module.exports = (new Set([
   // https://github.com/mysticatea/eslint-plugin-node#deprecated-rules
   'n/no-hide-core-modules',
   'n/no-unsupported-features',
+  'n/shebang', // replaced by `n/hashbang` in 17.0.0
   'node/no-hide-core-modules',
   'node/no-unsupported-features',
 
