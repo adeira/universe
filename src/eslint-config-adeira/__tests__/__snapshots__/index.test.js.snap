@@ -442,6 +442,7 @@ exports[`rules snapshot: all stable rules 1`] = `
     "jest/prefer-expect-resolves": 2,
     "jest/prefer-hooks-in-order": 2,
     "jest/prefer-hooks-on-top": 2,
+    "jest/prefer-importing-jest-globals": 0,
     "jest/prefer-lowercase-title": 0,
     "jest/prefer-mock-promise-shorthand": 0,
     "jest/prefer-snapshot-hint": 0,

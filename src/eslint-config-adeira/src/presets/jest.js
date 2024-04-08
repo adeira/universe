@@ -48,6 +48,7 @@ module.exports = ({
     'jest/prefer-expect-resolves': ERROR,
     'jest/prefer-hooks-in-order': ERROR,
     'jest/prefer-hooks-on-top': ERROR,
+    'jest/prefer-importing-jest-globals': OFF, // TODO: consider enabling
     'jest/prefer-lowercase-title': OFF,
     'jest/prefer-mock-promise-shorthand': OFF,
     'jest/prefer-snapshot-hint': OFF, // TODO: WARN (or NEXT_VERSION_ERROR)
