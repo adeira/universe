@@ -729,6 +729,8 @@ export type AllCSSPropertyTypes = {
   +textUnderlineOffset?: number | string, // https://developer.mozilla.org/docs/Web/CSS/text-underline-offset
   +textUnderlinePosition?: number | string, // https://developer.mozilla.org/docs/Web/CSS/text-underline-position
   +textWrap?: 'wrap' | 'nowrap' | 'balance' | 'stable' | 'pretty' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/text-wrap
+  +textWrapMode?: 'auto' | 'wrap' | 'nowrap' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/text-wrap-mode
+  +textWrapStyle?: 'auto' | 'balance' | 'stable' | 'pretty' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/text-wrap-style
   +timelineScope?: number | string, // https://developer.mozilla.org/docs/Web/CSS/timeline-scope
   +top?: number | string, // https://developer.mozilla.org/docs/Web/CSS/top
   +touchAction?: number | string, // https://developer.mozilla.org/docs/Web/CSS/touch-action
