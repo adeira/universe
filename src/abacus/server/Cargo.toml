@@ -9,7 +9,7 @@ publish = false
 
 [dependencies]
 anyhow = { version = "1.0.82", default-features = false, features = ["std"] }
-async-trait = "0.1.79"
+async-trait = "0.1.80"
 axum = { version = "0.7.5", default-features = false, features = ["multipart"] }
 base64 = "0.22.0"
 blurhash-wasm = { git = "https://github.com/fpapado/blurhash-rust-wasm", branch = "master" }
