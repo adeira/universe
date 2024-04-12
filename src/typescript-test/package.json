@@ -10,7 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@playwright/test": "^1.43.0",
+    "@playwright/test": "^1.43.1",
     "@types/node": "^20.12.7",
     "@types/react": "^18.2.77",
     "@types/react-dom": "^18.2.25",
