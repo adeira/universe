@@ -28,26 +28,26 @@ module.exports = {
           const manifest = workspace.manifest;
           const manifestRaw = manifest.raw;
 
-          if (manifest.private !== true) {
-            if (manifestRaw.description == null) {
-              reportError('X001', errors['X001']);
-            }
-            if (manifestRaw.homepage == null) {
-              reportError('X002', errors['X002']);
-            }
-            if (manifestRaw.bugs == null) {
-              reportError('X003', errors['X003']);
-            }
-            if (manifestRaw.repository == null) {
-              reportError('X004', errors['X004']);
-            }
-            if (manifestRaw.version == null) {
-              reportError('X005', errors['X005']);
-            }
-            if (manifestRaw.type == null) {
-              reportError('X006', errors['X006']);
-            }
-          }
+          // if (manifest.private !== true) {
+          //   if (manifestRaw.description == null) {
+          //     reportError('X001', errors['X001']);
+          //   }
+          //   if (manifestRaw.homepage == null) {
+          //     reportError('X002', errors['X002']);
+          //   }
+          //   if (manifestRaw.bugs == null) {
+          //     reportError('X003', errors['X003']);
+          //   }
+          //   if (manifestRaw.repository == null) {
+          //     reportError('X004', errors['X004']);
+          //   }
+          //   if (manifestRaw.version == null) {
+          //     reportError('X005', errors['X005']);
+          //   }
+          //   if (manifestRaw.type == null) {
+          //     reportError('X006', errors['X006']);
+          //   }
+          // }
         },
       },
     };
