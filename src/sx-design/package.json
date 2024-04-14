@@ -39,21 +39,35 @@
     "@adeira/sx": "^0.30.0",
     "@adeira/sx-jest-snapshot-serializer": "^0.1.0",
     "@babel/core": "^7.24.4",
+    "@chromatic-com/storybook": "^1.3.2",
     "@fbtjs/default-collection-transform": "^1.0.0",
     "@playwright/test": "^1.43.1",
+    "@storybook/addon-essentials": "^8.0.8",
+    "@storybook/addon-interactions": "^8.0.8",
+    "@storybook/addon-links": "^8.0.8",
+    "@storybook/addon-onboarding": "^8.0.8",
+    "@storybook/addon-webpack5-compiler-babel": "^3.0.3",
+    "@storybook/blocks": "^8.0.8",
+    "@storybook/react": "^8.0.8",
+    "@storybook/react-webpack5": "^8.0.8",
+    "@storybook/test": "^8.0.8",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.5.2",
     "babel-loader": "^9.1.3",
     "babel-plugin-fbt": "^1.0.0",
     "babel-plugin-fbt-runtime": "^1.0.0",
+    "eslint-plugin-storybook": "^0.8.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "storybook": "^8.0.8"
   },
   "scripts": {
     "fbt:manifest": "fbt-manifest --src=src --enum-manifest=translations/enum_manifest.json --src-manifest=translations/src_manifest.json",
     "fbt:collect": "fbt-collect --options=__self --pretty --manifest < translations/src_manifest.json > translations/source_strings.json",
     "fbt:translate": "fbt-translate --source-strings=translations/source_strings.json --pretty --translations translations/in/*.json --output-dir=translations/out --jenkins",
-    "fbt": "yarn run fbt:manifest && yarn run fbt:collect && yarn run fbt:translate"
+    "fbt": "yarn run fbt:manifest && yarn run fbt:collect && yarn run fbt:translate",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   }
 }
