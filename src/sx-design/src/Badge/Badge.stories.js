@@ -2,7 +2,7 @@
 
 import fbt from 'fbt';
 
-import Badge from '../Badge/Badge';
+import Badge from './Badge';
 import { initFbt } from '../test-utils';
 
 initFbt();

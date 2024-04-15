@@ -1,0 +1,67 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import SxDesignProvider from '../SxDesignProvider';
+import ColorShowcase from './ColorShowcase';
+
+<Meta title="Styleguide/Colors" />
+
+# Colors showcase
+
+<Canvas>
+  <SxDesignProvider>
+    <ColorShowcase color="rgba(var(--sx-error-lighter))" />
+    <ColorShowcase color="rgba(var(--sx-error-light))" />
+    <ColorShowcase color="rgba(var(--sx-error))" />
+    <ColorShowcase color="rgba(var(--sx-error-dark))" />
+  </SxDesignProvider>
+</Canvas>
+
+<Canvas>
+  <SxDesignProvider>
+    <ColorShowcase color="rgba(var(--sx-success-lighter))" />
+    <ColorShowcase color="rgba(var(--sx-success-light))" />
+    <ColorShowcase color="rgba(var(--sx-success))" />
+    <ColorShowcase color="rgba(var(--sx-success-dark))" />
+  </SxDesignProvider>
+</Canvas>
+
+<Canvas>
+  <SxDesignProvider>
+    <ColorShowcase color="rgba(var(--sx-warning-lighter))" />
+    <ColorShowcase color="rgba(var(--sx-warning-light))" />
+    <ColorShowcase color="rgba(var(--sx-warning))" />
+    <ColorShowcase color="rgba(var(--sx-warning-dark))" />
+  </SxDesignProvider>
+</Canvas>
+
+<Canvas>
+  <SxDesignProvider theme="light">
+    <em>colors for light theme</em>
+    <ColorShowcase color="rgba(var(--sx-background))" />
+    <ColorShowcase color="rgba(var(--sx-accent-1))" />
+    <ColorShowcase color="rgba(var(--sx-accent-2))" />
+    <ColorShowcase color="rgba(var(--sx-accent-3))" />
+    <ColorShowcase color="rgba(var(--sx-accent-4))" />
+    <ColorShowcase color="rgba(var(--sx-accent-5))" />
+    <ColorShowcase color="rgba(var(--sx-accent-6))" />
+    <ColorShowcase color="rgba(var(--sx-accent-7))" />
+    <ColorShowcase color="rgba(var(--sx-foreground))" />
+  </SxDesignProvider>
+</Canvas>
+
+<Canvas>
+  <SxDesignProvider theme="dark">
+    <em>
+      colors for dark theme (it's not a simple reverse of light mode, the colors are slightly
+      different)
+    </em>
+    <ColorShowcase color="rgba(var(--sx-background))" />
+    <ColorShowcase color="rgba(var(--sx-accent-1))" />
+    <ColorShowcase color="rgba(var(--sx-accent-2))" />
+    <ColorShowcase color="rgba(var(--sx-accent-3))" />
+    <ColorShowcase color="rgba(var(--sx-accent-4))" />
+    <ColorShowcase color="rgba(var(--sx-accent-5))" />
+    <ColorShowcase color="rgba(var(--sx-accent-6))" />
+    <ColorShowcase color="rgba(var(--sx-accent-7))" />
+    <ColorShowcase color="rgba(var(--sx-foreground))" />
+  </SxDesignProvider>
+</Canvas>

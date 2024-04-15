@@ -20,7 +20,7 @@
     "pretty-format": "^29.7.0"
   },
   "devDependencies": {
-    "@testing-library/react": "^13.4.0",
+    "@testing-library/react": "^14.3.1",
     "react-test-renderer": "^18.2.0"
   }
 }

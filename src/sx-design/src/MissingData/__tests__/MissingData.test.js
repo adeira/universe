@@ -11,7 +11,7 @@ import { render, userEvent } from '../../test-utils';
 it('works as expected without any crashes', async () => {
   const { queryByText, getByText } = render(<MissingData />);
 
-  // By default the text is hidden (via CSS visibility, see `Tooltip`):
+  // By default, the text is hidden (via CSS visibility, see `Tooltip`):
   expect(getByText('Unable to load data or missing data.')).toBeInTheDocument();
   expect(
     window.getComputedStyle(queryByText('Unable to load data or missing data.')).visibility,
