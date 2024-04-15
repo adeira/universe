@@ -1,24 +1,22 @@
+// @flow
+
 import { join, dirname } from 'path';
 
 /**
  * This function is used to resolve the absolute path of a package.
  * It is needed in projects that use Yarn PnP or are set up within a monorepo.
  */
-function getAbsolutePath(value) {
+function getAbsolutePath(value /*: string */) {
   return dirname(require.resolve(join(value, 'package.json')));
 }
 
-/** @type { import('@storybook/react-webpack5').StorybookConfig } */
 const config = {
-  stories: ['../src/**/*.stories.js'], // TODO: change to search
-  // stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  stories: ['../src/**/*.stories.js'],
   addons: [
     getAbsolutePath('@storybook/addon-webpack5-compiler-babel'),
-    getAbsolutePath('@storybook/addon-onboarding'), // TODO: remove
-    getAbsolutePath('@storybook/addon-links'), // TODO: ??
-    getAbsolutePath('@storybook/addon-essentials'), // TODO: ??
-    getAbsolutePath('@chromatic-com/storybook'), // TODO: remove
-    getAbsolutePath('@storybook/addon-interactions'), // TODO: ??
+    getAbsolutePath('@storybook/addon-links'),
+    getAbsolutePath('@storybook/addon-essentials'),
+    getAbsolutePath('@storybook/addon-interactions'),
   ],
   framework: {
     name: getAbsolutePath('@storybook/react-webpack5'),
@@ -27,11 +25,13 @@ const config = {
   docs: {
     autodocs: 'tag',
   },
-  babel: (options) => {
+  babel: (options /*: $FlowFixMe */) => {
     return {
       ...options,
-      presets: [['@adeira/babel-preset-adeira']],
+      presets: ['@adeira/babel-preset-adeira'],
+      plugins: ['babel-plugin-fbt', 'babel-plugin-fbt-runtime'],
     };
   },
 };
-export default config;
+
+export default (config /*: $FlowFixMe */);

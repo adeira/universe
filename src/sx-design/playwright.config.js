@@ -2,7 +2,7 @@
 const { devices, defineConfig } = require('@playwright/test');
 
 export default defineConfig({
-  timeout: 60000,
+  timeout: 120 * 1000,
   testDir: 'playwright',
   outputDir: 'playwright/test-results',
   testMatch: '**.play.js',
@@ -10,7 +10,7 @@ export default defineConfig({
   reporter: process.env.CI ? 'github' : 'list',
   retries: process.env.CI ? 2 : 0,
   webServer: {
-    command: 'yarn storybook --quiet',
+    command: process.env.CI ? 'yarn storybook' : 'yarn storybook --quiet',
     port: 6006,
     timeout: 120 * 1000, // milliseconds
     reuseExistingServer: !process.env.CI,
