@@ -14,6 +14,7 @@ spec:
         - abacus.adeira.io
         - adeira.io
         - kochka.com.mx
+        - mrtnzlml.com
         - tools.adeira.io
       secretName: abacus-tls
   rules:
@@ -45,6 +46,16 @@ spec:
             backend:
               service:
                 name: abacus-kochka-service
+                port:
+                  number: 80
+    - host: mrtnzlml.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: '/'
+            backend:
+              service:
+                name: mrtnzlml-meta-service
                 port:
                   number: 80
     - host: tools.adeira.io
