@@ -16,6 +16,8 @@ export type AllCSSPropertyTypes = {
   +alignSelf?: number | string, // https://developer.mozilla.org/docs/Web/CSS/align-self
   +alignTracks?: number | string, // https://developer.mozilla.org/docs/Web/CSS/align-tracks
   +all?: 'initial' | 'inherit' | 'unset' | 'revert' | 'revert-layer', // https://developer.mozilla.org/docs/Web/CSS/all
+  +anchorName?: number | string, // https://developer.mozilla.org/docs/Web/CSS/anchor-name
+  +anchorScope?: number | string, // https://developer.mozilla.org/docs/Web/CSS/anchor-scope
   +animation?: number | string, // https://developer.mozilla.org/docs/Web/CSS/animation
   +animationComposition?: number | string, // https://developer.mozilla.org/docs/Web/CSS/animation-composition
   +animationDelay?: string, // https://developer.mozilla.org/docs/Web/CSS/animation-delay
@@ -380,6 +382,7 @@ export type AllCSSPropertyTypes = {
   +inlineSize?: number | string, // https://developer.mozilla.org/docs/Web/CSS/inline-size
   +inputSecurity?: 'auto' | 'none' | 'inherit' | 'initial' | 'unset',
   +inset?: number | string, // https://developer.mozilla.org/docs/Web/CSS/inset
+  +insetArea?: number | string, // https://developer.mozilla.org/docs/Web/CSS/inset-area
   +insetBlock?: number | string, // https://developer.mozilla.org/docs/Web/CSS/inset-block
   +insetBlockEnd?: number | string, // https://developer.mozilla.org/docs/Web/CSS/inset-block-end
   +insetBlockStart?: number | string, // https://developer.mozilla.org/docs/Web/CSS/inset-block-start
@@ -590,6 +593,11 @@ export type AllCSSPropertyTypes = {
     | 'inherit'
     | 'initial'
     | 'unset',
+  +positionAnchor?: number | string, // https://developer.mozilla.org/docs/Web/CSS/position-anchor
+  +positionTry?: number | string, // https://developer.mozilla.org/docs/Web/CSS/position-try
+  +positionTryOptions?: number | string, // https://developer.mozilla.org/docs/Web/CSS/position-try-options
+  +positionTryOrder?: number | string, // https://developer.mozilla.org/docs/Web/CSS/position-try-order
+  +positionVisibility?: number | string, // https://developer.mozilla.org/docs/Web/CSS/position-visibility
   +printColorAdjust?: 'economy' | 'exact' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/print-color-adjust
   +quotes?: number | string, // https://developer.mozilla.org/docs/Web/CSS/quotes
   +resize?:  // https://developer.mozilla.org/docs/Web/CSS/resize
