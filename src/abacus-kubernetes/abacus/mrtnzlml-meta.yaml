@@ -31,14 +31,8 @@ spec:
         app: mrtnzlml-meta
     spec:
       containers:
+        # TODO: resources.requests, resources.limits
         - name: mrtnzlml-meta
           image: adeira/mrtnzlml-meta
-          resources:
-            requests:
-              cpu: 16m
-              memory: 128Mi
-            limits:
-              cpu: 32m
-              memory: 256Mi
           ports:
             - containerPort: 3000
