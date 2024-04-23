@@ -37,7 +37,7 @@ __metadata:
     babel-plugin-fbt: "npm:^1.0.0"
     babel-plugin-fbt-runtime: "npm:^1.0.0"
     d3: "npm:^7.9.0"
-    fbt: "npm:^1.0.0"
+    fbt: "npm:^1.0.2"
     graphql: "npm:^16.8.1"
     immutable: "npm:^4.3.5"
     next: "npm:^14.2.2"
@@ -70,7 +70,7 @@ __metadata:
     "@testing-library/react": "npm:^14.3.1"
     babel-plugin-fbt: "npm:^1.0.0"
     babel-plugin-fbt-runtime: "npm:^1.0.0"
-    fbt: "npm:^1.0.0"
+    fbt: "npm:^1.0.2"
     globby: "npm:^14.0.1"
     graphql: "npm:^16.8.1"
     next: "npm:^14.2.2"
@@ -224,7 +224,7 @@ __metadata:
     "@testing-library/jest-dom": "npm:^6.4.2"
     babel-plugin-fbt: "npm:^1.0.0"
     babel-plugin-fbt-runtime: "npm:^1.0.0"
-    fbt: "npm:^1.0.0"
+    fbt: "npm:^1.0.2"
   peerDependencies:
     "@adeira/relay": ^8.0.0
     "@adeira/sx": ^0.30.0
@@ -463,7 +463,7 @@ __metadata:
     babel-plugin-fbt: "npm:^1.0.0"
     babel-plugin-fbt-runtime: "npm:^1.0.0"
     blurhash: "npm:2.0.5"
-    fbt: "npm:^1.0.0"
+    fbt: "npm:^1.0.2"
     flow-enums-runtime: "npm:^0.0.6"
     focus-trap-react: "npm:^10.2.3"
     prop-types: "npm:^15.8.1"
@@ -11725,16 +11725,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fbt@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "fbt@npm:1.0.0"
+"fbt@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "fbt@npm:1.0.2"
   dependencies:
     invariant: "npm:^2.2.4"
   peerDependencies:
     babel-plugin-fbt: ^1.0.0
     babel-plugin-fbt-runtime: ^1.0.0
-    react: 0.12.0 - 17.x.x
-  checksum: 10c0/80a0ee40c556c2e5db51cd0050ab65e8f5b4d581be233cb2efefb850ea3580a60f2e03efc011f325ba6476651c5b199d8bf6afc33990356212b74b40b21b3b23
+    react: ">=0.12.0"
+  checksum: 10c0/5da99407468c3196af8742ad411f05f33fc6077787802739a189de8c68b0948cb398c79aa523657d06da55932cf02dca27e5cfa5bdd09e422036f49c354ba9df
   languageName: node
   linkType: hard
 

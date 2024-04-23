@@ -16,7 +16,7 @@
   "dependencies": {
     "@adeira/js": "^2.1.1",
     "@babel/runtime": "^7.24.4",
-    "fbt": "^1.0.0"
+    "fbt": "^1.0.2"
   },
   "devDependencies": {
     "@fbtjs/default-collection-transform": "^1.0.0",
