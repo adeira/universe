@@ -31,12 +31,8 @@ spec:
         app: abacus-kochka
     spec:
       containers:
+        # TODO: resources.requests, resources.limits
         - name: abacus-kochka
           image: adeira/abacus-kochka
-          resources:
-            # TODO: limits
-            requests:
-              cpu: 16m
-              memory: 128Mi
           ports:
             - containerPort: 5002

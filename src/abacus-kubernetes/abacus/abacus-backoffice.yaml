@@ -31,12 +31,8 @@ spec:
         app: abacus-backoffice
     spec:
       containers:
+        # TODO: resources.requests, resources.limits
         - name: abacus-backoffice
           image: adeira/abacus-backoffice
-          resources:
-            # TODO: limits
-            requests:
-              cpu: 16m
-              memory: 128Mi
           ports:
             - containerPort: 5001

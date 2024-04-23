@@ -32,13 +32,9 @@ spec:
         app: abacus
     spec:
       containers:
+        # TODO: resources.requests, resources.limits
         - name: abacus
           image: adeira/abacus
-          resources:
-            # TODO: limits
-            requests:
-              cpu: 16m
-              memory: 128Mi
           livenessProbe:
             httpGet:
               path: /status/ping
