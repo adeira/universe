@@ -76,6 +76,8 @@ module.exports = ({
             if (
               property.type === 'Property' &&
               property.value.type !== 'ObjectExpression' &&
+              /* $FlowFixMe[incompatible-type] This comment suppresses an error when upgrading
+               * Flow to version 0.234.0. To see the error, delete this comment and run Flow. */
               property.value.type !== 'Identifier'
             ) {
               let propertyName = '???';
