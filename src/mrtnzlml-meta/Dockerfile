@@ -1,3 +1,8 @@
+# Build and run Dockerfile:
+#
+# docker build -t test .
+# docker run --rm -p 3000:3000 -it test
+
 # Install dependencies only when needed
 FROM node:21.7.3-alpine AS deps
 # Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
@@ -22,10 +27,12 @@ WORKDIR /app
 ENV NODE_ENV production
 
 COPY --from=builder /app/docusaurus.config.js ./
+COPY --from=builder /app/sidebars.js ./
 COPY --from=builder /app/build ./build
+COPY --from=builder /app/src/css ./src/css
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
 
 EXPOSE 3000
 
-CMD ["yarn", "start"]
+CMD ["yarn", "docusaurus", "serve", "--host", "0.0.0.0", "--no-open"]
