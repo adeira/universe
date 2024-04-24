@@ -46,7 +46,15 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
   });
 
-  // 1.2. get the actual value of `schemaAnnotationsEnabled` and set it to the checkbox:
+  // 1.2. get the actual value of `devDebugEnabled` and set it to the checkbox:
+  chrome.tabs.sendMessage(tab.id, 'get-dev-debug-enabled-value', function (response) {
+    const devDebugEnabledElement = document.getElementById('devDebugEnabled');
+    if (devDebugEnabledElement != null && devDebugEnabledElement instanceof HTMLInputElement) {
+      devDebugEnabledElement.checked = response;
+    }
+  });
+
+  // 1.3. get the actual value of `schemaAnnotationsEnabled` and set it to the checkbox:
   chrome.storage.local.get(['schemaAnnotationsEnabled']).then((result) => {
     const schemaAnnotationsEnabledElement = document.getElementById('schemaAnnotationsEnabled');
     if (
@@ -68,6 +76,22 @@ if (devFeaturesEnabledElement != null && devFeaturesEnabledElement instanceof HT
     });
 
     chrome.tabs.sendMessage(tab.id, 'toggle-dev-features-enabled', function (response) {
+      if (response === true) {
+        chrome.tabs.reload(tab.id);
+      }
+    });
+  });
+}
+
+const devDebugEnabledElement = document.getElementById('devDebugEnabled');
+if (devDebugEnabledElement != null && devDebugEnabledElement instanceof HTMLInputElement) {
+  devDebugEnabledElement.addEventListener('change', async function () {
+    const [tab] = await chrome.tabs.query({
+      active: true,
+      lastFocusedWindow: true,
+    });
+
+    chrome.tabs.sendMessage(tab.id, 'toggle-dev-debug-enabled', function (response) {
       if (response === true) {
         chrome.tabs.reload(tab.id);
       }
