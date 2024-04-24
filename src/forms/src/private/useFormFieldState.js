@@ -43,10 +43,16 @@ export default function useFormFieldState(
   }
 
   return [
+    // $FlowFixMe[unnecessary-optional-chain] since v0.235.1
+    // $FlowFixMe[invalid-computed-prop] since v0.235.1
     formRootContext.formFields[inputName]?.inputValue ?? inputValue,
     updateInputValue,
     {
+      // $FlowFixMe[unnecessary-optional-chain] since v0.235.1
+      // $FlowFixMe[invalid-computed-prop] since v0.235.1
       validationError: formRootContext.formFields[inputName]?.validationError ?? null,
+      // $FlowFixMe[unnecessary-optional-chain] since v0.235.1
+      // $FlowFixMe[invalid-computed-prop] since v0.235.1
       validationErrorHidden: formRootContext.formFields[inputName]?.validationErrorHidden ?? true,
     },
   ];

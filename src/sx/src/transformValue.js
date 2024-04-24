@@ -41,6 +41,7 @@ export default function transformValue(
     return normalizeColor(styleValue);
   } else if (typeof styleValue === 'number') {
     // 42 -> 42px (unless it's unit-less property like zIndex)
+    // $FlowFixMe[invalid-computed-prop] since v0.235.1
     return stripLeadingZero(isUnitlessNumber[styleName] ? `${styleValue}` : `${styleValue}px`);
   }
   return stripLeadingZero(`${styleValue}`);

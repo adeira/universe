@@ -72,6 +72,7 @@ export default function FormRoot(props: Props): React.Element<'form'> {
               formFields: {
                 ...prevState.formFields,
                 [inputName]: {
+                  // $FlowFixMe[invalid-computed-prop] since v0.235.1
                   ...prevState.formFields[inputName],
                   inputValue,
                   validationError,
