@@ -28,7 +28,10 @@ export default function LocaleSwitcher(props: Props): Node {
       <React.Fragment key={locale}>
         {separator}
         <Link href={{ pathname, query }} asPath={asPath} locale={locale} as={props.as}>
-          {translationMap[locale] ?? locale}
+          {
+            // $FlowFixMe[invalid-computed-prop] since v0.235.1
+            translationMap[locale] ?? locale
+          }
         </Link>
       </React.Fragment>
     );

@@ -65,6 +65,7 @@ module.exports = function createContentSecurityPolicy(
   }
 
   const policyString = Object.keys(policy)
+    // $FlowFixMe[invalid-computed-prop] since v0.235.1
     .map((key /*: string */) => `${key} ${quoteSource(policy[key])}`)
     .join('; ');
 

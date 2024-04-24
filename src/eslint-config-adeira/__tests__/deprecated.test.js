@@ -35,6 +35,7 @@ function compareRulesets(testedSet: EslintConfigRules, bannedSet: EslintConfigRu
       if (
         ruleName in whitelistedConfigs &&
         Array.isArray(config) &&
+        // $FlowFixMe[invalid-computed-prop] since v0.235.1
         whitelistedConfigs[ruleName] === config[1]
       ) {
         extraPrettier.delete(ruleName);

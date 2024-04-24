@@ -43,6 +43,7 @@ export default function parse(input: string): ParsedConfig {
 
     if (isListSection(currentSection)) {
       // process it as a list
+      // $FlowFixMe[invalid-computed-prop] since v0.235.1
       parsedConfig[currentSection].push(line);
     } else if (currentSection === 'version') {
       parsedConfig[currentSection] = line;
@@ -53,6 +54,7 @@ export default function parse(input: string): ParsedConfig {
         const rawKey = keyValueMatch.groups?.rawKey;
         const rawValue = keyValueMatch.groups?.rawValue;
         const key = rawKey?.trim();
+        // $FlowFixMe[invalid-computed-prop] since v0.235.1
         if (parsedConfig[currentSection] === null) {
           /* $FlowFixMe[prop-missing] This comment suppresses an error when
            * upgrading Flow to version 0.197.0 and enabling LTI. To see the
@@ -60,9 +62,12 @@ export default function parse(input: string): ParsedConfig {
           parsedConfig[currentSection] = {};
         }
         if (KNOWN_LIST_OPTIONS.includes(key)) {
+          // $FlowFixMe[invalid-computed-prop] since v0.235.1
           const previousValues = parsedConfig[currentSection][key] ?? [];
+          // $FlowFixMe[invalid-computed-prop] since v0.235.1
           parsedConfig[currentSection][key] = previousValues.concat(rawValue);
         } else {
+          // $FlowFixMe[invalid-computed-prop] since v0.235.1
           parsedConfig[currentSection][key] = transformKeyValue(rawValue);
         }
       }
