@@ -5,6 +5,7 @@ Chrome extension adding small enhancements to Rossum's UI (originally created by
 
 - shows datapoint `schema_id` on the annotation screen (headers and line items)
 - adds `devFeatureEnabled` toggle
+- adds `devDebugEnabled` toggle
 
 ![header fields](./assets/header_fields.png)
 
