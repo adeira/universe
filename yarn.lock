@@ -331,18 +331,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/qr-code-reader@workspace:src/qr-code-reader":
-  version: 0.0.0-use.local
-  resolution: "@adeira/qr-code-reader@workspace:src/qr-code-reader"
-  dependencies:
-    "@babel/runtime": "npm:^7.24.4"
-    jsqr: "npm:^1.4.0"
-  peerDependencies:
-    "@adeira/sx": ^0.30.0
-    react: ^18.2.0
-  languageName: unknown
-  linkType: soft
-
 "@adeira/react-auth@npm:^0.1.0, @adeira/react-auth@workspace:src/react-auth":
   version: 0.0.0-use.local
   resolution: "@adeira/react-auth@workspace:src/react-auth"
@@ -15142,13 +15130,6 @@ __metadata:
     json-schema: "npm:0.2.3"
     verror: "npm:1.10.0"
   checksum: 10c0/e457bd0d5f7eb11477708d77ed37a7dae88caf8226dc807a1a7d320bdb1085b7e3f89c057c2cbbcd543be41bbb934231549ef3842c9a5bbf2def940f2d07a841
-  languageName: node
-  linkType: hard
-
-"jsqr@npm:^1.4.0":
-  version: 1.4.0
-  resolution: "jsqr@npm:1.4.0"
-  checksum: 10c0/69fbfe4c866a04c97b377901a166544a583bfc76b838c275efa9af058d64e5612267079b1e96ea7b6434385803571b1c6a97a43c85f4373e8afa4f4034fc916c
   languageName: node
   linkType: hard
 
