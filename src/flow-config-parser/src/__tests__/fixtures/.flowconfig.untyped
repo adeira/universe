@@ -1,7 +1,0 @@
-; https://flow.org/en/docs/config/untyped/
-
-[untyped]
-.*/third_party/.*
-.*/src/\(foo\|bar\)/.*
-.*\.untype\.js
-<PROJECT_ROOT>/third_party/.*

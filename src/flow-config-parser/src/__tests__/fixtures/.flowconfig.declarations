@@ -1,7 +1,0 @@
-; https://flow.org/en/docs/config/declarations/
-
-[declarations]
-.*/third_party/.*
-.*/src/\(foo\|bar\)/.*
-.*\.decl\.js
-<PROJECT_ROOT>/third_party/.*

@@ -5,7 +5,6 @@
   "@adeira/eslint-config",
   "@adeira/eslint-fixtures-tester",
   "@adeira/fixtures-tester",
-  "@adeira/flow-config-parser",
   "@adeira/forms",
   "@adeira/hooks",
   "@adeira/icons",

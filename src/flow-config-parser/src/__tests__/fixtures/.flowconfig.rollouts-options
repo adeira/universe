@@ -1,5 +1,0 @@
-[rollouts]
-formed_exports=80% on, 20% off
-
-[options]
-(formed_exports=on) experimental.well_formed_exports=true

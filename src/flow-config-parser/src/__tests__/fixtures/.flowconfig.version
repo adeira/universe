@@ -1,4 +1,0 @@
-; https://flow.org/en/docs/config/version/
-
-[version]
->=0.138.0 <0.140.0

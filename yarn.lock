@@ -198,16 +198,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/flow-config-parser@workspace:src/flow-config-parser":
-  version: 0.0.0-use.local
-  resolution: "@adeira/flow-config-parser@workspace:src/flow-config-parser"
-  dependencies:
-    "@adeira/fixtures-tester": "npm:^1.1.1"
-    "@adeira/js": "npm:^2.1.1"
-    "@babel/runtime": "npm:^7.24.4"
-  languageName: unknown
-  linkType: soft
-
 "@adeira/flow-types-eslint@npm:0.0.0, @adeira/flow-types-eslint@workspace:src/flow-types-eslint":
   version: 0.0.0-use.local
   resolution: "@adeira/flow-types-eslint@workspace:src/flow-types-eslint"
