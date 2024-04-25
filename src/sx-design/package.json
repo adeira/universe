@@ -42,7 +42,6 @@
     "@fbtjs/default-collection-transform": "^1.0.0",
     "@playwright/test": "^1.43.1",
     "@storybook/addon-essentials": "^8.0.9",
-    "@storybook/addon-interactions": "^8.0.9",
     "@storybook/addon-links": "^8.0.9",
     "@storybook/addon-webpack5-compiler-babel": "^3.0.3",
     "@storybook/blocks": "^8.0.9",
