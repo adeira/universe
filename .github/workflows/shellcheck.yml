@@ -16,7 +16,7 @@ jobs:
 
     steps:
       # https://github.com/actions/checkout
-      - uses: actions/checkout@v4.1.3
+      - uses: actions/checkout@v4.1.4
 
       - name: Run ShellCheck
         # TODO: expand as needed (./**/*.sh)
