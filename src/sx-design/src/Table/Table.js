@@ -45,10 +45,15 @@ export default function Table(props: Props): Node {
       <thead>
         {headerGroups.map((headerGroup, index) => {
           return (
-            <tr key={index} {...headerGroup.getHeaderGroupProps()}>
+            <tr key={index} role="row">
               {headerGroup.headers.map((column) => {
                 return (
-                  <th key={column.id} className={styles('th')} {...column.getHeaderProps()}>
+                  <th
+                    key={column.id}
+                    colSpan={column.colSpan}
+                    role="columnheader"
+                    className={styles('th')}
+                  >
                     {column.render('Header')}
                   </th>
                 );
@@ -62,14 +67,10 @@ export default function Table(props: Props): Node {
         {rows.map((row) => {
           prepareRow(row);
           return (
-            <tr key={row.id} {...row.getRowProps()}>
+            <tr key={row.id} role="row">
               {row.cells.map((cell) => {
                 return (
-                  <td
-                    key={`${cell.row.id}#${cell.column.id}`}
-                    className={styles('td')}
-                    {...cell.getCellProps()}
-                  >
+                  <td key={`${cell.row.id}#${cell.column.id}`} role="cell" className={styles('td')}>
                     {cell.render('Cell')}
                   </td>
                 );
