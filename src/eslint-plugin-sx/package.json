@@ -27,7 +27,7 @@
     "@babel/code-frame": "^7.24.2",
     "eslint": "^8.57.0",
     "hermes-eslint": "^0.20.1",
-    "react": "^18.2.0"
+    "react": "^18.3.1"
   },
   "peerDependencies": {
     "eslint": "^8.57.0"
