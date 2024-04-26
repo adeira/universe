@@ -32,7 +32,7 @@ __metadata:
     "@recoiljs/refine": "npm:^0.1.1"
     "@sentry/nextjs": "npm:^7.112.2"
     "@testing-library/jest-dom": "npm:^6.4.2"
-    "@testing-library/react": "npm:^15.0.4"
+    "@testing-library/react": "npm:^15.0.5"
     "@testing-library/react-hooks": "npm:^8.0.1"
     babel-plugin-fbt: "npm:^1.0.0"
     babel-plugin-fbt-runtime: "npm:^1.0.0"
@@ -67,7 +67,7 @@ __metadata:
     "@fbtjs/default-collection-transform": "npm:^1.0.0"
     "@playwright/test": "npm:^1.43.1"
     "@sentry/nextjs": "npm:^7.112.2"
-    "@testing-library/react": "npm:^15.0.4"
+    "@testing-library/react": "npm:^15.0.5"
     babel-plugin-fbt: "npm:^1.0.0"
     babel-plugin-fbt-runtime: "npm:^1.0.0"
     fbt: "npm:^1.0.2"
@@ -434,7 +434,7 @@ __metadata:
     "@storybook/react": "npm:^8.0.9"
     "@storybook/react-webpack5": "npm:^8.0.9"
     "@testing-library/jest-dom": "npm:^6.4.2"
-    "@testing-library/react": "npm:^15.0.4"
+    "@testing-library/react": "npm:^15.0.5"
     "@testing-library/user-event": "npm:^14.5.2"
     babel-loader: "npm:^9.1.3"
     babel-plugin-fbt: "npm:^1.0.0"
@@ -463,7 +463,7 @@ __metadata:
   dependencies:
     "@adeira/sx": "npm:^0.30.0"
     "@babel/runtime": "npm:^7.24.4"
-    "@testing-library/react": "npm:^15.0.4"
+    "@testing-library/react": "npm:^15.0.5"
     prettier: "npm:^2.8.8"
     pretty-format: "npm:^29.7.0"
     react-test-renderer: "npm:^18.2.0"
@@ -480,7 +480,7 @@ __metadata:
     "@adeira/murmur-hash": "npm:^2.0.1"
     "@babel/runtime": "npm:^7.24.4"
     "@testing-library/jest-dom": "npm:^6.4.2"
-    "@testing-library/react": "npm:^15.0.4"
+    "@testing-library/react": "npm:^15.0.5"
     change-case: "npm:^4.1.2"
     css-tree: "npm:^2.3.1"
     fast-levenshtein: "npm:^3.0.0"
@@ -5560,9 +5560,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react@npm:^15.0.4":
-  version: 15.0.4
-  resolution: "@testing-library/react@npm:15.0.4"
+"@testing-library/react@npm:^15.0.5":
+  version: 15.0.5
+  resolution: "@testing-library/react@npm:15.0.5"
   dependencies:
     "@babel/runtime": "npm:^7.12.5"
     "@testing-library/dom": "npm:^10.0.0"
@@ -5570,7 +5570,7 @@ __metadata:
   peerDependencies:
     react: ^18.0.0
     react-dom: ^18.0.0
-  checksum: 10c0/2f58729e39b93915c527557e87396e02deb5aecd3cf806427deee19bcccf8114681bf259c24b6a4a916e98710193b190ec321e842faaac4196131e22c8a8ac92
+  checksum: 10c0/8759cc8e7e6b4d8964f151d8872ea3c91b6ef6d8fb3b9116fae53350b9a6b29e5ad45b18408c22525924d050263f7ea77cd17ca803918759f22a760f68a42227
   languageName: node
   linkType: hard
 
