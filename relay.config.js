@@ -41,6 +41,7 @@ module.exports = {
       featureFlags: {
         compact_query_text: { kind: 'enabled' },
         no_inline: { kind: 'enabled' },
+        enable_strict_custom_scalars: true,
       },
       schemaConfig: {
         // Name of the globally unique ID field on the `Node` interface.
