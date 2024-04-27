@@ -6,6 +6,7 @@ import type {
   Disposable,
   Mutation,
   PayloadError,
+  SelectorStoreUpdater,
   UploadableMap,
   Variables,
 } from 'relay-runtime';
@@ -18,8 +19,8 @@ type HookMutationConfig<TVariables, TData, TRawResponse> = {
   +onError?: (error: Error) => void,
   +onUnsubscribe?: ?() => void,
   +optimisticResponse?: TRawResponse,
-  // +optimisticUpdater?: (store: RecordSourceSelectorProxy) => void,
-  // +updater?: ?(store: RecordSourceSelectorProxy, data: ?T['response']) => void,
+  +optimisticUpdater?: ?SelectorStoreUpdater<TData>,
+  +updater?: ?SelectorStoreUpdater<TData>,
   +configs?: Array<DeclarativeMutationConfig>,
   +uploadables?: UploadableMap,
 };
