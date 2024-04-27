@@ -23,7 +23,7 @@ __metadata:
     "@adeira/icons": "npm:^2.2.0"
     "@adeira/js": "npm:^2.1.1"
     "@adeira/react-auth": "npm:^0.1.0"
-    "@adeira/relay": "npm:^8.0.0"
+    "@adeira/relay": "npm:^9.0.0"
     "@adeira/sx": "npm:^0.30.0"
     "@adeira/sx-design": "npm:^0.33.0"
     "@fbtjs/default-collection-transform": "npm:^1.0.0"
@@ -61,7 +61,7 @@ __metadata:
     "@adeira/hooks": "npm:^0.3.0"
     "@adeira/icons": "npm:^2.2.0"
     "@adeira/js": "npm:^2.1.1"
-    "@adeira/relay": "npm:^8.0.0"
+    "@adeira/relay": "npm:^9.0.0"
     "@adeira/sx": "npm:^0.30.0"
     "@adeira/sx-design": "npm:^0.33.0"
     "@fbtjs/default-collection-transform": "npm:^1.0.0"
@@ -216,7 +216,7 @@ __metadata:
     babel-plugin-fbt-runtime: "npm:^1.0.0"
     fbt: "npm:^1.0.2"
   peerDependencies:
-    "@adeira/relay": ^8.0.0
+    "@adeira/relay": ^9.0.0
     "@adeira/sx": ^0.30.0
     "@adeira/sx-design": ^0.33.0
     react: ^18.3.1
@@ -342,7 +342,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/relay@npm:^8.0.0, @adeira/relay@workspace:src/relay":
+"@adeira/relay@npm:^9.0.0, @adeira/relay@workspace:src/relay":
   version: 0.0.0-use.local
   resolution: "@adeira/relay@workspace:src/relay"
   dependencies:

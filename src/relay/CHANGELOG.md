@@ -1,5 +1,12 @@
 # Unreleased
 
+# 9.0.0
+
+- Relay 16.2.0, see:
+  - https://github.com/facebook/relay/releases/tag/v16.0.0
+  - https://github.com/facebook/relay/releases/tag/v16.1.0
+  - https://github.com/facebook/relay/releases/tag/v16.2.0
+
 # 8.0.0
 
 - Relay 15.0.0, see: https://github.com/facebook/relay/releases/tag/v15.0.0
