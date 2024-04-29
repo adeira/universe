@@ -1,7 +1,7 @@
 // @flow
 
 import fs from 'fs';
-import tar from 'tar';
+import { create as createTar } from 'tar';
 import path from 'path';
 import semver from 'semver';
 import { Workspaces } from '@adeira/monorepo-utils';
@@ -86,7 +86,7 @@ export default async function publish(options: Options) {
             }
           }
 
-          await tar.create(
+          await createTar(
             {
               gzip: true,
               cwd: options.buildCache,
