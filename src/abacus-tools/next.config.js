@@ -9,7 +9,7 @@ const withCustomBabelConfigFile = require('next-plugin-custom-babel-config')({
   babelConfigFile: path.join(__dirname, '.babelrc.js'),
 });
 
-module.exports = (withPlugins(
+const NextConfig /*: $FlowFixMe */ = withPlugins(
   [
     [withCustomBabelConfigFile],
     // other plugins here
@@ -36,4 +36,6 @@ module.exports = (withPlugins(
       esmExternals: 'loose',
     },
   },
-) /*: $FlowFixMe */);
+);
+
+module.exports = NextConfig;

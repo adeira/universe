@@ -1,7 +1,7 @@
 // @flow
 
 /*::
-import type { EslintRule } from '@adeira/flow-types-eslint';
+import type { EslintRule as EslintRuleType } from '@adeira/flow-types-eslint';
 */
 
 const getSXImportSpecifiers = require('./utils/getSXImportSpecifiers');
@@ -23,7 +23,7 @@ const isSXVariableDeclarator = require('./utils/isSXVariableDeclarator');
  * It's because the first call doesn't handle rules specificity correctly whereas the later one does.
  * Don't get confused: SX doesn't handle the specificity in a same way like CSS.
  */
-module.exports = ({
+const EslintRule /*: EslintRuleType */ = {
   create: function (context) {
     // import sx from '@adeira/sx'
     //        ^^
@@ -89,4 +89,6 @@ module.exports = ({
       },
     };
   },
-} /*: EslintRule */);
+};
+
+module.exports = EslintRule;

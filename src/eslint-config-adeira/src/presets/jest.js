@@ -8,7 +8,7 @@ import type { EslintConfig } from '../EslintConfig.flow';
 
 */
 
-module.exports = ({
+const eslintConfigPreset /*: EslintConfig */ = {
   plugins: ['eslint-plugin-jest'],
   rules: {
     // Jest (https://github.com/jest-community/eslint-plugin-jest)
@@ -67,4 +67,6 @@ module.exports = ({
     'jest/valid-expect-in-promise': ERROR,
     'jest/valid-title': ERROR,
   },
-} /*: EslintConfig */);
+};
+
+module.exports = eslintConfigPreset;

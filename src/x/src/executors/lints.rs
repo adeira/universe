@@ -33,15 +33,14 @@ pub fn run_eslint_check(trailing_args: &Vec<&str>) -> anyhow::Result<()> {
     execute_command(
         create_command(ESLINT_BIN)
             .expect("Eslint binary doesn't exist")
-            .arg("--cache")
-            .arg("--cache-strategy")
-            .arg("content")
-            .arg("--cache-location")
-            .arg("node_modules/.cache/")
+//             .arg("--cache")
+//             .arg("--cache-strategy")
+//             .arg("content")
+//             .arg("--cache-location")
+//             .arg("node_modules/.cache/")
             .arg("*.js") // root JS files
             .arg("scripts/**/*.js")
             .arg("src/**/*.js")
-            // .arg("src/**/*.mjs")
             .arg("src/**/*.ts")
             .arg("src/**/*.tsx")
             .args(trailing_args),

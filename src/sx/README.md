@@ -98,7 +98,7 @@ const styles = sx.create({
 });
 ```
 
-This makes it very predictable and easy to use. Always call `className={styles('red', 'blue')}` instead of `` className={`${styles('red')} ${styles('blue')}`} ``! This is very important because the first call guarantees to resolve the CSS precedence correctly as opposed to the second call which does not and might behave unpredictably.
+This makes it very predictable and easy to use. Always call `className={styles('red', 'blue')}` instead of ``className={`${styles('red')} ${styles('blue')}`}``! This is very important because the first call guarantees to resolve the CSS precedence correctly as opposed to the second call which does not and might behave unpredictably.
 
 It works similarly for shorthand CSS properties (however, try to avoid them - see below):
 

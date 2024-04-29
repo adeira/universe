@@ -6,8 +6,10 @@ const { WARN } = require('./src/constants');
 
 /*::
 
-import type { EslintConfig } from './src/EslintConfig.flow';
+import type { EslintConfig as EslintConfigType } from './src/EslintConfig.flow';
 
 */
 
-module.exports = (getCommonConfig(WARN, basePreset) /*: EslintConfig */);
+const EslintConfig /*: EslintConfigType */ = getCommonConfig(WARN, basePreset);
+
+module.exports = EslintConfig;

@@ -1,7 +1,7 @@
 // @flow
 
 /*::
-import type { EslintRule } from '@adeira/flow-types-eslint';
+import type { EslintRule as EslintRuleType } from '@adeira/flow-types-eslint';
 */
 
 const getObjectPropertyName = require('./utils/getObjectPropertyName');
@@ -11,7 +11,7 @@ const isSXVariableDeclarator = require('./utils/isSXVariableDeclarator');
 /**
  * This rule makes sure that all defined stylesheets are used AND all used stylesheets are defined.
  */
-module.exports = ({
+const EslintRule /*: EslintRuleType */ = {
   create: function (context) {
     // import sx from '@adeira/sx'
     //        ^^
@@ -232,4 +232,6 @@ module.exports = ({
       },
     };
   },
-} /*: EslintRule */);
+};
+
+module.exports = EslintRule;

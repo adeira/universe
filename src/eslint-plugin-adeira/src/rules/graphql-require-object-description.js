@@ -1,10 +1,10 @@
 // @flow
 
 /*::
-import type { EslintRule } from '@adeira/flow-types-eslint';
+import type { EslintRule as EslintRuleType } from '@adeira/flow-types-eslint';
 */
 
-module.exports = ({
+const EslintRule /*: EslintRuleType */ = {
   meta: {
     docs: {
       description: 'Require that each instance of GraphQLObjectType has description.',
@@ -56,4 +56,6 @@ module.exports = ({
       },
     };
   },
-} /*: EslintRule */);
+};
+
+module.exports = EslintRule;

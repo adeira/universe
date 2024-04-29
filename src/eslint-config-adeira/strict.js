@@ -11,11 +11,11 @@ const { ERROR } = require('./src/constants');
 
 /*::
 
-import type { EslintConfig } from './src/EslintConfig.flow';
+import type { EslintConfig as EslintConfigType } from './src/EslintConfig.flow';
 
 */
 
-module.exports = (getCommonConfig(ERROR, {
+const EslintConfig /*: EslintConfigType */ = getCommonConfig(ERROR, {
   rules: {
     ...basePreset.rules,
     ...flowtypePreset.rules,
@@ -46,4 +46,6 @@ module.exports = (getCommonConfig(ERROR, {
     ...reactPreset.settings,
     ...relayPreset.settings,
   },
-}) /*: EslintConfig */);
+});
+
+module.exports = EslintConfig;

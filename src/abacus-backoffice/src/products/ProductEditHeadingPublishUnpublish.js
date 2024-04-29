@@ -19,47 +19,43 @@ export default function ProductEditHeadingPublishUnpublish(
   const applicationLocale = useApplicationLocale();
   const [displayFleshMessage] = useFlashMessages();
 
-  const [publishProductMutation] = useMutation(
-    graphql`
-      mutation ProductEditHeadingPublishUnpublishPublishMutation(
-        $productKey: ID!
-        $clientLocale: SupportedLocale!
-      ) {
-        commerce {
-          productOrError: productPublish(productKey: $productKey, clientLocale: $clientLocale) {
-            ... on Product {
-              __typename
-            }
-            ... on ProductError {
-              __typename
-              message
-            }
+  const [publishProductMutation] = useMutation(graphql`
+    mutation ProductEditHeadingPublishUnpublishPublishMutation(
+      $productKey: ID!
+      $clientLocale: SupportedLocale!
+    ) {
+      commerce {
+        productOrError: productPublish(productKey: $productKey, clientLocale: $clientLocale) {
+          ... on Product {
+            __typename
+          }
+          ... on ProductError {
+            __typename
+            message
           }
         }
       }
-    `,
-  );
+    }
+  `);
 
-  const [unpublishProductMutation] = useMutation(
-    graphql`
-      mutation ProductEditHeadingPublishUnpublishUnpublishMutation(
-        $productKey: ID!
-        $clientLocale: SupportedLocale!
-      ) {
-        commerce {
-          productOrError: productUnpublish(productKey: $productKey, clientLocale: $clientLocale) {
-            ... on Product {
-              __typename
-            }
-            ... on ProductError {
-              __typename
-              message
-            }
+  const [unpublishProductMutation] = useMutation(graphql`
+    mutation ProductEditHeadingPublishUnpublishUnpublishMutation(
+      $productKey: ID!
+      $clientLocale: SupportedLocale!
+    ) {
+      commerce {
+        productOrError: productUnpublish(productKey: $productKey, clientLocale: $clientLocale) {
+          ... on Product {
+            __typename
+          }
+          ... on ProductError {
+            __typename
+            message
           }
         }
       }
-    `,
-  );
+    }
+  `);
 
   return props.isPublished === false ? (
     <LayoutHeadingButton

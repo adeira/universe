@@ -2,6 +2,8 @@
 
 const getRules = require('./getRules');
 
-module.exports = ({
+const EslintPlugin /*: { +rules: { +[ruleName: string]: string } } */ = {
   rules: getRules(),
-} /*: { +rules: { +[ruleName: string]: string } } */);
+};
+
+module.exports = EslintPlugin;

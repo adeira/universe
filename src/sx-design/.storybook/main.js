@@ -10,7 +10,7 @@ function getAbsolutePath(value /*: string */) {
   return dirname(require.resolve(join(value, 'package.json')));
 }
 
-const config = {
+const config /*: $FlowFixMe */ = {
   stories: ['../src/**/*.stories.js'],
   addons: [
     getAbsolutePath('@storybook/addon-webpack5-compiler-babel'),
@@ -33,4 +33,4 @@ const config = {
   },
 };
 
-export default (config /*: $FlowFixMe */);
+export default config;

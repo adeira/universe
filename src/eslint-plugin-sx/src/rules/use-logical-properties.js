@@ -1,7 +1,7 @@
 // @flow
 
 /*::
-import type { EslintRule } from '@adeira/flow-types-eslint';
+import type { EslintRule as EslintRuleType } from '@adeira/flow-types-eslint';
 */
 
 const getObjectPropertyName = require('./utils/getObjectPropertyName');
@@ -68,7 +68,7 @@ const propertyValueSuggestions /*: Map<string, Map<string, string>> */ = new Map
  * See: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties
  * See: https://caniuse.com/css-logical-props
  */
-module.exports = ({
+const EslintRule /*: EslintRuleType */ = {
   meta: {
     fixable: 'code',
   },
@@ -166,4 +166,6 @@ module.exports = ({
       },
     };
   },
-} /*: EslintRule */);
+};
+
+module.exports = EslintRule;

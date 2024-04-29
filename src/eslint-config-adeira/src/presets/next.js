@@ -8,7 +8,7 @@ import type { EslintConfig } from '../EslintConfig.flow';
 
 */
 
-module.exports = ({
+const eslintConfigPreset /*: EslintConfig */ = {
   plugins: ['@next/eslint-plugin-next'],
   rules: {
     // Next.js (https://github.com/vercel/next.js/tree/canary/packages/eslint-plugin-next)
@@ -34,4 +34,6 @@ module.exports = ({
     '@next/next/no-typos': ERROR,
     '@next/next/no-unwanted-polyfillio': ERROR,
   },
-} /*: EslintConfig */);
+};
+
+module.exports = eslintConfigPreset;
