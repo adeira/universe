@@ -4,7 +4,7 @@ import type {
   WebhookResponseOperationValue,
   WebhookResponseOperation,
   RossumDatapoint,
-} from '@adeira/rossum-flow-types';
+} from './flowTypes';
 
 /**
  * Replace the value of the datapoint with a new value.
