@@ -1,6 +1,6 @@
 // @flow
 
-import type { RossumDatapoint, WebhookResponseAutomationBlocker } from '@adeira/rossum-flow-types';
+import type { RossumDatapoint, WebhookResponseAutomationBlocker } from './flowTypes';
 
 /**
  * @param datapoint - the content of the datapoint

@@ -1,6 +1,6 @@
 // @flow
 
-import type { WebhookResponseMessage, RossumDatapoint } from '@adeira/rossum-flow-types';
+import type { WebhookResponseMessage, RossumDatapoint } from './flowTypes';
 
 /**
  * Create a message which will be shown to the user.
