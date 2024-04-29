@@ -733,9 +733,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/cli@npm:^7.24.1":
-  version: 7.24.1
-  resolution: "@babel/cli@npm:7.24.1"
+"@babel/cli@npm:^7.24.5":
+  version: 7.24.5
+  resolution: "@babel/cli@npm:7.24.5"
   dependencies:
     "@jridgewell/trace-mapping": "npm:^0.3.25"
     "@nicolo-ribaudo/chokidar-2": "npm:2.1.8-no-fsevents.3"
@@ -756,7 +756,7 @@ __metadata:
   bin:
     babel: ./bin/babel.js
     babel-external-helpers: ./bin/babel-external-helpers.js
-  checksum: 10c0/44c069fe331a624936bbe157c352674733aacd88379b2e6d7bd82775210fb7480faa547702051d52eb6eff3d7a52c768f53f775524ea691a91b9e5343e4626bc
+  checksum: 10c0/ec1c0546986b1b2423a125f919701b1c29ea1e999302035379adbfb9104e819d9cecc9d947ac91a26a9da7e6445f1812fc61deabf9d0a5f3894f53ec19fdfa04
   languageName: node
   linkType: hard
 
@@ -19776,7 +19776,7 @@ __metadata:
     "@adeira/babel-preset-adeira": "npm:^4.0.0"
     "@adeira/eslint-config": "npm:^8.4.0"
     "@adeira/monorepo-utils": "npm:^0.12.0"
-    "@babel/cli": "npm:^7.24.1"
+    "@babel/cli": "npm:^7.24.5"
     "@babel/core": "npm:^7.24.5"
     "@yarnpkg/types": "npm:^4.0.0"
     babel-jest: "npm:^29.7.0"
