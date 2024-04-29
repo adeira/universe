@@ -13,7 +13,6 @@
   "@adeira/monorepo-shipit",
   "@adeira/monorepo-utils",
   "@adeira/murmur-hash",
-  "@adeira/react-auth",
   "@adeira/relay",
   "@adeira/shell-command",
   "@adeira/sx",

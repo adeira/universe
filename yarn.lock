@@ -22,7 +22,6 @@ __metadata:
     "@adeira/hooks": "npm:^0.3.0"
     "@adeira/icons": "npm:^2.2.0"
     "@adeira/js": "npm:^2.1.1"
-    "@adeira/react-auth": "npm:^0.1.0"
     "@adeira/relay": "npm:^9.0.0"
     "@adeira/sx": "npm:^0.30.0"
     "@adeira/sx-design": "npm:^0.33.0"
@@ -328,17 +327,6 @@ __metadata:
   resolution: "@adeira/murmur-hash@workspace:src/murmur-hash"
   dependencies:
     "@babel/runtime": "npm:^7.24.5"
-  languageName: unknown
-  linkType: soft
-
-"@adeira/react-auth@npm:^0.1.0, @adeira/react-auth@workspace:src/react-auth":
-  version: 0.0.0-use.local
-  resolution: "@adeira/react-auth@workspace:src/react-auth"
-  dependencies:
-    "@adeira/hooks": "npm:^0.3.0"
-    "@babel/runtime": "npm:^7.24.5"
-  peerDependencies:
-    react: "*"
   languageName: unknown
   linkType: soft
 
