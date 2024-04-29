@@ -3,8 +3,6 @@
 import { useRef, type Node } from 'react';
 import { useScript } from '@adeira/hooks';
 
-/* global window */
-
 type Props = {
   +clientID: string,
   +onGoogleSignIn: (credential: string) => void,

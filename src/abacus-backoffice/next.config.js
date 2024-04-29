@@ -18,7 +18,6 @@ const withTranspileModules = require('next-transpile-modules')([
   '@adeira/icons',
   '@adeira/js',
   '@adeira/murmur-hash',
-  '@adeira/react-auth',
   '@adeira/relay',
   '@adeira/sx',
   '@adeira/sx-design',

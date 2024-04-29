@@ -4,12 +4,12 @@ import Icon from '@adeira/icons';
 import React, { useState, type Node } from 'react';
 import sx from '@adeira/sx';
 import { fbt } from 'fbt';
-import { GoogleLoginButton } from '@adeira/react-auth';
 import { graphql, useMutation } from '@adeira/relay';
 import { Loader } from '@adeira/sx-design';
 import { useSessionTokenAPI } from '@adeira/hooks';
 
 import constants from './constants';
+import GoogleLoginButton from './GoogleLoginButton';
 
 export function LoginButton(): Node {
   const { login } = useSessionTokenAPI();
