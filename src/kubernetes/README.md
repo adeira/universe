@@ -12,12 +12,12 @@ The main Kubernetes cluster runs on DigitalOcean, see: https://cloud.digitalocea
 First, make sure you are in the correct DigitalOcean/local context (`kubectl config get-contexts`).
 
 ```bash
-(cd src/abacus-kubernetes && kubectl apply -f third_party/arangodb/)
-(cd src/abacus-kubernetes && kubectl apply -f third_party/cert-manager.yaml)
-(cd src/abacus-kubernetes && kubectl apply -f third_party/ingress-nginx.yaml)
+(cd src/kubernetes && kubectl apply -f third_party/arangodb/)
+(cd src/kubernetes && kubectl apply -f third_party/cert-manager.yaml)
+(cd src/kubernetes && kubectl apply -f third_party/ingress-nginx.yaml)
 
-(cd src/abacus-kubernetes && kubectl diff -f abacus/)
-(cd src/abacus-kubernetes && kubectl apply -f abacus/ --record)
+(cd src/kubernetes && kubectl diff -f abacus/)
+(cd src/kubernetes && kubectl apply -f abacus/ --record)
 ```
 
 Note: you might get something like _"error when patching ingress-nginx.yaml: Job.batch "ingress-nginx-admission-patch" is invalid"_ and _"field is immutable"_. Solution is simple, delete the job first ([source](https://github.com/kubernetes/ingress-nginx/issues/5884)) and run the apply again:
@@ -44,7 +44,7 @@ First and foremost: upgrade to the latest patch version (for example 3.7.13 befo
 - https://github.com/zegl/kube-score
 
 ```bash
-docker run -v $(pwd):/project zegl/kube-score:v1.11.0 score src/abacus-kubernetes/abacus/
+docker run -v $(pwd):/project zegl/kube-score:v1.11.0 score src/kubernetes/abacus/
 ```
 
 # Troubleshooting
@@ -126,7 +126,7 @@ kubectl delete job arangodb-single-server-restore
 3. run the DB backup restore job:
 
 ```bash
-(cd src/abacus-kubernetes && kubectl apply -f manual-arangodb-restore.yaml)
+(cd src/kubernetes && kubectl apply -f manual-arangodb-restore.yaml)
 ```
 
 🤞
