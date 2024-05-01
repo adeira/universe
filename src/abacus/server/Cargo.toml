@@ -11,7 +11,7 @@ publish = false
 anyhow = { version = "1.0.82", default-features = false, features = ["std"] }
 async-trait = "0.1.80"
 axum = { version = "0.7.5", default-features = false, features = ["multipart"] }
-base64 = "0.22.0"
+base64 = "0.22.1"
 blurhash-wasm = { git = "https://github.com/fpapado/blurhash-rust-wasm", branch = "master" }
 bytes = "1.6.0"
 casbin = "2.2.0"
