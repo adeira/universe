@@ -19,7 +19,7 @@ export default function Door(props: Props): Element<'svg'> {
           stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
-          d="M2.5.5h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2v-10a2 2 0 0 1 2-2z"
+          d="M2.5.5h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2v-10a2 2 0 0 1 2-2"
         />
         <path
           stroke="currentColor"

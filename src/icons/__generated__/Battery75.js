@@ -19,11 +19,11 @@ export default function Battery75(props: Props): Element<'svg'> {
           stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
-          d="M4.5 6.5h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2z"
+          d="M4.5 6.5h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2"
         />
         <path
           fill="currentColor"
-          d="M5 8h7a1 1 0 0 1 1 1v2.046a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"
+          d="M5 8h7a1 1 0 0 1 1 1v2.046a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1"
         />
         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="M18.5 8.5v3" />
       </g>

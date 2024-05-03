@@ -21,7 +21,7 @@ export default function FilesMulti(props: Props): Element<'svg'> {
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <path d="M17.5 14.5v-7l-5-5h-5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2z" />
+        <path d="M17.5 14.5v-7l-5-5h-5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2" />
         <path d="M3.5 4.5v10a4 4 0 0 0 4 4h8m-3-16v3a2 2 0 0 0 2 2h3" />
       </g>
     </svg>

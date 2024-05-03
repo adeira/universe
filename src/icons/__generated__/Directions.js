@@ -19,7 +19,7 @@ export default function Directions(props: Props): Element<'svg'> {
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M4.5 4.5h11l2 2-2 2h-11a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1zm12 7h-11l-2 2 2 2h11a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1zm-6-3v3m0 4v3"
+        d="M4.5 4.5h11l2 2-2 2h-11a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1m12 7h-11l-2 2 2 2h11a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1m-6-3v3m0 4v3"
       />
     </svg>
   );

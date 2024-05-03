@@ -22,8 +22,8 @@ export default function Swap(props: Props): Element<'svg'> {
         strokeLinejoin="round"
       >
         <path d="M13 8h5V3" />
-        <path d="M18 8c-2.837-3.333-5.67-5-8.5-5S4.17 4 2 6m4.5 5.5h-5v5" />
-        <path d="M1.5 11.5c2.837 3.333 5.67 5 8.5 5s5.33-1 7.5-3" />
+        <path d="M18 8q-4.255-5-8.5-5T2 6m4.5 5.5h-5v5" />
+        <path d="M1.5 11.5q4.255 5 8.5 5t7.5-3" />
       </g>
     </svg>
   );

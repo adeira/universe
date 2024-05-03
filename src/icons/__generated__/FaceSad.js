@@ -19,7 +19,7 @@ export default function FaceSad(props: Props): Element<'svg'> {
           stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
-          d="M8.5 16.5a8 8 0 1 0 0-16 8 8 0 0 0 0 16z"
+          d="M8.5 16.5a8 8 0 1 0 0-16 8 8 0 0 0 0 16"
         />
         <circle cx={6} cy={6} r={1} fill="currentColor" />
         <circle cx={11} cy={6} r={1} fill="currentColor" />
@@ -27,7 +27,7 @@ export default function FaceSad(props: Props): Element<'svg'> {
           stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
-          d="M5.5 11.5c.603-1.333 1.603-2 3-2s2.397.667 3 2"
+          d="M5.5 11.5q.904-2 3-2c2.096 0 2.397.667 3 2"
         />
       </g>
     </svg>

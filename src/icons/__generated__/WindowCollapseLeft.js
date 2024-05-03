@@ -21,10 +21,10 @@ export default function WindowCollapseLeft(props: Props): Element<'svg'> {
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <path d="M3.5 15.5v-10a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2z" />
+        <path d="M3.5 15.5v-10a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2" />
         <path
           fill="currentColor"
-          d="M5.5 15.5v-10a2 2 0 0 1 2-2h-2c-1 0-2 .895-2 2v10c0 1.105 1 2 2 2h2a2 2 0 0 1-2-2z"
+          d="M5.5 15.5v-10a2 2 0 0 1 2-2h-2c-1 0-2 .895-2 2v10c0 1.105 1 2 2 2h2a2 2 0 0 1-2-2"
         />
         <path d="m10.5 13.5-3-3 3-3m5 3h-8" />
       </g>

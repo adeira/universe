@@ -19,7 +19,7 @@ export default function VolumeLow(props: Props): Element<'svg'> {
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M4.5 7.5h3l5-5v16l-5-5h-3a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1zm10 1v4"
+        d="M4.5 7.5h3l5-5v16l-5-5h-3a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1m10 1v4"
       />
     </svg>
   );

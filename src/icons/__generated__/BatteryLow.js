@@ -19,9 +19,9 @@ export default function BatteryLow(props: Props): Element<'svg'> {
           stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
-          d="M4.5 6.497h10a2 2 0 0 1 2 2V11.5a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V8.497a2 2 0 0 1 2-2z"
+          d="M4.5 6.497h10a2 2 0 0 1 2 2V11.5a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V8.497a2 2 0 0 1 2-2"
         />
-        <path fill="currentColor" d="M5 8a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V9a1 1 0 0 1 1-1z" />
+        <path fill="currentColor" d="M5 8a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V9a1 1 0 0 1 1-1" />
         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="M18.5 8.5v3" />
       </g>
     </svg>

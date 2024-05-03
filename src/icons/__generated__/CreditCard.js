@@ -19,7 +19,7 @@ export default function CreditCard(props: Props): Element<'svg'> {
           stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
-          d="M4.5 5.5h12a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2z"
+          d="M4.5 5.5h12a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2"
         />
         <path fill="currentColor" d="M2 9h17v2H2z" />
       </g>

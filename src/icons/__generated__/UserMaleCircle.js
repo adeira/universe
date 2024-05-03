@@ -24,7 +24,7 @@ export default function UserMaleCircle(props: Props): Element<'svg'> {
       >
         <circle cx={8.5} cy={8.5} r={8} />
         <path d="M14.5 13.5c-.662-2.274-3.2-3.025-6-3.025-2.727 0-5.27.869-6 3.025" />
-        <path d="M8.5 2.5a3 3 0 0 1 3 3v2a3 3 0 0 1-6 0v-2a3 3 0 0 1 3-3z" />
+        <path d="M8.5 2.5a3 3 0 0 1 3 3v2a3 3 0 0 1-6 0v-2a3 3 0 0 1 3-3" />
       </g>
     </svg>
   );

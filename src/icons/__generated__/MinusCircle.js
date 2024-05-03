@@ -19,7 +19,7 @@ export default function MinusCircle(props: Props): Element<'svg'> {
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M10 19c4.438 0 8-3.526 8-7.964C18 6.598 14.438 3 10 3c-4.438 0-8 3.598-8 8.036S5.562 19 10 19zm-4-8h8"
+        d="M10 19c4.438 0 8-3.526 8-7.964S14.438 3 10 3s-8 3.598-8 8.036S5.562 19 10 19m-4-8h8"
       />
     </svg>
   );

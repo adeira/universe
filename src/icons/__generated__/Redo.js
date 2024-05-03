@@ -21,7 +21,7 @@ export default function Redo(props: Props): Element<'svg'> {
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <path d="M18.5 13.5c-3.17-4-6.17-6-9-6s-5.163 1-7 3" />
+        <path d="M18.5 13.5q-4.755-6-9-6t-7 3" />
         <path d="M13.5 13.5h5v-5" />
       </g>
     </svg>

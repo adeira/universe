@@ -25,7 +25,7 @@ export default function Printer(props: Props): Element<'svg'> {
           stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
-          d="M1.5 4.5h5.001v8H1.5a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1zm12 0h2a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-2"
+          d="M1.5 4.5h5.001v8H1.5a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1m12 0h2a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-2"
         />
         <circle cx={9} cy={14} r={1} fill="currentColor" />
       </g>

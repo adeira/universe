@@ -19,7 +19,7 @@ export default function Bookmark(props: Props): Element<'svg'> {
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M7.5 4.5h6a1 1 0 0 1 1 1v12l-4-4-4 4v-12a1 1 0 0 1 1-1z"
+        d="M7.5 4.5h6a1 1 0 0 1 1 1v12l-4-4-4 4v-12a1 1 0 0 1 1-1"
       />
     </svg>
   );

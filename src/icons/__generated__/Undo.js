@@ -21,7 +21,7 @@ export default function Undo(props: Props): Element<'svg'> {
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <path d="M2.5 13.5c3.333-4 6.333-6 9-6s5 1 7 3" />
+        <path d="M2.5 13.5q5-6 9-6t7 3" />
         <path d="M2.5 8.5v5h5" />
       </g>
     </svg>

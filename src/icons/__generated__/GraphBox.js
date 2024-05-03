@@ -19,7 +19,7 @@ export default function GraphBox(props: Props): Element<'svg'> {
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M5.5 3.5h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2v-10a2 2 0 0 1 2-2zm2 10.935V6.5m3 7.985V10.5m3 4v-6"
+        d="M5.5 3.5h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2v-10a2 2 0 0 1 2-2m2 10.935V6.5m3 7.985V10.5m3 4v-6"
       />
     </svg>
   );

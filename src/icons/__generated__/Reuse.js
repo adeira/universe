@@ -22,8 +22,8 @@ export default function Reuse(props: Props): Element<'svg'> {
         strokeLinejoin="round"
       >
         <path d="M3.5 2.5h5v5" />
-        <path d="M8.5 2.5c-3.333 2.837-5 5.67-5 8.5s1 5.33 3 7.5m11 0h-5v-5" />
-        <path d="M12.5 18.5c3.333-2.837 5-5.67 5-8.5s-1-5.33-3-7.5" />
+        <path d="M8.5 2.5q-5 4.255-5 8.5t3 7.5m11 0h-5v-5" />
+        <path d="M12.5 18.5q5-4.255 5-8.5t-3-7.5" />
       </g>
     </svg>
   );

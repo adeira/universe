@@ -22,7 +22,7 @@ export default function WrapForward(props: Props): Element<'svg'> {
         strokeLinejoin="round"
       >
         <path d="m14.5 12.5 2.998-3.003-3-3" />
-        <path d="M12.5 15.5h-5c-2 0-3-1-3-3s1-3 3-3h10" />
+        <path d="M12.5 15.5h-5q-3 0-3-3c0-3 1-3 3-3h10" />
       </g>
     </svg>
   );

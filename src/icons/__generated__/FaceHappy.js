@@ -29,7 +29,7 @@ export default function FaceHappy(props: Props): Element<'svg'> {
           stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
-          d="M5.5 9.5c.603 1.333 1.603 2 3 2s2.397-.667 3-2"
+          d="M5.5 9.5q.904 2 3 2c2.096 0 2.397-.667 3-2"
         />
       </g>
     </svg>
