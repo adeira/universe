@@ -19,7 +19,7 @@ export default function Calculator(props: Props): Element<'svg'> {
           stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
-          d="M7.5 4.5h6a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-6a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2zm-2 5h10"
+          d="M7.5 4.5h6a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-6a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2m-2 5h10"
         />
         <g fill="currentColor" transform="translate(5 4)">
           <circle cx={2.5} cy={7.5} r={1} />

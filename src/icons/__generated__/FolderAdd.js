@@ -19,7 +19,7 @@ export default function FolderAdd(props: Props): Element<'svg'> {
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M3.5 5.5v9a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8.497a1.999 1.999 0 0 0-2-1.999l-5 .002-2-2h-4a1 1 0 0 0-1 1zm5 6h4m-2 2.056V9.5"
+        d="M3.5 5.5v9a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8.497a2 2 0 0 0-2-1.999l-5 .002-2-2h-4a1 1 0 0 0-1 1m5 6h4m-2 2.056V9.5"
       />
     </svg>
   );

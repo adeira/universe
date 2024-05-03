@@ -23,7 +23,7 @@ export default function Message(props: Props): Element<'svg'> {
         />
         <path
           fill="currentColor"
-          d="M6.499 9.5c.5 0 1-.5 1-1s-.5-1-1-1-.999.5-.999 1 .499 1 .999 1zm0 4c.5 0 1-.5 1-1s-.5-1-1-1-.999.5-.999 1 .499 1 .999 1z"
+          d="M6.499 9.5c.5 0 1-.5 1-1s-.5-1-1-1-.999.5-.999 1 .499 1 .999 1m0 4c.5 0 1-.5 1-1s-.5-1-1-1-.999.5-.999 1 .499 1 .999 1"
         />
         <path
           stroke="currentColor"

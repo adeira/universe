@@ -19,7 +19,7 @@ export default function FolderMinus(props: Props): Element<'svg'> {
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M3.5 5.5v9a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8.497a1.999 1.999 0 0 0-1.85-1.994l-.15-.005-5 .002-2-2h-4a1 1 0 0 0-1 1zm5 6h4"
+        d="M3.5 5.5v9a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8.497a2 2 0 0 0-1.85-1.994l-.15-.005-5 .002-2-2h-4a1 1 0 0 0-1 1m5 6h4"
       />
     </svg>
   );

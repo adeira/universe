@@ -19,14 +19,14 @@ export default function Camera(props: Props): Element<'svg'> {
           stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
-          d="M2.5 14.5v-6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2z"
+          d="M2.5 14.5v-6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2"
         />
-        <path fill="currentColor" d="M17 9a1 1 0 1 0-2 0 1 1 0 0 0 2 0z" />
+        <path fill="currentColor" d="M17 9a1 1 0 1 0-2 0 1 1 0 0 0 2 0" />
         <path
           stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
-          d="M13.5 11.5a3 3 0 1 0-6 0 3 3 0 0 0 6 0zm-4-7h2a1 1 0 0 1 1 1v1h-4v-1a1 1 0 0 1 1-1z"
+          d="M13.5 11.5a3 3 0 1 0-6 0 3 3 0 0 0 6 0m-4-7h2a1 1 0 0 1 1 1v1h-4v-1a1 1 0 0 1 1-1"
         />
       </g>
     </svg>

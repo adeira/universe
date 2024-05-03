@@ -19,7 +19,7 @@ export default function User(props: Props): Element<'svg'> {
         <path d="M5.5 12V7.5a5 5 0 1 1 10 0V12" />
         <path
           strokeLinecap="round"
-          d="M17.5 16.5v-.728c0-3.187-3.686-5.272-7-5.272s-7 2.085-7 5.272v.728a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"
+          d="M17.5 16.5v-.728c0-3.187-3.686-5.272-7-5.272s-7 2.085-7 5.272v.728a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1"
         />
       </g>
     </svg>

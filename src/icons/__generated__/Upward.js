@@ -19,7 +19,7 @@ export default function Upward(props: Props): Element<'svg'> {
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M14.21 10.211c-3.405 3.852-6.975 5.279-10.71 4.281 3.711-.99 6.282-3.418 7.711-7.28L8.5 4.5h8v8z"
+        d="M14.21 10.211Q9.103 15.99 3.5 14.492q5.567-1.486 7.711-7.28L8.5 4.5h8v8z"
       />
     </svg>
   );

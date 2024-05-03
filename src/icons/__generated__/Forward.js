@@ -19,7 +19,7 @@ export default function Forward(props: Props): Element<'svg'> {
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M12.5 7.5c-5.185-.47-8.52 1.53-10 6 2.825-3.14 6.341-3.718 10-2v3l5-5-5-5z"
+        d="M12.5 7.5q-7.779-.705-10 6c2.825-3.14 6.341-3.718 10-2v3l5-5-5-5z"
       />
     </svg>
   );

@@ -19,7 +19,7 @@ export default function VolumeHigh(props: Props): Element<'svg'> {
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M4.5 7.5h3l5-5v16l-5-5h-3a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1zm10 8c1.333-1 2-2.667 2-5s-.667-4-2-5m0 3v4"
+        d="M4.5 7.5h3l5-5v16l-5-5h-3a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1m10 8q2-1.5 2-5t-2-5m0 3v4"
       />
     </svg>
   );

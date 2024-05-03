@@ -22,7 +22,7 @@ export default function ClipboardCross(props: Props): Element<'svg'> {
         strokeLinejoin="round"
       >
         <path d="M7.5 4.5h-2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-11a1 1 0 0 0-1-1h-2" />
-        <path d="M8.5 3.5h4a1 1 0 1 1 0 2h-4a1 1 0 1 1 0-2zm-1 5 6 6m0-6-6 6" />
+        <path d="M8.5 3.5h4a1 1 0 1 1 0 2h-4a1 1 0 1 1 0-2m-1 5 6 6m0-6-6 6" />
       </g>
     </svg>
   );

@@ -19,7 +19,7 @@ export default function CalendarDay(props: Props): Element<'svg'> {
           stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
-          d="M2.5.5h12.027a2 2 0 0 1 2 2v11.99a2 2 0 0 1-1.85 1.995l-.16.006-12.027-.058a2 2 0 0 1-1.99-2V2.5a2 2 0 0 1 2-2zm-2 4h16.027"
+          d="M2.5.5h12.027a2 2 0 0 1 2 2v11.99a2 2 0 0 1-1.85 1.995l-.16.006-12.027-.058a2 2 0 0 1-1.99-2V2.5a2 2 0 0 1 2-2m-2 4h16.027"
         />
         <circle cx={4.5} cy={8.5} r={1} fill="currentColor" />
       </g>

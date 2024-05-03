@@ -29,7 +29,7 @@ export default function FaceDelighted(props: Props): Element<'svg'> {
           stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
-          d="M4.5 10.5c.666 2 2 3 4 3s3.334-1 4-3z"
+          d="M4.5 10.5q1 3 4 3t4-3z"
         />
       </g>
     </svg>

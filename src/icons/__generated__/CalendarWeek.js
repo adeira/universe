@@ -19,7 +19,7 @@ export default function CalendarWeek(props: Props): Element<'svg'> {
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M4.5 2.5h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2v-12a2 2 0 0 1 2-2zm-2 4h16m-13 3v6m2-6v6m2-6v6m2-6v6m2-6v6m2-6v6"
+        d="M4.5 2.5h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2v-12a2 2 0 0 1 2-2m-2 4h16m-13 3v6m2-6v6m2-6v6m2-6v6m2-6v6m2-6v6"
       />
     </svg>
   );

@@ -23,7 +23,7 @@ export default function ZoomCancel(props: Props): Element<'svg'> {
         transform="translate(3 3)"
       >
         <circle cx={5.5} cy={5.5} r={5} />
-        <path d="m7.5 7.5-4-4 4 4zm-4 0 4-4-4 4zm11 7L9.076 9.076" />
+        <path d="m7.5 7.5-4-4zm-4 0 4-4zm11 7L9.076 9.076" />
       </g>
     </svg>
   );

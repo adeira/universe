@@ -19,7 +19,7 @@ export default function Display(props: Props): Element<'svg'> {
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M5 3.5h11a2 2 0 0 1 2 2v6.049a2 2 0 0 1-1.85 1.994l-.158.006-11-.042a2 2 0 0 1-1.992-2V5.5a2 2 0 0 1 2-2zm.464 12H15.5m-8 2h6"
+        d="M5 3.5h11a2 2 0 0 1 2 2v6.049a2 2 0 0 1-1.85 1.994l-.158.006-11-.042a2 2 0 0 1-1.992-2V5.5a2 2 0 0 1 2-2m.464 12H15.5m-8 2h6"
       />
     </svg>
   );
