@@ -153,7 +153,7 @@ __metadata:
     eslint-plugin-fbt: "npm:^0.6.0"
     eslint-plugin-ft-flow: "npm:^3.0.7"
     eslint-plugin-import: "npm:^2.29.1"
-    eslint-plugin-jest: "npm:^28.3.0"
+    eslint-plugin-jest: "npm:^28.4.0"
     eslint-plugin-jest-dom: "npm:^5.4.0"
     eslint-plugin-jsx-a11y: "npm:^6.8.0"
     eslint-plugin-monorepo: "npm:^0.3.2"
@@ -10755,9 +10755,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest@npm:^28.3.0":
-  version: 28.3.0
-  resolution: "eslint-plugin-jest@npm:28.3.0"
+"eslint-plugin-jest@npm:^28.4.0":
+  version: 28.4.0
+  resolution: "eslint-plugin-jest@npm:28.4.0"
   dependencies:
     "@typescript-eslint/utils": "npm:^6.0.0"
   peerDependencies:
@@ -10769,7 +10769,7 @@ __metadata:
       optional: true
     jest:
       optional: true
-  checksum: 10c0/091270b8b13199e630668b60c9434ad1f43d0e0d590c48a79d51a10a9ec18c494324dd9c4c311cb76cf024277595a39bf75ddf8b2525b67b4a479af52f2060ea
+  checksum: 10c0/7ea5cfdf6caf4ca58aca0cd7eb7b64cc6639c769c092d7a2365ddec5ab214e661ba58a8162b4dbb9af167261f9ec1d1ed73209702ade1ebb19fb2e8d3300ba45
   languageName: node
   linkType: hard
 
