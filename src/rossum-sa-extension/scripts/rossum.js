@@ -33,10 +33,10 @@ styleSchemaID.textContent = `
 document.head?.appendChild(styleSchemaID);
 
 function displaySchemaID(node /*: $FlowFixMe */) {
-  const div = document.createElement('span');
-  div.className = 'rossum-sa-extension-schema-id';
-  div.innerHTML = node.getAttribute('data-sa-extension-schema-id');
-  node.appendChild(div);
+  const span = document.createElement('span');
+  span.className = 'rossum-sa-extension-schema-id';
+  span.innerHTML = node.getAttribute('data-sa-extension-schema-id');
+  node.appendChild(span);
 }
 
 function isElementNode(node /*: any */) /*: node is Element */ {
@@ -81,25 +81,37 @@ chrome.storage.local.get(['schemaAnnotationsEnabled']).then((result) => {
   }
 });
 
-chrome.storage.onChanged.addListener(function (changes, areaName) {
-  if (areaName === 'local' && changes.schemaAnnotationsEnabled != null) {
-    if (changes.schemaAnnotationsEnabled.newValue === false) {
-      // remove all the schema IDs
-      const elements = document.getElementsByClassName('rossum-sa-extension-schema-id');
-      while (elements.length > 0) {
-        elements[0].parentNode?.removeChild(elements[0]);
-      }
+/**
+ * Adds functionality to enable or disable `devFeaturesEnabled`/`devDebugEnabled` flag in the actual local storage.
+ *
+ * This functionality is invoked from the popup window when toggling the checkboxes.
+ */
+chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
+  // devFeaturesEnabled:
+  if (message === 'get-dev-features-enabled-value') {
+    sendResponse(window.localStorage.getItem('devFeaturesEnabled') === 'true');
+  }
 
-      observer.disconnect();
+  if (message === 'toggle-dev-features-enabled') {
+    if (window.localStorage.getItem('devFeaturesEnabled') === 'true') {
+      window.localStorage.removeItem('devFeaturesEnabled');
     } else {
-      // show all the schema IDs
-      const elements = document.querySelectorAll('[data-sa-extension-schema-id]');
-      elements.forEach((element) => displaySchemaID(element));
-
-      observer.observe(htmlBodyElement, {
-        subtree: true,
-        childList: true,
-      });
+      window.localStorage.setItem('devFeaturesEnabled', true);
     }
+    sendResponse(true);
+  }
+
+  // devDebugEnabled:
+  if (message === 'get-dev-debug-enabled-value') {
+    sendResponse(window.localStorage.getItem('devDebugEnabled') === 'true');
+  }
+
+  if (message === 'toggle-dev-debug-enabled') {
+    if (window.localStorage.getItem('devDebugEnabled') === 'true') {
+      window.localStorage.removeItem('devDebugEnabled');
+    } else {
+      window.localStorage.setItem('devDebugEnabled', true);
+    }
+    sendResponse(true);
   }
 });
