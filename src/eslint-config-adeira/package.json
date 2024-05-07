@@ -21,7 +21,7 @@
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-fb-flow": "^0.0.5",
     "eslint-plugin-fbt": "^0.6.0",
-    "eslint-plugin-ft-flow": "^3.0.7",
+    "eslint-plugin-ft-flow": "^3.0.8",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jest": "^28.5.0",
     "eslint-plugin-jest-dom": "^5.4.0",
