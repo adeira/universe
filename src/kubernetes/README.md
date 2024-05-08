@@ -7,7 +7,7 @@
 
 The main Kubernetes cluster runs on DigitalOcean, see: https://cloud.digitalocean.com/kubernetes/clusters
 
-# Deploying
+## Deploying
 
 First, make sure you are in the correct DigitalOcean/local context (`kubectl config get-contexts`).
 
@@ -27,7 +27,14 @@ kubectl delete job ingress-nginx-admission-create -n ingress-nginx
 kubectl delete job ingress-nginx-admission-patch -n ingress-nginx
 ```
 
-# Upgrading ArangoDB
+## Kubernetes Dashboard
+
+```bash
+export POD_NAME=$(kubectl get pods -n kubernetes-dashboard -l "app.kubernetes.io/name=kubernetes-dashboard,app.kubernetes.io/instance=kubernetes-dashboard" -o jsonpath="{.items[0].metadata.name}")
+kubectl -n kubernetes-dashboard port-forward $POD_NAME 8443:8443
+```
+
+## Upgrading ArangoDB
 
 Current server URL: http://arangodb-single-server.default.svc.cluster.local:8529/
 
@@ -38,44 +45,13 @@ First and foremost: upgrade to the latest patch version (for example 3.7.13 befo
 - https://www.arangodb.com/docs/3.8/deployment-kubernetes-upgrading.html
 - https://www.arangodb.com/docs/3.8/deployment-kubernetes-drain.html
 
-# Kubernetes validations (TODO)
+To rotate ArangoDB pods:
 
-- https://learnk8s.io/validating-kubernetes-yaml
-- https://github.com/zegl/kube-score
-
-```bash
-docker run -v $(pwd):/project zegl/kube-score:v1.11.0 score src/kubernetes/abacus/
+```text
+kubectl annotate pod arangodb-single-server-sngl-XXX-YYY deployment.arangodb.com/rotate=true
 ```
 
-# Troubleshooting
-
-Problem: `kubectl get pods` returns many `Evicted` pods and `kubectl describe pod <name>` returns message `The node had condition: [DiskPressure]`.
-
-Explanation: there is not enough disk space on the node
-
-Solution: free disk space (or add a new node) and investigate why is the disk space missing
-
-Useful commands:
-
-```bash
-kubectl describe nodes
-kubectl get pods
-```
-
-Useful links:
-
-- https://docs.docker.com/config/pruning/
-
-# Cleanup
-
-Delete evicted/failed pods:
-
-```bash
-kubectl get pods --field-selector=status.phase=Failed
-kubectl delete pods --field-selector=status.phase=Failed
-```
-
-# Creating necessary secrets
+## Creating secrets
 
 - https://kubernetes.io/docs/concepts/configuration/secret/
 - https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/
@@ -100,14 +76,14 @@ data:
 EOF
 ```
 
-# Database backups
+## Database backups
 
-Automatic database backups are performed periodically **every two hours** and stored into standard S3 bucket. Format of the backups in S3 is `YYYY-MM-DDTHH:MM:SS` (for example `2021-06-06T20:37:42`) and the following S3 lifecycle rules are applied:
+Automatic database backups are performed periodically **every day** and stored into standard S3 bucket. Format of the backups in S3 is `YYYY-MM-DDTHH:MM:SS` (for example `2021-06-06T20:37:42`) and the following S3 lifecycle rules are applied:
 
 - Old backups are automatically removed after 30 days
 - Incomplete multipart uploads are deleted after 1 day
 
-## Restoring backups
+### Restoring database backups
 
 **PLEASE NOTE**: this is a database backup restore. It should be used only when something horrible happens. It also doesn't restore the whole system back to its original state (for example, items deleted from S3 won't be recovered).
 

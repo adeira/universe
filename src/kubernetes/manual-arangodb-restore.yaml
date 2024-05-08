@@ -2,7 +2,7 @@
 #
 # 1) change the S3 backup name below (see `__CHANGE_ME__`)
 # 2) cleanup previous DB restore job: `kubectl delete job arangodb-single-server-restore`
-# 3) run the DB backup restore: `(cd src/abacus/kubernetes && kubectl apply -f manual-arangodb-restore.yaml)`
+# 3) run the DB backup restore: `(cd src/kubernetes && kubectl apply -f manual-arangodb-restore.yaml)`
 
 apiVersion: batch/v1
 kind: Job
@@ -41,14 +41,24 @@ spec:
           imagePullPolicy: Always
           args:
             - 'arangorestore'
-            # https://<deployment-name>.<namespace>.svc.cluster.local:8529
-            - '--server.endpoint=tcp://arangodb-single-server.default.svc.cluster.local:8529' # TODO: ssl://…
-            #- '--server.username=$(username)' # TODO
-            #- '--server.password=$(password)' # TODO
-            - '--server.authentication=false'
-            - '--server.database=abacus'
+            - '--server.endpoint=http://arangodb-single-server.default.svc.cluster.local:8529' # https://<deployment-name>.<namespace>.svc.cluster.local:8529
+            - '--server.authentication=true'
+            - '--server.database=abacus-tests-db-restore'
+            - '--server.username=$(ARANGODB_USERNAME)'
+            - '--server.password=$(ARANGODB_PASSWORD)'
             - '--input-directory=/tmp/dump'
             - '--envelope=false'
+          env:
+            - name: ARANGODB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: abacus-arangodb-secret
+                  key: ARANGODB_USERNAME
+            - name: ARANGODB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: abacus-arangodb-secret
+                  key: ARANGODB_PASSWORD
           volumeMounts:
             - name: dump
               mountPath: /tmp/dump
