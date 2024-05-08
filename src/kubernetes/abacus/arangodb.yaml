@@ -7,13 +7,12 @@ spec:
   mode: Single
   image: 'arangodb/arangodb:3.12.0'
   tls:
-    caSecretName: None # TODO
-  auth:
-    jwtSecretName: None # TODO
+    caSecretName: None # TODO? (Abacus currently doesn't support self-signed certificates, see: https://arangodb.github.io/kube-arangodb/docs/driver-configuration.html)
   externalAccess:
-    type: None
+    type: None # the database must be accessible only from within the cluster network
   single:
     args:
+      - '--server.authentication=true'
       - '--query.require-with=true' # require WITH clauses even when not in cluster
     storageClassName: do-block-storage # DigitalOcean Block Storage
     resources:
@@ -37,7 +36,7 @@ spec:
   #          │  │  │ │ ┌───────────── day of the week (0 - 6)
   #          │  │  │ │ │
   #          │  │  │ │ │
-  schedule: '0 */2 * * *' # https://crontab.guru/every-two-hours
+  schedule: '0 0 * * *' # Daily: https://crontab.guru/#0_0_*_*_*
   concurrencyPolicy: Allow
   successfulJobsHistoryLimit: 2
   failedJobsHistoryLimit: 3
@@ -52,17 +51,32 @@ spec:
               imagePullPolicy: Always
               args:
                 - 'arangodump'
-                # https://<deployment-name>.<namespace>.svc.cluster.local:8529
-                - '--server.endpoint=tcp://arangodb-single-server.default.svc.cluster.local:8529' # TODO: ssl://…
-                #- '--server.username=$(username)' # TODO
-                #- '--server.password=$(password)' # TODO
-                - '--server.authentication=false'
-                - '--server.database=abacus'
+                - '--server.endpoint=http://arangodb-single-server.default.svc.cluster.local:8529' # https://<deployment-name>.<namespace>.svc.cluster.local:8529
+                - '--server.authentication=true'
+                - '--server.database=$(ARANGODB_DATABASE)'
+                - '--server.username=$(ARANGODB_USERNAME)'
+                - '--server.password=$(ARANGODB_PASSWORD)'
                 - '--output-directory=/tmp/dump'
                 - '--include-system-collections=true'
                 - '--overwrite=true'
                 - '--dump-data=true'
                 - '--envelope=false'
+              env:
+                - name: ARANGODB_DATABASE
+                  valueFrom:
+                    secretKeyRef:
+                      name: abacus-arangodb-secret
+                      key: ARANGODB_DATABASE
+                - name: ARANGODB_USERNAME
+                  valueFrom:
+                    secretKeyRef:
+                      name: abacus-arangodb-secret
+                      key: ARANGODB_USERNAME
+                - name: ARANGODB_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      name: abacus-arangodb-secret
+                      key: ARANGODB_PASSWORD
               volumeMounts:
                 - name: dump
                   mountPath: /tmp/dump

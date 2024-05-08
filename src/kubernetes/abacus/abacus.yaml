@@ -54,6 +54,21 @@ spec:
                 secretKeyRef:
                   name: abacus-aws-secret
                   key: AWS_SECRET_ACCESS_KEY
+            - name: ARANGODB_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: abacus-arangodb-secret
+                  key: ARANGODB_DATABASE
+            - name: ARANGODB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: abacus-arangodb-secret
+                  key: ARANGODB_USERNAME
+            - name: ARANGODB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: abacus-arangodb-secret
+                  key: ARANGODB_PASSWORD
             - name: STRIPE_RESTRICTED_API_KEY
               valueFrom:
                 secretKeyRef:
@@ -66,4 +81,7 @@ spec:
                   key: STRIPE_WEBHOOK_SECRET
           args:
             - '--no-migrations'
+            - '--arangodb-database=$(ARANGODB_DATABASE)'
+            - '--arangodb-username=$(ARANGODB_USERNAME)'
+            - '--arangodb-password=$(ARANGODB_PASSWORD)'
             - '--arangodb-url=http://arangodb-single-server.default.svc.cluster.local:8529' # TODO: https://…
