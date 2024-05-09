@@ -23,6 +23,8 @@ spec:
         storage: 1Gi
 
 ---
+# TODO: automatically restore DB at the end of the day for developers?
+
 apiVersion: 'batch/v1'
 kind: 'CronJob'
 metadata:
@@ -36,7 +38,7 @@ spec:
   #          │  │  │ │ ┌───────────── day of the week (0 - 6)
   #          │  │  │ │ │
   #          │  │  │ │ │
-  schedule: '0 0 * * *' # Daily: https://crontab.guru/#0_0_*_*_*
+  schedule: '0 1 * * *' # Daily: https://crontab.guru/#0_1_*_*_*
   concurrencyPolicy: Allow
   successfulJobsHistoryLimit: 2
   failedJobsHistoryLimit: 3
@@ -51,8 +53,8 @@ spec:
               imagePullPolicy: Always
               args:
                 - 'arangodump'
-                - '--server.endpoint=http://arangodb-single-server.default.svc.cluster.local:8529' # https://<deployment-name>.<namespace>.svc.cluster.local:8529
                 - '--server.authentication=true'
+                - '--server.endpoint=$(ARANGODB_URL)'
                 - '--server.database=$(ARANGODB_DATABASE)'
                 - '--server.username=$(ARANGODB_USERNAME)'
                 - '--server.password=$(ARANGODB_PASSWORD)'
@@ -62,6 +64,11 @@ spec:
                 - '--dump-data=true'
                 - '--envelope=false'
               env:
+                - name: ARANGODB_URL
+                  valueFrom:
+                    secretKeyRef:
+                      name: abacus-arangodb-secret
+                      key: ARANGODB_URL
                 - name: ARANGODB_DATABASE
                   valueFrom:
                     secretKeyRef:

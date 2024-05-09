@@ -13,13 +13,13 @@ Options:
       --no-migrations
           Skips database migrations
       --arangodb-url <arangodb-url>
-          [default: http://127.0.0.1:8529/]
+          [env: ARANGODB_URL=]
       --arangodb-database <arangodb-database>
-          [default: abacus]
+          [env: ARANGODB_DATABASE=]
       --arangodb-username <arangodb-username>
-          [default: abacus]
+          [env: ARANGODB_USERNAME=]
       --arangodb-password <arangodb-password>
-          [default: ]
+          [env: ARANGODB_PASSWORD=]
       --stripe-restricted-api-key <stripe-restricted-api-key>
           Restricted Stripe.com API key (prefixed by 'rk_*') [env: STRIPE_RESTRICTED_API_KEY=]
       --stripe-webhook-secret <stripe-webhook-secret>

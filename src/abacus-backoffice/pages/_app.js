@@ -33,8 +33,9 @@ export default function MyApp({ Component, pageProps }: $FlowFixMe): React.Node 
 
   const relayEnvironment = React.useMemo(() => {
     return createEnvironment({
-      fetchFn: createNetworkFetcher(constants.graphqlServerURL, {
+      fetchFn: createNetworkFetcher(constants.abacusServerURL, {
         ...(sessionToken != null && { Authorization: `Bearer ${sessionToken}` }),
+        ...constants.abacusServerHeaders,
       }),
     });
   }, [sessionToken]);
@@ -46,7 +47,7 @@ export default function MyApp({ Component, pageProps }: $FlowFixMe): React.Node 
 
   return (
     <>
-      <DefaultSeo defaultTitle="Abacus" titleTemplate="%s · Abacus" />
+      <DefaultSeo defaultTitle="Abacus" titleTemplate="%s · Abacus"/>
       <SxDesignProvider
         locale={applicationLocale.bcp47}
         theme="system"
@@ -57,7 +58,7 @@ export default function MyApp({ Component, pageProps }: $FlowFixMe): React.Node 
         <RelayEnvironmentProvider environment={relayEnvironment}>
           <RecoilRoot>
             <RecoilURLSyncJSON storeKey="json-url" location={{ part: 'queryParams' }}>
-              {sessionToken == null ? <LoginPage /> : getLayout(<Component {...pageProps} />)}
+              {sessionToken == null ? <LoginPage/> : getLayout(<Component {...pageProps} />)}
             </RecoilURLSyncJSON>
           </RecoilRoot>
         </RelayEnvironmentProvider>

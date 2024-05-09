@@ -1,0 +1,26 @@
+{
+  "target": {
+    "path": "{{ get_env(name="MIRRORD_TARGET", default="deploy/abacus-deployment") }}",
+    "namespace": "default"
+  },
+  "feature": {
+    "network": {
+      "incoming": {
+        "mode": "steal",
+        "http_filter": {
+          "header_filter": "X-Adeira-Mirrord-Steal-UUID: 9da885f2-e035-426c-b7c2-e934698abcdf",
+          "ports": [
+            5000
+          ]
+        }
+      }
+    },
+    "env": {
+      "override": {
+        "_ARANGODB_DATABASE": "TODO: use dev database",
+        "_ARANGODB_USERNAME": "TODO",
+        "_ARANGODB_PASSWORD": "TODO"
+      }
+    }
+  }
+}

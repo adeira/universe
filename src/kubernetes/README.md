@@ -27,6 +27,14 @@ kubectl delete job ingress-nginx-admission-create -n ingress-nginx
 kubectl delete job ingress-nginx-admission-patch -n ingress-nginx
 ```
 
+Rollout new versions:
+
+```bash
+kubectl rollout restart deployment abacus-deployment
+
+kubectl rollout status deployment abacus-deployment
+```
+
 ## Kubernetes Dashboard
 
 ```bash
