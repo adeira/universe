@@ -21,8 +21,7 @@ metadata:
   labels:
     app: abacus
 spec:
-  replicas: 2
-  revisionHistoryLimit: 20
+  replicas: 1
   selector:
     matchLabels:
       app: abacus
@@ -54,6 +53,11 @@ spec:
                 secretKeyRef:
                   name: abacus-aws-secret
                   key: AWS_SECRET_ACCESS_KEY
+            - name: ARANGODB_URL
+              valueFrom:
+                secretKeyRef:
+                  name: abacus-arangodb-secret
+                  key: ARANGODB_URL
             - name: ARANGODB_DATABASE
               valueFrom:
                 secretKeyRef:
@@ -84,4 +88,4 @@ spec:
             - '--arangodb-database=$(ARANGODB_DATABASE)'
             - '--arangodb-username=$(ARANGODB_USERNAME)'
             - '--arangodb-password=$(ARANGODB_PASSWORD)'
-            - '--arangodb-url=http://arangodb-single-server.default.svc.cluster.local:8529' # TODO: https://…
+            - '--arangodb-url=$(ARANGODB_URL)'

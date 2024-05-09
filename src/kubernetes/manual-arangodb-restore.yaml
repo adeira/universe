@@ -41,14 +41,19 @@ spec:
           imagePullPolicy: Always
           args:
             - 'arangorestore'
-            - '--server.endpoint=http://arangodb-single-server.default.svc.cluster.local:8529' # https://<deployment-name>.<namespace>.svc.cluster.local:8529
             - '--server.authentication=true'
+            - '--server.endpoint=$(ARANGODB_URL)'
             - '--server.database=abacus-tests-db-restore'
             - '--server.username=$(ARANGODB_USERNAME)'
             - '--server.password=$(ARANGODB_PASSWORD)'
             - '--input-directory=/tmp/dump'
             - '--envelope=false'
           env:
+            - name: ARANGODB_URL
+              valueFrom:
+                secretKeyRef:
+                  name: abacus-arangodb-secret
+                  key: ARANGODB_URL
             - name: ARANGODB_USERNAME
               valueFrom:
                 secretKeyRef:

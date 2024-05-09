@@ -11,27 +11,27 @@ pub fn generate_clap_app() -> Command {
         .arg(
             Arg::new("arangodb-url")
                 .long("arangodb-url")
+                .env("ARANGODB_URL")
                 .num_args(1)
-                .default_value("http://127.0.0.1:8529/")
                 .value_hint(ValueHint::Url),
         )
         .arg(
             Arg::new("arangodb-database")
                 .long("arangodb-database")
+                .env("ARANGODB_DATABASE")
                 .num_args(1)
-                .default_value("abacus"),
         )
         .arg(
             Arg::new("arangodb-username")
                 .long("arangodb-username")
+                .env("ARANGODB_USERNAME")
                 .num_args(1)
-                .default_value("abacus"),
         )
         .arg(
             Arg::new("arangodb-password")
                 .long("arangodb-password")
+                .env("ARANGODB_PASSWORD")
                 .num_args(1)
-                .default_value(""),
         )
         .arg(
             Arg::new("stripe-restricted-api-key")
