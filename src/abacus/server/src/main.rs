@@ -30,7 +30,6 @@ mod headers;
 mod images;
 mod locale;
 mod menu;
-mod migrations;
 mod pos;
 mod price;
 mod stripe;
@@ -97,14 +96,6 @@ async fn main() {
         cli_matches.get_one::<String>("arangodb-username").unwrap(),
         cli_matches.get_one::<String>("arangodb-password").unwrap(),
     );
-
-    if !cli_matches.get_flag("no-migrations") {
-        // Preferably, migrations would NOT be ran during the server start.
-        // But we do it now for the simplicity.
-        migrations::migrate(&pool).await;
-    } else {
-        tracing::info!("Skipping database migrations because of --no-migrations")
-    }
 
     let global_configuration = GlobalConfiguration {
         stripe_restricted_api_key: cli_matches

@@ -3,12 +3,6 @@ use clap::{Arg, Command, ValueHint};
 pub fn generate_clap_app() -> Command {
     clap::command!()
         .arg(
-            Arg::new("no-migrations")
-                .long("no-migrations")
-                .num_args(0)
-                .help("Skips database migrations"),
-        )
-        .arg(
             Arg::new("arangodb-url")
                 .long("arangodb-url")
                 .env("ARANGODB_URL")
