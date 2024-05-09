@@ -84,7 +84,6 @@ spec:
                   name: abacus-stripe-secret
                   key: STRIPE_WEBHOOK_SECRET
           args:
-            - '--no-migrations'
             - '--arangodb-database=$(ARANGODB_DATABASE)'
             - '--arangodb-username=$(ARANGODB_USERNAME)'
             - '--arangodb-password=$(ARANGODB_PASSWORD)'

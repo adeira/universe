@@ -206,7 +206,7 @@ pub async fn prepare_empty_test_database(db_name: &str) -> ConnectionPool {
         "",
         "",
     );
-    crate::migrations::migrate(&pool).await;
+    // crate::migrations::migrate(&pool).await;
     pool
 }
 

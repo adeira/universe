@@ -19,7 +19,7 @@ brew install metalbear-co/mirrord/mirrord
 Compile and run the application using in K8s context using `mirrord`:
 
 ```bash
-cargo build && mirrord exec --config-file=./mirrord.json ./target/debug/server -- --no-migrations
+cargo build && mirrord exec --config-file=./mirrord.json ./target/debug/server
 ```
 
 The server is accessible on this URL: https://abacus.adeira.io/status/ping (**not** localhost!)
@@ -52,10 +52,6 @@ There are some extra tests which are slow or require extra infrastructure (netwo
 ```
 
 Note: ignored tests are not being run on CI (at least not yet)!
-
-## Database migrations
-
-Database migrations are currently being run automatically during the server start. It's not and ideal or final solution, but it's "good enough" for now.
 
 ## Stripe
 
