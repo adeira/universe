@@ -29,11 +29,8 @@ impl deadpool::managed::Manager for ConnectionManager {
     /// Creates a new instance of the ArangoDB connection.
     async fn create(&self) -> Result<Connection, ClientError> {
         tracing::debug!("Creating a new ArangoDB connection 💎");
-        let connection = crate::arango::Connection::establish_basic_auth(
-            &self.db_host,
-            &self.username,
-            &self.password,
-        );
+        let connection =
+            crate::arango::Connection::establish_jwt(&self.db_host, &self.username, &self.password);
         connection.await
     }
 
