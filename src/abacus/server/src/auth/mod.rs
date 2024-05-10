@@ -1,5 +1,7 @@
-use crate::arango::ConnectionPool;
+use crate::arango;
+use crate::auth::account::Account;
 use crate::auth::certs::CachedCerts;
+use crate::auth::dal::accounts;
 use crate::auth::dal::sessions::{create_new_user_session, delete_user_session};
 use crate::auth::dal::users::{
     create_inactive_user_by_google_claims, find_user_by_google_claims,
@@ -7,13 +9,14 @@ use crate::auth::dal::users::{
 };
 use crate::auth::google::verify_id_token_integrity;
 use crate::auth::session::derive_session_token_hash;
-use crate::auth::users::{AnonymousUser, SignedUser, User};
+use crate::auth::users::{AnonymousUser, AnyUser, SignedUser, User};
 use crate::headers::parse_authorization_header;
 
 pub(crate) mod api;
 pub(crate) mod rbac;
 pub(crate) mod users;
 
+mod account;
 mod cache_control;
 mod casbin;
 mod certs;
@@ -21,9 +24,9 @@ mod dal;
 mod google;
 mod session;
 
-/// This function tries to authorize the user by Google ID token (rejects otherwise). It essentially
-/// transforms Google ID token to our Session Token which is vendor independent and we have it under
-/// absolute control.
+/// This function tries to authorize a user by Google ID token (registers otherwise). It essentially
+/// transforms Google ID token to our Session Token, which is vendor independent, and we have it
+/// under absolute control.
 ///
 /// 1.  Validate the Google ID token (and immediately reject if not valid).
 /// 2a. Fetch existing user and create a new session even if it already exists. Please note: it's
@@ -34,15 +37,19 @@ mod session;
 /// 2b. Reject any requests attempting to access non-existent users. At the same time, create this
 ///     user (inactive) so it can be later activated (whitelisted).
 pub(in crate::auth) async fn authorize(
-    pool: &crate::arango::ConnectionPool,
+    pool: &arango::ConnectionPool,
     google_id_token: &str,
 ) -> anyhow::Result<String> {
     let mut cached_certs = certs::CachedCertsProduction::new();
     let token_data = verify_id_token_integrity(google_id_token, &mut cached_certs).await?; // (1.)
 
-    match find_user_by_google_claims(pool, token_data.claims.subject()).await {
-        // the user already exists (2a.)
+    let user = find_user_by_google_claims(pool, token_data.claims.subject()).await;
+
+    let session_token = match user {
+        // 2a. the user already exists
         Some(user) => {
+            ensure_user_account_exists(&pool, &user).await?;
+
             if !user.is_active() {
                 anyhow::bail!("user is not activated yet");
             }
@@ -50,21 +57,48 @@ pub(in crate::auth) async fn authorize(
             // create a new session (don't delete old ones so we can login from multiple devices)
             let session_token = session::generate_session_token();
             let session_token_hash = derive_session_token_hash(&session_token);
-            create_new_user_session(pool, &session_token_hash, &user).await?;
-            Ok(session_token)
+            create_new_user_session(&pool, &session_token_hash, &user).await?;
+            session_token
         }
         None => {
-            // new user with valid Google ID token - create and reject it (2b.)
-            create_inactive_user_by_google_claims(pool, &token_data.claims).await?;
+            // 2b. new user with valid Google ID token - create and reject it
+            let inactive_user =
+                create_inactive_user_by_google_claims(pool, &token_data.claims).await?;
+
+            ensure_user_account_exists(&pool, &inactive_user).await?;
+
             anyhow::bail!("user does not exist yet")
         }
+    };
+
+    Ok(session_token)
+}
+
+/// Historically, the concept of "accounts" didn't exist. We need to make sure that each user is
+/// assigned to some account, and therefore we create it here if none exists. Users without
+/// accounts are not allowed!
+async fn ensure_user_account_exists(
+    pool: &arango::ConnectionPool,
+    user: &AnyUser,
+) -> anyhow::Result<()> {
+    let accounts = accounts::find_user_accounts(&pool, &user).await?;
+    match accounts.is_empty() {
+        true => {
+            // Create a new account for the user
+            accounts::create_new_account(&pool, &user).await?;
+        }
+        false => {
+            // User already has some account(s) assigned, nothing to do.
+        }
     }
+
+    Ok(())
 }
 
 /// This function "deauthorizes" the user by invalidating the session in our DB (removing it).
 /// It returns `true` if the operation was successful.
 pub(in crate::auth) async fn deauthorize(
-    pool: &crate::arango::ConnectionPool,
+    pool: &arango::ConnectionPool,
     session_token: &str,
 ) -> anyhow::Result<bool> {
     let session_token_hash = derive_session_token_hash(session_token);
@@ -77,7 +111,7 @@ pub(in crate::auth) async fn deauthorize(
 /// user (or returns an error if auth header exists but user does not or if the header has
 /// invalid format).
 pub(crate) async fn get_current_user(
-    pool: &ConnectionPool,
+    pool: &arango::ConnectionPool,
     authorization_header: &Option<String>,
 ) -> Result<User, String> {
     match authorization_header {
@@ -112,7 +146,7 @@ pub(crate) async fn get_current_user(
 
 /// This function verifies the session token and returns either authorized OR anonymous user.
 async fn resolve_user_from_session_token(
-    pool: &crate::arango::ConnectionPool,
+    pool: &arango::ConnectionPool,
     session_token: &str,
 ) -> User {
     let session_token_hash = derive_session_token_hash(session_token);
@@ -127,8 +161,9 @@ async fn resolve_user_from_session_token(
 
 #[cfg(test)]
 mod tests {
-    use super::*;
     use crate::arango::get_database_connection_pool_mock;
+
+    use super::*;
 
     #[tokio::test]
     async fn get_current_user_without_authorization_header() {
