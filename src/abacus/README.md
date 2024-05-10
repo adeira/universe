@@ -33,7 +33,13 @@ The default configuration uses [Traffic Stealing](https://mirrord.dev/docs/using
 To access ArangoDB from localhost, use `port-forward`, for example (change to the actual pod name):
 
 ```bash
-kubectl port-forward pod/arangodb-single-server-sngl-XXX-YYY 8529:8529
+kubectl port-forward pod/arangodb-single-server-sngl-spbqcrlf-3b4432 8529:8529
+```
+
+In case port-forward command does not work, make sure that the service name is correct:
+
+```bash
+kubectl -n default get svc
 ```
 
 And open: http://127.0.0.1:8529/

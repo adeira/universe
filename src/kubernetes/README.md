@@ -45,13 +45,19 @@ To access Dashboard run:
 kubectl -n kubernetes-dashboard port-forward svc/kubernetes-dashboard-kong-proxy 8443:443
 ```
 
-NOTE: In case port-forward command does not work, make sure that kong service name is correct. Check the services in Kubernetes Dashboard namespace using:
+In case port-forward command does not work, make sure that kong service name is correct. Check the services in Kubernetes Dashboard namespace using:
 
 ```bash
 kubectl -n kubernetes-dashboard get svc
 ```
 
-Dashboard will be available at: https://localhost:8443
+Dashboard will be available at: https://127.0.0.1:8443
+
+Get API token to be able to login:
+
+```bash
+kubectl -n kubernetes-dashboard create token admin-user
+```
 
 ## Upgrading ArangoDB
 
