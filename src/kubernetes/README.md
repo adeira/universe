@@ -30,9 +30,11 @@ kubectl delete job ingress-nginx-admission-patch -n ingress-nginx
 Rollout new versions:
 
 ```bash
-kubectl rollout restart deployment abacus-deployment
+kubectl rollout restart deployment/abacus-deployment
 
-kubectl rollout status deployment abacus-deployment
+kubectl rollout status deployment/abacus-deployment
+
+kubectl rollout undo deployment/abacus-deployment
 ```
 
 ## Kubernetes Dashboard
