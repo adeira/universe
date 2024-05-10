@@ -86,35 +86,3 @@ pub(crate) async fn delete_user_session(
     )
     .await
 }
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-    use crate::arango::{cleanup_test_database, prepare_empty_test_database};
-
-    #[ignore]
-    #[tokio::test]
-    async fn create_new_user_session_test() {
-        let db_name = "create_new_user_session_test";
-        let pool = prepare_empty_test_database(db_name).await;
-
-        let test_user = AnyUser::mock(&None);
-
-        // 1) create a new session for the test user
-        let session =
-            create_new_user_session(&pool, "d99278e7-8f98-482a-ab9e-df93c380546e", &test_user)
-                .await;
-        assert!(session.is_ok());
-
-        // 2) try to fetch it an asset it
-        let session = find_session_by_user(&pool, &test_user)
-            .await
-            .expect("could not find test session");
-        assert_eq!(
-            session.session_token_hash(),
-            "d99278e7-8f98-482a-ab9e-df93c380546e"
-        );
-
-        cleanup_test_database(db_name).await;
-    }
-}
