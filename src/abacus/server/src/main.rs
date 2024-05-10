@@ -106,7 +106,7 @@ async fn main() {
             .map(String::from),
     };
 
-    let listener = tokio::net::TcpListener::bind("127.0.0.1:5000")
+    let listener = tokio::net::TcpListener::bind("0.0.0.0:5000")
         .await
         .unwrap();
     axum::serve(listener, create_axum_server(pool, global_configuration))
