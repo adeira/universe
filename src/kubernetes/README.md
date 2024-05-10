@@ -39,10 +39,19 @@ kubectl rollout undo deployment/abacus-deployment
 
 ## Kubernetes Dashboard
 
+To access Dashboard run:
+
 ```bash
-export POD_NAME=$(kubectl get pods -n kubernetes-dashboard -l "app.kubernetes.io/name=kubernetes-dashboard,app.kubernetes.io/instance=kubernetes-dashboard" -o jsonpath="{.items[0].metadata.name}")
-kubectl -n kubernetes-dashboard port-forward $POD_NAME 8443:8443
+kubectl -n kubernetes-dashboard port-forward svc/kubernetes-dashboard-kong-proxy 8443:443
 ```
+
+NOTE: In case port-forward command does not work, make sure that kong service name is correct. Check the services in Kubernetes Dashboard namespace using:
+
+```bash
+kubectl -n kubernetes-dashboard get svc
+```
+
+Dashboard will be available at: https://localhost:8443
 
 ## Upgrading ArangoDB
 
