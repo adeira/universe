@@ -6,15 +6,6 @@ schema {
   mutation: Mutation
 }
 
-enum MenuSections {
-  COFFEE
-  TEA
-  SPECIALITIES
-  OTHERS
-  KOCHKADAS
-  CIABATTAS
-}
-
 enum PriceSortDirection {
   LOW_TO_HIGH
   HIGH_TO_LOW
@@ -278,14 +269,6 @@ type Image {
   url: String!
 }
 
-type MenuQuery {
-  """
-    Returns a specified section of our menu. This is to maintain one source of truth (in our
-    database) about the prices, descriptions, translations and similar.
-  """
-  menu(clientLocale: SupportedLocale!, section: MenuSections!): [Product!]!
-}
-
 "Root mutation of the graph."
 type Mutation {
   auth: AuthMutation!
@@ -461,7 +444,6 @@ type Query {
   auth: AuthQuery!
   cats: CatsQuery!
   commerce: CommerceQuery!
-  menu: MenuQuery!
 }
 
 type Redirect {

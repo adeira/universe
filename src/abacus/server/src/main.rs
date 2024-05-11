@@ -29,7 +29,6 @@ mod graphql_schema;
 mod headers;
 mod images;
 mod locale;
-mod menu;
 mod pos;
 mod price;
 mod stripe;
