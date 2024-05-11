@@ -38,13 +38,6 @@ enum SupportedLocale {
   es_MX
 }
 
-enum TimeFrame {
-  YEAR
-  QUARTER
-  MONTH
-  ISO_WEEK
-}
-
 input AllCatsFilter {
   "When `true` returns only adopted cats. When `false` returns only cats available for adoption." adopted: Boolean!
 }
@@ -110,43 +103,8 @@ input ProductPriceInput {
 """
 scalar ProductImageUploadable
 
-type AnalyticsDailyReportInfo {
-  dateDay: String!
-  total: Price!
-  productsSummary: [AnalyticsDailyReportProductSummaryInfo!]!
-}
-
-type AnalyticsDailyReportProductSummaryInfo {
-  productId: String!
-  productName: String!
-  totalUnits: Int!
-}
-
 type AnalyticsQuery {
-  """
-    Returns the most sold products in the selected timeframe (per week, month, quarter, …).
-    Check also `leastSoldProducts` query for the least sold products.
-  """
-  mostSoldProducts(timeFrame: TimeFrame!): [AnalyticsSoldProductTimeFrameInfo!]!
-  """
-    Returns the least sold products in the selected timeframe (per week, month, quarter, …).
-    Check also `mostSoldProducts` query for the most sold products.
-  """
-  leastSoldProducts(timeFrame: TimeFrame!): [AnalyticsSoldProductTimeFrameInfo!]!
   redirectHits: [Redirect!]!
-  dailyReports: [AnalyticsDailyReportInfo!]!
-}
-
-type AnalyticsSoldProductInfo {
-  productId: String!
-  productName: String!
-  productUnits: Int!
-}
-
-type AnalyticsSoldProductTimeFrameInfo {
-  timeFrame: Int!
-  dateYear: Int!
-  stats: [AnalyticsSoldProductInfo!]!
 }
 
 type AnyUser {
