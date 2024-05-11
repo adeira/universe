@@ -4,8 +4,6 @@ use casbin::{CoreApi, DefaultModel, Error as CasbinError};
 
 #[allow(clippy::enum_variant_names)]
 pub(crate) enum AnalyticsActions {
-    GetCheckoutStats,
-    GetDailyReports,
     GetRedirectHits,
 }
 
@@ -86,8 +84,6 @@ pub(crate) async fn verify_permissions(user: &User, actions: &Actions) -> anyhow
                         Actions::Analytics(analytics_actions) => {
                             obj = "analytics";
                             match analytics_actions {
-                                AnalyticsActions::GetCheckoutStats => act = "get_checkout_stats",
-                                AnalyticsActions::GetDailyReports => act = "get_daily_reports",
                                 AnalyticsActions::GetRedirectHits => act = "get_redirect_hits",
                             }
                         }

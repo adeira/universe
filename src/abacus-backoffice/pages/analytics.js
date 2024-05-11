@@ -2,13 +2,13 @@
 
 import React, { type Element, type Node } from 'react';
 
-import AnalyticsDailyReports from '../src/analytics/AnalyticsDailyReports';
 import AnalyticsLayout from '../src/analytics/AnalyticsLayout';
+import AnalyticsRedirectsPageLayout from '../src/analytics/AnalyticsRedirectsPageLayout';
 
-export default function AnalyticsPage(): Node {
-  return <AnalyticsDailyReports />;
+export default function AnalyticsRedirectsPage(): Node {
+  return <AnalyticsRedirectsPageLayout />;
 }
 
-AnalyticsPage.getLayout = (
-  page: Element<typeof AnalyticsPage>,
+AnalyticsRedirectsPage.getLayout = (
+  page: Element<typeof AnalyticsRedirectsPage>,
 ): Element<typeof AnalyticsLayout> => <AnalyticsLayout>{page}</AnalyticsLayout>;
