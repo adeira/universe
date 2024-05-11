@@ -30,10 +30,6 @@ impl Query {
     fn commerce() -> crate::commerce::api::CommerceQuery {
         crate::commerce::api::CommerceQuery {}
     }
-
-    fn menu() -> crate::menu::api::MenuQuery {
-        crate::menu::api::MenuQuery {}
-    }
 }
 
 #[derive(Clone, Copy, Debug)]
