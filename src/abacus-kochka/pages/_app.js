@@ -8,11 +8,9 @@ import sx from '@adeira/sx';
 import { DefaultSeo } from 'next-seo';
 import { RelayEnvironmentProvider, RelayRehydratePreloadedQueries } from '@adeira/relay';
 import { SkipLink, SxDesignProvider } from '@adeira/sx-design';
-import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 import './_app.css';
-import recordPageVisit from '../src/analytics/recordPageVisit';
 import RelayEnvironment from '../src/RelayEnvironment';
 import ViewerContextProvider from '../src/ViewerContextProvider';
 import initFbtTranslations from '../translations/initFbtTranslations';
@@ -25,18 +23,6 @@ type Props = {
 export default function MyApp({ Component, pageProps }: Props): React.Node {
   const router = useRouter();
   const languageTag = initFbtTranslations(router.locale);
-
-  useEffect(() => {
-    recordPageVisit(RelayEnvironment);
-    const handleRouteChange = () => {
-      recordPageVisit(RelayEnvironment);
-    };
-    router.events.on('routeChangeComplete', handleRouteChange);
-    return () => {
-      // If the component is unmounted, unsubscribe from the event with the `off` method:
-      router.events.off('routeChangeComplete', handleRouteChange);
-    };
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <React.StrictMode>

@@ -60,28 +60,6 @@ input CheckoutSessionProductInput {
   productPriceUnitAmountCurrency: SupportedCurrency!
 }
 
-input PageVisitInput {
-  userAgent: String
-  location: PageVisitInputLocation
-  screen: PageVisitInputScreen
-}
-
-input PageVisitInputLocation {
-  "https://developer.mozilla.org/en-US/docs/Web/API/Location/protocol" protocol: String
-  "https://developer.mozilla.org/en-US/docs/Web/API/Location/hostname" hostname: String
-  "https://developer.mozilla.org/en-US/docs/Web/API/Location/port" port: String
-  "https://developer.mozilla.org/en-US/docs/Web/API/Location/pathname" pathname: String
-  "https://developer.mozilla.org/en-US/docs/Web/API/Location/search" search: String
-  "https://developer.mozilla.org/en-US/docs/Web/API/Location/hash" hash: String
-}
-
-input PageVisitInputScreen {
-  "https://developer.mozilla.org/en-US/docs/Web/API/Screen/height" height: String
-  "https://developer.mozilla.org/en-US/docs/Web/API/Screen/width" width: String
-  "https://developer.mozilla.org/en-US/docs/Web/API/ScreenOrientation/type" orientationType: String
-  "https://developer.mozilla.org/en-US/docs/Web/API/ScreenOrientation/angle" orientationAngle: String
-}
-
 input PosCheckoutInput {
   selectedProducts: [PosCheckoutProductInput!]!
 }
@@ -142,18 +120,6 @@ type AnalyticsDailyReportProductSummaryInfo {
   productId: String!
   productName: String!
   totalUnits: Int!
-}
-
-type AnalyticsMutation {
-  """
-    Records page visit (as a replacement of Google Analytics). We focus only on the important
-    things with a focus on privacy of our users. Currently, we are interested in the following:
-
-    - user agent (to know what browsers are our users using)
-    - screen dimensions (to know which screen resolutions are important - mobile/desktop)
-    - URL details (to be able to filter the data per page)
-  """
-  recordPageVisit(input: PageVisitInput!): PageVisit!
 }
 
 type AnalyticsQuery {
@@ -364,7 +330,6 @@ type MenuQuery {
 
 "Root mutation of the graph."
 type Mutation {
-  analytics: AnalyticsMutation!
   auth: AuthMutation!
   commerce: CommerceMutation!
   pos: POSMutation!
@@ -382,10 +347,6 @@ type POSMutation {
     expensive").
   """
   checkout(input: PosCheckoutInput!, clientLocale: SupportedLocale!): PosCheckoutPayloadOrError!
-}
-
-type PageVisit {
-  success: Boolean!
 }
 
 type PosCheckoutError {
