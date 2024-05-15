@@ -263,7 +263,7 @@ __metadata:
     "@adeira/babel-preset-adeira": "npm:^4.0.0"
     "@adeira/monorepo-utils": "npm:^0.12.0"
     "@babel/runtime": "npm:^7.24.5"
-    "@npmcli/arborist": "npm:^7.5.1"
+    "@npmcli/arborist": "npm:^7.5.2"
     chalk: "npm:^4.1.2"
     is-ci: "npm:^3.0.1"
     npm-packlist: "npm:^8.0.2"
@@ -3683,34 +3683,35 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@npmcli/arborist@npm:^7.5.1":
-  version: 7.5.1
-  resolution: "@npmcli/arborist@npm:7.5.1"
+"@npmcli/arborist@npm:^7.5.2":
+  version: 7.5.2
+  resolution: "@npmcli/arborist@npm:7.5.2"
   dependencies:
     "@isaacs/string-locale-compare": "npm:^1.1.0"
-    "@npmcli/fs": "npm:^3.1.0"
+    "@npmcli/fs": "npm:^3.1.1"
     "@npmcli/installed-package-contents": "npm:^2.1.0"
     "@npmcli/map-workspaces": "npm:^3.0.2"
-    "@npmcli/metavuln-calculator": "npm:^7.1.0"
+    "@npmcli/metavuln-calculator": "npm:^7.1.1"
     "@npmcli/name-from-folder": "npm:^2.0.0"
     "@npmcli/node-gyp": "npm:^3.0.0"
     "@npmcli/package-json": "npm:^5.1.0"
     "@npmcli/query": "npm:^3.1.0"
     "@npmcli/redact": "npm:^2.0.0"
     "@npmcli/run-script": "npm:^8.1.0"
-    bin-links: "npm:^4.0.1"
-    cacache: "npm:^18.0.0"
+    bin-links: "npm:^4.0.4"
+    cacache: "npm:^18.0.3"
     common-ancestor-path: "npm:^1.0.1"
-    hosted-git-info: "npm:^7.0.1"
-    json-parse-even-better-errors: "npm:^3.0.0"
+    hosted-git-info: "npm:^7.0.2"
+    json-parse-even-better-errors: "npm:^3.0.2"
     json-stringify-nice: "npm:^1.1.4"
+    lru-cache: "npm:^10.2.2"
     minimatch: "npm:^9.0.4"
-    nopt: "npm:^7.0.0"
+    nopt: "npm:^7.2.1"
     npm-install-checks: "npm:^6.2.0"
     npm-package-arg: "npm:^11.0.2"
-    npm-pick-manifest: "npm:^9.0.0"
-    npm-registry-fetch: "npm:^17.0.0"
-    pacote: "npm:^18.0.1"
+    npm-pick-manifest: "npm:^9.0.1"
+    npm-registry-fetch: "npm:^17.0.1"
+    pacote: "npm:^18.0.6"
     parse-conflict-json: "npm:^3.0.0"
     proc-log: "npm:^4.2.0"
     proggy: "npm:^2.0.0"
@@ -3718,12 +3719,12 @@ __metadata:
     promise-call-limit: "npm:^3.0.1"
     read-package-json-fast: "npm:^3.0.2"
     semver: "npm:^7.3.7"
-    ssri: "npm:^10.0.5"
+    ssri: "npm:^10.0.6"
     treeverse: "npm:^3.0.0"
     walk-up-path: "npm:^3.0.1"
   bin:
     arborist: bin/index.js
-  checksum: 10c0/aceb8589d82a569e4290148ede7a8e83ee18d13c77d093bfdfd0be687b350d5609f0120b6a96f865594c8df6f6fa0db455234416b94605056f10dafce33b0b63
+  checksum: 10c0/e34133649b408b39073ba1382cd4ea9b9e02f8a2f4ed4d714998707bfb65dd2b1509e86172a862176e2648940089bbbc451ef9eeeab2ae6cbad99d0dba087ed3
   languageName: node
   linkType: hard
 
@@ -3737,12 +3738,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@npmcli/fs@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "@npmcli/fs@npm:3.1.0"
+"@npmcli/fs@npm:^3.1.0, @npmcli/fs@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "@npmcli/fs@npm:3.1.1"
   dependencies:
     semver: "npm:^7.3.5"
-  checksum: 10c0/162b4a0b8705cd6f5c2470b851d1dc6cd228c86d2170e1769d738c1fbb69a87160901411c3c035331e9e99db72f1f1099a8b734bf1637cc32b9a5be1660e4e1e
+  checksum: 10c0/c37a5b4842bfdece3d14dfdb054f73fe15ed2d3da61b34ff76629fb5b1731647c49166fd2a8bf8b56fcfa51200382385ea8909a3cbecdad612310c114d3f6c99
   languageName: node
   linkType: hard
 
@@ -3786,16 +3787,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@npmcli/metavuln-calculator@npm:^7.1.0":
-  version: 7.1.0
-  resolution: "@npmcli/metavuln-calculator@npm:7.1.0"
+"@npmcli/metavuln-calculator@npm:^7.1.1":
+  version: 7.1.1
+  resolution: "@npmcli/metavuln-calculator@npm:7.1.1"
   dependencies:
     cacache: "npm:^18.0.0"
     json-parse-even-better-errors: "npm:^3.0.0"
     pacote: "npm:^18.0.0"
     proc-log: "npm:^4.1.0"
     semver: "npm:^7.3.5"
-  checksum: 10c0/ba3fc89843f70b7559f9c03da094bfddd77a020be0339d7b67a7c3f8143eedeac0cf12365ab1ea12ec5f39bfd212285db2bc7c95c78b19204d453af45c03c4ea
+  checksum: 10c0/27402cab124bb1fca56af7549f730c38c0ab40de60cbef6264a4193c26c2d28cefb2adac29ed27f368031795704f9f8fe0c547c4c8cb0c0fa94d72330d56ac80
   languageName: node
   linkType: hard
 
@@ -3852,13 +3853,6 @@ __metadata:
   dependencies:
     postcss-selector-parser: "npm:^6.0.10"
   checksum: 10c0/9a099677dd188a2d9eb7a49e32c69d315b09faea59e851b7c2013b5bda915a38434efa7295565c40a1098916c06ebfa1840f68d831180e36842f48c24f4c5186
-  languageName: node
-  linkType: hard
-
-"@npmcli/redact@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "@npmcli/redact@npm:1.1.0"
-  checksum: 10c0/886995220e60ca00405c93c5588aff524d1dbfee0ca8688b9607fefcda42aa464d4a3f7c75fc03a16a582befe4b6c3ac4493d67c4eb07da2fe0794fbe0dfc89b
   languageName: node
   linkType: hard
 
@@ -7465,15 +7459,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bin-links@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "bin-links@npm:4.0.1"
+"bin-links@npm:^4.0.4":
+  version: 4.0.4
+  resolution: "bin-links@npm:4.0.4"
   dependencies:
     cmd-shim: "npm:^6.0.0"
     npm-normalize-package-bin: "npm:^3.0.0"
     read-cmd-shim: "npm:^4.0.0"
     write-file-atomic: "npm:^5.0.0"
-  checksum: 10c0/f89d84bf421aed326bc57e755623ba3810683529b3fb8329194f3970a1fe07bac88990c64a0dbdd57cb1290d4e0eae5fd3dacc59c60640eeb626ff5b1a249ac2
+  checksum: 10c0/feb664e786429289d189c19c193b28d855c2898bc53b8391306cbad2273b59ccecb91fd31a433020019552c3bad3a1e0eeecca1c12e739a12ce2ca94f7553a17
   languageName: node
   linkType: hard
 
@@ -7738,23 +7732,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cacache@npm:^18.0.0":
-  version: 18.0.0
-  resolution: "cacache@npm:18.0.0"
+"cacache@npm:^18.0.0, cacache@npm:^18.0.3":
+  version: 18.0.3
+  resolution: "cacache@npm:18.0.3"
   dependencies:
     "@npmcli/fs": "npm:^3.1.0"
     fs-minipass: "npm:^3.0.0"
     glob: "npm:^10.2.2"
     lru-cache: "npm:^10.0.1"
     minipass: "npm:^7.0.3"
-    minipass-collect: "npm:^1.0.2"
+    minipass-collect: "npm:^2.0.1"
     minipass-flush: "npm:^1.0.5"
     minipass-pipeline: "npm:^1.2.4"
     p-map: "npm:^4.0.0"
     ssri: "npm:^10.0.0"
     tar: "npm:^6.1.11"
     unique-filename: "npm:^3.0.0"
-  checksum: 10c0/e359823778d712ad365740cef3f488d4f74c62cc79be5935896d9597a7d81033e50c54c15898fa9cc018620879307ab30d1dddc476ae705bfd5b29c145ae6938
+  checksum: 10c0/dfda92840bb371fb66b88c087c61a74544363b37a265023223a99965b16a16bbb87661fe4948718d79df6e0cc04e85e62784fbcf1832b2a5e54ff4c46fbb45b7
   languageName: node
   linkType: hard
 
@@ -12707,12 +12701,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hosted-git-info@npm:^7.0.0, hosted-git-info@npm:^7.0.1":
-  version: 7.0.1
-  resolution: "hosted-git-info@npm:7.0.1"
+"hosted-git-info@npm:^7.0.0, hosted-git-info@npm:^7.0.2":
+  version: 7.0.2
+  resolution: "hosted-git-info@npm:7.0.2"
   dependencies:
     lru-cache: "npm:^10.0.1"
-  checksum: 10c0/361c4254f717f06d581a5a90aa0156a945e662e05ebbb533c1fa9935f10886d8247db48cbbcf9667f02e519e6479bf16dcdcf3124c3030e76c4c3ca2c88ee9d3
+  checksum: 10c0/b19dbd92d3c0b4b0f1513cf79b0fc189f54d6af2129eeb201de2e9baaa711f1936929c848b866d9c8667a0f956f34bf4f07418c12be1ee9ca74fd9246335ca1f
   languageName: node
   linkType: hard
 
@@ -14618,10 +14612,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"json-parse-even-better-errors@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "json-parse-even-better-errors@npm:3.0.0"
-  checksum: 10c0/128de17135e7af655ed83fc26dab0fe54faf43b3517fa73dcd997cce6e05a445932664f085ec6dbc219aeb0c592e53ef10d2d6dee4a8e9211ea901b8e6dd0b52
+"json-parse-even-better-errors@npm:^3.0.0, json-parse-even-better-errors@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "json-parse-even-better-errors@npm:3.0.2"
+  checksum: 10c0/147f12b005768abe9fab78d2521ce2b7e1381a118413d634a40e6d907d7d10f5e9a05e47141e96d6853af7cc36d2c834d0a014251be48791e037ff2f13d2b94b
   languageName: node
   linkType: hard
 
@@ -15035,10 +15029,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lru-cache@npm:^10.0.1, lru-cache@npm:^10.2.0":
-  version: 10.2.0
-  resolution: "lru-cache@npm:10.2.0"
-  checksum: 10c0/c9847612aa2daaef102d30542a8d6d9b2c2bb36581c1bf0dc3ebf5e5f3352c772a749e604afae2e46873b930a9e9523743faac4e5b937c576ab29196774712ee
+"lru-cache@npm:^10.0.1, lru-cache@npm:^10.2.0, lru-cache@npm:^10.2.2":
+  version: 10.2.2
+  resolution: "lru-cache@npm:10.2.2"
+  checksum: 10c0/402d31094335851220d0b00985084288136136992979d0e015f0f1697e15d1c86052d7d53ae86b614e5b058425606efffc6969a31a091085d7a2b80a8a1e26d6
   languageName: node
   linkType: hard
 
@@ -16177,6 +16171,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"minipass-collect@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "minipass-collect@npm:2.0.1"
+  dependencies:
+    minipass: "npm:^7.0.3"
+  checksum: 10c0/5167e73f62bb74cc5019594709c77e6a742051a647fe9499abf03c71dca75515b7959d67a764bdc4f8b361cf897fbf25e2d9869ee039203ed45240f48b9aa06e
+  languageName: node
+  linkType: hard
+
 "minipass-fetch@npm:^1.3.2":
   version: 1.4.1
   resolution: "minipass-fetch@npm:1.4.1"
@@ -16649,14 +16652,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nopt@npm:^7.0.0":
-  version: 7.0.0
-  resolution: "nopt@npm:7.0.0"
+"nopt@npm:^7.0.0, nopt@npm:^7.2.1":
+  version: 7.2.1
+  resolution: "nopt@npm:7.2.1"
   dependencies:
     abbrev: "npm:^2.0.0"
   bin:
     nopt: bin/nopt.js
-  checksum: 10c0/466bd4a0763b86bad99ddb9953aa730a7aecc182ad221afda2f44527ac7c4f7f32b9f8a42be1b5400dba242fb00b6d3ed9a1ec2154871a14f84477018f3f01e9
+  checksum: 10c0/a069c7c736767121242037a22a788863accfa932ab285a1eb569eb8cd534b09d17206f68c37f096ae785647435e0c5a5a0a67b42ec743e481a455e5ae6a6df81
   languageName: node
   linkType: hard
 
@@ -16763,15 +16766,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm-pick-manifest@npm:^9.0.0":
-  version: 9.0.0
-  resolution: "npm-pick-manifest@npm:9.0.0"
+"npm-pick-manifest@npm:^9.0.0, npm-pick-manifest@npm:^9.0.1":
+  version: 9.0.1
+  resolution: "npm-pick-manifest@npm:9.0.1"
   dependencies:
     npm-install-checks: "npm:^6.0.0"
     npm-normalize-package-bin: "npm:^3.0.0"
     npm-package-arg: "npm:^11.0.0"
     semver: "npm:^7.3.5"
-  checksum: 10c0/930859b70fb7b8cd8aee1c9819c2fbe95db5ae246398fbd6eaa819793675e36be97da2b4d19e1b56a913a016f7a0a33070cd3ed363ad522d5dbced9c0d94d037
+  checksum: 10c0/c9b93a533b599bccba4f5d7ba313725d83a0058d981e8318176bfbb3a6c9435acd1a995847eaa3ffb45162161947db9b0674ceee13cfe716b345573ca1073d8e
   languageName: node
   linkType: hard
 
@@ -16798,25 +16801,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm-registry-fetch@npm:^16.0.0":
-  version: 16.2.1
-  resolution: "npm-registry-fetch@npm:16.2.1"
-  dependencies:
-    "@npmcli/redact": "npm:^1.1.0"
-    make-fetch-happen: "npm:^13.0.0"
-    minipass: "npm:^7.0.2"
-    minipass-fetch: "npm:^3.0.0"
-    minipass-json-stream: "npm:^1.0.1"
-    minizlib: "npm:^2.1.2"
-    npm-package-arg: "npm:^11.0.0"
-    proc-log: "npm:^4.0.0"
-  checksum: 10c0/bccffc291771d55056a6ebedb7aaf431cecc663286e060dc2936e8e0deee454a4a71654f772afcaa44f0d74a2c02403d8b45486a0aa2dd6d2bd8c09c9134eeb9
-  languageName: node
-  linkType: hard
-
-"npm-registry-fetch@npm:^17.0.0":
-  version: 17.0.0
-  resolution: "npm-registry-fetch@npm:17.0.0"
+"npm-registry-fetch@npm:^17.0.0, npm-registry-fetch@npm:^17.0.1":
+  version: 17.0.1
+  resolution: "npm-registry-fetch@npm:17.0.1"
   dependencies:
     "@npmcli/redact": "npm:^2.0.0"
     make-fetch-happen: "npm:^13.0.0"
@@ -16826,7 +16813,7 @@ __metadata:
     minizlib: "npm:^2.1.2"
     npm-package-arg: "npm:^11.0.0"
     proc-log: "npm:^4.0.0"
-  checksum: 10c0/873fd9e4a11178badcf9f749310f364244307912f45b2ca0ec6913f0bc01186899674378dacddc6c0a15013236dc604d406754e65cce42477b9819a61f33f597
+  checksum: 10c0/c5235928fe31fdb8dc28982f8b20109c5f630adaaf21f69bfece609d3851d670d31e1ea2b70d38c2e573fb88145c6ba270c1c9efc0893860ae89d9e6789ab0fb
   languageName: node
   linkType: hard
 
@@ -17276,9 +17263,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pacote@npm:^18.0.0, pacote@npm:^18.0.1":
-  version: 18.0.2
-  resolution: "pacote@npm:18.0.2"
+"pacote@npm:^18.0.0, pacote@npm:^18.0.6":
+  version: 18.0.6
+  resolution: "pacote@npm:18.0.6"
   dependencies:
     "@npmcli/git": "npm:^5.0.0"
     "@npmcli/installed-package-contents": "npm:^2.0.1"
@@ -17291,15 +17278,15 @@ __metadata:
     npm-package-arg: "npm:^11.0.0"
     npm-packlist: "npm:^8.0.0"
     npm-pick-manifest: "npm:^9.0.0"
-    npm-registry-fetch: "npm:^16.0.0"
+    npm-registry-fetch: "npm:^17.0.0"
     proc-log: "npm:^4.0.0"
     promise-retry: "npm:^2.0.1"
     sigstore: "npm:^2.2.0"
     ssri: "npm:^10.0.0"
     tar: "npm:^6.1.11"
   bin:
-    pacote: lib/bin.js
-  checksum: 10c0/7aea55895894a4cb1f2d86804bda24dede171c1536f72fa860624ec981de2791164d09e71cf77ce289407961a52e9d833734ed53db052e9c8807fcd4d777b706
+    pacote: bin/index.js
+  checksum: 10c0/d80907375dd52a521255e0debca1ba9089ad8fd7acdf16c5a5db2ea2a5bb23045e2bcf08d1648b1ebc40fcc889657db86ff6187ff5f8d2fc312cd6ad1ec4c6ac
   languageName: node
   linkType: hard
 
@@ -20378,12 +20365,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ssri@npm:^10.0.0, ssri@npm:^10.0.5":
-  version: 10.0.5
-  resolution: "ssri@npm:10.0.5"
+"ssri@npm:^10.0.0, ssri@npm:^10.0.6":
+  version: 10.0.6
+  resolution: "ssri@npm:10.0.6"
   dependencies:
     minipass: "npm:^7.0.3"
-  checksum: 10c0/b091f2ae92474183c7ac5ed3f9811457e1df23df7a7e70c9476eaa9a0c4a0c8fc190fb45acefbf023ca9ee864dd6754237a697dc52a0fb182afe65d8e77443d8
+  checksum: 10c0/e5a1e23a4057a86a97971465418f22ea89bd439ac36ade88812dd920e4e61873e8abd6a9b72a03a67ef50faa00a2daf1ab745c5a15b46d03e0544a0296354227
   languageName: node
   linkType: hard
 
