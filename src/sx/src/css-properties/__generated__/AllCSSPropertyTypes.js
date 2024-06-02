@@ -285,6 +285,7 @@ export type AllCSSPropertyTypes = {
   +direction?: 'ltr' | 'rtl' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/direction
   +display?: number | string, // https://developer.mozilla.org/docs/Web/CSS/display
   +emptyCells?: 'show' | 'hide' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/empty-cells
+  +fieldSizing?: 'content' | 'fixed' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/field-sizing
   +filter?: number | string, // https://developer.mozilla.org/docs/Web/CSS/filter
   +flex?: number | string, // https://developer.mozilla.org/docs/Web/CSS/flex
   +flexBasis?: number | string, // https://developer.mozilla.org/docs/Web/CSS/flex-basis
@@ -806,4 +807,5 @@ export type AllCSSPropertyTypes = {
     | 'initial'
     | 'unset',
   +zIndex?: 'auto' | number | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/z-index
+  +zoom?: number | string, // https://developer.mozilla.org/docs/Web/CSS/zoom
 };
