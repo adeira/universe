@@ -2,7 +2,9 @@
 use crate::arango::get_database_connection_pool_mock;
 #[cfg(test)]
 use crate::auth::users::AnonymousUser;
-use crate::auth::users::User;
+
+use crate::auth::account::Account;
+use crate::auth::users::UserType;
 use crate::global_configuration::GlobalConfiguration;
 use std::collections::HashMap;
 
@@ -36,7 +38,8 @@ impl ContextUploadable {
 pub struct Context {
     pub pool: crate::arango::ConnectionPool,
     pub uploadables: Option<HashMap<String, ContextUploadable>>,
-    pub user: User,
+    pub user: UserType,
+    pub user_account: Account,
     pub global_configuration: GlobalConfiguration,
 }
 
@@ -48,7 +51,8 @@ impl Context {
         Self {
             pool: get_database_connection_pool_mock(),
             uploadables: None,
-            user: User::AnonymousUser(AnonymousUser::new()),
+            user: UserType::AnonymousUser(AnonymousUser::new()),
+            user_account: Account::Default(),
             global_configuration: GlobalConfiguration {
                 stripe_restricted_api_key: None,
                 stripe_webhook_secret: None,

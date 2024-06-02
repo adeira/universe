@@ -16,10 +16,10 @@ First, install `mirrord`:
 brew install metalbear-co/mirrord/mirrord
 ```
 
-Compile and run the application using in K8s context using `mirrord`:
+Compile and run the application using in K8s context using `mirrord` (from the monorepo root):
 
 ```bash
-cargo build && mirrord exec --config-file=./mirrord.json ./target/debug/server
+(cd src/abacus && cargo build && mirrord exec --config-file=./mirrord.json ./target/debug/server)
 ```
 
 The server is accessible on this URL: https://abacus.adeira.io/status/ping (**not** localhost!)
@@ -79,3 +79,8 @@ stripe trigger checkout.session.completed
 ```
 
 The events must be sent via Stripe CLI because we are verifying the signatures.
+
+## Database structure
+
+- \*\_ownership collections
+- translations

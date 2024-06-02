@@ -2,7 +2,7 @@ use crate::auth::dal::users::list_all_users;
 use crate::auth::rbac;
 use crate::auth::rbac::Actions::Users;
 use crate::auth::rbac::UsersActions::GetAllUsers;
-use crate::auth::users::{AnyUser, User};
+use crate::auth::users::{AnyUser, UserType};
 use crate::graphql::AbacusGraphQLResult;
 use crate::graphql_context::Context;
 use juniper::FieldResult;
@@ -67,12 +67,12 @@ pub(crate) struct WhoamiPayload {
 
 pub(crate) async fn whoami(context: &Context) -> WhoamiPayload {
     match &context.user {
-        User::SignedUser(user) => WhoamiPayload {
+        UserType::SignedUser(user) => WhoamiPayload {
             id: Some(juniper::ID::from(user.id())),
             human_readable_type: Some(String::from("signed user")),
             is_debug_assertions_enabled: cfg!(debug_assertions),
         },
-        User::AnonymousUser(user) => WhoamiPayload {
+        UserType::AnonymousUser(user) => WhoamiPayload {
             id: Some(juniper::ID::from(user.id())),
             human_readable_type: Some(String::from("anonymous user")),
             is_debug_assertions_enabled: cfg!(debug_assertions),

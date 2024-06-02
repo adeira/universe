@@ -109,7 +109,6 @@ pub(in crate::commerce) async fn get_product_categories_by_ids(
     .await
 }
 
-/// TODO(004) add integration tests
 pub(in crate::commerce) async fn get_assigned_product_categories(
     pool: &ConnectionPool,
     client_locale: &SupportedLocale,

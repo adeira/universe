@@ -16,7 +16,7 @@ pub(crate) struct AnalyticsQuery;
 impl AnalyticsQuery {
     async fn redirect_hits(context: &Context) -> AbacusGraphQLResult<Vec<Redirect>> {
         rbac::verify_permissions(&context.user, &Analytics(GetRedirectHits)).await?;
-        Ok(get_redirect_hits(&context.pool).await?)
+        Ok(get_redirect_hits(&context.pool, &context.user_account).await?)
     }
 }
 

@@ -2,7 +2,7 @@ use serde::Deserialize;
 use uuid::Uuid;
 
 use crate::arango::{resolve_aql, resolve_aql_vector, ConnectionPool};
-use crate::price::Price;
+use crate::auth::account::Account;
 
 #[derive(Deserialize, Clone, juniper::GraphQLObject, Debug)]
 pub(in crate::analytics) struct AnalyticsSoldProductInfo {
@@ -66,17 +66,27 @@ pub(in crate::analytics) async fn get_link_and_record_hit(
     .await
 }
 
+// FOR redirect IN analytics_redirects
+// INSERT { _from: redirect._id, _to: "accounts/53663237" } INTO analytics_redirects_ownership
+// RETURN redirect
+
 pub(in crate::analytics) async fn get_redirect_hits(
     pool: &ConnectionPool,
+    user_account: &Account,
 ) -> anyhow::Result<Vec<Redirect>> {
     resolve_aql_vector(
         pool,
         r#"
-            FOR redirect IN analytics_redirects
-              SORT redirect.hits DESC
-              RETURN redirect
+            WITH analytics_redirects
+            FOR account in accounts
+                FILTER account._key == @user_account_key
+                FOR redirect IN 1..1 INBOUND account analytics_redirects_ownership
+                    SORT redirect.hits DESC
+                    RETURN redirect
         "#,
-        hashmap_json![],
+        hashmap_json![
+            "user_account_key" => user_account._key
+        ],
     )
     .await
 }

@@ -1,5 +1,7 @@
 use crate::arango::ConnectionPool;
 use crate::auth::get_current_user;
+use crate::auth::get_current_user_account;
+use crate::auth::users::{AnyUser, UserType};
 use crate::global_configuration::GlobalConfiguration;
 use crate::graphql_context::Context;
 use crate::graphql_schema::create_graphql_schema;
@@ -23,20 +25,36 @@ pub(crate) async fn graphql_axum_handler(
         .get("Authorization")
         .map(|value| value.to_str().unwrap_or_default().to_string());
 
-    match get_current_user(&connection_pool, &authorization_header).await {
-        Ok(user) => {
-            let graphql_schema = create_graphql_schema();
+    let current_user = get_current_user(&connection_pool, &authorization_header).await;
+    if let Ok(current_user) = current_user {
+        // TODO: this doesn't work for anonymous users!
+        // TODO: why is anonymous user represented in DB?
+        match current_user {
+            UserType::AnonymousUser(_) => {}
+            UserType::SignedUser(_) => {}
+        }
 
+        dbg!(AnyUser::from(&current_user).id()); // TODO: remove (anonymous user is currently failing)
+        let current_user_account =
+            get_current_user_account(&connection_pool, &AnyUser::from(&current_user)).await;
+        if let Some(current_user_account) = current_user_account {
             let context = Context {
                 pool: connection_pool,
                 uploadables: None, // TODO: currently not implemented on the server
-                user,
+                user: current_user,
+                user_account: current_user_account,
                 global_configuration,
             };
 
+            let graphql_schema = create_graphql_schema();
             JuniperResponse(req.execute(&graphql_schema, &context).await).into_response()
+        } else {
+            // There always must be at least one user account!
+            tracing::error!("Unable to find associated user account!");
+            return StatusCode::INTERNAL_SERVER_ERROR.into_response();
         }
-        Err(_) => StatusCode::UNAUTHORIZED.into_response(),
+    } else {
+        return StatusCode::UNAUTHORIZED.into_response();
     }
 }
 

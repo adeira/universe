@@ -9,14 +9,14 @@ use crate::auth::dal::users::{
 };
 use crate::auth::google::verify_id_token_integrity;
 use crate::auth::session::derive_session_token_hash;
-use crate::auth::users::{AnonymousUser, AnyUser, SignedUser, User};
+use crate::auth::users::{AnonymousUser, AnyUser, SignedUser, UserType};
 use crate::headers::parse_authorization_header;
 
+pub(crate) mod account;
 pub(crate) mod api;
 pub(crate) mod rbac;
 pub(crate) mod users;
 
-mod account;
 mod cache_control;
 mod casbin;
 mod certs;
@@ -113,7 +113,7 @@ pub(in crate::auth) async fn deauthorize(
 pub(crate) async fn get_current_user(
     pool: &arango::ConnectionPool,
     authorization_header: &Option<String>,
-) -> Result<User, String> {
+) -> Result<UserType, String> {
     match authorization_header {
         Some(authorization_header) => {
             // auth header exists, let's try to parse it
@@ -121,13 +121,13 @@ pub(crate) async fn get_current_user(
                 Ok(session_token) => {
                     // auth header successfully parsed (unverified)
                     match crate::auth::resolve_user_from_session_token(pool, &session_token).await {
-                        User::AnonymousUser(_) => {
+                        UserType::AnonymousUser(_) => {
                             tracing::error!("Unmatched session token 🛑");
                             Err(String::from("Session token doesn't match any user."))
                         }
-                        User::SignedUser(user) => {
+                        UserType::SignedUser(user) => {
                             tracing::debug!("Using SIGNED user: {}", user.id());
-                            Ok(User::SignedUser(user))
+                            Ok(UserType::SignedUser(user))
                         }
                     }
                 }
@@ -139,22 +139,36 @@ pub(crate) async fn get_current_user(
         None => {
             // auth header not present => anonymous user
             tracing::debug!("Using ANONYMOUS user (no 'authorization' header)");
-            Ok(User::AnonymousUser(AnonymousUser::new()))
+            Ok(UserType::AnonymousUser(AnonymousUser::new()))
         }
     }
+}
+
+/// Returns the first active account associated to given user (we expect that there must be at least one).
+pub(crate) async fn get_current_user_account(
+    pool: &arango::ConnectionPool,
+    user: &AnyUser,
+) -> Option<Account> {
+    let user_accounts = accounts::find_user_accounts(&pool, &user).await.ok()?;
+    let active_user_account = user_accounts
+        .iter()
+        .filter(|account| account.is_active())
+        .next();
+
+    active_user_account.cloned()
 }
 
 /// This function verifies the session token and returns either authorized OR anonymous user.
 async fn resolve_user_from_session_token(
     pool: &arango::ConnectionPool,
     session_token: &str,
-) -> User {
+) -> UserType {
     let session_token_hash = derive_session_token_hash(session_token);
     match get_user_by_session_token_hash(pool, &session_token_hash).await {
-        Ok(user) => User::SignedUser(SignedUser::from(user)),
+        Ok(user) => UserType::SignedUser(SignedUser::from(user)),
         Err(error) => {
             tracing::error!("{}", error);
-            User::AnonymousUser(AnonymousUser::new())
+            UserType::AnonymousUser(AnonymousUser::new())
         }
     }
 }
@@ -170,7 +184,7 @@ mod tests {
         let pool = get_database_connection_pool_mock();
         assert!(matches!(
             get_current_user(&pool, &None).await.unwrap(),
-            User::AnonymousUser { .. }
+            UserType::AnonymousUser { .. }
         ));
     }
 

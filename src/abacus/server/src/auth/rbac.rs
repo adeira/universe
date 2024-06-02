@@ -1,5 +1,5 @@
 use crate::auth::casbin::csv_adapter::CSVAdapter;
-use crate::auth::users::User;
+use crate::auth::users::UserType;
 use casbin::{CoreApi, DefaultModel, Error as CasbinError};
 
 #[allow(clippy::enum_variant_names)]
@@ -67,9 +67,9 @@ pub enum RbacError {
 ///
 /// Please note (TODO): this is quick'n'dirty solution. We should migrate these policies to the
 /// database instead of storing them in a file.
-pub(crate) async fn verify_permissions(user: &User, actions: &Actions) -> anyhow::Result<()> {
+pub(crate) async fn verify_permissions(user: &UserType, actions: &Actions) -> anyhow::Result<()> {
     match user {
-        User::SignedUser(signed_user) => {
+        UserType::SignedUser(signed_user) => {
             let model = DefaultModel::from_str(include_str!("rbac_model.conf")).await?;
             // TODO: migrate the policies to `ArandodbAdapter` (vv)
             let adapter = CSVAdapter::new(include_str!("rbac_policy.csv"));
@@ -173,7 +173,7 @@ pub(crate) async fn verify_permissions(user: &User, actions: &Actions) -> anyhow
                 }
             }
         }
-        User::AnonymousUser(_) => anyhow::bail!(RbacError::NotLoggedIn),
+        UserType::AnonymousUser(_) => anyhow::bail!(RbacError::NotLoggedIn),
     }
 }
 
@@ -187,7 +187,7 @@ mod tests {
         // It should reject any user which is not logged into the system.
         assert_eq!(
             verify_permissions(
-                &User::AnonymousUser(AnonymousUser::new()),
+                &UserType::AnonymousUser(AnonymousUser::new()),
                 &Actions::Commerce(CommerceActions::PublishProduct),
             )
             .await
@@ -203,7 +203,7 @@ mod tests {
         // In fact, there is not policy for it at all which should result in automatic "deny" state.
         assert_eq!(
             verify_permissions(
-                &User::SignedUser(SignedUser::from(AnyUser::mock(&Some(
+                &UserType::SignedUser(SignedUser::from(AnyUser::mock(&Some(
                     "rbac-mock-id-123".to_string()
                 )))),
                 &Actions::Commerce(CommerceActions::PublishProduct),
@@ -218,7 +218,7 @@ mod tests {
     #[tokio::test]
     async fn test_signed_user_permissions() {
         assert!(verify_permissions(
-            &User::SignedUser(SignedUser::from(AnyUser::mock(&Some(
+            &UserType::SignedUser(SignedUser::from(AnyUser::mock(&Some(
                 "users/2".to_string()
             )))),
             &Actions::Commerce(CommerceActions::PublishProduct),

@@ -59,7 +59,6 @@ pub(in crate::commerce) async fn create_product(
     .await
 }
 
-/// TODO(004) - integration tests
 pub(in crate::commerce) async fn update_product(
     pool: &ConnectionPool,
     client_locale: &SupportedLocale,
@@ -115,7 +114,6 @@ pub(in crate::commerce) async fn update_product(
     .await
 }
 
-/// TODO(004) - integration tests
 pub(in crate::commerce) async fn publish_product(
     pool: &ConnectionPool,
     product_key: &str,
@@ -153,7 +151,6 @@ pub(in crate::commerce) async fn publish_product(
     .await
 }
 
-/// TODO(004) - integration tests
 pub(in crate::commerce) async fn unpublish_product(
     pool: &ConnectionPool,
     product_key: &str,
@@ -249,8 +246,6 @@ pub(in crate::commerce) async fn get_products_by_keys_or_ids(
 
 /// Performs search of products based on the specified criteria and returns products with merged
 /// translations based on the eshop language.
-///
-/// TODO(004) - integration tests
 pub(in crate::commerce) async fn search_products(
     pool: &ConnectionPool,
     client_locale: &SupportedLocale,
@@ -298,7 +293,6 @@ pub(in crate::commerce) async fn search_products(
     .await
 }
 
-/// TODO(004) - integration tests
 pub(in crate::commerce) async fn search_products_in_categories(
     pool: &ConnectionPool,
     client_locale: &SupportedLocale,

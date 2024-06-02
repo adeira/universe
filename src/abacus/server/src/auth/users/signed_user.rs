@@ -7,18 +7,18 @@ use serde::Deserialize;
 /// It has assigned session token which might or might not be valid (might be expired for example).
 #[derive(Clone, Deserialize)]
 pub struct SignedUser {
-    _id: String,
-    _rev: String,
-    _key: String,
+    pub _id: String,
+    pub _rev: String,
+    pub _key: String,
     // Unused: google: Option<Claims>,
 }
 
 impl SignedUser {
-    pub(crate) fn id(&self) -> String {
+    pub fn id(&self) -> String {
         self._id.to_owned()
     }
 
-    pub(crate) fn id_ref(&self) -> &str {
+    pub fn id_ref(&self) -> &str {
         self._id.as_ref()
     }
 }

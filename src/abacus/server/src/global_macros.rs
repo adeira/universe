@@ -1,4 +1,13 @@
 /// Creates hashmap to be directly used when calling ArangoDB (`resolve_aql` expects `HashMap<&str, Value>`).
+///
+/// Example usage:
+///
+/// ```
+/// hashmap_json![
+///   "key_1" => value_1,
+///   "key_2" => value_2
+/// ],
+/// ```
 macro_rules! hashmap_json {
     // Empty hashmap:
     () => {{
