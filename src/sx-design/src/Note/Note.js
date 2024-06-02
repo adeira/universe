@@ -14,26 +14,35 @@ type Props = {
 };
 
 export default function Note(props: Props): React.Node {
+  const { action: ActionButton, tint, children } = props;
+
+  const isButtonComponent =
+    React.isValidElement(ActionButton) &&
+    ActionButton != null &&
+    // $FlowFixMe[prop-missing]: due to a poor design, we need to access Element internals (type)
+    ActionButton.type === Button;
+
   return (
     <span
       className={styles({
         noteBase: true,
-        noteSuccess: props.tint === 'success',
-        noteError: props.tint === 'error',
-        noteWarning: props.tint === 'warning',
+        noteSuccess: tint === 'success',
+        noteError: tint === 'error',
+        noteWarning: tint === 'warning',
       })}
     >
-      <div>{props.children}</div>
-      {props.action != null ? (
+      <div>{children}</div>
+      {ActionButton != null ? (
         <div>
-          {/* $FlowFixMe[prop-missing] */}
-          {props.action.type === Button
-            ? React.cloneElement(props.action, {
-                // $FlowFixMe[prop-missing]
-                ...props.action.props, // preserve props set by the user
-                tint: props.tint, // and overwrite the tint
-              })
-            : props.action}
+          {isButtonComponent ? (
+            <Button
+              // $FlowFixMe[prop-missing]: due to a poor design, we need to access Element internals (props)
+              {...ActionButton.props} // preserve props set by the user
+              tint={tint} // and overwrite the tint
+            />
+          ) : (
+            ActionButton
+          )}
         </div>
       ) : null}
     </span>
