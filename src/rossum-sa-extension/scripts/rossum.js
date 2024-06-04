@@ -114,4 +114,21 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     }
     sendResponse(true);
   }
+
+  // ac-4366-queue-settings-layout-v2:
+  if (message === 'get-ac-4366-queue-settings-layout-v2') {
+    const localUnleashOverrides = JSON.parse(window.localStorage.getItem('localUnleashOverrides')) ?? {};
+    const feature = localUnleashOverrides["ac-4366-queue-settings-layout-v2"] ?? true; // the feature is ON by default
+    sendResponse(feature);
+  }
+
+  if (message === 'toggle-ac-4366-queue-settings-layout-v2') {
+    const localUnleashOverrides = JSON.parse(window.localStorage.getItem('localUnleashOverrides')) ?? {};
+    const feature = localUnleashOverrides["ac-4366-queue-settings-layout-v2"] ?? true; // the feature is ON by default
+    window.localStorage.setItem('localUnleashOverrides', JSON.stringify({
+      ...localUnleashOverrides,
+      "ac-4366-queue-settings-layout-v2": !feature
+    }));
+    sendResponse(true);
+  }
 });
