@@ -3,7 +3,7 @@
 const levenshtein = require('fast-levenshtein');
 
 /*::
-import type { EslintRule, Node } from '@adeira/flow-types-eslint';
+import type { EslintRule as EslintRuleType, Node } from '@adeira/flow-types-eslint';
 */
 
 function suggest(name /*: string */, alternativeNames /*: Array<string> */) /*: string */ {
@@ -17,8 +17,7 @@ function suggest(name /*: string */, alternativeNames /*: Array<string> */) /*: 
 /**
  * Originally from here: https://github.com/github/eslint-plugin-github/tree/fca4b4f2276989a0fb4399cc7c34eb5407fb2429/lib/rules
  */
-
-module.exports = ({
+const EslintRule /*: EslintRuleType */ = {
   meta: {
     docs: {},
     schema: [],
@@ -70,4 +69,6 @@ module.exports = ({
       },
     };
   },
-} /*: EslintRule */);
+};
+
+module.exports = EslintRule;

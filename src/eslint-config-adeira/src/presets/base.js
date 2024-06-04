@@ -8,7 +8,7 @@ import type { EslintConfig } from '../EslintConfig.flow';
 
 */
 
-module.exports = ({
+const eslintConfigPreset /*: EslintConfig */ = {
   plugins: [
     'eslint-plugin-import',
     'eslint-plugin-monorepo',
@@ -468,4 +468,6 @@ module.exports = ({
       },
     },
   ],
-} /*: EslintConfig */);
+};
+
+module.exports = eslintConfigPreset;

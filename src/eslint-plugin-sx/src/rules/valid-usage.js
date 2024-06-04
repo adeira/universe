@@ -1,7 +1,7 @@
 // @flow
 
 /*::
-import type { EslintRule } from '@adeira/flow-types-eslint';
+import type { EslintRule as EslintRuleType } from '@adeira/flow-types-eslint';
 */
 
 const getSXImportSpecifiers = require('./utils/getSXImportSpecifiers');
@@ -12,7 +12,7 @@ const getVariableDeclaratorCalleeName = require('./utils/getVariableDeclaratorCa
 /**
  * This rule tries to catch obviously invalid SX usages.
  */
-module.exports = ({
+const EslintRule /*: EslintRuleType */ = {
   create: function (context) {
     // import sx from '@adeira/sx'
     //        ^^
@@ -101,4 +101,6 @@ module.exports = ({
       },
     };
   },
-} /*: EslintRule */);
+};
+
+module.exports = EslintRule;

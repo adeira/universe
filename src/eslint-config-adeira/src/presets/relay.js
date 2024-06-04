@@ -8,7 +8,7 @@ import type { EslintConfig } from '../EslintConfig.flow';
 
 */
 
-module.exports = ({
+const eslintConfigPreset /*: EslintConfig */ = {
   plugins: ['eslint-plugin-relay'],
   rules: {
     // Relay (https://github.com/relayjs/eslint-plugin-relay)
@@ -22,4 +22,6 @@ module.exports = ({
     'relay/no-future-added-value': ERROR,
     'relay/unused-fields': ERROR,
   },
-} /*: EslintConfig */);
+};
+
+module.exports = eslintConfigPreset;

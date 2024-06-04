@@ -9,17 +9,8 @@ export type SxDesignContextValue = {
   +locale: SupportedLocales,
   +direction: SupportedDirections,
   +theme: 'light' | 'dark', // no "system" (!)
-  +activeFlashMessages: Map<
-    TimeoutID,
-    {
-      +message: Fbt,
-      +tint: FlashMessageTint,
-    },
-  >,
-  +displayFlashMessage: ({
-    +message: Fbt,
-    +tint: FlashMessageTint,
-  }) => void,
+  +activeFlashMessages: Map<TimeoutID, { +message: Fbt, +tint: FlashMessageTint }>,
+  +displayFlashMessage: ({ +message: Fbt, +tint: FlashMessageTint }) => void,
 };
 
 export default (React.createContext(

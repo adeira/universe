@@ -33,7 +33,7 @@ afterEach(() => {
 
 const fixturesPaths = fs.readdirSync(fixturesPath);
 
-test.each(fixturesPaths)('matches expected output: %s', (fixturePath) => {
+test.each(fixturesPaths)('matches expected output: %s', async (fixturePath) => {
   // 1) original definitions
   const stylesheetsDefinition = require(path.join(fixturesPath, fixturePath)).default;
 
@@ -43,7 +43,7 @@ test.each(fixturesPaths)('matches expected output: %s', (fixturePath) => {
     const renderer = TestRenderer.create(sx.getStyleTag());
 
     const css = renderer.root.props.dangerouslySetInnerHTML.__html;
-    const output = prettier.format(css, { filepath: 'test.css' });
+    const output = await prettier.format(css, { filepath: 'test.css' });
 
     // 3) usage resulting CSS class names
     let usage = '';

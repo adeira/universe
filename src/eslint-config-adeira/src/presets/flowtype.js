@@ -8,7 +8,7 @@ import type { EslintConfig } from '../EslintConfig.flow';
 
 */
 
-module.exports = ({
+const eslintConfigPreset /*: EslintConfig */ = {
   plugins: ['eslint-plugin-ft-flow', 'eslint-plugin-fb-flow'],
   rules: {
     // Flow:
@@ -84,4 +84,6 @@ module.exports = ({
     'fb-flow/use-flow-enums': ERROR,
     'fb-flow/use-indexed-access-type': ERROR,
   },
-} /*: EslintConfig */);
+};
+
+module.exports = eslintConfigPreset;

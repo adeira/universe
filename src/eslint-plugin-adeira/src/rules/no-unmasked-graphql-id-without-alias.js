@@ -4,7 +4,7 @@ const path = require('path');
 const graphql = require('graphql');
 
 /*::
-import type { EslintRule } from '@adeira/flow-types-eslint';
+import type { EslintRule as EslintRuleType  } from '@adeira/flow-types-eslint';
 */
 
 function shouldLint(context: $FlowFixMe) {
@@ -15,7 +15,7 @@ function isGraphQLTag(tag /*: any */) {
   return tag.type === 'Identifier' && tag.name === 'graphql';
 }
 
-module.exports = ({
+const EslintRule /*: EslintRuleType */ = {
   meta: {
     docs: {
       description: 'Validates correct usages of `id(opaque: false)` field.',
@@ -85,4 +85,6 @@ module.exports = ({
       },
     };
   },
-} /*: EslintRule */);
+};
+
+module.exports = EslintRule;

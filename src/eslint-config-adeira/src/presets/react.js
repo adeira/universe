@@ -9,7 +9,7 @@ import type { EslintConfig } from '../EslintConfig.flow';
 
 */
 
-module.exports = ({
+const eslintConfigPreset /*: EslintConfig */ = {
   plugins: [
     'eslint-plugin-react',
     'eslint-plugin-react-hooks',
@@ -306,4 +306,6 @@ module.exports = ({
       version: detectReactVersion(),
     },
   },
-} /*: EslintConfig */);
+};
+
+module.exports = eslintConfigPreset;

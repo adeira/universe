@@ -46,7 +46,7 @@ const { key: cspKey, value: cspValue } = createContentSecurityPolicy({
   reportOnly: true,
 });
 
-module.exports = (withPlugins(
+const NextConfig /*: $FlowFixMe */ = withPlugins(
   [
     [withCustomBabelConfigFile],
     [withSentryConfigPlugin],
@@ -133,4 +133,6 @@ module.exports = (withPlugins(
       ];
     },
   },
-) /*: $FlowFixMe */);
+);
+
+module.exports = NextConfig;

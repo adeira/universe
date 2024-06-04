@@ -1,7 +1,7 @@
 // @flow
 
 /*::
-import type { EslintRule, Node, ImportDeclaration } from '@adeira/flow-types-eslint';
+import type { EslintRule as EslintRuleType, Node, ImportDeclaration } from '@adeira/flow-types-eslint';
 */
 
 function typeNodeSpecifiersToImport(typeNode /*: ImportDeclaration */) /*: string */ {
@@ -43,7 +43,7 @@ function autoFix(
   return [newImport, fixer.remove(typeNode)];
 }
 
-module.exports = ({
+const EslintRule /*: EslintRuleType */ = {
   meta: {
     fixable: 'code',
     docs: {},
@@ -84,4 +84,6 @@ module.exports = ({
       },
     };
   },
-} /*: EslintRule */);
+};
+
+module.exports = EslintRule;

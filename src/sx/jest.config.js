@@ -2,7 +2,9 @@
 
 const path = require('path');
 
+const setupFilesAfterEnv /*: string */ = path.join(__dirname, 'scripts', 'setupTests.js');
+
 module.exports = {
   rootDir: __dirname,
-  setupFilesAfterEnv: [(path.join(__dirname, 'scripts', 'setupTests.js') /*: string */)],
+  setupFilesAfterEnv: [setupFilesAfterEnv],
 };

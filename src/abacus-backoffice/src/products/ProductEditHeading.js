@@ -24,26 +24,21 @@ export default function ProductEditHeading(props: Props): React.Node {
   const router = useRouter();
   const [displayFleshMessage] = useFlashMessages();
 
-  const [archiveProductMutation] = useMutation(
-    graphql`
-      mutation ProductEditHeadingArchiveMutation(
-        $productKey: ID!
-        $clientLocale: SupportedLocale!
-      ) {
-        commerce {
-          productOrError: productArchive(productKey: $productKey, clientLocale: $clientLocale) {
-            ... on Product {
-              __typename
-            }
-            ... on ProductError {
-              __typename
-              message
-            }
+  const [archiveProductMutation] = useMutation(graphql`
+    mutation ProductEditHeadingArchiveMutation($productKey: ID!, $clientLocale: SupportedLocale!) {
+      commerce {
+        productOrError: productArchive(productKey: $productKey, clientLocale: $clientLocale) {
+          ... on Product {
+            __typename
+          }
+          ... on ProductError {
+            __typename
+            message
           }
         }
       }
-    `,
-  );
+    }
+  `);
 
   const product = useFragment(
     graphql`

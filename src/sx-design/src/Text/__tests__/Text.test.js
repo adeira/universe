@@ -79,12 +79,13 @@ it('prints warning when incorrectly nesting HTML nodes', () => {
   // this React warning (in order to make the SX Design code smaller and more performant).
 
   const capturedConsoleCalls = [];
-  const consoleErrorSpy = jest
-    .spyOn(console, 'error')
-    .mockImplementation(function (format, ...args) {
-      const warningMessage = util.format(format, ...args);
-      capturedConsoleCalls.push(warningMessage.substring(0, warningMessage.indexOf('\n')));
-    });
+  const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(function (
+    format,
+    ...args
+  ) {
+    const warningMessage = util.format(format, ...args);
+    capturedConsoleCalls.push(warningMessage.substring(0, warningMessage.indexOf('\n')));
+  });
 
   const { getByText } = render(
     <Text as="p">

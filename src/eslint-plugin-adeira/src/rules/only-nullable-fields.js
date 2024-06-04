@@ -1,10 +1,10 @@
 // @flow
 
 /*::
-import type { EslintRule } from '@adeira/flow-types-eslint';
+import type { EslintRule as EslintRuleType } from '@adeira/flow-types-eslint';
 */
 
-module.exports = ({
+const EslintRule /*: EslintRuleType */ = {
   meta: {
     docs: {
       description: 'Disallows GraphQLNonNull type.',
@@ -70,4 +70,6 @@ module.exports = ({
       },
     };
   },
-} /*: EslintRule */);
+};
+
+module.exports = EslintRule;

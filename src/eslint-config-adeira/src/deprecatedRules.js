@@ -1,6 +1,6 @@
 // @flow strict
 
-module.exports = (new Set([
+const deprecatedRulesSet /*: Set<string> */ = new Set([
   // https://eslint.org/docs/rules/#deprecated
   'indent-legacy', // indent
   'lines-around-directive', // padding-line-between-statements
@@ -39,4 +39,6 @@ module.exports = (new Set([
   'jest/no-try-expect', // https://github.com/jest-community/eslint-plugin-jest/commit/6d07cadd5f78ed7a64a86792931d49d3cd943d69
 
   'react/jsx-sort-default-props', // use `react/sort-default-props` instead
-]) /*: Set<string> */);
+]);
+
+module.exports = deprecatedRulesSet;
