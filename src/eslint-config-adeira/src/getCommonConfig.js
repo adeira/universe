@@ -1,5 +1,7 @@
 // @flow
 
+const eslintPluginPrettier = require('eslint-plugin-prettier');
+
 const { ERROR } = require('./constants');
 const changeNextVersionErrorLevel = require('./changeNextVersionErrorLevel');
 
@@ -46,18 +48,21 @@ module.exports = function getCommonConfig(
 
     settings: { ...baseConfig.settings },
 
-    globals: {
-      global: 'readonly', // TODO: make it 'off'
-      globalThis: 'readonly', // https://github.com/tc39/proposal-global
-      __DEV__: 'readonly',
-      FormData: 'readonly', // https://developer.mozilla.org/en-US/docs/Web/API/FormData
+    languageOptions: {
+      globals: {
+        global: 'readonly', // TODO: make it 'off'
+        globalThis: 'readonly', // https://github.com/tc39/proposal-global
+        __DEV__: 'readonly',
+        FormData: 'readonly', // https://developer.mozilla.org/en-US/docs/Web/API/FormData
+      },
     },
 
-    plugins: [
+    plugins: {
       ...baseConfig.plugins,
-      'eslint-plugin-prettier', // TODO: move to the "base" preset only
-    ],
+      prettier: eslintPluginPrettier, // TODO: move to the "base" preset only
+    },
 
-    overrides,
+    // TODO:
+    // overrides,
   };
 };

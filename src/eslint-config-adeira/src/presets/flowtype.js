@@ -1,5 +1,8 @@
 // @flow
 
+const eslintPluginFtFlow = require('eslint-plugin-ft-flow');
+const eslintPluginFbFlow = require('eslint-plugin-fb-flow');
+
 const { ERROR, OFF, WARN } = require('../constants');
 
 /*::
@@ -9,7 +12,10 @@ import type { EslintConfig } from '../EslintConfig.flow';
 */
 
 module.exports = ({
-  plugins: ['eslint-plugin-ft-flow', 'eslint-plugin-fb-flow'],
+  plugins: {
+    'ft-flow': eslintPluginFtFlow,
+    'fb-flow': eslintPluginFbFlow,
+  },
   rules: {
     // Flow:
     //  - https://github.com/flow-typed/eslint-plugin-ft-flow

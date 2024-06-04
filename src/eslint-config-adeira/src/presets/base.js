@@ -1,5 +1,13 @@
 // @flow
 
+const eslintPluginImport = require('eslint-plugin-import');
+const eslintPluginMonorepo = require('eslint-plugin-monorepo');
+const eslintPluginN = require('eslint-plugin-n');
+const eslintPluginEslintComments = require('eslint-plugin-eslint-comments');
+const eslintPluginPromise = require('eslint-plugin-promise');
+const eslintPluginAdeira = require('eslint-plugin-adeira');
+const eslintPluginSx = require('eslint-plugin-sx');
+
 const { ERROR, OFF, WARN, NEXT_VERSION_ERROR } = require('../constants');
 
 /*::
@@ -9,15 +17,15 @@ import type { EslintConfig } from '../EslintConfig.flow';
 */
 
 module.exports = ({
-  plugins: [
-    'eslint-plugin-import',
-    'eslint-plugin-monorepo',
-    'eslint-plugin-n',
-    'eslint-plugin-eslint-comments',
-    'eslint-plugin-promise',
-    'eslint-plugin-adeira',
-    'eslint-plugin-sx',
-  ],
+  plugins: {
+    'import': eslintPluginImport,
+    'monorepo': eslintPluginMonorepo,
+    'n': eslintPluginN,
+    'eslint-comments': eslintPluginEslintComments,
+    'promise': eslintPluginPromise,
+    'adeira': eslintPluginAdeira,
+    'sx': eslintPluginSx,
+  },
   rules: {
     // Possible Errors (http://eslint.org/docs/rules/#possible-errors)
     'for-direction': ERROR,

@@ -2,6 +2,7 @@
 
 Breaking changes ahead!
 
+- Requires Eslint 9, see migration guide: https://eslint.org/docs/latest/use/migrate-to-9.0.0
 - New rule enabled: `@next/next/no-async-client-component`
 
 Breaking changes from `eslint-plugin-testing-library` v6 were implemented, specifically:
