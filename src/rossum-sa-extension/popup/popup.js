@@ -84,11 +84,15 @@ document.addEventListener('DOMContentLoaded', async function () {
 
   chrome.tabs.sendMessage(tab.id, 'get-ac-4366-queue-settings-layout-v2', function (response) {
     observeCheckbox('legacySettings', response, (reloadCurrentTab, currentTabId) => {
-      chrome.tabs.sendMessage(currentTabId, 'toggle-ac-4366-queue-settings-layout-v2', function (response) {
-        if (response === true) {
-          reloadCurrentTab();
-        }
-      });
+      chrome.tabs.sendMessage(
+        currentTabId,
+        'toggle-ac-4366-queue-settings-layout-v2',
+        function (response) {
+          if (response === true) {
+            reloadCurrentTab();
+          }
+        },
+      );
     });
   });
 
