@@ -82,15 +82,27 @@ document.addEventListener('DOMContentLoaded', async function () {
     });
   });
 
-  chrome.tabs.sendMessage(tab.id, 'get-ac-4366-queue-settings-layout-v2', function (response) {
-    observeCheckbox('legacySettings', response, (reloadCurrentTab, currentTabId) => {
+  chrome.tabs.sendMessage(tab.id, 'get-localUnleashOverrides', async function (response) {
+    const [tab] = await chrome.tabs.query({ active: true, lastFocusedWindow: true });
+
+    const textAreaElement = document.getElementById('localUnleashOverrides');
+    const textAreaButtonElement = document.getElementById('localUnleashOverridesApply');
+
+    if (textAreaElement != null) {
+      // $FlowFixMe[prop-missing]: refine from HTMLElement to HTMLTextAreaElement
+      textAreaElement.value = JSON.stringify(response ?? {}, null, 2);
+    }
+
+    textAreaButtonElement?.addEventListener('click', () => {
       chrome.tabs.sendMessage(
-        currentTabId,
-        'toggle-ac-4366-queue-settings-layout-v2',
-        function (response) {
-          if (response === true) {
-            reloadCurrentTab();
-          }
+        tab.id,
+        {
+          name: 'set-localUnleashOverrides',
+          // $FlowFixMe[prop-missing]: refine from HTMLElement to HTMLTextAreaElement
+          payload: textAreaElement?.value ?? {},
+        },
+        function () {
+          chrome.tabs.reload(tab.id);
         },
       );
     });
