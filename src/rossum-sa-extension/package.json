@@ -10,7 +10,7 @@
     "directory": "src/rossum-sa-extension"
   },
   "license": "MIT",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "type": "commonjs",
   "sideEffects": false
 }
