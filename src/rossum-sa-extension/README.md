@@ -12,6 +12,7 @@ Head over to https://chrome.google.com/webstore/detail/bljkbinljmhdbipklfcljongi
 - shows datapoint `schema_id` on the annotation screen (headers and line items)
 - adds `devFeatureEnabled` toggle
 - adds `devDebugEnabled` toggle
+- supports displaying and changing `localUnleashOverrides` values
 
 ![header fields](./assets/header_fields.png)
 
@@ -28,17 +29,3 @@ Head over to https://chrome.google.com/webstore/detail/bljkbinljmhdbipklfcljongi
 - bump version in `manifest.json`, `package.json` and `popup/popup.html`
 - ZIP the `rossum-sa-extension` folder
 - https://chrome.google.com/webstore/devconsole
-
-## Ideas for further improvement (NOT IMPLEMENTED)
-
-Allow Unleash overrides:
-
-```text
-javascript: {
-  localStorage.setItem(
-    'localUnleashOverrides',
-    JSON.stringify({ 'ac-XYZ-ABC-v2': true })
-  );
-  location.reload();
-}
-```
