@@ -34,6 +34,10 @@ const withSentryConfigPlugin = withSentryConfig(
   { silent: true },
 );
 
+const withStylex = require('@stylexjs/nextjs-plugin')({
+  rootDir: path.join(__dirname, '..'),
+});
+
 const { key: cspKey, value: cspValue } = createContentSecurityPolicy({
   policy: {
     'default-src': 'self',
@@ -50,6 +54,7 @@ module.exports = (withPlugins(
   [
     [withCustomBabelConfigFile],
     [withSentryConfigPlugin],
+    [withStylex],
     [withTranspileModules],
     [withBundleAnalyzer],
     // other plugins here
