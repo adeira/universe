@@ -1,7 +1,9 @@
 // @flow
 
 import * as React from 'react';
-import sx from '@adeira/sx';
+import * as sx from '@stylexjs/stylex';
+
+import { colors } from '../tokens.stylex';
 
 type Props = {
   +children: Fbt,
@@ -13,13 +15,13 @@ export default function Badge(props: Props): React.Node {
 
   return (
     <span
-      className={styles({
-        badgeBase: true,
-        badgeTintDefault: tint == null || tint === 'default',
-        badgeTintError: tint === 'error',
-        badgeTintSuccess: tint === 'success',
-        badgeTintWarning: tint === 'warning',
-      })}
+      {...sx.props(
+        styles.badgeBase,
+        (tint == null || tint === 'default') && styles.badgeTintDefault,
+        tint === 'error' && styles.badgeTintError,
+        tint === 'success' && styles.badgeTintSuccess,
+        tint === 'warning' && styles.badgeTintWarning,
+      )}
     >
       {props.children}
     </span>
@@ -34,23 +36,32 @@ const styles = sx.create({
     fontSize: 'smaller',
   },
   badgeTintDefault: {
-    backgroundColor: 'rgba(var(--sx-foreground), 0.1)',
-    color: 'rgba(var(--sx-foreground))',
-    border: '1px solid rgba(var(--sx-foreground), 0.3)',
+    backgroundColor: colors.background,
+    // backgroundColor: 'red', // TODO: remove
+    color: colors.foreground,
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: colors.accent3,
   },
   badgeTintError: {
-    backgroundColor: 'rgba(var(--sx-error-dark), 0.1)',
-    color: 'rgba(var(--sx-error-dark))',
-    border: '1px solid rgba(var(--sx-error-dark), 0.3)',
+    backgroundColor: colors.errorLighter,
+    color: colors.errorDark,
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: colors.errorLight,
   },
   badgeTintSuccess: {
-    backgroundColor: 'rgba(var(--sx-success-dark), 0.1)',
-    color: 'rgba(var(--sx-success-dark))',
-    border: '1px solid rgba(var(--sx-success-dark), 0.3)',
+    backgroundColor: colors.successLighter,
+    color: colors.successDark,
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: colors.successLight,
   },
   badgeTintWarning: {
-    backgroundColor: 'rgba(var(--sx-warning-dark), 0.1)',
-    color: 'rgba(var(--sx-warning-dark))',
-    border: '1px solid rgba(var(--sx-warning-dark), 0.3)',
+    backgroundColor: colors.warningLighter,
+    color: colors.warningDark,
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: colors.warningLight,
   },
 });

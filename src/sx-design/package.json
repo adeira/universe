@@ -19,6 +19,8 @@
     "@adeira/js": "^2.1.1",
     "@adeira/sx-design-headless": "^0.2.1",
     "@babel/runtime": "^7.24.7",
+    "@stylexjs/babel-plugin": "^0.6.1",
+    "@stylexjs/stylex": "^0.6.1",
     "blurhash": "2.0.5",
     "fbt": "^1.0.2",
     "flow-enums-runtime": "^0.0.6",

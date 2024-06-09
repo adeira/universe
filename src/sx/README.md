@@ -1,3 +1,6 @@
+> [!WARNING]
+> This package has been deprecated. Use [StyleX](https://stylexjs.com/) instead.
+
 In conventional applications, CSS rules are duplicated throughout the stylesheet and that just means wasted bytes. Instead, SX generates atomic stylesheet every time so that each rule is defined only once. Each rule has its own CSS class and components can pick up multiple classes to get the same effect as with traditional stylesheets. New JS code doesn't need to mean new CSS (size of CSS grows logarithmically).
 
 - [Installation and Usage](#installation-and-usage)
