@@ -24,6 +24,7 @@ jobs:
           - '@adeira/abacus-tools'
           - '@adeira/sx-design'
           - '@adeira/typescript-test'
+          - '@adeira/mrtnzlml.com'
           - 'mrtnzlml-meta'
         include:
           - repository: '@adeira/abacus-backoffice'
@@ -46,6 +47,10 @@ jobs:
             source: 'src/typescript-test/**'
             playwrightReportName: 'playwright-report-typescript-test'
             playwrightReportPath: 'src/typescript-test/playwright/test-results/'
+          - repository: '@adeira/mrtnzlml.com'
+            source: 'src/mrtnzlml.com/**'
+            playwrightReportName: 'playwright-report-mrtnzlml-com'
+            playwrightReportPath: 'src/mrtnzlml.com/playwright/test-results/'
           - repository: 'mrtnzlml-meta'
             source: 'src/mrtnzlml-meta/**'
             playwrightReportName: 'playwright-report-mrtnzlml-meta'
