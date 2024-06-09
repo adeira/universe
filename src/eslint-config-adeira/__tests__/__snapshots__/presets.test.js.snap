@@ -930,9 +930,12 @@ exports[`React preset: React preset 1`] = `
     "eslint-plugin-jsx-a11y",
     "eslint-plugin-jest-dom",
     "eslint-plugin-testing-library",
+    "@stylexjs/eslint-plugin",
     "eslint-plugin-prettier",
   ],
   "rules": {
+    "@stylexjs/sort-keys": 2,
+    "@stylexjs/valid-styles": 2,
     "curly": [
       2,
       "all",

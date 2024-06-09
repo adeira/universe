@@ -2,7 +2,7 @@
 
 Breaking changes ahead!
 
-- New rule enabled: `@next/next/no-async-client-component`
+- New rules enabled: `@next/next/no-async-client-component`, `@stylexjs/valid-styles`, and `@stylexjs/sort-keys`
 
 Breaking changes from `eslint-plugin-testing-library` v6 were implemented, specifically:
 
