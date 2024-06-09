@@ -9,6 +9,8 @@
     "start": "next start --port=3000"
   },
   "dependencies": {
+    "@stylexjs/nextjs-plugin": "^0.6.1",
+    "@stylexjs/stylex": "^0.6.1",
     "next": "^14.2.3",
     "next-compose-plugins": "^2.2.1",
     "next-plugin-custom-babel-config": "^1.0.5",
@@ -18,6 +20,7 @@
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^4.0.0",
     "@babel/core": "^7.24.7",
-    "@playwright/test": "^1.44.1"
+    "@playwright/test": "^1.44.1",
+    "@stylexjs/babel-plugin": "^0.6.1"
   }
 }

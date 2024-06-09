@@ -1,22 +1,21 @@
 // @flow strict
 
+import * as sx from '@stylexjs/stylex';
 import { type Node } from 'react';
 
 export default function Jumbo(props: { +children: string }): Node {
   return (
-    <>
-      <style jsx>{`
-        .jumbo {
-          font-size: 8em;
-          font-weight: bold;
-          transition: all 0.5s ease-in-out;
-          font-variant-numeric: tabular-nums;
-        }
-      `}</style>
-
-      <div>
-        <div className="jumbo">{props.children}</div>
-      </div>
-    </>
+    <div>
+      <div {...sx.props(styles.jumbo)}>{props.children}</div>
+    </div>
   );
 }
+
+const styles = sx.create({
+  jumbo: {
+    fontSize: '8em',
+    fontVariantNumeric: 'tabular-nums',
+    fontWeight: 'bold',
+    transition: 'all 0.5s ease-in-out',
+  },
+});
