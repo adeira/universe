@@ -9,9 +9,14 @@ const withCustomBabelConfigFile = require('next-plugin-custom-babel-config')({
   babelConfigFile: path.join(__dirname, '.babelrc.js'),
 });
 
+const withStylex = require('@stylexjs/nextjs-plugin')({
+  rootDir: __dirname,
+});
+
 module.exports = (withPlugins(
   [
     [withCustomBabelConfigFile],
+    [withStylex],
     // other plugins here
   ],
   {
