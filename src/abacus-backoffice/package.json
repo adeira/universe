@@ -43,7 +43,7 @@
     "@adeira/babel-preset-adeira": "^4.0.0",
     "@fbtjs/default-collection-transform": "^1.0.0",
     "@playwright/test": "^1.44.1",
-    "@testing-library/jest-dom": "^6.4.5",
+    "@testing-library/jest-dom": "^6.4.6",
     "@testing-library/react": "^15.0.7",
     "@testing-library/react-hooks": "^8.0.1",
     "babel-plugin-fbt": "^1.0.0",
