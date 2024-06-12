@@ -27,7 +27,7 @@
     "babel-plugin-fbt-runtime": "^1.0.0",
     "fbt": "^1.0.2",
     "globby": "^14.0.1",
-    "graphql": "^16.8.1",
+    "graphql": "^16.8.2",
     "next": "^14.2.3",
     "next-compose-plugins": "^2.2.1",
     "next-plugin-custom-babel-config": "^1.0.5",
