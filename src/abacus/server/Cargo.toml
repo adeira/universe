@@ -27,7 +27,7 @@ image = { version = "0.25.1", default-features = false, features = ["jpeg", "png
 jsonwebtoken = "9.3.0"
 juniper = { version = "0.16.1", default-features = false, features = ["schema-language"] }
 juniper_axum = { version = "0.1.0" }
-lazy_static = "1.4.0"
+lazy_static = "1.5.0"
 md-5 = "0.10.6"
 num_cpus = "1.16.0"
 rand = "0.8.5"
