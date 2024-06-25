@@ -95,7 +95,7 @@ __metadata:
     "@adeira/babel-preset-adeira": "npm:^4.0.0"
     "@babel/core": "npm:^7.24.7"
     "@playwright/test": "npm:^1.44.1"
-    "@stylexjs/babel-plugin": "npm:^0.6.1"
+    "@stylexjs/babel-plugin": "npm:^0.7.0"
     "@stylexjs/nextjs-plugin": "npm:^0.6.1"
     "@stylexjs/stylex": "npm:^0.6.1"
     next: "npm:^14.2.4"
@@ -333,7 +333,7 @@ __metadata:
     "@adeira/babel-preset-adeira": "npm:^4.0.0"
     "@babel/core": "npm:^7.24.7"
     "@playwright/test": "npm:^1.44.1"
-    "@stylexjs/babel-plugin": "npm:^0.6.1"
+    "@stylexjs/babel-plugin": "npm:^0.7.0"
     "@stylexjs/nextjs-plugin": "npm:^0.6.1"
     "@stylexjs/stylex": "npm:^0.6.1"
     next: "npm:^14.2.4"
@@ -5183,6 +5183,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@stylexjs/babel-plugin@npm:^0.7.0":
+  version: 0.7.0
+  resolution: "@stylexjs/babel-plugin@npm:0.7.0"
+  dependencies:
+    "@babel/core": "npm:^7.23.6"
+    "@babel/helper-module-imports": "npm:^7.22.15"
+    "@babel/traverse": "npm:^7.23.6"
+    "@babel/types": "npm:^7.23.6"
+    "@stylexjs/shared": "npm:0.7.0"
+    "@stylexjs/stylex": "npm:0.7.0"
+  checksum: 10c0/b92f76f39636f3d016e62c49f1e05c46fd89f55fb213c797b5e9d38139fdd00959e68e0b968f273759dc40405a41b25f12b42c038cf06ab8c54197aa13e4c11f
+  languageName: node
+  linkType: hard
+
 "@stylexjs/eslint-plugin@npm:^0.6.1":
   version: 0.6.1
   resolution: "@stylexjs/eslint-plugin@npm:0.6.1"
@@ -5216,6 +5230,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@stylexjs/shared@npm:0.7.0":
+  version: 0.7.0
+  resolution: "@stylexjs/shared@npm:0.7.0"
+  dependencies:
+    postcss-value-parser: "npm:^4.1.0"
+  checksum: 10c0/519715f8bd8614c8ac4038e523fdf91749f6ca2fdbe887cb70a2b69d25d493d74b8deae0740643b3a259371be8ce846166a047f9329b314745a480e3c83e47d3
+  languageName: node
+  linkType: hard
+
 "@stylexjs/stylex@npm:0.6.1, @stylexjs/stylex@npm:^0.6.1":
   version: 0.6.1
   resolution: "@stylexjs/stylex@npm:0.6.1"
@@ -5224,6 +5247,17 @@ __metadata:
     invariant: "npm:^2.2.4"
     styleq: "npm:0.1.3"
   checksum: 10c0/d1d6fb09c609e5496650da0411ef74e7f5297d615e7a6294fd7987717cbf09c398427590fa68230e62eb2f95cc1701ddbd85bff1d0ef8294617343fed0b7fbf1
+  languageName: node
+  linkType: hard
+
+"@stylexjs/stylex@npm:0.7.0":
+  version: 0.7.0
+  resolution: "@stylexjs/stylex@npm:0.7.0"
+  dependencies:
+    css-mediaquery: "npm:^0.1.2"
+    invariant: "npm:^2.2.4"
+    styleq: "npm:0.1.3"
+  checksum: 10c0/5f3bdfd65535acf43aa610b497c807303c05d4676f41096938c405ab2e8be9d34a3a31168d878275233969f3c116912fad69ca52a92a2f476de6d444fb32eebf
   languageName: node
   linkType: hard
 

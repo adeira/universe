@@ -21,6 +21,6 @@
     "@adeira/babel-preset-adeira": "^4.0.0",
     "@babel/core": "^7.24.7",
     "@playwright/test": "^1.44.1",
-    "@stylexjs/babel-plugin": "^0.6.1"
+    "@stylexjs/babel-plugin": "^0.7.0"
   }
 }
