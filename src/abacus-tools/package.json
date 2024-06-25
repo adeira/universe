@@ -9,7 +9,7 @@
     "start": "next start --port=3000"
   },
   "dependencies": {
-    "@stylexjs/nextjs-plugin": "^0.6.1",
+    "@stylexjs/nextjs-plugin": "^0.7.0",
     "@stylexjs/stylex": "^0.6.1",
     "next": "^14.2.4",
     "next-compose-plugins": "^2.2.1",
