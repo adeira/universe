@@ -26,6 +26,10 @@
   packageRules: [
     // Group dependencies by pattern:
     {
+      groupName: 'Stylex packages (JavaScript)',
+      matchPackagePatterns: ['^@stylexjs\\/'],
+    },
+    {
       groupName: 'SVGR packages (JavaScript)',
       matchPackagePatterns: ['^@svgr\\/'],
     },
