@@ -148,7 +148,7 @@ __metadata:
   dependencies:
     "@babel/runtime": "npm:^7.24.7"
     "@next/eslint-plugin-next": "npm:^14.2.4"
-    "@stylexjs/eslint-plugin": "npm:^0.6.1"
+    "@stylexjs/eslint-plugin": "npm:^0.7.0"
     deep-diff: "npm:^1.0.2"
     eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-adeira: "npm:^0.15.0"
@@ -5183,12 +5183,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stylexjs/eslint-plugin@npm:^0.6.1":
-  version: 0.6.1
-  resolution: "@stylexjs/eslint-plugin@npm:0.6.1"
+"@stylexjs/eslint-plugin@npm:^0.7.0":
+  version: 0.7.0
+  resolution: "@stylexjs/eslint-plugin@npm:0.7.0"
   dependencies:
     micromatch: "npm:^4.0.5"
-  checksum: 10c0/d2103f77a86635be8b84c87bad44feb38f63bb9b736fa40e78f367eccb5e09f547bbe157269b079ca4a5be71232808e1bfac97babde3ca49ecb41f4995300c2b
+  checksum: 10c0/04b940c3a20e11974dd49398898d54b84c4c704b43dc606ebddfcb808ee6b62753ba5faacaa1a18441afa60116d8e4c904e6ead0ec7bd124b5b49b9e94d68f19
   languageName: node
   linkType: hard
 
