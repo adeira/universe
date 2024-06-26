@@ -40,7 +40,7 @@
     "@adeira/sx-jest-snapshot-serializer": "^0.1.0",
     "@babel/core": "^7.24.7",
     "@fbtjs/default-collection-transform": "^1.0.0",
-    "@playwright/test": "^1.44.1",
+    "@playwright/test": "^1.45.0",
     "@storybook/addon-essentials": "^8.0.10",
     "@storybook/addon-links": "^8.0.10",
     "@storybook/addon-webpack5-compiler-babel": "^3.0.3",

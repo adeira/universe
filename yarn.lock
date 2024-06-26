@@ -27,7 +27,7 @@ __metadata:
     "@adeira/sx-design": "npm:^0.33.0"
     "@fbtjs/default-collection-transform": "npm:^1.0.0"
     "@next/bundle-analyzer": "npm:^14.2.4"
-    "@playwright/test": "npm:^1.44.1"
+    "@playwright/test": "npm:^1.45.0"
     "@recoiljs/refine": "npm:^0.1.1"
     "@sentry/nextjs": "npm:^7.116.0"
     "@testing-library/jest-dom": "npm:^6.4.6"
@@ -64,7 +64,7 @@ __metadata:
     "@adeira/sx": "npm:^0.30.0"
     "@adeira/sx-design": "npm:^0.33.0"
     "@fbtjs/default-collection-transform": "npm:^1.0.0"
-    "@playwright/test": "npm:^1.44.1"
+    "@playwright/test": "npm:^1.45.0"
     "@sentry/nextjs": "npm:^7.116.0"
     "@testing-library/react": "npm:^15.0.7"
     babel-plugin-fbt: "npm:^1.0.0"
@@ -94,7 +94,7 @@ __metadata:
   dependencies:
     "@adeira/babel-preset-adeira": "npm:^4.0.0"
     "@babel/core": "npm:^7.24.7"
-    "@playwright/test": "npm:^1.44.1"
+    "@playwright/test": "npm:^1.45.0"
     "@stylexjs/babel-plugin": "npm:^0.6.1"
     "@stylexjs/nextjs-plugin": "npm:^0.6.1"
     "@stylexjs/stylex": "npm:^0.6.1"
@@ -332,7 +332,7 @@ __metadata:
   dependencies:
     "@adeira/babel-preset-adeira": "npm:^4.0.0"
     "@babel/core": "npm:^7.24.7"
-    "@playwright/test": "npm:^1.44.1"
+    "@playwright/test": "npm:^1.45.0"
     "@stylexjs/babel-plugin": "npm:^0.6.1"
     "@stylexjs/nextjs-plugin": "npm:^0.6.1"
     "@stylexjs/stylex": "npm:^0.6.1"
@@ -414,7 +414,7 @@ __metadata:
     "@babel/core": "npm:^7.24.7"
     "@babel/runtime": "npm:^7.24.7"
     "@fbtjs/default-collection-transform": "npm:^1.0.0"
-    "@playwright/test": "npm:^1.44.1"
+    "@playwright/test": "npm:^1.45.0"
     "@storybook/addon-essentials": "npm:^8.0.10"
     "@storybook/addon-links": "npm:^8.0.10"
     "@storybook/addon-webpack5-compiler-babel": "npm:^3.0.3"
@@ -487,7 +487,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@adeira/typescript-test@workspace:src/typescript-test"
   dependencies:
-    "@playwright/test": "npm:^1.44.1"
+    "@playwright/test": "npm:^1.45.0"
     "@types/node": "npm:^20.14.9"
     "@types/react": "npm:^18.3.3"
     "@types/react-dom": "npm:^18.3.0"
@@ -3916,14 +3916,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:^1.44.1":
-  version: 1.44.1
-  resolution: "@playwright/test@npm:1.44.1"
+"@playwright/test@npm:^1.45.0":
+  version: 1.45.0
+  resolution: "@playwright/test@npm:1.45.0"
   dependencies:
-    playwright: "npm:1.44.1"
+    playwright: "npm:1.45.0"
   bin:
     playwright: cli.js
-  checksum: 10c0/f72669db3dfa83dc12d43ddbce8fbb27a69a80347b515fa00d8467ca640f8c7b7f5f5ff6d6cdfc5a1bce2c7d4b6ee62b988d682ef265f567302998de4f2a64ab
+  checksum: 10c0/bfb3cdcca2df5ef7a2a380cc189a5ed905bef9551a2b84071c42b620b77e32a2cffdb74841957bb5e519559ed26b42a7777d09dc897a6aee67258cc041e705f9
   languageName: node
   linkType: hard
 
@@ -16493,7 +16493,7 @@ __metadata:
   dependencies:
     "@docusaurus/core": "npm:^3.4.0"
     "@docusaurus/preset-classic": "npm:^3.4.0"
-    "@playwright/test": "npm:^1.44.1"
+    "@playwright/test": "npm:^1.45.0"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
   languageName: unknown
@@ -17816,27 +17816,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.44.1":
-  version: 1.44.1
-  resolution: "playwright-core@npm:1.44.1"
+"playwright-core@npm:1.45.0":
+  version: 1.45.0
+  resolution: "playwright-core@npm:1.45.0"
   bin:
     playwright-core: cli.js
-  checksum: 10c0/6ffa3a04822b3df86d7f47a97e4f20318c0c50868ba4311820e6626ecadaab1424fbd0a3d01f0b4228adc0c781115e44b801742a4970b88739f804d82f142d68
+  checksum: 10c0/5c3c205ad6d52c674fb3a91981a2068b17e7d02350c868cb3bc51e0c236df1b5da7c123ebdb6c22c66c8182965d2bba0831fa272a8a388c4e545eac5b3efa501
   languageName: node
   linkType: hard
 
-"playwright@npm:1.44.1":
-  version: 1.44.1
-  resolution: "playwright@npm:1.44.1"
+"playwright@npm:1.45.0":
+  version: 1.45.0
+  resolution: "playwright@npm:1.45.0"
   dependencies:
     fsevents: "npm:2.3.2"
-    playwright-core: "npm:1.44.1"
+    playwright-core: "npm:1.45.0"
   dependenciesMeta:
     fsevents:
       optional: true
   bin:
     playwright: cli.js
-  checksum: 10c0/de827d17746b18ae2ec67d510a640d8ceebf8ee8e3d8399bccffa83b76a967498ca377777e4e6a1daaef4b3c86cb2c44c7468de53d2d915acc61b3b89c032738
+  checksum: 10c0/dbb1c3fe127650bd4b96a84b5271fbb56eea298bc87fa43a16b5054a4f011e00edd9a1a5e769efe4776a7c60d2a87c280543930a19cd12846d3d1e266198d4df
   languageName: node
   linkType: hard
 
