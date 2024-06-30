@@ -9,8 +9,8 @@
     "start": "next start --port=3000"
   },
   "dependencies": {
-    "@stylexjs/nextjs-plugin": "^0.6.1",
-    "@stylexjs/stylex": "^0.6.1",
+    "@stylexjs/nextjs-plugin": "^0.7.5",
+    "@stylexjs/stylex": "^0.7.5",
     "next": "^14.2.4",
     "next-compose-plugins": "^2.2.1",
     "next-plugin-custom-babel-config": "^1.0.5",
@@ -21,6 +21,6 @@
     "@adeira/babel-preset-adeira": "^4.0.0",
     "@babel/core": "^7.24.7",
     "@playwright/test": "^1.45.0",
-    "@stylexjs/babel-plugin": "^0.6.1"
+    "@stylexjs/babel-plugin": "^0.7.5"
   }
 }
