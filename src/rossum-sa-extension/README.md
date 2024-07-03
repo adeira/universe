@@ -1,7 +1,7 @@
 > [!IMPORTANT]
 > This is a community project supported by enthusiasts and volunteers. For official support, please get in touch with [Rossum Sales](https://rossum.ai/form/contact/).
 
-Chrome extension adding small enhancements to **Rossum UI** as well as **NetSuite UI** for easier onboarding (created by the SA team).
+Chrome extension adds small enhancements to **Rossum UI** as well as **NetSuite UI** for easier onboarding (created by the SA team).
 
 ## Install
 
