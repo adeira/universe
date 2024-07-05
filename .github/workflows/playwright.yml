@@ -96,7 +96,7 @@ jobs:
       # https://github.com/actions/upload-artifact
       - name: Upload Playwright test results
         if: always()
-        uses: actions/upload-artifact@v4.3.3
+        uses: actions/upload-artifact@v4.3.4
         with:
           name: ${{ matrix.playwrightReportName }}
           path: ${{ matrix.playwrightReportPath }}
