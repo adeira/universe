@@ -16,7 +16,7 @@ blurhash-wasm = { git = "https://github.com/fpapado/blurhash-rust-wasm", branch 
 bytes = "1.6.0"
 casbin = "2.2.0"
 clap = { version = "4.5.9", default-features = false, features = ["std", "cargo", "color", "deprecated", "env", "error-context", "help", "suggestions", "unicode", "usage"] }
-clap_complete = { version = "4.5.7", default-features = false }
+clap_complete = { version = "4.5.8", default-features = false }
 data-encoding = "2.6.0"
 deadpool = { version = "0.12.1", default-features = false, features = ["managed"] }
 dotenv = { version = "0.15.0", default-features = false }
