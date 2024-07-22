@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@fbtjs/default-collection-transform": "^1.0.0",
-    "@testing-library/jest-dom": "^6.4.6",
+    "@testing-library/jest-dom": "^6.4.7",
     "babel-plugin-fbt": "^1.0.0",
     "babel-plugin-fbt-runtime": "^1.0.0"
   },
