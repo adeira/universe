@@ -28,7 +28,7 @@
     "d3": "^7.9.0",
     "fbt": "^1.0.2",
     "graphql": "^16.9.0",
-    "immutable": "^4.3.6",
+    "immutable": "^4.3.7",
     "next": "^14.2.5",
     "next-compose-plugins": "^2.2.1",
     "next-plugin-custom-babel-config": "^1.0.5",
