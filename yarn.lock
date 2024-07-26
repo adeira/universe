@@ -275,7 +275,7 @@ __metadata:
     rimraf: "npm:^5.0.9"
     semver: "npm:^7.6.2"
     snapshot-diff: "npm:^0.10.0"
-    tar: "npm:^7.4.2"
+    tar: "npm:^7.4.3"
   peerDependencies:
     "@babel/core": ^7.24.9
   languageName: unknown
@@ -21120,9 +21120,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tar@npm:^7.4.2":
-  version: 7.4.2
-  resolution: "tar@npm:7.4.2"
+"tar@npm:^7.4.3":
+  version: 7.4.3
+  resolution: "tar@npm:7.4.3"
   dependencies:
     "@isaacs/fs-minipass": "npm:^4.0.0"
     chownr: "npm:^3.0.0"
@@ -21130,7 +21130,7 @@ __metadata:
     minizlib: "npm:^3.0.1"
     mkdirp: "npm:^3.0.1"
     yallist: "npm:^5.0.0"
-  checksum: 10c0/809b383cf34b6216ce517fa71f784e82c50d7e64df5ae2da94643c7ca7e1272276dcd51892a52e4d603c22d63b73e9698db061cea0d366f332b4cfd16a3a1a51
+  checksum: 10c0/d4679609bb2a9b48eeaf84632b6d844128d2412b95b6de07d53d8ee8baf4ca0857c9331dfa510390a0727b550fd543d4d1a10995ad86cdf078423fbb8d99831d
   languageName: node
   linkType: hard
 
