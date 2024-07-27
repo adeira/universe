@@ -117,7 +117,7 @@ __metadata:
     "@babel/preset-env": "npm:^7.25.0"
     "@babel/preset-react": "npm:^7.24.7"
     "@babel/runtime": "npm:^7.25.0"
-    babel-plugin-syntax-hermes-parser: "npm:^0.23.0"
+    babel-plugin-syntax-hermes-parser: "npm:^0.23.1"
     babel-plugin-transform-flow-enums: "npm:^0.0.2"
     strip-ansi: "npm:^6.0.1"
   peerDependencies:
@@ -185,7 +185,7 @@ __metadata:
     "@adeira/js": "npm:^2.1.1"
     "@babel/runtime": "npm:^7.25.0"
     eslint: "npm:^8.57.0"
-    hermes-eslint: "npm:^0.23.0"
+    hermes-eslint: "npm:^0.23.1"
     jest-docblock: "npm:^29.7.0"
   peerDependencies:
     eslint: ^8.57.0
@@ -7443,12 +7443,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-syntax-hermes-parser@npm:^0.23.0":
-  version: 0.23.0
-  resolution: "babel-plugin-syntax-hermes-parser@npm:0.23.0"
+"babel-plugin-syntax-hermes-parser@npm:^0.23.1":
+  version: 0.23.1
+  resolution: "babel-plugin-syntax-hermes-parser@npm:0.23.1"
   dependencies:
-    hermes-parser: "npm:0.23.0"
-  checksum: 10c0/4c0d7fd87e5aa017f2e04cabfa80a5ddcb4737d6df8a0ace3d39bcc7e1f6f7b272caddeebd8e8154d3cef335238309fa35aa27cf3371843555190f236e3765f9
+    hermes-parser: "npm:0.23.1"
+  checksum: 10c0/538ab28721836a6de004d63e3890b481b7ff3eeccf556943eb40619bf9363dc5239e3508881167f83d849458fe88d7696d49388e99e0df59543fdfb7681c87b3
   languageName: node
   linkType: hard
 
@@ -10631,7 +10631,7 @@ __metadata:
     "@babel/runtime": "npm:^7.25.0"
     eslint: "npm:^8.57.0"
     fast-levenshtein: "npm:^3.0.0"
-    hermes-eslint: "npm:^0.23.0"
+    hermes-eslint: "npm:^0.23.1"
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
   languageName: unknown
@@ -10921,7 +10921,7 @@ __metadata:
     "@babel/code-frame": "npm:^7.24.7"
     "@babel/runtime": "npm:^7.25.0"
     eslint: "npm:^8.57.0"
-    hermes-eslint: "npm:^0.23.0"
+    hermes-eslint: "npm:^0.23.1"
     react: "npm:^18.3.1"
   peerDependencies:
     eslint: ^8.57.0
@@ -12804,30 +12804,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hermes-eslint@npm:^0.23.0":
-  version: 0.23.0
-  resolution: "hermes-eslint@npm:0.23.0"
+"hermes-eslint@npm:^0.23.1":
+  version: 0.23.1
+  resolution: "hermes-eslint@npm:0.23.1"
   dependencies:
     esrecurse: "npm:^4.3.0"
-    hermes-estree: "npm:0.23.0"
-    hermes-parser: "npm:0.23.0"
-  checksum: 10c0/3ccb624951bd137981193fefd8f9ed5be86b2ae87e53141edb04571fc8ce4b993040737328b194a758c085bed257ceaea773d20b1e87b5cf583badabe85f162b
+    hermes-estree: "npm:0.23.1"
+    hermes-parser: "npm:0.23.1"
+  checksum: 10c0/2657e4916ea085fe8d3c52f7e8454e0c8652a483b8933b3e21f3ccd22bc0672ab5cfc1a528f74edefef29bc589a1690aebc237a92e4c9744448db0ac63c59722
   languageName: node
   linkType: hard
 
-"hermes-estree@npm:0.23.0":
-  version: 0.23.0
-  resolution: "hermes-estree@npm:0.23.0"
-  checksum: 10c0/5505fdefc119c516b92adbf7b89cc25768ff5e99b0faca3a5ce4af79cc51feef3236227774ee2f6c45bbe1d9a3fa33786e660195a264697171a85b707bc2cec8
+"hermes-estree@npm:0.23.1":
+  version: 0.23.1
+  resolution: "hermes-estree@npm:0.23.1"
+  checksum: 10c0/59ca9f3980419fcf511a172f0ee9960d86c8ba44ea8bc13d3bd0b6208e9540db1a0a9e46b0e797151f11b0e8e33b2bf850907aef4a5c9ac42c53809cefefc405
   languageName: node
   linkType: hard
 
-"hermes-parser@npm:0.23.0":
-  version: 0.23.0
-  resolution: "hermes-parser@npm:0.23.0"
+"hermes-parser@npm:0.23.1":
+  version: 0.23.1
+  resolution: "hermes-parser@npm:0.23.1"
   dependencies:
-    hermes-estree: "npm:0.23.0"
-  checksum: 10c0/a4ca7a66dd8cc65dfc4bb223f696e62ac06f0f32fe8b5889a03ea082291636696e36b1e1593885a19dc2a624d78a96a82cd046fef093de812b27e333350fceea
+    hermes-estree: "npm:0.23.1"
+  checksum: 10c0/56907e6136d2297543922dd9f8ee27378ef010c11dc1e0b4a0866faab2c527613b0edcda5e1ebc0daa0ca1ae6528734dfc479e18267aabe4dce0c7198217fd97
   languageName: node
   linkType: hard
 
@@ -19829,7 +19829,7 @@ __metadata:
     eslint: "npm:^8.57.0"
     eslint-formatter-codeframe: "npm:^7.32.1"
     flow-bin: "npm:^0.237.2"
-    hermes-eslint: "npm:^0.23.0"
+    hermes-eslint: "npm:^0.23.1"
     jest: "npm:^29.7.0"
     jest-environment-jsdom: "npm:^29.7.0"
     prettier: "npm:^2.8.8"
