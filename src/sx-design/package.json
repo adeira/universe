@@ -38,7 +38,7 @@
     "@adeira/css-colors": "^2.2.0",
     "@adeira/sx": "^0.30.0",
     "@adeira/sx-jest-snapshot-serializer": "^0.1.0",
-    "@babel/core": "^7.24.9",
+    "@babel/core": "^7.25.2",
     "@fbtjs/default-collection-transform": "^1.0.0",
     "@playwright/test": "^1.45.0",
     "@storybook/addon-essentials": "^8.0.10",
