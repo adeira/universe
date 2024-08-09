@@ -1,16 +1,16 @@
-use crate::arango::{resolve_aql, resolve_aql_vector, Document};
+use crate::arango::{resolve_aql, resolve_aql_vector};
 use crate::auth::account::Account;
 use crate::auth::users::AnyUser;
 
 pub(crate) async fn find_user_accounts(
     pool: &crate::arango::ConnectionPool,
     user: &AnyUser,
-) -> anyhow::Result<Vec<Document<Account>>> {
+) -> anyhow::Result<Vec<Account>> {
     resolve_aql_vector(
         pool,
         r#"
-            FOR account IN 1 OUTBOUND @user_id
-                GRAPH "users_in_accounts"
+            WITH accounts
+            FOR account IN 1..1 OUTBOUND @user_id users_ownership
                 RETURN account
         "#,
         hashmap_json![
@@ -23,7 +23,7 @@ pub(crate) async fn find_user_accounts(
 pub(crate) async fn create_new_account(
     pool: &crate::arango::ConnectionPool,
     user: &AnyUser,
-) -> anyhow::Result<Document<Account>> {
+) -> anyhow::Result<Account> {
     resolve_aql(
         pool,
         r#"

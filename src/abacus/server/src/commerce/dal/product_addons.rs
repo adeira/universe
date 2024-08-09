@@ -2,7 +2,6 @@ use crate::arango::{resolve_aql_vector, ConnectionPool};
 use crate::commerce::model::product_addons::ProductAddon;
 use crate::locale::SupportedLocale;
 
-/// TODO(004) - integration tests
 pub(in crate::commerce) async fn search_product_addons(
     pool: &ConnectionPool,
     client_locale: &SupportedLocale,
@@ -29,7 +28,6 @@ pub(in crate::commerce) async fn search_product_addons(
     .await
 }
 
-/// TODO(004) - integration tests
 pub(in crate::commerce) async fn get_product_addons_by_ids(
     pool: &ConnectionPool,
     client_locale: &SupportedLocale,

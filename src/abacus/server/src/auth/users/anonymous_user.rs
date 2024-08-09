@@ -17,7 +17,7 @@ impl Default for AnonymousUser {
 impl AnonymousUser {
     pub(crate) fn new() -> AnonymousUser {
         AnonymousUser {
-            id: String::from("users/1"), // hardcoded DB value (should always exist!)
+            id: String::from("users/1"), // hardcoded DB value (should always exist!) // TODO: why? 🤔
         }
     }
 

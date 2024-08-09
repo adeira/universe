@@ -4,8 +4,6 @@ use crate::locale::SupportedLocale;
 
 /// The following function creates a payment that is awaiting payment. It should not be processed
 /// yet until we actually receive the money (confirmation from Stripe.com).
-///
-/// TODO(004) - integration tests
 pub(in crate::commerce) async fn create_unpaid_order(
     pool: &ConnectionPool,
     client_locale: &SupportedLocale,
