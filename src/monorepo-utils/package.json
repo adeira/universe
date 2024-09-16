@@ -20,7 +20,7 @@
     "@adeira/js": "^2.1.1",
     "@adeira/shell-command": "^0.1.0",
     "@babel/register": "^7.24.6",
-    "@babel/runtime": "^7.25.0",
+    "@babel/runtime": "^7.25.6",
     "glob": "^11.0.0",
     "is-ci": "^3.0.1",
     "semver": "^7.6.3"
