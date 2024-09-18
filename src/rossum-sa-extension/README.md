@@ -12,7 +12,6 @@ Head over to https://chrome.google.com/webstore/detail/bljkbinljmhdbipklfcljongi
 - shows datapoint `schema_id` on the annotation screen (headers and line items)
 - adds `devFeatureEnabled` toggle
 - adds `devDebugEnabled` toggle
-- supports displaying and changing `localUnleashOverrides` values
 
 ![header fields](./assets/header_fields.png)
 

@@ -82,32 +82,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     });
   });
 
-  chrome.tabs.sendMessage(tab.id, 'get-localUnleashOverrides', async function (response) {
-    const [tab] = await chrome.tabs.query({ active: true, lastFocusedWindow: true });
-
-    const textAreaElement = document.getElementById('localUnleashOverrides');
-    const textAreaButtonElement = document.getElementById('localUnleashOverridesApply');
-
-    if (textAreaElement != null) {
-      // $FlowFixMe[prop-missing]: refine from HTMLElement to HTMLTextAreaElement
-      textAreaElement.value = JSON.stringify(response ?? {}, null, 2);
-    }
-
-    textAreaButtonElement?.addEventListener('click', () => {
-      chrome.tabs.sendMessage(
-        tab.id,
-        {
-          name: 'set-localUnleashOverrides',
-          // $FlowFixMe[prop-missing]: refine from HTMLElement to HTMLTextAreaElement
-          payload: textAreaElement?.value ?? {},
-        },
-        function () {
-          chrome.tabs.reload(tab.id);
-        },
-      );
-    });
-  });
-
   chrome.storage.local.get(['schemaAnnotationsEnabled']).then((result) => {
     observeCheckbox(
       'schemaAnnotationsEnabled',
