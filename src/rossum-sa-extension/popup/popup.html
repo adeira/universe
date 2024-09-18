@@ -5,57 +5,41 @@
   </head>
   <link href="popup.css" rel="stylesheet" />
   <body>
-    <div class="panelWrapper">
-      <div class="leftPanel">
-        <div class="configuration">
-          <label for="localUnleashOverrides">
-            <span class="help"><code>localUnleashOverrides</code></span>
-          </label>
-          <textarea id="localUnleashOverrides"></textarea>
-        </div>
-        <div><button id="localUnleashOverridesApply">Apply and reload</button></div>
-      </div>
+    <div>
+      <button id="masterDataHub">Master Data Hub</button>
+    </div>
 
-      <div class="rightPanel">
-        <div>
-          <div><button id="masterDataHub">Master Data Hub</button></div>
-        </div>
+    <div class="checkboxes">
+      <h3>Rossum lens</h3>
 
-        <div class="checkboxes">
-          <h3>Rossum lens</h3>
+      <label>
+        <input type="checkbox" id="schemaAnnotationsEnabled" />
+        <span>Show Rossum schema IDs</span>
+      </label>
 
-          <label>
-            <input type="checkbox" id="schemaAnnotationsEnabled" />
-            <span>Show Rossum schema IDs</span>
-          </label>
+      <label>
+        <input type="checkbox" id="devFeaturesEnabled" />
+        <span>Rossum dev <em>features</em> flag</span>
+        <span class="help">(<code>devFeaturesEnabled</code>)</span>
+      </label>
 
-          <label>
-            <input type="checkbox" id="devFeaturesEnabled" />
-            <span>Rossum dev <em>features</em> flag</span>
-            <span class="help">(<code>devFeaturesEnabled</code>)</span>
-          </label>
+      <label>
+        <input type="checkbox" id="devDebugEnabled" />
+        <span>Rossum dev <em>debug</em> flag</span>
+        <span class="help">(<code>devDebugEnabled</code>)</span>
+      </label>
 
-          <label>
-            <input type="checkbox" id="devDebugEnabled" />
-            <span>Rossum dev <em>debug</em> flag</span>
-            <span class="help">(<code>devDebugEnabled</code>)</span>
-          </label>
+      <h3>NetSuite lens</h3>
 
-          <h3>NetSuite lens</h3>
+      <label>
+        <input type="checkbox" id="netsuiteFieldNamesEnabled" />
+        <span>Show NetSuite field names</span>
+      </label>
+    </div>
 
-          <label>
-            <input type="checkbox" id="netsuiteFieldNamesEnabled" />
-            <span>Show NetSuite field names</span>
-          </label>
-        </div>
-
-        <div class="info">
-          <div>0.13.0</div>
-          <div>
-            <a href="https://rossum.university/" target="_blank">Rossum.ai University</a> 🧑‍🎓
-          </div>
-        </div>
-      </div>
+    <div class="info">
+      <div>0.13.0</div>
+      <div><a href="https://rossum.university/" target="_blank">Rossum.ai University</a> 🧑‍🎓</div>
     </div>
 
     <script src="popup.js"></script>

@@ -114,15 +114,4 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     }
     sendResponse(true);
   }
-
-  // localUnleashOverrides:
-  if (message === 'get-localUnleashOverrides') {
-    const localUnleashOverrides = JSON.parse(window.localStorage.getItem('localUnleashOverrides'));
-    sendResponse(localUnleashOverrides);
-  }
-
-  if (message?.name === 'set-localUnleashOverrides') {
-    window.localStorage.setItem('localUnleashOverrides', message.payload);
-    sendResponse();
-  }
 });
