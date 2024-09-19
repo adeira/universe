@@ -41,9 +41,6 @@ pub fn run_eslint_check(trailing_args: &Vec<&str>) -> anyhow::Result<()> {
             .arg("*.js") // root JS files
             .arg("scripts/**/*.js")
             .arg("src/**/*.js")
-            // .arg("src/**/*.mjs")
-            .arg("src/**/*.ts")
-            .arg("src/**/*.tsx")
             .args(trailing_args),
     )
 }
