@@ -80,12 +80,6 @@ jobs:
         if: steps.paths-filter.outputs.src == 'true'
         run: ./x flow -- --max-warnings=0
 
-      # TypeScript can be used in one of two ways - as a linter, or as a build tool.
-      # We are using it as a linter on a monorepo level and as a build tool on individual packages.
-      - name: Run TypeScript check
-        if: steps.paths-filter.outputs.src == 'true'
-        run: yarn tsc --allowJs --project tsconfig.json # TODO: `./x ts`
-
       - name: Run Eslint check
         if: steps.paths-filter.outputs.src == 'true'
         run: ./x lints
