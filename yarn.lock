@@ -473,7 +473,7 @@ __metadata:
     css-tree: "npm:^2.3.1"
     fast-levenshtein: "npm:^3.0.0"
     json-stable-stringify: "npm:^1.1.1"
-    mdn-data: "npm:^2.8.0"
+    mdn-data: "npm:^2.11.1"
     prettier: "npm:^2.8.8"
     react: "npm:^18.3.1"
     react-test-renderer: "npm:^18.3.1"
@@ -14597,10 +14597,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mdn-data@npm:^2.8.0":
-  version: 2.8.0
-  resolution: "mdn-data@npm:2.8.0"
-  checksum: 10c0/8e7f2ba8df3665049dc8268d51a85f5f2acd218817722e41e8b407fb272471d06e4a95a063e3c08a09b883d0934fbf18f223b6951dea515780f47eb6b684dc54
+"mdn-data@npm:^2.11.1":
+  version: 2.11.1
+  resolution: "mdn-data@npm:2.11.1"
+  checksum: 10c0/405036e696145f3492f3aba3e024c366f461a4452199f02935f6044ca94957be4176d3b742942062d28c4654d593686a343a235f01b6317c6a9c65c67e47b7bf
   languageName: node
   linkType: hard
 
