@@ -358,13 +358,13 @@ __metadata:
   dependencies:
     "@adeira/js": "npm:^2.1.1"
     "@babel/runtime": "npm:^7.25.6"
-    babel-plugin-relay: "npm:^16.2.0"
+    babel-plugin-relay: "npm:^18.1.0"
     react: "npm:^18.3.1"
-    react-relay: "npm:^16.2.0"
+    react-relay: "npm:^18.1.0"
     react-test-renderer: "npm:^18.3.1"
-    relay-compiler: "npm:^16.2.0"
-    relay-runtime: "npm:^16.2.0"
-    relay-test-utils: "npm:^16.2.0"
+    relay-compiler: "npm:^18.1.0"
+    relay-runtime: "npm:^18.1.0"
+    relay-test-utils: "npm:^18.1.0"
   peerDependencies:
     graphql: ^16.9.0
     react: ^18.3.1
@@ -2207,12 +2207,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.10.3, @babel/runtime@npm:^7.12.13, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.22.6, @babel/runtime@npm:^7.25.6, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.8.4":
-  version: 7.25.6
-  resolution: "@babel/runtime@npm:7.25.6"
+"@babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.10.3, @babel/runtime@npm:^7.12.13, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.22.6, @babel/runtime@npm:^7.25.0, @babel/runtime@npm:^7.25.6, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.8.4":
+  version: 7.25.7
+  resolution: "@babel/runtime@npm:7.25.7"
   dependencies:
     regenerator-runtime: "npm:^0.14.0"
-  checksum: 10c0/d6143adf5aa1ce79ed374e33fdfd74fa975055a80bc6e479672ab1eadc4e4bfd7484444e17dd063a1d180e051f3ec62b357c7a2b817e7657687b47313158c3d2
+  checksum: 10c0/86b7829d2fc9343714a9afe92757cf96c4dc799006ca61d73cda62f4b9e29bfa1ce36794955bc6cb4c188f5b10db832c949339895e1bbe81a69022d9d578ce29
   languageName: node
   linkType: hard
 
@@ -6843,14 +6843,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-relay@npm:^16.2.0":
-  version: 16.2.0
-  resolution: "babel-plugin-relay@npm:16.2.0"
+"babel-plugin-relay@npm:^18.1.0":
+  version: 18.1.0
+  resolution: "babel-plugin-relay@npm:18.1.0"
   dependencies:
     babel-plugin-macros: "npm:^2.0.0"
     cosmiconfig: "npm:^5.0.5"
     graphql: "npm:15.3.0"
-  checksum: 10c0/4b19921e9d418e1609ad839a4f1bbe590084f0052f4d94f910894d4fad4755133d38077cfaa294933463119027d02d4635d43ac9d4a85e97f845239f913c7d8d
+  checksum: 10c0/e1c653f6a4eb5df2f43c0eb67d8c21bc83e4d8ed7b9c8aa08d652cfb9804234044de60e6351ecb9829b63d8ad9dfde3d7cefbbef90f7b82488dc455cb69b1a79
   languageName: node
   linkType: hard
 
@@ -17752,18 +17752,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-relay@npm:^16.2.0":
-  version: 16.2.0
-  resolution: "react-relay@npm:16.2.0"
+"react-relay@npm:^18.1.0":
+  version: 18.1.0
+  resolution: "react-relay@npm:18.1.0"
   dependencies:
-    "@babel/runtime": "npm:^7.0.0"
+    "@babel/runtime": "npm:^7.25.0"
     fbjs: "npm:^3.0.2"
     invariant: "npm:^2.2.4"
     nullthrows: "npm:^1.1.1"
-    relay-runtime: "npm:16.2.0"
+    relay-runtime: "npm:18.1.0"
   peerDependencies:
     react: ^16.9.0 || ^17 || ^18
-  checksum: 10c0/d68f2626d71ab1486644b7bfdf73d0bcac6e06e37e5b3f57eac273ebb7c560d9d936ca54aa9f18677b10f54fe541d060d9a0d93cc96cef0a9cd11ea6ed409ff0
+  checksum: 10c0/d074092360ade1f202586c9023934e63c1d6f491a65eefa5a37ef31d243097fc7835683a91656a4f9c5e8493c08156a9c277a7e22f1e12530c95fa6ff3d05818
   languageName: node
   linkType: hard
 
@@ -18132,35 +18132,35 @@ __metadata:
   languageName: node
   linkType: hard
 
-"relay-compiler@npm:^16.2.0":
-  version: 16.2.0
-  resolution: "relay-compiler@npm:16.2.0"
+"relay-compiler@npm:^18.1.0":
+  version: 18.1.0
+  resolution: "relay-compiler@npm:18.1.0"
   bin:
     relay-compiler: cli.js
-  checksum: 10c0/8d7a681dc0e8113f347fd38d6834893dd2e24f502dc480f0239c50122eac0029dbe2b947d3f8d655804df70a87a8a676df090508ee378b50a6b8d9ff75727d33
+  checksum: 10c0/c274538d9102f8d8eb8d7f09dfa4fd59c03e92866114cf46f9afb004984bb25f053d17f35056b5f8d1902ac15327381698574f5ee6df1faa2a3e50eb303bcaf7
   languageName: node
   linkType: hard
 
-"relay-runtime@npm:16.2.0, relay-runtime@npm:^16.2.0":
-  version: 16.2.0
-  resolution: "relay-runtime@npm:16.2.0"
+"relay-runtime@npm:18.1.0, relay-runtime@npm:^18.1.0":
+  version: 18.1.0
+  resolution: "relay-runtime@npm:18.1.0"
   dependencies:
-    "@babel/runtime": "npm:^7.0.0"
+    "@babel/runtime": "npm:^7.25.0"
     fbjs: "npm:^3.0.2"
     invariant: "npm:^2.2.4"
-  checksum: 10c0/770dc36203a3d0a7c285ac446ac601cfa8a87da2af8ee9a9cc3c5533c506655e457b276bc40c6e0f274556dce258b2407a5d17e6582bbc9902af5f1dd9081c3a
+  checksum: 10c0/d3d75a211828dba972578a1692dc7f2ef41f7ca563a3b75791d4bfcf545bcc67cfd452abc0abbabef06cdbf392a53a9e3f041323bdba0730fb36402dfec7cdb1
   languageName: node
   linkType: hard
 
-"relay-test-utils@npm:^16.2.0":
-  version: 16.2.0
-  resolution: "relay-test-utils@npm:16.2.0"
+"relay-test-utils@npm:^18.1.0":
+  version: 18.1.0
+  resolution: "relay-test-utils@npm:18.1.0"
   dependencies:
-    "@babel/runtime": "npm:^7.0.0"
+    "@babel/runtime": "npm:^7.25.0"
     fbjs: "npm:^3.0.2"
     invariant: "npm:^2.2.4"
-    relay-runtime: "npm:16.2.0"
-  checksum: 10c0/8a5c258dd363158eda608256b78261cb359c4038c3140b327ea9ba06d9f184616e849818b7264c6338eeaedeaffe1d1339738d84f1bfda49a96c87e0eed64617
+    relay-runtime: "npm:18.1.0"
+  checksum: 10c0/8d56b96cf3e65fc2f1fccc6fab5615e806cfe4d6852df39e62df0e74c4b38ba2aba4c58a6df70748ec4f9f3550c0ca3355405ecfadee0c9a4f45c46dc65151a4
   languageName: node
   linkType: hard
 
