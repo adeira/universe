@@ -9,7 +9,7 @@ mod signed_user;
 
 #[allow(clippy::large_enum_variant)]
 #[derive(Clone, Deserialize)]
-pub enum User {
+pub enum UserType {
     AnonymousUser(AnonymousUser),
     SignedUser(SignedUser),
 }
@@ -63,6 +63,27 @@ impl AnyUser {
         match &self.google {
             Some(google) => google.is_email_verified().to_owned(),
             None => None,
+        }
+    }
+}
+
+impl From<&UserType> for AnyUser {
+    fn from(user: &UserType) -> Self {
+        match user {
+            UserType::AnonymousUser(user) => AnyUser {
+                _id: user.id(),
+                _rev: String::new(),
+                _key: String::new(),
+                is_active: false,
+                google: None,
+            },
+            UserType::SignedUser(user) => AnyUser {
+                _id: user._id.to_owned(),
+                _rev: user._rev.to_owned(),
+                _key: user._key.to_owned(),
+                is_active: false,
+                google: None,
+            },
         }
     }
 }
