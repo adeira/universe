@@ -45,40 +45,56 @@ function isElementNode(node /*: any */) /*: node is Element */ {
   return node.nodeType === Node.ELEMENT_NODE;
 }
 
-const observer = new MutationObserver((mutations /*: Array<MutationRecord> */) => {
-  const checkAddedNode = (addedNode /*: Node */) => {
-    if (!isElementNode(addedNode)) {
-      return;
-    }
-
-    if (addedNode.hasAttribute('data-sa-extension-schema-id')) {
-      displaySchemaID(addedNode);
-    }
-
-    for (const child of addedNode.children) {
-      checkAddedNode(child);
-    }
-  };
-
-  for (const mutation of mutations) {
-    for (const addedNode of mutation.addedNodes) {
-      checkAddedNode(addedNode);
-    }
-  }
-});
-
 const htmlBodyElement = document.querySelector('body');
 if (htmlBodyElement == null) {
   throw new Error('No body element found');
 }
 
-chrome.storage.local.get(['schemaAnnotationsEnabled']).then((result) => {
-  if (result.schemaAnnotationsEnabled === true) {
-    observer.observe(htmlBodyElement, {
-      subtree: true,
-      childList: true,
-    });
-  }
+const observeHtmlBody = (
+  options /*: { +schemaAnnotationsEnabled: boolean, +expandFormulasEnabled: boolean } */,
+) => {
+  const observer = new MutationObserver((mutations /*: Array<MutationRecord> */) => {
+    const checkAddedNode = (addedNode /*: Node */) => {
+      if (!isElementNode(addedNode)) {
+        return;
+      }
+
+      if (options.schemaAnnotationsEnabled === true) {
+        if (addedNode.hasAttribute('data-sa-extension-schema-id')) {
+          displaySchemaID(addedNode);
+        }
+      }
+
+      if (options.expandFormulasEnabled === true) {
+        const button = document.querySelector('button[aria-label="Show source code"]');
+        if (button != null) {
+          button.click();
+        }
+      }
+
+      for (const child of addedNode.children) {
+        checkAddedNode(child);
+      }
+    };
+
+    for (const mutation of mutations) {
+      for (const addedNode of mutation.addedNodes) {
+        checkAddedNode(addedNode);
+      }
+    }
+  });
+
+  observer.observe(htmlBodyElement, {
+    subtree: true,
+    childList: true,
+  });
+};
+
+chrome.storage.local.get(['schemaAnnotationsEnabled', 'expandFormulasEnabled']).then((result) => {
+  observeHtmlBody({
+    schemaAnnotationsEnabled: result.schemaAnnotationsEnabled,
+    expandFormulasEnabled: result.expandFormulasEnabled,
+  });
 });
 
 /**
