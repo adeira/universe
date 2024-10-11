@@ -94,6 +94,18 @@ document.addEventListener('DOMContentLoaded', async function () {
     );
   });
 
+  chrome.storage.local.get(['expandFormulasEnabled']).then((result) => {
+    observeCheckbox(
+      'expandFormulasEnabled',
+      result.expandFormulasEnabled,
+      (reloadCurrentTab, _, currentCheckboxValue) => {
+        chrome.storage.local
+          .set({ expandFormulasEnabled: currentCheckboxValue })
+          .then(reloadCurrentTab);
+      },
+    );
+  });
+
   chrome.storage.local.get(['netsuiteFieldNamesEnabled']).then((result) => {
     observeCheckbox(
       'netsuiteFieldNamesEnabled',
