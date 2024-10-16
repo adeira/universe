@@ -23,7 +23,7 @@ dotenv = { version = "0.15.0", default-features = false }
 futures = "0.3.31"
 hex = "0.4.3"
 http = "0.2.12"
-image = { version = "0.25.2", default-features = false, features = ["jpeg", "png"] }
+image = { version = "0.25.3", default-features = false, features = ["jpeg", "png"] }
 jsonwebtoken = "9.3.0"
 juniper = { version = "0.16.1", default-features = false, features = ["schema-language"] }
 juniper_axum = { version = "0.1.0" }
