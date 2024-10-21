@@ -13,7 +13,7 @@ async-trait = "0.1.83"
 axum = { version = "0.7.7", default-features = false, features = ["multipart"] }
 base64 = "0.22.1"
 blurhash-wasm = { git = "https://github.com/fpapado/blurhash-rust-wasm", branch = "master" }
-bytes = "1.7.2"
+bytes = "1.8.0"
 casbin = "2.5.0"
 clap = { version = "4.5.20", default-features = false, features = ["std", "cargo", "color", "deprecated", "env", "error-context", "help", "suggestions", "unicode", "usage"] }
 clap_complete = { version = "4.5.33", default-features = false }
