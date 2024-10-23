@@ -19,15 +19,15 @@
   "dependencies": {
     "@adeira/js": "^2.1.1",
     "@babel/runtime": "^7.25.9",
-    "babel-plugin-relay": "^16.2.0",
-    "react-relay": "^16.2.0",
-    "relay-compiler": "^16.2.0",
-    "relay-runtime": "^16.2.0"
+    "babel-plugin-relay": "^18.1.0",
+    "react-relay": "^18.1.0",
+    "relay-compiler": "^18.1.0",
+    "relay-runtime": "^18.1.0"
   },
   "devDependencies": {
     "react": "^18.3.1",
     "react-test-renderer": "^18.3.1",
-    "relay-test-utils": "^16.2.0"
+    "relay-test-utils": "^18.1.0"
   },
   "peerDependencies": {
     "graphql": "^16.9.0",
