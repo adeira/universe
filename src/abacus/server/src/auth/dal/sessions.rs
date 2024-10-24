@@ -63,8 +63,6 @@ pub(crate) async fn create_new_user_session(
 
 /// This function tries to remove the sessions token (if it exists) as well as related session edge
 /// from the database. Removing the session effectively means "log out".
-///
-/// TODO(004) add integration tests
 pub(crate) async fn delete_user_session(
     pool: &crate::arango::ConnectionPool,
     session_token_hash: &str,
