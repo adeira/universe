@@ -1280,9 +1280,9 @@ dependencies = [
 
 [[package]]
 name = "juniper_axum"
-version = "0.1.0"
+version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1f81e883bc6ffb2e5a3cc7276bfe9519c49108bdc1330d5aab1b79cb088f2f26"
+checksum = "ed3b21b9af313a2967572c8d4b8875c53fc8062e10768470de4748c16ce7b992"
 dependencies = [
  "axum",
  "bytes",
