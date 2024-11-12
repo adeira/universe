@@ -26,7 +26,7 @@
     "@adeira/sx": "^0.30.0",
     "@babel/code-frame": "^7.26.2",
     "eslint": "^8.57.1",
-    "hermes-eslint": "^0.25.0",
+    "hermes-eslint": "^0.25.1",
     "react": "^18.3.1"
   },
   "peerDependencies": {
