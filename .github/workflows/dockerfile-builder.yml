@@ -72,7 +72,7 @@ jobs:
       # https://github.com/docker/metadata-action
       - name: Collect Docker metadata
         id: meta
-        uses: docker/metadata-action@v5.5.1
+        uses: docker/metadata-action@v5.6.1
         with:
           images: ${{ matrix.projectImageName }}
           flavor: |
