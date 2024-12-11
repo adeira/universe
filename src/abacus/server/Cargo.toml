@@ -22,7 +22,7 @@ deadpool = { version = "0.12.1", default-features = false, features = ["managed"
 dotenv = { version = "0.15.0", default-features = false }
 futures = "0.3.31"
 hex = "0.4.3"
-http = "0.2.12"
+http = "1.2.0"
 image = { version = "0.25.5", default-features = false, features = ["jpeg", "png"] }
 jsonwebtoken = "9.3.0"
 juniper = { version = "0.16.1", default-features = false, features = ["schema-language"] }
