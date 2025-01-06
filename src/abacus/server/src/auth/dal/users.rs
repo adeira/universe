@@ -51,8 +51,6 @@ pub(crate) async fn find_user_by_google_claims(
 
 /// Returns user by session token HASH. It also tries to updates the existing session (last access
 /// time) or returns an error if the session doesn't exist (so the user is not logged in).
-///
-/// TODO(004) add integration tests
 pub async fn get_user_by_session_token_hash(
     pool: &crate::arango::ConnectionPool,
     session_token_hash: &str,
