@@ -38,7 +38,7 @@ rusoto_core = "0.48.0"
 rusoto_s3 = "0.48.0"
 sentry = "0.35.0"
 sentry-tracing = "0.35.0"
-serde = "1.0.216"
+serde = "1.0.217"
 serde_json = "1.0.134"
 serde_qs = "0.13.0"
 thiserror = { version = "1.0.69", default-features = false }
