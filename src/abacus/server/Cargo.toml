@@ -39,7 +39,7 @@ rusoto_s3 = "0.48.0"
 sentry = "0.36.0"
 sentry-tracing = "0.36.0"
 serde = "1.0.217"
-serde_json = "1.0.134"
+serde_json = "1.0.135"
 serde_qs = "0.13.0"
 thiserror = { version = "1.0.69", default-features = false }
 tokio = { version = "1.42.0", default-features = false, features = ["full"] }
