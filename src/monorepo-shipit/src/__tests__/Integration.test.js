@@ -18,7 +18,6 @@ import ShipitConfig from '../ShipitConfig';
 test.each([
   // TODO: add more commits as you go
   ['cc7b3818e06f95c2732f75f165a2b98c6eeab135', new Map([['src/eslint-config-adeira/', '']])],
-  ['f1cc780d89183b4304ae5c22536baec6ef9736ba', new Map([['src/abacus/', '']])],
 ])(
   'creates correct changeset from commit %s, filters it and renders it as expected',
   (commitHash, directoryMapping) => {

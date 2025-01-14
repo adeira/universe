@@ -17,7 +17,6 @@ jobs:
       fail-fast: false
       matrix:
         manifest:
-          - 'src/abacus/Cargo.toml'
           - 'src/x/Cargo.toml'
 
     steps:
@@ -30,7 +29,6 @@ jobs:
         with:
           filters: |
             src:
-              - 'src/abacus/**'
               - 'src/x/**'
 
       # https://github.com/dtolnay/rust-toolchain

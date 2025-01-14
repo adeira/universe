@@ -1,5 +1,0 @@
----
-source: server/src/images/mod.rs
-expression: "resolve_cloudfront_url(\"/test.png\")"
----
-https://d3nujwlesxo9e6.cloudfront.net/test.png
