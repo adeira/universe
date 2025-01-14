@@ -13,7 +13,6 @@ jobs:
       fail-fast: false
       matrix:
         manifest:
-          - 'src/abacus/Cargo.toml'
           - 'src/x/Cargo.toml'
 
     steps:
