@@ -17,7 +17,6 @@ module.exports = ({
     'eslint-plugin-jsx-a11y',
     'eslint-plugin-jest-dom',
     'eslint-plugin-testing-library',
-    '@stylexjs/eslint-plugin',
   ],
   rules: {
     // React (https://github.com/yannickcr/eslint-plugin-react)
@@ -248,10 +247,6 @@ module.exports = ({
     'jsx-a11y/role-supports-aria-props': ERROR,
     'jsx-a11y/scope': ERROR,
     'jsx-a11y/tabindex-no-positive': ERROR,
-
-    // StyleX (https://stylexjs.com/docs/learn/installation/#catch-mistakes-with-eslint)
-    '@stylexjs/valid-styles': ERROR,
-    '@stylexjs/sort-keys': ERROR,
   },
   overrides: [
     {

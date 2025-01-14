@@ -23,13 +23,8 @@ jobs:
       fail-fast: false
       matrix:
         project:
-          - 'abacus-tools'
           - 'mrtnzlml-meta'
         include:
-          - project: abacus-tools
-            projectPath: './src/abacus-tools'
-            projectDockerfile: './src/abacus-tools/Dockerfile'
-            projectImageName: 'adeira/abacus-tools'
           - project: mrtnzlml-meta
             projectPath: './src/mrtnzlml-meta'
             projectDockerfile: './src/mrtnzlml-meta/Dockerfile'
