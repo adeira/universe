@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches expected output: co-authored-by.header: 45178502b2cdd06958b837cb5b8a0cf8 1`] = `
+exports[`matches expected output: co-authored-by.header: edbd2b06ce66db276adbf8d3936612a9 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 From 160feaf6d2637b22216987d1f95b96d585a838a6 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Martin=20Zl=C3=A1mal?= <mrtnzlml@gmail.com>
@@ -23,7 +23,7 @@ Co-authored-by: Trond Bergquist <trond_bergquist@hotmail.com>
 }
 `;
 
-exports[`matches expected output: co-authored-by-multiple.header: 45178502b2cdd06958b837cb5b8a0cf8 1`] = `
+exports[`matches expected output: co-authored-by-multiple.header: edbd2b06ce66db276adbf8d3936612a9 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 From 160feaf6d2637b22216987d1f95b96d585a838a6 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Martin=20Zl=C3=A1mal?= <mrtnzlml@gmail.com>
@@ -48,7 +48,7 @@ Co-authored-by: Patricia Bergquist <patricia_bergquist@hotmail.com>
 }
 `;
 
-exports[`matches expected output: multiline-subject.header: 45178502b2cdd06958b837cb5b8a0cf8 1`] = `
+exports[`matches expected output: multiline-subject.header: edbd2b06ce66db276adbf8d3936612a9 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 From 93ee65de02e77c52eb9d677b859554b40253bafa Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Martin=20Zl=C3=A1mal?= <adeira@example.com>
@@ -68,7 +68,7 @@ Subject: [PATCH] Docs: add Relay and GraphQL related videos from our internal
 }
 `;
 
-exports[`matches expected output: simple.header: 45178502b2cdd06958b837cb5b8a0cf8 1`] = `
+exports[`matches expected output: simple.header: edbd2b06ce66db276adbf8d3936612a9 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 From bf0a8783cf416f796659e60fe735bba98e676e67 Mon Sep 17 00:00:00 2001
 From: Automator <adeira@example.com>
@@ -89,7 +89,7 @@ Formerly known as '@mrtnzlml/relay'
 }
 `;
 
-exports[`matches expected output: unicode.header: 45178502b2cdd06958b837cb5b8a0cf8 1`] = `
+exports[`matches expected output: unicode.header: edbd2b06ce66db276adbf8d3936612a9 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Martin=20Zl=C3=A1mal?= <adeira@example.com>
