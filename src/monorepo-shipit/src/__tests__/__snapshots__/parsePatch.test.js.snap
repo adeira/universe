@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches expected output: chmod.patch: 7e86460a4c66b47098780aa649d174c8 1`] = `
+exports[`matches expected output: chmod.patch: fc2e9a4b8e951064d53311a538e6ea9a 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 diff --git a/src/platform/terraform-gitlab-project-cluster/environment_scope.sh b/src/platform/terraform-gitlab-project-cluster/environment_scope.sh
 old mode 100644
@@ -22,7 +22,7 @@ new mode 100755
 
 `;
 
-exports[`matches expected output: diff-in-diff.patch: 7e86460a4c66b47098780aa649d174c8 1`] = `
+exports[`matches expected output: diff-in-diff.patch: fc2e9a4b8e951064d53311a538e6ea9a 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 diff --git a/unicode.txt b/unicode.txt
 index 1f60525b30fedbea3660714fb6198053f3457168..485cb7f13081f005c2f83890e155c0fcf4b16cd6 100644
@@ -88,7 +88,7 @@ index 1f60525b30fedbea3660714fb6198053f3457168..485cb7f13081f005c2f83890e155c0fc
 
 `;
 
-exports[`matches expected output: file-delete.patch: 7e86460a4c66b47098780aa649d174c8 1`] = `
+exports[`matches expected output: file-delete.patch: fc2e9a4b8e951064d53311a538e6ea9a 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 diff --git a/bbb.txt b/bbb.txt
 deleted file mode 100644
@@ -116,7 +116,7 @@ index dbee0265d31298531773537e6e37e4fd1ee71d62..00000000000000000000000000000000
 
 `;
 
-exports[`matches expected output: file-modify-no-eol.patch: 7e86460a4c66b47098780aa649d174c8 1`] = `
+exports[`matches expected output: file-modify-no-eol.patch: fc2e9a4b8e951064d53311a538e6ea9a 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 diff --git a/aaa.txt b/aaa.txt
 index 72943a16fb2c8f38f9dde202b7a70ccc19c52f34..01f02e32ce8a128dd7b1d16a45f2eff66ec23c2d 100644
@@ -144,7 +144,7 @@ index 72943a16fb2c8f38f9dde202b7a70ccc19c52f34..01f02e32ce8a128dd7b1d16a45f2eff6
 
 `;
 
-exports[`matches expected output: file-new.patch: 7e86460a4c66b47098780aa649d174c8 1`] = `
+exports[`matches expected output: file-new.patch: fc2e9a4b8e951064d53311a538e6ea9a 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 diff --git a/aaa.txt b/aaa.txt
 new file mode 100644
@@ -170,7 +170,7 @@ index 0000000000000000000000000000000000000000..72943a16fb2c8f38f9dde202b7a70ccc
 
 `;
 
-exports[`matches expected output: file-rename.patch: 7e86460a4c66b47098780aa649d174c8 1`] = `
+exports[`matches expected output: file-rename.patch: fc2e9a4b8e951064d53311a538e6ea9a 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 diff --git a/aaa.txt b/aaa.txt
 deleted file mode 100644
@@ -217,7 +217,7 @@ index 0000000000000000000000000000000000000000..01f02e32ce8a128dd7b1d16a45f2eff6
 
 `;
 
-exports[`matches expected output: files-modify.patch: 7e86460a4c66b47098780aa649d174c8 1`] = `
+exports[`matches expected output: files-modify.patch: fc2e9a4b8e951064d53311a538e6ea9a 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 diff --git a/bbb.txt b/bbb.txt
 index 01f02e32ce8a128dd7b1d16a45f2eff66ec23c2d..dbee0265d31298531773537e6e37e4fd1ee71d62 100644
@@ -264,7 +264,7 @@ index b2a7546679fdf79ca0eb7bfbee1e1bb342487380..66bde67332bef8dfb2c70698c51bf37b
 
 `;
 
-exports[`matches expected output: lfs-removal.patch: 7e86460a4c66b47098780aa649d174c8 1`] = `
+exports[`matches expected output: lfs-removal.patch: fc2e9a4b8e951064d53311a538e6ea9a 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 diff --git a/.yarn/cache/@adeira-js-0.9.0.tgz b/.yarn/cache/@adeira-js-0.9.0.tgz
 deleted file mode 100644
@@ -294,7 +294,7 @@ index f2572f9c9d2f2ab4f2a61695a09ee50430f8ccbe..00000000000000000000000000000000
 
 `;
 
-exports[`matches expected output: nasty.patch: 7e86460a4c66b47098780aa649d174c8 1`] = `
+exports[`matches expected output: nasty.patch: fc2e9a4b8e951064d53311a538e6ea9a 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 diff --git a/nasty.txt b/nasty.txt
 index 044b936071f4da77efec5b15794785ecde6b6791..e316f565a5386462ecbfd01d245888570a00ca85 100644
@@ -320,7 +320,7 @@ index 044b936071f4da77efec5b15794785ecde6b6791..e316f565a5386462ecbfd01d24588857
 
 `;
 
-exports[`matches expected output: unicode.patch: 7e86460a4c66b47098780aa649d174c8 1`] = `
+exports[`matches expected output: unicode.patch: fc2e9a4b8e951064d53311a538e6ea9a 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 diff --git a/unicode.txt b/unicode.txt
 new file mode 100644
