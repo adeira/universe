@@ -25,7 +25,6 @@ jobs:
         project:
           - 'abacus'
           - 'abacus-backoffice'
-          - 'abacus-kochka'
           - 'abacus-tools'
           - 'mrtnzlml-meta'
         include:
@@ -37,10 +36,6 @@ jobs:
             projectPath: './src/abacus-backoffice'
             projectDockerfile: './src/abacus-backoffice/Dockerfile'
             projectImageName: 'adeira/abacus-backoffice'
-          - project: abacus-kochka
-            projectPath: './src/abacus-kochka'
-            projectDockerfile: './src/abacus-kochka/Dockerfile'
-            projectImageName: 'adeira/abacus-kochka'
           - project: abacus-tools
             projectPath: './src/abacus-tools'
             projectDockerfile: './src/abacus-tools/Dockerfile'
