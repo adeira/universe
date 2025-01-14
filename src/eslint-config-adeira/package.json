@@ -34,7 +34,6 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-native": "^4.1.0",
     "eslint-plugin-relay": "^1.8.3",
-    "eslint-plugin-sx": "^0.14.0",
     "eslint-plugin-testing-library": "^6.5.0",
     "prettier": "^2.8.8"
   },

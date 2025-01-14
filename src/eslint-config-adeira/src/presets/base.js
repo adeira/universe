@@ -16,7 +16,6 @@ module.exports = ({
     'eslint-plugin-eslint-comments',
     'eslint-plugin-promise',
     'eslint-plugin-adeira',
-    'eslint-plugin-sx',
   ],
   rules: {
     // Possible Errors (http://eslint.org/docs/rules/#possible-errors)
@@ -445,12 +444,6 @@ module.exports = ({
     'adeira/no-invalid-flow-annotations': ERROR,
     'adeira/only-nullable-fields': ERROR,
     'adeira/valid-test-folder': ERROR,
-
-    // Adeira SX custom rules
-    'sx/no-concatenated-classes': ERROR,
-    'sx/no-unused-stylesheet': ERROR,
-    'sx/use-logical-properties': ERROR,
-    'sx/valid-usage': ERROR,
   },
   settings: {
     'import/resolver': {
