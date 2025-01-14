@@ -29,7 +29,6 @@ fn main() -> anyhow::Result<()> {
         // TODO: Shipit, FBT, "publish NPM package", run Rust projects, verify signed sources, …
         .subcommand(clap_fallthrough_subcommand("flow"))
         .subcommand(clap_fallthrough_subcommand("lints"))
-        .subcommand(clap_fallthrough_subcommand("relay"))
         .subcommand(clap_fallthrough_subcommand("tests"))
         .subcommand(clap_fallthrough_subcommand("scanner"))
         .subcommand(clap_fallthrough_subcommand("install"));
@@ -44,10 +43,6 @@ fn main() -> anyhow::Result<()> {
             executors::lints::run_eslint_config_prettier_check()?;
             executors::lints::run_prettier_check()?;
             executors::lints::run_eslint_check(&collect_trailing_args(matches))?;
-        }
-        Some(("relay", matches)) => {
-            // TODO: check prerequisites (watchman)
-            executors::relay::run(&collect_trailing_args(matches))?;
         }
         Some(("tests", matches)) => {
             // TODO: check prerequisites
@@ -66,7 +61,6 @@ fn main() -> anyhow::Result<()> {
             executors::lints::run_eslint_config_prettier_check()?;
             executors::lints::run_prettier_check()?;
             executors::lints::run_eslint_check(&vec![])?;
-            executors::relay::run(&vec!["--validate"])?;
             executors::tests::run(&vec!["--ci", "--colors"])?;
             executors::scanner::run(&vec![])?;
         }

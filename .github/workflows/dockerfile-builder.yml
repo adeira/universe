@@ -24,7 +24,6 @@ jobs:
       matrix:
         project:
           - 'abacus'
-          - 'abacus-backoffice'
           - 'abacus-tools'
           - 'mrtnzlml-meta'
         include:
@@ -32,10 +31,6 @@ jobs:
             projectPath: './src/abacus'
             projectDockerfile: './src/abacus/Dockerfile'
             projectImageName: 'adeira/abacus'
-          - project: abacus-backoffice
-            projectPath: './src/abacus-backoffice'
-            projectDockerfile: './src/abacus-backoffice/Dockerfile'
-            projectImageName: 'adeira/abacus-backoffice'
           - project: abacus-tools
             projectPath: './src/abacus-tools'
             projectDockerfile: './src/abacus-tools/Dockerfile'
