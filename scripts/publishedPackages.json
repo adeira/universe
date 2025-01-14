@@ -11,7 +11,6 @@
   "@adeira/monorepo-shipit",
   "@adeira/monorepo-utils",
   "@adeira/murmur-hash",
-  "@adeira/relay",
   "@adeira/shell-command",
   "eslint-plugin-adeira"
 ]
