@@ -94,16 +94,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/hooks@workspace:src/hooks":
-  version: 0.0.0-use.local
-  resolution: "@adeira/hooks@workspace:src/hooks"
-  dependencies:
-    "@babel/runtime": "npm:^7.26.0"
-  peerDependencies:
-    react: ^18.3.1
-  languageName: unknown
-  linkType: soft
-
 "@adeira/icons@workspace:src/icons":
   version: 0.0.0-use.local
   resolution: "@adeira/icons@workspace:src/icons"

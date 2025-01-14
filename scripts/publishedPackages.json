@@ -3,7 +3,6 @@
   "@adeira/eslint-config",
   "@adeira/eslint-fixtures-tester",
   "@adeira/fixtures-tester",
-  "@adeira/hooks",
   "@adeira/icons",
   "@adeira/js",
   "@adeira/monorepo-npm-publisher",
