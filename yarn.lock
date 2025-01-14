@@ -31,15 +31,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/css-colors@workspace:src/css-colors":
-  version: 0.0.0-use.local
-  resolution: "@adeira/css-colors@workspace:src/css-colors"
-  dependencies:
-    "@adeira/js": "npm:^2.1.1"
-    "@babel/runtime": "npm:^7.26.0"
-  languageName: unknown
-  linkType: soft
-
 "@adeira/eslint-config@npm:^8.4.0, @adeira/eslint-config@workspace:src/eslint-config-adeira":
   version: 0.0.0-use.local
   resolution: "@adeira/eslint-config@workspace:src/eslint-config-adeira"
