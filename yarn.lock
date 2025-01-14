@@ -55,14 +55,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@adeira/csp@workspace:src/csp":
-  version: 0.0.0-use.local
-  resolution: "@adeira/csp@workspace:src/csp"
-  dependencies:
-    "@babel/runtime": "npm:^7.26.0"
-  languageName: unknown
-  linkType: soft
-
 "@adeira/css-colors@npm:^2.2.0, @adeira/css-colors@workspace:src/css-colors":
   version: 0.0.0-use.local
   resolution: "@adeira/css-colors@workspace:src/css-colors"
