@@ -1,6 +1,5 @@
 [
   "@adeira/babel-preset-adeira",
-  "@adeira/csp",
   "@adeira/css-colors",
   "@adeira/eslint-config",
   "@adeira/eslint-fixtures-tester",
