@@ -19,15 +19,10 @@ jobs:
       fail-fast: false
       matrix:
         repository:
-          - '@adeira/abacus-backoffice'
           - '@adeira/abacus-tools'
           - '@adeira/sx-design'
           - 'mrtnzlml-meta'
         include:
-          - repository: '@adeira/abacus-backoffice'
-            source: 'src/abacus-backoffice/**'
-            playwrightReportName: 'playwright-report-abacus-backoffice'
-            playwrightReportPath: 'src/abacus-backoffice/playwright/test-results/'
           - repository: '@adeira/abacus-tools'
             source: 'src/abacus-tools/**'
             playwrightReportName: 'playwright-report-abacus-tools'
