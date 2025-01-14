@@ -4,7 +4,6 @@
   "@adeira/eslint-config",
   "@adeira/eslint-fixtures-tester",
   "@adeira/fixtures-tester",
-  "@adeira/forms",
   "@adeira/hooks",
   "@adeira/icons",
   "@adeira/js",
@@ -14,10 +13,5 @@
   "@adeira/murmur-hash",
   "@adeira/relay",
   "@adeira/shell-command",
-  "@adeira/sx",
-  "@adeira/sx-design",
-  "@adeira/sx-design-headless",
-  "@adeira/sx-jest-snapshot-serializer",
-  "eslint-plugin-adeira",
-  "eslint-plugin-sx"
+  "eslint-plugin-adeira"
 ]
