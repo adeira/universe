@@ -19,7 +19,6 @@ module.exports = {
   root: '.',
   sources: {
     'src/abacus-backoffice': 'abacus',
-    'src/abacus-kochka': 'abacus',
   },
   excludes: ['**/__flowtests__/**'],
   codegenCommand: './x relay',

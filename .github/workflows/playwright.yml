@@ -20,7 +20,6 @@ jobs:
       matrix:
         repository:
           - '@adeira/abacus-backoffice'
-          - '@adeira/abacus-kochka'
           - '@adeira/abacus-tools'
           - '@adeira/sx-design'
           - 'mrtnzlml-meta'
@@ -29,10 +28,6 @@ jobs:
             source: 'src/abacus-backoffice/**'
             playwrightReportName: 'playwright-report-abacus-backoffice'
             playwrightReportPath: 'src/abacus-backoffice/playwright/test-results/'
-          - repository: '@adeira/abacus-kochka'
-            source: 'src/abacus-kochka/**'
-            playwrightReportName: 'playwright-report-abacus-kochka'
-            playwrightReportPath: 'src/abacus-kochka/playwright/test-results/'
           - repository: '@adeira/abacus-tools'
             source: 'src/abacus-tools/**'
             playwrightReportName: 'playwright-report-abacus-tools'
