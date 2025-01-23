@@ -12,7 +12,12 @@
   "content_scripts": [
     {
       "js": ["scripts/rossum.js"],
-      "matches": ["http://localhost:3000/*", "https://*.rossum.ai/*", "https://*.rossum.app/*"]
+      "matches": [
+        "http://localhost:3000/*",
+        "https://*.rossum.ai/*",
+        "https://*.rossum.app/*",
+        "https://*.r8.lol/*"
+      ]
     },
     {
       "js": ["scripts/netsuite.js"],
