@@ -14,7 +14,7 @@
   "type": "commonjs",
   "sideEffects": false,
   "dependencies": {
-    "@babel/runtime": "^7.27.1",
+    "@babel/runtime": "^7.27.3",
     "@next/eslint-plugin-next": "^14.2.28",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-adeira": "^0.15.0",
