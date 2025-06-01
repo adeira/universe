@@ -36,7 +36,7 @@ __metadata:
   resolution: "@adeira/eslint-config@workspace:src/eslint-config-adeira"
   dependencies:
     "@babel/runtime": "npm:^7.27.3"
-    "@next/eslint-plugin-next": "npm:^14.2.28"
+    "@next/eslint-plugin-next": "npm:^14.2.29"
     deep-diff: "npm:^1.0.2"
     eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-adeira: "npm:^0.15.0"
@@ -2051,12 +2051,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/eslint-plugin-next@npm:^14.2.28":
-  version: 14.2.28
-  resolution: "@next/eslint-plugin-next@npm:14.2.28"
+"@next/eslint-plugin-next@npm:^14.2.29":
+  version: 14.2.29
+  resolution: "@next/eslint-plugin-next@npm:14.2.29"
   dependencies:
     glob: "npm:10.3.10"
-  checksum: 10c0/9b3b0360db03524d4de2657c4e4622751e26e62331f286cd29aa25949d8055ab58d1cfd36ee88cf48a022300f6342dbeaf030d9009810eb6ad0e2eac96c43a42
+  checksum: 10c0/49a02fe47818cd28c3d5881dd7b2b1e8ba882a8f0b1591fd2ac8b6fc89b29c5a5ae4afcf0f9f877920bcfae5bd0b1027791c66d1b4b4fa26d03db032043f993a
   languageName: node
   linkType: hard
 
