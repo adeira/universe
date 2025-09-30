@@ -55,7 +55,7 @@ jobs:
       # https://github.com/actions/cache
       - name: Restore Yarn cache
         if: steps.paths-filter.outputs.src == 'true'
-        uses: actions/cache@v4.2.3
+        uses: actions/cache@v4.3.0
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: yarn-cache-folder-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
