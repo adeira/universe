@@ -21,7 +21,7 @@ jobs:
 
     steps:
       # https://github.com/actions/checkout
-      - uses: actions/checkout@v4.2.2
+      - uses: actions/checkout@v5.0.1
 
       # https://github.com/dorny/paths-filter
       - uses: dorny/paths-filter@v3.0.2
