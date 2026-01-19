@@ -17,7 +17,7 @@
     "@yarnpkg/types": "^4.0.1",
     "babel-jest": "^29.7.0",
     "babel-loader": "^9.2.1",
-    "eslint": "^8.57.1",
+    "eslint": "^9.39.2",
     "eslint-formatter-codeframe": "^7.32.1",
     "flow-bin": "^0.237.2",
     "hermes-eslint": "^0.31.0",
