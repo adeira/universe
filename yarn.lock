@@ -127,7 +127,7 @@ __metadata:
     "@babel/runtime": "npm:^7.28.3"
     "@npmcli/arborist": "npm:^7.5.4"
     chalk: "npm:^4.1.2"
-    is-ci: "npm:^3.0.1"
+    is-ci: "npm:^4.1.0"
     npm-packlist: "npm:^8.0.2"
     npm-registry-client: "npm:^8.6.0"
     rimraf: "npm:^5.0.10"
@@ -177,7 +177,7 @@ __metadata:
     "@babel/register": "npm:^7.28.3"
     "@babel/runtime": "npm:^7.28.3"
     glob: "npm:^11.0.2"
-    is-ci: "npm:^3.0.1"
+    is-ci: "npm:^4.1.0"
     semver: "npm:^7.7.1"
   bin:
     monorepo-babel-node: bin/monorepo-babel-node.js
@@ -3911,6 +3911,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ci-info@npm:^4.1.0":
+  version: 4.3.1
+  resolution: "ci-info@npm:4.3.1"
+  checksum: 10c0/7dd82000f514d76ddfe7775e4cb0d66e5c638f5fa0e2a3be29557e898da0d32ac04f231217d414d07fb968b1fbc6d980ee17ddde0d2c516f23da9cfff608f6c1
+  languageName: node
+  linkType: hard
+
 "cjs-module-lexer@npm:^1.0.0":
   version: 1.2.3
   resolution: "cjs-module-lexer@npm:1.2.3"
@@ -6435,14 +6442,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-ci@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "is-ci@npm:3.0.1"
+"is-ci@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "is-ci@npm:4.1.0"
   dependencies:
-    ci-info: "npm:^3.2.0"
+    ci-info: "npm:^4.1.0"
   bin:
     is-ci: bin.js
-  checksum: 10c0/0e81caa62f4520d4088a5bef6d6337d773828a88610346c4b1119fb50c842587ed8bef1e5d9a656835a599e7209405b5761ddf2339668f2d0f4e889a92fe6051
+  checksum: 10c0/c58e733d21f8d7e6ba3d70686124004576b369b4a02a37c4783159ed5a668b3a9e4b359efa955e4a675bd021eca7305010c45a1e646bf77cce14b08808eda88d
   languageName: node
   linkType: hard
 

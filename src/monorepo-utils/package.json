@@ -22,7 +22,7 @@
     "@babel/register": "^7.28.3",
     "@babel/runtime": "^7.28.3",
     "glob": "^11.0.2",
-    "is-ci": "^3.0.1",
+    "is-ci": "^4.1.0",
     "semver": "^7.7.1"
   }
 }
