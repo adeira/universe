@@ -38,7 +38,7 @@ __metadata:
     "@babel/runtime": "npm:^7.28.3"
     "@next/eslint-plugin-next": "npm:^14.2.28"
     deep-diff: "npm:^1.0.2"
-    eslint-config-prettier: "npm:^9.1.0"
+    eslint-config-prettier: "npm:^9.1.2"
     eslint-plugin-adeira: "npm:^0.15.0"
     eslint-plugin-eslint-comments: "npm:^3.2.0"
     eslint-plugin-fb-flow: "npm:^0.0.5"
@@ -4850,14 +4850,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:^9.1.0":
-  version: 9.1.0
-  resolution: "eslint-config-prettier@npm:9.1.0"
+"eslint-config-prettier@npm:^9.1.2":
+  version: 9.1.2
+  resolution: "eslint-config-prettier@npm:9.1.2"
   peerDependencies:
     eslint: ">=7.0.0"
   bin:
     eslint-config-prettier: bin/cli.js
-  checksum: 10c0/6d332694b36bc9ac6fdb18d3ca2f6ac42afa2ad61f0493e89226950a7091e38981b66bac2b47ba39d15b73fff2cd32c78b850a9cf9eed9ca9a96bfb2f3a2f10d
+  checksum: 10c0/d2e9dc913b1677764a4732433d83d258f40820458c65d0274cb9e3eaf6559b39f2136446f310c05abed065a4b3c2e901807ccf583dff76c6227eaebf4132c39a
   languageName: node
   linkType: hard
 
