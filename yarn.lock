@@ -4861,13 +4861,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-formatter-codeframe@npm:^7.32.1":
-  version: 7.32.1
-  resolution: "eslint-formatter-codeframe@npm:7.32.1"
+"eslint-formatter-codeframe@npm:^7.32.2":
+  version: 7.32.2
+  resolution: "eslint-formatter-codeframe@npm:7.32.2"
   dependencies:
     "@babel/code-frame": "npm:7.12.11"
     chalk: "npm:^4.0.0"
-  checksum: 10c0/dcde3de808e3c039919e184d0f3752d786f312ac350db65a64bfed38e43c1fc6129127c7fda29938f81a690b79481d83706a351299268ab7983ed619bf9437b9
+  checksum: 10c0/faf4bad2cfe24e2083be647ba5127b4c80628db90fcfdbd0b5300c498686f9e733efcef924f4be3df06f3dda13515f85e9103be631e0ec6d5940691022021a20
   languageName: node
   linkType: hard
 
@@ -9453,7 +9453,7 @@ __metadata:
     babel-jest: "npm:^29.7.0"
     babel-loader: "npm:^9.2.1"
     eslint: "npm:^8.57.1"
-    eslint-formatter-codeframe: "npm:^7.32.1"
+    eslint-formatter-codeframe: "npm:^7.32.2"
     flow-bin: "npm:^0.237.2"
     hermes-eslint: "npm:^0.31.0"
     jest: "npm:^29.7.0"
