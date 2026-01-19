@@ -60,7 +60,7 @@ __metadata:
     prettier: "npm:^2.8.8"
     snapshot-diff: "npm:^0.10.0"
   peerDependencies:
-    eslint: ">=8.57.1"
+    eslint: ">=9.39.2"
   languageName: unknown
   linkType: soft
 
