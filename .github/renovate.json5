@@ -1,70 +1,64 @@
 {
   extends: [
-    ':ignoreModulesAndTests',
-    'group:monorepos',
-    'group:recommended',
-    'replacements:all',
-    'workarounds:all',
+    ":ignoreModulesAndTests",
+    "group:monorepos",
+    "group:recommended",
+    "replacements:all",
+    "workarounds:all",
   ],
-  rebaseWhen: 'conflicted',
+  rebaseWhen: "conflicted",
   prHourlyLimit: 0,
   prConcurrentLimit: 0,
   dependencyDashboard: true,
-  labels: ['dependencies'],
-  postUpdateOptions: ['yarnDedupeHighest'],
-  rangeStrategy: 'bump',
-  semanticCommits: 'disabled',
+  labels: ["dependencies"],
+  postUpdateOptions: ["yarnDedupeHighest"],
+  rangeStrategy: "bump",
+  semanticCommits: "disabled",
   updateInternalDeps: true,
   kubernetes: {
-    fileMatch: ['src/abacus-kubernetes/.+\\.yaml$'],
+    managerFilePatterns: ["/src/abacus-kubernetes/.+\\.yaml$/"],
   },
-  ignoreDeps: [
-    // Pure ESM, see: https://github.com/adeira/universe/issues/2341
-    'chalk',
-    'strip-ansi',
-  ],
+  ignoreDeps: ["chalk", "strip-ansi"],
   packageRules: [
-    // Group dependencies by pattern:
     {
-      groupName: 'Stylex packages (JavaScript)',
-      matchPackagePatterns: ['^@stylexjs\\/'],
+      groupName: "Stylex packages (JavaScript)",
+      matchPackageNames: ["/^@stylexjs\\//"],
     },
     {
-      groupName: 'SVGR packages (JavaScript)',
-      matchPackagePatterns: ['^@svgr\\/'],
+      groupName: "SVGR packages (JavaScript)",
+      matchPackageNames: ["/^@svgr\\//"],
     },
     {
-      groupName: 'cert-manager packages (K8s)',
-      matchPackagePatterns: ['^quay\\.io\\/jetstack\\/cert-manager-'],
+      groupName: "cert-manager packages (K8s)",
+      matchPackageNames: ["/^quay\\.io\\/jetstack\\/cert-manager-/"],
     },
     {
-      groupName: 'ingress-nginx packages (K8s)',
-      matchPackagePatterns: ['^k8s\\.gcr\\.io\\/ingress-nginx\\/'],
-    },
-    // Group dependencies by URL prefix:
-    {
-      groupName: 'Clap packages (Rust)',
-      matchSourceUrlPrefixes: ['https://github.com/clap-rs/clap'],
+      groupName: "ingress-nginx packages (K8s)",
+      matchPackageNames: ["/^k8s\\.gcr\\.io\\/ingress-nginx\\//"],
     },
     {
-      groupName: 'FBT packages (JavaScript)',
-      matchSourceUrlPrefixes: ['https://github.com/facebook/fbt'],
+      groupName: "Clap packages (Rust)",
+      matchSourceUrls: ["https://github.com/clap-rs/clap{/,}**"],
     },
     {
-      groupName: 'Relay packages (JavaScript)',
-      matchSourceUrlPrefixes: ['https://github.com/facebook/relay'],
+      groupName: "FBT packages (JavaScript)",
+      matchSourceUrls: ["https://github.com/facebook/fbt{/,}**"],
     },
     {
-      groupName: 'Hermes packages',
-      matchSourceUrlPrefixes: ['https://github.com/facebook/hermes'],
+      groupName: "Relay packages (JavaScript)",
+      matchSourceUrls: ["https://github.com/facebook/relay{/,}**"],
     },
     {
-      groupName: 'Rusoto packages (Rust)',
-      matchSourceUrlPrefixes: ['https://github.com/rusoto/rusoto'],
+      groupName: "Hermes packages",
+      matchSourceUrls: ["https://github.com/facebook/hermes{/,}**"],
     },
     {
-      groupName: 'Sentry packages (Rust)',
-      matchSourceUrlPrefixes: ['https://github.com/getsentry/sentry-rust'],
+      groupName: "Rusoto packages (Rust)",
+      matchSourceUrls: ["https://github.com/rusoto/rusoto{/,}**"],
+    },
+    {
+      groupName: "Sentry packages (Rust)",
+      matchSourceUrls: ["https://github.com/getsentry/sentry-rust{/,}**"],
     },
   ],
 }
