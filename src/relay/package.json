@@ -25,12 +25,12 @@
     "relay-runtime": "^16.2.0"
   },
   "devDependencies": {
-    "react": "^18.3.1",
-    "react-test-renderer": "^18.3.1",
+    "react": "^19.2.4",
+    "react-test-renderer": "^19.2.4",
     "relay-test-utils": "^16.2.0"
   },
   "peerDependencies": {
     "graphql": "^16.9.0",
-    "react": "^18.3.1"
+    "react": "^19.2.4"
   }
 }
