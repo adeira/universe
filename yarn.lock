@@ -36,11 +36,11 @@ __metadata:
   resolution: "@adeira/eslint-config@workspace:src/eslint-config-adeira"
   dependencies:
     "@babel/runtime": "npm:^7.28.3"
+    "@eslint-community/eslint-plugin-eslint-comments": "npm:^3.2.0"
     "@next/eslint-plugin-next": "npm:^14.2.28"
     deep-diff: "npm:^1.0.2"
     eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-adeira: "npm:^0.15.0"
-    eslint-plugin-eslint-comments: "npm:^3.2.0"
     eslint-plugin-fb-flow: "npm:^0.0.5"
     eslint-plugin-fbt: "npm:^0.6.0"
     eslint-plugin-ft-flow: "npm:^3.0.11"
@@ -1664,6 +1664,18 @@ __metadata:
   version: 0.2.3
   resolution: "@bcoe/v8-coverage@npm:0.2.3"
   checksum: 10c0/6b80ae4cb3db53f486da2dc63b6e190a74c8c3cca16bb2733f234a0b6a9382b09b146488ae08e2b22cf00f6c83e20f3e040a2f7894f05c045c946d6a090b1d52
+  languageName: node
+  linkType: hard
+
+"@eslint-community/eslint-plugin-eslint-comments@npm:^3.2.0":
+  version: 3.2.1
+  resolution: "@eslint-community/eslint-plugin-eslint-comments@npm:3.2.1"
+  dependencies:
+    escape-string-regexp: "npm:^1.0.5"
+    ignore: "npm:^5.2.4"
+  peerDependencies:
+    eslint: ">=4.19.1"
+  checksum: 10c0/8cded05afe3667942cbadfbeaa34333ac45393387a85dde98201013322a76cb165779ee5a36ebebdc27f760a13a196cb20fdfa96d98f89d53bb2456399ee7c0d
   languageName: node
   linkType: hard
 
@@ -4922,18 +4934,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-eslint-comments@npm:^3.2.0":
-  version: 3.2.0
-  resolution: "eslint-plugin-eslint-comments@npm:3.2.0"
-  dependencies:
-    escape-string-regexp: "npm:^1.0.5"
-    ignore: "npm:^5.0.5"
-  peerDependencies:
-    eslint: ">=4.19.1"
-  checksum: 10c0/c71db824592dc8ea498021572a0bd33d763ef26126bdb3b84a027ca75a1adbe0894ec95024f7de39ef12308560e62cbf8af0d06ffe472be5ba8bd9169c928e96
-  languageName: node
-  linkType: hard
-
 "eslint-plugin-fb-flow@npm:^0.0.5":
   version: 0.0.5
   resolution: "eslint-plugin-fb-flow@npm:0.0.5"
@@ -6273,7 +6273,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ignore@npm:^5.0.5, ignore@npm:^5.2.0, ignore@npm:^5.3.2":
+"ignore@npm:^5.2.0, ignore@npm:^5.2.4, ignore@npm:^5.3.2":
   version: 5.3.2
   resolution: "ignore@npm:5.3.2"
   checksum: 10c0/f9f652c957983634ded1e7f02da3b559a0d4cc210fca3792cb67f1b153623c9c42efdc1c4121af171e295444459fc4a9201101fb041b1104a3c000bccb188337
