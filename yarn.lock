@@ -46,7 +46,7 @@ __metadata:
     eslint-plugin-ft-flow: "npm:^3.0.11"
     eslint-plugin-import: "npm:^2.31.0"
     eslint-plugin-jest: "npm:^28.5.0"
-    eslint-plugin-jest-dom: "npm:^5.5.0"
+    eslint-plugin-jest-dom: "npm:^5.10.1"
     eslint-plugin-jsx-a11y: "npm:^6.10.2"
     eslint-plugin-monorepo: "npm:^0.3.2"
     eslint-plugin-n: "npm:^17.17.0"
@@ -1617,7 +1617,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.28.3, @babel/runtime@npm:^7.7.2":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.28.3, @babel/runtime@npm:^7.7.2":
   version: 7.28.3
   resolution: "@babel/runtime@npm:7.28.3"
   checksum: 10c0/b360f82c2c5114f2a062d4d143d7b4ec690094764853937110585a9497977aed66c102166d0e404766c274e02a50ffb8f6d77fef7251ecf3f607f0e03e6397bc
@@ -4994,19 +4994,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest-dom@npm:^5.5.0":
-  version: 5.5.0
-  resolution: "eslint-plugin-jest-dom@npm:5.5.0"
+"eslint-plugin-jest-dom@npm:^5.10.1":
+  version: 5.10.1
+  resolution: "eslint-plugin-jest-dom@npm:5.10.1"
   dependencies:
-    "@babel/runtime": "npm:^7.16.3"
     requireindex: "npm:^1.2.0"
   peerDependencies:
     "@testing-library/dom": ^8.0.0 || ^9.0.0 || ^10.0.0
-    eslint: ^6.8.0 || ^7.0.0 || ^8.0.0 || ^9.0.0
+    eslint: ^6.8.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0
   peerDependenciesMeta:
     "@testing-library/dom":
       optional: true
-  checksum: 10c0/3daa959ae2a14ae5b653637713f854b6bc53903a0d7da3b442bb69ae05a8fbc9abd79da63ae3f8a50863ddbfa6e6658b608b5576b84a4cba6a312300662a9b32
+  checksum: 10c0/133fd3a2526d7fb8f3fc2d933ab690f3d61f50a11d4f3cf915c0f8567903351990f605fd52a14eb6d0a0ece143f185d7749978c193d395a1486fcd07c99556c6
   languageName: node
   linkType: hard
 
